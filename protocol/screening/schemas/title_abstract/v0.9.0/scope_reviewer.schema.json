@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "aging_role",
+    "multiomics_status",
+    "same_sample_or_participants",
+    "distinct_molecular_datasets_linked",
+    "cross_layer_operation_reported",
+    "integration_mode",
+    "omics_layers",
+    "evidence_spans",
+    "boundary_case",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {
+      "enum": ["empirical_primary", "review_editorial", "protocol", "methods_only", "resource", "unclear"]
+    },
+    "bio_health_scope": {"enum": ["yes", "no", "unclear"]},
+    "aging_process_relevance": {"enum": ["yes", "no", "unclear"]},
+    "aging_role": {
+      "enum": [
+        "aging_outcome_or_trajectory",
+        "longevity_or_healthspan",
+        "aging_mechanism",
+        "aging_intervention_target",
+        "age_context_only",
+        "unclear"
+      ]
+    },
+    "multiomics_status": {"enum": ["yes", "no", "unclear"]},
+    "same_sample_or_participants": {"enum": ["yes", "no", "unclear"]},
+    "distinct_molecular_datasets_linked": {"enum": ["yes", "no", "unclear"]},
+    "cross_layer_operation_reported": {"enum": ["yes", "no", "unclear"]},
+    "integration_mode": {
+      "enum": [
+        "same_study_joint_integration",
+        "same_study_parallel_measurement",
+        "cross_dataset_integrated",
+        "external_context_only",
+        "single_layer_only",
+        "unclear"
+      ]
+    },
+    "omics_layers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/omics_layer"}
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title_abstract_evidence"}
+    },
+    "boundary_case": {
+      "enum": [
+        "clear_scope",
+        "thin_abstract",
+        "report_type_ambiguous",
+        "chronological_age_covariate_only",
+        "older_cohort_only",
+        "age_related_disease_only",
+        "single_layer_multiple_assays",
+        "omics_plus_non_omics",
+        "external_omics_only",
+        "two_gwas_traits_only",
+        "cross_dataset_multiomics",
+        "other",
+        "none"
+      ]
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "omics_layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layer", "raw_term", "use_status", "analytic_role"],
+      "properties": {
+        "layer": {
+          "enum": [
+            "genomics",
+            "epigenomics",
+            "transcriptomics",
+            "proteomics",
+            "metabolomics",
+            "lipidomics",
+            "microbiomics",
+            "other_molecular_omics"
+          ]
+        },
+        "raw_term": {"type": "string", "minLength": 1},
+        "use_status": {"enum": ["measured_in_study", "external_dataset_analyzed", "context_only", "unclear"]},
+        "analytic_role": {"type": "string"}
+      }
+    },
+    "title_abstract_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "report_type",
+            "bio_health_scope",
+            "aging_process_relevance",
+            "aging_role",
+            "multiomics_status",
+            "same_sample_or_participants",
+            "distinct_molecular_datasets_linked",
+            "cross_layer_operation_reported",
+            "integration_mode"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

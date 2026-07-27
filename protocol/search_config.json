@@ -1,0 +1,14 @@
+{
+  "protocol_version": "0.1.0",
+  "search_end_date": "2026-07-27",
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "databases": [
+    {"id": "pubmed", "query_file": "queries/pubmed.txt", "mode": "automated", "role": "primary"},
+    {"id": "scopus", "query_file": "queries/scopus.txt", "mode": "automated", "role": "primary"},
+    {"id": "europepmc", "query_file": "queries/europepmc.txt", "mode": "automated", "role": "primary"},
+    {"id": "semantic_scholar", "query_file": "queries/semantic_scholar.txt", "mode": "automated", "role": "supplementary_recall"},
+    {"id": "springernature", "query_file": "queries/springernature.txt", "mode": "automated", "role": "supplementary_fulltext_index"},
+    {"id": "openalex", "query_file": "queries/openalex.txt", "mode": "automated", "role": "supplementary_precision"},
+    {"id": "google_scholar", "query_file": "queries/google_scholar.txt", "mode": "manual", "role": "supplementary"}
+  ]
+}

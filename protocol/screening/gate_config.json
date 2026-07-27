@@ -1,0 +1,60 @@
+{
+  "version": "0.1.0",
+  "gate_precedence": "exclude_then_unclear",
+  "round_a": {
+    "scope_reviewer": {
+      "prompt": "prompts/title_abstract/v0.1.0/scope_reviewer.txt",
+      "schema": "schemas/title_abstract/v0.1.0/scope_reviewer.schema.json",
+      "exclude_if": [
+        {"field": "report_type", "in": ["review_editorial", "protocol", "methods_only", "resource"]},
+        {"field": "bio_health_scope", "equals": "no"},
+        {"field": "aging_process_relevance", "equals": "no"},
+        {"field": "multiomics_status", "equals": "no"}
+      ],
+      "unclear_if": [
+        {"field": "report_type", "equals": "unclear"},
+        {"field": "bio_health_scope", "equals": "unclear"},
+        {"field": "aging_process_relevance", "equals": "unclear"},
+        {"field": "aging_role", "equals": "unclear"},
+        {"field": "multiomics_status", "equals": "unclear"},
+        {"field": "integration_mode", "equals": "unclear"}
+      ]
+    },
+    "causal_design_reviewer": {
+      "prompt": "prompts/title_abstract/v0.1.0/causal_design_reviewer.txt",
+      "schema": "schemas/title_abstract/v0.1.0/causal_design_reviewer.schema.json",
+      "exclude_if": [
+        {"field": "identification_status", "in": ["association_only", "no_relevant_design"]}
+      ],
+      "unclear_if": [
+        {"field": "identification_status", "equals": "unclear"}
+      ]
+    }
+  },
+  "adjudication": {
+    "prompt": "prompts/title_abstract/v0.1.0/adjudicator.txt",
+    "schema": "schemas/title_abstract/v0.1.0/adjudicator.schema.json",
+    "exclude_if": [
+      {"field": "report_type", "in": ["review_editorial", "protocol", "methods_only", "resource"]},
+      {"field": "bio_health_scope", "equals": "no"},
+      {"field": "aging_process_relevance", "equals": "no"},
+      {"field": "multiomics_status", "equals": "no"},
+      {"field": "identification_status", "in": ["association_only", "no_relevant_design"]}
+    ],
+    "unclear_if": [
+      {"field": "report_type", "equals": "unclear"},
+      {"field": "bio_health_scope", "equals": "unclear"},
+      {"field": "aging_process_relevance", "equals": "unclear"},
+      {"field": "aging_role", "equals": "unclear"},
+      {"field": "multiomics_status", "equals": "unclear"},
+      {"field": "identification_status", "equals": "unclear"}
+    ]
+  },
+  "routing": {
+    "round_a_all_include": "seek_full_text",
+    "round_a_otherwise": "adjudicate",
+    "adjudicated_include": "seek_full_text",
+    "adjudicated_exclude": "exclude",
+    "adjudicated_unclear": "seek_full_text"
+  }
+}

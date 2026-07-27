@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-07-26T22:23:47.245084+00:00",
+  "search_date": "2026-07-27",
+  "automated_database_records": 4552,
+  "manual_supplementary_records": 180,
+  "total_records_identified": 4732,
+  "duplicate_instances_removed": 1880,
+  "unique_records_for_title_abstract_screening": 2852,
+  "unique_records_with_local_three_block_signal": 928,
+  "unique_records_missing_abstract": 193,
+  "unique_records_with_oversized_abstract_metadata": 35,
+  "screening_status": "pending",
+  "source_counts": {
+    "europepmc": {
+      "reported": 616,
+      "retrieved": 616,
+      "local_three_block": 612,
+      "canonical_positive_found": true
+    },
+    "google_scholar": {
+      "reported": 180,
+      "retrieved": 180,
+      "local_three_block": 131,
+      "canonical_positive_found": true
+    },
+    "openalex": {
+      "reported": 606,
+      "retrieved": 606,
+      "local_three_block": 268,
+      "canonical_positive_found": true
+    },
+    "pubmed": {
+      "reported": 566,
+      "retrieved": 566,
+      "local_three_block": 516,
+      "canonical_positive_found": true
+    },
+    "scopus": {
+      "reported": 219,
+      "retrieved": 219,
+      "local_three_block": 15,
+      "canonical_positive_found": true
+    },
+    "semantic_scholar": {
+      "reported": 1549,
+      "retrieved": 1549,
+      "local_three_block": 663,
+      "canonical_positive_found": true
+    },
+    "springernature": {
+      "reported": 996,
+      "retrieved": 996,
+      "local_three_block": 92,
+      "canonical_positive_found": true
+    }
+  },
+  "provenance_source_count_distribution": {
+    "1": 1985,
+    "2": 344,
+    "3": 309,
+    "4": 77,
+    "5": 86,
+    "6": 39,
+    "7": 12
+  },
+  "canonical_positive": {
+    "doi": "10.1038/s41467-023-37729-w",
+    "title": "Multi-omic underpinnings of epigenetic aging and human longevity",
+    "provenance_sources": [
+      "europepmc",
+      "google_scholar",
+      "openalex",
+      "pubmed",
+      "scopus",
+      "semantic_scholar",
+      "springernature"
+    ]
+  },
+  "notes": [
+    "Local three-block matching is metadata QA, not an eligibility decision.",
+    "Google Scholar's reported count is approximate; all 18 accessible result pages were frozen.",
+    "Scopus STANDARD-view records lack abstracts under the available API entitlement; deduplication backfills abstracts when another source provides one.",
+    "Records without abstracts route to metadata enrichment or manual review and are not silently discarded.",
+    "Source records with abstract metadata over 5,000 characters route to metadata enrichment or manual review to prevent full-text leakage into title/abstract screening."
+  ]
+}

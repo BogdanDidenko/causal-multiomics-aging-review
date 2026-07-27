@@ -1,0 +1,20 @@
+{
+  "benchmark_version": "boundary_pilot_v0.3.0",
+  "fill_path": "protocol/screening/benchmarks/high_signal_development_25.csv",
+  "fill_sha256": "1d6825e437c969d129cddabbbb0761b01d0d512a847233fa79f8aa4fc72fa57e",
+  "output_path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.3.0_25.csv",
+  "output_sha256": "9df1a10e2723420e2a0953e33c4eec1c3e3fc485ab17da1482552449cf06ad36",
+  "record_count": 25,
+  "rejected": [
+    {
+      "canonical_id": "doi:10.1016/j.jalz.2019.06.827",
+      "reason": "conference_abstract_body_fragment"
+    }
+  ],
+  "replacement_ids": [
+    "doi:10.21203/rs.3.rs-6850329/v1"
+  ],
+  "sealed_holdout_accessed": false,
+  "source_path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.2.0_25.csv",
+  "source_sha256": "0b8b69c4d64919f6fc93bdc0a69add5a5f6661fde34b609f0e516061b81a1f3f"
+}

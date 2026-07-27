@@ -1,0 +1,21 @@
+{
+  "source": "google_scholar",
+  "started_at": "2026-07-26T22:05:35.595Z",
+  "completed_at": "2026-07-26T22:07:03.348249+00:00",
+  "query_file": "protocol/queries/google_scholar.txt",
+  "query_sha256": "b13f1304df3dfd19f6d8aa2c42960c36a00d13ed5cb80e4ac6ba66b3914f1d9d",
+  "reported_count": 180,
+  "source_details": {
+    "mode": "manual_browser_export",
+    "reported_count_is_approximate": true,
+    "reported_count_text": "About 180 results (0,21 sec)",
+    "pages_retrieved": 18,
+    "official_api_available": false
+  },
+  "retrieved_count": 180,
+  "local_three_block_count": 131,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": true,
+  "normalized_file": "normalized/google_scholar.csv"
+}

@@ -1,0 +1,18 @@
+{
+  "source": "scopus",
+  "started_at": "2026-07-26T21:58:44.396861+00:00",
+  "completed_at": "2026-07-26T21:58:56.176557+00:00",
+  "query_file": "protocol/queries/scopus.txt",
+  "query_sha256": "0d55929f2d7cea44cc56e55e626236161f94da1042796a21c0fcb46dcd26ea15",
+  "reported_count": 219,
+  "source_details": {
+    "view": "STANDARD",
+    "abstract_entitlement": false
+  },
+  "retrieved_count": 219,
+  "local_three_block_count": 15,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/scopus.csv"
+}

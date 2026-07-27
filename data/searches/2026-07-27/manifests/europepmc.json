@@ -1,0 +1,15 @@
+{
+  "source": "europepmc",
+  "started_at": "2026-07-26T21:58:44.396761+00:00",
+  "completed_at": "2026-07-26T21:58:49.073587+00:00",
+  "query_file": "protocol/queries/europepmc.txt",
+  "query_sha256": "b6dafb88aa9ba1475fbf303043bcbcb2732cde964b2201aee8f44223e5aa9759",
+  "reported_count": 616,
+  "source_details": {},
+  "retrieved_count": 616,
+  "local_three_block_count": 612,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": true,
+  "normalized_file": "normalized/europepmc.csv"
+}

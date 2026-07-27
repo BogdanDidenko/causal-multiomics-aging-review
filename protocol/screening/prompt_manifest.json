@@ -1,0 +1,85 @@
+{
+  "manifest_version": "1.0.0",
+  "active_suite": "causal_multiomics_aging_screening@0.16.0",
+  "suite_config": {
+    "path": "configs/prompt_suite_v0.16.0.json",
+    "sha256": "679af895de6f3daf6e6482eb5ffa0d1dd09626cb3d46db7eec43d216eb7d1d3e"
+  },
+  "approval_status": "title_abstract_holdout_failed_new_cycle_required",
+  "approval_date": null,
+  "benchmark_version": "stability_holdout_v3_evaluated",
+  "created_date": "2026-07-27",
+  "change_note": "Title/abstract v0.16.0 adds a substantive-aging-analysis exception to method-first report typing and excludes ordinary regulatory or co-expression networks from causal graphical designs. Python derives aging role and integration mode using fixed precedence tables. The frozen suite passed the 25-record development pilot but failed its first sealed 25-record holdout at 92% final-routing and 72% decisive-path exact agreement across five runs. It must not be approved or tuned against that holdout within the same calibration cycle. Full-text prompts remain v0.1.0 and unvalidated.",
+  "artifacts": [
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer",
+      "version": "0.16.0",
+      "stage": "title_abstract",
+      "role": "scope_reviewer",
+      "prompt_path": "prompts/title_abstract/v0.16.0/scope_reviewer.txt",
+      "prompt_sha256": "66af48cf5b44f53caeb8c5d56ebf43392feaeb1cc99f35e154478c18b632dbfa",
+      "schema_path": "schemas/title_abstract/v0.16.0/scope_reviewer.schema.json",
+      "schema_sha256": "6b4cee4f40c31dbc8b816df9d3008a4eea3f1567274d507c8588a4f84a9aff18"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.causal_design_reviewer",
+      "version": "0.16.0",
+      "stage": "title_abstract",
+      "role": "causal_design_reviewer",
+      "prompt_path": "prompts/title_abstract/v0.16.0/causal_design_reviewer.txt",
+      "prompt_sha256": "58d022dced6a9d066ad98488558301f55478193cbe7caefe12ae37ace6435ef8",
+      "schema_path": "schemas/title_abstract/v0.16.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "32eb4383ce5b2c63258976950c31d80c7820e2c72be033ab202c755bef898972"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.adjudicator",
+      "version": "0.16.0",
+      "stage": "title_abstract",
+      "role": "adjudicator",
+      "prompt_path": "prompts/title_abstract/v0.16.0/adjudicator.txt",
+      "prompt_sha256": "90498b9875f778824ae3f6cbf7f7adffc2f1bbb16844acf064ab4adb682cb776",
+      "schema_path": "schemas/title_abstract/v0.16.0/adjudicator.schema.json",
+      "schema_sha256": "4e6ad9e50cc160b1cbbd77ebe936c762528390636e3a0ad9bb0494e79377bdb1"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.section_selector",
+      "version": "0.1.0",
+      "stage": "full_text",
+      "role": "section_selector",
+      "prompt_path": "prompts/full_text/v0.1.0/section_selector.txt",
+      "prompt_sha256": "c85748d49e0a19e7a7b8c65645503b14908661cf0b3a9868f057048273ea22b7",
+      "schema_path": "schemas/full_text/v0.1.0/section_selector.schema.json",
+      "schema_sha256": "a7f6c1c802913ebd1c2eacc8143d8741e58d2cf2d0e2cfcc4b8351815d22140a"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.eligibility_reviewer",
+      "version": "0.1.0",
+      "stage": "full_text",
+      "role": "eligibility_reviewer",
+      "prompt_path": "prompts/full_text/v0.1.0/eligibility_reviewer.txt",
+      "prompt_sha256": "f09455bd00d397a98a09908c07677ef60f2ceeedda90010da1d072d7104b8e0f",
+      "schema_path": "schemas/full_text/v0.1.0/eligibility_reviewer.schema.json",
+      "schema_sha256": "7489446d18f96620e3ba0661b70f0e3795c46cec46769e524c8278fd56b67340"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.causal_evidence_reviewer",
+      "version": "0.1.0",
+      "stage": "full_text",
+      "role": "causal_evidence_reviewer",
+      "prompt_path": "prompts/full_text/v0.1.0/causal_evidence_reviewer.txt",
+      "prompt_sha256": "6cd0d7ceb30f7d91315bf3fa664ef88595dcdf0e873f0945dc7381490c3eb14c",
+      "schema_path": "schemas/full_text/v0.1.0/causal_evidence_reviewer.schema.json",
+      "schema_sha256": "d1ac9ed3f91e082bcf358776371b40b9ddc7769b73dde72cdca5ed195f250ba1"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.adjudicator",
+      "version": "0.1.0",
+      "stage": "full_text",
+      "role": "adjudicator",
+      "prompt_path": "prompts/full_text/v0.1.0/adjudicator.txt",
+      "prompt_sha256": "4f92775c77f1de26a2a97b4d701222787d07f7c6753efd39e590306764c74291",
+      "schema_path": "schemas/full_text/v0.1.0/adjudicator.schema.json",
+      "schema_sha256": "0d6cadc705e56f9c5e1e8cca2db3cb4932ba983cd9a180c624c4aac0edb8cb23"
+    }
+  ]
+}
