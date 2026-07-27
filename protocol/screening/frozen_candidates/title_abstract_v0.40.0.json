@@ -1,0 +1,61 @@
+{
+  "freeze_status": "frozen_before_sealed_holdout",
+  "freeze_date": "2026-07-27",
+  "candidate_commit": "4a84077ebff493d57aba3bb9f2771e8b41297eff",
+  "suite": {
+    "id": "causal_multiomics_aging_screening",
+    "version": "0.40.0",
+    "config_path": "protocol/screening/configs/prompt_suite_v0.40.0.json",
+    "config_sha256": "118a0bb29b9fe7a9376950a91b1537e2c3cefa85deb702a29def2ec7e6cee2bb"
+  },
+  "runtime": {
+    "provider": "codex_cli",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "replicates": 5,
+    "plugins_disabled": true
+  },
+  "title_abstract_artifacts": [
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.40.0/scope_reviewer.txt",
+      "sha256": "b60bed8f12a2cdcc07f98f0ef211fd2dded21d0de3431b217b11485e7b61c751"
+    },
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.40.0/causal_design_reviewer.txt",
+      "sha256": "f8e8c2e70f8fafed25f19dc3ef0092e4a05b01b98a1d62e784fa006c8e955810"
+    },
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.40.0/adjudicator.txt",
+      "sha256": "297384aeda18346f8757566eb6b6e2dbec83cad8de5cea3bec8c414168a763dd"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.40.0/scope_reviewer.schema.json",
+      "sha256": "e2a744ef814c60dc03dc93f5e385031f8c818f22c6a615f244565d0938ac31db"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.40.0/causal_design_reviewer.schema.json",
+      "sha256": "795cb6e736fed8c0cc4b5040df75b8d01df0e5f4f868ddfad068fbcec0924797"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.40.0/adjudicator.schema.json",
+      "sha256": "aa5a4168d59e8b4c90755ee62faa6a5a3a66a55f74d399c58d5e341b401e4419"
+    }
+  ],
+  "visible_development": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+    "benchmark_sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c",
+    "record_count": 50,
+    "run_count": 5,
+    "result_path": "data/screening/stability/development-full-50-v0.40.0/stability_summary.json",
+    "result_sha256": "0c9731894df6270bbd4111b42bf0c60428b542b395918c658a24e26f855c3a9e",
+    "acceptance": "pass",
+    "all_tracked_criteria_exact_agreement": 1.0
+  },
+  "sealed_holdout": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+    "benchmark_sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216",
+    "record_count": 25,
+    "access_status_at_freeze": "not_evaluated"
+  }
+}
