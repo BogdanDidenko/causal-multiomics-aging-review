@@ -2,31 +2,39 @@
 
 The active suite combines:
 
-- title/abstract `v0.16.0`: scope plus aging, causal design, adjudication;
-- full text `v0.1.0`: section selection, eligibility, causal evidence,
+- title/abstract `v0.50.0`: sequential scope review, causal-candidate review,
+  and selective adjudication;
+- full text `v0.1.0`: section selection, eligibility, causal evidence, and
   adjudication.
 
-Executed title/abstract `v0.1.0` through `v0.15.0` artifacts remain immutable
-for audit and are not active.
+All prompts are model-neutral JSON contracts executed with GPT 5.6 Terra
+Medium through Codex CLI at `reasoning.effort=medium`. Python applies routing,
+ordered PRISMA consistency rules, exclusion codes, and full-text evidence
+levels. Raw provider JSON is retained unchanged.
 
-All prompts are model-neutral contracts executed with GPT 5.6 Terra Medium via
-Codex CLI. Models return criterion-level JSON only. Python applies routing,
-consistency rules, exclusion codes, and evidence levels.
+Title/abstract screening is intentionally high-sensitivity. A completed report
+is a causal candidate when it applies a causal or directed design or makes an
+explicit current-report directional/mechanistic claim. Full text determines
+whether that signal is associational, hypothesis-level, or identified causal
+evidence.
 
-Prompt changes create a new version and refresh
-`prompt_manifest.json`. Stability requires five independent runs with 100%
-exact agreement on the final selected criterion path and routing. Fields after
-an agreed exclusion criterion are non-decisive; their agreement is still
-reported separately as `all_tracked_criteria_exact_agreement` for diagnosis.
+The title stage does not classify exact omics layers, integration provenance,
+aging role, design family, effect strength, assumptions, or validation
+strength. Those fields are resolved from full text because they do not change
+title-stage routing and were unstable in short abstracts.
 
-Current status: `v0.16.0` passed the cleaned 25-record development pilot but
-failed its first sealed 25-record holdout. Exact final-routing agreement was
-`0.92`, decisive-path agreement was `0.72`, schema success was `1.00`, and
-manual-review rate was `0.00`. The suite is not approved. The failed holdout is
-now an accessed diagnostic set and cannot be reused as a sealed evaluation set
-for a tuned successor.
+Stability requires five independent sessions with:
 
-Stability does not establish screening accuracy. The separate 116-record
-regression candidate set remains uninspected and expert annotation is pending.
-Full-text `v0.1.0` has not yet undergone its planned stability or accuracy
-evaluation.
+- 100% JSON schema success;
+- 100% exact agreement on every tracked categorical field;
+- 100% exact agreement on decisive criteria and final route;
+- 0% runtime-triggered manual review.
+
+`v0.50.0` passed both the visible 50-record development set and the accessed
+25-record `v4` diagnostic set at all thresholds. It remains a candidate until
+it passes the fresh, uninspected 25-record `v5` holdout after a Git freeze.
+The 66-record remainder is reserved for a future independent cycle.
+
+Stability is not accuracy. Expert criterion-level annotation and the full-text
+benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned
+stability or accuracy evaluation.

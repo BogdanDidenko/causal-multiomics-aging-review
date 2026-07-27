@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "identification_status",
+    "exposure_or_intervention",
+    "comparator",
+    "outcome",
+    "estimand_or_contrast",
+    "evidence_spans",
+    "boundary_case",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "identification_status": {
+      "enum": [
+        "causal_candidate",
+        "noncausal",
+        "unclear"
+      ]
+    },
+    "exposure_or_intervention": {"type": "string"},
+    "comparator": {"type": "string"},
+    "outcome": {"type": "string"},
+    "estimand_or_contrast": {"type": "string"},
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title_abstract_evidence"}
+    },
+    "boundary_case": {
+      "enum": [
+        "clear_identified",
+        "thin_abstract",
+        "causal_wording_only",
+        "prediction_or_noncausal",
+        "colocalization_only",
+        "network_or_direction_only",
+        "rct_without_mediation_identification",
+        "uncontrolled_mediation",
+        "validation_design_secondary",
+        "other",
+        "none"
+      ]
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "title_abstract_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "identification_status",
+            "exposure_or_intervention",
+            "outcome",
+            "estimand_or_contrast"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

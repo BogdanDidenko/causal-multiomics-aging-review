@@ -1,36 +1,31 @@
 # Aging-specific Benchmark Candidates
 
-Benchmark records must be sampled only from the fresh aging-specific corpus.
-Earlier causal multi-omics decisions are not reused as labels.
+All benchmark records come from the fresh aging-specific retrieval. Earlier
+causal multi-omics decisions were not reused as labels.
 
-Generated title/abstract sets:
+## Access Status
 
-- `high_signal_development_25.csv`: visible prompt-development set containing
-  the canonical positive.
-- `title_abstract_boundary_pilot_25.csv`: visible boundary-case stability
-  pilot.
-- `title_abstract_regression_116.csv`: disjoint expert-annotation candidate
+- `title_abstract_calibration_v0.24.0_50.csv`: visible 50-record development
   set.
-- `title_abstract_holdout_v2_quarantined_25.csv`: disjoint but invalidated
-  holdout retained only to document accidental partial disclosure.
-- `title_abstract_stability_holdout_25.csv`: disjoint v3 holdout sampled after
-  excluding every quarantined-v2 record. It remained sealed through prompt
-  development and was first accessed for the frozen `v0.16.0` evaluation,
-  which failed.
-- `title_abstract_boundary_pilot_v0.2.0_25.csv` and
-  `title_abstract_boundary_pilot_v0.3.0_25.csv`: visible development revisions
-  that replace two malformed conference-abstract records. Their manifests
-  record source, replacement, and output hashes.
+- `title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv`: evaluated once
+  against frozen `v0.40.0`, then opened and used as diagnostic evidence.
+- `title_abstract_stability_holdout_v5_v0.41.0_25.csv`: fresh 25-record holdout,
+  sealed and uninspected until the `v0.50.0` candidate is frozen in Git.
+- `title_abstract_regression_v0.41.0_remaining_66.csv`: untouched remainder
+  reserved for a later calibration cycle.
+- `title_abstract_holdout_v2_quarantined_25.csv`: invalidated after accidental
+  partial disclosure and never valid as final evidence.
 
-All expert fields are blank. Sampling strata are retrieval diagnostics, not
-eligibility labels. The manifest fixes the corpus hash, seed, set hashes, and
-stratum counts.
+The `v5` selection is deterministic and disjoint from the accessed 50-record
+development set and 25-record `v4` set. Its fixed SHA-256 is
+`3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c`.
+Selection details and stratum counts are recorded in
+`calibration_cycle_v0.41.0_manifest.json`.
+
+All expert fields remain blank. Sampling strata are retrieval diagnostics, not
+eligibility labels. Stability evaluation therefore measures repeated-run
+agreement, not accuracy against expert decisions.
 
 The 60-paper full-text benchmark and 20-paper section-selector gold subset
 remain pending until full texts have been retrieved and independently
 annotated. They must not be synthesized from title/abstract predictions.
-
-The regression set remains uninspected. Holdout v3 is no longer sealed after
-its one frozen-suite evaluation and may only be used as development evidence
-in a future, explicitly new calibration cycle. The quarantined v2 file must
-never be used for final evaluation.

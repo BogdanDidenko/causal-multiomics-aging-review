@@ -1,45 +1,45 @@
 {
   "manifest_version": "1.0.0",
-  "active_suite": "causal_multiomics_aging_screening@0.40.0",
+  "active_suite": "causal_multiomics_aging_screening@0.50.0",
   "suite_config": {
-    "path": "configs/prompt_suite_v0.40.0.json",
-    "sha256": "118a0bb29b9fe7a9376950a91b1537e2c3cefa85deb702a29def2ec7e6cee2bb"
+    "path": "configs/prompt_suite_v0.50.0.json",
+    "sha256": "2cd18706a7bab67f30b4f99293fdf164e2f898beb78eb7d6d8fdcb12278c785f"
   },
-  "approval_status": "draft_title_abstract_v0.40.0_calibration",
+  "approval_status": "draft_title_abstract_v0.50.0_calibration",
   "approval_date": null,
-  "benchmark_version": "calibration_cycle_v0.24.0",
-  "created_date": "2026-07-27",
-  "change_note": "Title/abstract v0.40.0 continues the new calibration cycle after v0.16.0 holdout failure. It limits model classification to fields that determine title/abstract PRISMA routing: report type, biological or health scope, aging-process relevance, used molecular-layer categories, multi-omics status, and identification status. Aging-role and design-family subtyping, design role, integration provenance, and validation strength are deferred to full text because abstracts can support multiple equally valid subtypes and those fields do not alter title-stage routing. Association-only and absent-design states remain one noncausal status at this stage. Python is limited to logical consistency rules: layer-count validation, PRISMA short-circuiting, and legacy status normalization. Stability requires exact agreement for every returned categorical field and normalized molecular-layer set; free-text rationales and evidence-span wording are audited but not exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning with plugins disabled. Full-text prompts remain v0.1.0 and unvalidated.",
+  "benchmark_version": "calibration_cycle_v0.41.0",
+  "created_date": "2026-07-28",
+  "change_note": "Title/abstract v0.50.0 follows the frozen v0.40.0 sealed-holdout failure and the diagnostic v0.41.0 focus run. It limits model classification to fields that determine title/abstract PRISMA routing: report type, biological or health scope, aging-process relevance, multi-omics candidate status, and causal-candidate status. A causal candidate is retained when the current report applies a causal/directed design or makes a directional/mechanistic result claim; full text determines whether evidence is merely associational, hypothesis-level, or identified. Aging-role and design-family subtyping, effect strength, design role, integration provenance, and validation strength are deferred to full text because abstracts can support multiple equally valid subtypes and those fields do not alter title-stage routing. Clear specialist exclusions route directly; adjudication is reserved for unclear criteria. Exact molecular-layer inventory is deferred to full text; an explicit current-report multi-omics claim is sufficient for title-stage retention. Python is limited to logical consistency rules: sequential PRISMA scope short-circuiting, title-layer-inventory deferral, and review-specific causal-status normalization. Stability requires exact agreement for every returned categorical field; free-text rationales and evidence-span wording are audited but not exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning with plugins disabled. Full-text prompts remain v0.1.0 and unvalidated.",
   "artifacts": [
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer",
-      "version": "0.40.0",
+      "version": "0.50.0",
       "stage": "title_abstract",
       "role": "scope_reviewer",
-      "prompt_path": "prompts/title_abstract/v0.40.0/scope_reviewer.txt",
-      "prompt_sha256": "b60bed8f12a2cdcc07f98f0ef211fd2dded21d0de3431b217b11485e7b61c751",
-      "schema_path": "schemas/title_abstract/v0.40.0/scope_reviewer.schema.json",
-      "schema_sha256": "e2a744ef814c60dc03dc93f5e385031f8c818f22c6a615f244565d0938ac31db"
+      "prompt_path": "prompts/title_abstract/v0.50.0/scope_reviewer.txt",
+      "prompt_sha256": "eea95393af682b3660c4198a0dd790247272efcaa48c7c41786302cf9f2b2ea6",
+      "schema_path": "schemas/title_abstract/v0.50.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
     },
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.causal_design_reviewer",
-      "version": "0.40.0",
+      "version": "0.50.0",
       "stage": "title_abstract",
       "role": "causal_design_reviewer",
-      "prompt_path": "prompts/title_abstract/v0.40.0/causal_design_reviewer.txt",
-      "prompt_sha256": "f8e8c2e70f8fafed25f19dc3ef0092e4a05b01b98a1d62e784fa006c8e955810",
-      "schema_path": "schemas/title_abstract/v0.40.0/causal_design_reviewer.schema.json",
-      "schema_sha256": "795cb6e736fed8c0cc4b5040df75b8d01df0e5f4f868ddfad068fbcec0924797"
+      "prompt_path": "prompts/title_abstract/v0.50.0/causal_design_reviewer.txt",
+      "prompt_sha256": "5195d26fd772ed3463e86be1ac430369135eb0ee6de229c143dc84e3b67f0200",
+      "schema_path": "schemas/title_abstract/v0.50.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "c9cbee11106cca69f0962c05c73e3b03e68caf51612107a35a0965f1e69fbcc1"
     },
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.adjudicator",
-      "version": "0.40.0",
+      "version": "0.50.0",
       "stage": "title_abstract",
       "role": "adjudicator",
-      "prompt_path": "prompts/title_abstract/v0.40.0/adjudicator.txt",
-      "prompt_sha256": "297384aeda18346f8757566eb6b6e2dbec83cad8de5cea3bec8c414168a763dd",
-      "schema_path": "schemas/title_abstract/v0.40.0/adjudicator.schema.json",
-      "schema_sha256": "aa5a4168d59e8b4c90755ee62faa6a5a3a66a55f74d399c58d5e341b401e4419"
+      "prompt_path": "prompts/title_abstract/v0.50.0/adjudicator.txt",
+      "prompt_sha256": "7d7e5ba23b86739aec00ac41481c1f8d819beb4a150eeba1fe8b5711fa8bb80a",
+      "schema_path": "schemas/title_abstract/v0.50.0/adjudicator.schema.json",
+      "schema_sha256": "8f782ffcb18497f675969749181f976cc52466ef606c153e236699c9d4d104ed"
     },
     {
       "prompt_id": "causal_multiomics_aging.full_text.section_selector",

@@ -11,7 +11,7 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SCREENING = PROTOCOL / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.40.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.50.0.json"
 SEARCH_CONFIG_PATH = PROTOCOL / "search_config.json"
 MANIFEST_PATH = SCREENING / "prompt_manifest.json"
 
@@ -118,10 +118,20 @@ def main() -> None:
         errors.append("runtime reasoning_effort must be medium")
     if runtime.get("max_retries") != 1:
         errors.append("runtime must allow exactly one retry")
-    if suite.get("stages", {}).get("title_abstract", {}).get(
-        "max_input_abstract_chars"
-    ) != 5000:
+    title_stage = suite.get("stages", {}).get("title_abstract", {})
+    if title_stage.get("max_input_abstract_chars") != 5000:
         errors.append("title/abstract metadata must be capped at 5,000 characters")
+    if title_stage.get("identification_status_contract") != "causal_candidate_v1":
+        errors.append("title/abstract must use the causal_candidate_v1 contract")
+    if title_stage.get("prisma_scope_short_circuit_round_a") is not True:
+        errors.append("round-A title screening must apply the PRISMA scope short-circuit")
+    if title_stage.get("title_layer_inventory") != "deferred_to_full_text":
+        errors.append("title-stage molecular-layer inventory must be deferred")
+    title_routing = title_stage.get("routing", {})
+    if title_routing.get("round_a_any_exclude") != "exclude":
+        errors.append("clear title/abstract exclusions must bypass adjudication")
+    if title_routing.get("round_a_any_unclear") != "adjudicate":
+        errors.append("unclear title/abstract criteria must be adjudicated")
 
     stability = suite.get("stability_policy", {})
     if stability.get("model") != "gpt-5.6-terra":

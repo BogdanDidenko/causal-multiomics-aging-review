@@ -417,7 +417,7 @@ def _process_title_abstract_record(
             max_retries,
         )
 
-    consistency_rules = _normalize_title_round_a(answers)
+    consistency_rules = _normalize_title_round_a(answers, stage_config)
     route, role_gates = route_round_a(answers, stage_config)
     adjudication = None
     selected = _merge_answers(*answers.values())
@@ -438,7 +438,9 @@ def _process_title_abstract_record(
             raw_results,
             max_retries,
         )
-        consistency_rules.extend(_normalize_title_adjudication(adjudication))
+        consistency_rules.extend(
+            _normalize_title_adjudication(adjudication, stage_config)
+        )
         route, adjudicator_gate = route_adjudicated(adjudication, stage_config)
         role_gates["adjudicator"] = adjudicator_gate
         selected = adjudication
@@ -461,13 +463,45 @@ def _process_title_abstract_record(
 
 def _normalize_title_round_a(
     answers: dict[str, dict[str, Any]],
+    stage_config: dict[str, Any],
 ) -> list[str]:
     rules: list[str] = []
     scope = answers["scope_reviewer"]
     causal = answers["causal_design_reviewer"]
-    if _normalize_title_multiomics(scope):
-        rules.append("multiomics_status_normalized_from_used_layer_count")
-    if _normalize_title_design(causal):
+    defer_layers = stage_config.get("title_layer_inventory") == "deferred_to_full_text"
+    if stage_config.get("title_scope_sequential_short_circuit") and (
+        _normalize_title_scope_sequence(scope)
+    ):
+        rules.append("downstream_scope_criteria_normalized_from_prisma_sequence")
+    if _normalize_title_multiomics(
+        scope,
+        defer_inventory=defer_layers,
+        sequential_short_circuit=stage_config.get(
+            "title_scope_sequential_short_circuit", False
+        ),
+    ):
+        rules.append(
+            "multiomics_status_normalized_from_scope_short_circuit"
+            if defer_layers
+            else "multiomics_status_normalized_from_used_layer_count"
+        )
+    if defer_layers:
+        rules.append("title_omics_layer_inventory_deferred_to_full_text")
+    if stage_config.get("prisma_scope_short_circuit_round_a") and (
+        scope.get("aging_process_relevance") == "no"
+        or scope.get("report_type")
+        in {
+            "nonempirical",
+            "review_editorial",
+            "protocol",
+            "methods_only",
+            "resource",
+        }
+    ):
+        causal["identification_status"] = "noncausal"
+        rules.append("ineligible_scope_implies_no_relevant_causal_design")
+    status_contract = stage_config.get("identification_status_contract")
+    if _normalize_title_design(causal, status_contract=status_contract):
         rules.extend(
             [
                 "primary_design_family_normalized_from_identification_status",
@@ -476,14 +510,38 @@ def _normalize_title_round_a(
             ]
         )
     else:
-        rules.append("title_design_subtyping_deferred_to_full_text")
+        rules.append(
+            "title_effect_strength_and_design_subtyping_deferred_to_full_text"
+            if status_contract
+            else "title_design_subtyping_deferred_to_full_text"
+        )
     return rules
 
 
-def _normalize_title_adjudication(answer: dict[str, Any]) -> list[str]:
+def _normalize_title_adjudication(
+    answer: dict[str, Any],
+    stage_config: dict[str, Any],
+) -> list[str]:
     rules: list[str] = []
-    if _normalize_title_multiomics(answer):
-        rules.append("multiomics_status_normalized_from_used_layer_count")
+    defer_layers = stage_config.get("title_layer_inventory") == "deferred_to_full_text"
+    if stage_config.get("title_scope_sequential_short_circuit") and (
+        _normalize_title_scope_sequence(answer)
+    ):
+        rules.append("downstream_scope_criteria_normalized_from_prisma_sequence")
+    if _normalize_title_multiomics(
+        answer,
+        defer_inventory=defer_layers,
+        sequential_short_circuit=stage_config.get(
+            "title_scope_sequential_short_circuit", False
+        ),
+    ):
+        rules.append(
+            "multiomics_status_normalized_from_scope_short_circuit"
+            if defer_layers
+            else "multiomics_status_normalized_from_used_layer_count"
+        )
+    if defer_layers:
+        rules.append("title_omics_layer_inventory_deferred_to_full_text")
     if answer.get("aging_process_relevance") == "no" or answer.get(
         "report_type"
     ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
@@ -497,7 +555,8 @@ def _normalize_title_adjudication(answer: dict[str, Any]) -> list[str]:
                 }
             )
         rules.append("ineligible_scope_implies_no_relevant_causal_design")
-    if _normalize_title_design(answer):
+    status_contract = stage_config.get("identification_status_contract")
+    if _normalize_title_design(answer, status_contract=status_contract):
         rules.extend(
             [
                 "primary_design_family_normalized_from_identification_status",
@@ -506,14 +565,35 @@ def _normalize_title_adjudication(answer: dict[str, Any]) -> list[str]:
             ]
         )
     else:
-        rules.append("title_design_subtyping_deferred_to_full_text")
+        rules.append(
+            "title_effect_strength_and_design_subtyping_deferred_to_full_text"
+            if status_contract
+            else "title_design_subtyping_deferred_to_full_text"
+        )
     return rules
 
 
-def _normalize_title_design(answer: dict[str, Any]) -> bool:
+def _normalize_title_design(
+    answer: dict[str, Any],
+    *,
+    status_contract: str | None = None,
+) -> bool:
     status = str(answer.get("identification_status", "unclear"))
     if status in {"association_only", "no_relevant_design"}:
         status = "noncausal"
+        answer["identification_status"] = status
+    if status_contract == "causal_or_directed_v1" and status in {
+        "identified",
+        "hypothesis_only",
+    }:
+        status = "causal_or_directed"
+        answer["identification_status"] = status
+    if status_contract == "causal_candidate_v1" and status in {
+        "identified",
+        "hypothesis_only",
+        "causal_or_directed",
+    }:
+        status = "causal_candidate"
         answer["identification_status"] = status
     if "primary_design_family" not in answer:
         return False
@@ -552,14 +632,28 @@ def _normalize_title_design(answer: dict[str, Any]) -> bool:
     return True
 
 
-def _normalize_title_multiomics(answer: dict[str, Any]) -> bool:
+def _normalize_title_multiomics(
+    answer: dict[str, Any],
+    *,
+    defer_inventory: bool = False,
+    sequential_short_circuit: bool = False,
+) -> bool:
     status = answer.get("multiomics_status")
-    if answer.get("aging_process_relevance") == "no" or answer.get(
+    failed_scope = answer.get("aging_process_relevance") == "no" or answer.get(
         "report_type"
-    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
+    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}
+    unresolved_or_failed_scope = (
+        answer.get("report_type") != "empirical_primary"
+        or answer.get("bio_health_scope") != "yes"
+        or answer.get("aging_process_relevance") != "yes"
+    )
+    if failed_scope or (sequential_short_circuit and unresolved_or_failed_scope):
         answer["multiomics_status"] = "not_assessed"
         answer["omics_layers"] = []
         return status != "not_assessed"
+    if defer_inventory:
+        answer["omics_layers"] = []
+        return False
     layers = answer.get("omics_layers", [])
     used_layers = {
         item.get("layer")
@@ -579,6 +673,32 @@ def _normalize_title_multiomics(answer: dict[str, Any]) -> bool:
         normalized = "unclear"
     answer["multiomics_status"] = normalized
     return normalized != status
+
+
+def _normalize_title_scope_sequence(answer: dict[str, Any]) -> bool:
+    original = (
+        answer.get("bio_health_scope"),
+        answer.get("aging_process_relevance"),
+        answer.get("multiomics_status"),
+    )
+    if answer.get("report_type") != "empirical_primary":
+        answer["bio_health_scope"] = "not_assessed"
+        answer["aging_process_relevance"] = "not_assessed"
+        answer["multiomics_status"] = "not_assessed"
+        answer["omics_layers"] = []
+    elif answer.get("bio_health_scope") != "yes":
+        answer["aging_process_relevance"] = "not_assessed"
+        answer["multiomics_status"] = "not_assessed"
+        answer["omics_layers"] = []
+    elif answer.get("aging_process_relevance") != "yes":
+        answer["multiomics_status"] = "not_assessed"
+        answer["omics_layers"] = []
+    normalized = (
+        answer.get("bio_health_scope"),
+        answer.get("aging_process_relevance"),
+        answer.get("multiomics_status"),
+    )
+    return normalized != original
 
 
 def _process_full_text_record(

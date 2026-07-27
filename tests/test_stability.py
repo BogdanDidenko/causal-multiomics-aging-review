@@ -16,7 +16,9 @@ TITLE_ACCEPTANCE = {
 }
 
 
-def title_result(identification_status: str = "identified") -> dict[str, object]:
+def title_result(
+    identification_status: str = "causal_candidate",
+) -> dict[str, object]:
     return {
         "record_id": "r1",
         "final_decision": "seek_full_text",
@@ -26,10 +28,7 @@ def title_result(identification_status: str = "identified") -> dict[str, object]
             "bio_health_scope": "yes",
             "aging_process_relevance": "yes",
             "multiomics_status": "yes",
-            "omics_layers": [
-                {"layer": "genomics", "raw_term": "GWAS"},
-                {"layer": "transcriptomics", "raw_term": "eQTL"},
-            ],
+            "omics_layers": [],
             "identification_status": identification_status,
             "evidence_spans": [{"quote": "Different phrasing is ignored."}],
         },
@@ -45,7 +44,7 @@ def test_stability_uses_decisive_criteria_not_free_text() -> None:
 
 def test_stability_localizes_disagreeing_criterion() -> None:
     runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
-    runs["replicate-5"] = {"r1": title_result("hypothesis_only")}
+    runs["replicate-5"] = {"r1": title_result("unclear")}
     rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
     assert rows[0]["stable"] is False
     assert (
@@ -76,18 +75,15 @@ def test_stability_ignores_downstream_fields_after_same_exclusion_path() -> None
     assert summary["acceptance"]["overall"] == "fail"
 
 
-def test_stability_tracks_normalized_omics_layer_categories() -> None:
+def test_stability_defers_exact_title_layer_inventory() -> None:
     runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
     runs["replicate-5"]["r1"]["selected_criteria"]["omics_layers"] = [
         {"layer": "genomics", "raw_term": "genetic variants"}
     ]
     rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
-    assert rows[0]["stable"] is False
-    assert (
-        "selected_criteria.omics_layer_categories"
-        in rows[0]["decisive_disagreements"]
-    )
-    assert summary["acceptance"]["overall"] == "fail"
+    assert rows[0]["stable"] is True
+    assert rows[0]["diagnostic_all_tracked_criteria_stable"] is True
+    assert summary["acceptance"]["overall"] == "pass"
 
 
 def test_stability_cli_requires_matching_terra_manifests(tmp_path) -> None:

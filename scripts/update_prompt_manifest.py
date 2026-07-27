@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCREENING = ROOT / "protocol" / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.40.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.50.0.json"
 OUTPUT = SCREENING / "prompt_manifest.json"
 
 
@@ -72,25 +72,33 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "draft_title_abstract_v0.40.0_calibration",
+        "approval_status": "draft_title_abstract_v0.50.0_calibration",
         "approval_date": None,
-        "benchmark_version": "calibration_cycle_v0.24.0",
+        "benchmark_version": "calibration_cycle_v0.41.0",
         "created_date": date.today().isoformat(),
         "change_note": (
-            "Title/abstract v0.40.0 continues the new calibration cycle after "
-            "v0.16.0 holdout failure. It limits model classification to fields "
+            "Title/abstract v0.50.0 follows the frozen v0.40.0 sealed-holdout "
+            "failure and the diagnostic v0.41.0 focus run. It limits model "
+            "classification to fields "
             "that determine title/abstract PRISMA routing: report type, "
-            "biological or health scope, aging-process relevance, used "
-            "molecular-layer categories, multi-omics status, and identification "
-            "status. Aging-role and design-family subtyping, design role, "
+            "biological or health scope, aging-process relevance, multi-omics "
+            "candidate status, and causal-candidate status. A causal candidate "
+            "is retained when the current report "
+            "applies a causal/directed design or makes a directional/mechanistic "
+            "result claim; full text determines whether evidence is merely "
+            "associational, hypothesis-level, or identified. Aging-role and "
+            "design-family subtyping, effect strength, design role, "
             "integration provenance, and validation strength are deferred to "
             "full text because abstracts can support multiple equally valid "
             "subtypes and those fields do not alter title-stage routing. "
-            "Association-only and absent-design states remain one noncausal "
-            "status at this stage. Python is limited to logical consistency "
-            "rules: layer-count validation, PRISMA short-circuiting, and legacy "
-            "status normalization. Stability requires exact agreement for every "
-            "returned categorical field and normalized molecular-layer set; "
+            "Clear specialist exclusions route directly; adjudication is "
+            "reserved for unclear criteria. Exact molecular-layer inventory is "
+            "deferred to full text; an explicit current-report multi-omics claim "
+            "is sufficient for title-stage retention. Python is limited to "
+            "logical consistency rules: sequential PRISMA scope "
+            "short-circuiting, title-layer-inventory deferral, and "
+            "review-specific causal-status normalization. Stability "
+            "requires exact agreement for every returned categorical field; "
             "free-text rationales and evidence-span wording are audited but not "
             "exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning "
             "with plugins disabled. Full-text prompts remain v0.1.0 and "

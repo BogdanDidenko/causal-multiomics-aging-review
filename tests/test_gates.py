@@ -15,7 +15,9 @@ def test_round_a_advances_only_when_both_roles_include() -> None:
             "aging_process_relevance": "yes",
             "multiomics_status": "yes",
         },
-        "causal_design_reviewer": {"identification_status": "identified"},
+        "causal_design_reviewer": {
+            "identification_status": "causal_candidate"
+        },
     }
     route, decisions = route_round_a(answers, config)
     assert route == "seek_full_text"
@@ -23,6 +25,40 @@ def test_round_a_advances_only_when_both_roles_include() -> None:
         "scope_reviewer": "include",
         "causal_design_reviewer": "include",
     }
+
+
+def test_round_a_routes_clear_specialist_exclusion_without_adjudication() -> None:
+    config = active_title_config()
+    answers = {
+        "scope_reviewer": {
+            "report_type": "empirical_primary",
+            "bio_health_scope": "yes",
+            "aging_process_relevance": "yes",
+            "multiomics_status": "yes",
+        },
+        "causal_design_reviewer": {"identification_status": "noncausal"},
+    }
+    route, decisions = route_round_a(answers, config)
+    assert route == "exclude"
+    assert decisions["causal_design_reviewer"] == "exclude"
+
+
+def test_round_a_routes_unclear_specialist_output_to_adjudication() -> None:
+    config = active_title_config()
+    answers = {
+        "scope_reviewer": {
+            "report_type": "empirical_primary",
+            "bio_health_scope": "yes",
+            "aging_process_relevance": "yes",
+            "multiomics_status": "unclear",
+        },
+        "causal_design_reviewer": {
+            "identification_status": "causal_candidate"
+        },
+    }
+    route, decisions = route_round_a(answers, config)
+    assert route == "adjudicate"
+    assert decisions["scope_reviewer"] == "unclear"
 
 
 def test_unclear_has_priority_over_exclusion() -> None:

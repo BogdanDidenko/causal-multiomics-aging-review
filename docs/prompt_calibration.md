@@ -2,85 +2,99 @@
 
 ## Objective
 
-The title/abstract suite is calibrated for reproducible PRISMA routing of
-causal multi-omics aging studies with GPT 5.6 Terra Medium. The acceptance rule
-is deliberately strict: five independent runs must produce 100% exact
-agreement on the final routing decision and the decisive criterion path.
+The title/abstract suite performs reproducible PRISMA routing for causal
+multi-omics studies of aging with GPT 5.6 Terra Medium through Codex CLI.
+Acceptance is deliberately strict: five independent sessions must produce
+100% exact agreement for every tracked categorical routing field, the decisive
+criterion path, the final route, and the exclusion code. Schema success must
+be 100% and no record may fall into manual review because of runtime failure.
 
-The decisive path contains the criteria required to reach the final PRISMA
-route. Fields downstream of an agreed exclusion are non-decisive and are
-reported separately as a diagnostic. This prevents irrelevant downstream
-variation from failing the route while preserving it in the audit trail.
+Free-text rationales and the wording of evidence spans remain in the audit
+trail but are not exact-matched. Stability does not establish screening
+accuracy; expert-labelled sensitivity and precision evaluation remains
+separate.
+
+## Tracked Contract
+
+Title/abstract screening now tracks only fields needed for routing:
+
+- report type;
+- biological or health scope;
+- aging-process relevance;
+- multi-omics candidate status;
+- causal-candidate status;
+- final route and exclusion code.
+
+Exact omics-layer inventory, aging-role subtyping, design family, effect
+strength, integration provenance, assumptions, validation strength, and causal
+evidence level are deferred to full text. This prevents unstable abstract-level
+subtyping from deciding a route.
+
+Scope criteria are sequential. Python applies only this logical consistency
+rule:
+
+1. A report type other than `empirical_primary` makes later scope criteria
+   `not_assessed`.
+2. Biological scope other than `yes` makes aging and multi-omics
+   `not_assessed`.
+3. Aging relevance other than `yes` makes multi-omics `not_assessed`.
+4. An unresolved upstream value still routes to adjudication or full text; it
+   is not converted into an exclusion.
+
+The unmodified provider JSON is retained separately from normalized output.
 
 ## Data Separation
 
-- The 25-record high-signal and boundary sets were visible during development.
-- Two malformed conference-abstract records leaked body fragments or mismatched
-  titles. They were replaced before the final development pilot; both
-  replacements and hashes are recorded in curation manifests.
-- Holdout v2 was quarantined after accidental partial disclosure and was never
-  used as final evidence.
-- Holdout v3 was sampled disjointly, remained uninspected while versions
-  `v0.1.0` through `v0.16.0` were developed, and was launched once after
-  `v0.16.0` was frozen.
-- The separate 116-record regression candidate set remains uninspected and
-  unannotated.
+- `title_abstract_calibration_v0.24.0_50.csv` is the visible 50-record
+  development set.
+- The frozen `v0.40.0` suite was evaluated once on sealed holdout `v4`.
+- After that evaluation, `v4` became an accessed diagnostic set and was used
+  only for calibration and regression testing.
+- Fresh holdout `v5` was deterministically sampled from a separate untouched
+  91-record remainder after excluding the 50-record development set and
+  25-record `v4`.
+- `v5` contains 25 records and has SHA-256
+  `3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c`.
+  It remains uninspected and unevaluated until `v0.50.0` is frozen in Git.
+- A further 66-record remainder remains untouched for a future cycle if `v5`
+  fails.
 
-## Development History
+## Calibration History
 
-Prompt versions are immutable. Iterations localized report type, aging-process
-relevance, molecular-layer integration, current-report causal design, and
-validation-versus-identification boundaries. Representative full-pilot results
-are:
+Prompt and schema versions are immutable after execution.
 
 | Suite | Set | Schema | Final route | Decisive path | All tracked | Result |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| v0.10.0 | development | 1.00 | 0.92 | 0.28 | not recorded | fail |
-| v0.12.0 | development | 1.00 | 1.00 | 0.84 | 0.32 | fail |
-| v0.14.0 | development | 1.00 | 0.92 | 0.88 | 0.48 | fail |
-| v0.15.0 | development | 1.00 | 0.96 | 0.92 | 0.40 | fail |
-| v0.16.0 | development | 1.00 | 1.00 | 1.00 | 0.40 | pass |
+| v0.40.0 | visible development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
+| v0.40.0 | sealed holdout v4, 25 x 5 | 1.00 | 0.96 | 0.92 | 0.88 | fail |
+| v0.46.0 | accessed v4 diagnostic, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
+| v0.46.0 | visible development, 50 x 5 | 1.00 | 0.96 | 0.96 | 0.96 | fail |
+| v0.47.0 | visible development, 50 x 5 | 1.00 | 0.98 | 0.98 | 0.96 | fail |
+| v0.48.0 | visible development, 50 x 5 | 1.00 | 1.00 | 1.00 | 0.98 | fail |
+| v0.49.0 | accessed v4 diagnostic, 25 x 5 | 1.00 | 1.00 | 1.00 | 0.96 | fail |
+| v0.50.0 | accessed v4 diagnostic, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
+| v0.50.0 | visible development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
 
-The `all_tracked` metric includes non-decisive atomic and diagnostic fields.
-The development pass therefore means exact PRISMA-path stability, not identical
-raw model JSON.
+The calibration failures localized four recurring sources of nondeterminism:
 
-## Sealed Holdout
+- distinguishing causal evidence from a high-sensitivity causal candidate;
+- inconsistent treatment of literal directional claims such as
+  `X-driven Y` or `impact of X on Y`;
+- chronological-age prediction versus analysis of an aging process;
+- downstream criteria being evaluated after an upstream PRISMA criterion was
+  already negative or unresolved.
 
-The frozen `v0.16.0` suite failed its first sealed evaluation:
+The final causal-candidate prompt uses a closed trigger check for explicit
+current-report directional clauses. This retains hypotheses for full-text
+assessment without claiming that causality is identified.
 
-| Records | Runs | Schema | Final route | Decisive path | All tracked | Manual review |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 25 | 5 | 1.00 | 0.92 | 0.72 | 0.52 | 0.00 |
+## Current Status
 
-All five runs returned the same aggregate counts, 22 exclusions and 3 records
-sent to full text, but two individual records swapped routes. Aggregate counts
-therefore concealed record-level instability.
+Title/abstract `v0.50.0` is a frozen-candidate pending one evaluation on fresh
+holdout `v5`. It is not production-approved until that evaluation passes all
+100% stability gates.
 
-Seven records had an unstable decisive path:
-
-- two changed between exclusion and full-text retrieval at the boundary
-  between aging context or an induced aging-like model and a directly analyzed
-  aging process;
-- four were always excluded but received different exclusion codes when more
-  than one eligibility criterion was unmet;
-- one retained the same route but varied in whether a validation intervention
-  counted as an additional design family beside genetic-instrument analysis.
-
-The holdout was not used to revise `v0.16.0`. Any successor must start a new
-calibration cycle, may use these failures only as development evidence, and
-must be evaluated on a newly sealed, disjoint set.
-
-## Interpretation
-
-`v0.16.0` is not approved for production screening. Stability is also distinct
-from accuracy: even a future 100%-stable suite still requires criterion-level
-expert labels to estimate sensitivity, exclusion precision, design-family F1,
-and agreement with human decisions.
-
-Pending work:
-
-- expert annotation of title/abstract records;
-- a new prompt-calibration cycle with a newly sealed stability test;
-- the 60-paper full-text benchmark and 20-paper section-selector gold subset;
-- stability and accuracy evaluation of the full-text `v0.1.0` suite.
+Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
+title/abstract benchmark, 60-paper full-text benchmark, and 20-paper
+section-selector gold subset are still required for accuracy and full-text
+stability assessment.

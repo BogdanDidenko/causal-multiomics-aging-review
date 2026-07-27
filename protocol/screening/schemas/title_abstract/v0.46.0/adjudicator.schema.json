@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "multiomics_status",
+    "omics_layers",
+    "identification_status",
+    "exposure_or_intervention",
+    "comparator",
+    "outcome",
+    "estimand_or_contrast",
+    "resolution_status",
+    "evidence_spans",
+    "boundary_cases",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {
+      "enum": [
+        "empirical_primary",
+        "nonempirical",
+        "unclear"
+      ]
+    },
+    "bio_health_scope": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "aging_process_relevance": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "multiomics_status": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "omics_layers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/omics_layer"}
+    },
+    "identification_status": {
+      "enum": [
+        "causal_candidate",
+        "noncausal",
+        "unclear"
+      ]
+    },
+    "exposure_or_intervention": {"type": "string"},
+    "comparator": {"type": "string"},
+    "outcome": {"type": "string"},
+    "estimand_or_contrast": {"type": "string"},
+    "resolution_status": {
+      "enum": [
+        "resolved",
+        "insufficient_title_abstract",
+        "conflict_unresolved"
+      ]
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title_abstract_evidence"}
+    },
+    "boundary_cases": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "omics_layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layer", "raw_term"],
+      "properties": {
+        "layer": {
+          "enum": [
+            "genomics",
+            "epigenomics",
+            "transcriptomics",
+            "proteomics",
+            "metabolomics",
+            "microbiomics",
+            "other_molecular_omics"
+          ]
+        },
+        "raw_term": {"type": "string", "minLength": 1}
+      }
+    },
+    "title_abstract_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "report_type",
+            "bio_health_scope",
+            "aging_process_relevance",
+            "multiomics_status",
+            "identification_status",
+            "exposure_or_intervention",
+            "outcome",
+            "estimand_or_contrast"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

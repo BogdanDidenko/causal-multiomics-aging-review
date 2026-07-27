@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "multiomics_status",
+    "omics_layers",
+    "evidence_spans",
+    "boundary_case",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {
+      "enum": [
+        "empirical_primary",
+        "nonempirical",
+        "unclear"
+      ]
+    },
+    "bio_health_scope": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "aging_process_relevance": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "multiomics_status": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "omics_layers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/omics_layer"}
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title_abstract_evidence"}
+    },
+    "boundary_case": {
+      "enum": [
+        "clear_scope",
+        "thin_abstract",
+        "report_type_ambiguous",
+        "chronological_age_covariate_only",
+        "older_cohort_only",
+        "age_related_disease_only",
+        "cellular_persistence_not_aging",
+        "aging_proxy_ambiguous",
+        "single_layer_multiple_assays",
+        "omics_plus_non_omics",
+        "external_omics_only",
+        "two_gwas_traits_only",
+        "generic_multiomics_label",
+        "cross_dataset_multiomics",
+        "other",
+        "none"
+      ]
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "omics_layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layer", "raw_term"],
+      "properties": {
+        "layer": {
+          "enum": [
+            "genomics",
+            "epigenomics",
+            "transcriptomics",
+            "proteomics",
+            "metabolomics",
+            "microbiomics",
+            "other_molecular_omics"
+          ]
+        },
+        "raw_term": {"type": "string", "minLength": 1}
+      }
+    },
+    "title_abstract_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "report_type",
+            "bio_health_scope",
+            "aging_process_relevance",
+            "multiomics_status"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

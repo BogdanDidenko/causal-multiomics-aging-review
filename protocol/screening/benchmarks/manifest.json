@@ -11,7 +11,7 @@
   "created_at": "2026-07-26T22:28:34.687689+00:00",
   "disjoint_sets": true,
   "eligible_sampling_pool": 2624,
-  "ground_truth_policy": "All expert fields are blank. Development and boundary pilot may be inspected during prompt iteration. Holdout v2 was quarantined after accidental partial disclosure. Regression remains unseen. Holdout v3 remained sealed until the first frozen v0.16.0 evaluation and is now an accessed diagnostic set.",
+  "ground_truth_policy": "All expert fields are blank. Development sets and failed holdouts may be inspected during prompt iteration only after their sealed evaluation. Holdout v2 is quarantined. Holdout v4 is accessed diagnostic evidence. Fresh holdout v5 remains sealed until the v0.50.0 candidate freeze, and its separate 66-record remainder remains untouched.",
   "input_file": "data/normalized/canonical.csv",
   "input_sha256": "97caeb2524ebd2724fa9786d569dd5d5afc3c6c38ee588df626715a5f4b020bc",
   "output_sha256": {
@@ -29,7 +29,7 @@
   },
   "seed": "causal-multiomics-aging-v0.1.0",
   "source_policy": "Fresh deterministic sampling from the 2026-07-27 aging search corpus; no legacy decisions or labels were imported.",
-  "status": "holdout_v3_failed_expert_annotation_pending",
+  "status": "title_v0.50.0_development_pass_holdout_v5_sealed_expert_annotation_pending",
   "strata": {
     "high_signal_development_25.csv": {
       "genetic_instrument": 4,

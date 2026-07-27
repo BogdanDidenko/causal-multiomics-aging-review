@@ -46,11 +46,19 @@ def route_round_a(
         )
         for role, role_config in role_configs.items()
     }
-    route = (
-        config["routing"]["round_a_all_include"]
-        if all(value == "include" for value in decisions.values())
-        else config["routing"]["round_a_otherwise"]
-    )
+    routing = config["routing"]
+    if all(value == "include" for value in decisions.values()):
+        route = routing["round_a_all_include"]
+    elif "round_a_any_exclude" in routing and any(
+        value == "exclude" for value in decisions.values()
+    ):
+        route = routing["round_a_any_exclude"]
+    elif "round_a_any_unclear" in routing and any(
+        value == "unclear" for value in decisions.values()
+    ):
+        route = routing["round_a_any_unclear"]
+    else:
+        route = routing["round_a_otherwise"]
     return route, decisions
 
 
