@@ -5,7 +5,7 @@
     "path": "configs/prompt_suite_v0.50.0.json",
     "sha256": "2cd18706a7bab67f30b4f99293fdf164e2f898beb78eb7d6d8fdcb12278c785f"
   },
-  "approval_status": "draft_title_abstract_v0.50.0_calibration",
+  "approval_status": "rejected_title_abstract_v0.50.0_holdout_failure",
   "approval_date": null,
   "benchmark_version": "calibration_cycle_v0.41.0",
   "created_date": "2026-07-28",

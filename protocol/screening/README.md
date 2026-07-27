@@ -31,9 +31,11 @@ Stability requires five independent sessions with:
 - 0% runtime-triggered manual review.
 
 `v0.50.0` passed both the visible 50-record development set and the accessed
-25-record `v4` diagnostic set at all thresholds. It remains a candidate until
-it passes the fresh, uninspected 25-record `v5` holdout after a Git freeze.
-The 66-record remainder is reserved for a future independent cycle.
+25-record `v4` diagnostic set, but failed the fresh 25-record `v5` holdout.
+Final-route, decisive-path, and all-tracked exact agreement were each `0.92`;
+schema success was `1.00` and manual-review rate was `0.00`. The suite is not
+approved. `v5` is now diagnostic evidence, and the 66-record remainder is
+reserved for a new independent cycle.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned

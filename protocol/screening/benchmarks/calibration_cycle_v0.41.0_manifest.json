@@ -29,7 +29,19 @@
     "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v5_v0.41.0_25.csv",
     "sha256": "3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c",
     "record_count": 25,
-    "status": "candidate_frozen_not_evaluated",
+    "status": "evaluated_fail_now_accessed_diagnostic",
+    "evaluation": {
+      "result_path": "data/screening/stability/sealed-holdout-v5-v0.50.0/stability_summary.json",
+      "result_sha256": "4a217cec9f4224b0011f7e126bad559e9422bd8fd8f6f24c5e152121048db564",
+      "suite_version": "0.50.0",
+      "run_count": 5,
+      "schema_success_rate": 1.0,
+      "final_decision_exact_agreement": 0.92,
+      "decisive_criteria_exact_agreement": 0.92,
+      "all_tracked_criteria_exact_agreement": 0.92,
+      "manual_review_rate": 0.0,
+      "acceptance": "fail"
+    },
     "strata": {
       "genetic_instrument": 3,
       "intervention_or_perturbation": 3,

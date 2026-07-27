@@ -74,6 +74,7 @@ Prompt and schema versions are immutable after execution.
 | v0.49.0 | accessed v4 diagnostic, 25 x 5 | 1.00 | 1.00 | 1.00 | 0.96 | fail |
 | v0.50.0 | accessed v4 diagnostic, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
 | v0.50.0 | visible development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
+| v0.50.0 | sealed holdout v5, 25 x 5 | 1.00 | 0.92 | 0.92 | 0.92 | fail |
 
 The calibration failures localized four recurring sources of nondeterminism:
 
@@ -90,9 +91,13 @@ assessment without claiming that causality is identified.
 
 ## Current Status
 
-Title/abstract `v0.50.0` is a frozen-candidate pending one evaluation on fresh
-holdout `v5`. It is not production-approved until that evaluation passes all
-100% stability gates.
+Title/abstract `v0.50.0` is rejected after failing fresh holdout `v5`. Two of
+25 records had unstable final routes: one at the applied feeding-intervention
+boundary and one at the measured senescent-phenotype boundary. `v5` is now
+accessed diagnostic evidence and cannot be reused as an independent test.
+
+Any successor must be evaluated on a newly sealed holdout sampled only from
+the untouched 66-record remainder.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper

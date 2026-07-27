@@ -9,17 +9,17 @@ causal multi-omics decisions were not reused as labels.
   set.
 - `title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv`: evaluated once
   against frozen `v0.40.0`, then opened and used as diagnostic evidence.
-- `title_abstract_stability_holdout_v5_v0.41.0_25.csv`: fresh 25-record holdout,
-  sealed and uninspected until the `v0.50.0` candidate is frozen in Git.
+- `title_abstract_stability_holdout_v5_v0.41.0_25.csv`: evaluated once against
+  frozen `v0.50.0`, failed, and is now accessed diagnostic evidence.
 - `title_abstract_regression_v0.41.0_remaining_66.csv`: untouched remainder
   reserved for a later calibration cycle.
 - `title_abstract_holdout_v2_quarantined_25.csv`: invalidated after accidental
   partial disclosure and never valid as final evidence.
 
-The `v5` selection is deterministic and disjoint from the accessed 50-record
+The `v5` selection was deterministic and disjoint from the accessed 50-record
 development set and 25-record `v4` set. Its fixed SHA-256 is
 `3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c`.
-Selection details and stratum counts are recorded in
+Selection details, stratum counts, and the failed evaluation are recorded in
 `calibration_cycle_v0.41.0_manifest.json`.
 
 All expert fields remain blank. Sampling strata are retrieval diagnostics, not
