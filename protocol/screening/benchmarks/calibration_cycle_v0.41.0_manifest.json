@@ -1,6 +1,11 @@
 {
   "cycle_version": "0.41.0",
   "created_date": "2026-07-27",
+  "frozen_candidate": {
+    "suite_version": "0.50.0",
+    "candidate_commit": "4ddbbe65f97d49afefbd012774eb002aa6db498c",
+    "freeze_manifest": "protocol/screening/frozen_candidates/title_abstract_v0.50.0.json"
+  },
   "selection_seed": "causal-multiomics-aging|sealed-holdout-v5|v0.41.0",
   "selection_method": "ascending_sha256_of_seed_and_canonical_id",
   "source": {
@@ -24,7 +29,7 @@
     "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v5_v0.41.0_25.csv",
     "sha256": "3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c",
     "record_count": 25,
-    "status": "sealed_do_not_inspect_before_candidate_freeze",
+    "status": "candidate_frozen_not_evaluated",
     "strata": {
       "genetic_instrument": 3,
       "intervention_or_perturbation": 3,

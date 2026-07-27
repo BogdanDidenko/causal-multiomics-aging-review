@@ -1,0 +1,77 @@
+{
+  "freeze_status": "frozen_before_sealed_holdout",
+  "freeze_date": "2026-07-27",
+  "candidate_commit": "4ddbbe65f97d49afefbd012774eb002aa6db498c",
+  "suite": {
+    "id": "causal_multiomics_aging_screening",
+    "version": "0.50.0",
+    "config_path": "protocol/screening/configs/prompt_suite_v0.50.0.json",
+    "config_sha256": "2cd18706a7bab67f30b4f99293fdf164e2f898beb78eb7d6d8fdcb12278c785f"
+  },
+  "runtime": {
+    "provider": "codex_cli",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "replicates": 5,
+    "plugins_disabled": true
+  },
+  "title_abstract_artifacts": [
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.50.0/scope_reviewer.txt",
+      "sha256": "eea95393af682b3660c4198a0dd790247272efcaa48c7c41786302cf9f2b2ea6"
+    },
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.50.0/causal_design_reviewer.txt",
+      "sha256": "5195d26fd772ed3463e86be1ac430369135eb0ee6de229c143dc84e3b67f0200"
+    },
+    {
+      "path": "protocol/screening/prompts/title_abstract/v0.50.0/adjudicator.txt",
+      "sha256": "7d7e5ba23b86739aec00ac41481c1f8d819beb4a150eeba1fe8b5711fa8bb80a"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.50.0/scope_reviewer.schema.json",
+      "sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.50.0/causal_design_reviewer.schema.json",
+      "sha256": "c9cbee11106cca69f0962c05c73e3b03e68caf51612107a35a0965f1e69fbcc1"
+    },
+    {
+      "path": "protocol/screening/schemas/title_abstract/v0.50.0/adjudicator.schema.json",
+      "sha256": "8f782ffcb18497f675969749181f976cc52466ef606c153e236699c9d4d104ed"
+    }
+  ],
+  "visible_development": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+    "benchmark_sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c",
+    "record_count": 50,
+    "run_count": 5,
+    "result_path": "data/screening/stability/development-full-50-v0.50.0/stability_summary.json",
+    "result_sha256": "de4f4723ac9481bfdcb45fd82252386088e735691804cc86a3b919f916011139",
+    "acceptance": "pass",
+    "all_tracked_criteria_exact_agreement": 1.0
+  },
+  "accessed_diagnostic": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+    "benchmark_sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216",
+    "record_count": 25,
+    "run_count": 5,
+    "result_path": "data/screening/stability/failed-v4-full-diagnostic-v0.50.0/stability_summary.json",
+    "result_sha256": "9ec3e4ea25ff3b98562d9cad25e17d5fd02cb00343b6ecf51c037184834cda60",
+    "acceptance": "pass",
+    "all_tracked_criteria_exact_agreement": 1.0
+  },
+  "sealed_holdout": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v5_v0.41.0_25.csv",
+    "benchmark_sha256": "3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c",
+    "record_count": 25,
+    "access_status_at_freeze": "not_evaluated"
+  },
+  "untouched_remainder": {
+    "benchmark_path": "protocol/screening/benchmarks/title_abstract_regression_v0.41.0_remaining_66.csv",
+    "benchmark_sha256": "d3a7e64adbfed1b09c091c9d3ca5c627fd2cdcb300c2d23a47278f87418291b7",
+    "record_count": 66,
+    "access_status_at_freeze": "untouched"
+  }
+}
