@@ -7,55 +7,21 @@ TITLE_DECISIVE_PATHS = (
     "round_a.scope_reviewer.report_type",
     "round_a.scope_reviewer.bio_health_scope",
     "round_a.scope_reviewer.aging_process_relevance",
-    "round_a.scope_reviewer.aging_intervention_target_analyzed",
-    "round_a.scope_reviewer.longevity_or_healthspan_analyzed",
-    "round_a.scope_reviewer.aging_measure_or_trajectory_analyzed",
-    "round_a.scope_reviewer.aging_mechanism_analyzed",
-    "round_a.scope_reviewer.aging_role",
     "round_a.scope_reviewer.multiomics_status",
-    "round_a.scope_reviewer.same_sample_or_participants",
-    "round_a.scope_reviewer.external_molecular_data_linked",
-    "round_a.scope_reviewer.distinct_molecular_datasets_linked",
-    "round_a.scope_reviewer.cross_layer_operation_reported",
-    "round_a.scope_reviewer.integration_mode",
-    "round_a.causal_design_reviewer.causal_claim_present",
+    "round_a.scope_reviewer.omics_layer_categories",
     "round_a.causal_design_reviewer.identification_status",
-    "round_a.causal_design_reviewer.design_families",
-    "round_a.causal_design_reviewer.design_role",
     "adjudication.report_type",
     "adjudication.bio_health_scope",
     "adjudication.aging_process_relevance",
-    "adjudication.aging_intervention_target_analyzed",
-    "adjudication.longevity_or_healthspan_analyzed",
-    "adjudication.aging_measure_or_trajectory_analyzed",
-    "adjudication.aging_mechanism_analyzed",
-    "adjudication.aging_role",
     "adjudication.multiomics_status",
-    "adjudication.same_sample_or_participants",
-    "adjudication.external_molecular_data_linked",
-    "adjudication.distinct_molecular_datasets_linked",
-    "adjudication.cross_layer_operation_reported",
-    "adjudication.integration_mode",
+    "adjudication.omics_layer_categories",
     "adjudication.identification_status",
-    "adjudication.design_families",
-    "adjudication.design_role",
     "selected_criteria.report_type",
     "selected_criteria.bio_health_scope",
     "selected_criteria.aging_process_relevance",
-    "selected_criteria.aging_intervention_target_analyzed",
-    "selected_criteria.longevity_or_healthspan_analyzed",
-    "selected_criteria.aging_measure_or_trajectory_analyzed",
-    "selected_criteria.aging_mechanism_analyzed",
-    "selected_criteria.aging_role",
     "selected_criteria.multiomics_status",
-    "selected_criteria.same_sample_or_participants",
-    "selected_criteria.external_molecular_data_linked",
-    "selected_criteria.distinct_molecular_datasets_linked",
-    "selected_criteria.cross_layer_operation_reported",
-    "selected_criteria.integration_mode",
+    "selected_criteria.omics_layer_categories",
     "selected_criteria.identification_status",
-    "selected_criteria.design_families",
-    "selected_criteria.design_role",
     "final_decision",
     "final_exclusion_code",
 )
@@ -107,12 +73,9 @@ TITLE_SELECTED_DECISIVE_FIELDS = (
     "report_type",
     "bio_health_scope",
     "aging_process_relevance",
-    "aging_role",
     "multiomics_status",
-    "integration_mode",
+    "omics_layer_categories",
     "identification_status",
-    "design_families",
-    "design_role",
 )
 
 
@@ -248,7 +211,11 @@ def _decisive_signature(row: dict[str, Any], stage: str) -> dict[str, Any]:
     if stage == "title_abstract":
         selected = row.get("selected_criteria", {})
         for field in TITLE_SELECTED_DECISIVE_FIELDS:
-            signature[f"selected_criteria.{field}"] = _normalize(selected.get(field))
+            signature[f"selected_criteria.{field}"] = (
+                _omics_layer_categories(selected)
+                if field == "omics_layer_categories"
+                else _normalize(selected.get(field))
+            )
     else:
         selected_prefix = "selected_criteria."
         for path in decisive_paths(stage):
@@ -272,12 +239,35 @@ def _signature_disagreements(
 
 
 def _normalized_path(row: dict[str, Any], path: str) -> Any:
+    if path.endswith(".omics_layer_categories"):
+        parent_path = path.rsplit(".", 1)[0]
+        value: Any = row
+        for part in parent_path.split("."):
+            if not isinstance(value, dict):
+                return []
+            value = value.get(part)
+        return _omics_layer_categories(value)
     value: Any = row
     for part in path.split("."):
         if not isinstance(value, dict):
             return None
         value = value.get(part)
     return _normalize(value)
+
+
+def _omics_layer_categories(value: Any) -> list[str]:
+    if not isinstance(value, dict):
+        return []
+    layers = value.get("omics_layers", [])
+    if not isinstance(layers, list):
+        return []
+    return sorted(
+        {
+            str(item["layer"])
+            for item in layers
+            if isinstance(item, dict) and item.get("layer")
+        }
+    )
 
 
 def _normalize(value: Any) -> Any:

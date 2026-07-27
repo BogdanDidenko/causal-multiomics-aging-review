@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCREENING = ROOT / "protocol" / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.16.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.40.0.json"
 OUTPUT = SCREENING / "prompt_manifest.json"
 
 
@@ -72,20 +72,29 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "title_abstract_holdout_failed_new_cycle_required",
+        "approval_status": "draft_title_abstract_v0.40.0_calibration",
         "approval_date": None,
-        "benchmark_version": "stability_holdout_v3_evaluated",
+        "benchmark_version": "calibration_cycle_v0.24.0",
         "created_date": date.today().isoformat(),
         "change_note": (
-            "Title/abstract v0.16.0 adds a substantive-aging-analysis exception "
-            "to method-first report typing and excludes ordinary regulatory or "
-            "co-expression networks from causal graphical designs. Python "
-            "derives aging role and integration mode using fixed precedence "
-            "tables. The frozen suite passed the 25-record development pilot "
-            "but failed its first sealed 25-record holdout at 92% final-routing "
-            "and 72% decisive-path exact agreement across five runs. It must "
-            "not be approved or tuned against that holdout within the same "
-            "calibration cycle. Full-text prompts remain v0.1.0 and unvalidated."
+            "Title/abstract v0.40.0 continues the new calibration cycle after "
+            "v0.16.0 holdout failure. It limits model classification to fields "
+            "that determine title/abstract PRISMA routing: report type, "
+            "biological or health scope, aging-process relevance, used "
+            "molecular-layer categories, multi-omics status, and identification "
+            "status. Aging-role and design-family subtyping, design role, "
+            "integration provenance, and validation strength are deferred to "
+            "full text because abstracts can support multiple equally valid "
+            "subtypes and those fields do not alter title-stage routing. "
+            "Association-only and absent-design states remain one noncausal "
+            "status at this stage. Python is limited to logical consistency "
+            "rules: layer-count validation, PRISMA short-circuiting, and legacy "
+            "status normalization. Stability requires exact agreement for every "
+            "returned categorical field and normalized molecular-layer set; "
+            "free-text rationales and evidence-span wording are audited but not "
+            "exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning "
+            "with plugins disabled. Full-text prompts remain v0.1.0 and "
+            "unvalidated."
         ),
         "artifacts": artifacts,
     }

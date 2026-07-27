@@ -1,0 +1,66 @@
+{
+  "calibration_cycle": "title_abstract_v0.17.0",
+  "created_date": "2026-07-27",
+  "development": {
+    "output_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.17.0_50.csv",
+    "output_sha256": "56dcdc58d1432fd3999d0dc819a0e4d61854b8317bd756d6ebffdaa529c07be7",
+    "record_count": 50,
+    "sources": [
+      {
+        "path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.3.0_25.csv",
+        "sha256": "9df1a10e2723420e2a0953e33c4eec1c3e3fc485ab17da1482552449cf06ad36",
+        "status": "visible_development"
+      },
+      {
+        "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_25.csv",
+        "sha256": "e71a57550427d2e9711682aae7123a4c8d0666304395717a726f230e3c90f661",
+        "status": "failed_holdout_v3_now_development_only"
+      }
+    ],
+    "status": "visible",
+    "strata": {
+      "genetic_instrument": 7,
+      "intervention_or_perturbation": 6,
+      "mediation_or_directed_model": 5,
+      "metadata_boundary_missing_aging_causal": 5,
+      "metadata_boundary_missing_causal": 6,
+      "metadata_boundary_missing_multiomics_aging_causal": 5,
+      "metadata_boundary_missing_multiomics_causal": 4,
+      "other_explicit_causal": 4,
+      "possible_nonempirical": 4,
+      "thin_abstract_boundary": 4
+    }
+  },
+  "disjoint": {
+    "development_vs_holdout_v4": true,
+    "holdout_v4_vs_regression_remainder": true
+  },
+  "regression_remainder": {
+    "output_path": "protocol/screening/benchmarks/title_abstract_regression_v0.17.0_remaining_91.csv",
+    "output_sha256": "41df4791389a130449165e8e3d3fc3113e841ee30244079598d789550a8c1a5f",
+    "record_count": 91,
+    "status": "uninspected"
+  },
+  "sealed_holdout_v4": {
+    "output_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_25.csv",
+    "output_sha256": "32e2a80d60db0335e6d0328c0006eb84ca6dfb6b96a9ddcef4c97f43cc7e99ff",
+    "record_count": 25,
+    "selection_policy": "Deterministic round-robin across existing sampling strata after machine-only metadata-quality filtering; record content was not printed or manually inspected.",
+    "source_path": "protocol/screening/benchmarks/title_abstract_regression_116.csv",
+    "source_sha256": "89dac4c57d90a01cee4ea3b36db5afb6b59aa51b00ce330687c1be3937f55cf1",
+    "status": "sealed_uninspected",
+    "strata": {
+      "genetic_instrument": 3,
+      "intervention_or_perturbation": 3,
+      "mediation_or_directed_model": 3,
+      "metadata_boundary_missing_aging_causal": 3,
+      "metadata_boundary_missing_causal": 3,
+      "metadata_boundary_missing_multiomics_aging_causal": 2,
+      "metadata_boundary_missing_multiomics_causal": 2,
+      "other_explicit_causal": 2,
+      "possible_nonempirical": 2,
+      "thin_abstract_boundary": 2
+    }
+  },
+  "seed": "causal-multiomics-aging-title-v0.17.0-holdout-v4"
+}

@@ -79,7 +79,8 @@ def test_deterministic_evidence_levels(
 
 
 def test_exclusion_code_is_criterion_derived() -> None:
-    assert derive_exclusion_code({"report_type": "methods_only"}) == "EC2"
+    assert derive_exclusion_code({"report_type": "nonempirical"}) == "EC1"
+    assert derive_exclusion_code({"bio_health_scope": "no"}) == "EC2"
     assert derive_exclusion_code({"aging_process_relevance": "no"}) == "EC3"
     assert derive_exclusion_code({"multiomics_status": "no"}) == "EC4"
     assert derive_exclusion_code({"identification_status": "association_only"}) == "EC5"

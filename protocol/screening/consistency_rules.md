@@ -5,53 +5,48 @@ between those criteria; it does not infer eligibility from keywords.
 
 ## Title/abstract
 
-1. The model independently classifies four aging-role indicators. Python
-   derives `aging_role` with this fixed precedence:
-
-| Condition | Derived aging role |
-|---|---|
-| `aging_process_relevance=no` | `age_context_only` |
-| `aging_process_relevance=unclear` | `unclear` |
-| intervention target analyzed `yes` | `aging_intervention_target` |
-| longevity/healthspan analyzed `yes` | `longevity_or_healthspan` |
-| aging measure/trajectory analyzed `yes` | `aging_outcome_or_trajectory` |
-| aging mechanism analyzed `yes` | `aging_mechanism` |
-| no indicator is `yes` | `unclear` |
-
-   When relevance is `no`, all four indicators are normalized to `no`.
-
-2. When `aging_process_relevance=no`, the review-specific causal fields become:
+1. Report type is localized to the decisive IC1 contract:
+   `empirical_primary`, `nonempirical`, or `unclear`. Review, protocol,
+   method-only, and resource subtypes are deferred because they share the same
+   title/abstract route and exclusion code.
+2. The title/abstract model directly classifies a localized aging role using a
+   closed precedence table: applied aging intervention, organismal
+   longevity/healthspan, other aging measure or process, age context only, or
+   unclear. Mechanism versus outcome/trajectory is deferred to full text
+   because it has no title/abstract routing consequence. Python does not infer
+   the aging construct from keywords.
+3. When `aging_process_relevance=no`, the adjudicated review-specific causal
+   fields become:
    `causal_claim_present=no`,
-   `identification_status=no_relevant_design`, `design_families=[]`, and
-   `design_role=mentioned_only`. A design about an unrelated disease cannot be
-   relevant to the aging review.
-3. Report-level `design_role` is derived from `identification_status`:
+   `identification_status=noncausal`,
+   `primary_design_family=none`, `design_families=[]`, and
+   `design_role=mentioned_only`. The independent causal reviewer can still
+   describe a report-level design before review-specific adjudication.
+4. Title/abstract `causal_claim_present`, `design_role`, and the compatibility
+   `design_families` list are derived from `identification_status` and the one
+   model-selected primary design family:
 
 | Identification status | Derived design role |
 |---|---|
 | `identified` | `primary_identification` |
 | `hypothesis_only` | `hypothesis_generation` |
+| `noncausal` | `mentioned_only` |
 | `association_only` | `mentioned_only` |
 | `no_relevant_design` | `mentioned_only` |
 | `unclear` | `unclear` |
 
-4. The model independently classifies three observable multi-omics facts:
-   `same_sample_or_participants`, `distinct_molecular_datasets_linked`, and
-   `cross_layer_operation_reported`. Python derives `integration_mode` with
-   this fixed precedence:
+5. Python checks the model-extracted molecular-layer list. Two or more distinct
+   non-contextual normalized layers imply `multiomics_status=yes`; a claimed
+   `yes` with fewer than two supported layers becomes `unclear`.
+6. PRISMA criteria are ordered. After a nonempirical report type or
+   `aging_process_relevance=no`, title/abstract multi-omics becomes
+   `not_assessed` and its layer list is cleared. Detailed same-sample
+   provenance, cross-layer operations, integration mode, and secondary design
+   families are assessed only at full text.
 
-| Condition | Derived integration mode |
-|---|---|
-| `multiomics_status=unclear` | `unclear` |
-| `multiomics_status=no` and all layers contextual or report nonempirical | `external_context_only` |
-| `multiomics_status=no` otherwise | `single_layer_only` |
-| `distinct_molecular_datasets_linked=yes` | `cross_dataset_integrated` |
-| same sample `yes` and cross-layer operation `yes` | `same_study_joint_integration` |
-| same sample `yes` and cross-layer operation `no` | `same_study_parallel_measurement` |
-| any other multi-omics combination | `unclear` |
-
-This rule does not infer whether a study is multi-omics. It only converts
-model-classified provenance facts into a normalized integration label.
+The title/abstract exclusion mapping follows the same criterion order:
+`EC1=nonempirical`, `EC2=non-biological/health`, `EC3=non-aging`,
+`EC4=non-multi-omics`, and `EC5=noncausal`.
 
 The provider's unmodified JSON is retained in
 `raw_provider_responses.jsonl`. Normalized criterion output and the names of

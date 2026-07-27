@@ -10,6 +10,7 @@ TITLE_ACCEPTANCE = {
     "schema_success_rate": 1.0,
     "final_decision_exact_agreement": 1.0,
     "decisive_criteria_exact_agreement": 1.0,
+    "all_tracked_criteria_exact_agreement": 1.0,
     "causal_evidence_level_exact_agreement": 1.0,
     "manual_review_rate": 0.0,
 }
@@ -24,19 +25,12 @@ def title_result(identification_status: str = "identified") -> dict[str, object]
             "report_type": "empirical_primary",
             "bio_health_scope": "yes",
             "aging_process_relevance": "yes",
-            "aging_intervention_target_analyzed": "no",
-            "longevity_or_healthspan_analyzed": "yes",
-            "aging_measure_or_trajectory_analyzed": "no",
-            "aging_mechanism_analyzed": "no",
-            "aging_role": "longevity_or_healthspan",
             "multiomics_status": "yes",
-            "same_sample_or_participants": "no",
-            "distinct_molecular_datasets_linked": "yes",
-            "cross_layer_operation_reported": "yes",
-            "integration_mode": "cross_dataset_integrated",
+            "omics_layers": [
+                {"layer": "genomics", "raw_term": "GWAS"},
+                {"layer": "transcriptomics", "raw_term": "eQTL"},
+            ],
             "identification_status": identification_status,
-            "design_families": ["genetic_instrument"],
-            "design_role": "primary_identification",
             "evidence_spans": [{"quote": "Different phrasing is ignored."}],
         },
     }
@@ -79,7 +73,21 @@ def test_stability_ignores_downstream_fields_after_same_exclusion_path() -> None
         "selected_criteria.multiomics_status"
         in rows[0]["diagnostic_disagreements"]
     )
-    assert summary["acceptance"]["overall"] == "pass"
+    assert summary["acceptance"]["overall"] == "fail"
+
+
+def test_stability_tracks_normalized_omics_layer_categories() -> None:
+    runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
+    runs["replicate-5"]["r1"]["selected_criteria"]["omics_layers"] = [
+        {"layer": "genomics", "raw_term": "genetic variants"}
+    ]
+    rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
+    assert rows[0]["stable"] is False
+    assert (
+        "selected_criteria.omics_layer_categories"
+        in rows[0]["decisive_disagreements"]
+    )
+    assert summary["acceptance"]["overall"] == "fail"
 
 
 def test_stability_cli_requires_matching_terra_manifests(tmp_path) -> None:
@@ -105,6 +113,7 @@ def test_stability_cli_requires_matching_terra_manifests(tmp_path) -> None:
                         "ignore_user_config": True,
                         "ignore_rules": True,
                         "isolated_home": True,
+                        "disabled_features": ["plugins"],
                         "codex_cli_version": "codex-cli 0.145.0",
                     },
                 }
@@ -156,6 +165,7 @@ def test_stability_cli_rejects_reasoning_effort_drift(tmp_path) -> None:
                         "ignore_user_config": True,
                         "ignore_rules": True,
                         "isolated_home": True,
+                        "disabled_features": ["plugins"],
                         "codex_cli_version": "codex-cli 0.145.0",
                     },
                 }

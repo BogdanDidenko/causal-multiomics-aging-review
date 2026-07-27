@@ -190,6 +190,7 @@ class CodexCliProvider:
         ignore_user_config: bool = True,
         ignore_rules: bool = True,
         isolated_home: bool = True,
+        disabled_features: tuple[str, ...] = ("plugins",),
         auth_path: str | Path | None = None,
         required_cli_version: str | None = None,
         codex_version: str | None = None,
@@ -206,6 +207,7 @@ class CodexCliProvider:
         self.ignore_user_config = ignore_user_config
         self.ignore_rules = ignore_rules
         self.isolated_home = isolated_home
+        self.disabled_features = disabled_features
         self.auth_path = Path(auth_path).expanduser() if auth_path else None
         self.codex_version = codex_version or _read_codex_version(codex_bin, timeout)
         if required_cli_version and self.codex_version != required_cli_version:
@@ -259,6 +261,8 @@ class CodexCliProvider:
                 command.append("--ignore-user-config")
             if self.ignore_rules:
                 command.append("--ignore-rules")
+            for feature in self.disabled_features:
+                command.extend(("--disable", feature))
             environment = None
             if self.isolated_home:
                 codex_home = workdir / "codex-home"

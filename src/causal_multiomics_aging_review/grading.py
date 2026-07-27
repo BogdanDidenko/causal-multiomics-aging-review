@@ -17,10 +17,14 @@ class EvidenceReferenceError(ValueError):
 
 def derive_exclusion_code(answer: dict[str, Any]) -> str:
     report_type = answer.get("report_type")
-    if report_type in {"review_editorial", "protocol"}:
+    if report_type in {
+        "nonempirical",
+        "review_editorial",
+        "protocol",
+        "methods_only",
+        "resource",
+    }:
         return "EC1"
-    if report_type in {"methods_only", "resource"}:
-        return "EC2"
     if answer.get("empirical_primary") == "no":
         return "EC1"
     if answer.get("aging_process_relevance") == "no":
@@ -29,12 +33,13 @@ def derive_exclusion_code(answer: dict[str, Any]) -> str:
         return "EC4"
     if answer.get("identification_status") in {
         "association_only",
+        "noncausal",
         "no_relevant_design",
         "not_applicable",
     } or answer.get("relevant_causal_design") == "no":
         return "EC5"
     if answer.get("bio_health_scope") == "no":
-        return "EC6"
+        return "EC2"
     return "none"
 
 

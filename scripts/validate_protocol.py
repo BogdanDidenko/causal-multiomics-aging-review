@@ -11,11 +11,12 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SCREENING = PROTOCOL / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.16.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.40.0.json"
 SEARCH_CONFIG_PATH = PROTOCOL / "search_config.json"
 MANIFEST_PATH = SCREENING / "prompt_manifest.json"
 
 BASE_PLACEHOLDERS = {"{{RECORD_ID}}", "{{TITLE}}", "{{ABSTRACT}}", "{{YEAR}}", "{{SOURCE}}"}
+TITLE_ABSTRACT_PLACEHOLDERS = {"{{DOCUMENT_TYPE}}"}
 EXTRA_PLACEHOLDERS = {
     ("title_abstract", "adjudicator"): {"{{SCOPE_REVIEW}}", "{{CAUSAL_REVIEW}}"},
     ("full_text", "section_selector"): {"{{SECTION_CATALOG}}"},
@@ -107,6 +108,7 @@ def main() -> None:
         "ignore_user_config": True,
         "ignore_rules": True,
         "isolated_home": True,
+        "disabled_features": ["plugins"],
     }
     for key, expected in expected_provider.items():
         if suite.get("provider", {}).get(key) != expected:
@@ -130,6 +132,7 @@ def main() -> None:
         "schema_success_rate": 1.0,
         "final_decision_exact_agreement": 1.0,
         "decisive_criteria_exact_agreement": 1.0,
+        "all_tracked_criteria_exact_agreement": 1.0,
         "causal_evidence_level_exact_agreement": 1.0,
         "manual_review_rate": 0.0,
     }
@@ -146,7 +149,11 @@ def main() -> None:
             errors.append(f"{stage}.{role}: missing schema")
             continue
         prompt = prompt_path.read_text(encoding="utf-8")
-        missing = BASE_PLACEHOLDERS | EXTRA_PLACEHOLDERS.get((stage, role), set())
+        missing = (
+            BASE_PLACEHOLDERS
+            | (TITLE_ABSTRACT_PLACEHOLDERS if stage == "title_abstract" else set())
+            | EXTRA_PLACEHOLDERS.get((stage, role), set())
+        )
         missing = {item for item in missing if item not in prompt}
         if missing:
             errors.append(f"{stage}.{role}: missing placeholders {sorted(missing)}")
@@ -159,7 +166,7 @@ def main() -> None:
         if "STABILITY CONTRACT" not in prompt:
             errors.append(f"{stage}.{role}: missing stability contract")
         if stage == "title_abstract" and role in {"scope_reviewer", "adjudicator"}:
-            if "aging_process_relevance" not in prompt or "aging_role" not in prompt:
+            if "aging_process_relevance" not in prompt:
                 errors.append(f"{stage}.{role}: missing atomic aging contract")
         try:
             Draft202012Validator.check_schema(load_object(schema_path))

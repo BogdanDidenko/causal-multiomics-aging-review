@@ -102,6 +102,7 @@ def test_codex_cli_provider_fixes_terra_medium_and_enforces_schema(
     assert "--ephemeral" in command
     assert "--ignore-user-config" in command
     assert "--ignore-rules" in command
+    assert command[command.index("--disable") + 1] == "plugins"
     assert captured["auth"] == {"auth_mode": "test"}
     assert captured["codex_home"] != str(Path.home() / ".codex")
     assert provider.codex_version == "codex-cli 0.145.0"

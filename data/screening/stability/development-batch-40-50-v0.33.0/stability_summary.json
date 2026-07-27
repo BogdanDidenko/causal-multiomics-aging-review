@@ -1,0 +1,59 @@
+{
+  "acceptance": {
+    "gates": {
+      "all_tracked_criteria_exact_agreement": {
+        "passed": true,
+        "threshold": 1.0,
+        "value": 1.0
+      },
+      "causal_evidence_level_exact_agreement": {
+        "passed": true,
+        "threshold": 1.0,
+        "value": 1.0
+      },
+      "decisive_criteria_exact_agreement": {
+        "passed": true,
+        "threshold": 1.0,
+        "value": 1.0
+      },
+      "final_decision_exact_agreement": {
+        "passed": true,
+        "threshold": 1.0,
+        "value": 1.0
+      },
+      "manual_review_rate": {
+        "passed": true,
+        "threshold": 0.0,
+        "value": 0.0
+      },
+      "schema_success_rate": {
+        "passed": true,
+        "threshold": 1.0,
+        "value": 1.0
+      }
+    },
+    "overall": "pass"
+  },
+  "metrics": {
+    "all_tracked_criteria_exact_agreement": 1.0,
+    "causal_evidence_level_exact_agreement": 1.0,
+    "decisive_criteria_exact_agreement": 1.0,
+    "final_decision_exact_agreement": 1.0,
+    "fully_stable_record_rate": 1.0,
+    "manual_review_rate": 0.0,
+    "schema_success_rate": 1.0
+  },
+  "model": "gpt-5.6-terra",
+  "model_display_name": "GPT 5.6 Terra Medium",
+  "record_count": 11,
+  "run_count": 5,
+  "run_labels": [
+    "replicate-01",
+    "replicate-02",
+    "replicate-03",
+    "replicate-04",
+    "replicate-05"
+  ],
+  "stage": "title_abstract",
+  "suite_version": "0.33.0"
+}

@@ -102,6 +102,8 @@ def _validate_run_manifest(
         "isolated_home": suite["provider"]["isolated_home"],
         "codex_cli_version": suite["provider"]["codex_cli_version"],
     }
+    if "disabled_features" in suite["provider"]:
+        expected_runtime["disabled_features"] = suite["provider"]["disabled_features"]
     for field, expected in expected_runtime.items():
         actual = runtime.get(field)
         if actual != expected:

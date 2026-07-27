@@ -28,7 +28,14 @@ from .llm import OpenAICompatibleProvider, ProviderError
 from .metadata_quality import title_abstract_metadata_issue
 from .schema import SchemaError, validate_object
 
-PLACEHOLDERS = ("RECORD_ID", "TITLE", "ABSTRACT", "YEAR", "SOURCE")
+PLACEHOLDERS = (
+    "RECORD_ID",
+    "TITLE",
+    "ABSTRACT",
+    "YEAR",
+    "SOURCE",
+    "DOCUMENT_TYPE",
+)
 
 
 def render_prompt(
@@ -42,6 +49,7 @@ def render_prompt(
         "ABSTRACT": str(record.get("abstract", "")),
         "YEAR": str(record.get("year", "")),
         "SOURCE": str(record.get("source", record.get("provenance_sources", ""))),
+        "DOCUMENT_TYPE": str(record.get("document_type", "")),
         **(extra or {}),
     }
     rendered = template
@@ -457,129 +465,120 @@ def _normalize_title_round_a(
     rules: list[str] = []
     scope = answers["scope_reviewer"]
     causal = answers["causal_design_reviewer"]
-    if _derive_title_aging_role(scope):
-        rules.append("aging_role_derived_from_atomic_indicators")
-    if scope.get("aging_process_relevance") == "no":
-        causal.update(
-            {
-                "causal_claim_present": "no",
-                "identification_status": "no_relevant_design",
-                "design_families": [],
-                "design_role": "mentioned_only",
-            }
+    if _normalize_title_multiomics(scope):
+        rules.append("multiomics_status_normalized_from_used_layer_count")
+    if _normalize_title_design(causal):
+        rules.extend(
+            [
+                "primary_design_family_normalized_from_identification_status",
+                "design_role_derived_from_identification_status",
+                "legacy_design_families_derived_from_primary_family",
+            ]
         )
-        rules.append("no_aging_process_implies_no_relevant_causal_design")
-    _derive_title_integration_mode(scope)
-    rules.append("integration_mode_derived_from_atomic_provenance")
-    _derive_title_design_role(causal)
-    rules.append("design_role_derived_from_identification_status")
+    else:
+        rules.append("title_design_subtyping_deferred_to_full_text")
     return rules
 
 
 def _normalize_title_adjudication(answer: dict[str, Any]) -> list[str]:
     rules: list[str] = []
-    if _derive_title_aging_role(answer):
-        rules.append("aging_role_derived_from_atomic_indicators")
-    if answer.get("aging_process_relevance") == "no":
-        answer.update(
-            {
-                "causal_claim_present": "no",
-                "identification_status": "no_relevant_design",
-                "design_families": [],
-                "design_role": "mentioned_only",
-            }
+    if _normalize_title_multiomics(answer):
+        rules.append("multiomics_status_normalized_from_used_layer_count")
+    if answer.get("aging_process_relevance") == "no" or answer.get(
+        "report_type"
+    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
+        answer["identification_status"] = "noncausal"
+        if "primary_design_family" in answer:
+            answer.update(
+                {
+                    "causal_claim_present": "no",
+                    "primary_design_family": "none",
+                    "design_role": "mentioned_only",
+                }
+            )
+        rules.append("ineligible_scope_implies_no_relevant_causal_design")
+    if _normalize_title_design(answer):
+        rules.extend(
+            [
+                "primary_design_family_normalized_from_identification_status",
+                "design_role_derived_from_identification_status",
+                "legacy_design_families_derived_from_primary_family",
+            ]
         )
-        rules.append("no_aging_process_implies_no_relevant_causal_design")
-    _derive_title_integration_mode(answer)
-    rules.append("integration_mode_derived_from_atomic_provenance")
-    _derive_title_design_role(answer)
-    rules.append("design_role_derived_from_identification_status")
+    else:
+        rules.append("title_design_subtyping_deferred_to_full_text")
     return rules
 
 
-def _derive_title_design_role(answer: dict[str, Any]) -> None:
+def _normalize_title_design(answer: dict[str, Any]) -> bool:
+    status = str(answer.get("identification_status", "unclear"))
+    if status in {"association_only", "no_relevant_design"}:
+        status = "noncausal"
+        answer["identification_status"] = status
+    if "primary_design_family" not in answer:
+        return False
+
     role_by_status = {
         "identified": "primary_identification",
         "hypothesis_only": "hypothesis_generation",
+        "noncausal": "mentioned_only",
         "association_only": "mentioned_only",
         "no_relevant_design": "mentioned_only",
         "unclear": "unclear",
     }
-    if status := answer.get("identification_status"):
-        answer["design_role"] = role_by_status[str(status)]
-
-
-def _derive_title_aging_role(answer: dict[str, Any]) -> bool:
-    fields = (
-        "aging_intervention_target_analyzed",
-        "longevity_or_healthspan_analyzed",
-        "aging_measure_or_trajectory_analyzed",
-        "aging_mechanism_analyzed",
-    )
-    relevance = answer.get("aging_process_relevance")
-    has_atomic_contract = all(field in answer for field in fields)
-    if relevance == "no":
-        if has_atomic_contract:
-            for field in fields:
-                answer[field] = "no"
-        answer["aging_role"] = "age_context_only"
-        return True
-    if not has_atomic_contract:
-        return False
-    if relevance == "unclear":
-        answer["aging_role"] = "unclear"
-    elif answer["aging_intervention_target_analyzed"] == "yes":
-        answer["aging_role"] = "aging_intervention_target"
-    elif answer["longevity_or_healthspan_analyzed"] == "yes":
-        answer["aging_role"] = "longevity_or_healthspan"
-    elif answer["aging_measure_or_trajectory_analyzed"] == "yes":
-        answer["aging_role"] = "aging_outcome_or_trajectory"
-    elif answer["aging_mechanism_analyzed"] == "yes":
-        answer["aging_role"] = "aging_mechanism"
-    else:
-        answer["aging_role"] = "unclear"
+    family = str(answer.get("primary_design_family", "unclear"))
+    if status in {"noncausal", "association_only", "no_relevant_design"}:
+        family = "none"
+    elif status == "unclear":
+        family = "unclear"
+    elif status == "hypothesis_only" and family in {"none", "unclear"}:
+        family = "other"
+    elif status == "identified" and family in {"none", "unclear"}:
+        status = "unclear"
+        family = "unclear"
+        answer["identification_status"] = status
+    claim_by_status = {
+        "identified": "yes",
+        "hypothesis_only": "yes",
+        "noncausal": "no",
+        "association_only": "no",
+        "no_relevant_design": "no",
+        "unclear": "unclear",
+    }
+    answer["causal_claim_present"] = claim_by_status[status]
+    answer["primary_design_family"] = family
+    answer["design_role"] = role_by_status[status]
+    answer["design_families"] = [] if family in {"none", "unclear"} else [family]
     return True
 
 
-def _derive_title_integration_mode(answer: dict[str, Any]) -> None:
-    multiomics = answer.get("multiomics_status")
-    if multiomics == "unclear":
-        answer["integration_mode"] = "unclear"
-        return
-    if multiomics == "no":
-        layers = answer.get("omics_layers", [])
-        context_only = bool(layers) and all(
-            layer.get("use_status") == "context_only" for layer in layers
+def _normalize_title_multiomics(answer: dict[str, Any]) -> bool:
+    status = answer.get("multiomics_status")
+    if answer.get("aging_process_relevance") == "no" or answer.get(
+        "report_type"
+    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
+        answer["multiomics_status"] = "not_assessed"
+        answer["omics_layers"] = []
+        return status != "not_assessed"
+    layers = answer.get("omics_layers", [])
+    used_layers = {
+        item.get("layer")
+        for item in layers
+        if isinstance(item, dict)
+        and (
+            "use_status" not in item
+            or item.get("use_status")
+            in {"measured_in_study", "external_dataset_analyzed"}
         )
-        nonempirical = answer.get("report_type") in {
-            "review_editorial",
-            "protocol",
-            "methods_only",
-            "resource",
-        }
-        answer["integration_mode"] = (
-            "external_context_only"
-            if context_only or nonempirical
-            else "single_layer_only"
-        )
-        return
-    distinct_datasets_linked = answer.get("distinct_molecular_datasets_linked")
-    if distinct_datasets_linked is None:
-        distinct_datasets_linked = answer.get("external_molecular_data_linked")
-    if distinct_datasets_linked == "yes":
-        answer["integration_mode"] = "cross_dataset_integrated"
-    elif (
-        answer.get("same_sample_or_participants") == "yes"
-        and answer.get("cross_layer_operation_reported") == "yes"
-    ):
-        answer["integration_mode"] = "same_study_joint_integration"
-    elif (
-        answer.get("same_sample_or_participants") == "yes"
-        and answer.get("cross_layer_operation_reported") == "no"
-    ):
-        answer["integration_mode"] = "same_study_parallel_measurement"
-    else:
-        answer["integration_mode"] = "unclear"
+    }
+    used_layers.discard(None)
+    normalized = status
+    if len(used_layers) >= 2:
+        normalized = "yes"
+    elif status == "yes":
+        normalized = "unclear"
+    answer["multiomics_status"] = normalized
+    return normalized != status
 
 
 def _process_full_text_record(
@@ -844,6 +843,7 @@ def _provider_runtime(provider: OpenAICompatibleProvider) -> dict[str, Any]:
         "ignore_user_config": getattr(provider, "ignore_user_config", None),
         "ignore_rules": getattr(provider, "ignore_rules", None),
         "isolated_home": getattr(provider, "isolated_home", None),
+        "disabled_features": list(getattr(provider, "disabled_features", ())),
     }
 
 

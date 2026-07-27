@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "aging_role",
+    "multiomics_status",
+    "omics_layers",
+    "causal_claim_present",
+    "identification_status",
+    "primary_design_family",
+    "design_role",
+    "exposure_or_intervention",
+    "comparator",
+    "outcome",
+    "estimand_or_contrast",
+    "resolution_status",
+    "evidence_spans",
+    "boundary_cases",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {
+      "enum": [
+        "empirical_primary",
+        "nonempirical",
+        "unclear"
+      ]
+    },
+    "bio_health_scope": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "aging_process_relevance": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "aging_role": {
+      "enum": [
+        "aging_measure_or_process",
+        "longevity_or_healthspan",
+        "aging_intervention_target",
+        "age_context_only",
+        "unclear"
+      ]
+    },
+    "multiomics_status": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "omics_layers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/omics_layer"}
+    },
+    "causal_claim_present": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "identification_status": {
+      "enum": [
+        "identified",
+        "hypothesis_only",
+        "noncausal",
+        "unclear"
+      ]
+    },
+    "primary_design_family": {
+      "$ref": "#/$defs/design_family"
+    },
+    "design_role": {
+      "enum": [
+        "primary_identification",
+        "hypothesis_generation",
+        "mentioned_only",
+        "unclear"
+      ]
+    },
+    "exposure_or_intervention": {"type": "string"},
+    "comparator": {"type": "string"},
+    "outcome": {"type": "string"},
+    "estimand_or_contrast": {"type": "string"},
+    "resolution_status": {
+      "enum": [
+        "resolved",
+        "insufficient_title_abstract",
+        "conflict_unresolved"
+      ]
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/title_abstract_evidence"}
+    },
+    "boundary_cases": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "design_family": {
+      "enum": [
+        "genetic_instrument",
+        "randomized_intervention",
+        "nonrandomized_experimental_manipulation",
+        "temporal_design",
+        "formal_mediation",
+        "graphical_or_directed_model",
+        "other",
+        "none",
+        "unclear"
+      ]
+    },
+    "omics_layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layer", "raw_term"],
+      "properties": {
+        "layer": {
+          "enum": [
+            "genomics",
+            "epigenomics",
+            "transcriptomics",
+            "proteomics",
+            "metabolomics",
+            "lipidomics",
+            "microbiomics",
+            "other_molecular_omics"
+          ]
+        },
+        "raw_term": {"type": "string", "minLength": 1}
+      }
+    },
+    "title_abstract_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "report_type",
+            "bio_health_scope",
+            "aging_process_relevance",
+            "aging_role",
+            "multiomics_status",
+            "causal_claim_present",
+            "identification_status",
+            "primary_design_family",
+            "design_role",
+            "exposure_or_intervention",
+            "outcome",
+            "estimand_or_contrast"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "calibration_cycle": "title_abstract_v0.24.0",
+  "canonical_source": {
+    "path": "data/normalized/canonical.csv",
+    "sha256": "97caeb2524ebd2724fa9786d569dd5d5afc3c6c38ee588df626715a5f4b020bc"
+  },
+  "created_date": "2026-07-27",
+  "metadata_fields": [
+    "document_type"
+  ],
+  "operation": "machine_only_document_type_enrichment",
+  "sets": {
+    "development": {
+      "input_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.17.0_50.csv",
+      "input_sha256": "56dcdc58d1432fd3999d0dc819a0e4d61854b8317bd756d6ebffdaa529c07be7",
+      "output_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+      "output_sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c",
+      "record_count": 50,
+      "status": "visible_development"
+    },
+    "regression_remainder": {
+      "input_path": "protocol/screening/benchmarks/title_abstract_regression_v0.17.0_remaining_91.csv",
+      "input_sha256": "41df4791389a130449165e8e3d3fc3113e841ee30244079598d789550a8c1a5f",
+      "output_path": "protocol/screening/benchmarks/title_abstract_regression_v0.24.0_remaining_91.csv",
+      "output_sha256": "8f9aa73ce86b86937d402ca8dedbd156bb3e97a17b96cbce33d4e482a23b6ad9",
+      "record_count": 91,
+      "status": "uninspected"
+    },
+    "sealed_holdout_v4": {
+      "input_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_25.csv",
+      "input_sha256": "32e2a80d60db0335e6d0328c0006eb84ca6dfb6b96a9ddcef4c97f43cc7e99ff",
+      "output_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+      "output_sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216",
+      "record_count": 25,
+      "status": "sealed_uninspected_machine_enriched"
+    }
+  }
+}

@@ -28,28 +28,15 @@ def scope_answer() -> dict[str, object]:
         "report_type": "empirical_primary",
         "bio_health_scope": "yes",
         "aging_process_relevance": "yes",
-        "aging_intervention_target_analyzed": "no",
-        "longevity_or_healthspan_analyzed": "yes",
-        "aging_measure_or_trajectory_analyzed": "no",
-        "aging_mechanism_analyzed": "no",
-        "aging_role": "longevity_or_healthspan",
         "multiomics_status": "yes",
-        "same_sample_or_participants": "no",
-        "distinct_molecular_datasets_linked": "yes",
-        "cross_layer_operation_reported": "yes",
-        "integration_mode": "cross_dataset_integrated",
         "omics_layers": [
             {
                 "layer": "genomics",
                 "raw_term": "GWAS",
-                "use_status": "external_dataset_analyzed",
-                "analytic_role": "outcome associations",
             },
             {
                 "layer": "transcriptomics",
                 "raw_term": "eQTL",
-                "use_status": "external_dataset_analyzed",
-                "analytic_role": "molecular exposure",
             },
         ],
         "evidence_spans": [
@@ -63,10 +50,7 @@ def scope_answer() -> dict[str, object]:
 
 def causal_title_answer() -> dict[str, object]:
     return {
-        "causal_claim_present": "yes",
         "identification_status": "identified",
-        "design_families": ["genetic_instrument"],
-        "design_role": "primary_identification",
         "exposure_or_intervention": "genetically predicted expression",
         "comparator": "per allele expression contrast",
         "outcome": "healthspan",
@@ -396,7 +380,7 @@ def test_thin_abstract_uncertainty_proceeds_to_full_text(tmp_path) -> None:
     assert counts == {"seek_full_text": 1}
 
 
-def test_title_consistency_rules_override_nonaging_design_and_role(tmp_path) -> None:
+def test_title_consistency_rules_short_circuit_nonaging_design(tmp_path) -> None:
     input_path = tmp_path / "records.csv"
     input_path.write_text(
         "record_id,title,abstract,year,source\n"
@@ -406,23 +390,15 @@ def test_title_consistency_rules_override_nonaging_design_and_role(tmp_path) -> 
     scope = {
         **scope_answer(),
         "aging_process_relevance": "no",
-        "aging_role": "age_context_only",
     }
     causal = {
         **causal_title_answer(),
-        "causal_claim_present": "yes",
-        "identification_status": "association_only",
-        "design_families": ["other"],
-        "design_role": "unclear",
+        "identification_status": "noncausal",
     }
     adjudication = {
         **title_adjudication_answer("resolved"),
         "aging_process_relevance": "no",
-        "aging_role": "age_context_only",
-        "causal_claim_present": "yes",
-        "identification_status": "association_only",
-        "design_families": ["other"],
-        "design_role": "unclear",
+        "identification_status": "noncausal",
     }
     provider = QueueProvider(
         {
@@ -435,26 +411,26 @@ def test_title_consistency_rules_override_nonaging_design_and_role(tmp_path) -> 
     counts = run_stage_screening(input_path, output, provider)
     result = json.loads((output / "screening_results.jsonl").read_text())
     assert counts == {"exclude": 1}
-    assert result["round_a"]["causal_design_reviewer"]["causal_claim_present"] == "no"
     assert (
         result["round_a"]["causal_design_reviewer"]["identification_status"]
-        == "no_relevant_design"
+        == "noncausal"
     )
-    assert result["round_a"]["causal_design_reviewer"]["design_families"] == []
-    assert result["selected_criteria"]["design_role"] == "mentioned_only"
+    assert "primary_design_family" not in result["round_a"]["causal_design_reviewer"]
+    assert "design_role" not in result["round_a"]["causal_design_reviewer"]
+    assert result["round_a"]["scope_reviewer"]["multiomics_status"] == "not_assessed"
+    assert "primary_design_family" not in result["selected_criteria"]
+    assert "design_role" not in result["selected_criteria"]
+    assert result["selected_criteria"]["multiomics_status"] == "not_assessed"
     assert result["consistency_rules_applied"] == [
-        "aging_role_derived_from_atomic_indicators",
-        "no_aging_process_implies_no_relevant_causal_design",
-        "integration_mode_derived_from_atomic_provenance",
-        "design_role_derived_from_identification_status",
-        "aging_role_derived_from_atomic_indicators",
-        "no_aging_process_implies_no_relevant_causal_design",
-        "integration_mode_derived_from_atomic_provenance",
-        "design_role_derived_from_identification_status",
+        "multiomics_status_normalized_from_used_layer_count",
+        "title_design_subtyping_deferred_to_full_text",
+        "multiomics_status_normalized_from_used_layer_count",
+        "ineligible_scope_implies_no_relevant_causal_design",
+        "title_design_subtyping_deferred_to_full_text",
     ]
 
 
-def test_title_integration_mode_is_derived_from_atomic_provenance(tmp_path) -> None:
+def test_title_multiomics_yes_requires_two_used_layers(tmp_path) -> None:
     input_path = tmp_path / "records.csv"
     input_path.write_text(
         "record_id,title,abstract,year,source\n"
@@ -463,33 +439,37 @@ def test_title_integration_mode_is_derived_from_atomic_provenance(tmp_path) -> N
     )
     scope = {
         **scope_answer(),
-        "same_sample_or_participants": "yes",
-        "distinct_molecular_datasets_linked": "yes",
-        "cross_layer_operation_reported": "yes",
-        "integration_mode": "same_study_joint_integration",
+        "multiomics_status": "yes",
+        "omics_layers": [
+            {
+                "layer": "genomics",
+                "raw_term": "GWAS",
+            }
+        ],
+    }
+    adjudication = {
+        **title_adjudication_answer("insufficient_title_abstract"),
+        "multiomics_status": "yes",
+        "omics_layers": scope["omics_layers"],
     }
     provider = QueueProvider(
         {
             "scope_reviewer": [scope],
             "causal_design_reviewer": [causal_title_answer()],
+            "adjudicator": [adjudication],
         }
     )
     output = tmp_path / "run"
     counts = run_stage_screening(input_path, output, provider)
     result = json.loads((output / "screening_results.jsonl").read_text())
     assert counts == {"seek_full_text": 1}
-    assert (
-        result["round_a"]["scope_reviewer"]["integration_mode"]
-        == "cross_dataset_integrated"
-    )
+    assert result["round_a"]["scope_reviewer"]["multiomics_status"] == "unclear"
+    assert result["selected_criteria"]["multiomics_status"] == "unclear"
     raw_rows = [
         json.loads(line)
         for line in (output / "raw_provider_responses.jsonl").read_text().splitlines()
     ]
-    assert (
-        raw_rows[0]["response"]["answer"]["integration_mode"]
-        == "same_study_joint_integration"
-    )
+    assert raw_rows[0]["response"]["answer"]["multiomics_status"] == "yes"
 
 
 def test_unresolved_decisive_conflict_routes_to_manual_review(tmp_path) -> None:

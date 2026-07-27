@@ -14,14 +14,13 @@
 
 | Code | Meaning |
 |---|---|
-| EC1 | Not primary empirical research: review, editorial, commentary, correction, or protocol. |
-| EC2 | Method, benchmark, software, or data resource without an eligible empirical analysis. |
+| EC1 | Not primary empirical research, including reviews, protocols, method-only reports, and resources without an eligible empirical analysis. |
+| EC2 | Not biological or health research. |
 | EC3 | Aging is only demographic context, a covariate, an older cohort descriptor, or an age-related disease label. |
 | EC4 | Fewer than two analytically used molecular omics layers. |
 | EC5 | Association, prediction, enrichment, or causal wording without an assessable design or directed causal hypothesis. |
-| EC6 | Not biological or health research. |
-| EC7 | Duplicate report or superseded preprint. |
-| EC8 | Full text unavailable or insufficient after documented retrieval attempts. |
+| EC6 | Duplicate report or superseded preprint. |
+| EC7 | Full text unavailable or insufficient after documented retrieval attempts. |
 
 ## Operational Definitions
 
