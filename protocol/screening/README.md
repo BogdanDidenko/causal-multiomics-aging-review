@@ -38,10 +38,12 @@ decisive-path, and all-tracked agreement and `0.00` manual review. Raw draft
 agreement was `0.92`, `0.92`, and `1.00`; this diagnostic is reported
 separately and does not replace the canonical gate.
 
-The 25-record `v6` holdout remains sealed pending a candidate freeze commit.
-Its SHA-256 is
+The 25-record `v6` holdout was run once after candidate freeze commit
+`1dd685d`. Its SHA-256 is
 `283d2ebffcbb797c0cec30db80b3176bfa4f19d20155283b8733f9b166d0f46f`.
-It may be run once after freeze and must not be used for calibration.
+It failed strict stability with `0.84` all-tracked and `0.96` decisive
+agreement, although final-route agreement was `1.00`. `v0.91.0` is rejected
+and `v6` must not be used for calibration.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned

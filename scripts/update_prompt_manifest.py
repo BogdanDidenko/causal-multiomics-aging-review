@@ -82,9 +82,9 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "draft_title_abstract_v0.91.0_calibration",
-        "approval_date": None,
-        "benchmark_version": "calibration_cycle_v0.51.0",
+        "approval_status": "rejected_title_abstract_v0.91.0_sealed_v6",
+        "approval_date": date.today().isoformat(),
+        "benchmark_version": "sealed_v6_v0.51.0",
         "created_date": date.today().isoformat(),
         "change_note": (
             "Title/abstract v0.91.0 preserves the v0.77.0 scope contract and "
@@ -158,6 +158,11 @@ def main() -> None:
             "v0.91.0 makes applied genomic structural equation modeling, "
             "including genomic SEM, an explicit directed-model positive "
             "without requiring a separate mediation estimate. "
+            "The candidate was frozen at commit 1dd685d before the one-time "
+            "sealed v6 run. Sealed v6 retained identical final routes but "
+            "failed strict stability with 0.84 all-tracked and 0.96 decisive "
+            "agreement, so v0.91.0 is rejected and v6 is not calibration "
+            "data. "
             "Full-text prompts remain v0.1.0 and unvalidated."
         ),
         "artifacts": artifacts,

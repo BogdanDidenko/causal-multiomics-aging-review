@@ -100,12 +100,14 @@ for every canonical categorical field, all decisive criteria, and final
 routing. `v0.91.0` passed the 50-record development set and the accessed `v4`
 and `v5` regression sets. The unverified specialist drafts remain a separate
 diagnostic and showed 92%, 92%, and 100% record-level agreement respectively.
-The candidate still requires its one-time sealed `v6` evaluation. See
+The frozen candidate then failed its one-time sealed `v6` evaluation:
+all-tracked agreement was 84%, decisive agreement was 96%, and final-route
+agreement was 100%. `v0.91.0` is rejected. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-the sealed `v6` stability test, full-text retrieval, and full-text prompt
-validation remain pending.
+a new independent title/abstract calibration cycle, full-text retrieval, and
+full-text prompt validation remain pending.
 
 ## Canonical Positive
 

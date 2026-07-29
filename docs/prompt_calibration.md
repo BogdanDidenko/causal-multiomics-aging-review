@@ -80,8 +80,9 @@ from canonical normalized output.
 - `v6` was deterministically sampled from the untouched 66-record remainder
   before `v0.91.0` was developed. It contains 25 records and has SHA-256
   `283d2ebffcbb797c0cec30db80b3176bfa4f19d20155283b8733f9b166d0f46f`.
-- `v6` remains sealed and must not be inspected or executed until the complete
-  `v0.91.0` candidate is frozen in Git.
+- `v6` remained sealed until the complete `v0.91.0` candidate was frozen in
+  Git. It was opened exactly once after freeze commit `1dd685d` and is now an
+  accessed evaluation set, not calibration data.
 - A separate 41-record remainder remains untouched for a future independent
   cycle.
 
@@ -104,6 +105,7 @@ artifacts remain versioned in the repository.
 | v0.91.0 | development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.91.0 | accessed v4, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.91.0 | accessed v5, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
+| v0.91.0 | sealed v6, 25 x 5 | 1.00 | 1.00 | 0.96 | 0.84 | 0.68 | fail |
 
 The calibration failures localized recurring sources of nondeterminism:
 
@@ -124,10 +126,16 @@ method names remain negative.
 
 ## Current Status
 
-Title/abstract `v0.91.0` is the frozen candidate pending its one-time sealed
-`v6` evaluation. It passed all strict stability gates on 100 accessed records
-across 500 record-runs. The raw specialist metric was lower on development and
-`v4`, which documents model nondeterminism rather than hiding it.
+Title/abstract `v0.91.0` is rejected. It passed all strict gates on 100
+accessed development/regression records but failed the one-time sealed `v6`
+evaluation: final-route agreement remained `1.00`, while decisive agreement
+was `0.96`, all-tracked agreement was `0.84`, and raw-draft agreement was
+`0.68`. The result shows that one specialist plus one matching verifier is not
+stable enough on unseen records.
+
+No `v6` wording may be used for prompt calibration. A successor cycle must
+make a general architectural change and use a new development/holdout split
+from the untouched 41-record remainder.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper
