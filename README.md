@@ -102,12 +102,16 @@ development set, and the accessed `v4` and `v5` regression sets with 100%
 canonical agreement and no manual reviews. Raw specialist-draft agreement was
 81.25%, 94%, 92%, and 92%; verifier field unanimity was 98.47%, 99.82%,
 99.82%, and 100%. These diagnostics do not replace the canonical gate. The
-separate 25-record `v7` set remains sealed pending candidate freeze. See
+separate 25-record `v7` evaluation subsequently failed the strict gate. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-the one-time sealed `v7` evaluation, full-text retrieval, and full-text prompt
-validation remain pending.
+full-text retrieval, and full-text prompt validation remain pending. The frozen
+`v0.95.0` candidate was evaluated once on sealed `v7` after commit `6a6f1a7`.
+It failed the strict gate: schema and causal-level agreement were `1.00`,
+final-route agreement was `0.96`, and decisive and all-tracked agreement were
+`0.80`. The candidate is rejected and `v7` is now accessed evaluation data,
+not calibration data.
 
 ## Canonical Positive
 

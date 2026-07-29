@@ -91,8 +91,9 @@ from canonical normalized output.
   `v0.92.0` through `v0.95.0`.
 - `v7` contains 25 disjoint records and has SHA-256
   `17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5`.
-  It has not been opened or run and remains reserved for one evaluation after
-  the complete candidate is frozen in Git.
+  It was evaluated exactly once after the complete `v0.95.0` candidate was
+  frozen at commit `6a6f1a7`. It is now accessed evaluation data and must not
+  be used for calibration.
 
 ## Calibration History
 
@@ -122,6 +123,7 @@ artifacts remain versioned in the repository.
 | v0.95.0 | development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.94 | pass |
 | v0.95.0 | accessed v4, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.95.0 | accessed v5, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
+| v0.95.0 | sealed v7, 25 x 5 | 1.00 | 0.96 | 0.80 | 0.80 | 0.56 | fail |
 
 The calibration failures localized recurring sources of nondeterminism:
 
@@ -147,17 +149,22 @@ nonempirical.
 
 ## Current Status
 
-Title/abstract `v0.95.0` is the current freeze candidate. It passed all strict
-gates on 116 accessible calibration/development/regression records:
+Title/abstract `v0.95.0` passed all strict gates on 116 accessible
+calibration/development/regression records:
 all-tracked, decisive, final-route, and schema agreement were `1.00`, and
 manual review was `0.00` on every set. Raw-draft agreement was `0.8125`,
 `0.94`, `0.92`, and `0.92`; verifier field unanimity was `0.9847`, `0.9982`,
-`0.9982`, and `1.00`. Canonical stability is therefore complete on accessible
-data, while raw model drafts remain explicitly nondeterministic diagnostics.
+`0.9982`, and `1.00`.
 
-No `v6` wording was used for prompt calibration. `v7` remains sealed and must
-be evaluated exactly once only after the complete `v0.95.0` candidate,
-protocol, schemas, code, and regression artifacts are frozen in Git.
+After freeze commit `6a6f1a7`, the candidate was evaluated exactly once on
+sealed `v7`. It failed with `1.00` schema success, `1.00` causal-level
+agreement, `0.96` final-route agreement, `0.80` decisive agreement, `0.80`
+all-tracked agreement, `0.56` raw-draft agreement, `0.9573` verifier-field
+unanimity, and `0.00` manual review. Five of 25 records were unstable. Two
+involved report-type classification, two involved aging relevance, and one
+involved directional-result wording; only one changed the final route.
+`v0.95.0` is therefore rejected. No `v6` or `v7` wording may be used for
+subsequent prompt calibration.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper

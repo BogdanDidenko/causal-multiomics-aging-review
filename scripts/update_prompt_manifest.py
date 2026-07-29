@@ -82,8 +82,8 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "candidate_v0.95.0_pending_sealed_v7",
-        "approval_date": None,
+        "approval_status": "rejected_v0.95.0_sealed_v7_failed",
+        "approval_date": "2026-07-29",
         "benchmark_version": "calibration_cycle_v0.92.0",
         "created_date": date.today().isoformat(),
         "change_note": (
@@ -201,8 +201,16 @@ def main() -> None:
             "agreement and 0.00 manual review across five runs. Raw-draft "
             "agreement remained diagnostic at 0.8125, 0.94, 0.92, and 0.92; "
             "verifier-field unanimity was 0.9847, 0.9982, 0.9982, and 1.00. "
-            "The disjoint 25-record v7 set remains sealed pending the Git "
-            "freeze of this candidate. "
+            "The complete candidate was frozen at commit 6a6f1a7 and then "
+            "evaluated exactly once on the disjoint 25-record sealed v7 set. "
+            "The run passed schema success and causal-evidence-level "
+            "agreement at 1.00 with 0.00 manual review, but failed strict "
+            "stability: final-route agreement was 0.96, decisive agreement "
+            "was 0.80, all-tracked agreement was 0.80, raw-draft agreement "
+            "was 0.56, and verifier-field unanimity was 0.9573. Five records "
+            "were unstable and one changed final route. v0.95.0 is rejected; "
+            "v7 is now accessed evaluation evidence and is not calibration "
+            "data. "
             "Full-text prompts remain v0.1.0 and unvalidated."
         ),
         "artifacts": artifacts,

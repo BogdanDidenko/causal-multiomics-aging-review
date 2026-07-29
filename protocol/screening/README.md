@@ -33,7 +33,8 @@ Stability requires five independent sessions with:
 - 100% exact agreement on decisive criteria and final route;
 - 0% runtime-triggered manual review.
 
-`v0.95.0` passed the new 16-record calibration set, the visible 50-record
+Before its sealed evaluation, `v0.95.0` passed the new 16-record calibration
+set, the visible 50-record
 development set, and both accessed 25-record regression sets (`v4` and `v5`)
 with `1.00` schema, final-route, decisive-path, and all-tracked agreement and
 `0.00` manual review. Raw draft agreement was `0.8125`, `0.94`, `0.92`, and
@@ -52,8 +53,17 @@ After the v6 rejection, the untouched 41-record remainder was split
 deterministically into a visible 16-record calibration set and a sealed
 25-record `v7` set. `v7` has SHA-256
 `17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5`
-and has not been opened or run. It is reserved for the one-time evaluation of
-the frozen `v0.95.0` candidate.
+and was reserved for the one-time evaluation of the frozen `v0.95.0`
+candidate.
+
+The candidate was frozen at commit `6a6f1a7` and run exactly once on `v7`.
+The sealed run passed schema success, causal-evidence-level agreement, and
+manual-review gates, but failed strict stability: final-route agreement was
+`0.96`, decisive agreement was `0.80`, and all-tracked agreement was `0.80`.
+Five of 25 records were unstable; only one changed the final route. The
+remaining disagreements involved report type, aging relevance, directional
+language, or the resulting exclusion code. `v0.95.0` is rejected, and `v7`
+is now accessed evaluation evidence that must not be used for calibration.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned
