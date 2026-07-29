@@ -2,15 +2,17 @@
 
 The active suite combines:
 
-- title/abstract `v0.50.0`: sequential scope review, causal-candidate review,
-  and selective adjudication;
+- title/abstract `v0.91.0`: three narrow specialist drafts, separate matching
+  contract-verification passes, sequential scope gates, and selective
+  adjudication;
 - full text `v0.1.0`: section selection, eligibility, causal evidence, and
   adjudication.
 
 All prompts are model-neutral JSON contracts executed with GPT 5.6 Terra
 Medium through Codex CLI at `reasoning.effort=medium`. Python applies routing,
-ordered PRISMA consistency rules, exclusion codes, and full-text evidence
-levels. Raw provider JSON is retained unchanged.
+ordered PRISMA consistency rules, three-valued aggregation, exclusion codes,
+and full-text evidence levels. Raw provider JSON, specialist drafts, verifier
+outputs, and categorical corrections are retained unchanged.
 
 Title/abstract screening is intentionally high-sensitivity. A completed report
 is a causal candidate when it applies a causal or directed design or makes an
@@ -30,12 +32,16 @@ Stability requires five independent sessions with:
 - 100% exact agreement on decisive criteria and final route;
 - 0% runtime-triggered manual review.
 
-`v0.50.0` passed both the visible 50-record development set and the accessed
-25-record `v4` diagnostic set, but failed the fresh 25-record `v5` holdout.
-Final-route, decisive-path, and all-tracked exact agreement were each `0.92`;
-schema success was `1.00` and manual-review rate was `0.00`. The suite is not
-approved. `v5` is now diagnostic evidence, and the 66-record remainder is
-reserved for a new independent cycle.
+`v0.91.0` passed the visible 50-record development set and both accessed
+25-record regression sets (`v4` and `v5`) with `1.00` schema, final-route,
+decisive-path, and all-tracked agreement and `0.00` manual review. Raw draft
+agreement was `0.92`, `0.92`, and `1.00`; this diagnostic is reported
+separately and does not replace the canonical gate.
+
+The 25-record `v6` holdout remains sealed pending a candidate freeze commit.
+Its SHA-256 is
+`283d2ebffcbb797c0cec30db80b3176bfa4f19d20155283b8733f9b166d0f46f`.
+It may be run once after freeze and must not be used for calibration.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned

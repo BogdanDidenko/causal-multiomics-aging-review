@@ -1,45 +1,85 @@
 {
   "manifest_version": "1.0.0",
-  "active_suite": "causal_multiomics_aging_screening@0.50.0",
+  "active_suite": "causal_multiomics_aging_screening@0.91.0",
   "suite_config": {
-    "path": "configs/prompt_suite_v0.50.0.json",
-    "sha256": "2cd18706a7bab67f30b4f99293fdf164e2f898beb78eb7d6d8fdcb12278c785f"
+    "path": "configs/prompt_suite_v0.91.0.json",
+    "sha256": "0acdc78e1733e621c120980c3516d088783e73980ef154b2a3e00edee493094d"
   },
-  "approval_status": "rejected_title_abstract_v0.50.0_holdout_failure",
+  "approval_status": "draft_title_abstract_v0.91.0_calibration",
   "approval_date": null,
-  "benchmark_version": "calibration_cycle_v0.41.0",
-  "created_date": "2026-07-28",
-  "change_note": "Title/abstract v0.50.0 follows the frozen v0.40.0 sealed-holdout failure and the diagnostic v0.41.0 focus run. It limits model classification to fields that determine title/abstract PRISMA routing: report type, biological or health scope, aging-process relevance, multi-omics candidate status, and causal-candidate status. A causal candidate is retained when the current report applies a causal/directed design or makes a directional/mechanistic result claim; full text determines whether evidence is merely associational, hypothesis-level, or identified. Aging-role and design-family subtyping, effect strength, design role, integration provenance, and validation strength are deferred to full text because abstracts can support multiple equally valid subtypes and those fields do not alter title-stage routing. Clear specialist exclusions route directly; adjudication is reserved for unclear criteria. Exact molecular-layer inventory is deferred to full text; an explicit current-report multi-omics claim is sufficient for title-stage retention. Python is limited to logical consistency rules: sequential PRISMA scope short-circuiting, title-layer-inventory deferral, and review-specific causal-status normalization. Stability requires exact agreement for every returned categorical field; free-text rationales and evidence-span wording are audited but not exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning with plugins disabled. Full-text prompts remain v0.1.0 and unvalidated.",
+  "benchmark_version": "calibration_cycle_v0.51.0",
+  "created_date": "2026-07-29",
+  "change_note": "Title/abstract v0.91.0 preserves the v0.77.0 scope contract and replaces two compound causal judgments with short atomic contracts. Separate GPT 5.6 Terra Medium reviewers assess report completion, genetic-instrument designs, assigned interventions, molecular perturbations, directed or mediation models, directional action language, and explicit effect or causal-link language. Python performs only fixed three-valued OR aggregation and the existing logical consistency rules. Stability still requires 100% exact agreement for every tracked categorical family signal, both aggregate signals, identification status, and PRISMA route; no metric or exclusion short-circuit was relaxed. The v0.79.0 refinement fixes general class boundaries found by the first atomic focus run: genetic-instrument methods are not directed models, drug prioritization without a contrast is not an intervention, background causal wording is not a current result, ordinary causal-relationship inflections count, and variance-contribution wording is not an action verb. v0.80.0 makes the two directional lexical families disjoint: a positive action/mechanism signal has precedence, so the effect/causal-noun fallback is recorded as not assessed and is not sent to the model. This is a logical routing rule and reduces stochastic calls without changing the aggregate directional criterion. v0.81.0 removes route-irrelevant title-stage subtyping between assigned interventions and direct molecular perturbations. Both now feed one atomic manipulation-design signal; full text retains responsibility for the detailed design-family profile. After separate-agent focus runs showed new one-off drift in otherwise unchanged specialists, v0.82.0 retains the same atomic fields but evaluates them in one causal-signals Terra call per record. This reduces the independent stochastic call surface while preserving criterion-level JSON and Python-only logical aggregation. v0.83.0 removes route-irrelevant title-stage subtyping of directional action versus effect phrases. One binary high-sensitivity language specialist now retains any explicit X-to-Y causal, mechanistic, or effect wording; current-report attribution and evidence strength are deferred to full text. v0.84.0 clarifies three general boundary classes exposed by the full development run: any literal current analysis of lifespan is aging-relevant even when it is secondary; treated or induced validation models count as manipulation when results validate those models; and changes in algorithmic prediction/classification performance are not biological directional language. v0.85.0 converts the directional-language check into an ordered syntax-presence contract covering active, passive, compact, effect, and role constructions, with stop-on-first-match behavior. It also forbids inferring an engineered manipulation from a disease model name or genotype label without explicit record text. v0.86.0 makes relative-clause passive constructions explicit positives and excludes purpose/infinitive prevention wording that has no named biological agent. v0.87.0 moves the literal current-result lifespan check ahead of disease-prognosis interpretation and treats spaced and hyphenated X-mediated-Y constructions identically. v0.88.0 adds a mandatory Terra Medium contract-verification pass after the three specialist drafts. Canonical production fields are verified before routing, while draft_round_a and a separate raw-reviewer agreement metric preserve direct visibility into single-call stochastic drift. Python only splits the verified atomic fields and applies existing logical consistency rules. v0.89.0 replaces the compound verifier with three separate self-contained scope, causal-design, and directional-language contract-verification passes. Each second pass sees only its matching specialist draft and the same narrow atomic contract. v0.90.0 adds an ordered literal check for X with causal role(s) in a named outcome while retaining the negative boundary for causal-role fragments that omit the outcome. v0.91.0 makes applied genomic structural equation modeling, including genomic SEM, an explicit directed-model positive without requiring a separate mediation estimate. Full-text prompts remain v0.1.0 and unvalidated.",
   "artifacts": [
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer",
-      "version": "0.50.0",
+      "version": "0.91.0",
       "stage": "title_abstract",
       "role": "scope_reviewer",
-      "prompt_path": "prompts/title_abstract/v0.50.0/scope_reviewer.txt",
-      "prompt_sha256": "eea95393af682b3660c4198a0dd790247272efcaa48c7c41786302cf9f2b2ea6",
-      "schema_path": "schemas/title_abstract/v0.50.0/scope_reviewer.schema.json",
+      "prompt_path": "prompts/title_abstract/v0.91.0/scope_reviewer.txt",
+      "prompt_sha256": "c0e67d20c400c1c2b6686aac34590add03ce63af95983ad7ebdef27308e02115",
+      "schema_path": "schemas/title_abstract/v0.91.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer_verifier",
+      "version": "0.91.0",
+      "stage": "title_abstract",
+      "role": "scope_reviewer_contract_verifier",
+      "prompt_path": "prompts/title_abstract/v0.91.0/scope_reviewer_verifier.txt",
+      "prompt_sha256": "a7d3db73e12135e26d8c816290196677c5415d799901c4def818ebeb3d247ffa",
+      "schema_path": "schemas/title_abstract/v0.91.0/scope_reviewer.schema.json",
       "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
     },
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.causal_design_reviewer",
-      "version": "0.50.0",
+      "version": "0.91.0",
       "stage": "title_abstract",
       "role": "causal_design_reviewer",
-      "prompt_path": "prompts/title_abstract/v0.50.0/causal_design_reviewer.txt",
-      "prompt_sha256": "5195d26fd772ed3463e86be1ac430369135eb0ee6de229c143dc84e3b67f0200",
-      "schema_path": "schemas/title_abstract/v0.50.0/causal_design_reviewer.schema.json",
-      "schema_sha256": "c9cbee11106cca69f0962c05c73e3b03e68caf51612107a35a0965f1e69fbcc1"
+      "prompt_path": "prompts/title_abstract/v0.91.0/causal_design_reviewer.txt",
+      "prompt_sha256": "dd5d229f07ced90e65f545bb31400394ab1740af3520c21ebc6c8d77ac73b970",
+      "schema_path": "schemas/title_abstract/v0.91.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.causal_design_reviewer_verifier",
+      "version": "0.91.0",
+      "stage": "title_abstract",
+      "role": "causal_design_reviewer_contract_verifier",
+      "prompt_path": "prompts/title_abstract/v0.91.0/causal_design_reviewer_verifier.txt",
+      "prompt_sha256": "b237cb0a98498e035d7d9f32412e1e9822ed42f3b1b0b3ec85ea2cc6964eec0c",
+      "schema_path": "schemas/title_abstract/v0.91.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.directional_result_reviewer",
+      "version": "0.91.0",
+      "stage": "title_abstract",
+      "role": "directional_result_reviewer",
+      "prompt_path": "prompts/title_abstract/v0.91.0/directional_result_reviewer.txt",
+      "prompt_sha256": "41239f7a9705bb49f777f525d90a38f569b9f74330703c6ae1557c5b833f9896",
+      "schema_path": "schemas/title_abstract/v0.91.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.directional_result_reviewer_verifier",
+      "version": "0.91.0",
+      "stage": "title_abstract",
+      "role": "directional_result_reviewer_contract_verifier",
+      "prompt_path": "prompts/title_abstract/v0.91.0/directional_result_reviewer_verifier.txt",
+      "prompt_sha256": "c82539bde84ea95df002ccfe2f5b4cdedb7a3650b3d03b2af3471b267eee97d2",
+      "schema_path": "schemas/title_abstract/v0.91.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
     },
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.adjudicator",
-      "version": "0.50.0",
+      "version": "0.91.0",
       "stage": "title_abstract",
       "role": "adjudicator",
-      "prompt_path": "prompts/title_abstract/v0.50.0/adjudicator.txt",
-      "prompt_sha256": "7d7e5ba23b86739aec00ac41481c1f8d819beb4a150eeba1fe8b5711fa8bb80a",
-      "schema_path": "schemas/title_abstract/v0.50.0/adjudicator.schema.json",
-      "schema_sha256": "8f782ffcb18497f675969749181f976cc52466ef606c153e236699c9d4d104ed"
+      "prompt_path": "prompts/title_abstract/v0.91.0/adjudicator.txt",
+      "prompt_sha256": "c0b23e5a12ca39510cab2979b25a200d93f465c57b94bbdee88f5687443b4bf0",
+      "schema_path": "schemas/title_abstract/v0.91.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
     },
     {
       "prompt_id": "causal_multiomics_aging.full_text.section_selector",

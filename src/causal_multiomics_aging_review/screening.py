@@ -162,11 +162,13 @@ def run_screening(
             role_gates.update(decisions)
             adjudication = None
             if route == "adjudicate":
+                causal_review = _merge_answers(
+                    answers["causal_design_reviewer"],
+                    answers.get("directional_result_reviewer", {}),
+                )
                 extra = {
                     "SCOPE_REVIEW": json.dumps(answers["scope_reviewer"], ensure_ascii=False),
-                    "CAUSAL_REVIEW": json.dumps(
-                        answers["causal_design_reviewer"], ensure_ascii=False
-                    ),
+                    "CAUSAL_REVIEW": json.dumps(causal_review, ensure_ascii=False),
                 }
                 prompt = render_prompt(artifacts["adjudicator"]["prompt"], record, extra)
                 adjudication, raw = provider.complete_json(prompt)
@@ -404,10 +406,46 @@ def _process_title_abstract_record(
     raw_results: Any,
     max_retries: int,
 ) -> dict[str, Any]:
-    answers: dict[str, dict[str, Any]] = {}
+    verification_config = stage_config.get("contract_verification", {})
+    verification_mode = verification_config.get("mode")
+    draft_answers: dict[str, dict[str, Any]] = {}
+    verified_answers: dict[str, dict[str, Any]] = {}
     for role in stage_config["roles"]:
+        if (
+            role == "directional_effect_reviewer"
+            and stage_config.get("directional_family_precedence")
+            == "action_then_effect"
+            and draft_answers.get("directional_result_reviewer", {}).get(
+                "directional_action_signal"
+            )
+            == "yes"
+        ):
+            draft_answers[role] = {
+                "directional_effect_signal": "not_assessed",
+                "evidence_spans": [],
+                "uncertainty_reason": "",
+                "concise_rationale": (
+                    "Not assessed because the higher-precedence directional "
+                    "action criterion was positive."
+                ),
+            }
+            raw_results.write(
+                json.dumps(
+                    {
+                        "record_id": record_id(record),
+                        "role": role,
+                        "attempt": 0,
+                        "status": "not_assessed",
+                        "reason": "directional_action_signal_yes",
+                    },
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
+            raw_results.flush()
+            continue
         prompt = render_prompt(artifacts[role]["prompt"], record)
-        answers[role] = _call_role(
+        draft_answers[role] = _call_role(
             provider,
             role,
             prompt,
@@ -415,18 +453,97 @@ def _process_title_abstract_record(
             record_id(record),
             raw_results,
             max_retries,
+            phase="draft_round_a",
         )
+        if verification_config.get("enabled") and verification_mode == (
+            "per_role_second_pass"
+        ):
+            verifier_role = f"{role}_contract_verifier"
+            verifier_prompt = render_prompt(
+                artifacts[verifier_role]["prompt"],
+                record,
+                {
+                    "DRAFT_REVIEW": json.dumps(
+                        draft_answers[role],
+                        ensure_ascii=False,
+                    )
+                },
+            )
+            verified_answers[role] = _call_role(
+                provider,
+                verifier_role,
+                verifier_prompt,
+                artifacts[verifier_role]["schema"],
+                record_id(record),
+                raw_results,
+                max_retries,
+                phase="contract_verification",
+            )
+
+    verification: dict[str, Any] | None = None
+    answers = (
+        verified_answers
+        if verification_mode == "per_role_second_pass"
+        else draft_answers
+    )
+    contract_corrections: list[str] = []
+    if verification_config.get("enabled") and verification_mode == (
+        "per_role_second_pass"
+    ):
+        verification = verified_answers
+        contract_corrections = _title_contract_corrections(
+            draft_answers,
+            answers,
+        )
+    elif verification_config.get("enabled"):
+        extra = {
+            "SCOPE_DRAFT": json.dumps(
+                draft_answers["scope_reviewer"], ensure_ascii=False
+            ),
+            "CAUSAL_DRAFT": json.dumps(
+                draft_answers["causal_design_reviewer"], ensure_ascii=False
+            ),
+            "DIRECTIONAL_DRAFT": json.dumps(
+                draft_answers["directional_result_reviewer"], ensure_ascii=False
+            ),
+        }
+        prompt = render_prompt(
+            artifacts["contract_verifier"]["prompt"],
+            record,
+            extra,
+        )
+        verification = _call_role(
+            provider,
+            "contract_verifier",
+            prompt,
+            artifacts["contract_verifier"]["schema"],
+            record_id(record),
+            raw_results,
+            max_retries,
+            phase="contract_verification",
+        )
+        answers = _title_answers_from_contract_verification(verification)
+        contract_corrections = _title_contract_corrections(
+            draft_answers,
+            answers,
+        )
+        verification["corrected_draft_fields"] = contract_corrections
 
     consistency_rules = _normalize_title_round_a(answers, stage_config)
     route, role_gates = route_round_a(answers, stage_config)
     adjudication = None
     selected = _merge_answers(*answers.values())
     if route == "adjudicate":
+        causal_review = _merge_answers(
+            *(
+                answer
+                for role, answer in answers.items()
+                if role != "scope_reviewer"
+            )
+        )
         extra = {
             "SCOPE_REVIEW": json.dumps(answers["scope_reviewer"], ensure_ascii=False),
-            "CAUSAL_REVIEW": json.dumps(
-                answers["causal_design_reviewer"], ensure_ascii=False
-            ),
+            "CAUSAL_REVIEW": json.dumps(causal_review, ensure_ascii=False),
         }
         prompt = render_prompt(artifacts["adjudicator"]["prompt"], record, extra)
         adjudication = _call_role(
@@ -437,6 +554,7 @@ def _process_title_abstract_record(
             record_id(record),
             raw_results,
             max_retries,
+            phase="selective_adjudication",
         )
         consistency_rules.extend(
             _normalize_title_adjudication(adjudication, stage_config)
@@ -451,6 +569,9 @@ def _process_title_abstract_record(
         "record_id": record_id(record),
         "stage": "title_abstract",
         "title": record.get("title", ""),
+        "draft_round_a": draft_answers,
+        "contract_verification": verification,
+        "contract_corrections": contract_corrections,
         "round_a": answers,
         "gates": role_gates,
         "adjudication": adjudication,
@@ -461,6 +582,55 @@ def _process_title_abstract_record(
     }
 
 
+def _title_answers_from_contract_verification(
+    verification: dict[str, Any],
+) -> dict[str, dict[str, Any]]:
+    evidence = list(verification.get("evidence_spans", []))
+    rationale = str(verification.get("concise_rationale", ""))
+    uncertainty = str(verification.get("uncertainty_reason", ""))
+    return {
+        "scope_reviewer": {
+            "report_type": verification["report_type"],
+            "bio_health_scope": verification["bio_health_scope"],
+            "aging_process_relevance": verification["aging_process_relevance"],
+            "multiomics_status": verification["multiomics_status"],
+            "omics_layers": [],
+            "evidence_spans": evidence,
+            "boundary_case": verification["boundary_case"],
+            "uncertainty_reason": uncertainty,
+            "concise_rationale": rationale,
+        },
+        "causal_design_reviewer": {
+            "completed_current_report": verification["completed_current_report"],
+            "genetic_instrument_signal": verification["genetic_instrument_signal"],
+            "manipulation_design_signal": verification["manipulation_design_signal"],
+            "directed_model_signal": verification["directed_model_signal"],
+            "evidence_spans": evidence,
+            "uncertainty_reason": uncertainty,
+            "concise_rationale": rationale,
+        },
+        "directional_result_reviewer": {
+            "directional_language_signal": verification[
+                "directional_language_signal"
+            ],
+            "evidence_spans": evidence,
+            "concise_rationale": rationale,
+        },
+    }
+
+
+def _title_contract_corrections(
+    drafts: dict[str, dict[str, Any]],
+    verified: dict[str, dict[str, Any]],
+) -> list[str]:
+    corrections: list[str] = []
+    for role, fields in _TITLE_VERIFIED_FIELDS.items():
+        for field in fields:
+            if drafts.get(role, {}).get(field) != verified.get(role, {}).get(field):
+                corrections.append(f"{role}.{field}")
+    return corrections
+
+
 def _normalize_title_round_a(
     answers: dict[str, dict[str, Any]],
     stage_config: dict[str, Any],
@@ -468,6 +638,122 @@ def _normalize_title_round_a(
     rules: list[str] = []
     scope = answers["scope_reviewer"]
     causal = answers["causal_design_reviewer"]
+    status_contract = stage_config.get("identification_status_contract")
+    if status_contract == "causal_candidate_design_bundle_v7":
+        design_fields = (
+            "genetic_instrument_signal",
+            "manipulation_design_signal",
+            "directed_model_signal",
+        )
+        directional = answers["directional_result_reviewer"]
+        if causal.get("completed_current_report") == "no":
+            for field in design_fields:
+                causal[field] = "no"
+            directional["directional_language_signal"] = "no"
+            rules.append("incomplete_report_implies_no_applied_or_directional_signal")
+        causal["applied_design_signal"] = _logical_any_signal(
+            causal[field] for field in design_fields
+        )
+        directional["directional_result_signal"] = directional[
+            "directional_language_signal"
+        ]
+        causal["directional_result_signal"] = directional[
+            "directional_result_signal"
+        ]
+        rules.extend(
+            [
+                "applied_design_signal_derived_from_atomic_design_signals",
+                "directional_result_signal_copied_from_language_specialist",
+            ]
+        )
+    elif status_contract == "causal_candidate_atomic_bundle_v6":
+        design_fields = (
+            "genetic_instrument_signal",
+            "manipulation_design_signal",
+            "directed_model_signal",
+        )
+        directional_fields = (
+            "directional_action_signal",
+            "directional_effect_signal",
+        )
+        if causal.get("completed_current_report") == "no":
+            for field in (*design_fields, *directional_fields):
+                causal[field] = "no"
+            rules.append("incomplete_report_implies_no_applied_or_directional_signal")
+        elif causal.get("directional_action_signal") == "yes":
+            causal["directional_effect_signal"] = "not_assessed"
+            rules.append(
+                "directional_effect_not_assessed_after_positive_action_signal"
+            )
+        elif causal.get("directional_effect_signal") == "not_assessed":
+            causal["directional_effect_signal"] = "no"
+            rules.append(
+                "directional_effect_assessed_when_action_signal_not_positive"
+            )
+        causal["applied_design_signal"] = _logical_any_signal(
+            causal[field] for field in design_fields
+        )
+        causal["directional_result_signal"] = _logical_any_signal(
+            causal[field] for field in directional_fields
+        )
+        rules.extend(
+            [
+                "applied_design_signal_derived_from_atomic_design_signals",
+                "directional_result_signal_derived_from_ordered_directional_signals",
+            ]
+        )
+    elif status_contract == "causal_candidate_families_v5":
+        design_signals = {
+            "genetic_instrument_signal": answers["genetic_instrument_reviewer"][
+                "genetic_instrument_signal"
+            ],
+            "manipulation_design_signal": answers["manipulation_reviewer"][
+                "manipulation_design_signal"
+            ],
+            "directed_model_signal": answers["directed_model_reviewer"][
+                "directed_model_signal"
+            ],
+        }
+        directional_signals = {
+            "directional_action_signal": answers["directional_result_reviewer"][
+                "directional_action_signal"
+            ],
+            "directional_effect_signal": answers["directional_effect_reviewer"][
+                "directional_effect_signal"
+            ],
+        }
+        if causal.get("completed_current_report") == "no":
+            design_signals = dict.fromkeys(design_signals, "no")
+            directional_signals = dict.fromkeys(directional_signals, "no")
+            rules.append("incomplete_report_implies_no_applied_or_directional_signal")
+        for field, value in design_signals.items():
+            role = _TITLE_DESIGN_SIGNAL_ROLES[field]
+            answers[role][field] = value
+        for field, value in directional_signals.items():
+            role = _TITLE_DIRECTIONAL_SIGNAL_ROLES[field]
+            answers[role][field] = value
+        causal["applied_design_signal"] = _logical_any_signal(
+            design_signals.values()
+        )
+        directional = answers["directional_result_reviewer"]
+        directional["directional_result_signal"] = _logical_any_signal(
+            directional_signals.values()
+        )
+        causal["directional_result_signal"] = directional[
+            "directional_result_signal"
+        ]
+        rules.extend(
+            [
+                "applied_design_signal_derived_from_design_family_signals",
+                "directional_result_signal_derived_from_directional_family_signals",
+            ]
+        )
+    elif status_contract == "causal_candidate_split_v4":
+        directional = answers["directional_result_reviewer"]
+        causal["directional_result_signal"] = directional[
+            "directional_result_signal"
+        ]
+        rules.append("directional_result_signal_merged_from_specialist")
     defer_layers = stage_config.get("title_layer_inventory") == "deferred_to_full_text"
     if stage_config.get("title_scope_sequential_short_circuit") and (
         _normalize_title_scope_sequence(scope)
@@ -487,6 +773,23 @@ def _normalize_title_round_a(
         )
     if defer_layers:
         rules.append("title_omics_layer_inventory_deferred_to_full_text")
+    if _derive_title_identification_status(
+        causal,
+        status_contract=status_contract,
+    ):
+        rules.append(
+            "causal_signals_and_status_derived_from_categorical_bases"
+            if status_contract == "causal_candidate_basis_v3"
+            else (
+                "identification_status_derived_from_split_causal_signals"
+                if status_contract
+                in {
+                    "causal_candidate_split_v4",
+                    "causal_candidate_families_v5",
+                }
+                else "identification_status_derived_from_atomic_causal_signals"
+            )
+        )
     if stage_config.get("prisma_scope_short_circuit_round_a") and (
         scope.get("aging_process_relevance") == "no"
         or scope.get("report_type")
@@ -500,7 +803,6 @@ def _normalize_title_round_a(
     ):
         causal["identification_status"] = "noncausal"
         rules.append("ineligible_scope_implies_no_relevant_causal_design")
-    status_contract = stage_config.get("identification_status_contract")
     if _normalize_title_design(causal, status_contract=status_contract):
         rules.extend(
             [
@@ -542,6 +844,24 @@ def _normalize_title_adjudication(
         )
     if defer_layers:
         rules.append("title_omics_layer_inventory_deferred_to_full_text")
+    status_contract = stage_config.get("identification_status_contract")
+    if _derive_title_identification_status(
+        answer,
+        status_contract=status_contract,
+    ):
+        rules.append(
+            "causal_signals_and_status_derived_from_categorical_bases"
+            if status_contract == "causal_candidate_basis_v3"
+            else (
+                "identification_status_derived_from_split_causal_signals"
+                if status_contract
+                in {
+                    "causal_candidate_split_v4",
+                    "causal_candidate_families_v5",
+                }
+                else "identification_status_derived_from_atomic_causal_signals"
+            )
+        )
     if answer.get("aging_process_relevance") == "no" or answer.get(
         "report_type"
     ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
@@ -555,7 +875,6 @@ def _normalize_title_adjudication(
                 }
             )
         rules.append("ineligible_scope_implies_no_relevant_causal_design")
-    status_contract = stage_config.get("identification_status_contract")
     if _normalize_title_design(answer, status_contract=status_contract):
         rules.extend(
             [
@@ -571,6 +890,99 @@ def _normalize_title_adjudication(
             else "title_design_subtyping_deferred_to_full_text"
         )
     return rules
+
+
+def _derive_title_identification_status(
+    answer: dict[str, Any],
+    *,
+    status_contract: str | None,
+) -> bool:
+    if status_contract not in {
+        "causal_candidate_atomic_v2",
+        "causal_candidate_basis_v3",
+        "causal_candidate_split_v4",
+        "causal_candidate_families_v5",
+        "causal_candidate_atomic_bundle_v6",
+        "causal_candidate_design_bundle_v7",
+    }:
+        return False
+
+    previous = (
+        answer.get("applied_design_signal"),
+        answer.get("directional_result_signal"),
+        answer.get("identification_status"),
+    )
+    completed = answer.get("completed_current_report", "unclear")
+    if status_contract == "causal_candidate_basis_v3":
+        applied = _signal_from_basis(answer.get("applied_design_basis"))
+        directional = _signal_from_basis(answer.get("directional_result_basis"))
+        answer["applied_design_signal"] = applied
+        answer["directional_result_signal"] = directional
+    else:
+        applied = answer.get("applied_design_signal", "unclear")
+        directional = answer.get("directional_result_signal", "unclear")
+
+    if completed == "no":
+        status = "noncausal"
+    elif applied == "yes" or directional == "yes":
+        status = "causal_candidate"
+    elif "unclear" in {completed, applied, directional}:
+        status = "unclear"
+    else:
+        status = "noncausal"
+
+    answer["identification_status"] = status
+    current = (
+        answer.get("applied_design_signal"),
+        answer.get("directional_result_signal"),
+        answer.get("identification_status"),
+    )
+    return current != previous
+
+
+_TITLE_DESIGN_SIGNAL_ROLES = {
+    "genetic_instrument_signal": "genetic_instrument_reviewer",
+    "manipulation_design_signal": "manipulation_reviewer",
+    "directed_model_signal": "directed_model_reviewer",
+}
+
+_TITLE_DIRECTIONAL_SIGNAL_ROLES = {
+    "directional_action_signal": "directional_result_reviewer",
+    "directional_effect_signal": "directional_effect_reviewer",
+}
+
+_TITLE_VERIFIED_FIELDS = {
+    "scope_reviewer": (
+        "report_type",
+        "bio_health_scope",
+        "aging_process_relevance",
+        "multiomics_status",
+    ),
+    "causal_design_reviewer": (
+        "completed_current_report",
+        "genetic_instrument_signal",
+        "manipulation_design_signal",
+        "directed_model_signal",
+    ),
+    "directional_result_reviewer": ("directional_language_signal",),
+}
+
+
+def _logical_any_signal(values: Any) -> str:
+    signals = set(values)
+    if "yes" in signals:
+        return "yes"
+    if "unclear" in signals:
+        return "unclear"
+    return "no"
+
+
+def _signal_from_basis(value: Any) -> str:
+    if value == "none":
+        return "no"
+    if value in {None, "unclear"}:
+        return "unclear"
+    return "yes"
 
 
 def _normalize_title_design(
@@ -850,6 +1262,7 @@ def _call_role(
     raw_results: Any,
     max_retries: int,
     post_validate: Callable[[dict[str, Any]], None] | None = None,
+    phase: str | None = None,
 ) -> dict[str, Any]:
     errors: list[str] = []
     for attempt in range(max_retries + 1):
@@ -869,17 +1282,17 @@ def _call_role(
             validate_object(answer, schema)
             if post_validate:
                 post_validate(answer)
+            audit_row = {
+                "record_id": identifier,
+                "role": role,
+                "attempt": attempt + 1,
+                "status": "ok",
+                "response": raw,
+            }
+            if phase:
+                audit_row["phase"] = phase
             raw_results.write(
-                json.dumps(
-                    {
-                        "record_id": identifier,
-                        "role": role,
-                        "attempt": attempt + 1,
-                        "status": "ok",
-                        "response": raw,
-                    },
-                    ensure_ascii=False,
-                )
+                json.dumps(audit_row, ensure_ascii=False)
                 + "\n"
             )
             raw_results.flush()
@@ -896,6 +1309,8 @@ def _call_role(
                 "status": "error",
                 "error": str(error),
             }
+            if phase:
+                audit_row["phase"] = phase
             if failed_response is not None:
                 audit_row["response"] = failed_response
             raw_results.write(
@@ -912,6 +1327,15 @@ def _call_role(
 def _load_stage_artifacts(stage_config: dict[str, Any]) -> dict[str, dict[str, Any]]:
     role_configs: dict[str, dict[str, Any]] = dict(stage_config["roles"])
     role_configs["adjudicator"] = stage_config["adjudication"]
+    verification_config = stage_config.get("contract_verification", {})
+    if verification_config.get("mode") == "per_role_second_pass":
+        for role, role_config in stage_config["roles"].items():
+            role_configs[f"{role}_contract_verifier"] = {
+                "prompt": role_config["verification_prompt"],
+                "schema": role_config["schema"],
+            }
+    elif verification_config.get("enabled"):
+        role_configs["contract_verifier"] = stage_config["contract_verification"]
     if "section_selector" in stage_config:
         role_configs["section_selector"] = stage_config["section_selector"]
 

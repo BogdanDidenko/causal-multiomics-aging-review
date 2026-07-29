@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "directional_language_signal",
+    "evidence_spans",
+    "concise_rationale"
+  ],
+  "properties": {
+    "directional_language_signal": {"enum": ["yes", "no"]},
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "type": "string",
+          "const": "directional_language_signal"
+        },
+        "source": {"enum": ["title", "abstract"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

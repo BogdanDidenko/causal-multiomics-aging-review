@@ -1,0 +1,74 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.87.0/adjudicator.txt",
+      "prompt_sha256": "6eed2138370877e48846908e94c06383cdd079f01a89dfd977164488712ec41d",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.87.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.87.0/causal_design_reviewer.txt",
+      "prompt_sha256": "e8a936cf525a514082af51959b414e896d444d4cad0475311ac6ded1e5773fc3",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.87.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.87.0/directional_result_reviewer.txt",
+      "prompt_sha256": "c781968a5d7ccc87868f55348f6a8db489d47fdb944efc1bba9e0f63d7659b01",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.87.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.87.0/scope_reviewer.txt",
+      "prompt_sha256": "8511f94dc18d39f02405d0f3169d392c5dff755b9091cb0149f2a2c8e5fac748",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.87.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-28T20:26:17.418349+00:00",
+  "decision_counts": {
+    "exclude": 1,
+    "seek_full_text": 1
+  },
+  "git_revision": "486f867f39f5cdb8fedf25f804977b6be6a6334d",
+  "input_path": "protocol/screening/benchmarks/title_abstract_contract_focus_v0.87.0_19.csv",
+  "input_record_count": 2,
+  "input_sha256": "fc45b187f268bb7ff95cadc3c6cbde9a8f92294320e5ea5aae8b6b8836e770e4",
+  "model": "gpt-5.6-terra",
+  "processed_now": 2,
+  "provider_url": "codex://local/exec",
+  "record_ids": [
+    "doi:10.1002/cam4.6174",
+    "doi:10.21203/rs.3.rs-15517/v1"
+  ],
+  "resume": false,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.87.0.json",
+  "suite_config_sha256": "de143f7c0ac5a8a9e0d72c9e0022e07b7717ff0b5c0d86490a6ee93406c26681",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.87.0"
+}

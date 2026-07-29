@@ -11,13 +11,22 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SCREENING = PROTOCOL / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.50.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.91.0.json"
 SEARCH_CONFIG_PATH = PROTOCOL / "search_config.json"
 MANIFEST_PATH = SCREENING / "prompt_manifest.json"
 
 BASE_PLACEHOLDERS = {"{{RECORD_ID}}", "{{TITLE}}", "{{ABSTRACT}}", "{{YEAR}}", "{{SOURCE}}"}
 TITLE_ABSTRACT_PLACEHOLDERS = {"{{DOCUMENT_TYPE}}"}
 EXTRA_PLACEHOLDERS = {
+    ("title_abstract", "scope_reviewer_contract_verifier"): {
+        "{{DRAFT_REVIEW}}"
+    },
+    ("title_abstract", "causal_design_reviewer_contract_verifier"): {
+        "{{DRAFT_REVIEW}}"
+    },
+    ("title_abstract", "directional_result_reviewer_contract_verifier"): {
+        "{{DRAFT_REVIEW}}"
+    },
     ("title_abstract", "adjudicator"): {"{{SCOPE_REVIEW}}", "{{CAUSAL_REVIEW}}"},
     ("full_text", "section_selector"): {"{{SECTION_CATALOG}}"},
     ("full_text", "eligibility_reviewer"): {"{{SELECTED_SECTIONS}}"},
@@ -45,11 +54,35 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def const_paths_without_type(value: Any, path: str = "$") -> list[str]:
+    paths: list[str] = []
+    if isinstance(value, dict):
+        if "const" in value and "type" not in value:
+            paths.append(path)
+        for key, item in value.items():
+            paths.extend(const_paths_without_type(item, f"{path}.{key}"))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            paths.extend(const_paths_without_type(item, f"{path}[{index}]"))
+    return paths
+
+
 def artifacts(suite: dict[str, Any]) -> list[tuple[str, str, dict[str, Any]]]:
     items = []
     for stage, stage_config in suite["stages"].items():
         for role, config in stage_config.get("roles", {}).items():
             items.append((stage, role, config))
+            if config.get("verification_prompt"):
+                items.append(
+                    (
+                        stage,
+                        f"{role}_contract_verifier",
+                        {
+                            "prompt": config["verification_prompt"],
+                            "schema": config["schema"],
+                        },
+                    )
+                )
         items.append((stage, "adjudicator", stage_config["adjudication"]))
         if "section_selector" in stage_config:
             items.append((stage, "section_selector", stage_config["section_selector"]))
@@ -121,12 +154,24 @@ def main() -> None:
     title_stage = suite.get("stages", {}).get("title_abstract", {})
     if title_stage.get("max_input_abstract_chars") != 5000:
         errors.append("title/abstract metadata must be capped at 5,000 characters")
-    if title_stage.get("identification_status_contract") != "causal_candidate_v1":
-        errors.append("title/abstract must use the causal_candidate_v1 contract")
+    if (
+        title_stage.get("identification_status_contract")
+        != "causal_candidate_design_bundle_v7"
+    ):
+        errors.append(
+            "title/abstract must use the causal_candidate_design_bundle_v7 contract"
+        )
     if title_stage.get("prisma_scope_short_circuit_round_a") is not True:
         errors.append("round-A title screening must apply the PRISMA scope short-circuit")
     if title_stage.get("title_layer_inventory") != "deferred_to_full_text":
         errors.append("title-stage molecular-layer inventory must be deferred")
+    if title_stage.get("contract_verification", {}).get("enabled") is not True:
+        errors.append("title-stage contract verification must be enabled")
+    if (
+        title_stage.get("contract_verification", {}).get("mode")
+        != "per_role_second_pass"
+    ):
+        errors.append("title-stage verification must use per-role second passes")
     title_routing = title_stage.get("routing", {})
     if title_routing.get("round_a_any_exclude") != "exclude":
         errors.append("clear title/abstract exclusions must bypass adjudication")
@@ -179,7 +224,14 @@ def main() -> None:
             if "aging_process_relevance" not in prompt:
                 errors.append(f"{stage}.{role}: missing atomic aging contract")
         try:
-            Draft202012Validator.check_schema(load_object(schema_path))
+            schema = load_object(schema_path)
+            Draft202012Validator.check_schema(schema)
+            invalid_const_paths = const_paths_without_type(schema)
+            if invalid_const_paths:
+                errors.append(
+                    f"{stage}.{role}: provider-incompatible const without type at "
+                    f"{invalid_const_paths}"
+                )
         except Exception as error:
             errors.append(f"{stage}.{role}: invalid schema: {error}")
 

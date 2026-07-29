@@ -33,12 +33,15 @@ flowchart LR
   C --> D["Conservative deduplication"]
   D --> E["Scope and aging reviewer"]
   D --> F["Causal-design reviewer"]
-  E --> G["Deterministic criterion gates"]
-  F --> G
-  G --> H["Selective adjudication"]
-  H --> I["Full-text assessment"]
-  I --> J["Causal evidence level"]
-  J --> K["PRISMA flow and synthesis"]
+  D --> G["Directional-language reviewer"]
+  E --> H["Matching contract verifiers"]
+  F --> H
+  G --> H
+  H --> I["Deterministic criterion gates"]
+  I --> J["Selective adjudication"]
+  J --> K["Full-text assessment"]
+  K --> L["Causal evidence level"]
+  L --> M["PRISMA flow and synthesis"]
 ```
 
 ## Quick Start
@@ -86,22 +89,23 @@ locally authenticated Codex CLI:
 
 ```bash
 python scripts/run_stability.py \
-  protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.3.0_25.csv \
-  data/screening/stability/boundary-pilot-v0.16.0 \
+  protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv \
+  data/screening/stability/development-full-50-v0.91.0 \
   --stage title_abstract \
   --parallel-replicates 5
 ```
 
-The acceptance threshold is exact agreement across five independent runs for
-all decisive criteria and final routing decisions. The frozen `v0.16.0` suite
-passed its 25-record development pilot but failed the separate sealed holdout:
-final-routing agreement was 92% and decisive-path agreement was 72%. It is
-therefore not approved for production screening. See
+The acceptance threshold is 100% exact agreement across five independent runs
+for every canonical categorical field, all decisive criteria, and final
+routing. `v0.91.0` passed the 50-record development set and the accessed `v4`
+and `v5` regression sets. The unverified specialist drafts remain a separate
+diagnostic and showed 92%, 92%, and 100% record-level agreement respectively.
+The candidate still requires its one-time sealed `v6` evaluation. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-a new title/abstract calibration cycle, full-text retrieval, and full-text
-prompt validation remain pending.
+the sealed `v6` stability test, full-text retrieval, and full-text prompt
+validation remain pending.
 
 ## Canonical Positive
 

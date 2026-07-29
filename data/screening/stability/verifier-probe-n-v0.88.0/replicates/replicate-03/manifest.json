@@ -1,0 +1,81 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.88.0/adjudicator.txt",
+      "prompt_sha256": "8545d7b7b73fa09cb6f4dd4263e6bfe712bac53e961d52e998136c24eed4ad4b",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.88.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.88.0/causal_design_reviewer.txt",
+      "prompt_sha256": "7c201e1fcf5550eba5e23bc97d5dbc9bde5a6be9b08ef041e3dd59a99329d815",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.88.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    "contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.88.0/contract_verifier.txt",
+      "prompt_sha256": "f5aa2e9f1fe87a36e11a65403797a038e58bb03a9b62f2034607a34ab062c377",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.88.0/contract_verifier.schema.json",
+      "schema_sha256": "fe6053087b8d5c888692b26fb252f29291511a4dd7596b618c154977ae543e06"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.88.0/directional_result_reviewer.txt",
+      "prompt_sha256": "f8a30811e4d037331dac305748831412fbf62cd775a6ff1d32e42b9aab057b9b",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.88.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.88.0/scope_reviewer.txt",
+      "prompt_sha256": "4f2b4a0018f3957c17730e1c2a29ad35c2eb7709a1e97744fb2e4cbf993b756b",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.88.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-28T20:52:09.880918+00:00",
+  "decision_counts": {
+    "exclude": 2,
+    "seek_full_text": 1
+  },
+  "git_revision": "486f867f39f5cdb8fedf25f804977b6be6a6334d",
+  "input_path": "protocol/screening/benchmarks/title_abstract_contract_focus_v0.87.0_19.csv",
+  "input_record_count": 3,
+  "input_sha256": "fc45b187f268bb7ff95cadc3c6cbde9a8f92294320e5ea5aae8b6b8836e770e4",
+  "model": "gpt-5.6-terra",
+  "processed_now": 3,
+  "provider_url": "codex://local/exec",
+  "record_ids": [
+    "doi:10.1002/cam4.6174",
+    "doi:10.1038/s42256-025-01052-4",
+    "doi:10.21203/rs.3.rs-15517/v1"
+  ],
+  "resume": false,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.88.0.json",
+  "suite_config_sha256": "7fe6f2277a098f9d9dff5b462713420f7bdd5df69d7a9851c679f653f55d5816",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.88.0"
+}

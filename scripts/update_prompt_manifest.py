@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCREENING = ROOT / "protocol" / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.50.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.91.0.json"
 OUTPUT = SCREENING / "prompt_manifest.json"
 
 
@@ -64,6 +64,16 @@ def main() -> None:
             )
         for role, config in stage_config["roles"].items():
             add_artifact(artifacts, stage, role, config)
+            if config.get("verification_prompt"):
+                add_artifact(
+                    artifacts,
+                    stage,
+                    f"{role}_contract_verifier",
+                    {
+                        "prompt": config["verification_prompt"],
+                        "schema": config["schema"],
+                    },
+                )
         add_artifact(artifacts, stage, "adjudicator", stage_config["adjudication"])
     manifest = {
         "manifest_version": "1.0.0",
@@ -72,37 +82,83 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "draft_title_abstract_v0.50.0_calibration",
+        "approval_status": "draft_title_abstract_v0.91.0_calibration",
         "approval_date": None,
-        "benchmark_version": "calibration_cycle_v0.41.0",
+        "benchmark_version": "calibration_cycle_v0.51.0",
         "created_date": date.today().isoformat(),
         "change_note": (
-            "Title/abstract v0.50.0 follows the frozen v0.40.0 sealed-holdout "
-            "failure and the diagnostic v0.41.0 focus run. It limits model "
-            "classification to fields "
-            "that determine title/abstract PRISMA routing: report type, "
-            "biological or health scope, aging-process relevance, multi-omics "
-            "candidate status, and causal-candidate status. A causal candidate "
-            "is retained when the current report "
-            "applies a causal/directed design or makes a directional/mechanistic "
-            "result claim; full text determines whether evidence is merely "
-            "associational, hypothesis-level, or identified. Aging-role and "
-            "design-family subtyping, effect strength, design role, "
-            "integration provenance, and validation strength are deferred to "
-            "full text because abstracts can support multiple equally valid "
-            "subtypes and those fields do not alter title-stage routing. "
-            "Clear specialist exclusions route directly; adjudication is "
-            "reserved for unclear criteria. Exact molecular-layer inventory is "
-            "deferred to full text; an explicit current-report multi-omics claim "
-            "is sufficient for title-stage retention. Python is limited to "
-            "logical consistency rules: sequential PRISMA scope "
-            "short-circuiting, title-layer-inventory deferral, and "
-            "review-specific causal-status normalization. Stability "
-            "requires exact agreement for every returned categorical field; "
-            "free-text rationales and evidence-span wording are audited but not "
-            "exact-matched. Codex CLI runs GPT 5.6 Terra at medium reasoning "
-            "with plugins disabled. Full-text prompts remain v0.1.0 and "
-            "unvalidated."
+            "Title/abstract v0.91.0 preserves the v0.77.0 scope contract and "
+            "replaces two compound causal judgments with short atomic "
+            "contracts. Separate GPT 5.6 Terra Medium reviewers assess report "
+            "completion, genetic-instrument designs, assigned interventions, "
+            "molecular perturbations, directed or mediation models, "
+            "directional action language, and explicit effect or causal-link "
+            "language. Python performs only fixed three-valued OR aggregation "
+            "and the existing logical consistency rules. Stability still "
+            "requires 100% exact agreement for every tracked categorical "
+            "family signal, both aggregate signals, identification status, "
+            "and PRISMA route; no metric or exclusion short-circuit was "
+            "relaxed. The v0.79.0 refinement fixes general class boundaries "
+            "found by the first atomic focus run: genetic-instrument methods "
+            "are not directed models, drug prioritization without a contrast "
+            "is not an intervention, background causal wording is not a "
+            "current result, ordinary causal-relationship inflections count, "
+            "and variance-contribution wording is not an action verb. "
+            "v0.80.0 makes the two directional lexical families disjoint: "
+            "a positive action/mechanism signal has precedence, so the "
+            "effect/causal-noun fallback is recorded as not assessed and is "
+            "not sent to the model. This is a logical routing rule and "
+            "reduces stochastic calls without changing the aggregate "
+            "directional criterion. v0.81.0 removes route-irrelevant "
+            "title-stage subtyping between assigned interventions and direct "
+            "molecular perturbations. Both now feed one atomic "
+            "manipulation-design signal; full text retains responsibility "
+            "for the detailed design-family profile. "
+            "After separate-agent focus runs showed new one-off drift in "
+            "otherwise unchanged specialists, v0.82.0 retains the same "
+            "atomic fields but evaluates them in one causal-signals Terra "
+            "call per record. This reduces the independent stochastic call "
+            "surface while preserving criterion-level JSON and Python-only "
+            "logical aggregation. v0.83.0 removes route-irrelevant "
+            "title-stage subtyping of directional action versus effect "
+            "phrases. One binary high-sensitivity language specialist now "
+            "retains any explicit X-to-Y causal, mechanistic, or effect "
+            "wording; current-report attribution and evidence strength are "
+            "deferred to full text. v0.84.0 clarifies three general boundary "
+            "classes exposed by the full development run: any literal "
+            "current analysis of lifespan is aging-relevant even when it is "
+            "secondary; treated or induced validation models count as "
+            "manipulation when results validate those models; and changes in "
+            "algorithmic prediction/classification performance are not "
+            "biological directional language. v0.85.0 converts the "
+            "directional-language check into an ordered syntax-presence "
+            "contract covering active, passive, compact, effect, and role "
+            "constructions, with stop-on-first-match behavior. It also "
+            "forbids inferring an engineered manipulation from a disease "
+            "model name or genotype label without explicit record text. "
+            "v0.86.0 makes relative-clause passive constructions explicit "
+            "positives and excludes purpose/infinitive prevention wording "
+            "that has no named biological agent. "
+            "v0.87.0 moves the literal current-result lifespan check ahead "
+            "of disease-prognosis interpretation and treats spaced and "
+            "hyphenated X-mediated-Y constructions identically. "
+            "v0.88.0 adds a mandatory Terra Medium contract-verification pass "
+            "after the three specialist drafts. Canonical production fields "
+            "are verified before routing, while draft_round_a and a separate "
+            "raw-reviewer agreement metric preserve direct visibility into "
+            "single-call stochastic drift. Python only splits the verified "
+            "atomic fields and applies existing logical consistency rules. "
+            "v0.89.0 replaces the compound verifier with three separate "
+            "self-contained scope, causal-design, and directional-language "
+            "contract-verification passes. Each second pass sees only its "
+            "matching specialist draft and the same narrow atomic contract. "
+            "v0.90.0 adds an ordered literal check for X with causal role(s) "
+            "in a named outcome while retaining the negative boundary for "
+            "causal-role fragments that omit the outcome. "
+            "v0.91.0 makes applied genomic structural equation modeling, "
+            "including genomic SEM, an explicit directed-model positive "
+            "without requiring a separate mediation estimate. "
+            "Full-text prompts remain v0.1.0 and unvalidated."
         ),
         "artifacts": artifacts,
     }

@@ -6,7 +6,7 @@ def active_title_config() -> dict[str, object]:
     return load_stage_config("title_abstract")[1]
 
 
-def test_round_a_advances_only_when_both_roles_include() -> None:
+def test_round_a_advances_only_when_all_roles_include() -> None:
     config = active_title_config()
     answers = {
         "scope_reviewer": {
@@ -18,12 +18,14 @@ def test_round_a_advances_only_when_both_roles_include() -> None:
         "causal_design_reviewer": {
             "identification_status": "causal_candidate"
         },
+        "directional_result_reviewer": {"directional_language_signal": "no"},
     }
     route, decisions = route_round_a(answers, config)
     assert route == "seek_full_text"
     assert decisions == {
         "scope_reviewer": "include",
         "causal_design_reviewer": "include",
+        "directional_result_reviewer": "include",
     }
 
 
@@ -37,6 +39,7 @@ def test_round_a_routes_clear_specialist_exclusion_without_adjudication() -> Non
             "multiomics_status": "yes",
         },
         "causal_design_reviewer": {"identification_status": "noncausal"},
+        "directional_result_reviewer": {"directional_language_signal": "no"},
     }
     route, decisions = route_round_a(answers, config)
     assert route == "exclude"
@@ -55,6 +58,7 @@ def test_round_a_routes_unclear_specialist_output_to_adjudication() -> None:
         "causal_design_reviewer": {
             "identification_status": "causal_candidate"
         },
+        "directional_result_reviewer": {"directional_language_signal": "no"},
     }
     route, decisions = route_round_a(answers, config)
     assert route == "adjudicate"

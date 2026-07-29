@@ -1,0 +1,101 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/adjudicator.txt",
+      "prompt_sha256": "dc49342f3ac88e8a46a5d17cf045916f2963981f8168ea5a3786a8663ef3e87e",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/causal_design_reviewer.txt",
+      "prompt_sha256": "8de91b7cac769636fdb5cab1b1d2d99d824d1bd60e302bb8d0b946a644cf5f0e",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "cf099b7b4f54fc454aec9b771d628497b9f985736b51cf82b5db818a95c4d03b"
+    },
+    "directed_model_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/directed_model_reviewer.txt",
+      "prompt_sha256": "fdde8f591953f2f73d324760805489e6056f23edc626ea45730fbfddc6243751",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/directed_model_reviewer.schema.json",
+      "schema_sha256": "da3dbda76695c6aef4e4a44e526f81a224a89d46e0153f4eb39c3907cd2947db"
+    },
+    "directional_effect_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/directional_effect_reviewer.txt",
+      "prompt_sha256": "b17fdf76ce5574bf51b5789da5bfb72fe76e024a095b391755dac176afc2d740",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/directional_effect_reviewer.schema.json",
+      "schema_sha256": "981f3a5d5de5d3a6d20d02df1686d529f23143b8bba7db575c02a23fc1f9b155"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/directional_result_reviewer.txt",
+      "prompt_sha256": "8c10f35cf20caa6eee0510b3aaecd9ea15db0508b5912d41940e36b3d01a07a8",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "e572532a804b539a327c1dc8e0fac28dc6e80f06953e00cbe84f3dfc61849fe1"
+    },
+    "genetic_instrument_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/genetic_instrument_reviewer.txt",
+      "prompt_sha256": "617b37870ad7df5cfe90ceb56590bd76d692a3a3241689a100ce09c6345f7bfb",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/genetic_instrument_reviewer.schema.json",
+      "schema_sha256": "f570d826093ffb85ff98e1f917f2b24a603ec2b4a8c6dad9555e115383153bcd"
+    },
+    "intervention_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/intervention_reviewer.txt",
+      "prompt_sha256": "7311ecc83b9cb45f6f3e679c4ab308db582c57b84cc1b42d2e447ebf0dba4714",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/intervention_reviewer.schema.json",
+      "schema_sha256": "75e17df7d87dc03362de4c8e61e7fbcead7d3a580071ff3a1ed58a65b707af4c"
+    },
+    "perturbation_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/perturbation_reviewer.txt",
+      "prompt_sha256": "a230f47ed94371bf9aa11567c3724095029b65ee3d5e3c08a9425c43e1650e8d",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/perturbation_reviewer.schema.json",
+      "schema_sha256": "8e35034bc6fffdae81103299ef72831d5226ffea26a34733c64dd69e0e1f6e15"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.79.0/scope_reviewer.txt",
+      "prompt_sha256": "83b61a575895abb48a486908d70d0767a522746ea05ced7827153ef859359ec3",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.79.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-28T16:36:10.921488+00:00",
+  "decision_counts": {
+    "exclude": 7,
+    "seek_full_text": 1
+  },
+  "git_revision": "486f867f39f5cdb8fedf25f804977b6be6a6334d",
+  "input_path": "protocol/screening/benchmarks/title_abstract_atomic_focus_v0.78.0_8.csv",
+  "input_record_count": 8,
+  "input_sha256": "e3a301f748b370721abc5ddfbfb41dcf143f1b5265de43437a2ed64b517f6702",
+  "model": "gpt-5.6-terra",
+  "processed_now": 8,
+  "provider_url": "codex://local/exec",
+  "record_ids": [],
+  "resume": false,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.79.0.json",
+  "suite_config_sha256": "74a44a7057462544ed1d1e36e7c0e361c03c73b6120ddc41cdc101659921d837",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.79.0"
+}

@@ -1,0 +1,90 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/adjudicator.txt",
+      "prompt_sha256": "1e36c2e40e8d26fa6b56aac7b753242f24441e083963bb0eda3e5c4df146f244",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/causal_design_reviewer.txt",
+      "prompt_sha256": "3890222dc26ff211d0a11385518df691ca897042e9af3d13f3f8b4d7656ab937",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    "causal_design_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/causal_design_reviewer_verifier.txt",
+      "prompt_sha256": "c0dddb87dcb6bc6fcf5f8a8d8b400adfc22d5276b48f225b79424ee82fe7bd28",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "02bf26b2d93737ac5adc732c814ea78a2a74a74c7727a35e9ad5e4820773a87a"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/directional_result_reviewer.txt",
+      "prompt_sha256": "750ff5f680e7a13c60b8c3d8ba3fedc056c20f741d284f934549ed9aac2895e8",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
+    },
+    "directional_result_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/directional_result_reviewer_verifier.txt",
+      "prompt_sha256": "ca41814cf40ef29236622edb10ba013e42bd92c02c49c27bc647b23474195742",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5510e7ccf813687f28331770a10fab309d7a43efc530e531af03496e69b76452"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/scope_reviewer.txt",
+      "prompt_sha256": "5bd76f93979ba7b47946e29d336d11a8320a25c7e2290839a774ef8817298890",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    },
+    "scope_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.90.0/scope_reviewer_verifier.txt",
+      "prompt_sha256": "8110e63902bf268f6734fbdb67980f92358d3d186d7b4f81c93c4686fcdbf186",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.90.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-28T22:02:00.017141+00:00",
+  "decision_counts": {
+    "exclude": 1
+  },
+  "git_revision": "486f867f39f5cdb8fedf25f804977b6be6a6334d",
+  "input_path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+  "input_record_count": 1,
+  "input_sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216",
+  "model": "gpt-5.6-terra",
+  "processed_now": 1,
+  "provider_url": "codex://local/exec",
+  "record_ids": [
+    "title-year-sha256:af885f02cdc7c5ab6ab9"
+  ],
+  "resume": false,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.90.0.json",
+  "suite_config_sha256": "e940e5eb1b11081311ff35f5866cdff6890f4fed7b0309e408dd3c82418ba376",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.90.0"
+}

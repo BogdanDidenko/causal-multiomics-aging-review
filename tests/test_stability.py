@@ -29,6 +29,9 @@ def title_result(
             "aging_process_relevance": "yes",
             "multiomics_status": "yes",
             "omics_layers": [],
+            "completed_current_report": "yes",
+            "applied_design_signal": "yes",
+            "directional_result_signal": "no",
             "identification_status": identification_status,
             "evidence_spans": [{"quote": "Different phrasing is ignored."}],
         },
@@ -52,6 +55,54 @@ def test_stability_localizes_disagreeing_criterion() -> None:
         in rows[0]["decisive_disagreements"]
     )
     assert summary["acceptance"]["overall"] == "fail"
+
+
+def test_stability_tracks_atomic_causal_signals() -> None:
+    runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
+    runs["replicate-5"]["r1"]["selected_criteria"]["directional_result_signal"] = "yes"
+    rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
+    assert rows[0]["stable"] is False
+    assert (
+        "selected_criteria.directional_result_signal"
+        in rows[0]["decisive_disagreements"]
+    )
+    assert summary["acceptance"]["overall"] == "fail"
+
+
+def test_stability_reports_raw_draft_drift_separately() -> None:
+    runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
+    for result_by_id in runs.values():
+        result_by_id["r1"]["draft_round_a"] = {
+            "scope_reviewer": {
+                "report_type": "empirical_primary",
+                "bio_health_scope": "yes",
+                "aging_process_relevance": "yes",
+                "multiomics_status": "yes",
+            },
+            "causal_design_reviewer": {
+                "completed_current_report": "yes",
+                "genetic_instrument_signal": "yes",
+                "manipulation_design_signal": "no",
+                "directed_model_signal": "no",
+            },
+            "directional_result_reviewer": {
+                "directional_language_signal": "no",
+            },
+        }
+    runs["replicate-5"]["r1"]["draft_round_a"]["causal_design_reviewer"][
+        "directed_model_signal"
+    ] = "yes"
+
+    rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
+
+    assert summary["acceptance"]["overall"] == "pass"
+    assert summary["metrics"]["all_tracked_criteria_exact_agreement"] == 1.0
+    assert summary["metrics"]["raw_reviewer_draft_exact_agreement"] == 0.0
+    assert rows[0]["diagnostic_raw_reviewer_drafts_stable"] is False
+    assert (
+        "draft_round_a.causal_design_reviewer.directed_model_signal"
+        in rows[0]["raw_reviewer_draft_disagreements"]
+    )
 
 
 def test_stability_ignores_downstream_fields_after_same_exclusion_path() -> None:

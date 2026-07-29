@@ -1,0 +1,71 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.68.0/adjudicator.txt",
+      "prompt_sha256": "55cb6cac46471d62076ec0923f96f214f9cf1816508a0fc84815069f371bbdb0",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.68.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.68.0/causal_design_reviewer.txt",
+      "prompt_sha256": "874c5981a966f875556c1863313997b895d177116325d5b6b800eba1ba827112",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.68.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "088214707440f84a820eddfb1adb6412c72a561dc2885aabb5afe8dd525677c9"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.68.0/directional_result_reviewer.txt",
+      "prompt_sha256": "e52d7f724b7bfa528fd3ded9c4e0adefd40aedacfcfcdb260cf57526a523e7db",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.68.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "5b084f574555ac9e0e960d82c328e2091bef599d1e813e2d9dc5faad2cd39260"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.68.0/scope_reviewer.txt",
+      "prompt_sha256": "bfe7a877d8acc9851afa97a07926a81cc8d9006209e1efea1669fa783e339df0",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.68.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-28T11:51:35.523407+00:00",
+  "decision_counts": {
+    "exclude": 40,
+    "seek_full_text": 10
+  },
+  "git_revision": "486f867f39f5cdb8fedf25f804977b6be6a6334d",
+  "input_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+  "input_record_count": 50,
+  "input_sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c",
+  "model": "gpt-5.6-terra",
+  "processed_now": 50,
+  "provider_url": "codex://local/exec",
+  "record_ids": [],
+  "resume": false,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.68.0.json",
+  "suite_config_sha256": "ae7e24d75082a6718f2ac7be9cfc42e457fbbdc08d165aaf86136e1ad32698b5",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.68.0"
+}

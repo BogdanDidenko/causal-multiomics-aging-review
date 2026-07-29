@@ -4,23 +4,70 @@ import json
 from typing import Any
 
 TITLE_DECISIVE_PATHS = (
+    "contract_verification.scope_reviewer.report_type",
+    "contract_verification.scope_reviewer.bio_health_scope",
+    "contract_verification.scope_reviewer.aging_process_relevance",
+    "contract_verification.scope_reviewer.multiomics_status",
+    "contract_verification.causal_design_reviewer.completed_current_report",
+    "contract_verification.causal_design_reviewer.genetic_instrument_signal",
+    "contract_verification.causal_design_reviewer.manipulation_design_signal",
+    "contract_verification.causal_design_reviewer.directed_model_signal",
+    "contract_verification.directional_result_reviewer.directional_language_signal",
+    "contract_verification.report_type",
+    "contract_verification.bio_health_scope",
+    "contract_verification.aging_process_relevance",
+    "contract_verification.multiomics_status",
+    "contract_verification.completed_current_report",
+    "contract_verification.genetic_instrument_signal",
+    "contract_verification.manipulation_design_signal",
+    "contract_verification.directed_model_signal",
+    "contract_verification.directional_language_signal",
     "round_a.scope_reviewer.report_type",
     "round_a.scope_reviewer.bio_health_scope",
     "round_a.scope_reviewer.aging_process_relevance",
     "round_a.scope_reviewer.multiomics_status",
+    "round_a.causal_design_reviewer.completed_current_report",
+    "round_a.causal_design_reviewer.genetic_instrument_signal",
+    "round_a.causal_design_reviewer.manipulation_design_signal",
+    "round_a.causal_design_reviewer.directed_model_signal",
+    "round_a.causal_design_reviewer.applied_design_signal",
+    "round_a.directional_result_reviewer.directional_language_signal",
+    "round_a.directional_result_reviewer.directional_result_signal",
     "round_a.causal_design_reviewer.identification_status",
     "adjudication.report_type",
     "adjudication.bio_health_scope",
     "adjudication.aging_process_relevance",
     "adjudication.multiomics_status",
+    "adjudication.completed_current_report",
+    "adjudication.applied_design_signal",
+    "adjudication.directional_result_signal",
     "adjudication.identification_status",
     "selected_criteria.report_type",
     "selected_criteria.bio_health_scope",
     "selected_criteria.aging_process_relevance",
     "selected_criteria.multiomics_status",
+    "selected_criteria.completed_current_report",
+    "selected_criteria.genetic_instrument_signal",
+    "selected_criteria.manipulation_design_signal",
+    "selected_criteria.directed_model_signal",
+    "selected_criteria.applied_design_signal",
+    "selected_criteria.directional_language_signal",
+    "selected_criteria.directional_result_signal",
     "selected_criteria.identification_status",
     "final_decision",
     "final_exclusion_code",
+)
+
+TITLE_DRAFT_PATHS = (
+    "draft_round_a.scope_reviewer.report_type",
+    "draft_round_a.scope_reviewer.bio_health_scope",
+    "draft_round_a.scope_reviewer.aging_process_relevance",
+    "draft_round_a.scope_reviewer.multiomics_status",
+    "draft_round_a.causal_design_reviewer.completed_current_report",
+    "draft_round_a.causal_design_reviewer.genetic_instrument_signal",
+    "draft_round_a.causal_design_reviewer.manipulation_design_signal",
+    "draft_round_a.causal_design_reviewer.directed_model_signal",
+    "draft_round_a.directional_result_reviewer.directional_language_signal",
 )
 
 FULL_TEXT_DECISIVE_PATHS = (
@@ -71,6 +118,9 @@ TITLE_SELECTED_DECISIVE_FIELDS = (
     "bio_health_scope",
     "aging_process_relevance",
     "multiomics_status",
+    "completed_current_report",
+    "applied_design_signal",
+    "directional_result_signal",
     "identification_status",
 )
 
@@ -99,6 +149,7 @@ def assess_stability(
     rows: list[dict[str, Any]] = []
     schema_successes = 0
     manual_results = 0
+    contract_correction_results = 0
     for identifier in sorted(identifier_sets[0]):
         by_run = {label: run_results[label][identifier] for label in labels}
         values = {
@@ -110,6 +161,26 @@ def assess_stability(
             for path, run_values in values.items()
             if len({_json(value) for value in run_values.values()}) > 1
         }
+        draft_disagreements: dict[str, dict[str, Any]] = {}
+        if stage == "title_abstract":
+            draft_values = {
+                path: {
+                    label: _normalized_path(row, path)
+                    for label, row in by_run.items()
+                }
+                for path in TITLE_DRAFT_PATHS
+            }
+            draft_disagreements = {
+                path: run_values
+                for path, run_values in draft_values.items()
+                if len({_json(value) for value in run_values.values()}) > 1
+            }
+        correction_labels = [
+            label
+            for label, row in by_run.items()
+            if row.get("contract_corrections")
+        ]
+        contract_correction_results += len(correction_labels)
         decisive_values = {
             label: _decisive_signature(row, stage) for label, row in by_run.items()
         }
@@ -134,6 +205,7 @@ def assess_stability(
                 "stable": decisive_stable and not manual_labels,
                 "decisive_criteria_stable": decisive_stable,
                 "diagnostic_all_tracked_criteria_stable": not diagnostic_disagreements,
+                "diagnostic_raw_reviewer_drafts_stable": not draft_disagreements,
                 "final_decision_stable": (
                     "final_decision" not in diagnostic_disagreements
                 ),
@@ -143,8 +215,10 @@ def assess_stability(
                     else True
                 ),
                 "manual_review_runs": manual_labels,
+                "contract_correction_runs": correction_labels,
                 "decisive_disagreements": decisive_disagreements,
                 "diagnostic_disagreements": diagnostic_disagreements,
+                "raw_reviewer_draft_disagreements": draft_disagreements,
             }
         )
 
@@ -165,6 +239,14 @@ def assess_stability(
         "fully_stable_record_rate": _rate(row["stable"] for row in rows),
         "all_tracked_criteria_exact_agreement": _rate(
             row["diagnostic_all_tracked_criteria_stable"] for row in rows
+        ),
+        "raw_reviewer_draft_exact_agreement": _rate(
+            row["diagnostic_raw_reviewer_drafts_stable"] for row in rows
+        ),
+        "contract_correction_rate": (
+            contract_correction_results / (record_count * run_count)
+            if stage == "title_abstract"
+            else 0.0
         ),
     }
     gates = {

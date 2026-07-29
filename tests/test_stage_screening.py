@@ -1,6 +1,10 @@
 import json
 
-from causal_multiomics_aging_review.screening import run_stage_screening
+from causal_multiomics_aging_review.screening import (
+    _derive_title_identification_status,
+    _logical_any_signal,
+    run_stage_screening,
+)
 
 
 class QueueProvider:
@@ -16,10 +20,25 @@ class QueueProvider:
     def __init__(self, answers: dict[str, list[dict[str, object]]]) -> None:
         self.answers = answers
         self.calls: list[str] = []
+        self.latest: dict[str, dict[str, object]] = {}
 
     def complete_json(self, prompt, schema=None, schema_name="screening_response"):
         self.calls.append(schema_name)
-        answer = self.answers[schema_name].pop(0)
+        if (
+            schema_name.endswith("_contract_verifier")
+            and schema_name not in self.answers
+        ):
+            source_role = schema_name.removesuffix("_contract_verifier")
+            answer = dict(self.latest[source_role])
+        elif schema_name == "contract_verifier" and schema_name not in self.answers:
+            answer = contract_verifier_answer(
+                self.latest["scope_reviewer"],
+                self.latest["causal_design_reviewer"],
+                self.latest["directional_result_reviewer"],
+            )
+        else:
+            answer = self.answers[schema_name].pop(0)
+        self.latest[schema_name] = answer
         return answer, {"role": schema_name, "answer": answer}
 
 
@@ -41,31 +60,101 @@ def scope_answer() -> dict[str, object]:
 
 def causal_title_answer() -> dict[str, object]:
     return {
-        "identification_status": "causal_candidate",
-        "exposure_or_intervention": "genetically predicted expression",
-        "comparator": "per allele expression contrast",
-        "outcome": "healthspan",
-        "estimand_or_contrast": "effect of predicted expression on healthspan",
+        "completed_current_report": "yes",
+        "genetic_instrument_signal": "yes",
+        "manipulation_design_signal": "no",
+        "directed_model_signal": "no",
         "evidence_spans": [
             {
-                "criterion": "identification_status",
+                "criterion": "completed_current_report",
                 "source": "abstract",
-                "quote": "Mendelian randomization",
+                "quote": "analysis",
             }
         ],
-        "boundary_case": "clear_identified",
         "uncertainty_reason": "",
-        "concise_rationale": "The abstract reports an MR effect.",
+        "concise_rationale": "The current report completed an analysis.",
     }
+
+
+def directional_language_answer(signal: str = "no") -> dict[str, object]:
+    return {
+        "directional_language_signal": signal,
+        "evidence_spans": [],
+        "concise_rationale": "The directional language criterion is resolved.",
+    }
+
+
+def contract_verifier_answer(
+    scope: dict[str, object] | None = None,
+    causal: dict[str, object] | None = None,
+    directional: dict[str, object] | None = None,
+    **overrides: object,
+) -> dict[str, object]:
+    scope = scope or scope_answer()
+    causal = causal or causal_title_answer()
+    directional = directional or directional_language_answer()
+    answer = {
+        "report_type": scope["report_type"],
+        "bio_health_scope": scope["bio_health_scope"],
+        "aging_process_relevance": scope["aging_process_relevance"],
+        "multiomics_status": scope["multiomics_status"],
+        "omics_layers": [],
+        "completed_current_report": causal["completed_current_report"],
+        "genetic_instrument_signal": causal["genetic_instrument_signal"],
+        "manipulation_design_signal": causal["manipulation_design_signal"],
+        "directed_model_signal": causal["directed_model_signal"],
+        "directional_language_signal": directional["directional_language_signal"],
+        "boundary_case": scope["boundary_case"],
+        "evidence_spans": [],
+        "corrected_draft_fields": [],
+        "uncertainty_reason": "",
+        "concise_rationale": "The atomic contracts were verified.",
+    }
+    answer.update(overrides)
+    return answer
+
+
+def test_atomic_causal_signal_derivation_truth_table() -> None:
+    cases = [
+        ("no", "yes", "yes", "noncausal"),
+        ("yes", "yes", "no", "causal_candidate"),
+        ("yes", "no", "yes", "causal_candidate"),
+        ("yes", "no", "no", "noncausal"),
+        ("unclear", "no", "no", "unclear"),
+        ("yes", "unclear", "no", "unclear"),
+    ]
+    for completed, applied, directional, expected in cases:
+        answer = {
+            "completed_current_report": completed,
+            "applied_design_signal": applied,
+            "directional_result_signal": directional,
+        }
+        changed = _derive_title_identification_status(
+            answer,
+            status_contract="causal_candidate_split_v4",
+        )
+        assert changed is True
+        assert answer["identification_status"] == expected
+
+
+def test_logical_any_signal_truth_table() -> None:
+    assert _logical_any_signal(["no", "no"]) == "no"
+    assert _logical_any_signal(["no", "unclear"]) == "unclear"
+    assert _logical_any_signal(["unclear", "yes"]) == "yes"
 
 
 def title_adjudication_answer(resolution_status: str) -> dict[str, object]:
     answer = {
         **scope_answer(),
-        **causal_title_answer(),
+        "completed_current_report": "yes",
+        "applied_design_signal": "unclear",
+        "directional_result_signal": "unclear",
+        "exposure_or_intervention": "genetically predicted expression",
+        "comparator": "per allele expression contrast",
+        "outcome": "healthspan",
+        "estimand_or_contrast": "effect of predicted expression on healthspan",
         "boundary_cases": ["thin_abstract"],
         "resolution_status": resolution_status,
-        "identification_status": "unclear",
         "uncertainty_reason": "The abstract does not report identification details.",
     }
     answer.pop("boundary_case")
@@ -188,6 +277,7 @@ def test_title_stage_retries_invalid_response_and_resumes(tmp_path) -> None:
         {
             "scope_reviewer": [invalid_scope, scope_answer()],
             "causal_design_reviewer": [causal_title_answer()],
+            "directional_result_reviewer": [directional_language_answer()],
         }
     )
     output = tmp_path / "run"
@@ -331,6 +421,7 @@ def test_record_filter_runs_only_requested_identifier(tmp_path) -> None:
         {
             "scope_reviewer": [scope_answer()],
             "causal_design_reviewer": [causal_title_answer()],
+            "directional_result_reviewer": [directional_language_answer()],
         }
     )
     output = tmp_path / "run"
@@ -348,6 +439,112 @@ def test_record_filter_runs_only_requested_identifier(tmp_path) -> None:
     assert manifest["input_record_count"] == 1
 
 
+def test_directional_language_signal_merges_into_causal_status(tmp_path) -> None:
+    input_path = tmp_path / "records.csv"
+    input_path.write_text(
+        "record_id,title,abstract,year,source\n"
+        'r1,"Multi-omics mechanism","X drives healthy aging.",2024,PubMed\n',
+        encoding="utf-8",
+    )
+    provider = QueueProvider(
+        {
+            "scope_reviewer": [scope_answer()],
+            "causal_design_reviewer": [
+                {
+                    **causal_title_answer(),
+                    "genetic_instrument_signal": "no",
+                }
+            ],
+            "directional_result_reviewer": [directional_language_answer("yes")],
+        }
+    )
+    output = tmp_path / "run"
+    counts = run_stage_screening(input_path, output, provider)
+    result = json.loads((output / "screening_results.jsonl").read_text())
+    raw_rows = [
+        json.loads(line)
+        for line in (output / "raw_provider_responses.jsonl").read_text().splitlines()
+    ]
+
+    assert counts == {"seek_full_text": 1}
+    assert provider.calls.count("directional_result_reviewer") == 1
+    assert result["selected_criteria"]["directional_result_signal"] == "yes"
+    assert any(
+        row["role"] == "directional_result_reviewer"
+        and row["status"] == "ok"
+        for row in raw_rows
+    )
+
+
+def test_contract_verifier_canonicalizes_draft_and_preserves_audit(tmp_path) -> None:
+    input_path = tmp_path / "records.csv"
+    input_path.write_text(
+        "record_id,title,abstract,year,source\n"
+        'r1,"Path model","A path model maps associations.",2024,PubMed\n',
+        encoding="utf-8",
+    )
+    draft_causal = {
+        **causal_title_answer(),
+        "genetic_instrument_signal": "no",
+        "directed_model_signal": "yes",
+    }
+    verified = contract_verifier_answer(
+        causal=draft_causal,
+        genetic_instrument_signal="no",
+        directed_model_signal="no",
+    )
+    provider = QueueProvider(
+        {
+            "scope_reviewer": [scope_answer()],
+            "causal_design_reviewer": [draft_causal],
+            "directional_result_reviewer": [directional_language_answer()],
+            "causal_design_reviewer_contract_verifier": [
+                {
+                    key: value
+                    for key, value in verified.items()
+                    if key
+                    in {
+                        "completed_current_report",
+                        "genetic_instrument_signal",
+                        "manipulation_design_signal",
+                        "directed_model_signal",
+                    }
+                }
+                | {
+                    "evidence_spans": [],
+                    "uncertainty_reason": "",
+                    "concise_rationale": "The causal contract was verified.",
+                }
+            ],
+        }
+    )
+    output = tmp_path / "run"
+    counts = run_stage_screening(input_path, output, provider)
+    result = json.loads((output / "screening_results.jsonl").read_text())
+    raw_rows = [
+        json.loads(line)
+        for line in (output / "raw_provider_responses.jsonl").read_text().splitlines()
+    ]
+
+    assert counts == {"exclude": 1}
+    assert (
+        result["draft_round_a"]["causal_design_reviewer"]["directed_model_signal"]
+        == "yes"
+    )
+    assert (
+        result["round_a"]["causal_design_reviewer"]["directed_model_signal"]
+        == "no"
+    )
+    assert result["contract_corrections"] == [
+        "causal_design_reviewer.directed_model_signal"
+    ]
+    assert any(
+        row.get("phase") == "contract_verification"
+        and row["role"] == "causal_design_reviewer_contract_verifier"
+        for row in raw_rows
+    )
+
+
 def test_thin_abstract_uncertainty_proceeds_to_full_text(tmp_path) -> None:
     input_path = tmp_path / "records.csv"
     input_path.write_text(
@@ -357,13 +554,14 @@ def test_thin_abstract_uncertainty_proceeds_to_full_text(tmp_path) -> None:
     )
     unclear_causal = {
         **causal_title_answer(),
-        "identification_status": "unclear",
-        "boundary_case": "thin_abstract",
+        "completed_current_report": "unclear",
+        "genetic_instrument_signal": "unclear",
     }
     provider = QueueProvider(
         {
             "scope_reviewer": [scope_answer()],
             "causal_design_reviewer": [unclear_causal],
+            "directional_result_reviewer": [directional_language_answer()],
             "adjudicator": [title_adjudication_answer("insufficient_title_abstract")],
         }
     )
@@ -384,17 +582,18 @@ def test_title_consistency_rules_short_circuit_nonaging_design(tmp_path) -> None
     }
     causal = {
         **causal_title_answer(),
-        "identification_status": "causal_candidate",
     }
     adjudication = {
         **title_adjudication_answer("resolved"),
         "aging_process_relevance": "no",
-        "identification_status": "noncausal",
+        "applied_design_signal": "no",
+        "directional_result_signal": "no",
     }
     provider = QueueProvider(
         {
             "scope_reviewer": [scope],
             "causal_design_reviewer": [causal],
+            "directional_result_reviewer": [directional_language_answer()],
             "adjudicator": [adjudication],
         }
     )
@@ -413,8 +612,11 @@ def test_title_consistency_rules_short_circuit_nonaging_design(tmp_path) -> None
     assert "design_role" not in result["selected_criteria"]
     assert result["selected_criteria"]["multiomics_status"] == "not_assessed"
     assert result["consistency_rules_applied"] == [
+        "applied_design_signal_derived_from_atomic_design_signals",
+        "directional_result_signal_copied_from_language_specialist",
         "downstream_scope_criteria_normalized_from_prisma_sequence",
         "title_omics_layer_inventory_deferred_to_full_text",
+        "identification_status_derived_from_atomic_causal_signals",
         "ineligible_scope_implies_no_relevant_causal_design",
         "title_effect_strength_and_design_subtyping_deferred_to_full_text",
     ]
@@ -434,6 +636,7 @@ def test_title_multiomics_author_claim_does_not_require_title_inventory(
         {
             "scope_reviewer": [scope],
             "causal_design_reviewer": [causal_title_answer()],
+            "directional_result_reviewer": [directional_language_answer()],
         }
     )
     output = tmp_path / "run"
@@ -468,6 +671,7 @@ def test_title_sequence_skips_scope_fields_after_nonempirical_report(tmp_path) -
         {
             "scope_reviewer": [scope],
             "causal_design_reviewer": [causal_title_answer()],
+            "directional_result_reviewer": [directional_language_answer()],
         }
     )
     output = tmp_path / "run"
@@ -502,12 +706,14 @@ def test_title_sequential_scope_short_circuit_defers_multiomics_after_unclear_ag
         **title_adjudication_answer("insufficient_title_abstract"),
         "aging_process_relevance": "unclear",
         "multiomics_status": "yes",
-        "identification_status": "causal_candidate",
+        "applied_design_signal": "yes",
+        "directional_result_signal": "no",
     }
     provider = QueueProvider(
         {
             "scope_reviewer": [scope],
             "causal_design_reviewer": [causal_title_answer()],
+            "directional_result_reviewer": [directional_language_answer()],
             "adjudicator": [adjudication],
         }
     )
@@ -536,13 +742,14 @@ def test_unresolved_decisive_conflict_routes_to_manual_review(tmp_path) -> None:
     )
     unclear_causal = {
         **causal_title_answer(),
-        "identification_status": "unclear",
-        "boundary_case": "thin_abstract",
+        "completed_current_report": "unclear",
+        "genetic_instrument_signal": "unclear",
     }
     provider = QueueProvider(
         {
             "scope_reviewer": [scope_answer()],
             "causal_design_reviewer": [unclear_causal],
+            "directional_result_reviewer": [directional_language_answer()],
             "adjudicator": [title_adjudication_answer("conflict_unresolved")],
         }
     )

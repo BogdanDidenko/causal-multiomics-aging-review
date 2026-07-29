@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "multiomics_status",
+    "omics_layers",
+    "completed_current_report",
+    "genetic_instrument_signal",
+    "manipulation_design_signal",
+    "directed_model_signal",
+    "directional_language_signal",
+    "boundary_case",
+    "evidence_spans",
+    "corrected_draft_fields",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {
+      "enum": ["empirical_primary", "nonempirical", "unclear"]
+    },
+    "bio_health_scope": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "aging_process_relevance": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "multiomics_status": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "omics_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completed_current_report": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "genetic_instrument_signal": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "manipulation_design_signal": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "directed_model_signal": {
+      "enum": ["yes", "no", "unclear"]
+    },
+    "directional_language_signal": {
+      "enum": ["yes", "no"]
+    },
+    "boundary_case": {
+      "enum": [
+        "clear_scope",
+        "thin_abstract",
+        "report_type_ambiguous",
+        "chronological_age_covariate_only",
+        "older_cohort_only",
+        "age_related_disease_only",
+        "cellular_persistence_not_aging",
+        "aging_proxy_ambiguous",
+        "single_layer_multiple_assays",
+        "omics_plus_non_omics",
+        "external_omics_only",
+        "two_gwas_traits_only",
+        "generic_multiomics_label",
+        "cross_dataset_multiomics",
+        "other",
+        "none"
+      ]
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence_span"
+      }
+    },
+    "corrected_draft_fields": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "report_type",
+          "bio_health_scope",
+          "aging_process_relevance",
+          "multiomics_status",
+          "completed_current_report",
+          "genetic_instrument_signal",
+          "manipulation_design_signal",
+          "directed_model_signal",
+          "directional_language_signal"
+        ]
+      }
+    },
+    "uncertainty_reason": {
+      "type": "string"
+    },
+    "concise_rationale": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "evidence_span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "report_type",
+            "bio_health_scope",
+            "aging_process_relevance",
+            "multiomics_status",
+            "completed_current_report",
+            "genetic_instrument_signal",
+            "manipulation_design_signal",
+            "directed_model_signal",
+            "directional_language_signal"
+          ]
+        },
+        "source": {
+          "enum": ["title", "abstract", "metadata"]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
