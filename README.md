@@ -100,15 +100,17 @@ for every canonical categorical field, all decisive criteria, and final
 routing. `v0.99.0` passed the independent 50-record development set with 100%
 canonical agreement and no manual reviews. Raw specialist-draft agreement was
 66%, while verifier-field unanimity was 97.91%; these diagnostics do not
-replace the canonical gate. The complete candidate must be frozen in Git
-before the disjoint 25-record `v8` set is evaluated once. See
+replace the canonical gate. After freeze commit `d5646a9`, the disjoint
+25-record `v8` evaluation failed strict stability with final-route agreement
+`0.96` and decisive and all-tracked agreement `0.92`. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-full-text retrieval, and full-text prompt validation remain pending. The active
-title/abstract candidate is `v0.99.0`; it has passed independent development
-stability but has not yet been evaluated on sealed `v8`. Stability measures
-reproducibility, not expert-labelled screening accuracy.
+full-text retrieval, and full-text prompt validation remain pending. The latest
+title/abstract suite is `v0.99.0`, but it is rejected after failing sealed
+`v8`; `v8` is now accessed evaluation data and must not be used for further
+calibration. Stability measures reproducibility, not expert-labelled screening
+accuracy.
 
 ## Canonical Positive
 

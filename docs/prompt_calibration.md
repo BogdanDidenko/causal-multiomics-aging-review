@@ -99,9 +99,11 @@ from canonical normalized output.
   before inspection at commit `15bcde0`.
 - `title_abstract_calibration_v0.96.0_50.csv` is the only development set used
   to calibrate `v0.96.0` through `v0.99.0`.
-- `title_abstract_stability_holdout_v8_v0.96.0_25.csv` is disjoint, remains
-  sealed, and has SHA-256
+- `title_abstract_stability_holdout_v8_v0.96.0_25.csv` is disjoint and has
+  SHA-256
   `72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443`.
+  It was evaluated exactly once after candidate freeze commit `d5646a9` and is
+  now accessed evaluation evidence that must not be used for calibration.
 
 ## Calibration History
 
@@ -137,6 +139,7 @@ artifacts remain versioned in the repository.
 | v0.98.0 | unstable focus, 6 x 5 | 1.00 | 0.8333 | 0.8333 | 0.8333 | 0.00 | fail |
 | v0.99.0 | unstable focus, 6 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.3333 | pass |
 | v0.99.0 | independent development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.66 | pass |
+| v0.99.0 | sealed v8, 25 x 5 | 1.00 | 0.96 | 0.92 | 0.92 | 0.72 | fail |
 
 The calibration failures localized recurring sources of nondeterminism:
 
@@ -177,10 +180,17 @@ causal-level exact agreement were all `1.00`; manual review was `0.00`.
 Raw-draft agreement was `0.66`, verifier-field unanimity was `0.9791`, and
 every run routed the same 35 records to exclusion and 15 to full text.
 
-This is a development stability result, not a final independent estimate and
-not an accuracy result. The candidate must be frozen in Git before `v8` is
-opened exactly once. No `v6`, `v7`, or `v8` record wording was used for this
-calibration.
+The candidate was frozen at commit `d5646a9` before `v8` was opened exactly
+once. The sealed evaluation failed: schema and causal-level agreement were
+`1.00`, final-route agreement was `0.96`, decisive and all-tracked agreement
+were `0.92`, manual review was `0.00`, raw-draft agreement was `0.72`, and
+verifier-field unanimity was `0.9636`. Two of 25 records were unstable; one
+changed final route. `v0.99.0` is therefore rejected.
+
+No `v6`, `v7`, or `v8` record wording was used to calibrate `v0.99.0`. The
+accessed `v8` records and their outputs may be reported diagnostically but
+must not drive the next prompt revision. A new unseen development and holdout
+cycle is required for further calibration.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper

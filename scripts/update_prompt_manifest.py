@@ -82,7 +82,7 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "candidate_v0.99.0_development_pass_pending_sealed_v8",
+        "approval_status": "rejected_v0.99.0_sealed_v8_failed",
         "approval_date": "2026-07-29",
         "benchmark_version": "calibration_cycle_v0.96.0",
         "created_date": date.today().isoformat(),
@@ -97,8 +97,14 @@ def main() -> None:
             "three-way categorical ties to the existing unclear value and "
             "requires verifier unanimity before accepting exclusionary "
             "no/nonempirical values; it does not classify record semantics. "
-            "The disjoint 25-record v8 holdout remains sealed pending a frozen "
-            "candidate commit. "
+            "The complete candidate was frozen in commit d5646a9 before the "
+            "one-time sealed v8 run. Sealed v8 produced 1.00 schema and "
+            "causal-level agreement, 0.96 final-route agreement, 0.92 decisive "
+            "and all-tracked agreement, 0.00 manual review, 0.72 raw-draft "
+            "agreement, and 0.9636 verifier-field unanimity. Two of 25 records "
+            "were unstable and one changed final route. v0.99.0 is rejected; "
+            "v8 is now accessed evaluation evidence and is not calibration "
+            "data. "
             "For context, title/abstract v0.95.0 preserves the v0.77.0 scope "
             "contract and "
             "replaces two compound causal judgments with short atomic "

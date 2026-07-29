@@ -71,8 +71,13 @@ is now accessed evaluation evidence that must not be used for calibration.
 
 The independent `v0.96` calibration cycle was frozen before inspection at
 commit `15bcde0`. Its disjoint `v8` holdout has SHA-256
-`72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443`
-and remains sealed until the complete `v0.99.0` candidate is frozen in Git.
+`72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443`.
+The complete `v0.99.0` candidate was frozen at commit `d5646a9` and evaluated
+exactly once on `v8`. The run failed strict stability: schema and causal-level
+agreement were `1.00`, final-route agreement was `0.96`, decisive and
+all-tracked agreement were `0.92`, and manual review was `0.00`. Two records
+were unstable and one changed final route. `v0.99.0` is rejected and `v8` is
+now accessed evaluation evidence that must not be used for calibration.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned
