@@ -2,17 +2,18 @@
 
 The active suite combines:
 
-- title/abstract `v0.91.0`: three narrow specialist drafts, separate matching
-  contract-verification passes, sequential scope gates, and selective
-  adjudication;
+- title/abstract `v0.95.0`: three narrow specialist drafts, three independent
+  matching verifier votes per role, strict field-majority consensus, ordered
+  scope gates, and selective adjudication;
 - full text `v0.1.0`: section selection, eligibility, causal evidence, and
   adjudication.
 
 All prompts are model-neutral JSON contracts executed with GPT 5.6 Terra
 Medium through Codex CLI at `reasoning.effort=medium`. Python applies routing,
 ordered PRISMA consistency rules, three-valued aggregation, exclusion codes,
-and full-text evidence levels. Raw provider JSON, specialist drafts, verifier
-outputs, and categorical corrections are retained unchanged.
+and full-text evidence levels. Raw provider JSON, specialist drafts, every
+verifier vote, consensus counts, unanimity flags, and categorical corrections
+are retained unchanged.
 
 Title/abstract screening is intentionally high-sensitivity. A completed report
 is a causal candidate when it applies a causal or directed design or makes an
@@ -32,11 +33,13 @@ Stability requires five independent sessions with:
 - 100% exact agreement on decisive criteria and final route;
 - 0% runtime-triggered manual review.
 
-`v0.91.0` passed the visible 50-record development set and both accessed
-25-record regression sets (`v4` and `v5`) with `1.00` schema, final-route,
-decisive-path, and all-tracked agreement and `0.00` manual review. Raw draft
-agreement was `0.92`, `0.92`, and `1.00`; this diagnostic is reported
-separately and does not replace the canonical gate.
+`v0.95.0` passed the new 16-record calibration set, the visible 50-record
+development set, and both accessed 25-record regression sets (`v4` and `v5`)
+with `1.00` schema, final-route, decisive-path, and all-tracked agreement and
+`0.00` manual review. Raw draft agreement was `0.8125`, `0.94`, `0.92`, and
+`0.92`; verifier field unanimity was `0.9847`, `0.9982`, `0.9982`, and `1.00`.
+These diagnostics are reported separately and do not replace the canonical
+gate.
 
 The 25-record `v6` holdout was run once after candidate freeze commit
 `1dd685d`. Its SHA-256 is
@@ -44,6 +47,13 @@ The 25-record `v6` holdout was run once after candidate freeze commit
 It failed strict stability with `0.84` all-tracked and `0.96` decisive
 agreement, although final-route agreement was `1.00`. `v0.91.0` is rejected
 and `v6` must not be used for calibration.
+
+After the v6 rejection, the untouched 41-record remainder was split
+deterministically into a visible 16-record calibration set and a sealed
+25-record `v7` set. `v7` has SHA-256
+`17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5`
+and has not been opened or run. It is reserved for the one-time evaluation of
+the frozen `v0.95.0` candidate.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned

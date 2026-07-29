@@ -11,7 +11,7 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SCREENING = PROTOCOL / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.91.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.95.0.json"
 SEARCH_CONFIG_PATH = PROTOCOL / "search_config.json"
 MANIFEST_PATH = SCREENING / "prompt_manifest.json"
 
@@ -165,13 +165,29 @@ def main() -> None:
         errors.append("round-A title screening must apply the PRISMA scope short-circuit")
     if title_stage.get("title_layer_inventory") != "deferred_to_full_text":
         errors.append("title-stage molecular-layer inventory must be deferred")
+    if (
+        title_stage.get("causal_short_circuit_after_scope")
+        != "clear_exclusion_or_unresolved"
+    ):
+        errors.append(
+            "title-stage causal criteria must stop after excluded or unresolved scope"
+        )
+    if title_stage.get("unresolved_upstream_scope_route") != "seek_full_text":
+        errors.append("unresolved upstream title scope must proceed to full text")
     if title_stage.get("contract_verification", {}).get("enabled") is not True:
         errors.append("title-stage contract verification must be enabled")
     if (
         title_stage.get("contract_verification", {}).get("mode")
-        != "per_role_second_pass"
+        != "per_role_consensus"
     ):
-        errors.append("title-stage verification must use per-role second passes")
+        errors.append("title-stage verification must use per-role consensus")
+    if title_stage.get("contract_verification", {}).get("repeats") != 3:
+        errors.append("title-stage verification consensus must use three votes")
+    if (
+        title_stage.get("contract_verification", {}).get("aggregation")
+        != "strict_field_majority"
+    ):
+        errors.append("title-stage verification must use strict field majority")
     title_routing = title_stage.get("routing", {})
     if title_routing.get("round_a_any_exclude") != "exclude":
         errors.append("clear title/abstract exclusions must bypass adjudication")

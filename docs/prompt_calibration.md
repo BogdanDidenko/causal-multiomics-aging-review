@@ -83,8 +83,16 @@ from canonical normalized output.
 - `v6` remained sealed until the complete `v0.91.0` candidate was frozen in
   Git. It was opened exactly once after freeze commit `1dd685d` and is now an
   accessed evaluation set, not calibration data.
-- A separate 41-record remainder remains untouched for a future independent
-  cycle.
+- After the v6 rejection, the untouched 41-record remainder was split
+  deterministically into
+  `title_abstract_calibration_v0.92.0_16.csv` and the sealed
+  `title_abstract_stability_holdout_v7_v0.92.0_25.csv`.
+- The visible 16-record set is the only new calibration data used for
+  `v0.92.0` through `v0.95.0`.
+- `v7` contains 25 disjoint records and has SHA-256
+  `17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5`.
+  It has not been opened or run and remains reserved for one evaluation after
+  the complete candidate is frozen in Git.
 
 ## Calibration History
 
@@ -106,6 +114,14 @@ artifacts remain versioned in the repository.
 | v0.91.0 | accessed v4, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.91.0 | accessed v5, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 | pass |
 | v0.91.0 | sealed v6, 25 x 5 | 1.00 | 1.00 | 0.96 | 0.84 | 0.68 | fail |
+| v0.91.0 | new calibration, 16 x 5 | 1.00 | 0.875 | 0.875 | 0.8125 | 0.75 | fail |
+| v0.92.0 | new calibration, 16 x 5 | 1.00 | 0.9375 | 0.9375 | 0.875 | 0.6875 | fail |
+| v0.93.0 | new calibration, 16 x 5 | 1.00 | 0.9375 | 0.9375 | 0.9375 | 0.625 | fail |
+| v0.94.0 | new calibration, 16 x 5 | 1.00 | 0.9375 | 0.9375 | 0.9375 | 0.875 | fail |
+| v0.95.0 | new calibration, 16 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.8125 | pass |
+| v0.95.0 | development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.94 | pass |
+| v0.95.0 | accessed v4, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
+| v0.95.0 | accessed v5, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 
 The calibration failures localized recurring sources of nondeterminism:
 
@@ -118,24 +134,30 @@ The calibration failures localized recurring sources of nondeterminism:
 - stochastic noncompliance with explicit atomic boundaries, such as ordinary
   methods containing `path` versus structural equation models.
 
-The final title/abstract suite retains hypotheses for full-text assessment
-without claiming that causality is identified. The `v0.91.0` change is a
-general method boundary: an applied genomic structural equation model,
-including genomic SEM, is a directed-model positive; ordinary path-like
-method names remain negative.
+The title/abstract suite retains hypotheses for full-text assessment without
+claiming that causality is identified. `v0.92.0` adds three independent
+verifier votes per role and strict field-majority consensus. `v0.93.0`
+applies the ordered PRISMA scope result before downstream causal criteria:
+clear exclusions become `not_assessed`, while unresolved upstream scope
+proceeds directly to full text. `v0.94.0` defines a general biological
+X-role-Y clause, including epistemically qualified role predicates.
+`v0.95.0` removes a contradictory report-type boundary: missing current
+methods or results in a thin fragment is not evidence that a report is
+nonempirical.
 
 ## Current Status
 
-Title/abstract `v0.91.0` is rejected. It passed all strict gates on 100
-accessed development/regression records but failed the one-time sealed `v6`
-evaluation: final-route agreement remained `1.00`, while decisive agreement
-was `0.96`, all-tracked agreement was `0.84`, and raw-draft agreement was
-`0.68`. The result shows that one specialist plus one matching verifier is not
-stable enough on unseen records.
+Title/abstract `v0.95.0` is the current freeze candidate. It passed all strict
+gates on 116 accessible calibration/development/regression records:
+all-tracked, decisive, final-route, and schema agreement were `1.00`, and
+manual review was `0.00` on every set. Raw-draft agreement was `0.8125`,
+`0.94`, `0.92`, and `0.92`; verifier field unanimity was `0.9847`, `0.9982`,
+`0.9982`, and `1.00`. Canonical stability is therefore complete on accessible
+data, while raw model drafts remain explicitly nondeterministic diagnostics.
 
-No `v6` wording may be used for prompt calibration. A successor cycle must
-make a general architectural change and use a new development/holdout split
-from the untouched 41-record remainder.
+No `v6` wording was used for prompt calibration. `v7` remains sealed and must
+be evaluated exactly once only after the complete `v0.95.0` candidate,
+protocol, schemas, code, and regression artifacts are frozen in Git.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper

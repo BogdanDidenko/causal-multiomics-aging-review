@@ -105,6 +105,25 @@ def test_stability_reports_raw_draft_drift_separately() -> None:
     )
 
 
+def test_stability_reports_contract_verifier_field_unanimity() -> None:
+    runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
+    for index, result_by_id in enumerate(runs.values(), start=1):
+        result_by_id["r1"]["contract_consensus"] = {
+            "scope_reviewer": {
+                "fields": {
+                    "report_type": {
+                        "unanimous": index != 5,
+                    }
+                }
+            }
+        }
+
+    _, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
+
+    assert summary["acceptance"]["overall"] == "pass"
+    assert summary["metrics"]["contract_verifier_field_unanimity_rate"] == 0.8
+
+
 def test_stability_ignores_downstream_fields_after_same_exclusion_path() -> None:
     runs = {}
     for index in range(1, 6):

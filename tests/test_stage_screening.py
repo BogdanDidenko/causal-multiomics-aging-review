@@ -3,6 +3,7 @@ import json
 from causal_multiomics_aging_review.screening import (
     _derive_title_identification_status,
     _logical_any_signal,
+    _title_role_consensus,
     run_stage_screening,
 )
 
@@ -26,10 +27,16 @@ class QueueProvider:
         self.calls.append(schema_name)
         if (
             schema_name.endswith("_contract_verifier")
-            and schema_name not in self.answers
+            and (
+                schema_name not in self.answers
+                or not self.answers[schema_name]
+            )
         ):
-            source_role = schema_name.removesuffix("_contract_verifier")
-            answer = dict(self.latest[source_role])
+            if schema_name in self.latest:
+                answer = dict(self.latest[schema_name])
+            else:
+                source_role = schema_name.removesuffix("_contract_verifier")
+                answer = dict(self.latest[source_role])
         elif schema_name == "contract_verifier" and schema_name not in self.answers:
             answer = contract_verifier_answer(
                 self.latest["scope_reviewer"],
@@ -141,6 +148,25 @@ def test_logical_any_signal_truth_table() -> None:
     assert _logical_any_signal(["no", "no"]) == "no"
     assert _logical_any_signal(["no", "unclear"]) == "unclear"
     assert _logical_any_signal(["unclear", "yes"]) == "yes"
+
+
+def test_title_role_consensus_uses_field_majorities_and_preserves_votes() -> None:
+    yes = directional_language_answer("yes")
+    no = directional_language_answer("no")
+    consensus, audit = _title_role_consensus(
+        "directional_result_reviewer",
+        [yes, no, yes],
+    )
+
+    assert consensus["directional_language_signal"] == "yes"
+    assert audit["vote_count"] == 3
+    assert audit["all_fields_unanimous"] is False
+    assert audit["fields"]["directional_language_signal"] == {
+        "votes": ["yes", "no", "yes"],
+        "counts": {"no": 1, "yes": 2},
+        "selected": "yes",
+        "unanimous": False,
+    }
 
 
 def title_adjudication_answer(resolution_status: str) -> dict[str, object]:
@@ -611,11 +637,22 @@ def test_title_consistency_rules_short_circuit_nonaging_design(tmp_path) -> None
     assert "primary_design_family" not in result["selected_criteria"]
     assert "design_role" not in result["selected_criteria"]
     assert result["selected_criteria"]["multiomics_status"] == "not_assessed"
+    assert (
+        result["round_a"]["causal_design_reviewer"]["completed_current_report"]
+        == "not_assessed"
+    )
+    assert (
+        result["round_a"]["directional_result_reviewer"][
+            "directional_language_signal"
+        ]
+        == "not_assessed"
+    )
     assert result["consistency_rules_applied"] == [
-        "applied_design_signal_derived_from_atomic_design_signals",
-        "directional_result_signal_copied_from_language_specialist",
         "downstream_scope_criteria_normalized_from_prisma_sequence",
         "title_omics_layer_inventory_deferred_to_full_text",
+        "excluded_scope_short_circuits_causal_criteria",
+        "applied_design_signal_derived_from_atomic_design_signals",
+        "directional_result_signal_copied_from_language_specialist",
         "identification_status_derived_from_atomic_causal_signals",
         "ineligible_scope_implies_no_relevant_causal_design",
         "title_effect_strength_and_design_subtyping_deferred_to_full_text",
@@ -725,11 +762,15 @@ def test_title_sequential_scope_short_circuit_defers_multiomics_after_unclear_ag
     assert result["round_a"]["scope_reviewer"]["multiomics_status"] == "not_assessed"
     assert (
         result["round_a"]["causal_design_reviewer"]["identification_status"]
-        == "causal_candidate"
+        == "unclear"
     )
     assert result["selected_criteria"]["multiomics_status"] == "not_assessed"
     assert (
-        result["selected_criteria"]["identification_status"] == "causal_candidate"
+        result["selected_criteria"]["identification_status"] == "unclear"
+    )
+    assert result["adjudication"] is None
+    assert (
+        result["gates"]["scope_short_circuit"] == "seek_full_text"
     )
 
 

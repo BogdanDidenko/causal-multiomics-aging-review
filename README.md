@@ -90,24 +90,24 @@ locally authenticated Codex CLI:
 ```bash
 python scripts/run_stability.py \
   protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv \
-  data/screening/stability/development-full-50-v0.91.0 \
+  data/screening/stability/development-full-50-v0.95.0 \
   --stage title_abstract \
   --parallel-replicates 5
 ```
 
 The acceptance threshold is 100% exact agreement across five independent runs
 for every canonical categorical field, all decisive criteria, and final
-routing. `v0.91.0` passed the 50-record development set and the accessed `v4`
-and `v5` regression sets. The unverified specialist drafts remain a separate
-diagnostic and showed 92%, 92%, and 100% record-level agreement respectively.
-The frozen candidate then failed its one-time sealed `v6` evaluation:
-all-tracked agreement was 84%, decisive agreement was 96%, and final-route
-agreement was 100%. `v0.91.0` is rejected. See
+routing. `v0.95.0` passed the new 16-record calibration set, the 50-record
+development set, and the accessed `v4` and `v5` regression sets with 100%
+canonical agreement and no manual reviews. Raw specialist-draft agreement was
+81.25%, 94%, 92%, and 92%; verifier field unanimity was 98.47%, 99.82%,
+99.82%, and 100%. These diagnostics do not replace the canonical gate. The
+separate 25-record `v7` set remains sealed pending candidate freeze. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-a new independent title/abstract calibration cycle, full-text retrieval, and
-full-text prompt validation remain pending.
+the one-time sealed `v7` evaluation, full-text retrieval, and full-text prompt
+validation remain pending.
 
 ## Canonical Positive
 

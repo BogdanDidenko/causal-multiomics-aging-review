@@ -150,8 +150,28 @@ def assess_stability(
     schema_successes = 0
     manual_results = 0
     contract_correction_results = 0
+    contract_verifier_fields = 0
+    unanimous_contract_verifier_fields = 0
     for identifier in sorted(identifier_sets[0]):
         by_run = {label: run_results[label][identifier] for label in labels}
+        for row in by_run.values():
+            consensus = row.get("contract_consensus")
+            if not isinstance(consensus, dict):
+                continue
+            for role_audit in consensus.values():
+                if not isinstance(role_audit, dict):
+                    continue
+                fields = role_audit.get("fields")
+                if not isinstance(fields, dict):
+                    continue
+                for field_audit in fields.values():
+                    if not isinstance(field_audit, dict):
+                        continue
+                    unanimous = field_audit.get("unanimous")
+                    if not isinstance(unanimous, bool):
+                        continue
+                    contract_verifier_fields += 1
+                    unanimous_contract_verifier_fields += int(unanimous)
         values = {
             path: {label: _normalized_path(row, path) for label, row in by_run.items()}
             for path in paths
@@ -247,6 +267,11 @@ def assess_stability(
             contract_correction_results / (record_count * run_count)
             if stage == "title_abstract"
             else 0.0
+        ),
+        "contract_verifier_field_unanimity_rate": (
+            unanimous_contract_verifier_fields / contract_verifier_fields
+            if contract_verifier_fields
+            else None
         ),
     }
     gates = {

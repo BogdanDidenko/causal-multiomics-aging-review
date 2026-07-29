@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCREENING = ROOT / "protocol" / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.91.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.95.0.json"
 OUTPUT = SCREENING / "prompt_manifest.json"
 
 
@@ -82,12 +82,12 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "rejected_title_abstract_v0.91.0_sealed_v6",
-        "approval_date": date.today().isoformat(),
-        "benchmark_version": "sealed_v6_v0.51.0",
+        "approval_status": "candidate_v0.95.0_pending_sealed_v7",
+        "approval_date": None,
+        "benchmark_version": "calibration_cycle_v0.92.0",
         "created_date": date.today().isoformat(),
         "change_note": (
-            "Title/abstract v0.91.0 preserves the v0.77.0 scope contract and "
+            "Title/abstract v0.95.0 preserves the v0.77.0 scope contract and "
             "replaces two compound causal judgments with short atomic "
             "contracts. Separate GPT 5.6 Terra Medium reviewers assess report "
             "completion, genetic-instrument designs, assigned interventions, "
@@ -163,6 +163,46 @@ def main() -> None:
             "failed strict stability with 0.84 all-tracked and 0.96 decisive "
             "agreement, so v0.91.0 is rejected and v6 is not calibration "
             "data. "
+            "v0.92.0 replaces each single role verifier with three independent "
+            "verifier votes. Python selects a strict majority separately for "
+            "each existing categorical field and routes a three-way tie to "
+            "manual review. It does not classify record wording. Every vote, "
+            "field count, selected value, and unanimity flag is retained. "
+            "v0.93.0 applies the ordered PRISMA scope contract before "
+            "downstream causal fields. A clear scope exclusion records "
+            "causal-design and directional criteria as not assessed; an "
+            "unresolved upstream scope records downstream uncertainty and "
+            "routes directly to full text instead of asking an adjudicator "
+            "to convert missing title/abstract evidence into an exclusion. "
+            "These are Python consistency rules over model-produced "
+            "categorical fields, not semantic keyword classifiers. "
+            "On the visible 16-record calibration set, v0.93.0 reached only "
+            "0.9375 exact agreement for all tracked criteria, decisive "
+            "criteria, and final route. The sole unstable class was an "
+            "epistemically qualified biological X-role-Y clause, while each "
+            "three-vote verifier group was internally unanimous. v0.94.0 "
+            "therefore defines the general role-clause grammar explicitly: "
+            "named biological X, a role predicate including reporting or "
+            "epistemic auxiliaries, and named biological Y. Method subjects "
+            "and role fragments without that relation remain negative. "
+            "The focused v0.94.0 role-clause test passed, but the full visible "
+            "16-record calibration run again reached only 0.9375 exact "
+            "agreement because a thin search-engine fragment alternated "
+            "between nonempirical and unclear. v0.95.0 removes the underlying "
+            "scope-contract contradiction: missing current methods or results "
+            "in a truncated fragment is not evidence of nonempirical status. "
+            "A direct exclusion now requires affirmative review, protocol, "
+            "future-only, method-only, or resource-type evidence; otherwise "
+            "unresolved report attribution is unclear and proceeds to full "
+            "text under the existing Python consistency rule. "
+            "v0.95.0 then passed the visible 16-record calibration set, the "
+            "50-record development set, and accessed v4 and v5 regression "
+            "sets with 1.00 schema, final-route, decisive, and all-tracked "
+            "agreement and 0.00 manual review across five runs. Raw-draft "
+            "agreement remained diagnostic at 0.8125, 0.94, 0.92, and 0.92; "
+            "verifier-field unanimity was 0.9847, 0.9982, 0.9982, and 1.00. "
+            "The disjoint 25-record v7 set remains sealed pending the Git "
+            "freeze of this candidate. "
             "Full-text prompts remain v0.1.0 and unvalidated."
         ),
         "artifacts": artifacts,

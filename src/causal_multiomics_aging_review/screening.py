@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+from collections import Counter
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -233,6 +234,16 @@ class RoleExecutionError(RuntimeError):
         super().__init__(f"{role} failed after {len(errors)} attempts: {errors[-1]}")
 
 
+class ContractConsensusError(RuntimeError):
+    def __init__(self, role: str, unresolved_fields: list[str]) -> None:
+        self.role = role
+        self.unresolved_fields = unresolved_fields
+        super().__init__(
+            f"{role} has no strict verifier majority for "
+            f"{', '.join(unresolved_fields)}"
+        )
+
+
 def run_stage_screening(
     input_path: str | Path,
     output_dir: str | Path,
@@ -353,6 +364,16 @@ def run_stage_screening(
                     "role_execution_failed",
                     {"role": error.role, "errors": error.errors},
                 )
+            except ContractConsensusError as error:
+                result = _manual_review_result(
+                    record,
+                    stage,
+                    "contract_consensus_unresolved",
+                    {
+                        "role": error.role,
+                        "fields": error.unresolved_fields,
+                    },
+                )
             except (ValueError, EvidenceReferenceError) as error:
                 result = _manual_review_result(
                     record,
@@ -410,6 +431,12 @@ def _process_title_abstract_record(
     verification_mode = verification_config.get("mode")
     draft_answers: dict[str, dict[str, Any]] = {}
     verified_answers: dict[str, dict[str, Any]] = {}
+    verification_runs: dict[str, list[dict[str, Any]]] = {}
+    consensus_audit: dict[str, dict[str, Any]] = {}
+    per_role_verification = verification_mode in {
+        "per_role_second_pass",
+        "per_role_consensus",
+    }
     for role in stage_config["roles"]:
         if (
             role == "directional_effect_reviewer"
@@ -453,43 +480,58 @@ def _process_title_abstract_record(
             record_id(record),
             raw_results,
             max_retries,
+            post_validate=_title_model_role_validator(role),
             phase="draft_round_a",
         )
-        if verification_config.get("enabled") and verification_mode == (
-            "per_role_second_pass"
-        ):
+        if verification_config.get("enabled") and per_role_verification:
             verifier_role = f"{role}_contract_verifier"
-            verifier_prompt = render_prompt(
-                artifacts[verifier_role]["prompt"],
-                record,
-                {
-                    "DRAFT_REVIEW": json.dumps(
-                        draft_answers[role],
-                        ensure_ascii=False,
+            repeat_count = (
+                int(verification_config.get("repeats", 3))
+                if verification_mode == "per_role_consensus"
+                else 1
+            )
+            role_votes: list[dict[str, Any]] = []
+            for repeat_index in range(1, repeat_count + 1):
+                verifier_prompt = render_prompt(
+                    artifacts[verifier_role]["prompt"],
+                    record,
+                    {
+                        "DRAFT_REVIEW": json.dumps(
+                            draft_answers[role],
+                            ensure_ascii=False,
+                        )
+                    },
+                )
+                role_votes.append(
+                    _call_role(
+                        provider,
+                        verifier_role,
+                        verifier_prompt,
+                        artifacts[verifier_role]["schema"],
+                        record_id(record),
+                        raw_results,
+                        max_retries,
+                        post_validate=_title_model_role_validator(role),
+                        phase="contract_verification",
+                        repeat_index=repeat_index,
                     )
-                },
-            )
-            verified_answers[role] = _call_role(
-                provider,
-                verifier_role,
-                verifier_prompt,
-                artifacts[verifier_role]["schema"],
-                record_id(record),
-                raw_results,
-                max_retries,
-                phase="contract_verification",
-            )
+                )
+            verification_runs[role] = role_votes
+            if verification_mode == "per_role_consensus":
+                verified_answers[role], consensus_audit[role] = (
+                    _title_role_consensus(role, role_votes)
+                )
+            else:
+                verified_answers[role] = role_votes[0]
 
     verification: dict[str, Any] | None = None
     answers = (
         verified_answers
-        if verification_mode == "per_role_second_pass"
+        if per_role_verification
         else draft_answers
     )
     contract_corrections: list[str] = []
-    if verification_config.get("enabled") and verification_mode == (
-        "per_role_second_pass"
-    ):
+    if verification_config.get("enabled") and per_role_verification:
         verification = verified_answers
         contract_corrections = _title_contract_corrections(
             draft_answers,
@@ -533,7 +575,19 @@ def _process_title_abstract_record(
     route, role_gates = route_round_a(answers, stage_config)
     adjudication = None
     selected = _merge_answers(*answers.values())
-    if route == "adjudicate":
+    scope_resolution = _title_scope_resolution(answers["scope_reviewer"])
+    if (
+        route == "adjudicate"
+        and scope_resolution == "unresolved"
+        and stage_config.get("unresolved_upstream_scope_route")
+        == "seek_full_text"
+    ):
+        route = "seek_full_text"
+        role_gates["scope_short_circuit"] = "seek_full_text"
+        consistency_rules.append(
+            "unresolved_upstream_scope_routes_directly_to_full_text"
+        )
+    elif route == "adjudicate":
         causal_review = _merge_answers(
             *(
                 answer
@@ -570,6 +624,10 @@ def _process_title_abstract_record(
         "stage": "title_abstract",
         "title": record.get("title", ""),
         "draft_round_a": draft_answers,
+        "contract_verification_runs": (
+            verification_runs if verification_runs else None
+        ),
+        "contract_consensus": consensus_audit if consensus_audit else None,
         "contract_verification": verification,
         "contract_corrections": contract_corrections,
         "round_a": answers,
@@ -631,6 +689,73 @@ def _title_contract_corrections(
     return corrections
 
 
+def _title_role_consensus(
+    role: str,
+    votes: list[dict[str, Any]],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    if role not in _TITLE_VERIFIED_FIELDS:
+        raise ValueError(f"Unsupported title consensus role: {role}")
+    if len(votes) < 3 or len(votes) % 2 == 0:
+        raise ValueError("Verifier consensus requires an odd number of at least 3 votes")
+
+    consensus = dict(votes[0])
+    field_audit: dict[str, Any] = {}
+    unresolved: list[str] = []
+    for field in _TITLE_VERIFIED_FIELDS[role]:
+        values = [str(vote[field]) for vote in votes]
+        counts = Counter(values)
+        selected, count = counts.most_common(1)[0]
+        has_majority = count > len(votes) // 2
+        field_audit[field] = {
+            "votes": values,
+            "counts": dict(sorted(counts.items())),
+            "selected": selected if has_majority else None,
+            "unanimous": count == len(votes),
+        }
+        if has_majority:
+            consensus[field] = selected
+        else:
+            unresolved.append(field)
+
+    if unresolved:
+        raise ContractConsensusError(role, unresolved)
+
+    evidence: list[dict[str, Any]] = []
+    seen_evidence: set[str] = set()
+    for vote in votes:
+        for item in vote.get("evidence_spans", []):
+            key = json.dumps(item, ensure_ascii=False, sort_keys=True)
+            if key not in seen_evidence:
+                evidence.append(item)
+                seen_evidence.add(key)
+    consensus["evidence_spans"] = evidence
+    return consensus, {
+        "vote_count": len(votes),
+        "all_fields_unanimous": all(
+            item["unanimous"] for item in field_audit.values()
+        ),
+        "fields": field_audit,
+    }
+
+
+def _title_model_role_validator(
+    role: str,
+) -> Callable[[dict[str, Any]], None] | None:
+    fields = _TITLE_VERIFIED_FIELDS.get(role)
+    if role == "scope_reviewer" or fields is None:
+        return None
+
+    def validate(answer: dict[str, Any]) -> None:
+        invalid = [field for field in fields if answer.get(field) == "not_assessed"]
+        if invalid:
+            raise ValueError(
+                "not_assessed is reserved for Python scope consistency: "
+                + ", ".join(invalid)
+            )
+
+    return validate
+
+
 def _normalize_title_round_a(
     answers: dict[str, dict[str, Any]],
     stage_config: dict[str, Any],
@@ -639,6 +764,48 @@ def _normalize_title_round_a(
     scope = answers["scope_reviewer"]
     causal = answers["causal_design_reviewer"]
     status_contract = stage_config.get("identification_status_contract")
+    defer_layers = stage_config.get("title_layer_inventory") == "deferred_to_full_text"
+    if stage_config.get("title_scope_sequential_short_circuit") and (
+        _normalize_title_scope_sequence(scope)
+    ):
+        rules.append("downstream_scope_criteria_normalized_from_prisma_sequence")
+    if _normalize_title_multiomics(
+        scope,
+        defer_inventory=defer_layers,
+        sequential_short_circuit=stage_config.get(
+            "title_scope_sequential_short_circuit", False
+        ),
+    ):
+        rules.append(
+            "multiomics_status_normalized_from_scope_short_circuit"
+            if defer_layers
+            else "multiomics_status_normalized_from_used_layer_count"
+        )
+    if defer_layers:
+        rules.append("title_omics_layer_inventory_deferred_to_full_text")
+
+    scope_resolution = _title_scope_resolution(scope)
+    if (
+        scope_resolution in {"excluded", "unresolved"}
+        and status_contract == "causal_candidate_design_bundle_v7"
+        and stage_config.get("causal_short_circuit_after_scope")
+        == "clear_exclusion_or_unresolved"
+    ):
+        directional = answers["directional_result_reviewer"]
+        causal["completed_current_report"] = (
+            "unclear" if scope_resolution == "unresolved" else "not_assessed"
+        )
+        for field in (
+            "genetic_instrument_signal",
+            "manipulation_design_signal",
+            "directed_model_signal",
+        ):
+            causal[field] = "not_assessed"
+        directional["directional_language_signal"] = "not_assessed"
+        rules.append(
+            f"{scope_resolution}_scope_short_circuits_causal_criteria"
+        )
+
     if status_contract == "causal_candidate_design_bundle_v7":
         design_fields = (
             "genetic_instrument_signal",
@@ -754,25 +921,6 @@ def _normalize_title_round_a(
             "directional_result_signal"
         ]
         rules.append("directional_result_signal_merged_from_specialist")
-    defer_layers = stage_config.get("title_layer_inventory") == "deferred_to_full_text"
-    if stage_config.get("title_scope_sequential_short_circuit") and (
-        _normalize_title_scope_sequence(scope)
-    ):
-        rules.append("downstream_scope_criteria_normalized_from_prisma_sequence")
-    if _normalize_title_multiomics(
-        scope,
-        defer_inventory=defer_layers,
-        sequential_short_circuit=stage_config.get(
-            "title_scope_sequential_short_circuit", False
-        ),
-    ):
-        rules.append(
-            "multiomics_status_normalized_from_scope_short_circuit"
-            if defer_layers
-            else "multiomics_status_normalized_from_used_layer_count"
-        )
-    if defer_layers:
-        rules.append("title_omics_layer_inventory_deferred_to_full_text")
     if _derive_title_identification_status(
         causal,
         status_contract=status_contract,
@@ -818,6 +966,22 @@ def _normalize_title_round_a(
             else "title_design_subtyping_deferred_to_full_text"
         )
     return rules
+
+
+def _title_scope_resolution(scope: dict[str, Any]) -> str:
+    report_type = scope.get("report_type")
+    if report_type != "empirical_primary":
+        return "unresolved" if report_type == "unclear" else "excluded"
+
+    for field in (
+        "bio_health_scope",
+        "aging_process_relevance",
+        "multiomics_status",
+    ):
+        value = scope.get(field)
+        if value != "yes":
+            return "unresolved" if value in {"unclear", "not_assessed"} else "excluded"
+    return "eligible"
 
 
 def _normalize_title_adjudication(
@@ -1263,6 +1427,7 @@ def _call_role(
     max_retries: int,
     post_validate: Callable[[dict[str, Any]], None] | None = None,
     phase: str | None = None,
+    repeat_index: int | None = None,
 ) -> dict[str, Any]:
     errors: list[str] = []
     for attempt in range(max_retries + 1):
@@ -1291,6 +1456,8 @@ def _call_role(
             }
             if phase:
                 audit_row["phase"] = phase
+            if repeat_index is not None:
+                audit_row["repeat_index"] = repeat_index
             raw_results.write(
                 json.dumps(audit_row, ensure_ascii=False)
                 + "\n"
@@ -1311,6 +1478,8 @@ def _call_role(
             }
             if phase:
                 audit_row["phase"] = phase
+            if repeat_index is not None:
+                audit_row["repeat_index"] = repeat_index
             if failed_response is not None:
                 audit_row["response"] = failed_response
             raw_results.write(
@@ -1328,7 +1497,10 @@ def _load_stage_artifacts(stage_config: dict[str, Any]) -> dict[str, dict[str, A
     role_configs: dict[str, dict[str, Any]] = dict(stage_config["roles"])
     role_configs["adjudicator"] = stage_config["adjudication"]
     verification_config = stage_config.get("contract_verification", {})
-    if verification_config.get("mode") == "per_role_second_pass":
+    if verification_config.get("mode") in {
+        "per_role_second_pass",
+        "per_role_consensus",
+    }:
         for role, role_config in stage_config["roles"].items():
             role_configs[f"{role}_contract_verifier"] = {
                 "prompt": role_config["verification_prompt"],
