@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "completed_current_report",
+    "genetic_instrument_signal",
+    "manipulation_design_signal",
+    "directed_model_signal",
+    "evidence_spans",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "completed_current_report": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "genetic_instrument_signal": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "manipulation_design_signal": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "directed_model_signal": {
+      "enum": ["yes", "no", "unclear", "not_assessed"]
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    },
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {
+          "enum": [
+            "completed_current_report",
+            "genetic_instrument_signal",
+            "manipulation_design_signal",
+            "directed_model_signal"
+          ]
+        },
+        "source": {"enum": ["title", "abstract", "metadata"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

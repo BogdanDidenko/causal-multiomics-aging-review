@@ -2,9 +2,9 @@
 
 The active suite combines:
 
-- title/abstract `v0.95.0`: three narrow specialist drafts, three independent
-  matching verifier votes per role, strict field-majority consensus, ordered
-  scope gates, and selective adjudication;
+- title/abstract `v0.99.0`: three narrow specialist drafts, three independent
+  source-only verifier votes per role, conservative categorical consensus,
+  ordered scope gates, and selective adjudication;
 - full text `v0.1.0`: section selection, eligibility, causal evidence, and
   adjudication.
 
@@ -33,14 +33,18 @@ Stability requires five independent sessions with:
 - 100% exact agreement on decisive criteria and final route;
 - 0% runtime-triggered manual review.
 
-Before its sealed evaluation, `v0.95.0` passed the new 16-record calibration
-set, the visible 50-record
-development set, and both accessed 25-record regression sets (`v4` and `v5`)
-with `1.00` schema, final-route, decisive-path, and all-tracked agreement and
-`0.00` manual review. Raw draft agreement was `0.8125`, `0.94`, `0.92`, and
-`0.92`; verifier field unanimity was `0.9847`, `0.9982`, `0.9982`, and `1.00`.
-These diagnostics are reported separately and do not replace the canonical
-gate.
+`v0.99.0` was calibrated on a new 50-record development set sampled only from
+records absent from every earlier benchmark and stability run. Across five
+Terra Medium sessions it achieved `1.00` schema, final-route, decisive-path,
+and all-tracked agreement with `0.00` manual review. Raw draft agreement was
+`0.66` and verifier-field unanimity was `0.9791`; these diagnostics are
+reported separately and do not replace the canonical gate.
+
+The verifier prompts no longer receive the specialist draft. Python selects a
+field majority, maps a three-way categorical tie to the schema's existing
+`unclear` value, and requires all three votes before accepting exclusionary
+`no` or `nonempirical` values. These are fixed aggregation rules over model
+outputs, not semantic keyword rules.
 
 The 25-record `v6` holdout was run once after candidate freeze commit
 `1dd685d`. Its SHA-256 is
@@ -64,6 +68,11 @@ Five of 25 records were unstable; only one changed the final route. The
 remaining disagreements involved report type, aging relevance, directional
 language, or the resulting exclusion code. `v0.95.0` is rejected, and `v7`
 is now accessed evaluation evidence that must not be used for calibration.
+
+The independent `v0.96` calibration cycle was frozen before inspection at
+commit `15bcde0`. Its disjoint `v8` holdout has SHA-256
+`72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443`
+and remains sealed until the complete `v0.99.0` candidate is frozen in Git.
 
 Stability is not accuracy. Expert criterion-level annotation and the full-text
 benchmarks remain pending. Full-text `v0.1.0` has not yet undergone its planned

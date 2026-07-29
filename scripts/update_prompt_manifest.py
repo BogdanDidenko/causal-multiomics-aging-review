@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SCREENING = ROOT / "protocol" / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.95.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.99.0.json"
 OUTPUT = SCREENING / "prompt_manifest.json"
 
 
@@ -82,12 +82,25 @@ def main() -> None:
             "path": str(SUITE_PATH.relative_to(SCREENING)),
             "sha256": sha256(SUITE_PATH),
         },
-        "approval_status": "rejected_v0.95.0_sealed_v7_failed",
+        "approval_status": "candidate_v0.99.0_development_pass_pending_sealed_v8",
         "approval_date": "2026-07-29",
-        "benchmark_version": "calibration_cycle_v0.92.0",
+        "benchmark_version": "calibration_cycle_v0.96.0",
         "created_date": date.today().isoformat(),
         "change_note": (
-            "Title/abstract v0.95.0 preserves the v0.77.0 scope contract and "
+            "Title/abstract v0.99.0 was calibrated only on the independent "
+            "50-record development set frozen before inspection in commit "
+            "15bcde0. It passed five GPT 5.6 Terra Medium runs with 1.00 "
+            "schema, final-route, decisive, and all-tracked exact agreement, "
+            "0.00 manual review, 0.66 raw-draft agreement, and 0.9791 verifier "
+            "field unanimity. Matching contract verifiers now classify the "
+            "source record independently of specialist drafts. Python maps "
+            "three-way categorical ties to the existing unclear value and "
+            "requires verifier unanimity before accepting exclusionary "
+            "no/nonempirical values; it does not classify record semantics. "
+            "The disjoint 25-record v8 holdout remains sealed pending a frozen "
+            "candidate commit. "
+            "For context, title/abstract v0.95.0 preserves the v0.77.0 scope "
+            "contract and "
             "replaces two compound causal judgments with short atomic "
             "contracts. Separate GPT 5.6 Terra Medium reviewers assess report "
             "completion, genetic-instrument designs, assigned interventions, "

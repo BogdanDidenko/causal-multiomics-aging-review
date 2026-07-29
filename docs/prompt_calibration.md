@@ -26,11 +26,11 @@ narrow specialists:
 2. causal design;
 3. directional biological wording.
 
-Each specialist output is followed by a separate self-contained verifier that
-reapplies only the matching contract. The verifier receives the source record
-and the draft, but no final route. Its categorical output becomes canonical.
-Both responses, parse attempts, evidence spans, and any changed categorical
-fields remain in the audit trail.
+Each specialist output is followed by three self-contained verifier runs that
+reapply only the matching contract. A verifier receives the source record but
+not the specialist draft, prior classifications, or final route. Its votes are
+aggregated field by field. All responses, parse attempts, evidence spans,
+votes, counts, and applied aggregation rules remain in the audit trail.
 
 Python does not classify semantic wording. It applies only ordered PRISMA
 short-circuits, three-valued logical aggregation, consistency rules, exclusion
@@ -94,6 +94,14 @@ from canonical normalized output.
   It was evaluated exactly once after the complete `v0.95.0` candidate was
   frozen at commit `6a6f1a7`. It is now accessed evaluation data and must not
   be used for calibration.
+- A new independent cycle was created from the 2,406 eligible corpus records
+  absent from every prior benchmark and stability run. Its split was frozen
+  before inspection at commit `15bcde0`.
+- `title_abstract_calibration_v0.96.0_50.csv` is the only development set used
+  to calibrate `v0.96.0` through `v0.99.0`.
+- `title_abstract_stability_holdout_v8_v0.96.0_25.csv` is disjoint, remains
+  sealed, and has SHA-256
+  `72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443`.
 
 ## Calibration History
 
@@ -124,6 +132,11 @@ artifacts remain versioned in the repository.
 | v0.95.0 | accessed v4, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.95.0 | accessed v5, 25 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.92 | pass |
 | v0.95.0 | sealed v7, 25 x 5 | 1.00 | 0.96 | 0.80 | 0.80 | 0.56 | fail |
+| v0.96.0 | independent development, 50 x 5 | 1.00 | 0.90 | 0.88 | 0.88 | 0.66 | fail |
+| v0.97.0 | unstable focus, 6 x 5 | 1.00 | 0.8333 | 0.6667 | 0.6667 | 0.00 | fail |
+| v0.98.0 | unstable focus, 6 x 5 | 1.00 | 0.8333 | 0.8333 | 0.8333 | 0.00 | fail |
+| v0.99.0 | unstable focus, 6 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.3333 | pass |
+| v0.99.0 | independent development, 50 x 5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.66 | pass |
 
 The calibration failures localized recurring sources of nondeterminism:
 
@@ -147,24 +160,27 @@ X-role-Y clause, including epistemically qualified role predicates.
 methods or results in a thin fragment is not evidence that a report is
 nonempirical.
 
+`v0.96.0` removes shared-draft anchoring: each contract verifier sees only the
+source record. `v0.97.0` maps a three-way categorical verifier tie to the
+contract's existing `unclear` value. `v0.98.0` aligns the general
+current-report attribution rule across reviewers and adjudication for
+ellipsized metadata fragments. `v0.99.0` requires verifier unanimity for
+exclusionary `no` and `nonempirical` values; a 2/3 exclusionary vote becomes
+`unclear` and is retained for full text. Python performs only these declared
+categorical aggregation and consistency rules.
+
 ## Current Status
 
-Title/abstract `v0.95.0` passed all strict gates on 116 accessible
-calibration/development/regression records:
-all-tracked, decisive, final-route, and schema agreement were `1.00`, and
-manual review was `0.00` on every set. Raw-draft agreement was `0.8125`,
-`0.94`, `0.92`, and `0.92`; verifier field unanimity was `0.9847`, `0.9982`,
-`0.9982`, and `1.00`.
+Title/abstract `v0.99.0` passed the complete independent 50-record development
+set across five sessions: schema, final-route, decisive, all-tracked, and
+causal-level exact agreement were all `1.00`; manual review was `0.00`.
+Raw-draft agreement was `0.66`, verifier-field unanimity was `0.9791`, and
+every run routed the same 35 records to exclusion and 15 to full text.
 
-After freeze commit `6a6f1a7`, the candidate was evaluated exactly once on
-sealed `v7`. It failed with `1.00` schema success, `1.00` causal-level
-agreement, `0.96` final-route agreement, `0.80` decisive agreement, `0.80`
-all-tracked agreement, `0.56` raw-draft agreement, `0.9573` verifier-field
-unanimity, and `0.00` manual review. Five of 25 records were unstable. Two
-involved report-type classification, two involved aging relevance, and one
-involved directional-result wording; only one changed the final route.
-`v0.95.0` is therefore rejected. No `v6` or `v7` wording may be used for
-subsequent prompt calibration.
+This is a development stability result, not a final independent estimate and
+not an accuracy result. The candidate must be frozen in Git before `v8` is
+opened exactly once. No `v6`, `v7`, or `v8` record wording was used for this
+calibration.
 
 Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper

@@ -166,7 +166,54 @@ def test_title_role_consensus_uses_field_majorities_and_preserves_votes() -> Non
         "counts": {"no": 1, "yes": 2},
         "selected": "yes",
         "unanimous": False,
+        "selection_basis": "strict_majority",
     }
+
+
+def test_title_role_consensus_can_route_three_way_tie_to_unclear() -> None:
+    votes = []
+    for report_type in ("empirical_primary", "nonempirical", "unclear"):
+        vote = {**scope_answer(), "report_type": report_type}
+        votes.append(vote)
+
+    consensus, audit = _title_role_consensus(
+        "scope_reviewer",
+        votes,
+        no_majority_fallback="unclear",
+    )
+
+    assert consensus["report_type"] == "unclear"
+    assert audit["fields"]["report_type"] == {
+        "votes": ["empirical_primary", "nonempirical", "unclear"],
+        "counts": {
+            "empirical_primary": 1,
+            "nonempirical": 1,
+            "unclear": 1,
+        },
+        "selected": "unclear",
+        "unanimous": False,
+        "selection_basis": "no_majority_categorical_unclear",
+    }
+
+
+def test_title_role_consensus_requires_unanimity_for_exclusionary_value() -> None:
+    votes = []
+    for signal in ("no", "no", "unclear"):
+        vote = {**causal_title_answer(), "genetic_instrument_signal": signal}
+        votes.append(vote)
+
+    consensus, audit = _title_role_consensus(
+        "causal_design_reviewer",
+        votes,
+        no_majority_fallback="unclear",
+        unanimous_required_values={"no", "nonempirical"},
+    )
+
+    assert consensus["genetic_instrument_signal"] == "unclear"
+    assert (
+        audit["fields"]["genetic_instrument_signal"]["selection_basis"]
+        == "nonunanimous_exclusion_to_unclear"
+    )
 
 
 def title_adjudication_answer(resolution_status: str) -> dict[str, object]:

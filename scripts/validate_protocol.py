@@ -11,22 +11,13 @@ from jsonschema import Draft202012Validator
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SCREENING = PROTOCOL / "screening"
-SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.95.0.json"
+SUITE_PATH = SCREENING / "configs" / "prompt_suite_v0.99.0.json"
 SEARCH_CONFIG_PATH = PROTOCOL / "search_config.json"
 MANIFEST_PATH = SCREENING / "prompt_manifest.json"
 
 BASE_PLACEHOLDERS = {"{{RECORD_ID}}", "{{TITLE}}", "{{ABSTRACT}}", "{{YEAR}}", "{{SOURCE}}"}
 TITLE_ABSTRACT_PLACEHOLDERS = {"{{DOCUMENT_TYPE}}"}
 EXTRA_PLACEHOLDERS = {
-    ("title_abstract", "scope_reviewer_contract_verifier"): {
-        "{{DRAFT_REVIEW}}"
-    },
-    ("title_abstract", "causal_design_reviewer_contract_verifier"): {
-        "{{DRAFT_REVIEW}}"
-    },
-    ("title_abstract", "directional_result_reviewer_contract_verifier"): {
-        "{{DRAFT_REVIEW}}"
-    },
     ("title_abstract", "adjudicator"): {"{{SCOPE_REVIEW}}", "{{CAUSAL_REVIEW}}"},
     ("full_text", "section_selector"): {"{{SECTION_CATALOG}}"},
     ("full_text", "eligibility_reviewer"): {"{{SELECTED_SECTIONS}}"},
@@ -185,9 +176,25 @@ def main() -> None:
         errors.append("title-stage verification consensus must use three votes")
     if (
         title_stage.get("contract_verification", {}).get("aggregation")
-        != "strict_field_majority"
+        != "strict_field_majority_else_unclear"
     ):
-        errors.append("title-stage verification must use strict field majority")
+        errors.append(
+            "title-stage verification must use strict majority with unclear fallback"
+        )
+    if (
+        title_stage.get("contract_verification", {}).get("verifier_context")
+        != "source_record_only_no_specialist_draft"
+    ):
+        errors.append("title-stage verifiers must see only the source record")
+    if title_stage.get("contract_verification", {}).get(
+        "exclusionary_values_require_unanimity"
+    ) != ["no", "nonempirical"]:
+        errors.append("title-stage exclusionary verifier values require unanimity")
+    if (
+        title_stage.get("contract_verification", {}).get("unresolved_policy")
+        != "categorical_unclear"
+    ):
+        errors.append("unresolved title consensus must become categorical unclear")
     title_routing = title_stage.get("routing", {})
     if title_routing.get("round_a_any_exclude") != "exclude":
         errors.append("clear title/abstract exclusions must bypass adjudication")

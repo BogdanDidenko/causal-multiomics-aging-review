@@ -89,29 +89,26 @@ locally authenticated Codex CLI:
 
 ```bash
 python scripts/run_stability.py \
-  protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv \
-  data/screening/stability/development-full-50-v0.95.0 \
+  protocol/screening/benchmarks/title_abstract_calibration_v0.96.0_50.csv \
+  data/screening/stability/development-full-50-v0.99.0 \
   --stage title_abstract \
   --parallel-replicates 5
 ```
 
 The acceptance threshold is 100% exact agreement across five independent runs
 for every canonical categorical field, all decisive criteria, and final
-routing. `v0.95.0` passed the new 16-record calibration set, the 50-record
-development set, and the accessed `v4` and `v5` regression sets with 100%
+routing. `v0.99.0` passed the independent 50-record development set with 100%
 canonical agreement and no manual reviews. Raw specialist-draft agreement was
-81.25%, 94%, 92%, and 92%; verifier field unanimity was 98.47%, 99.82%,
-99.82%, and 100%. These diagnostics do not replace the canonical gate. The
-separate 25-record `v7` evaluation subsequently failed the strict gate. See
+66%, while verifier-field unanimity was 97.91%; these diagnostics do not
+replace the canonical gate. The complete candidate must be frozen in Git
+before the disjoint 25-record `v8` set is evaluated once. See
 [`docs/prompt_calibration.md`](docs/prompt_calibration.md).
 
 Search retrieval and deduplication are complete. Expert eligibility annotation,
-full-text retrieval, and full-text prompt validation remain pending. The frozen
-`v0.95.0` candidate was evaluated once on sealed `v7` after commit `6a6f1a7`.
-It failed the strict gate: schema and causal-level agreement were `1.00`,
-final-route agreement was `0.96`, and decisive and all-tracked agreement were
-`0.80`. The candidate is rejected and `v7` is now accessed evaluation data,
-not calibration data.
+full-text retrieval, and full-text prompt validation remain pending. The active
+title/abstract candidate is `v0.99.0`; it has passed independent development
+stability but has not yet been evaluated on sealed `v8`. Stability measures
+reproducibility, not expert-labelled screening accuracy.
 
 ## Canonical Positive
 

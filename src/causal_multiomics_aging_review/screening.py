@@ -492,15 +492,19 @@ def _process_title_abstract_record(
             )
             role_votes: list[dict[str, Any]] = []
             for repeat_index in range(1, repeat_count + 1):
+                verifier_extra = {}
+                if (
+                    verification_config.get("verifier_context")
+                    != "source_record_only_no_specialist_draft"
+                ):
+                    verifier_extra["DRAFT_REVIEW"] = json.dumps(
+                        draft_answers[role],
+                        ensure_ascii=False,
+                    )
                 verifier_prompt = render_prompt(
                     artifacts[verifier_role]["prompt"],
                     record,
-                    {
-                        "DRAFT_REVIEW": json.dumps(
-                            draft_answers[role],
-                            ensure_ascii=False,
-                        )
-                    },
+                    verifier_extra,
                 )
                 role_votes.append(
                     _call_role(
@@ -518,8 +522,25 @@ def _process_title_abstract_record(
                 )
             verification_runs[role] = role_votes
             if verification_mode == "per_role_consensus":
+                no_majority_fallback = (
+                    "unclear"
+                    if verification_config.get("aggregation")
+                    == "strict_field_majority_else_unclear"
+                    else None
+                )
+                unanimous_required_values = set(
+                    verification_config.get(
+                        "exclusionary_values_require_unanimity",
+                        [],
+                    )
+                )
                 verified_answers[role], consensus_audit[role] = (
-                    _title_role_consensus(role, role_votes)
+                    _title_role_consensus(
+                        role,
+                        role_votes,
+                        no_majority_fallback=no_majority_fallback,
+                        unanimous_required_values=unanimous_required_values,
+                    )
                 )
             else:
                 verified_answers[role] = role_votes[0]
@@ -692,6 +713,8 @@ def _title_contract_corrections(
 def _title_role_consensus(
     role: str,
     votes: list[dict[str, Any]],
+    no_majority_fallback: str | None = None,
+    unanimous_required_values: set[str] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     if role not in _TITLE_VERIFIED_FIELDS:
         raise ValueError(f"Unsupported title consensus role: {role}")
@@ -706,14 +729,40 @@ def _title_role_consensus(
         counts = Counter(values)
         selected, count = counts.most_common(1)[0]
         has_majority = count > len(votes) // 2
+        nonunanimous_exclusion = (
+            has_majority
+            and selected in (unanimous_required_values or set())
+            and count < len(votes)
+            and field in _TITLE_UNCLEAR_CONSENSUS_FIELDS
+        )
         field_audit[field] = {
             "votes": values,
             "counts": dict(sorted(counts.items())),
-            "selected": selected if has_majority else None,
+            "selected": (
+                "unclear"
+                if nonunanimous_exclusion
+                else selected if has_majority else None
+            ),
             "unanimous": count == len(votes),
+            "selection_basis": (
+                "nonunanimous_exclusion_to_unclear"
+                if nonunanimous_exclusion
+                else "strict_majority" if has_majority else None
+            ),
         }
-        if has_majority:
+        if nonunanimous_exclusion:
+            consensus[field] = "unclear"
+        elif has_majority:
             consensus[field] = selected
+        elif (
+            no_majority_fallback == "unclear"
+            and field in _TITLE_UNCLEAR_CONSENSUS_FIELDS
+        ):
+            consensus[field] = "unclear"
+            field_audit[field]["selected"] = "unclear"
+            field_audit[field]["selection_basis"] = (
+                "no_majority_categorical_unclear"
+            )
         else:
             unresolved.append(field)
 
@@ -1129,6 +1178,12 @@ _TITLE_VERIFIED_FIELDS = {
         "directed_model_signal",
     ),
     "directional_result_reviewer": ("directional_language_signal",),
+}
+
+_TITLE_UNCLEAR_CONSENSUS_FIELDS = {
+    field
+    for role in ("scope_reviewer", "causal_design_reviewer")
+    for field in _TITLE_VERIFIED_FIELDS[role]
 }
 
 

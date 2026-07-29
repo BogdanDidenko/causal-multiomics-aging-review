@@ -1,0 +1,89 @@
+{
+  "artifacts": {
+    "adjudicator": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/adjudicator.txt",
+      "prompt_sha256": "e4f0090b1d285f94450c0bf3fa8469cacd22c1dcc0de113764d1f7935cf48020",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/adjudicator.schema.json",
+      "schema_sha256": "e1c891e3f7d35516e5bb0601863bddc495ccf4281ffb36d07ea241cc2db03e6c"
+    },
+    "causal_design_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/causal_design_reviewer.txt",
+      "prompt_sha256": "692537d0b67d54ce6cba0c5db17171366c2cc68d35d465a98014f50515f6593e",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "0662d700f51903eb1dc5b998e04d8065f24f319a587405726ec53df5c37c1240"
+    },
+    "causal_design_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/causal_design_reviewer_verifier.txt",
+      "prompt_sha256": "fc5e7ac891b3d4bc6eb27fe7f131a6db4525f554b57b552b128da385b0178949",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/causal_design_reviewer.schema.json",
+      "schema_sha256": "0662d700f51903eb1dc5b998e04d8065f24f319a587405726ec53df5c37c1240"
+    },
+    "directional_result_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/directional_result_reviewer.txt",
+      "prompt_sha256": "637de2ccb75d97d0ac6b483c9d954d2545d6238a4ddd4f641fc2e3e5d254f365",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "ac3e86adca9e4b95a54bbff956988651f0d8866ee6e27585ea918c814e459bb7"
+    },
+    "directional_result_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/directional_result_reviewer_verifier.txt",
+      "prompt_sha256": "ea1324cc852d1e4d099e74e951532f52bb7a49d8fd5612d8d840d03e0c27ac23",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/directional_result_reviewer.schema.json",
+      "schema_sha256": "ac3e86adca9e4b95a54bbff956988651f0d8866ee6e27585ea918c814e459bb7"
+    },
+    "scope_reviewer": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/scope_reviewer.txt",
+      "prompt_sha256": "4c89fa62fbb1eeaca76a653703e2e04c65d06dedfb33f0345f5110053e95ec7e",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    },
+    "scope_reviewer_contract_verifier": {
+      "prompt_path": "protocol/screening/prompts/title_abstract/v0.95.0/scope_reviewer_verifier.txt",
+      "prompt_sha256": "f74937a9d63611735bb460f950083ecaf96f08903e12d4128daaa41bf7b1e059",
+      "schema_path": "protocol/screening/schemas/title_abstract/v0.95.0/scope_reviewer.schema.json",
+      "schema_sha256": "f5ea26445a02de5b8d206e55e33565a9f6b9f840c4ffa55632e93ff545f7c726"
+    }
+  },
+  "created_at": "2026-07-29T09:19:10.359262+00:00",
+  "decision_counts": {
+    "exclude": 9,
+    "seek_full_text": 1
+  },
+  "git_revision": "15bcde053d9b2f60c85144f95d65fca92a800f08",
+  "input_path": "protocol/screening/benchmarks/title_abstract_calibration_v0.96.0_50.csv",
+  "input_record_count": 10,
+  "input_sha256": "dd42265341c98be46d21c9261fcab59b7188ab87babd9c3823cb60aada704c91",
+  "model": "gpt-5.6-terra",
+  "processed_now": 0,
+  "provider_url": "codex://local/exec",
+  "record_ids": [],
+  "resume": true,
+  "runtime": {
+    "api_protocol": "codex_cli",
+    "approval_policy": "never",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "codex_timeout_seconds": 900,
+    "context_window": 32768,
+    "disabled_features": [
+      "plugins"
+    ],
+    "ephemeral": true,
+    "ignore_rules": true,
+    "ignore_user_config": true,
+    "isolated_home": true,
+    "max_tokens": 4000,
+    "n": 1,
+    "reasoning_effort": "medium",
+    "response_format": "json_schema",
+    "sandbox": "read-only",
+    "seed": null,
+    "temperature": null,
+    "text_verbosity": null,
+    "top_p": null
+  },
+  "stage": "title_abstract",
+  "suite_config_path": "protocol/screening/configs/prompt_suite_v0.95.0.json",
+  "suite_config_sha256": "47253b5f77804b154b653664128420252ad0c0e672d33c4cd9b01f4206310e3a",
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "0.95.0"
+}
