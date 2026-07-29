@@ -1,0 +1,64 @@
+{
+  "cycle_version": "0.92.0",
+  "created_date": "2026-07-29",
+  "selection_seed": "causal-multiomics-aging|sealed-holdout-v7|v0.92.0",
+  "selection_method": "ascending_sha256_of_seed_and_canonical_id",
+  "source": {
+    "path": "protocol/screening/benchmarks/title_abstract_regression_v0.51.0_remaining_41.csv",
+    "sha256": "281ae1c187997e430e7dff0b5b77d03d2b9cf5d01daeb01e989324b3ce5f1088",
+    "record_count": 41
+  },
+  "excluded_accessed_sets": [
+    {
+      "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+      "sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c",
+      "record_count": 50
+    },
+    {
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+      "sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216",
+      "record_count": 25
+    },
+    {
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v5_v0.41.0_25.csv",
+      "sha256": "3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c",
+      "record_count": 25
+    },
+    {
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v6_v0.51.0_25.csv",
+      "sha256": "283d2ebffcbb797c0cec30db80b3176bfa4f19d20155283b8733f9b166d0f46f",
+      "record_count": 25
+    }
+  ],
+  "development_set": {
+    "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.92.0_16.csv",
+    "sha256": "69c50d1328d0a55029f9288ef73bc2668552664dca6971408428b80f48d8736e",
+    "record_count": 16,
+    "status": "visible_after_split_freeze",
+    "strata": {
+      "metadata_boundary_missing_multiomics_aging_causal": 4,
+      "metadata_boundary_missing_multiomics_causal": 3,
+      "other_explicit_causal": 3,
+      "possible_nonempirical": 3,
+      "thin_abstract_boundary": 3
+    }
+  },
+  "sealed_holdout": {
+    "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v7_v0.92.0_25.csv",
+    "sha256": "17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5",
+    "record_count": 25,
+    "status": "sealed_do_not_inspect_before_candidate_freeze",
+    "strata": {
+      "genetic_instrument": 3,
+      "intervention_or_perturbation": 3,
+      "mediation_or_directed_model": 3,
+      "metadata_boundary_missing_aging_causal": 3,
+      "metadata_boundary_missing_causal": 3,
+      "metadata_boundary_missing_multiomics_aging_causal": 2,
+      "metadata_boundary_missing_multiomics_causal": 2,
+      "other_explicit_causal": 2,
+      "possible_nonempirical": 2,
+      "thin_abstract_boundary": 2
+    }
+  }
+}
