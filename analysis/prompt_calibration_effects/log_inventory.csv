@@ -1,0 +1,9 @@
+artifact_directory,replicate_manifest_count,screening_outcome_count,raw_provider_response_count,file_count,total_bytes
+data/screening/stability/development-full-50-v0.96.0,5,250,2983,17,41382771
+data/screening/stability/development-full-50-v0.99.0,5,250,3000,17,44975735
+data/screening/stability/development-v096-baseline-v0.95.0,5,50,644,17,9044200
+data/screening/stability/development-v096-focus5-v0.96.0,5,25,300,17,4178834
+data/screening/stability/development-v096-unstable6-v0.97.0,5,30,367,17,5618138
+data/screening/stability/development-v096-unstable6-v0.98.0,5,30,360,17,5481517
+data/screening/stability/development-v096-unstable6-v0.99.0,5,30,360,17,5476293
+data/screening/stability/sealed-v8-v0.99.0,5,125,1501,17,22949691

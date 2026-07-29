@@ -196,3 +196,20 @@ Full-text `v0.1.0` remains unvalidated. The planned expert-labelled
 title/abstract benchmark, 60-paper full-text benchmark, and 20-paper
 section-selector gold subset are still required for accuracy and full-text
 stability assessment.
+
+## Reproducible manuscript summary
+
+The version-by-version numerical synthesis, audit-log inventory, and
+manuscript-ready Methods/Results text are maintained in
+`analysis/prompt_calibration_effects/`. Regenerate the tables directly from
+committed run artifacts with:
+
+```bash
+uv run python scripts/summarize_prompt_calibration_effects.py
+```
+
+Focused development comparisons are explicitly separated from the full
+50-record development comparison and the one-time sealed evaluation. The
+summary reports associations between versioned prompt-contract changes and
+agreement metrics; it does not claim a causal effect for an individual wording
+edit or screening accuracy without expert labels.
