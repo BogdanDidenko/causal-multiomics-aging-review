@@ -16,6 +16,10 @@ Outputs:
   unstable-record counts, and artifact paths;
 - `log_inventory.csv`: replicate manifests, screening outcomes, raw provider
   responses, file counts, and byte totals;
+- `reproducibility_uncertainty.csv`: observed instability event counts and
+  two-sided Wilson 95% confidence intervals for the final candidate;
+- `current_prompt_status.md`: current prompt versions, approval status, and the
+  qualified comparison of development and sealed stability results;
 - `manuscript_section.md`: Methods, Results, interpretation, limitations, and a
   compact results table ready for adaptation into the review manuscript.
 

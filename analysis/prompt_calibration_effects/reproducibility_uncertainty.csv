@@ -1,0 +1,13 @@
+suite_version,set_name,evaluation_role,measure,unit,event_count,observation_count,observed_rate,wilson_95_ci_low,wilson_95_ci_high,artifact_directory
+0.99.0,independent_development_50,development_confirmation,final_route_instability,record,0,50,0.0,0.0,0.07134759913335872,data/screening/stability/development-full-50-v0.99.0
+0.99.0,independent_development_50,development_confirmation,decisive_criteria_instability,record,0,50,0.0,0.0,0.07134759913335872,data/screening/stability/development-full-50-v0.99.0
+0.99.0,independent_development_50,development_confirmation,all_tracked_criteria_instability,record,0,50,0.0,0.0,0.07134759913335872,data/screening/stability/development-full-50-v0.99.0
+0.99.0,independent_development_50,development_confirmation,raw_specialist_draft_instability,record,17,50,0.34,0.2243694922250009,0.478461739497674,data/screening/stability/development-full-50-v0.99.0
+0.99.0,independent_development_50,development_confirmation,schema_failure,record_run_outcome,0,250,0.0,0.0,0.015133299495444574,data/screening/stability/development-full-50-v0.99.0
+0.99.0,independent_development_50,development_confirmation,manual_review,record_run_outcome,0,250,0.0,0.0,0.015133299495444574,data/screening/stability/development-full-50-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,final_route_instability,record,1,25,0.04,0.007096233501987265,0.19544063736193734,data/screening/stability/sealed-v8-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,decisive_criteria_instability,record,2,25,0.08,0.022220401284847563,0.24966108950395313,data/screening/stability/sealed-v8-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,all_tracked_criteria_instability,record,2,25,0.08,0.022220401284847563,0.24966108950395313,data/screening/stability/sealed-v8-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,raw_specialist_draft_instability,record,7,25,0.28,0.14283853850956563,0.47576605190361576,data/screening/stability/sealed-v8-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,schema_failure,record_run_outcome,0,125,0.0,0.0,0.029815393708326456,data/screening/stability/sealed-v8-v0.99.0
+0.99.0,sealed_v8_25,one_time_sealed_evaluation,manual_review,record_run_outcome,0,125,0.0,0.0,0.029815393708326456,data/screening/stability/sealed-v8-v0.99.0

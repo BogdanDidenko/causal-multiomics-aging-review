@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -104,6 +105,21 @@ METRIC_FIELDS = (
     "raw_reviewer_draft_exact_agreement",
     "contract_verifier_field_unanimity_rate",
     "manual_review_rate",
+)
+
+UNCERTAINTY_SPECS = (
+    {
+        "suite_version": "0.99.0",
+        "set_name": "independent_development_50",
+        "evaluation_role": "development_confirmation",
+        "directory": "development-full-50-v0.99.0",
+    },
+    {
+        "suite_version": "0.99.0",
+        "set_name": "sealed_v8_25",
+        "evaluation_role": "one_time_sealed_evaluation",
+        "directory": "sealed-v8-v0.99.0",
+    },
 )
 
 
@@ -215,17 +231,119 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
+def wilson_interval(
+    event_count: int,
+    observation_count: int,
+    z: float = 1.959963984540054,
+) -> tuple[float, float]:
+    """Return a two-sided Wilson score interval for a binomial proportion."""
+    if observation_count <= 0:
+        raise ValueError("observation_count must be positive")
+    if not 0 <= event_count <= observation_count:
+        raise ValueError("event_count must be between zero and observation_count")
+    proportion = event_count / observation_count
+    z_squared = z**2
+    denominator = 1 + z_squared / observation_count
+    center = (proportion + z_squared / (2 * observation_count)) / denominator
+    margin = (
+        z
+        * math.sqrt(
+            proportion * (1 - proportion) / observation_count
+            + z_squared / (4 * observation_count**2)
+        )
+        / denominator
+    )
+    lower = 0.0 if event_count == 0 else max(0.0, center - margin)
+    upper = 1.0 if event_count == observation_count else min(1.0, center + margin)
+    return lower, upper
+
+
+def uncertainty_rows() -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for spec in UNCERTAINTY_SPECS:
+        directory = STABILITY_ROOT / str(spec["directory"])
+        stability_rows = load_jsonl(directory / "stability_results.jsonl")
+        summary = load_json(directory / "stability_summary.json")
+        record_count = int(summary["record_count"])
+        outcome_count = record_count * int(summary["run_count"])
+        measures = (
+            (
+                "final_route_instability",
+                "record",
+                sum(not row["final_decision_stable"] for row in stability_rows),
+                record_count,
+            ),
+            (
+                "decisive_criteria_instability",
+                "record",
+                sum(not row["decisive_criteria_stable"] for row in stability_rows),
+                record_count,
+            ),
+            (
+                "all_tracked_criteria_instability",
+                "record",
+                sum(
+                    not row["diagnostic_all_tracked_criteria_stable"]
+                    for row in stability_rows
+                ),
+                record_count,
+            ),
+            (
+                "raw_specialist_draft_instability",
+                "record",
+                sum(
+                    not row["diagnostic_raw_reviewer_drafts_stable"]
+                    for row in stability_rows
+                ),
+                record_count,
+            ),
+            (
+                "schema_failure",
+                "record_run_outcome",
+                round((1 - summary["metrics"]["schema_success_rate"]) * outcome_count),
+                outcome_count,
+            ),
+            (
+                "manual_review",
+                "record_run_outcome",
+                round(summary["metrics"]["manual_review_rate"] * outcome_count),
+                outcome_count,
+            ),
+        )
+        for measure, unit, event_count, observation_count in measures:
+            ci_low, ci_high = wilson_interval(event_count, observation_count)
+            rows.append(
+                {
+                    "suite_version": spec["suite_version"],
+                    "set_name": spec["set_name"],
+                    "evaluation_role": spec["evaluation_role"],
+                    "measure": measure,
+                    "unit": unit,
+                    "event_count": event_count,
+                    "observation_count": observation_count,
+                    "observed_rate": event_count / observation_count,
+                    "wilson_95_ci_low": ci_low,
+                    "wilson_95_ci_high": ci_high,
+                    "artifact_directory": str(directory.relative_to(ROOT)),
+                }
+            )
+    return rows
+
+
 def main() -> None:
     metric_rows = [metric_row(spec) for spec in RUN_SPECS]
     inventory_rows = log_inventory()
+    interval_rows = uncertainty_rows()
     write_csv(OUTPUT_ROOT / "calibration_metrics.csv", metric_rows)
     write_csv(OUTPUT_ROOT / "log_inventory.csv", inventory_rows)
+    write_csv(OUTPUT_ROOT / "reproducibility_uncertainty.csv", interval_rows)
     raw_response_count = sum(
         row["raw_provider_response_count"] for row in inventory_rows
     )
     print(
         "prompt_calibration_effects_ok "
         f"metric_rows={len(metric_rows)} "
+        f"uncertainty_rows={len(interval_rows)} "
         f"screening_outcomes={sum(row['screening_outcome_count'] for row in inventory_rows)} "
         f"raw_provider_responses={raw_response_count}"
     )
