@@ -14,6 +14,10 @@ TITLE_ACCEPTANCE = {
     "causal_evidence_level_exact_agreement": 1.0,
     "manual_review_rate": 0.0,
 }
+V1_TITLE_ACCEPTANCE = {
+    **TITLE_ACCEPTANCE,
+    "internal_decision_field_unanimity_rate": 1.0,
+}
 
 
 def title_result(
@@ -38,11 +42,71 @@ def title_result(
     }
 
 
+def v1_title_result(unanimous: bool = True) -> dict[str, object]:
+    return {
+        "record_id": "r1",
+        "decision_reason": "positive_causal_basis",
+        "final_decision": "seek_full_text",
+        "final_exclusion_code": "none",
+        "selected_criteria": {
+            "report_type": "empirical_primary",
+            "bio_health_scope": "yes",
+            "aging_process_relevance": "yes",
+            "multiomics_evidence": "two_or_more_layers",
+            "current_report_layer_use": "yes",
+            "multiomics_status": "yes",
+            "causal_basis": "named_causal_effect_design",
+            "design_families": ["genetic_instrument"],
+            "causal_information_sufficiency": "sufficient",
+            "identification_status": "causal_candidate",
+        },
+        "role_agreement": {
+            "scope_reviewer": {
+                "report_type": {"unanimous": unanimous, "values": []}
+            },
+            "causal_method_reviewer": {
+                "causal_basis": {"unanimous": True, "values": []}
+            },
+        },
+    }
+
+
 def test_stability_uses_decisive_criteria_not_free_text() -> None:
     runs = {f"replicate-{index}": {"r1": title_result()} for index in range(1, 6)}
     rows, summary = assess_stability(runs, "title_abstract", TITLE_ACCEPTANCE)
     assert rows[0]["stable"] is True
     assert summary["acceptance"]["overall"] == "pass"
+
+
+def test_v1_stability_uses_internal_five_run_unanimity() -> None:
+    runs = {
+        f"replicate-{index}": {"r1": v1_title_result()}
+        for index in range(1, 6)
+    }
+    _, summary = assess_stability(
+        runs,
+        "title_abstract",
+        V1_TITLE_ACCEPTANCE,
+        architecture="v1_two_role_unanimous",
+    )
+    assert summary["metrics"]["internal_decision_field_unanimity_rate"] == 1.0
+    assert summary["metrics"]["raw_reviewer_draft_exact_agreement"] is None
+    assert summary["acceptance"]["overall"] == "pass"
+
+
+def test_v1_stability_rejects_internal_decision_drift() -> None:
+    runs = {
+        f"replicate-{index}": {"r1": v1_title_result(index != 5)}
+        for index in range(1, 6)
+    }
+    _, summary = assess_stability(
+        runs,
+        "title_abstract",
+        V1_TITLE_ACCEPTANCE,
+        architecture="v1_two_role_unanimous",
+    )
+    assert summary["metrics"]["internal_decision_field_unanimity_rate"] == 0.9
+    assert summary["acceptance"]["overall"] == "fail"
 
 
 def test_stability_localizes_disagreeing_criterion() -> None:

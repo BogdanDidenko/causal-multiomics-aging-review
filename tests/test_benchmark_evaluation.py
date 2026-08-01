@@ -25,6 +25,12 @@ def test_title_acceptance_tracks_canonical_and_structured_success() -> None:
     metrics = evaluate_title(expected, predicted)
     report = acceptance_report(metrics, TITLE_ACCEPTANCE)
     assert metrics["canonical_positive_retention"] == 1.0
+    assert metrics["seek_full_text_sensitivity"] == 1.0
+    assert metrics["schema_success_rate"] == 1.0
+    assert metrics["decision_confusion_matrix"]["labels"] == [
+        "exclude",
+        "seek_full_text",
+    ]
     assert report["overall"] == "pass"
 
 

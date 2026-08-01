@@ -1,0 +1,410 @@
+{
+  "manifest_version": "1.0.0",
+  "protocol_version": "1.0.0",
+  "created_at": "2026-08-01T23:29:24.556502+00:00",
+  "search_config_path": "protocol/search_config_v1.0.0.json",
+  "search_config_sha256": "4f1df3d3da45da4364636bf8015b1231c5dd53286ecc9ca0a731f4ea67342c13",
+  "sources_requested": [
+    "pubmed",
+    "europepmc",
+    "scopus",
+    "semantic_scholar",
+    "springernature",
+    "openalex"
+  ],
+  "sources_completed": [
+    "europepmc",
+    "openalex",
+    "pubmed",
+    "scopus",
+    "semantic_scholar",
+    "springernature"
+  ],
+  "failures": {},
+  "pilot_max_records_per_source": 500,
+  "complete_retrieval": false,
+  "source_manifests": {
+    "semantic_scholar": {
+      "source": "semantic_scholar",
+      "started_at": "2026-08-01T23:28:45.671627+00:00",
+      "completed_at": "2026-08-01T23:28:50.366909+00:00",
+      "query_file": "protocol/queries/v1.0.0/semantic_scholar.txt",
+      "query_sha256": "43e5dfad557a54130061c91e63fe361a9dcb7e73685c54a34bf53ff8d88bd435",
+      "reported_count": 3494,
+      "source_details": {},
+      "retrieved_count": 500,
+      "local_three_block_count": 170,
+      "local_explicit_multiomics_count": 164,
+      "local_layer_pair_count": 333,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": true,
+      "canonical_positive_local_three_block_match": true,
+      "normalized_file": "normalized/semantic_scholar.csv",
+      "normalized_sha256": "6f3faa8d840364444de7585ddb686812e7d4e7ae689c15d7d6ba68cfd86288ca",
+      "raw_responses": [
+        {
+          "path": "raw/semantic_scholar/page_0001.json.gz",
+          "sha256": "99a1696efcfba4fc762e36b4c3458eb26de255d50885ac27c137e7ac9b7bb1da",
+          "bytes": 1009531
+        }
+      ]
+    },
+    "europepmc": {
+      "source": "europepmc",
+      "started_at": "2026-08-01T23:28:45.671430+00:00",
+      "completed_at": "2026-08-01T23:28:51.410989+00:00",
+      "query_file": "protocol/queries/v1.0.0/europepmc.txt",
+      "query_sha256": "ba62ddfde1b0617c6d301b90bac3205cd0343c54ab2606398c7de511d970d127",
+      "reported_count": 1651,
+      "source_details": {},
+      "retrieved_count": 500,
+      "local_three_block_count": 493,
+      "local_explicit_multiomics_count": 320,
+      "local_layer_pair_count": 363,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": true,
+      "canonical_positive_local_three_block_match": true,
+      "normalized_file": "normalized/europepmc.csv",
+      "normalized_sha256": "f55eb35fbc9207b99b091f472e0194af5c2278a8544f9f0549aafce40e3c1181",
+      "raw_responses": [
+        {
+          "path": "raw/europepmc/page_0001.json.gz",
+          "sha256": "c5cdd330b3ea8d3573f41a73c5d60fcc09e137fe150fb0e97c0f3f40f2dd6f52",
+          "bytes": 852154
+        }
+      ]
+    },
+    "pubmed": {
+      "source": "pubmed",
+      "started_at": "2026-08-01T23:28:45.671242+00:00",
+      "completed_at": "2026-08-01T23:28:58.706196+00:00",
+      "query_file": "protocol/queries/v1.0.0/pubmed.txt",
+      "query_sha256": "3d426efc391b5fd9fc2e682d42aa8d8ef6ac09f4cbbfa433c11a7b3494458715",
+      "reported_count": 2133,
+      "source_details": {},
+      "retrieved_count": 500,
+      "local_three_block_count": 460,
+      "local_explicit_multiomics_count": 232,
+      "local_layer_pair_count": 365,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": false,
+      "canonical_positive_local_three_block_match": false,
+      "normalized_file": "normalized/pubmed.csv",
+      "normalized_sha256": "752639e8ca938f8bc33081fa01adf9d3b90cac0f8e8e04dc7c71f1d306121efb",
+      "raw_responses": [
+        {
+          "path": "raw/pubmed/page_0001.xml.gz",
+          "sha256": "256286182727159b4af5787d03c65aa7797e04fef5342fd6628ef07c1a1fdc11",
+          "bytes": 1504766
+        },
+        {
+          "path": "raw/pubmed/page_0002.xml.gz",
+          "sha256": "61a93e6fc57e1e7bc7eb609cce925361d7d5c501b504b1e38092f5de57faa50e",
+          "bytes": 1924434
+        },
+        {
+          "path": "raw/pubmed/page_0003.xml.gz",
+          "sha256": "4576471f81a3ea177ec8923d3aad8179f4d0e0ee057c78b8bbe3c37829d27228",
+          "bytes": 924229
+        },
+        {
+          "path": "raw/pubmed/search.json.gz",
+          "sha256": "1eb62e9e506ba2a62d748c273b2088c658f7c06cc1ee3bd69e3daf7107b8c1e6",
+          "bytes": 961
+        }
+      ]
+    },
+    "openalex": {
+      "source": "openalex",
+      "started_at": "2026-08-01T23:28:51.411713+00:00",
+      "completed_at": "2026-08-01T23:29:05.975642+00:00",
+      "query_file": "protocol/queries/v1.0.0/openalex.txt",
+      "query_sha256": "048b1d845f79a15574f7daf7aa79c12a94e1b0aa2fcfd19ce293568f88a59c64",
+      "reported_count": 32273,
+      "source_details": {},
+      "retrieved_count": 500,
+      "local_three_block_count": 51,
+      "local_explicit_multiomics_count": 5,
+      "local_layer_pair_count": 120,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": false,
+      "canonical_positive_local_three_block_match": false,
+      "normalized_file": "normalized/openalex.csv",
+      "normalized_sha256": "927fc4f128b9c627a82c46e2b82132ac0f34954a61b4a777e1ebeae1b02b17d9",
+      "raw_responses": [
+        {
+          "path": "raw/openalex/page_0001.json.gz",
+          "sha256": "e9028612722eaf9e7341079a73b0263e8e55f5bc73e05599659cd8cea129bf7b",
+          "bytes": 569391
+        },
+        {
+          "path": "raw/openalex/page_0002.json.gz",
+          "sha256": "2efe4bd38bd944d9d7a36b69e74b0771dffec321ece56c294b7a6b9f6ad1daa7",
+          "bytes": 552860
+        },
+        {
+          "path": "raw/openalex/page_0003.json.gz",
+          "sha256": "3b1fa3adb29817d7cd4d4534d711aef113ce6e9e475553b23257e35e9c030c61",
+          "bytes": 480870
+        },
+        {
+          "path": "raw/openalex/page_0004.json.gz",
+          "sha256": "0a508d9e0bfbcaec25a1a29a8087227aa8b471a262a134a222c5799c46a8b55d",
+          "bytes": 513195
+        },
+        {
+          "path": "raw/openalex/page_0005.json.gz",
+          "sha256": "e09e75cff16521d33e543ec00fc5f21ae812b86f95f460df79fe9bd348074309",
+          "bytes": 438038
+        }
+      ]
+    },
+    "scopus": {
+      "source": "scopus",
+      "started_at": "2026-08-01T23:28:45.671490+00:00",
+      "completed_at": "2026-08-01T23:29:12.327271+00:00",
+      "query_file": "protocol/queries/v1.0.0/scopus.txt",
+      "query_sha256": "e43795c81f893b4719936648331918880454319a73efad0aaa2d5d972e2ddaee",
+      "reported_count": 3887,
+      "source_details": {
+        "view": "STANDARD",
+        "abstract_entitlement": false
+      },
+      "retrieved_count": 500,
+      "local_three_block_count": 1,
+      "local_explicit_multiomics_count": 11,
+      "local_layer_pair_count": 22,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": false,
+      "canonical_positive_local_three_block_match": false,
+      "normalized_file": "normalized/scopus.csv",
+      "normalized_sha256": "1a295c88b2d7a256302203045f6814a2e025dd2d9f3958be3ee85aebe531e034",
+      "raw_responses": [
+        {
+          "path": "raw/scopus/page_0001.json.gz",
+          "sha256": "560b2f5bed7234b64affef7fb958a938b858d87e294d3236762333640909aab4",
+          "bytes": 7731
+        },
+        {
+          "path": "raw/scopus/page_0002.json.gz",
+          "sha256": "a079b21af48bf2a0cc9be04623181e360e4a5b54e9691752df49255bb5c13bda",
+          "bytes": 7874
+        },
+        {
+          "path": "raw/scopus/page_0003.json.gz",
+          "sha256": "be96e623426cb719cc54d91d41cb3dba223c8954ab46cfdd3b3295e832ddb723",
+          "bytes": 7897
+        },
+        {
+          "path": "raw/scopus/page_0004.json.gz",
+          "sha256": "58924c9b2ec9b63b121ca2598d33cd4ea35cd968b8f808b852fc2865d0dfb9ca",
+          "bytes": 8004
+        },
+        {
+          "path": "raw/scopus/page_0005.json.gz",
+          "sha256": "b1dfd240996461d6f3547f6ba868239f949c3b22eba4b825c999cc027e9f26ee",
+          "bytes": 8553
+        },
+        {
+          "path": "raw/scopus/page_0006.json.gz",
+          "sha256": "aa0651dd17f8ffc51bca971f8d905c9a8d98b0c1b203ef75aabc25cd2506c8eb",
+          "bytes": 8073
+        },
+        {
+          "path": "raw/scopus/page_0007.json.gz",
+          "sha256": "7cd2865d55cc457b37d5b966fae0afee3ef41cf261147bfdb12fd12f688ec38f",
+          "bytes": 7995
+        },
+        {
+          "path": "raw/scopus/page_0008.json.gz",
+          "sha256": "ce11704cbddb37844b7c1962cb4d105163196a418cbb6d3449f6fc62cb8c996e",
+          "bytes": 8185
+        },
+        {
+          "path": "raw/scopus/page_0009.json.gz",
+          "sha256": "32d096d9ddb723a806b7a80ab42f45c5a2c1cca85fc1bdf45c9a1105372de307",
+          "bytes": 8406
+        },
+        {
+          "path": "raw/scopus/page_0010.json.gz",
+          "sha256": "e76db4390a499bf61f1aeef297fd94298847664c358a10cc58ae5a3de32a0da8",
+          "bytes": 8264
+        },
+        {
+          "path": "raw/scopus/page_0011.json.gz",
+          "sha256": "72bdf715c22abb6d8202da9d1f78c69fbbc66cb4b30fb0a10fa187e2ed0f1bf5",
+          "bytes": 8006
+        },
+        {
+          "path": "raw/scopus/page_0012.json.gz",
+          "sha256": "2d570e50072cac6fe7714279b72c09e74e41e4c9b39f2c3f6d11106232d9afae",
+          "bytes": 8355
+        },
+        {
+          "path": "raw/scopus/page_0013.json.gz",
+          "sha256": "0228103670b1e41cca8d25ea35f52c915cd5f21f420c3ef315ef91d1e7428472",
+          "bytes": 8153
+        },
+        {
+          "path": "raw/scopus/page_0014.json.gz",
+          "sha256": "f292221518fb5e86cc1ed321ef75059943c57f285373a69c663cd8890b1c3002",
+          "bytes": 8542
+        },
+        {
+          "path": "raw/scopus/page_0015.json.gz",
+          "sha256": "d61b89aab0f367a57fd933a2f480974b27be7c05d7500d20ebbb964750c042d3",
+          "bytes": 8462
+        },
+        {
+          "path": "raw/scopus/page_0016.json.gz",
+          "sha256": "e46799ae48aa7e4d8fb6ab32be730d19f18cba195668c13430224663bd47752e",
+          "bytes": 8390
+        },
+        {
+          "path": "raw/scopus/page_0017.json.gz",
+          "sha256": "058a46bdcd61f8e3722acd4fdf832136df79ecd9fdc5634775193c40c408851d",
+          "bytes": 8404
+        },
+        {
+          "path": "raw/scopus/page_0018.json.gz",
+          "sha256": "cb54be1873dfd03c26447a8fac75a58d3d733b9c774f81da2ad2afa5b524fcb0",
+          "bytes": 8415
+        },
+        {
+          "path": "raw/scopus/page_0019.json.gz",
+          "sha256": "748cfe9599fe7e6ccf5f34af717f2543b65154adf46acb2e42e887f9a2dd0b8f",
+          "bytes": 8346
+        },
+        {
+          "path": "raw/scopus/page_0020.json.gz",
+          "sha256": "f9a45b486c7500d669bb99645541916655adfcc22080570d14dbd1334e1d86a6",
+          "bytes": 8339
+        }
+      ]
+    },
+    "springernature": {
+      "source": "springernature",
+      "started_at": "2026-08-01T23:28:50.367646+00:00",
+      "completed_at": "2026-08-01T23:29:24.495851+00:00",
+      "query_file": "protocol/queries/v1.0.0/springernature.txt",
+      "query_sha256": "e819766c7beeea4e84c2581d9774b109a4ddd4e8e753dc25ec84e81237e67d26",
+      "reported_count": 11896,
+      "source_details": {},
+      "retrieved_count": 500,
+      "local_three_block_count": 32,
+      "local_explicit_multiomics_count": 123,
+      "local_layer_pair_count": 149,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": false,
+      "canonical_positive_local_three_block_match": false,
+      "normalized_file": "normalized/springernature.csv",
+      "normalized_sha256": "1f24e11ed00b36dd9f48bb71153a5fa65a21434cd5035dc4bdfc1d492070ca01",
+      "raw_responses": [
+        {
+          "path": "raw/springernature/page_0001.json.gz",
+          "sha256": "6a548fa6e43070a7b39916c0bd2617f6fcc4aa0bea31744a17a65b309f41b99e",
+          "bytes": 28392
+        },
+        {
+          "path": "raw/springernature/page_0002.json.gz",
+          "sha256": "f93eacb88eb163596222756da359ed95b9d1e69bce4f432a4c62836daf535b1c",
+          "bytes": 31121
+        },
+        {
+          "path": "raw/springernature/page_0003.json.gz",
+          "sha256": "960f207139f2983ecc14922c773aaf8d8cde3f1c002938c9a7f915ef4223fa44",
+          "bytes": 31702
+        },
+        {
+          "path": "raw/springernature/page_0004.json.gz",
+          "sha256": "8ea3e43be95791ba6be148ced4840d8c7e7050475f0a0417fe468444b187f98b",
+          "bytes": 30651
+        },
+        {
+          "path": "raw/springernature/page_0005.json.gz",
+          "sha256": "bb1a9ade12e51bf305d92069f33e5e63ce65e047844c94402eb2eea8bcbc838f",
+          "bytes": 32037
+        },
+        {
+          "path": "raw/springernature/page_0006.json.gz",
+          "sha256": "c4c2fc6ad9584023d5fb87df4bb853d5755b82e9f5bd4810b44a4361d87c8957",
+          "bytes": 28475
+        },
+        {
+          "path": "raw/springernature/page_0007.json.gz",
+          "sha256": "44f47bc9d0944735be19c7164453074c71e2909ac6d79d1b6dfdf6bf81b4e051",
+          "bytes": 31954
+        },
+        {
+          "path": "raw/springernature/page_0008.json.gz",
+          "sha256": "73aa2802e2696242c8948acecb2e2ebb6c8e3b71e28df3469f2d6a8676377f82",
+          "bytes": 32340
+        },
+        {
+          "path": "raw/springernature/page_0009.json.gz",
+          "sha256": "c82fa8060d938dd11248f3a497857ea7aad28811bec42640a8662793d1673f52",
+          "bytes": 31042
+        },
+        {
+          "path": "raw/springernature/page_0010.json.gz",
+          "sha256": "bea5da2fe328cd4d7ba4ec63911d79953ce8818730bec6a06e920c2f3da7b517",
+          "bytes": 29526
+        },
+        {
+          "path": "raw/springernature/page_0011.json.gz",
+          "sha256": "130cbe927f48e5617fb3165dd865be167c4779639f839a1609d37a55047fe71b",
+          "bytes": 28474
+        },
+        {
+          "path": "raw/springernature/page_0012.json.gz",
+          "sha256": "df6fbc81d0c1d239dfea8bd5ccd970ea27d4fac436eaac29b05609e8ce583126",
+          "bytes": 28353
+        },
+        {
+          "path": "raw/springernature/page_0013.json.gz",
+          "sha256": "60ed4eed7c2bfe564f0cd53700ce94f71a77d21d3bc1fcc06b12a52c3ea56413",
+          "bytes": 29882
+        },
+        {
+          "path": "raw/springernature/page_0014.json.gz",
+          "sha256": "d0e604f64cad3277446a1290568380e92c18ba965cc9eea59b835b2589372c3a",
+          "bytes": 31126
+        },
+        {
+          "path": "raw/springernature/page_0015.json.gz",
+          "sha256": "46f025f525954104078df2206195ed5bc88c8049888f20d7a9dce61fc5152ae7",
+          "bytes": 30688
+        },
+        {
+          "path": "raw/springernature/page_0016.json.gz",
+          "sha256": "01d06d315c1a884acb7862b25cb230fe5c1f1b8766ba11388dcabda065d9cd0c",
+          "bytes": 31379
+        },
+        {
+          "path": "raw/springernature/page_0017.json.gz",
+          "sha256": "28b5fc1df4062e7fa564bc2b6e3aca2561668a6265a070fead7471e4e1fd2c05",
+          "bytes": 31959
+        },
+        {
+          "path": "raw/springernature/page_0018.json.gz",
+          "sha256": "2905d80d054ff9d41fc4cd5b46361a38f5ba0cb6dc58b8f1d51e399c05d6f9a1",
+          "bytes": 30796
+        },
+        {
+          "path": "raw/springernature/page_0019.json.gz",
+          "sha256": "a13f01b6fd492803ef32f300796b4ab74c14afda84d1777d2f0499de7ef515d9",
+          "bytes": 30200
+        },
+        {
+          "path": "raw/springernature/page_0020.json.gz",
+          "sha256": "e392e80c9a196a7c3070c60241e67899e7e1124dd9ee13c898a0b0cd5c1cbf61",
+          "bytes": 30451
+        }
+      ]
+    }
+  },
+  "total_source_records": 3000,
+  "total_local_three_block_records": 1207,
+  "combined_file": "normalized/all_sources.csv",
+  "google_scholar_status": "manual_pending"
+}

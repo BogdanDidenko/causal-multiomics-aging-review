@@ -1,0 +1,21 @@
+{
+  "protocol_version": "1.0.0",
+  "tested_date": "2026-08-02",
+  "doi": "10.1038/s41467-023-37729-w",
+  "status": "single_anchor_pass_more_expert_positives_required",
+  "tests": {
+    "pubmed": {"method": "combined_query_AND_DOI_aid", "count": 1, "passed": true},
+    "europepmc": {"method": "combined_query_AND_DOI", "count": 1, "passed": true},
+    "scopus": {"method": "combined_query_AND_DOI", "count": 1, "passed": true},
+    "semantic_scholar": {
+      "method": "present_in_combined_query_top_500_and_DOI_lookup",
+      "count": 1,
+      "paper_id": "b15a6da8cb4fb0b0f18cd0e0dfa07e10be9f9d7b",
+      "passed": true
+    },
+    "springernature": {"method": "combined_query_AND_DOI", "count": 1, "passed": true},
+    "openalex": {"method": "combined_filter_AND_DOI", "count": 1, "passed": true},
+    "google_scholar": {"method": "manual", "count": null, "passed": null}
+  },
+  "interpretation": "The initial anchor is retrievable in all six automated sources. Query freeze still requires at least 20 two-expert-adjudicated canonical positives across design families."
+}

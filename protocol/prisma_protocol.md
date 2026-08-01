@@ -1,5 +1,9 @@
 # PRISMA Protocol
 
+> **Superseded pilot.** This 2026-07-27 protocol is retained for audit only.
+> The v1 candidate is `protocol/v1.0.0/prisma_pipeline.md`; this file must not
+> define the final PRISMA denominator.
+
 **Protocol version:** 0.1.0
 
 **Initialized:** 2026-07-27

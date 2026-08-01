@@ -28,6 +28,21 @@ from .grading import (
 from .llm import OpenAICompatibleProvider, ProviderError
 from .metadata_quality import title_abstract_metadata_issue
 from .schema import SchemaError, validate_object
+from .v1 import (
+    CAUSAL_DECISION_FIELDS,
+    FULL_TEXT_CAUSAL_FIELDS,
+    FULL_TEXT_ELIGIBILITY_FIELDS,
+    SCOPE_DECISION_FIELDS,
+    agreement_audit,
+    decisive_fields_unanimous,
+    derive_title_result,
+    package_full_text_sections,
+    scope_status,
+    validate_causal_answer_consistency,
+    validate_full_text_evidence_spans,
+    validate_scope_answer_consistency,
+    validate_title_evidence_spans,
+)
 
 PLACEHOLDERS = (
     "RECORD_ID",
@@ -308,37 +323,62 @@ def run_stage_screening(
                         {"error": str(record["_input_error"])},
                     )
                 elif not str(record.get("abstract", "")).strip():
-                    result = _manual_review_result(
-                        record,
-                        stage,
-                        "missing_abstract",
+                    result = (
+                        _v1_title_metadata_result(record, "missing_abstract")
+                        if stage == "title_abstract"
+                        and stage_config.get("architecture")
+                        == "v1_two_role_unanimous"
+                        else _manual_review_result(record, stage, "missing_abstract")
                     )
                 elif (
                     stage == "title_abstract"
                     and len(str(record.get("abstract", "")))
                     > stage_config["max_input_abstract_chars"]
                 ):
-                    result = _manual_review_result(
-                        record,
-                        stage,
-                        "oversized_abstract_metadata",
-                        {
-                            "abstract_chars": len(str(record.get("abstract", ""))),
-                            "maximum": stage_config["max_input_abstract_chars"],
-                        },
+                    result = (
+                        _v1_title_metadata_result(
+                            record,
+                            "oversized_abstract_metadata",
+                            {
+                                "abstract_chars": len(str(record.get("abstract", ""))),
+                                "maximum": stage_config["max_input_abstract_chars"],
+                            },
+                        )
+                        if stage_config.get("architecture")
+                        == "v1_two_role_unanimous"
+                        else _manual_review_result(
+                            record,
+                            stage,
+                            "oversized_abstract_metadata",
+                            {
+                                "abstract_chars": len(str(record.get("abstract", ""))),
+                                "maximum": stage_config["max_input_abstract_chars"],
+                            },
+                        )
                     )
                 elif stage == "title_abstract":
                     metadata_issue = title_abstract_metadata_issue(record)
                     if metadata_issue:
                         reason, details = metadata_issue
-                        result = _manual_review_result(
-                            record,
-                            stage,
-                            reason,
-                            details,
+                        result = (
+                            _v1_title_metadata_result(record, reason, details)
+                            if stage_config.get("architecture")
+                            == "v1_two_role_unanimous"
+                            else _manual_review_result(
+                                record,
+                                stage,
+                                reason,
+                                details,
+                            )
                         )
                     else:
-                        result = _process_title_abstract_record(
+                        processor = (
+                            _process_title_abstract_v1
+                            if stage_config.get("architecture")
+                            == "v1_two_role_unanimous"
+                            else _process_title_abstract_record
+                        )
+                        result = processor(
                             record,
                             stage_config,
                             artifacts,
@@ -347,7 +387,13 @@ def run_stage_screening(
                             suite["runtime"]["max_retries"],
                         )
                 elif stage == "full_text":
-                    result = _process_full_text_record(
+                    processor = (
+                        _process_full_text_v1
+                        if stage_config.get("architecture")
+                        == "v1_deterministic_sections_unanimous"
+                        else _process_full_text_record
+                    )
+                    result = processor(
                         record,
                         stage_config,
                         artifacts,
@@ -417,6 +463,142 @@ def _record_matches_filter(record: dict[str, Any], record_ids: set[str]) -> bool
         return record_id(record) in record_ids
     except ValueError:
         return False
+
+
+def _v1_title_metadata_result(
+    record: dict[str, Any],
+    reason: str,
+    details: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    return {
+        "record_id": record_id(record),
+        "stage": "title_abstract",
+        "title": record.get("title", ""),
+        "role_runs": None,
+        "selected_criteria": {"metadata_sufficient": "no"},
+        "decision_reason": reason,
+        "decision_details": details or {},
+        "final_decision": "seek_full_text",
+        "final_exclusion_code": "none",
+    }
+
+
+def _process_title_abstract_v1(
+    record: dict[str, Any],
+    stage_config: dict[str, Any],
+    artifacts: dict[str, dict[str, Any]],
+    provider: OpenAICompatibleProvider,
+    raw_results: Any,
+    max_retries: int,
+) -> dict[str, Any]:
+    repeat_count = int(stage_config.get("decision_repeats", 5))
+    identifier = record_id(record)
+    scope_runs = _call_v1_title_role_repeated(
+        record,
+        "scope_reviewer",
+        repeat_count,
+        artifacts,
+        provider,
+        raw_results,
+        max_retries,
+    )
+    scope_paths = [scope_status(answer) for answer in scope_runs]
+    causal_runs: list[dict[str, Any]] | None = None
+    if all(status == "pass" for status, _ in scope_paths):
+        causal_runs = _call_v1_title_role_repeated(
+            record,
+            "causal_method_reviewer",
+            repeat_count,
+            artifacts,
+            provider,
+            raw_results,
+            max_retries,
+        )
+
+    decision = derive_title_result(scope_runs, causal_runs)
+    selected = decision["selected_criteria"]
+    selected["evidence_spans"] = _unique_evidence_spans(
+        scope_runs + (causal_runs or [])
+    )
+    basis = selected.get("causal_basis")
+    selected["identification_status"] = (
+        "causal_candidate"
+        if basis
+        in {
+            "named_causal_effect_design",
+            "formal_directed_hypothesis",
+            "causal_analysis_method_unspecified",
+        }
+        else "noncausal"
+        if basis
+        in {"association_or_prediction_only", "causal_wording_only", "none"}
+        else "unclear"
+    )
+    role_runs = {
+        "scope_reviewer": scope_runs,
+        "causal_method_reviewer": causal_runs,
+    }
+    agreement = {
+        "scope_reviewer": agreement_audit(scope_runs, SCOPE_DECISION_FIELDS),
+        "causal_method_reviewer": (
+            agreement_audit(causal_runs, CAUSAL_DECISION_FIELDS)
+            if causal_runs
+            else None
+        ),
+    }
+    return {
+        "record_id": identifier,
+        "stage": "title_abstract",
+        "title": record.get("title", ""),
+        "architecture": "v1_two_role_unanimous",
+        "role_runs": role_runs,
+        "role_agreement": agreement,
+        "round_a": {
+            "scope_reviewer": scope_runs[0],
+            "causal_method_reviewer": causal_runs[0] if causal_runs else None,
+        },
+        "selected_criteria": selected,
+        "decision_reason": decision["decision_reason"],
+        "final_decision": decision["final_decision"],
+        "final_exclusion_code": decision["final_exclusion_code"],
+    }
+
+
+def _call_v1_title_role_repeated(
+    record: dict[str, Any],
+    role: str,
+    repeat_count: int,
+    artifacts: dict[str, dict[str, Any]],
+    provider: OpenAICompatibleProvider,
+    raw_results: Any,
+    max_retries: int,
+) -> list[dict[str, Any]]:
+    prompt = render_prompt(artifacts[role]["prompt"], record)
+    consistency_validator = (
+        validate_scope_answer_consistency
+        if role == "scope_reviewer"
+        else validate_causal_answer_consistency
+    )
+    answers = []
+    for repeat_index in range(1, repeat_count + 1):
+        answers.append(
+            _call_role(
+                provider,
+                role,
+                prompt,
+                artifacts[role]["schema"],
+                record_id(record),
+                raw_results,
+                max_retries,
+                post_validate=lambda answer: (
+                    validate_title_evidence_spans(answer, record),
+                    consistency_validator(answer),
+                ),
+                phase="v1_unanimous_decision",
+                repeat_index=repeat_index,
+            )
+        )
+    return answers
 
 
 def _process_title_abstract_record(
@@ -1472,6 +1654,148 @@ def _process_full_text_record(
     }
 
 
+def _process_full_text_v1(
+    record: dict[str, Any],
+    stage_config: dict[str, Any],
+    artifacts: dict[str, dict[str, Any]],
+    provider: OpenAICompatibleProvider,
+    raw_results: Any,
+    max_retries: int,
+) -> dict[str, Any]:
+    sections = record.get("sections")
+    if not isinstance(sections, list) or not sections:
+        return _manual_review_result(record, "full_text", "missing_full_text_sections")
+    _validate_sections(sections)
+    selected_sections, selection = package_full_text_sections(
+        sections,
+        stage_config.get("deterministic_section_packaging", {}),
+    )
+    if selection["coverage_status"] != "sufficient":
+        return _manual_review_result(
+            record,
+            "full_text",
+            "insufficient_deterministic_full_text_package",
+            {"section_selection": selection},
+        )
+    selected_ids = {str(section["section_id"]) for section in selected_sections}
+    selected_context = _format_sections(selected_sections)
+    repeat_count = int(stage_config.get("decision_repeats", 5))
+    identifier = record_id(record)
+
+    eligibility_prompt = render_prompt(
+        artifacts["eligibility_reviewer"]["prompt"],
+        record,
+        {"SELECTED_SECTIONS": selected_context},
+    )
+    eligibility_runs = [
+        _call_role(
+            provider,
+            "eligibility_reviewer",
+            eligibility_prompt,
+            artifacts["eligibility_reviewer"]["schema"],
+            identifier,
+            raw_results,
+            max_retries,
+            lambda answer: (
+                validate_evidence_references(answer, selected_ids),
+                validate_full_text_evidence_spans(answer, selected_sections),
+            ),
+            phase="v1_unanimous_decision",
+            repeat_index=index,
+        )
+        for index in range(1, repeat_count + 1)
+    ]
+
+    causal_runs: list[dict[str, Any]] = []
+    for index, eligibility in enumerate(eligibility_runs, start=1):
+        causal_prompt = render_prompt(
+            artifacts["causal_evidence_reviewer"]["prompt"],
+            record,
+            {
+                "SELECTED_SECTIONS": selected_context,
+                "ELIGIBILITY_REVIEW": json.dumps(
+                    eligibility, ensure_ascii=False
+                ),
+            },
+        )
+        causal_runs.append(
+            _call_role(
+                provider,
+                "causal_evidence_reviewer",
+                causal_prompt,
+                artifacts["causal_evidence_reviewer"]["schema"],
+                identifier,
+                raw_results,
+                max_retries,
+                lambda answer: (
+                    validate_evidence_references(answer, selected_ids),
+                    validate_full_text_evidence_spans(answer, selected_sections),
+                ),
+                phase="v1_unanimous_decision",
+                repeat_index=index,
+            )
+        )
+
+    eligibility_unanimous = decisive_fields_unanimous(
+        eligibility_runs, FULL_TEXT_ELIGIBILITY_FIELDS
+    )
+    causal_unanimous = decisive_fields_unanimous(
+        causal_runs, FULL_TEXT_CAUSAL_FIELDS
+    )
+    selected = _merge_answers(eligibility_runs[0], causal_runs[0])
+    selected["evidence_spans"] = _unique_evidence_spans(
+        eligibility_runs + causal_runs
+    )
+    grade = derive_evidence_level(selected) if eligibility_unanimous and causal_unanimous else None
+    manual_reason = None
+    if not eligibility_unanimous or not causal_unanimous:
+        manual_reason = "five_run_decisive_criterion_disagreement"
+    elif grade is None:
+        manual_reason = "insufficient_full_text_for_deterministic_grade"
+
+    if manual_reason:
+        level = None
+        label = "pending"
+        final_decision = "manual_review"
+        ledger_fields = None
+    else:
+        level, default_label = grade
+        label = stage_config.get("level_labels", {}).get(str(level), default_label)
+        final_decision = "assessed"
+        ledger_fields = build_ledger_fields(selected, level, label)
+
+    return {
+        "record_id": identifier,
+        "stage": "full_text",
+        "title": record.get("title", ""),
+        "architecture": "v1_deterministic_sections_unanimous",
+        "section_selection": selection,
+        "role_runs": {
+            "eligibility_reviewer": eligibility_runs,
+            "causal_evidence_reviewer": causal_runs,
+        },
+        "role_agreement": {
+            "eligibility_reviewer": agreement_audit(
+                eligibility_runs, FULL_TEXT_ELIGIBILITY_FIELDS
+            ),
+            "causal_evidence_reviewer": agreement_audit(
+                causal_runs, FULL_TEXT_CAUSAL_FIELDS
+            ),
+        },
+        "round_a": {
+            "eligibility_reviewer": eligibility_runs[0],
+            "causal_evidence_reviewer": causal_runs[0],
+        },
+        "selected_criteria": selected,
+        "causal_evidence_level": level,
+        "final_study_label": label,
+        "ledger_fields": ledger_fields,
+        "final_exclusion_code": derive_exclusion_code(selected),
+        "final_decision": final_decision,
+        "manual_review_reason": manual_reason,
+    }
+
+
 def _call_role(
     provider: OpenAICompatibleProvider,
     role: str,
@@ -1550,7 +1874,8 @@ def _call_role(
 
 def _load_stage_artifacts(stage_config: dict[str, Any]) -> dict[str, dict[str, Any]]:
     role_configs: dict[str, dict[str, Any]] = dict(stage_config["roles"])
-    role_configs["adjudicator"] = stage_config["adjudication"]
+    if "adjudication" in stage_config:
+        role_configs["adjudicator"] = stage_config["adjudication"]
     verification_config = stage_config.get("contract_verification", {})
     if verification_config.get("mode") in {
         "per_role_second_pass",
@@ -1632,6 +1957,18 @@ def _merge_answers(*answers: dict[str, Any]) -> dict[str, Any]:
     if evidence:
         merged["evidence_spans"] = evidence
     return merged
+
+
+def _unique_evidence_spans(answers: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    spans: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for answer in answers:
+        for item in answer.get("evidence_spans", []):
+            marker = json.dumps(item, ensure_ascii=False, sort_keys=True)
+            if marker not in seen:
+                seen.add(marker)
+                spans.append(item)
+    return spans
 
 
 def _validate_sections(sections: list[Any]) -> set[str]:

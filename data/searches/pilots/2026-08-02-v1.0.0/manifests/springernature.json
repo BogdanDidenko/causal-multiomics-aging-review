@@ -1,0 +1,120 @@
+{
+  "source": "springernature",
+  "started_at": "2026-08-01T23:28:50.367646+00:00",
+  "completed_at": "2026-08-01T23:29:24.495851+00:00",
+  "query_file": "protocol/queries/v1.0.0/springernature.txt",
+  "query_sha256": "e819766c7beeea4e84c2581d9774b109a4ddd4e8e753dc25ec84e81237e67d26",
+  "reported_count": 11896,
+  "source_details": {},
+  "retrieved_count": 500,
+  "local_three_block_count": 32,
+  "local_explicit_multiomics_count": 123,
+  "local_layer_pair_count": 149,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": false,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/springernature.csv",
+  "normalized_sha256": "1f24e11ed00b36dd9f48bb71153a5fa65a21434cd5035dc4bdfc1d492070ca01",
+  "raw_responses": [
+    {
+      "path": "raw/springernature/page_0001.json.gz",
+      "sha256": "6a548fa6e43070a7b39916c0bd2617f6fcc4aa0bea31744a17a65b309f41b99e",
+      "bytes": 28392
+    },
+    {
+      "path": "raw/springernature/page_0002.json.gz",
+      "sha256": "f93eacb88eb163596222756da359ed95b9d1e69bce4f432a4c62836daf535b1c",
+      "bytes": 31121
+    },
+    {
+      "path": "raw/springernature/page_0003.json.gz",
+      "sha256": "960f207139f2983ecc14922c773aaf8d8cde3f1c002938c9a7f915ef4223fa44",
+      "bytes": 31702
+    },
+    {
+      "path": "raw/springernature/page_0004.json.gz",
+      "sha256": "8ea3e43be95791ba6be148ced4840d8c7e7050475f0a0417fe468444b187f98b",
+      "bytes": 30651
+    },
+    {
+      "path": "raw/springernature/page_0005.json.gz",
+      "sha256": "bb1a9ade12e51bf305d92069f33e5e63ce65e047844c94402eb2eea8bcbc838f",
+      "bytes": 32037
+    },
+    {
+      "path": "raw/springernature/page_0006.json.gz",
+      "sha256": "c4c2fc6ad9584023d5fb87df4bb853d5755b82e9f5bd4810b44a4361d87c8957",
+      "bytes": 28475
+    },
+    {
+      "path": "raw/springernature/page_0007.json.gz",
+      "sha256": "44f47bc9d0944735be19c7164453074c71e2909ac6d79d1b6dfdf6bf81b4e051",
+      "bytes": 31954
+    },
+    {
+      "path": "raw/springernature/page_0008.json.gz",
+      "sha256": "73aa2802e2696242c8948acecb2e2ebb6c8e3b71e28df3469f2d6a8676377f82",
+      "bytes": 32340
+    },
+    {
+      "path": "raw/springernature/page_0009.json.gz",
+      "sha256": "c82fa8060d938dd11248f3a497857ea7aad28811bec42640a8662793d1673f52",
+      "bytes": 31042
+    },
+    {
+      "path": "raw/springernature/page_0010.json.gz",
+      "sha256": "bea5da2fe328cd4d7ba4ec63911d79953ce8818730bec6a06e920c2f3da7b517",
+      "bytes": 29526
+    },
+    {
+      "path": "raw/springernature/page_0011.json.gz",
+      "sha256": "130cbe927f48e5617fb3165dd865be167c4779639f839a1609d37a55047fe71b",
+      "bytes": 28474
+    },
+    {
+      "path": "raw/springernature/page_0012.json.gz",
+      "sha256": "df6fbc81d0c1d239dfea8bd5ccd970ea27d4fac436eaac29b05609e8ce583126",
+      "bytes": 28353
+    },
+    {
+      "path": "raw/springernature/page_0013.json.gz",
+      "sha256": "60ed4eed7c2bfe564f0cd53700ce94f71a77d21d3bc1fcc06b12a52c3ea56413",
+      "bytes": 29882
+    },
+    {
+      "path": "raw/springernature/page_0014.json.gz",
+      "sha256": "d0e604f64cad3277446a1290568380e92c18ba965cc9eea59b835b2589372c3a",
+      "bytes": 31126
+    },
+    {
+      "path": "raw/springernature/page_0015.json.gz",
+      "sha256": "46f025f525954104078df2206195ed5bc88c8049888f20d7a9dce61fc5152ae7",
+      "bytes": 30688
+    },
+    {
+      "path": "raw/springernature/page_0016.json.gz",
+      "sha256": "01d06d315c1a884acb7862b25cb230fe5c1f1b8766ba11388dcabda065d9cd0c",
+      "bytes": 31379
+    },
+    {
+      "path": "raw/springernature/page_0017.json.gz",
+      "sha256": "28b5fc1df4062e7fa564bc2b6e3aca2561668a6265a070fead7471e4e1fd2c05",
+      "bytes": 31959
+    },
+    {
+      "path": "raw/springernature/page_0018.json.gz",
+      "sha256": "2905d80d054ff9d41fc4cd5b46361a38f5ba0cb6dc58b8f1d51e399c05d6f9a1",
+      "bytes": 30796
+    },
+    {
+      "path": "raw/springernature/page_0019.json.gz",
+      "sha256": "a13f01b6fd492803ef32f300796b4ab74c14afda84d1777d2f0499de7ef515d9",
+      "bytes": 30200
+    },
+    {
+      "path": "raw/springernature/page_0020.json.gz",
+      "sha256": "e392e80c9a196a7c3070c60241e67899e7e1124dd9ee13c898a0b0cd5c1cbf61",
+      "bytes": 30451
+    }
+  ]
+}

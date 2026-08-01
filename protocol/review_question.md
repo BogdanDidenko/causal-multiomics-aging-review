@@ -1,5 +1,7 @@
 # Review Question
 
+> **Superseded pilot.** Use `protocol/v1.0.0/review_question.md` for v1.
+
 ## Primary Question
 
 Which empirical studies integrate multiple molecular omics layers to

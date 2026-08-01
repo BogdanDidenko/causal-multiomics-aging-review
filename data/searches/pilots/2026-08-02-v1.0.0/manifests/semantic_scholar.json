@@ -1,0 +1,25 @@
+{
+  "source": "semantic_scholar",
+  "started_at": "2026-08-01T23:28:45.671627+00:00",
+  "completed_at": "2026-08-01T23:28:50.366909+00:00",
+  "query_file": "protocol/queries/v1.0.0/semantic_scholar.txt",
+  "query_sha256": "43e5dfad557a54130061c91e63fe361a9dcb7e73685c54a34bf53ff8d88bd435",
+  "reported_count": 3494,
+  "source_details": {},
+  "retrieved_count": 500,
+  "local_three_block_count": 170,
+  "local_explicit_multiomics_count": 164,
+  "local_layer_pair_count": 333,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": true,
+  "normalized_file": "normalized/semantic_scholar.csv",
+  "normalized_sha256": "6f3faa8d840364444de7585ddb686812e7d4e7ae689c15d7d6ba68cfd86288ca",
+  "raw_responses": [
+    {
+      "path": "raw/semantic_scholar/page_0001.json.gz",
+      "sha256": "99a1696efcfba4fc762e36b4c3458eb26de255d50885ac27c137e7ac9b7bb1da",
+      "bytes": 1009531
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "current_report_application",
+    "causal_basis",
+    "design_families",
+    "causal_information_sufficiency",
+    "evidence_spans",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "current_report_application": {"enum": ["yes", "no", "unclear"]},
+    "causal_basis": {
+      "enum": [
+        "named_causal_effect_design",
+        "formal_directed_hypothesis",
+        "causal_analysis_method_unspecified",
+        "association_or_prediction_only",
+        "causal_wording_only",
+        "none",
+        "unclear"
+      ]
+    },
+    "design_families": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "genetic_instrument",
+          "randomized_intervention",
+          "nonrandomized_intervention",
+          "quasi_experiment",
+          "direct_perturbation",
+          "temporal_identification",
+          "formal_mediation",
+          "dag_scm",
+          "sem",
+          "bayesian_network",
+          "causal_discovery_algorithm",
+          "other_formal_causal_design"
+        ]
+      }
+    },
+    "causal_information_sufficiency": {"enum": ["sufficient", "insufficient", "unclear"]},
+    "evidence_spans": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {"enum": ["current_report_application", "causal_basis", "design_family", "causal_information_sufficiency"]},
+        "source": {"enum": ["title", "abstract"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

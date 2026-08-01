@@ -21,6 +21,8 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SEARCH_CONFIG = PROTOCOL / "search_config.json"
+QUERY_FILES: dict[str, Path] = {}
+MAX_RECORDS_PER_SOURCE: int | None = None
 
 PUBMED_ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 PUBMED_EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
@@ -61,6 +63,10 @@ FIELDS = [
     "is_preprint",
     "raw_page",
     "local_multiomics_match",
+    "local_explicit_multiomics_match",
+    "local_layer_pair_match",
+    "local_omics_layer_count",
+    "local_omics_layers",
     "local_aging_match",
     "local_causal_anchor_match",
     "local_three_block_match",
@@ -71,6 +77,30 @@ MULTIOMICS_RE = re.compile(
     r"integrated[-\s]+omics|cross[-\s]+omics|pan[-\s]?omics)\b",
     re.I,
 )
+OMICS_LAYER_RES = {
+    "genomics": re.compile(
+        r"\b(?:genom(?:e|ic|ics|wide)|GWAS|genetic[-\s]+variant|"
+        r"quantitative[-\s]+trait[-\s]+loc|[emp]QTL|QTL)\w*",
+        re.I,
+    ),
+    "epigenomics": re.compile(
+        r"\b(?:epigenom|DNA[-\s]+methyl|methylom|chromatin|ATAC[-\s]?seq)\w*",
+        re.I,
+    ),
+    "transcriptomics": re.compile(
+        r"\b(?:transcriptom|RNA[-\s]?seq|gene[-\s]+expression)\w*",
+        re.I,
+    ),
+    "proteomics": re.compile(r"\b(?:proteom|protein[-\s]+abundance)\w*", re.I),
+    "metabolomics": re.compile(
+        r"\b(?:metabolom|lipidom|metabolite|lipoprotein)\w*",
+        re.I,
+    ),
+    "microbiomics": re.compile(
+        r"\b(?:microbiom|metagenom|microbial[-\s]+community)\w*",
+        re.I,
+    ),
+}
 AGING_RE = re.compile(
     r"\b(?:aging|ageing|biological[-\s]+ag(?:e|ing|eing)|"
     r"epigenetic[-\s]+ag(?:e|ing|eing)|age[-\s]+acceleration|"
@@ -123,8 +153,19 @@ def sha256_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def read_query(source: str) -> str:
-    return (PROTOCOL / "queries" / f"{source}.txt").read_text(encoding="utf-8").strip()
+    path = QUERY_FILES.get(source, PROTOCOL / "queries" / f"{source}.txt")
+    return path.read_text(encoding="utf-8").strip()
+
+
+def record_limit(reported_count: int) -> int:
+    if MAX_RECORDS_PER_SOURCE is None:
+        return reported_count
+    return min(reported_count, MAX_RECORDS_PER_SOURCE)
 
 
 def get_credential(name: str) -> str:
@@ -265,10 +306,19 @@ def pubmed_date(pubmed_article: ET.Element) -> str:
 
 def classify_local(record: dict[str, Any]) -> dict[str, Any]:
     text = f"{record.get('title', '')} {record.get('abstract', '')}"
-    multiomics = bool(MULTIOMICS_RE.search(text))
+    explicit_multiomics = bool(MULTIOMICS_RE.search(text))
+    layers = sorted(
+        layer for layer, pattern in OMICS_LAYER_RES.items() if pattern.search(text)
+    )
+    layer_pair = len(layers) >= 2
+    multiomics = explicit_multiomics or layer_pair
     aging = bool(AGING_RE.search(text))
     causal = bool(CAUSAL_ANCHOR_RE.search(text))
     record["local_multiomics_match"] = multiomics
+    record["local_explicit_multiomics_match"] = explicit_multiomics
+    record["local_layer_pair_match"] = layer_pair
+    record["local_omics_layer_count"] = len(layers)
+    record["local_omics_layers"] = ";".join(layers)
     record["local_aging_match"] = aging
     record["local_causal_anchor_match"] = causal
     record["local_three_block_match"] = multiomics and aging and causal
@@ -372,7 +422,7 @@ def collect_pubmed(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
     result = search["esearchresult"]
     count = int(result["count"])
     records = []
-    for start in range(0, count, 200):
+    for start in range(0, record_limit(count), 200):
         name = f"page_{start // 200 + 1:04d}.xml.gz"
         payload = request(
             PUBMED_EFETCH,
@@ -381,7 +431,7 @@ def collect_pubmed(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
                 "WebEnv": result["webenv"],
                 "query_key": result["querykey"],
                 "retstart": str(start),
-                "retmax": "200",
+                "retmax": str(min(200, record_limit(count) - start)),
                 "rettype": "abstract",
                 "retmode": "xml",
                 "api_key": api_key,
@@ -436,7 +486,9 @@ def collect_europepmc(
             {
                 "query": query,
                 "format": "json",
-                "pageSize": "1000",
+                "pageSize": str(
+                    min(1000, MAX_RECORDS_PER_SOURCE or 1000)
+                ),
                 "cursorMark": cursor,
                 "resultType": "core",
             },
@@ -447,10 +499,14 @@ def collect_europepmc(
         items = page.get("resultList", {}).get("result", [])
         records.extend(parse_europepmc(item, name) for item in items)
         next_cursor = page.get("nextCursorMark")
-        if not next_cursor or next_cursor == cursor or len(records) >= expected:
+        if (
+            not next_cursor
+            or next_cursor == cursor
+            or len(records) >= record_limit(expected)
+        ):
             break
         cursor = next_cursor
-    return records, {"reported_count": expected}
+    return records[: record_limit(expected)], {"reported_count": expected}
 
 
 def parse_scopus(item: dict[str, Any], raw_page: str) -> dict[str, Any]:
@@ -509,12 +565,12 @@ def collect_scopus(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
     start = 0
     page_index = 0
     view = "COMPLETE"
-    while start == 0 or start < expected:
+    while start == 0 or start < record_limit(expected):
         page_index += 1
         params = {
             "query": query,
             "start": str(start),
-            "count": "25",
+            "count": str(min(25, MAX_RECORDS_PER_SOURCE or 25)),
             "view": view,
             "sort": "citedby-count",
         }
@@ -536,7 +592,7 @@ def collect_scopus(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
             break
         start += len(items)
         time.sleep(0.15)
-    return records, {
+    return records[: record_limit(expected)], {
         "reported_count": expected,
         "view": view,
         "abstract_entitlement": view == "COMPLETE",
@@ -589,7 +645,7 @@ def collect_semantic_scholar(
         params = {
             "query": query,
             "year": "1800-2026",
-            "limit": "1000",
+            "limit": str(min(1000, MAX_RECORDS_PER_SOURCE or 1000)),
             "sort": "citationCount:desc",
             "fields": (
                 "title,abstract,authors,year,venue,externalIds,publicationTypes,"
@@ -609,10 +665,10 @@ def collect_semantic_scholar(
         items = page.get("data", [])
         records.extend(parse_semantic_scholar(item, name) for item in items)
         token = clean_text(page.get("token"))
-        if not token or not items:
+        if not token or not items or len(records) >= record_limit(expected):
             break
         time.sleep(1.1)
-    return records, {"reported_count": expected}
+    return records[: record_limit(expected)], {"reported_count": expected}
 
 
 def parse_springer(item: dict[str, Any], raw_page: str) -> dict[str, Any]:
@@ -669,14 +725,14 @@ def collect_springernature(
     expected = 0
     records = []
     page_index = 0
-    while start == 1 or start <= expected:
+    while start == 1 or start <= record_limit(expected):
         page_index += 1
         page = request_json(
             SPRINGER_META,
             {
                 "q": query,
                 "s": str(start),
-                "p": "25",
+                "p": str(min(25, MAX_RECORDS_PER_SOURCE or 25)),
                 "api_key": api_key,
             },
         )
@@ -692,7 +748,7 @@ def collect_springernature(
             break
         start += len(items)
         time.sleep(0.12)
-    return records, {"reported_count": expected}
+    return records[: record_limit(expected)], {"reported_count": expected}
 
 
 def reconstruct_openalex_abstract(index: dict[str, list[int]] | None) -> str:
@@ -753,7 +809,7 @@ def collect_openalex(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any
             OPENALEX_WORKS,
             {
                 "filter": query_filter,
-                "per_page": "100",
+                "per_page": str(min(100, MAX_RECORDS_PER_SOURCE or 100)),
                 "cursor": cursor,
                 "sort": "cited_by_count:desc",
                 "select": (
@@ -770,9 +826,9 @@ def collect_openalex(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any
         items = page.get("results", [])
         records.extend(parse_openalex(item, name) for item in items)
         cursor = clean_text(page.get("meta", {}).get("next_cursor"))
-        if not items:
+        if not items or len(records) >= record_limit(expected):
             break
-    return records, {"reported_count": expected}
+    return records[: record_limit(expected)], {"reported_count": expected}
 
 
 COLLECTORS: dict[
@@ -790,7 +846,12 @@ COLLECTORS: dict[
 def write_records(path: Path, records: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=FIELDS, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=FIELDS,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(records)
 
@@ -807,11 +868,20 @@ def run_source(
     canonical = [
         record for record in records if normalize_doi(record.get("doi")) == canonical_doi
     ]
+    raw_responses = [
+        {
+            "path": str(path.relative_to(output)),
+            "sha256": sha256_file(path),
+            "bytes": path.stat().st_size,
+        }
+        for path in sorted(raw_dir.glob("*"))
+        if path.is_file()
+    ]
     manifest = {
         "source": source,
         "started_at": started.isoformat(),
         "completed_at": datetime.now(UTC).isoformat(),
-        "query_file": f"protocol/queries/{source}.txt",
+        "query_file": str(read_query_path(source).relative_to(ROOT)),
         "query_sha256": sha256_text(query),
         "reported_count": details.get("reported_count"),
         "source_details": {
@@ -823,12 +893,20 @@ def run_source(
         "local_three_block_count": sum(
             bool(record["local_three_block_match"]) for record in records
         ),
+        "local_explicit_multiomics_count": sum(
+            bool(record["local_explicit_multiomics_match"]) for record in records
+        ),
+        "local_layer_pair_count": sum(
+            bool(record["local_layer_pair_match"]) for record in records
+        ),
         "canonical_positive_doi": canonical_doi,
         "canonical_positive_found": bool(canonical),
         "canonical_positive_local_three_block_match": any(
             bool(record["local_three_block_match"]) for record in canonical
         ),
         "normalized_file": str(normalized_path.relative_to(output)),
+        "normalized_sha256": sha256_file(normalized_path),
+        "raw_responses": raw_responses,
     }
     (output / "manifests").mkdir(parents=True, exist_ok=True)
     (output / "manifests" / f"{source}.json").write_text(
@@ -838,20 +916,50 @@ def run_source(
     return source, records, manifest
 
 
+def read_query_path(source: str) -> Path:
+    return QUERY_FILES.get(source, PROTOCOL / "queries" / f"{source}.txt")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Run and freeze database-native academic searches"
     )
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument(
+        "--search-config",
+        type=Path,
+        default=SEARCH_CONFIG,
+        help="versioned search configuration; defaults to the legacy active config",
+    )
+    parser.add_argument(
         "--sources",
         default=",".join(COLLECTORS),
         help=f"comma-separated subset of: {','.join(COLLECTORS)}",
     )
     parser.add_argument("--parallel", type=int, default=4)
+    parser.add_argument(
+        "--max-records-per-source",
+        type=int,
+        help="pilot-only cap; omit for a complete final retrieval",
+    )
     args = parser.parse_args()
 
-    config = json.loads(SEARCH_CONFIG.read_text(encoding="utf-8"))
+    global MAX_RECORDS_PER_SOURCE
+    if args.max_records_per_source is not None and args.max_records_per_source < 1:
+        raise SystemExit("--max-records-per-source must be positive")
+    MAX_RECORDS_PER_SOURCE = args.max_records_per_source
+
+    search_config_path = args.search_config.resolve()
+    config = json.loads(search_config_path.read_text(encoding="utf-8"))
+    configured_databases = {item["id"]: item for item in config["databases"]}
+    QUERY_FILES.clear()
+    QUERY_FILES.update(
+        {
+            source: (PROTOCOL / item["query_file"]).resolve()
+            for source, item in configured_databases.items()
+            if item.get("query_file")
+        }
+    )
     canonical_doi = normalize_doi(config["canonical_positive_doi"])
     sources = [source.strip() for source in args.sources.split(",") if source.strip()]
     unknown = sorted(set(sources) - set(COLLECTORS))
@@ -897,10 +1005,13 @@ def main() -> None:
         "manifest_version": "1.0.0",
         "protocol_version": config["protocol_version"],
         "created_at": datetime.now(UTC).isoformat(),
-        "search_config_sha256": hashlib.sha256(SEARCH_CONFIG.read_bytes()).hexdigest(),
+        "search_config_path": str(search_config_path.relative_to(ROOT)),
+        "search_config_sha256": hashlib.sha256(search_config_path.read_bytes()).hexdigest(),
         "sources_requested": sources,
         "sources_completed": sorted(manifests),
         "failures": failures,
+        "pilot_max_records_per_source": MAX_RECORDS_PER_SOURCE,
+        "complete_retrieval": MAX_RECORDS_PER_SOURCE is None,
         "source_manifests": manifests,
         "total_source_records": len(all_records),
         "total_local_three_block_records": sum(

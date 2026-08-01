@@ -1,0 +1,2 @@
+canonical_id,doi,title,design_family,aging_construct,omics_layers,expert_1_verified,expert_2_verified,adjudicated_status,notes
+doi:10.1038/s41467-023-37729-w,10.1038/s41467-023-37729-w,Multi-omic underpinnings of epigenetic aging and human longevity,genetic_instrument,epigenetic aging and longevity,genomics;transcriptomics;metabolomics,pending,pending,pending,Initial calibration anchor; registry must contain at least 20 adjudicated positives before query freeze.

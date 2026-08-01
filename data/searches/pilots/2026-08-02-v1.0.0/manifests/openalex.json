@@ -1,0 +1,45 @@
+{
+  "source": "openalex",
+  "started_at": "2026-08-01T23:28:51.411713+00:00",
+  "completed_at": "2026-08-01T23:29:05.975642+00:00",
+  "query_file": "protocol/queries/v1.0.0/openalex.txt",
+  "query_sha256": "048b1d845f79a15574f7daf7aa79c12a94e1b0aa2fcfd19ce293568f88a59c64",
+  "reported_count": 32273,
+  "source_details": {},
+  "retrieved_count": 500,
+  "local_three_block_count": 51,
+  "local_explicit_multiomics_count": 5,
+  "local_layer_pair_count": 120,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": false,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/openalex.csv",
+  "normalized_sha256": "927fc4f128b9c627a82c46e2b82132ac0f34954a61b4a777e1ebeae1b02b17d9",
+  "raw_responses": [
+    {
+      "path": "raw/openalex/page_0001.json.gz",
+      "sha256": "e9028612722eaf9e7341079a73b0263e8e55f5bc73e05599659cd8cea129bf7b",
+      "bytes": 569391
+    },
+    {
+      "path": "raw/openalex/page_0002.json.gz",
+      "sha256": "2efe4bd38bd944d9d7a36b69e74b0771dffec321ece56c294b7a6b9f6ad1daa7",
+      "bytes": 552860
+    },
+    {
+      "path": "raw/openalex/page_0003.json.gz",
+      "sha256": "3b1fa3adb29817d7cd4d4534d711aef113ce6e9e475553b23257e35e9c030c61",
+      "bytes": 480870
+    },
+    {
+      "path": "raw/openalex/page_0004.json.gz",
+      "sha256": "0a508d9e0bfbcaec25a1a29a8087227aa8b471a262a134a222c5799c46a8b55d",
+      "bytes": 513195
+    },
+    {
+      "path": "raw/openalex/page_0005.json.gz",
+      "sha256": "e09e75cff16521d33e543ec00fc5f21ae812b86f95f460df79fe9bd348074309",
+      "bytes": 438038
+    }
+  ]
+}

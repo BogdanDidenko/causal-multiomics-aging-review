@@ -1,0 +1,123 @@
+{
+  "source": "scopus",
+  "started_at": "2026-08-01T23:28:45.671490+00:00",
+  "completed_at": "2026-08-01T23:29:12.327271+00:00",
+  "query_file": "protocol/queries/v1.0.0/scopus.txt",
+  "query_sha256": "e43795c81f893b4719936648331918880454319a73efad0aaa2d5d972e2ddaee",
+  "reported_count": 3887,
+  "source_details": {
+    "view": "STANDARD",
+    "abstract_entitlement": false
+  },
+  "retrieved_count": 500,
+  "local_three_block_count": 1,
+  "local_explicit_multiomics_count": 11,
+  "local_layer_pair_count": 22,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": false,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/scopus.csv",
+  "normalized_sha256": "1a295c88b2d7a256302203045f6814a2e025dd2d9f3958be3ee85aebe531e034",
+  "raw_responses": [
+    {
+      "path": "raw/scopus/page_0001.json.gz",
+      "sha256": "560b2f5bed7234b64affef7fb958a938b858d87e294d3236762333640909aab4",
+      "bytes": 7731
+    },
+    {
+      "path": "raw/scopus/page_0002.json.gz",
+      "sha256": "a079b21af48bf2a0cc9be04623181e360e4a5b54e9691752df49255bb5c13bda",
+      "bytes": 7874
+    },
+    {
+      "path": "raw/scopus/page_0003.json.gz",
+      "sha256": "be96e623426cb719cc54d91d41cb3dba223c8954ab46cfdd3b3295e832ddb723",
+      "bytes": 7897
+    },
+    {
+      "path": "raw/scopus/page_0004.json.gz",
+      "sha256": "58924c9b2ec9b63b121ca2598d33cd4ea35cd968b8f808b852fc2865d0dfb9ca",
+      "bytes": 8004
+    },
+    {
+      "path": "raw/scopus/page_0005.json.gz",
+      "sha256": "b1dfd240996461d6f3547f6ba868239f949c3b22eba4b825c999cc027e9f26ee",
+      "bytes": 8553
+    },
+    {
+      "path": "raw/scopus/page_0006.json.gz",
+      "sha256": "aa0651dd17f8ffc51bca971f8d905c9a8d98b0c1b203ef75aabc25cd2506c8eb",
+      "bytes": 8073
+    },
+    {
+      "path": "raw/scopus/page_0007.json.gz",
+      "sha256": "7cd2865d55cc457b37d5b966fae0afee3ef41cf261147bfdb12fd12f688ec38f",
+      "bytes": 7995
+    },
+    {
+      "path": "raw/scopus/page_0008.json.gz",
+      "sha256": "ce11704cbddb37844b7c1962cb4d105163196a418cbb6d3449f6fc62cb8c996e",
+      "bytes": 8185
+    },
+    {
+      "path": "raw/scopus/page_0009.json.gz",
+      "sha256": "32d096d9ddb723a806b7a80ab42f45c5a2c1cca85fc1bdf45c9a1105372de307",
+      "bytes": 8406
+    },
+    {
+      "path": "raw/scopus/page_0010.json.gz",
+      "sha256": "e76db4390a499bf61f1aeef297fd94298847664c358a10cc58ae5a3de32a0da8",
+      "bytes": 8264
+    },
+    {
+      "path": "raw/scopus/page_0011.json.gz",
+      "sha256": "72bdf715c22abb6d8202da9d1f78c69fbbc66cb4b30fb0a10fa187e2ed0f1bf5",
+      "bytes": 8006
+    },
+    {
+      "path": "raw/scopus/page_0012.json.gz",
+      "sha256": "2d570e50072cac6fe7714279b72c09e74e41e4c9b39f2c3f6d11106232d9afae",
+      "bytes": 8355
+    },
+    {
+      "path": "raw/scopus/page_0013.json.gz",
+      "sha256": "0228103670b1e41cca8d25ea35f52c915cd5f21f420c3ef315ef91d1e7428472",
+      "bytes": 8153
+    },
+    {
+      "path": "raw/scopus/page_0014.json.gz",
+      "sha256": "f292221518fb5e86cc1ed321ef75059943c57f285373a69c663cd8890b1c3002",
+      "bytes": 8542
+    },
+    {
+      "path": "raw/scopus/page_0015.json.gz",
+      "sha256": "d61b89aab0f367a57fd933a2f480974b27be7c05d7500d20ebbb964750c042d3",
+      "bytes": 8462
+    },
+    {
+      "path": "raw/scopus/page_0016.json.gz",
+      "sha256": "e46799ae48aa7e4d8fb6ab32be730d19f18cba195668c13430224663bd47752e",
+      "bytes": 8390
+    },
+    {
+      "path": "raw/scopus/page_0017.json.gz",
+      "sha256": "058a46bdcd61f8e3722acd4fdf832136df79ecd9fdc5634775193c40c408851d",
+      "bytes": 8404
+    },
+    {
+      "path": "raw/scopus/page_0018.json.gz",
+      "sha256": "cb54be1873dfd03c26447a8fac75a58d3d733b9c774f81da2ad2afa5b524fcb0",
+      "bytes": 8415
+    },
+    {
+      "path": "raw/scopus/page_0019.json.gz",
+      "sha256": "748cfe9599fe7e6ccf5f34af717f2543b65154adf46acb2e42e887f9a2dd0b8f",
+      "bytes": 8346
+    },
+    {
+      "path": "raw/scopus/page_0020.json.gz",
+      "sha256": "f9a45b486c7500d669bb99645541916655adfcc22080570d14dbd1334e1d86a6",
+      "bytes": 8339
+    }
+  ]
+}

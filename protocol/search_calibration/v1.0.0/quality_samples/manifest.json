@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "samples": [
+    {
+      "source": "europepmc",
+      "branch": "explicit_multiomics",
+      "available": 320,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/europepmc_explicit_multiomics_qa.csv",
+      "sha256": "2f523d2f57fb93ee658621834cb1296813f1a1cc621484042bf7f13e3b23f19d",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "europepmc",
+      "branch": "layer_pair",
+      "available": 363,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/europepmc_layer_pair_qa.csv",
+      "sha256": "0051019e5fa8c6a5ae9b7685009f68235ba4eb3c436f06d6bd4638cb9f160083",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "openalex",
+      "branch": "explicit_multiomics",
+      "available": 5,
+      "sampled": 5,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/openalex_explicit_multiomics_qa.csv",
+      "sha256": "88cd0a250095f40a025bbf2bb93e86a43c89eae20d14f3f723cc8c43802a1d5f",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "openalex",
+      "branch": "layer_pair",
+      "available": 120,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/openalex_layer_pair_qa.csv",
+      "sha256": "08e482464b40d87d10667cf5075203d680aacbdabf9185278c697fab8263d39c",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "pubmed",
+      "branch": "explicit_multiomics",
+      "available": 232,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/pubmed_explicit_multiomics_qa.csv",
+      "sha256": "ad3d21e4ba3ca5473afc97516c0456a68e9f03aa48782d2de56767453261b441",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "pubmed",
+      "branch": "layer_pair",
+      "available": 365,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/pubmed_layer_pair_qa.csv",
+      "sha256": "92a8a2bcb28647b7e3e29f7c273c471d9c93613bdc4e1fb3c5d671be81df2ec5",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "scopus",
+      "branch": "explicit_multiomics",
+      "available": 11,
+      "sampled": 11,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/scopus_explicit_multiomics_qa.csv",
+      "sha256": "5a89aaccbd982c66b417b527ae7647112b0f6ee94ff4ce5355c3862d103d515e",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "scopus",
+      "branch": "layer_pair",
+      "available": 22,
+      "sampled": 22,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/scopus_layer_pair_qa.csv",
+      "sha256": "f59b57be2a45b79fc4ceba34e0bd43939742442f6d6331cb9c11aa2c864a0908",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "semantic_scholar",
+      "branch": "explicit_multiomics",
+      "available": 164,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/semantic_scholar_explicit_multiomics_qa.csv",
+      "sha256": "67c944d48301a5b603385a658e38777561b6350cc557fac7cd9a67156f0cd3ed",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "semantic_scholar",
+      "branch": "layer_pair",
+      "available": 333,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/semantic_scholar_layer_pair_qa.csv",
+      "sha256": "703c584a31067363be8af95700a7c813d1e65c5bbb4da8cef3ffca6328a2cf15",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "springernature",
+      "branch": "explicit_multiomics",
+      "available": 123,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/springernature_explicit_multiomics_qa.csv",
+      "sha256": "3ce7a01e0db855a6be67bb4cc596eedd98cfc206ac950667ef611655d65dd19e",
+      "status": "pending_manual_quality_review"
+    },
+    {
+      "source": "springernature",
+      "branch": "layer_pair",
+      "available": 149,
+      "sampled": 50,
+      "path": "protocol/search_calibration/v1.0.0/quality_samples/springernature_layer_pair_qa.csv",
+      "sha256": "1feffabe9d8aebdfcf2d21a7618a4d7b4364417744d8e660875384dd892b5856",
+      "status": "pending_manual_quality_review"
+    }
+  ]
+}

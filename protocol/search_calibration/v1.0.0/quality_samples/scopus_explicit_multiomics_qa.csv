@@ -1,0 +1,12 @@
+source,branch,record_id,title,abstract,year,doi,local_omics_layers,local_aging_match,local_causal_anchor_match,local_three_block_match,reviewer_retrieval_relevant,reviewer_aging_relevant,reviewer_multiomics_valid,reviewer_formal_causal_basis,reviewer_design_family,reviewer_notes
+scopus,explicit_multiomics,SCOPUS_ID:85177235105,Multiomic analysis of cervical squamous cell carcinoma identifies cellular ecosystems with biological and clinical relevance,,2023,10.1038/s41588-023-01570-0,,False,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85164040686,Multi-omics profiling for health,,2023,10.1016/j.mcpro.2023.100561,,False,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:105001303885,Multi-Omics Approaches Against Abiotic and Biotic Stress—A Review,,2025,10.3390/plants14060865,,False,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85125548620,A multiomic study uncovers a bZIP23-PER1A–mediated detoxification pathway to enhance seed vigor in rice,,2022,10.1073/pnas.2026355119,,False,True,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85166395199,Subclinical atherosclerosis and accelerated epigenetic age mediated by inflammation: a multi-omics study,,2023,10.1093/eurheartj/ehad361,,True,True,True,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85085328714,Untangling Determinants of Enhanced Health and Lifespan through a Multi-omics Approach in Mice,,2020,10.1016/j.cmet.2020.04.018,,True,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85056207239,Sex-biased hippocampal pathology in the 5XFAD mouse model of Alzheimer's disease: A multi-omic analysis,,2019,10.1002/cne.24551,,False,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85128799421,Multi-omic rejuvenation of human cells by maturation phase transient reprogramming,,2022,10.7554/elife.71624,,True,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85165921647,Multi-omic rejuvenation and life span extension on exposure to youthful circulation,,2023,10.1038/s43587-023-00451-9,,True,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85091680314,Promising biomarkers of human aging: In search of a multi-omics panel to understand the aging process from a multidimensional perspective,,2020,10.1016/j.arr.2020.101164,,True,False,False,,,,,,
+scopus,explicit_multiomics,SCOPUS_ID:85099427252,Aging Atlas: A multi-omics database for aging biology,,2021,10.1093/nar/gkaa894,,True,False,False,,,,,,

@@ -1,5 +1,7 @@
 # Eligibility Criteria
 
+> **Superseded pilot.** Use `protocol/v1.0.0/eligibility_criteria.md` for v1.
+
 ## Inclusion Criteria
 
 | Code | Criterion | Title/abstract handling |

@@ -2,11 +2,13 @@ from __future__ import annotations
 
 from typing import Any
 
+from .validation import confusion_matrix, wilson_interval
+
 TITLE_ACCEPTANCE = {
     "canonical_positive_retention": (">=", 1.0),
-    "sensitivity": (">=", 0.98),
+    "seek_full_text_sensitivity": (">=", 0.98),
     "direct_exclusion_precision": (">=", 0.95),
-    "structured_response_success_rate": (">=", 1.0),
+    "schema_success_rate": (">=", 1.0),
 }
 
 FULL_TEXT_ACCEPTANCE = {
@@ -73,10 +75,29 @@ def evaluate_title(
     structured_successes = sum(
         row.get("manual_review_reason") != "role_execution_failed" for row in attempted
     )
+    sensitivity = ratio(retained, len(positives)) if positives else None
+    exclusion_precision = (
+        ratio(correct_exclusions, len(predicted_exclusions))
+        if predicted_exclusions
+        else None
+    )
+    schema_success = ratio(structured_successes, len(attempted)) if attempted else None
+    decision_pairs = [
+        (
+            row["expert_expected_decision"],
+            predicted[identifier]["final_decision"],
+        )
+        for identifier, row in labeled
+        if identifier in predicted
+    ]
     return {
         "labeled_records": len(labeled),
         "positive_records": len(positives),
-        "sensitivity": ratio(retained, len(positives)) if positives else None,
+        "sensitivity": sensitivity,
+        "seek_full_text_sensitivity": sensitivity,
+        "seek_full_text_sensitivity_wilson_95": (
+            wilson_interval(retained, len(positives)) if positives else None
+        ),
         "canonical_positive_records": len(canonical_positives),
         "canonical_positive_retention": (
             ratio(canonical_retained, len(canonical_positives))
@@ -84,14 +105,15 @@ def evaluate_title(
             else None
         ),
         "predicted_exclusions": len(predicted_exclusions),
-        "direct_exclusion_precision": (
-            ratio(correct_exclusions, len(predicted_exclusions))
+        "direct_exclusion_precision": exclusion_precision,
+        "direct_exclusion_precision_wilson_95": (
+            wilson_interval(correct_exclusions, len(predicted_exclusions))
             if predicted_exclusions
             else None
         ),
-        "structured_response_success_rate": (
-            ratio(structured_successes, len(attempted)) if attempted else None
-        ),
+        "structured_response_success_rate": schema_success,
+        "schema_success_rate": schema_success,
+        "decision_confusion_matrix": confusion_matrix(decision_pairs),
         "manual_review_rate": ratio(
             sum(row["final_decision"] == "manual_review" for row in predicted.values()),
             len(predicted),
@@ -129,7 +151,13 @@ def evaluate_full_text(
     return {
         "level_pairs": len(pairs),
         "exact_level_agreement": ratio(exact, len(pairs)) if pairs else None,
+        "exact_level_agreement_wilson_95": (
+            wilson_interval(exact, len(pairs)) if pairs else None
+        ),
         "within_one_level_agreement": ratio(within_one, len(pairs)) if pairs else None,
+        "within_one_level_agreement_wilson_95": (
+            wilson_interval(within_one, len(pairs)) if pairs else None
+        ),
         "quadratic_weighted_kappa": quadratic_weighted_kappa(pairs),
         "eligibility_sensitivity": (
             ratio(eligibility_retained, eligibility_true)
@@ -137,6 +165,7 @@ def evaluate_full_text(
             else None
         ),
         "design_family_macro_f1": macro_f1(family_pairs),
+        "level_confusion_matrix": confusion_matrix(pairs),
         "unsupported_section_citations": len(unsupported_citations),
         "unsupported_section_references": unsupported_citations,
     }

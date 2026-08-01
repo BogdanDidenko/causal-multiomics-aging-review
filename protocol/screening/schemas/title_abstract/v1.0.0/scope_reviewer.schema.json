@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "multiomics_evidence",
+    "layer_candidates",
+    "current_report_layer_use",
+    "evidence_spans",
+    "uncertainty_reason",
+    "concise_rationale"
+  ],
+  "properties": {
+    "report_type": {"enum": ["empirical_primary", "nonempirical", "unclear"]},
+    "bio_health_scope": {"enum": ["yes", "no", "unclear"]},
+    "aging_process_relevance": {"enum": ["yes", "no", "unclear"]},
+    "multiomics_evidence": {
+      "enum": ["explicit_multiomics", "two_or_more_layers", "single_or_no_layer", "unclear"]
+    },
+    "layer_candidates": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["genomics", "epigenomics", "transcriptomics", "proteomics", "metabolomics", "lipidomics", "microbiomics", "metagenomics", "other"]
+      }
+    },
+    "current_report_layer_use": {"enum": ["yes", "no", "unclear"]},
+    "evidence_spans": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "uncertainty_reason": {"type": "string"},
+    "concise_rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterion", "source", "quote"],
+      "properties": {
+        "criterion": {"enum": ["report_type", "bio_health_scope", "aging_process_relevance", "multiomics_evidence", "current_report_layer_use"]},
+        "source": {"enum": ["title", "abstract"]},
+        "quote": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

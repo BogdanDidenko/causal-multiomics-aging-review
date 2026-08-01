@@ -1,6 +1,28 @@
 # Screening Prompt Suite
 
-The active suite combines:
+## v1 calibration candidate
+
+Title/abstract `v1.0.0` has exactly two model roles: `scope_reviewer` and
+`causal_method_reviewer`. Each runs five times. There are no verifier prompts,
+model adjudicator, directional-language reviewer, or model section selector.
+Python accepts an exclusion only when all five model outputs follow the same
+first-failed-criterion path. Any positive causal basis, unclear field, thin
+abstract, or disagreement proceeds to full text.
+
+Full-text `v1.0.0` uses deterministic section packaging followed by five runs
+each of `eligibility_reviewer` and `causal_evidence_reviewer`. Python assigns
+Levels 0-4 only from unanimous extracted fields. Exact title/abstract quotes
+and full-text section quotes are validated against the supplied source text.
+
+The candidate config is
+`configs/prompt_suite_v1.0.0.json`; its separate hash manifest is
+`prompt_manifest_v1.0.0.json`. Approval remains
+`calibration_pending_expert_gold`. It must not replace the active manifest
+until both expert-gold accuracy and stability gates pass.
+
+## Rejected pilot history
+
+The preserved `v0.99.0` pilot combined:
 
 - title/abstract `v0.99.0`: three narrow specialist drafts, three independent
   source-only verifier votes per role, conservative categorical consensus,
@@ -8,14 +30,14 @@ The active suite combines:
 - full text `v0.1.0`: section selection, eligibility, causal evidence, and
   adjudication.
 
-All prompts are model-neutral JSON contracts executed with GPT 5.6 Terra
+Those prompts were model-neutral JSON contracts executed with GPT 5.6 Terra
 Medium through Codex CLI at `reasoning.effort=medium`. Python applies routing,
 ordered PRISMA consistency rules, three-valued aggregation, exclusion codes,
 and full-text evidence levels. Raw provider JSON, specialist drafts, every
 verifier vote, consensus counts, unanimity flags, and categorical corrections
 are retained unchanged.
 
-Title/abstract screening is intentionally high-sensitivity. A completed report
+The rejected title/abstract screening was intentionally high-sensitivity. A completed report
 is a causal candidate when it applies a causal or directed design or makes an
 explicit current-report directional/mechanistic claim. Full text determines
 whether that signal is associational, hypothesis-level, or identified causal

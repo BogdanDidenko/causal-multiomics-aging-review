@@ -24,6 +24,19 @@ discovery`. Its causal block includes genetic instruments, mediation,
 interventions, perturbations, quasi-experiments, temporal designs, and directed
 models. Eligibility is decided from the reported design, not keyword presence.
 
+## v1 Status
+
+`v1.0.0` is the current calibration candidate. It replaces the rejected
+`v0.99.0` title/abstract instrument, which measured reproducibility without an
+expert gold standard and incorrectly allowed directional wording to create a
+causal candidate. The old prompts, 790 outcomes, and 9,515 raw responses remain
+unchanged as development history; they are not part of the v1 ledger or final
+PRISMA denominator.
+
+The v1 search count pilot has run, but the queries are not frozen. Expert query
+QA, a 20-paper canonical-positive registry, two-expert benchmark annotation,
+and model validation remain required before production screening.
+
 ## Pipeline
 
 ```mermaid
@@ -31,15 +44,11 @@ flowchart LR
   A["Seven database-native queries"] --> B["Frozen raw responses"]
   B --> C["Normalized records with provenance"]
   C --> D["Conservative deduplication"]
-  D --> E["Scope and aging reviewer"]
-  D --> F["Causal-design reviewer"]
-  D --> G["Directional-language reviewer"]
-  E --> H["Matching contract verifiers"]
-  F --> H
-  G --> H
-  H --> I["Deterministic criterion gates"]
-  I --> J["Selective adjudication"]
-  J --> K["Full-text assessment"]
+  D --> E["Scope reviewer, five runs"]
+  D --> F["Causal-method reviewer, five runs"]
+  E --> I["Unanimous Python criterion gates"]
+  F --> I
+  I --> K["Deterministically packaged full text"]
   K --> L["Causal evidence level"]
   L --> M["PRISMA flow and synthesis"]
 ```
@@ -51,6 +60,7 @@ python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[dev]'
 python scripts/validate_protocol.py
+python scripts/validate_protocol_v1.py
 pytest
 ```
 
@@ -59,8 +69,10 @@ or the existing macOS Keychain entries and are never written to the repository.
 
 ```bash
 python scripts/search_databases.py \
-  --output data/searches/2026-07-27 \
-  --sources pubmed,europepmc,scopus,semantic_scholar,springernature,openalex
+  --search-config protocol/search_config_v1.0.0.json \
+  --output data/searches/pilots/2026-08-02-v1.0.0 \
+  --sources pubmed,europepmc,scopus,semantic_scholar,springernature,openalex \
+  --max-records-per-source 500
 ```
 
 Google Scholar is a documented manual supplementary search because it has no
@@ -80,37 +92,26 @@ python scripts/summarize_search.py \
   --report docs/search_execution_2026-07-27.md
 ```
 
-The frozen 2026-07-27 run contains 4,732 source records and 2,852 unique
-records after removing 1,880 duplicate instances. See
-[`docs/search_execution_2026-07-27.md`](docs/search_execution_2026-07-27.md).
+The frozen 2026-07-27 run is a superseded pilot and is not a final PRISMA
+denominator. The v1 count/quality pilot and unresolved gates are documented in
+[`docs/search_calibration_v1.0.0.md`](docs/search_calibration_v1.0.0.md).
 
-Run title/abstract stability screening with GPT 5.6 Terra Medium through the
-locally authenticated Codex CLI:
+After expert-gold development annotation, run the v1 suite with GPT 5.6 Terra
+Medium through the locally authenticated Codex CLI:
 
 ```bash
 python scripts/run_stability.py \
-  protocol/screening/benchmarks/title_abstract_calibration_v0.96.0_50.csv \
-  data/screening/stability/development-full-50-v0.99.0 \
+  protocol/screening/benchmarks/v1.0.0/title_abstract_development_80.csv \
+  data/screening/stability/v1-development \
   --stage title_abstract \
+  --suite-config protocol/screening/configs/prompt_suite_v1.0.0.json \
   --parallel-replicates 5
 ```
 
-The acceptance threshold is 100% exact agreement across five independent runs
-for every canonical categorical field, all decisive criteria, and final
-routing. `v0.99.0` passed the independent 50-record development set with 100%
-canonical agreement and no manual reviews. Raw specialist-draft agreement was
-66%, while verifier-field unanimity was 97.91%; these diagnostics do not
-replace the canonical gate. After freeze commit `d5646a9`, the disjoint
-25-record `v8` evaluation failed strict stability with final-route agreement
-`0.96` and decisive and all-tracked agreement `0.92`. See
-[`docs/prompt_calibration.md`](docs/prompt_calibration.md).
-
-Search retrieval and deduplication are complete. Expert eligibility annotation,
-full-text retrieval, and full-text prompt validation remain pending. The latest
-title/abstract suite is `v0.99.0`, but it is rejected after failing sealed
-`v8`; `v8` is now accessed evaluation data and must not be used for further
-calibration. Stability measures reproducibility, not expert-labelled screening
-accuracy.
+Acceptance requires both 100% five-run agreement on decision-driving fields
+and the prespecified expert-gold accuracy thresholds. The v1 protocol and
+postmortem are in [`protocol/v1.0.0/prisma_pipeline.md`](protocol/v1.0.0/prisma_pipeline.md)
+and [`analysis/v1_methodology/postmortem_v0.99.md`](analysis/v1_methodology/postmortem_v0.99.md).
 
 ## Canonical Positive
 

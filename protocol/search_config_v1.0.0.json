@@ -1,0 +1,18 @@
+{
+  "protocol_version": "1.0.0",
+  "status": "calibration_pending_expert_query_review",
+  "search_end_date": "2026-08-02",
+  "lower_date_limit": null,
+  "multiomics_retrieval": "explicit_terms_or_two_distinct_layer_blocks",
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_registry": "search_calibration/v1.0.0/canonical_positives.csv",
+  "databases": [
+    {"id": "pubmed", "query_file": "queries/v1.0.0/pubmed.txt", "mode": "automated", "role": "primary"},
+    {"id": "scopus", "query_file": "queries/v1.0.0/scopus.txt", "mode": "automated", "role": "primary"},
+    {"id": "europepmc", "query_file": "queries/v1.0.0/europepmc.txt", "mode": "automated", "role": "primary"},
+    {"id": "semantic_scholar", "query_file": "queries/v1.0.0/semantic_scholar.txt", "mode": "automated", "role": "supplementary_recall"},
+    {"id": "springernature", "query_file": "queries/v1.0.0/springernature.txt", "mode": "automated", "role": "supplementary_fulltext_index"},
+    {"id": "openalex", "query_file": "queries/v1.0.0/openalex.txt", "mode": "automated", "role": "supplementary_recall_with_local_layer_validation"},
+    {"id": "google_scholar", "query_file": "queries/v1.0.0/google_scholar.txt", "mode": "manual", "role": "supplementary"}
+  ]
+}

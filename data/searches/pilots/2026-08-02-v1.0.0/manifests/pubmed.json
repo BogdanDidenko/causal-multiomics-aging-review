@@ -1,0 +1,40 @@
+{
+  "source": "pubmed",
+  "started_at": "2026-08-01T23:28:45.671242+00:00",
+  "completed_at": "2026-08-01T23:28:58.706196+00:00",
+  "query_file": "protocol/queries/v1.0.0/pubmed.txt",
+  "query_sha256": "3d426efc391b5fd9fc2e682d42aa8d8ef6ac09f4cbbfa433c11a7b3494458715",
+  "reported_count": 2133,
+  "source_details": {},
+  "retrieved_count": 500,
+  "local_three_block_count": 460,
+  "local_explicit_multiomics_count": 232,
+  "local_layer_pair_count": 365,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": false,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/pubmed.csv",
+  "normalized_sha256": "752639e8ca938f8bc33081fa01adf9d3b90cac0f8e8e04dc7c71f1d306121efb",
+  "raw_responses": [
+    {
+      "path": "raw/pubmed/page_0001.xml.gz",
+      "sha256": "256286182727159b4af5787d03c65aa7797e04fef5342fd6628ef07c1a1fdc11",
+      "bytes": 1504766
+    },
+    {
+      "path": "raw/pubmed/page_0002.xml.gz",
+      "sha256": "61a93e6fc57e1e7bc7eb609cce925361d7d5c501b504b1e38092f5de57faa50e",
+      "bytes": 1924434
+    },
+    {
+      "path": "raw/pubmed/page_0003.xml.gz",
+      "sha256": "4576471f81a3ea177ec8923d3aad8179f4d0e0ee057c78b8bbe3c37829d27228",
+      "bytes": 924229
+    },
+    {
+      "path": "raw/pubmed/search.json.gz",
+      "sha256": "1eb62e9e506ba2a62d748c273b2088c658f7c06cc1ee3bd69e3daf7107b8c1e6",
+      "bytes": 961
+    }
+  ]
+}

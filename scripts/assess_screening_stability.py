@@ -31,7 +31,7 @@ def main() -> None:
     parser.add_argument("--suite-config", type=Path, default=DEFAULT_SUITE_CONFIG)
     args = parser.parse_args()
 
-    suite, _ = load_stage_config(args.stage, args.suite_config)
+    suite, stage_config = load_stage_config(args.stage, args.suite_config)
     policy = suite["stability_policy"]
     run_paths: dict[str, Path] = {}
     for specification in args.run:
@@ -51,7 +51,12 @@ def main() -> None:
             args.suite_config,
         )
     run_results = {label: read_jsonl(path) for label, path in run_paths.items()}
-    rows, summary = assess_stability(run_results, args.stage, policy["acceptance"])
+    rows, summary = assess_stability(
+        run_results,
+        args.stage,
+        policy["acceptance"],
+        architecture=stage_config.get("architecture"),
+    )
     summary["model"] = suite["provider"]["model"]
     summary["model_display_name"] = suite["provider"]["display_name"]
     summary["suite_version"] = suite["suite_version"]

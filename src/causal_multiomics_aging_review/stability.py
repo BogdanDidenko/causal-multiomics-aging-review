@@ -124,8 +124,39 @@ TITLE_SELECTED_DECISIVE_FIELDS = (
     "identification_status",
 )
 
+V1_TITLE_DECISIVE_PATHS = (
+    "selected_criteria.report_type",
+    "selected_criteria.bio_health_scope",
+    "selected_criteria.aging_process_relevance",
+    "selected_criteria.multiomics_evidence",
+    "selected_criteria.current_report_layer_use",
+    "selected_criteria.multiomics_status",
+    "selected_criteria.causal_basis",
+    "selected_criteria.design_families",
+    "selected_criteria.causal_information_sufficiency",
+    "selected_criteria.identification_status",
+    "decision_reason",
+    "final_decision",
+    "final_exclusion_code",
+)
 
-def decisive_paths(stage: str) -> tuple[str, ...]:
+V1_TITLE_SELECTED_DECISIVE_FIELDS = (
+    "report_type",
+    "bio_health_scope",
+    "aging_process_relevance",
+    "multiomics_evidence",
+    "current_report_layer_use",
+    "multiomics_status",
+    "causal_basis",
+    "design_families",
+    "causal_information_sufficiency",
+    "identification_status",
+)
+
+
+def decisive_paths(stage: str, architecture: str | None = None) -> tuple[str, ...]:
+    if architecture == "v1_two_role_unanimous":
+        return V1_TITLE_DECISIVE_PATHS
     if stage == "title_abstract":
         return TITLE_DECISIVE_PATHS
     if stage == "full_text":
@@ -137,6 +168,7 @@ def assess_stability(
     run_results: dict[str, dict[str, dict[str, Any]]],
     stage: str,
     acceptance: dict[str, float],
+    architecture: str | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     if len(run_results) < 2:
         raise ValueError("Stability assessment requires at least two runs")
@@ -145,16 +177,30 @@ def assess_stability(
     if any(items != identifier_sets[0] for items in identifier_sets[1:]):
         raise ValueError("Stability runs contain different record IDs")
 
-    paths = decisive_paths(stage)
+    paths = decisive_paths(stage, architecture)
     rows: list[dict[str, Any]] = []
     schema_successes = 0
     manual_results = 0
     contract_correction_results = 0
     contract_verifier_fields = 0
     unanimous_contract_verifier_fields = 0
+    internal_decision_fields = 0
+    unanimous_internal_decision_fields = 0
     for identifier in sorted(identifier_sets[0]):
         by_run = {label: run_results[label][identifier] for label in labels}
         for row in by_run.values():
+            role_agreement = row.get("role_agreement")
+            if isinstance(role_agreement, dict):
+                for role_fields in role_agreement.values():
+                    if not isinstance(role_fields, dict):
+                        continue
+                    for field_audit in role_fields.values():
+                        if not isinstance(field_audit, dict):
+                            continue
+                        unanimous = field_audit.get("unanimous")
+                        if isinstance(unanimous, bool):
+                            internal_decision_fields += 1
+                            unanimous_internal_decision_fields += int(unanimous)
             consensus = row.get("contract_consensus")
             if not isinstance(consensus, dict):
                 continue
@@ -182,7 +228,7 @@ def assess_stability(
             if len({_json(value) for value in run_values.values()}) > 1
         }
         draft_disagreements: dict[str, dict[str, Any]] = {}
-        if stage == "title_abstract":
+        if stage == "title_abstract" and architecture != "v1_two_role_unanimous":
             draft_values = {
                 path: {
                     label: _normalized_path(row, path)
@@ -202,7 +248,8 @@ def assess_stability(
         ]
         contract_correction_results += len(correction_labels)
         decisive_values = {
-            label: _decisive_signature(row, stage) for label, row in by_run.items()
+            label: _decisive_signature(row, stage, architecture)
+            for label, row in by_run.items()
         }
         decisive_stable = len({_json(value) for value in decisive_values.values()}) == 1
         decisive_disagreements = (
@@ -260,8 +307,10 @@ def assess_stability(
         "all_tracked_criteria_exact_agreement": _rate(
             row["diagnostic_all_tracked_criteria_stable"] for row in rows
         ),
-        "raw_reviewer_draft_exact_agreement": _rate(
-            row["diagnostic_raw_reviewer_drafts_stable"] for row in rows
+        "raw_reviewer_draft_exact_agreement": (
+            None
+            if architecture == "v1_two_role_unanimous"
+            else _rate(row["diagnostic_raw_reviewer_drafts_stable"] for row in rows)
         ),
         "contract_correction_rate": (
             contract_correction_results / (record_count * run_count)
@@ -271,6 +320,11 @@ def assess_stability(
         "contract_verifier_field_unanimity_rate": (
             unanimous_contract_verifier_fields / contract_verifier_fields
             if contract_verifier_fields
+            else None
+        ),
+        "internal_decision_field_unanimity_rate": (
+            unanimous_internal_decision_fields / internal_decision_fields
+            if internal_decision_fields
             else None
         ),
     }
@@ -299,7 +353,9 @@ def assess_stability(
     }
 
 
-def _decisive_signature(row: dict[str, Any], stage: str) -> dict[str, Any]:
+def _decisive_signature(
+    row: dict[str, Any], stage: str, architecture: str | None = None
+) -> dict[str, Any]:
     decision = row.get("final_decision")
     signature = {
         "final_decision": decision,
@@ -313,7 +369,12 @@ def _decisive_signature(row: dict[str, Any], stage: str) -> dict[str, Any]:
 
     if stage == "title_abstract":
         selected = row.get("selected_criteria", {})
-        for field in TITLE_SELECTED_DECISIVE_FIELDS:
+        fields = (
+            V1_TITLE_SELECTED_DECISIVE_FIELDS
+            if architecture == "v1_two_role_unanimous"
+            else TITLE_SELECTED_DECISIVE_FIELDS
+        )
+        for field in fields:
             signature[f"selected_criteria.{field}"] = (
                 _omics_layer_categories(selected)
                 if field == "omics_layer_categories"
@@ -321,7 +382,7 @@ def _decisive_signature(row: dict[str, Any], stage: str) -> dict[str, Any]:
             )
     else:
         selected_prefix = "selected_criteria."
-        for path in decisive_paths(stage):
+        for path in decisive_paths(stage, architecture):
             if path.startswith(selected_prefix):
                 signature[path] = _normalized_path(row, path)
     if stage == "full_text":

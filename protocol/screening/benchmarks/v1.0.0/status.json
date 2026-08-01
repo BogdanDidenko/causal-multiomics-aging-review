@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "status": "awaiting_frozen_v1_search_corpus",
+  "codebook_pilot_records": 30,
+  "title_abstract_development_records": 80,
+  "title_abstract_sealed_records": 100,
+  "full_text_benchmark_records": 60,
+  "expert_gold_available": false,
+  "model_accuracy_claim_allowed": false
+}
