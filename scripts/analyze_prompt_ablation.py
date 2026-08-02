@@ -319,6 +319,8 @@ def main() -> None:
     parser.add_argument(
         "--baseline-role-root",
         type=Path,
+        action="append",
+        default=[],
         help="fallback directory for immutable role artifacts reused from a prior cycle",
     )
     args = parser.parse_args()
@@ -339,10 +341,10 @@ def main() -> None:
     }
     artifacts = {}
     for artifact in required_artifacts:
-        path = args.role_root / artifact / "role_results.jsonl"
-        if not path.is_file() and args.baseline_role_root:
-            path = args.baseline_role_root / artifact / "role_results.jsonl"
-        if not path.is_file():
+        candidates = [args.role_root, *args.baseline_role_root]
+        paths = [root / artifact / "role_results.jsonl" for root in candidates]
+        path = next((candidate for candidate in paths if candidate.is_file()), None)
+        if path is None:
             raise SystemExit(f"Missing role artifact: {artifact}")
         artifacts[artifact] = read_jsonl(path)
     identifier_sets = [set(rows) for rows in artifacts.values()]
