@@ -48,7 +48,8 @@ aging construct, and explicit or pairwise multi-omics evidence only as
 prioritization signals. All expert and adjudication fields remain `pending`;
 these records are candidates, not confirmed positives or gold labels.
 
-The current pool contains 68 genetic-instrument, 45 direct-perturbation, three
+The study-version-deduplicated pool contains 65 genetic-instrument, 48 direct-
+perturbation, three
 formal-mediation, three structural-equation-model, and one randomized-
 intervention candidates. No sufficiently strong candidates were recovered for
 the prespecified quasi-experimental, temporal-identification, DAG/SCM,
@@ -61,6 +62,14 @@ The auditable pool and generation metadata are stored in
 its adjacent manifest. Query freeze requires at least 100 eligible positives
 after independent criterion-level review by two experts and adjudication of
 disagreements.
+
+Repeated Terra Medium annotation and assistant review are now complete for all
+120 candidates. The final assistant labels are 95 include, 23 exclude, and two
+seek full text. Exact agreement across five runs on all assessed tracked fields
+was 86/120 (71.7%), so the prompt suite fails its 100% stability gate. These are
+assistant labels, not two-expert gold labels; the canonical-positive registry
+therefore remains pending. Full results and field-level stability are reported
+in `analysis/v1_methodology/canonical_candidate_ai_annotation_2026-08-02.md`.
 
 The frozen candidate queue can be regenerated from the pilot snapshot with:
 

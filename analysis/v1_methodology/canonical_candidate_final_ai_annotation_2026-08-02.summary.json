@@ -1,0 +1,38 @@
+{
+  "status": "assistant_annotation_complete_not_expert_gold",
+  "records": 120,
+  "final_status_counts": {
+    "exclude": 23,
+    "include": 95,
+    "seek_full_text": 2
+  },
+  "first_failed_criterion_counts": {
+    "EC3": 11,
+    "EC4": 11,
+    "EC5": 1
+  },
+  "included_primary_design_family_counts": {
+    "direct_perturbation": 27,
+    "genetic_instrument": 57,
+    "nonrandomized_intervention": 8,
+    "randomized_intervention": 2,
+    "sem": 1
+  },
+  "assistant_eligibility_reviews": 34,
+  "assistant_design_family_reviews": 24,
+  "preliminary_all_assessed_fields_5_of_5_count": 86,
+  "preliminary_all_assessed_fields_5_of_5_rate": 0.7166666666666667,
+  "inputs": {
+    "preliminary": "56f023c66d980b14ea41d83643fecdf6c7494f20303f9c7795693bd25448d428",
+    "source_records": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212",
+    "eligibility_adjudication": "f8f628940eb1743e4c4e561a6b9fbba276e616d07f25d9277d7a95466c771bae",
+    "design_adjudication": "d9ec18ea26195a2feb56f4692901fab271f6a4a0ec96fb133084446db0f28a5d"
+  },
+  "output": {
+    "path": "analysis/v1_methodology/canonical_candidate_final_ai_annotation_2026-08-02.csv",
+    "sha256": "4e81d950ee95c330ae67c1eb06dd7ccbf487a7d8fc5b1cbed512e5e5c977c558"
+  },
+  "gold_standard": false,
+  "human_expert_status": "pending",
+  "interpretation": "This is a complete assistant annotation for prioritization. It does not replace two independent expert labels and does not satisfy the query-freeze gold-standard gate."
+}

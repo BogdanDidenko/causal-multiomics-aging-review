@@ -1,0 +1,87 @@
+{
+  "status": "prepared_for_ai_preliminary_annotation",
+  "candidate_pool": {
+    "path": "data/screening/v1_canonical_ai_preliminary/initial_candidate_pool_before_study_version_dedup.csv",
+    "sha256": "b96cd52761974eba435caf85f80be10c3b84faa1e95c0419bebc6ec2050ad1c4",
+    "records": 120
+  },
+  "search_records": {
+    "path": "data/searches/pilots/2026-08-02-v1.0.0/normalized/all_sources.csv",
+    "sha256": "1bd904e092b2413a303423a0bb1990859ddde9afff66fd7cd59afe6a2878cf5b",
+    "records": 3000
+  },
+  "input": {
+    "path": "data/screening/v1_canonical_ai_preliminary/input.csv",
+    "sha256": "4174a5b9217d166ddbf5f1a26e7f98bb1180c4ae5c9d9c6ac3a4f320bcb3c1db",
+    "records": 120
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_01.csv",
+      "sha256": "9bc42cbd70fb4a694e41179f92a88be939d0c0b442bd993f15ed7c23e9b0621d",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_02.csv",
+      "sha256": "c6c16245c26a2dbf0db9a6d1c2c91c3f126c8fe25af317fe2138c65041199b15",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_03.csv",
+      "sha256": "ebd0b318c06a3b1c38222c885162c7b23e29ee878678307a932fb79b2a843dcd",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_04.csv",
+      "sha256": "431f5d34f606a0024bf2f2c7f2815ef5e9f25f7fa8a88a77e8e3bf7e9c4473c3",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_05.csv",
+      "sha256": "c49dfef7962aded20c5d10067b5c9b5cb4c8e9747355401db413ad1bf4f2c18d",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_06.csv",
+      "sha256": "f4f2f14df0bb3d7fa6572bcf56de6b89861072de82502491eb40afdc7c7a15a0",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_07.csv",
+      "sha256": "be0619813cc8b5313f305035beed47b456803b1139e18a6381750085ca4461b6",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_08.csv",
+      "sha256": "eadb2b749d4577bc9ae30565657973dfd149e5956371a53de9dee6626ab2a601",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_09.csv",
+      "sha256": "e1b3e467cafc918a5ba1685b79dd56979690900532ea2d260411f455bae85dd2",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_10.csv",
+      "sha256": "2f3dd30b2a02572410620eaeba4a3e9a17dd3e03ad771b5b45a4d19a16571d8a",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_11.csv",
+      "sha256": "3883cea29df3d14608b2c393758bc7b20f427dd6a1550e9d23c32efbf2eec849",
+      "records": 10
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/shards/shard_12.csv",
+      "sha256": "dc7515f85f86f141e43330edc46d757618ed1c8cf0b43d757dd02245321a691a",
+      "records": 10
+    }
+  ],
+  "gold_standard": false,
+  "interpretation": "These records are inputs to repeated model screening. Model outputs must not be represented as independent expert or gold labels.",
+  "study_version_deduplication": {
+    "status": "superseded_by_study_deduplicated_input",
+    "final_input_manifest": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/input_manifest.json",
+    "deduplication_log": "protocol/search_calibration/v1.0.0/study_version_deduplication_log.csv"
+  }
+}

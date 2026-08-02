@@ -37,7 +37,10 @@ The v1 search count pilot has run, but the queries are not frozen. Expert query
 QA, at least 100 two-expert-adjudicated canonical positives, benchmark
 annotation, and model validation remain required before production screening.
 An algorithmically prioritized 120-record candidate pool is available for this
-review; it is not a gold standard until expert adjudication is complete.
+review. Repeated Terra Medium screening plus assistant adjudication yielded 95
+include, 23 exclude, and two seek-full-text labels, but only 71.7% exact
+all-tracked-field agreement. The run is an audited calibration result, not a
+gold standard, and the suite does not pass its 100% stability gate.
 
 ## Pipeline
 

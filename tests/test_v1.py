@@ -21,6 +21,10 @@ CANDIDATE_POOL = (
     / "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv"
 )
 CANDIDATE_POLICY = ROOT / "protocol/search_calibration/v1.0.0/policy.json"
+STUDY_VERSION_DEDUP_LOG = (
+    ROOT
+    / "protocol/search_calibration/v1.0.0/study_version_deduplication_log.csv"
+)
 
 
 class QueueProvider:
@@ -284,6 +288,19 @@ def test_v1_search_freeze_requires_100_adjudicated_positives() -> None:
     assert policy["canonical_positive_freeze_minimum"] == 100
     assert policy["expert_review"]["reviewers"] == 2
     assert policy["expert_review"]["independent_first_pass"] is True
+
+
+def test_v1_candidate_pool_excludes_logged_preprint_versions() -> None:
+    with CANDIDATE_POOL.open(encoding="utf-8", newline="") as handle:
+        candidate_ids = {row["candidate_id"] for row in csv.DictReader(handle)}
+    with STUDY_VERSION_DEDUP_LOG.open(encoding="utf-8", newline="") as handle:
+        deduplicated = list(csv.DictReader(handle))
+    assert len(deduplicated) == 5
+    assert not ({row["superseded_id"] for row in deduplicated} & candidate_ids)
+    assert {row["retained_id"] for row in deduplicated} <= candidate_ids
+    assert {row["disposition"] for row in deduplicated} == {
+        "retain_journal_publication"
+    }
 
 
 def test_v1_title_stage_runs_each_role_five_times(tmp_path) -> None:

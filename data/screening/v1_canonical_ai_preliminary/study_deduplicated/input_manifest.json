@@ -1,0 +1,27 @@
+{
+  "status": "prepared_for_ai_preliminary_annotation",
+  "candidate_pool": {
+    "path": "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv",
+    "sha256": "b6e0df184f2bcf63d2a81ba35da8a70b915dbcdeda15fe1cdce192c655cd67e7",
+    "records": 120
+  },
+  "search_records": {
+    "path": "data/searches/pilots/2026-08-02-v1.0.0/normalized/all_sources.csv",
+    "sha256": "1bd904e092b2413a303423a0bb1990859ddde9afff66fd7cd59afe6a2878cf5b",
+    "records": 3000
+  },
+  "input": {
+    "path": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/input.csv",
+    "sha256": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212",
+    "records": 120
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/shards/shard_01.csv",
+      "sha256": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212",
+      "records": 120
+    }
+  ],
+  "gold_standard": false,
+  "interpretation": "These records are inputs to repeated model screening. Model outputs must not be represented as independent expert or gold labels."
+}

@@ -1,0 +1,333 @@
+{
+  "status": "ai_preliminary_annotation_complete_not_gold",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "runs_per_assessed_role": 5,
+  "records": 120,
+  "records_with_repeated_screening_attempts": [
+    "doi:10.1007/s12031-025-02314-x",
+    "doi:10.1038/s41598-023-31115-8",
+    "doi:10.1101/2020.07.06.20147520",
+    "doi:10.1101/2025.02.08.25321911"
+  ],
+  "superseded_screened_record_ids": [
+    "doi:10.1101/2023.07.09.548232",
+    "doi:10.1101/2025.03.27.25324801",
+    "doi:10.1101/2025.07.11.664466",
+    "doi:10.21203/rs.3.rs-2114482/v1",
+    "doi:10.21203/rs.3.rs-6716774/v1"
+  ],
+  "preliminary_status_counts": {
+    "preliminary_exclude": 19,
+    "preliminary_include": 86,
+    "preliminary_unclear": 15
+  },
+  "first_failed_criterion_counts": {
+    "EC3": 9,
+    "EC4": 10
+  },
+  "proposed_family_by_status": {
+    "direct_perturbation": {
+      "preliminary_exclude": 14,
+      "preliminary_include": 28,
+      "preliminary_unclear": 6
+    },
+    "formal_mediation": {
+      "preliminary_exclude": 1,
+      "preliminary_include": 2
+    },
+    "genetic_instrument": {
+      "preliminary_exclude": 4,
+      "preliminary_include": 54,
+      "preliminary_unclear": 7
+    },
+    "randomized_intervention": {
+      "preliminary_include": 1
+    },
+    "sem": {
+      "preliminary_include": 1,
+      "preliminary_unclear": 2
+    }
+  },
+  "all_assessed_fields_5_of_5_count": 86,
+  "all_assessed_fields_5_of_5_rate": 0.7166666666666667,
+  "field_stability": {
+    "scope_reviewer": {
+      "report_type": {
+        "assessed": 116,
+        "exact_5_of_5": 116,
+        "rate": 1.0
+      },
+      "bio_health_scope": {
+        "assessed": 116,
+        "exact_5_of_5": 116,
+        "rate": 1.0
+      },
+      "aging_process_relevance": {
+        "assessed": 116,
+        "exact_5_of_5": 114,
+        "rate": 0.9827586206896551
+      },
+      "multiomics_evidence": {
+        "assessed": 116,
+        "exact_5_of_5": 106,
+        "rate": 0.9137931034482759
+      },
+      "current_report_layer_use": {
+        "assessed": 116,
+        "exact_5_of_5": 114,
+        "rate": 0.9827586206896551
+      }
+    },
+    "causal_method_reviewer": {
+      "current_report_application": {
+        "assessed": 90,
+        "exact_5_of_5": 89,
+        "rate": 0.9888888888888889
+      },
+      "causal_basis": {
+        "assessed": 90,
+        "exact_5_of_5": 89,
+        "rate": 0.9888888888888889
+      },
+      "design_families": {
+        "assessed": 90,
+        "exact_5_of_5": 73,
+        "rate": 0.8111111111111111
+      },
+      "causal_information_sufficiency": {
+        "assessed": 90,
+        "exact_5_of_5": 90,
+        "rate": 1.0
+      }
+    }
+  },
+  "provider_attempts": {
+    "attempt_ok": 1097,
+    "attempt_error": 90,
+    "retry_attempts": 82
+  },
+  "input": {
+    "path": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/input.csv",
+    "sha256": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212"
+  },
+  "output": {
+    "path": "analysis/v1_methodology/canonical_candidate_ai_annotation_2026-08-02.csv",
+    "sha256": "56f023c66d980b14ea41d83643fecdf6c7494f20303f9c7795693bd25448d428"
+  },
+  "raw_run_artifacts": [
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_01/manifest.json",
+      "sha256": "4401ad3653308dc94fbeccda13870429c771f673ae40599ab47dd8ac8e57765c",
+      "bytes": 2254
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_01/raw_provider_responses.jsonl",
+      "sha256": "3676cd7a65c06c93efa408c471f029af83bc258d5d7e6e5e1dd6d5f397d5d404",
+      "bytes": 879983
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_01/screening_results.jsonl",
+      "sha256": "fef5cf812200a7513b1cdccf965e5c93f1192f72d398fd2ea603322d09984ca9",
+      "bytes": 129139
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_02/manifest.json",
+      "sha256": "437c080f39e46079768e9df796a8ef3201cf9c4f9382ea820991f4d4a70931ce",
+      "bytes": 2248
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_02/raw_provider_responses.jsonl",
+      "sha256": "9bb1cf6a69c7a175a88233ec8c28908a7bae832f497d96aea3419a607a648f6e",
+      "bytes": 949651
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_02/screening_results.jsonl",
+      "sha256": "94ef27c7bb442acac52db3d0ae58cf4624556fc63f1d0dd879984c6df2de7af6",
+      "bytes": 146084
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_03/manifest.json",
+      "sha256": "0fd56739e4b6ad6630e8803b676d41ab736b92f1001be263c36cdabd2f8850c1",
+      "bytes": 2254
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_03/raw_provider_responses.jsonl",
+      "sha256": "cede33dbae57582adfc6b694bc3eb6b207ccd5f3da0767ad8635d44ddbd72802",
+      "bytes": 979376
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_03/screening_results.jsonl",
+      "sha256": "d88fddc67d9f259a63aa8bc2b8212b1b5336074cc6a9bfb5f12c3256685fa426",
+      "bytes": 142495
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_04/manifest.json",
+      "sha256": "14f3c04c5c52d4a707df71d55cc67e03c4394c4728ec0dc04ab6a2f890b591a0",
+      "bytes": 2248
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_04/raw_provider_responses.jsonl",
+      "sha256": "759f5e427715718496a966ef80b98687902dc8595edc2c6c9684b64252f402d2",
+      "bytes": 858032
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_04/screening_results.jsonl",
+      "sha256": "b38ab49702f5e0e62b314c89fb0a5ee312e11a56766a6f0441cd0454e2aabaf8",
+      "bytes": 138065
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_05/manifest.json",
+      "sha256": "ca0998f2d5a50f5081bda84f47e9f0e6215bbecff609112026ffdb19dc9cf2a2",
+      "bytes": 2231
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_05/raw_provider_responses.jsonl",
+      "sha256": "12254ce3b91b07fe20b3dd884a2d3e7394eb4b2f03a29668e7826a5592386a6e",
+      "bytes": 1025994
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_05/screening_results.jsonl",
+      "sha256": "1e364a16a7f7f3e0e5a27079e17ea2fa74b6e96c1965d81ec45b992db2a09ffd",
+      "bytes": 162464
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_06/manifest.json",
+      "sha256": "ce3dcecacf0b83e84fa3995ed83e60acd308d560cc7286e5177c483556c69f0a",
+      "bytes": 2231
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_06/raw_provider_responses.jsonl",
+      "sha256": "778c1309ce94a0d303fd452c12a9d888223f51eadeb9d7e4ddd2d6048f3c911b",
+      "bytes": 1078287
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_06/screening_results.jsonl",
+      "sha256": "c96866870764b7da3e959bb536afbd4f2aa8e1fc8d2cc807efe562f624fa8f3e",
+      "bytes": 164109
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_07/manifest.json",
+      "sha256": "9152eacb030f161614cd05acc035041f0057618fccf01e08f8ed9d810c747c27",
+      "bytes": 2248
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_07/raw_provider_responses.jsonl",
+      "sha256": "8603f40a09e5f94a943a725cbe2d3f08823e681f0d2810cf4fe5fbde6dd0a652",
+      "bytes": 903829
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_07/screening_results.jsonl",
+      "sha256": "12ed7889eb21dd4fa26ff64e217ca254cdcabbb41678f36219e988b3feb882c3",
+      "bytes": 145392
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_08/manifest.json",
+      "sha256": "4f19e9ac6899a64ed3d601d5d37ea86c46e5786cd83bdf529b1c7de0efd4c0ad",
+      "bytes": 2248
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_08/raw_provider_responses.jsonl",
+      "sha256": "27fd11e62a11087073844ab92633591307539dfd304c098cc04f227902efba94",
+      "bytes": 930942
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_08/screening_results.jsonl",
+      "sha256": "8aba57b499640da48ae309fe24224a9d378b1828411097d92062f2321238997d",
+      "bytes": 144214
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_09/manifest.json",
+      "sha256": "fdaef957d0e092712aaa09ebdaa12b717d806c4ba222efaaa1264549395d9d1f",
+      "bytes": 2272
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_09/raw_provider_responses.jsonl",
+      "sha256": "6deb71eee1b47a61ad3dba5c8628248abe85f0113065677b16b5994e76f90a89",
+      "bytes": 869005
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_09/screening_results.jsonl",
+      "sha256": "ccca0628e533a65413eb1612202cb59da37b89f8c38858779388287c52922fb7",
+      "bytes": 130096
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_10/manifest.json",
+      "sha256": "bb4df6ff3278ba6017bd1a0ec18bd893a0c6437b2dedf9b5dec438733bfe51bb",
+      "bytes": 2254
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_10/raw_provider_responses.jsonl",
+      "sha256": "c9e5d4fd6b19ae4cdd99138caccb42a8aeca17a1e3eb0bce3093214b3495436b",
+      "bytes": 993790
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_10/screening_results.jsonl",
+      "sha256": "8d95daa3c0d14ee0aeaee8ff32e75c92b8e16808bd07a6462f9334fe3b329246",
+      "bytes": 140145
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_11/manifest.json",
+      "sha256": "ee7903d88c723ff692d0b406c69e425bb60a3d725d4b6d98df70a9f589e6c6fb",
+      "bytes": 2248
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_11/raw_provider_responses.jsonl",
+      "sha256": "a74f6cd43e0d7123a07880bd851163dfa13f224fba59c0d2bc436174a99fbed0",
+      "bytes": 903141
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_11/screening_results.jsonl",
+      "sha256": "4bdf7a4562fa30945a7b4973bb9ca33d9c076ac3ab7cfea9e8b74403b5f8d292",
+      "bytes": 149766
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_12/manifest.json",
+      "sha256": "12a533de58e9969dd70c930bc462edda4254ae068304de49571c103f828ef37a",
+      "bytes": 2231
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_12/raw_provider_responses.jsonl",
+      "sha256": "2331cf58f8c2fa0af22f22c6faf4eba59cceda1613b6903d7625e1347d64032d",
+      "bytes": 1034756
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_12/screening_results.jsonl",
+      "sha256": "b95fbfdf6546f296399c92e1f468ec10baef0e89e8cf6af5e3e7cb37eaaedd26",
+      "bytes": 164272
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_remediation_01/manifest.json",
+      "sha256": "07afee56e7853f9b384660f352635f863d35fd1400fa0b9de3123195c5e9b14f",
+      "bytes": 2257
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_remediation_01/raw_provider_responses.jsonl",
+      "sha256": "f11b55f9ac2f230813c8fc52ca81154fcc0c62934b979fc12ca86476b104a211",
+      "bytes": 326499
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_remediation_01/screening_results.jsonl",
+      "sha256": "3f645ca8e1321154e058e204e0c65c477d0ab775eca0651773af1e4bfa071917",
+      "bytes": 35106
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_replacements/manifest.json",
+      "sha256": "a9ab8e13642fcba8d018c518ee96910db1bc2076183efc6fa24ba9bf7e00a5b9",
+      "bytes": 2249
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_replacements/raw_provider_responses.jsonl",
+      "sha256": "8f034cae413127c4738869a0ba0a55eb1960c0c97d7326bd8a138a9c9ce1fece",
+      "bytes": 385213
+    },
+    {
+      "path": "data/screening/v1_canonical_ai_preliminary/runs/shard_replacements/screening_results.jsonl",
+      "sha256": "a60b746588ff412c7a2ceea79089986166eaf56a06b51b5e8960c1804092863e",
+      "bytes": 54810
+    }
+  ],
+  "gold_standard": false,
+  "human_expert_status": "pending",
+  "interpretation": "Preliminary labels are repeated model judgments for prioritization. They are not independent expert labels and cannot satisfy the query-freeze gold-standard requirement."
+}

@@ -89,7 +89,8 @@ CURRENT_REPORT_PATTERN = re.compile(
 )
 NONEMPIRICAL_TITLE_PATTERN = re.compile(
     r"\b(?:review|protocol|perspective|editorial|commentary|knowledgebase|"
-    r"database|resource|framework for predictive|insights from the .*symposium)\b",
+    r"database|resource|recent advances|framework for predictive|"
+    r"insights from the .*symposium)\b",
     re.I,
 )
 NONEMPIRICAL_TYPE_PATTERN = re.compile(
@@ -167,8 +168,18 @@ def normalized_title(value: str) -> str:
 
 
 def identifier(row: dict[str, str]) -> str:
+    title = normalized_title(row.get("title", ""))
     doi = row.get("doi", "").strip().casefold()
-    return f"doi:{doi}" if doi else f"title:{normalized_title(row.get('title', ''))}"
+    return f"title:{title}" if title else f"doi:{doi}"
+
+
+def token_set(value: str) -> set[str]:
+    return set(re.findall(r"[a-z0-9]+", value.casefold()))
+
+
+def jaccard(left: set[str], right: set[str]) -> float:
+    union = left | right
+    return len(left & right) / len(union) if union else 0.0
 
 
 def shortest_sentence(text: str, pattern: re.Pattern[str]) -> str:
@@ -262,9 +273,34 @@ def main() -> None:
                 "candidate_status": "unreviewed_candidate_not_gold",
                 "adjudicated_design_family": "",
                 "adjudication_notes": "",
+                "_abstract_tokens": token_set(abstract),
+                "_is_preprint": truthy(row.get("is_preprint", "")),
             }
         candidate.update({field: "pending" for field in PENDING_ANNOTATION_FIELDS})
         by_family[family].append(candidate)
+
+    deduplicated: dict[str, list[dict[str, str]]] = defaultdict(list)
+    retained: list[dict[str, str]] = []
+    all_candidates = [row for candidates in by_family.values() for row in candidates]
+    all_candidates.sort(
+        key=lambda row: (
+            row["_is_preprint"],
+            -int(row["algorithmic_score"]),
+            row["candidate_id"],
+        )
+    )
+    for candidate in all_candidates:
+        duplicate = any(
+            candidate["_is_preprint"] != existing["_is_preprint"]
+            and jaccard(candidate["_abstract_tokens"], existing["_abstract_tokens"])
+            >= 0.80
+            for existing in retained
+        )
+        if duplicate:
+            continue
+        retained.append(candidate)
+        deduplicated[candidate["proposed_design_family"]].append(candidate)
+    by_family = deduplicated
 
     for candidates in by_family.values():
         candidates.sort(
@@ -306,6 +342,9 @@ def main() -> None:
         selected.extend(remainder[: args.size - len(selected)])
     selected = selected[: args.size]
     selected.sort(key=lambda row: (row["proposed_design_family"], row["title"]))
+    for row in selected:
+        row.pop("_abstract_tokens", None)
+        row.pop("_is_preprint", None)
 
     if len(selected) < args.size:
         raise SystemExit(f"Requested {args.size} candidates; found {len(selected)}")

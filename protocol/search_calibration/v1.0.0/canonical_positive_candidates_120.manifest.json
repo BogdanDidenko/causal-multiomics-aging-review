@@ -13,11 +13,11 @@
   },
   "candidate_pool": {
     "path": "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv",
-    "sha256": "b96cd52761974eba435caf85f80be10c3b84faa1e95c0419bebc6ec2050ad1c4"
+    "sha256": "b6e0df184f2bcf63d2a81ba35da8a70b915dbcdeda15fe1cdce192c655cd67e7"
   },
   "design_family_counts": {
-    "genetic_instrument": 68,
-    "direct_perturbation": 45,
+    "genetic_instrument": 65,
+    "direct_perturbation": 48,
     "formal_mediation": 3,
     "randomized_intervention": 1,
     "quasi_experiment": 0,

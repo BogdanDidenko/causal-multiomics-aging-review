@@ -20,6 +20,11 @@ SEARCH_CALIBRATION = PROTOCOL / "search_calibration" / "v1.0.0"
 SEARCH_POLICY = SEARCH_CALIBRATION / "policy.json"
 CANDIDATE_POOL = SEARCH_CALIBRATION / "canonical_positive_candidates_120.csv"
 CANDIDATE_MANIFEST = SEARCH_CALIBRATION / "canonical_positive_candidates_120.manifest.json"
+AI_ANNOTATION = (
+    ROOT
+    / "analysis/v1_methodology/canonical_candidate_final_ai_annotation_2026-08-02.csv"
+)
+AI_ANNOTATION_SUMMARY = AI_ANNOTATION.with_suffix(".summary.json")
 PENDING_CANDIDATE_FIELDS = (
     "expert_1_empirical_primary",
     "expert_1_aging_eligible",
@@ -253,6 +258,24 @@ def validate_search_calibration(errors: list[str]) -> int:
         errors.append("v1 candidate manifest has wrong freeze minimum")
     if manifest.get("candidate_pool", {}).get("sha256") != sha256(CANDIDATE_POOL):
         errors.append("v1 candidate manifest has stale pool hash")
+    if not AI_ANNOTATION.is_file() or not AI_ANNOTATION_SUMMARY.is_file():
+        errors.append("missing v1 assistant annotation artifacts")
+        return len(candidates)
+    with AI_ANNOTATION.open(encoding="utf-8", newline="") as handle:
+        annotations = list(csv.DictReader(handle))
+    annotation_counts = {
+        status: sum(row["assistant_final_status"] == status for row in annotations)
+        for status in ("include", "exclude", "seek_full_text")
+    }
+    if annotation_counts != {"include": 95, "exclude": 23, "seek_full_text": 2}:
+        errors.append(f"unexpected v1 assistant annotation counts: {annotation_counts}")
+    if {row["human_expert_status"] for row in annotations} != {"pending"}:
+        errors.append("assistant annotations must not populate expert-gold status")
+    annotation_summary = load(AI_ANNOTATION_SUMMARY)
+    if annotation_summary.get("gold_standard") is not False:
+        errors.append("v1 assistant annotation is incorrectly represented as gold")
+    if annotation_summary.get("output", {}).get("sha256") != sha256(AI_ANNOTATION):
+        errors.append("v1 assistant annotation summary has stale output hash")
     return len(candidates)
 
 

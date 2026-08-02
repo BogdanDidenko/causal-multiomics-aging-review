@@ -1,0 +1,6 @@
+superseded_id,retained_id,match_rule,title_token_jaccard,abstract_token_jaccard,disposition
+doi:10.1101/2023.07.09.548232,doi:10.1038/s41467-024-52909-y,preprint_publication_abstract_overlap,0.428571,0.848485,retain_journal_publication
+doi:10.1101/2025.03.27.25324801,doi:10.1038/s41467-025-59964-z,exact_normalized_title,1.000000,0.483516,retain_journal_publication
+doi:10.1101/2025.07.11.664466,doi:10.1007/s11357-025-02033-6,exact_normalized_title,1.000000,0.991071,retain_journal_publication
+doi:10.21203/rs.3.rs-2114482/v1,doi:10.1038/s41598-023-31115-8,exact_normalized_title,1.000000,0.843537,retain_journal_publication
+doi:10.21203/rs.3.rs-6716774/v1,doi:10.1111/acel.70310,preprint_publication_abstract_overlap,0.769231,0.990826,retain_journal_publication

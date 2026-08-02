@@ -5,7 +5,16 @@
   "canonical_positive_freeze_minimum": 100,
   "candidate_pool_path": "canonical_positive_candidates_120.csv",
   "candidate_pool_manifest_path": "canonical_positive_candidates_120.manifest.json",
+  "study_version_deduplication_log_path": "study_version_deduplication_log.csv",
   "gold_registry_path": "canonical_positives.csv",
+  "assistant_annotation": {
+    "path": "../../../analysis/v1_methodology/canonical_candidate_final_ai_annotation_2026-08-02.csv",
+    "status": "complete_not_expert_gold",
+    "include": 95,
+    "exclude": 23,
+    "seek_full_text": 2,
+    "all_tracked_fields_exact_agreement": 0.7166666666666667
+  },
   "expert_review": {
     "reviewers": 2,
     "independent_first_pass": true,
