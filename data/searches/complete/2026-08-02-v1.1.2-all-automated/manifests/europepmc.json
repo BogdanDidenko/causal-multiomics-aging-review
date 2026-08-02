@@ -1,0 +1,34 @@
+{
+  "source": "europepmc",
+  "started_at": "2026-08-02T11:29:21.056034+00:00",
+  "completed_at": "2026-08-02T11:29:50.491614+00:00",
+  "query_files": {
+    "combined": "protocol/queries/v1.0.0/europepmc.txt"
+  },
+  "query_sha256": {
+    "combined": "417588587c6c43fb77a7d2bea856bf59284d488ed92b637ce9680f7a97fe9c4a"
+  },
+  "reported_count": 1651,
+  "source_details": {},
+  "retrieved_count": 1651,
+  "local_three_block_count": 1608,
+  "local_explicit_multiomics_count": 610,
+  "local_layer_pair_count": 1329,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": true,
+  "normalized_file": "normalized/europepmc.csv",
+  "normalized_sha256": "a832c9b796e33c47f47bed9bfa620f2d402c064f928c4d3c4ba504c4586228ba",
+  "raw_responses": [
+    {
+      "path": "raw/europepmc/page_0001.json.gz",
+      "sha256": "df7c02f5f61c6dc79ba5750690505d084b65cf50fdf5d6eedb154f8335547e1e",
+      "bytes": 1739215
+    },
+    {
+      "path": "raw/europepmc/page_0002.json.gz",
+      "sha256": "98bfa06e061ef0620424ea2566e8f376fe3e36c84fc5e26029bf4f34a4c5c80a",
+      "bytes": 1274689
+    }
+  ]
+}

@@ -1,0 +1,807 @@
+{
+  "source": "scopus",
+  "started_at": "2026-08-02T11:29:21.056133+00:00",
+  "completed_at": "2026-08-02T11:32:33.047561+00:00",
+  "query_files": {
+    "combined": "protocol/queries/v1.0.0/scopus.txt"
+  },
+  "query_sha256": {
+    "combined": "790797bb11b87de2ee77ed539a8e994acb330a1c4e2150951a50e81f692f0cc6"
+  },
+  "reported_count": 3889,
+  "source_details": {
+    "view": "STANDARD",
+    "abstract_entitlement": false
+  },
+  "retrieved_count": 3889,
+  "local_three_block_count": 19,
+  "local_explicit_multiomics_count": 234,
+  "local_layer_pair_count": 191,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": false,
+  "normalized_file": "normalized/scopus.csv",
+  "normalized_sha256": "37048620b20ffa45e43b753961ef38423e84e37cfdc497983516710e5c3f4152",
+  "raw_responses": [
+    {
+      "path": "raw/scopus/page_0001.json.gz",
+      "sha256": "2b7ccca7b70d7d026c14ffde1084b233daeea64842bece84069f11e02eb72aa4",
+      "bytes": 7720
+    },
+    {
+      "path": "raw/scopus/page_0002.json.gz",
+      "sha256": "8ff0286a114abc22d6cde5b666ace631e8327dcecc6adcb1435fb0065db863cd",
+      "bytes": 7883
+    },
+    {
+      "path": "raw/scopus/page_0003.json.gz",
+      "sha256": "b5daf87c6080631c9a700bcd08c91899e0861df10179a4c4a55bd4f79c9180e7",
+      "bytes": 7901
+    },
+    {
+      "path": "raw/scopus/page_0004.json.gz",
+      "sha256": "db0498b374b49592f46d23731876361b29fc8bf3b2e92218b4cbff540b0c1f2f",
+      "bytes": 8002
+    },
+    {
+      "path": "raw/scopus/page_0005.json.gz",
+      "sha256": "534aa0aadf740a368db55b1499fc205df0ce3458e69f32ecb013ef4d27d66512",
+      "bytes": 8549
+    },
+    {
+      "path": "raw/scopus/page_0006.json.gz",
+      "sha256": "e3db14f08d10869eb7e7d01a75d2fd3a14a4bb986be81dd7dd16578eff7a8375",
+      "bytes": 8130
+    },
+    {
+      "path": "raw/scopus/page_0007.json.gz",
+      "sha256": "f705395e48e81cf5fc1293c6be71ef32fffeae7f21b5e5d33b5b300489265d69",
+      "bytes": 8018
+    },
+    {
+      "path": "raw/scopus/page_0008.json.gz",
+      "sha256": "09d27d320e5e99e0d68f4d475b97c472f1bd7efc3ac17519169a22b29703a069",
+      "bytes": 8186
+    },
+    {
+      "path": "raw/scopus/page_0009.json.gz",
+      "sha256": "2768f1db117f7067d4460792404b9467a5ecea20d3c2c47468e07cfba0948dc8",
+      "bytes": 8374
+    },
+    {
+      "path": "raw/scopus/page_0010.json.gz",
+      "sha256": "5c60b3c9a0028ce3e03b3206232536cd5b8a805a7fad075657d4bfc26ebe199a",
+      "bytes": 8264
+    },
+    {
+      "path": "raw/scopus/page_0011.json.gz",
+      "sha256": "e4887652661878e5ac243f400cf94405487c74ed4f74870af8b8c599672c7f4f",
+      "bytes": 8007
+    },
+    {
+      "path": "raw/scopus/page_0012.json.gz",
+      "sha256": "67eeebbaf86ea10e7bea6578225bdda330d52ffafeda4aaf930960af9d0ac194",
+      "bytes": 8355
+    },
+    {
+      "path": "raw/scopus/page_0013.json.gz",
+      "sha256": "7d13268505ca9c387106aa47336f5111fcf5bb0cb049ac229706ab23687e1107",
+      "bytes": 8161
+    },
+    {
+      "path": "raw/scopus/page_0014.json.gz",
+      "sha256": "e33da1e3c7ee098432a71a1dfcde4711f7df342b6cee3ae14bdd8b64f1eac739",
+      "bytes": 8540
+    },
+    {
+      "path": "raw/scopus/page_0015.json.gz",
+      "sha256": "6f94c16ba143aae135807323226398dcc9a6bf9bd9d3368a6c2cac76ce8fa38f",
+      "bytes": 8462
+    },
+    {
+      "path": "raw/scopus/page_0016.json.gz",
+      "sha256": "c15c2708267003580191c08ec4c68a5d6e86ed0865f0a3b400117878ec9fafed",
+      "bytes": 8390
+    },
+    {
+      "path": "raw/scopus/page_0017.json.gz",
+      "sha256": "d02327fbb98d850c679a46823351ba499b46c0a76e8bf46e4cef49d3e52d0e12",
+      "bytes": 8404
+    },
+    {
+      "path": "raw/scopus/page_0018.json.gz",
+      "sha256": "4cf8a1301abf3f254e7c5f357c1d7a2b592cc1b2b08d7cf56d8bb1c9e4b40c19",
+      "bytes": 8454
+    },
+    {
+      "path": "raw/scopus/page_0019.json.gz",
+      "sha256": "f490623f07f10ff4d4d38a31e44166a295beda7f14b40c35a268f637f01b1a32",
+      "bytes": 8346
+    },
+    {
+      "path": "raw/scopus/page_0020.json.gz",
+      "sha256": "faf0acf19d542e5fdbffb5d3175c42bc572c35f35e8ce1ae1f2f7ebe0a343efc",
+      "bytes": 8350
+    },
+    {
+      "path": "raw/scopus/page_0021.json.gz",
+      "sha256": "85d302ae9ed7c07e711ca4077b5cd413822e0dafab39db7a7e4091ebfa0cb090",
+      "bytes": 8284
+    },
+    {
+      "path": "raw/scopus/page_0022.json.gz",
+      "sha256": "23c7fe4b8af74770fb52c115ce32039ca7655e64ba8e5c91062fef7995fb8675",
+      "bytes": 8305
+    },
+    {
+      "path": "raw/scopus/page_0023.json.gz",
+      "sha256": "c55b52e82f268b7c04db8071e29398f7b451d25ca910269220ec66db2e7db11d",
+      "bytes": 8478
+    },
+    {
+      "path": "raw/scopus/page_0024.json.gz",
+      "sha256": "9263666f3e643630ef735ebfba1b2ceae74d38179de561ef571db6ccc0afeada",
+      "bytes": 8336
+    },
+    {
+      "path": "raw/scopus/page_0025.json.gz",
+      "sha256": "12a1ddc05f36fd0ce45f9afbca4ab0dadaf7f5561f86ef2a4b148176c206567e",
+      "bytes": 8164
+    },
+    {
+      "path": "raw/scopus/page_0026.json.gz",
+      "sha256": "fa42713724d98953820a3e4cfeee4ba145b0aa08b795e05a02aa7ccafd429058",
+      "bytes": 8440
+    },
+    {
+      "path": "raw/scopus/page_0027.json.gz",
+      "sha256": "6f89f30d532c3aff0fa40f06411a4355232dab29382f76d0a3d2549c0d99d026",
+      "bytes": 8386
+    },
+    {
+      "path": "raw/scopus/page_0028.json.gz",
+      "sha256": "9b0617b46639d8b977963e48dbf6155ab627e7d67823bbe5a2a90311abe1a352",
+      "bytes": 8095
+    },
+    {
+      "path": "raw/scopus/page_0029.json.gz",
+      "sha256": "fe43158a7f925e344c75db69dbbd23e2d9d75a385461a74c3a18d820643f5431",
+      "bytes": 8165
+    },
+    {
+      "path": "raw/scopus/page_0030.json.gz",
+      "sha256": "7b1211cc436a5f1bf85aa89b58395ed0d3fb0278ac7ad3bd29f13a4cbb185857",
+      "bytes": 8426
+    },
+    {
+      "path": "raw/scopus/page_0031.json.gz",
+      "sha256": "251e1e2080a95804a96ed51ed083358293f06d2deffb1f195a51cfc0a7d66ff8",
+      "bytes": 8121
+    },
+    {
+      "path": "raw/scopus/page_0032.json.gz",
+      "sha256": "709c1617b053d1c4327e8419ab45856e82ff014200ef108f36f289a2de96519d",
+      "bytes": 8288
+    },
+    {
+      "path": "raw/scopus/page_0033.json.gz",
+      "sha256": "e606f5bb24020022451f9474d5600fd29b0a0a2ba176d96d4ad8983f01ef6146",
+      "bytes": 8415
+    },
+    {
+      "path": "raw/scopus/page_0034.json.gz",
+      "sha256": "6970c206a1d083eff9f4eb458f4b582a2051f75119f33c47778b3b899ddfae0d",
+      "bytes": 8555
+    },
+    {
+      "path": "raw/scopus/page_0035.json.gz",
+      "sha256": "8007b3f0461248168ee4d376e840c443d784c4541dc3af3b01f4c27f2c6e8cb7",
+      "bytes": 8172
+    },
+    {
+      "path": "raw/scopus/page_0036.json.gz",
+      "sha256": "dbdc7be02b87bdf0418c547698e6afcee29f72bcc5f76e332bc72478d54e981e",
+      "bytes": 8448
+    },
+    {
+      "path": "raw/scopus/page_0037.json.gz",
+      "sha256": "21a30402d59b6d871c366be9baf227be13bebc5f33a23023654a7f21f3881dde",
+      "bytes": 8350
+    },
+    {
+      "path": "raw/scopus/page_0038.json.gz",
+      "sha256": "4be84520f99f3e1bec8de2499220e8f14d8d74d0d296bfdfaacee6f1d10b874c",
+      "bytes": 8114
+    },
+    {
+      "path": "raw/scopus/page_0039.json.gz",
+      "sha256": "36a0e8698203a2a044e18acbefde0ff710efa114aae0094a675770579bc97c28",
+      "bytes": 8303
+    },
+    {
+      "path": "raw/scopus/page_0040.json.gz",
+      "sha256": "c933a5e6788a236c421e4659f8d2c1f9e89da53041f1359bd8867d0f95c99ebb",
+      "bytes": 8305
+    },
+    {
+      "path": "raw/scopus/page_0041.json.gz",
+      "sha256": "4d007c5e6be80c128eedc7d53bc5b92ca7de5e9cd8a788ab97ce3f460a5628a4",
+      "bytes": 8393
+    },
+    {
+      "path": "raw/scopus/page_0042.json.gz",
+      "sha256": "6154c001f2f2f526b12df10dbebed618e434cb5762fceab6987f95d48fb30b61",
+      "bytes": 8484
+    },
+    {
+      "path": "raw/scopus/page_0043.json.gz",
+      "sha256": "d633bc864a960315036ddca4c787bcd748d3ec908b05721cecff14582f603493",
+      "bytes": 8720
+    },
+    {
+      "path": "raw/scopus/page_0044.json.gz",
+      "sha256": "8e0b7b8751c591025afb34988310a81790c2d76e7e1d76c4c40889a1c07e61c2",
+      "bytes": 8568
+    },
+    {
+      "path": "raw/scopus/page_0045.json.gz",
+      "sha256": "4321b61ff6933bd652066348c24d600f629666e880896b5e88e6016ededa2ced",
+      "bytes": 8347
+    },
+    {
+      "path": "raw/scopus/page_0046.json.gz",
+      "sha256": "2fbf834996ce39acaf664e69345ceeb2ed791fe41214467a9c99b357b163ce34",
+      "bytes": 8489
+    },
+    {
+      "path": "raw/scopus/page_0047.json.gz",
+      "sha256": "3c0362b349e5e51fc5b3b1f031553e8d2750d79086178140359fced8449c1480",
+      "bytes": 8030
+    },
+    {
+      "path": "raw/scopus/page_0048.json.gz",
+      "sha256": "01ca5195db0fcf144b81c3682cdafc48b6a0f30bb5d88b39e47ccc6ece73b773",
+      "bytes": 8291
+    },
+    {
+      "path": "raw/scopus/page_0049.json.gz",
+      "sha256": "3bc3a9d92bd6fb3fa83ed8482e3ab38bdc2438abcba87de6b758c776dc2cf219",
+      "bytes": 8366
+    },
+    {
+      "path": "raw/scopus/page_0050.json.gz",
+      "sha256": "5a127cd9fc2365afe3ab107da4f217e744b162812a2cf811bf1ee8ada47919cd",
+      "bytes": 8223
+    },
+    {
+      "path": "raw/scopus/page_0051.json.gz",
+      "sha256": "c47fea826cf3fdf00a7779b0a75f612c397224d07f07b6857b4f60c2d818421e",
+      "bytes": 8291
+    },
+    {
+      "path": "raw/scopus/page_0052.json.gz",
+      "sha256": "ae3220144aa675f2c5d8d22bef12761cfce97704ba3d594e3e9b364f20b8de1f",
+      "bytes": 8311
+    },
+    {
+      "path": "raw/scopus/page_0053.json.gz",
+      "sha256": "bfa50bfe927682bce4e0442ab4e95c9c220888da68239c2090b14742b5887d3a",
+      "bytes": 8380
+    },
+    {
+      "path": "raw/scopus/page_0054.json.gz",
+      "sha256": "258a6baac60a0bbbab035a1dfda49b84824199523f5c6a35fe72c184b19356fe",
+      "bytes": 8317
+    },
+    {
+      "path": "raw/scopus/page_0055.json.gz",
+      "sha256": "180f8225340a6850d91d8ea496c27a27caa44d0a0d3210078b3f02887f892b13",
+      "bytes": 8320
+    },
+    {
+      "path": "raw/scopus/page_0056.json.gz",
+      "sha256": "7ef9f959b002d538f74d6fd994ab614e06f1297f91358a8799a53e1f74cabee3",
+      "bytes": 8364
+    },
+    {
+      "path": "raw/scopus/page_0057.json.gz",
+      "sha256": "dfec21c17a07cd40267adf25c2ad58983cf5ceb2e5180d6243743ea8757ae872",
+      "bytes": 7931
+    },
+    {
+      "path": "raw/scopus/page_0058.json.gz",
+      "sha256": "6a3a440cef39b258aeeb6e2edb7a2cc9dee839357da6dd39d6e415f7d4a20baa",
+      "bytes": 8300
+    },
+    {
+      "path": "raw/scopus/page_0059.json.gz",
+      "sha256": "15312372c58b513328b22813bb00a9e43b65ce0d526e79a9635a4ed6f673145c",
+      "bytes": 8090
+    },
+    {
+      "path": "raw/scopus/page_0060.json.gz",
+      "sha256": "b7d06fb22482c93e5a5aa6af3834d1e3b91afeded177dfc79eea521008305de2",
+      "bytes": 8419
+    },
+    {
+      "path": "raw/scopus/page_0061.json.gz",
+      "sha256": "b4757401458962658ce5eddee1bb2879c836b7005eea68f43d3c45bb7a75e68b",
+      "bytes": 8282
+    },
+    {
+      "path": "raw/scopus/page_0062.json.gz",
+      "sha256": "395cbd1b5a7906662844c2f668a7337ddd0469f53be438daad89a9392e4cb570",
+      "bytes": 8217
+    },
+    {
+      "path": "raw/scopus/page_0063.json.gz",
+      "sha256": "4e437d10612102818b58bac29e89d30fc79ea148b4201a669fc5acca601da68f",
+      "bytes": 8376
+    },
+    {
+      "path": "raw/scopus/page_0064.json.gz",
+      "sha256": "b060f41ad75a7a0410ec6ad498b797d497f7b4a3cd55e7e4521b2f4c67e675be",
+      "bytes": 8391
+    },
+    {
+      "path": "raw/scopus/page_0065.json.gz",
+      "sha256": "dd3eb3dc9394091435c2a2a7a96a6af79c05ef67f219cc6d1b4a529586d4dc60",
+      "bytes": 8292
+    },
+    {
+      "path": "raw/scopus/page_0066.json.gz",
+      "sha256": "58a728ddcfaf7c7e37bc063f577593c16aeca578a78f8516a65961a56bd3351d",
+      "bytes": 8066
+    },
+    {
+      "path": "raw/scopus/page_0067.json.gz",
+      "sha256": "7ef14d775634f01521a429d2b74c866352c8c04407405107ac72660b8a298142",
+      "bytes": 8385
+    },
+    {
+      "path": "raw/scopus/page_0068.json.gz",
+      "sha256": "eabe094ca2e272c81524227aec12e0756e023fec2af4d3d5f448ca63fe11548f",
+      "bytes": 8376
+    },
+    {
+      "path": "raw/scopus/page_0069.json.gz",
+      "sha256": "0642e4029375dead28b0c69e7c930a47cd3883ac9ce8358d66fd00b161f0266c",
+      "bytes": 8310
+    },
+    {
+      "path": "raw/scopus/page_0070.json.gz",
+      "sha256": "fa83f33d6547cfc448c622960186bda59cfbc9205dba515d159705a106e29d13",
+      "bytes": 8368
+    },
+    {
+      "path": "raw/scopus/page_0071.json.gz",
+      "sha256": "83a55ccae7531e3f116192ab85e08d0375bd52fcf2d27376d889f426cc9c6d90",
+      "bytes": 8331
+    },
+    {
+      "path": "raw/scopus/page_0072.json.gz",
+      "sha256": "23da47ccd777944037921ce928eddbb119840eb8e1385343e12cab8ffff3f562",
+      "bytes": 8332
+    },
+    {
+      "path": "raw/scopus/page_0073.json.gz",
+      "sha256": "c92d803861b294a9e6950123c30c52e88cb8b9d49dace83839f36f41c5767d0f",
+      "bytes": 8054
+    },
+    {
+      "path": "raw/scopus/page_0074.json.gz",
+      "sha256": "09c0af0f435ebc5341ea98e791ac573c1db5b57e94b0303b18f87949c85089b9",
+      "bytes": 8339
+    },
+    {
+      "path": "raw/scopus/page_0075.json.gz",
+      "sha256": "a5b071db614b0e2265afec619201ca09fda5067e3551d8955f335d498ee3674c",
+      "bytes": 8516
+    },
+    {
+      "path": "raw/scopus/page_0076.json.gz",
+      "sha256": "f594bdc806e9c795a97194e8e9b0c6448e3fc41fc711773f199c6bea31092c2f",
+      "bytes": 8415
+    },
+    {
+      "path": "raw/scopus/page_0077.json.gz",
+      "sha256": "eade45c794cea9dd0f2f7ad181642203af43144141b739783cbe404b6c34a80f",
+      "bytes": 8347
+    },
+    {
+      "path": "raw/scopus/page_0078.json.gz",
+      "sha256": "005c1fa2bdc3198aea7c33e64def8332d01f0a0eed02d3b5b186326a0be395a7",
+      "bytes": 8518
+    },
+    {
+      "path": "raw/scopus/page_0079.json.gz",
+      "sha256": "c2073e973312bc7f6be0717cf2b37a989a9613dab9fe4f33b361a4d2a0e91160",
+      "bytes": 8161
+    },
+    {
+      "path": "raw/scopus/page_0080.json.gz",
+      "sha256": "ee5f52b4c5f60d236b7404edd960361d3fc5b384a7e73faea6d3fb02816888c3",
+      "bytes": 8001
+    },
+    {
+      "path": "raw/scopus/page_0081.json.gz",
+      "sha256": "623ee34d76b1d499898b049bb80b22121b49672d356c7395b885ffb24e5812d4",
+      "bytes": 8249
+    },
+    {
+      "path": "raw/scopus/page_0082.json.gz",
+      "sha256": "e22f855089127a7c6bfd8e4c9e2e44ecdf0e36e54818acc921b99bbabe20cb3f",
+      "bytes": 8220
+    },
+    {
+      "path": "raw/scopus/page_0083.json.gz",
+      "sha256": "a26a0c213f61a108597b27ff3243a37af38b61230bcd1467a00e821c93510853",
+      "bytes": 8332
+    },
+    {
+      "path": "raw/scopus/page_0084.json.gz",
+      "sha256": "5bc26d89e43f82136ee0d035411a41853c3014077302abeb64f789d3b1ffb1c7",
+      "bytes": 8275
+    },
+    {
+      "path": "raw/scopus/page_0085.json.gz",
+      "sha256": "827a87a759d7ff6a114486550317aa07d9a17660e412d93db0cf753b0bcd17f4",
+      "bytes": 8087
+    },
+    {
+      "path": "raw/scopus/page_0086.json.gz",
+      "sha256": "e81ac1165529c9bef112f4a20630259d0585992b946cc0ed9c5faa200cc129f3",
+      "bytes": 8363
+    },
+    {
+      "path": "raw/scopus/page_0087.json.gz",
+      "sha256": "c231fb6f6c2be2c27cf3822169ee1ff613d28a08bf9a127404609aa6cf5acc83",
+      "bytes": 8160
+    },
+    {
+      "path": "raw/scopus/page_0088.json.gz",
+      "sha256": "c0f2d5f622fa476d7f00ef580899b5a8a9b02effd69d52c7f965ca0d6bb37cc7",
+      "bytes": 8270
+    },
+    {
+      "path": "raw/scopus/page_0089.json.gz",
+      "sha256": "8b46b4e3c7339f153ad31fdbd83125546ad60df40a6702c301b823dff4fd63a9",
+      "bytes": 8614
+    },
+    {
+      "path": "raw/scopus/page_0090.json.gz",
+      "sha256": "26885a604c85ecce58f65a755a7061a204e4d2e4a4e88b88dd2f2ba9acc7cdf7",
+      "bytes": 8377
+    },
+    {
+      "path": "raw/scopus/page_0091.json.gz",
+      "sha256": "e82759bcb071e04a8cd3e2606af945996f3d99c5a733452642ef3110a8d837d4",
+      "bytes": 8501
+    },
+    {
+      "path": "raw/scopus/page_0092.json.gz",
+      "sha256": "c85a818f52597bac69533a7ff2a57a987e7c1659d8c9723f0ac8985146fc9665",
+      "bytes": 8378
+    },
+    {
+      "path": "raw/scopus/page_0093.json.gz",
+      "sha256": "bacfc110b372652d746fb65082c64b0163073bb55c44760a3c21ef73d01e884a",
+      "bytes": 8441
+    },
+    {
+      "path": "raw/scopus/page_0094.json.gz",
+      "sha256": "5f013515337df31b3b1724e61946a073fd6be1fd3880e2d2018394a86a08ca0d",
+      "bytes": 8176
+    },
+    {
+      "path": "raw/scopus/page_0095.json.gz",
+      "sha256": "690eed03fd56cf49c3dc771bec4fcec80fde906958fef526c3846e9ee60f6973",
+      "bytes": 8082
+    },
+    {
+      "path": "raw/scopus/page_0096.json.gz",
+      "sha256": "399d1e183127324382f4e0e92fc6ea53a19102085cdde429b61b6e031da09f32",
+      "bytes": 8310
+    },
+    {
+      "path": "raw/scopus/page_0097.json.gz",
+      "sha256": "70bc3c39b52150c5273e77f8b1ba93d0c792bd8a48f02b461dc944dd44c8b10a",
+      "bytes": 7857
+    },
+    {
+      "path": "raw/scopus/page_0098.json.gz",
+      "sha256": "7b4cb972fb7b6fd18097b6b1e5ce1e8c042638af279d09a5b1e4a1878875b917",
+      "bytes": 8046
+    },
+    {
+      "path": "raw/scopus/page_0099.json.gz",
+      "sha256": "50520abf454f359b6e6915bf825cec5f42226acee3cf05c20e552bf0452a5005",
+      "bytes": 8133
+    },
+    {
+      "path": "raw/scopus/page_0100.json.gz",
+      "sha256": "ded0847f55e5d3f7be28de59a9cda82fcb9b0f1d61ed7c6d654070ae7323c06b",
+      "bytes": 8130
+    },
+    {
+      "path": "raw/scopus/page_0101.json.gz",
+      "sha256": "3015556b5004a80cb458f9a9fa27a0d4fa43e86d2c1ae1e064fa167b8dfb29c0",
+      "bytes": 7867
+    },
+    {
+      "path": "raw/scopus/page_0102.json.gz",
+      "sha256": "d7efe9c53dc157d9bb43f14feb64991bb3fef08e073f61e5f7aa8d6e6bde6021",
+      "bytes": 7896
+    },
+    {
+      "path": "raw/scopus/page_0103.json.gz",
+      "sha256": "2c287520ce5aeffa47450f8858111127ae6fb9a979b9d1ac92f7d89ea6bffe8e",
+      "bytes": 8161
+    },
+    {
+      "path": "raw/scopus/page_0104.json.gz",
+      "sha256": "77e0ff6e8eba312d617496a7ab08e68dd30e34a1c216e3412723c7c33eeef1eb",
+      "bytes": 8250
+    },
+    {
+      "path": "raw/scopus/page_0105.json.gz",
+      "sha256": "88234d9ab189a8c8b99ed5776f21fedaefe5aba5b9f3d227a17e58367019ff6b",
+      "bytes": 8156
+    },
+    {
+      "path": "raw/scopus/page_0106.json.gz",
+      "sha256": "f84eb22052f8de30a399dade1d94c3f2a6cac3bc5b1ee4525fb9535deb061959",
+      "bytes": 7991
+    },
+    {
+      "path": "raw/scopus/page_0107.json.gz",
+      "sha256": "5250500ed92511c24e7f590049b0e234ebbad4b0abda26ad7e5c408e5aa24b6b",
+      "bytes": 8344
+    },
+    {
+      "path": "raw/scopus/page_0108.json.gz",
+      "sha256": "b836df8dcecf4e44dc4d26eceb00bc8e8f39817f9bf4c0d883328294e4f4a362",
+      "bytes": 8269
+    },
+    {
+      "path": "raw/scopus/page_0109.json.gz",
+      "sha256": "d223777b33566ad18229dd0174b8426c2dde0cc42077a7e52913fadc88c002a8",
+      "bytes": 8024
+    },
+    {
+      "path": "raw/scopus/page_0110.json.gz",
+      "sha256": "7d43fb939c06b51cc5320bb6393c0bd34d15a3c51b60217eaef9eec1095ccb94",
+      "bytes": 8064
+    },
+    {
+      "path": "raw/scopus/page_0111.json.gz",
+      "sha256": "9ffc2e418e71d4d3d79a9a4bbbfd8415e278334671ae2f509fe4fd19f8329845",
+      "bytes": 7824
+    },
+    {
+      "path": "raw/scopus/page_0112.json.gz",
+      "sha256": "c72cdbf0d7d3460c6e0e8092d74d1690abd460e515445e6bbcc214856d1734af",
+      "bytes": 7979
+    },
+    {
+      "path": "raw/scopus/page_0113.json.gz",
+      "sha256": "745d60694c249172b76bc26abd702fe77de0026d8ff36eb445ebfbf769826891",
+      "bytes": 8085
+    },
+    {
+      "path": "raw/scopus/page_0114.json.gz",
+      "sha256": "30a14086fb541b27cf91861bd709d64fd10e475c44214c64c203b6de360b3fcb",
+      "bytes": 8185
+    },
+    {
+      "path": "raw/scopus/page_0115.json.gz",
+      "sha256": "6bffa0e06b2c3ccdf1a4e4f5eca57aeecfbc60ffc8c74046135e7a593fd9b62d",
+      "bytes": 8306
+    },
+    {
+      "path": "raw/scopus/page_0116.json.gz",
+      "sha256": "3971b0ad143c3d3bd708d7211510745b3b54a769d78c88ec84795258666859eb",
+      "bytes": 8237
+    },
+    {
+      "path": "raw/scopus/page_0117.json.gz",
+      "sha256": "9b5354f035a85fde4e2c8d546cf34132dd9122462fa3700b6b614b608e9e426e",
+      "bytes": 7853
+    },
+    {
+      "path": "raw/scopus/page_0118.json.gz",
+      "sha256": "57c110c1c5402ef8b7ba55e49b5026d0da6cb4633e31693fd07d472b4a1206db",
+      "bytes": 7906
+    },
+    {
+      "path": "raw/scopus/page_0119.json.gz",
+      "sha256": "9b278f66ad342543eb45ef02802fc93ec39eb4b716c98a518761670285631546",
+      "bytes": 7966
+    },
+    {
+      "path": "raw/scopus/page_0120.json.gz",
+      "sha256": "bdcb3b5bf7d35e84b6cc4a31c54179be9e59bd53a3fc74a3d671199b4aa09958",
+      "bytes": 8394
+    },
+    {
+      "path": "raw/scopus/page_0121.json.gz",
+      "sha256": "e9fa5d86fc0b147cd1c9d2f010c45550823ef1683c030b27510720a312c7a09c",
+      "bytes": 8293
+    },
+    {
+      "path": "raw/scopus/page_0122.json.gz",
+      "sha256": "36265e94aef0cc6360e57fa06b3f131342f63715670e9e5be16aef00dac13099",
+      "bytes": 7990
+    },
+    {
+      "path": "raw/scopus/page_0123.json.gz",
+      "sha256": "a00581f4e5335b995221ce0dcb9548ab5a68a79dff2a5c56ec2063c6b51bc692",
+      "bytes": 8233
+    },
+    {
+      "path": "raw/scopus/page_0124.json.gz",
+      "sha256": "44408e66056ae52950309d92df50f9ea7040cc0861efc583755221daab368801",
+      "bytes": 8399
+    },
+    {
+      "path": "raw/scopus/page_0125.json.gz",
+      "sha256": "d770cacb86f98a5404edf6dc40f44b1b1285bf31999f249ee7883525efe8be6d",
+      "bytes": 8210
+    },
+    {
+      "path": "raw/scopus/page_0126.json.gz",
+      "sha256": "03cd1ded5d6e5f641c09a1a394426c99d7ba112667c28e0aa692b86add00d3c5",
+      "bytes": 8279
+    },
+    {
+      "path": "raw/scopus/page_0127.json.gz",
+      "sha256": "403d6d836684c364c0af4ea3ccace8db6ece3d096b8d969ac6c343b55a13ec33",
+      "bytes": 7823
+    },
+    {
+      "path": "raw/scopus/page_0128.json.gz",
+      "sha256": "5fcf9b86350dab0cf60891307a1a0b7b0206738bb587f25e18a7f45b90f38b61",
+      "bytes": 8256
+    },
+    {
+      "path": "raw/scopus/page_0129.json.gz",
+      "sha256": "52683137586a2e3ea910580a573ecca3c8db49272daea440b9f8647f4d26f0cc",
+      "bytes": 8412
+    },
+    {
+      "path": "raw/scopus/page_0130.json.gz",
+      "sha256": "520d8ae592fd2b0a1b8d280ab2ae21b44b286c25127f288839203c54d5e13d81",
+      "bytes": 8144
+    },
+    {
+      "path": "raw/scopus/page_0131.json.gz",
+      "sha256": "5507902c01626a6b0636c7069cefb48355b8532f5693dd452166b6cde1dc28df",
+      "bytes": 7917
+    },
+    {
+      "path": "raw/scopus/page_0132.json.gz",
+      "sha256": "715c517e2103989bc4f7a76df6c7991ab3b6466722468d6b4e7b237cdcfc9f15",
+      "bytes": 8058
+    },
+    {
+      "path": "raw/scopus/page_0133.json.gz",
+      "sha256": "f2723c5d7463fd79a8710248eedbc36177b7aaeeb35f1afc29a47e4547d9ecb6",
+      "bytes": 8280
+    },
+    {
+      "path": "raw/scopus/page_0134.json.gz",
+      "sha256": "f9bf5fea557180c4a2a0e034258cf703dcbd970f63cf69594665e7382cb49e1c",
+      "bytes": 7892
+    },
+    {
+      "path": "raw/scopus/page_0135.json.gz",
+      "sha256": "a7914c8673f52ee03ae7b6055d9dd65625de5dcd61170d733497bd74b618565e",
+      "bytes": 8189
+    },
+    {
+      "path": "raw/scopus/page_0136.json.gz",
+      "sha256": "c27bda3746cbe1758e24a3310916aa0b81735a8c208ebdf260b3a44ba4333c33",
+      "bytes": 7987
+    },
+    {
+      "path": "raw/scopus/page_0137.json.gz",
+      "sha256": "94943fee6ad267b0aaa60a93b34e6c7654cd5266d52dfa9b7c0fd65d29852d31",
+      "bytes": 7806
+    },
+    {
+      "path": "raw/scopus/page_0138.json.gz",
+      "sha256": "01ef7ec52377a122c2c353b55b0fa60babfc7a941eddecec4082c149ee51908d",
+      "bytes": 8009
+    },
+    {
+      "path": "raw/scopus/page_0139.json.gz",
+      "sha256": "0c4e68e09157dc985ac9d9d313be386790c0049aeffaaef15a3828009bbc5d29",
+      "bytes": 8038
+    },
+    {
+      "path": "raw/scopus/page_0140.json.gz",
+      "sha256": "8bd06c8f6d9bfd81491cf9434f4dfe25370b4a8ab4f12a4570870f90d6fa8a58",
+      "bytes": 7906
+    },
+    {
+      "path": "raw/scopus/page_0141.json.gz",
+      "sha256": "2c7ffda300e98e0c29d6448926102922413a098789bce8ad3eab8c006fdb9430",
+      "bytes": 7923
+    },
+    {
+      "path": "raw/scopus/page_0142.json.gz",
+      "sha256": "0c88b01f0ee01da37c41caa73ed7b86938bc0f85b7efef00802c0b6d9c97db7d",
+      "bytes": 8152
+    },
+    {
+      "path": "raw/scopus/page_0143.json.gz",
+      "sha256": "97179baa0aa30925c63f682dc744085541dd0f25d9f4b6a1270897a973cd9111",
+      "bytes": 8304
+    },
+    {
+      "path": "raw/scopus/page_0144.json.gz",
+      "sha256": "68599d30f753b3891ccaea545562436dfc5e249852f2a34bda9ccedd4a78335e",
+      "bytes": 7604
+    },
+    {
+      "path": "raw/scopus/page_0145.json.gz",
+      "sha256": "e6dbbca432ad6c113082a019b037c89b3e0b349543949a72a509be15c5c0e98c",
+      "bytes": 7974
+    },
+    {
+      "path": "raw/scopus/page_0146.json.gz",
+      "sha256": "b6e0b923f64a7907bf1f6570c6f7a2dd4da1f0f2b34f942160a4c4b97e43f37a",
+      "bytes": 8399
+    },
+    {
+      "path": "raw/scopus/page_0147.json.gz",
+      "sha256": "95e5ea9b97f9e42af054b3111133cf87f57a98e95be524ca935c4d2542ab0429",
+      "bytes": 8202
+    },
+    {
+      "path": "raw/scopus/page_0148.json.gz",
+      "sha256": "dd5d33d3e4b6b4a05201e28c52e4fe82577e3e58ce7402434b29c9a287202905",
+      "bytes": 7857
+    },
+    {
+      "path": "raw/scopus/page_0149.json.gz",
+      "sha256": "e01ec9f48c2c43dbe029e13e28d5da76c4d14584402ffabcba11c97392a1a7a6",
+      "bytes": 8041
+    },
+    {
+      "path": "raw/scopus/page_0150.json.gz",
+      "sha256": "fb66752db71131ea77a86e6383c2232cf7ca40ddf475a5617cad6eba96ecb33b",
+      "bytes": 7811
+    },
+    {
+      "path": "raw/scopus/page_0151.json.gz",
+      "sha256": "1887882238cce1150cc18b88f90e3e84dd12e6db6b4402f163598337d222d0d9",
+      "bytes": 8178
+    },
+    {
+      "path": "raw/scopus/page_0152.json.gz",
+      "sha256": "e8efccd4cfc62b2153a8077009128ae8a38132c51277a1b5add6b67af3c7e8ee",
+      "bytes": 8218
+    },
+    {
+      "path": "raw/scopus/page_0153.json.gz",
+      "sha256": "ae99748d52d7b818b960c26a3b82e3de2bd0d8a0fbcd50f7ba7705b36bb6762b",
+      "bytes": 7918
+    },
+    {
+      "path": "raw/scopus/page_0154.json.gz",
+      "sha256": "dfec83dff0aac80cefd0d6edff524a85cfc888ad6bede09f2c1d063e739ca5ce",
+      "bytes": 8078
+    },
+    {
+      "path": "raw/scopus/page_0155.json.gz",
+      "sha256": "113f85dbda093618d2cabdf43deb2e414e798e62b8573707f06e29e3d8b38a44",
+      "bytes": 8021
+    },
+    {
+      "path": "raw/scopus/page_0156.json.gz",
+      "sha256": "bc07bb96050107c5793cff2b226b0dc3fd5a8daf290ec9e1506a3f77bcba2408",
+      "bytes": 5558
+    }
+  ]
+}

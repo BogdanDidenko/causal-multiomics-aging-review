@@ -1,0 +1,180 @@
+{
+  "manifest_version": "1.0.0",
+  "protocol_version": "1.1.2",
+  "snapshot_type": "composite_complete_retrieval",
+  "created_at": "2026-08-02T11:40:10.029860+00:00",
+  "git_revision": "0ba78e2db871b5ab461e05e816f23178f2684a3c",
+  "sources": [
+    "europepmc",
+    "google_scholar",
+    "openalex",
+    "pubmed",
+    "scopus",
+    "semantic_scholar"
+  ],
+  "source_components": {
+    "europepmc": {
+      "search_directory": "data/searches/complete/2026-08-02-v1.1.2-all-automated",
+      "source_manifest": "data/searches/complete/2026-08-02-v1.1.2-all-automated/manifests/europepmc.json",
+      "source_manifest_sha256": "a2632399788faa834a9c0ab1163cb49ff00c6e9a77a82022e33919b50117a4d3",
+      "reported_count": 1651,
+      "retrieved_count": 1651,
+      "local_three_block_count": 1608,
+      "query_files": {
+        "combined": "protocol/queries/v1.0.0/europepmc.txt"
+      },
+      "query_sha256": {
+        "combined": "417588587c6c43fb77a7d2bea856bf59284d488ed92b637ce9680f7a97fe9c4a"
+      },
+      "normalized_file": "data/searches/complete/2026-08-02-v1.1.2-all-automated/normalized/europepmc.csv",
+      "normalized_sha256": "a832c9b796e33c47f47bed9bfa620f2d402c064f928c4d3c4ba504c4586228ba",
+      "started_at": "2026-08-02T11:29:21.056034+00:00",
+      "completed_at": "2026-08-02T11:29:50.491614+00:00",
+      "source_details": {}
+    },
+    "google_scholar": {
+      "search_directory": "data/searches/2026-07-27",
+      "source_manifest": "data/searches/2026-07-27/manifests/google_scholar.json",
+      "source_manifest_sha256": "eeeaa0d8e17f058ff355a8be6f9d75cd4e5474908d40ff622b56a0cb451b2cfe",
+      "reported_count": 180,
+      "retrieved_count": 180,
+      "local_three_block_count": 131,
+      "query_files": {
+        "combined": "protocol/queries/google_scholar.txt"
+      },
+      "query_sha256": {
+        "combined": "b13f1304df3dfd19f6d8aa2c42960c36a00d13ed5cb80e4ac6ba66b3914f1d9d"
+      },
+      "normalized_file": "data/searches/2026-07-27/normalized/google_scholar.csv",
+      "normalized_sha256": "3787015318cfb0f1c73c7509c06290e08baabe9e8b7a8ec26b2d43cff679a5cc",
+      "started_at": "2026-07-26T22:05:35.595Z",
+      "completed_at": "2026-07-26T22:07:03.348249+00:00",
+      "source_details": {
+        "mode": "manual_browser_export",
+        "reported_count_is_approximate": true,
+        "reported_count_text": "About 180 results (0,21 sec)",
+        "pages_retrieved": 18,
+        "official_api_available": false
+      }
+    },
+    "openalex": {
+      "search_directory": "data/searches/complete/2026-08-02-v1.1.2-all-automated",
+      "source_manifest": "data/searches/complete/2026-08-02-v1.1.2-all-automated/manifests/openalex.json",
+      "source_manifest_sha256": "4b26704e47094fcd601956acf647b35a1ac030a844552427bb8803ebcb805088",
+      "reported_count": 1600,
+      "retrieved_count": 1181,
+      "local_three_block_count": 1067,
+      "query_files": {
+        "explicit_multiomics": "protocol/queries/v1.1.2/openalex/explicit_multiomics.txt",
+        "genomics_plus_other": "protocol/queries/v1.1.2/openalex/genomics_plus_other.txt",
+        "epigenomics_plus_downstream": "protocol/queries/v1.1.2/openalex/epigenomics_plus_downstream.txt",
+        "transcriptomics_plus_downstream": "protocol/queries/v1.1.2/openalex/transcriptomics_plus_downstream.txt",
+        "proteomics_plus_downstream": "protocol/queries/v1.1.2/openalex/proteomics_plus_downstream.txt",
+        "metabolomics_plus_microbiomics": "protocol/queries/v1.1.2/openalex/metabolomics_plus_microbiomics.txt"
+      },
+      "query_sha256": {
+        "explicit_multiomics": "d51760f17e7cb9d8df21e2fab790bafa21272b33803d75e93638e1a58ff6a142",
+        "genomics_plus_other": "334e43474a46521fee3775673d009eeb89d7d6304685c136b09ec107dc8640ab",
+        "epigenomics_plus_downstream": "14a29cb8023d1728701246229982aad06c99d1c5faf68e84f4cfacfb00894f16",
+        "transcriptomics_plus_downstream": "fb4ebcf50c08a720d4bcc7b7f182af7f2e7179e31dd9b3e3b4aaeea026cce3a7",
+        "proteomics_plus_downstream": "ca3a036fd2fbe038e692f33bd8c38b639b771f66d86c27fa191e99ca149dd791",
+        "metabolomics_plus_microbiomics": "121271e8732dc6c9f55084c19ad890ec72ae77ac0deaef23860ff7bd67c6d1a2"
+      },
+      "normalized_file": "data/searches/complete/2026-08-02-v1.1.2-all-automated/normalized/openalex.csv",
+      "normalized_sha256": "8d2b3ac5939257be0ae82d817c4f22984ae97445e60870ce889c0aba5eccf099",
+      "started_at": "2026-08-02T11:29:21.056254+00:00",
+      "completed_at": "2026-08-02T11:30:14.116847+00:00",
+      "source_details": {
+        "reported_count_semantics": "sum_of_branch_counts_before_deduplication",
+        "branch_counts": {
+          "explicit_multiomics": 297,
+          "genomics_plus_other": 582,
+          "epigenomics_plus_downstream": 248,
+          "transcriptomics_plus_downstream": 276,
+          "proteomics_plus_downstream": 112,
+          "metabolomics_plus_microbiomics": 85
+        },
+        "branch_retrieved_counts": {
+          "explicit_multiomics": 297,
+          "genomics_plus_other": 582,
+          "epigenomics_plus_downstream": 248,
+          "transcriptomics_plus_downstream": 276,
+          "proteomics_plus_downstream": 112,
+          "metabolomics_plus_microbiomics": 85
+        },
+        "retrieved_branch_hits_before_deduplication": 1600,
+        "duplicate_branch_hits_removed": 419,
+        "unique_retrieved_count": 1181,
+        "sampling_seed": null
+      }
+    },
+    "pubmed": {
+      "search_directory": "data/searches/complete/2026-08-02-v1.1.2-pubmed-batch20-http1",
+      "source_manifest": "data/searches/complete/2026-08-02-v1.1.2-pubmed-batch20-http1/manifests/pubmed.json",
+      "source_manifest_sha256": "eba05263364c97378a4b96b5779b81eedc5e21025940f3ac1f5c5497ef70fab9",
+      "reported_count": 2133,
+      "retrieved_count": 2133,
+      "local_three_block_count": 1823,
+      "query_files": {
+        "combined": "protocol/queries/v1.0.0/pubmed.txt"
+      },
+      "query_sha256": {
+        "combined": "94bc9afa584e3c73cc9e74f72edb27780d08547aad0f87fc2f6b2cf36feea3f1"
+      },
+      "normalized_file": "data/searches/complete/2026-08-02-v1.1.2-pubmed-batch20-http1/normalized/pubmed.csv",
+      "normalized_sha256": "be4dc0de06e115834726995d4666287f292c8352fc355f4ee3aa044cfde8be95",
+      "started_at": "2026-08-02T11:35:17.770087+00:00",
+      "completed_at": "2026-08-02T11:37:55.030699+00:00",
+      "source_details": {
+        "fetch_batch_size": 20
+      }
+    },
+    "scopus": {
+      "search_directory": "data/searches/complete/2026-08-02-v1.1.2-all-automated",
+      "source_manifest": "data/searches/complete/2026-08-02-v1.1.2-all-automated/manifests/scopus.json",
+      "source_manifest_sha256": "c5979769d1ad12204ed35d72e57cd5324deee3b4986aa30e7b6489cbd8416e73",
+      "reported_count": 3889,
+      "retrieved_count": 3889,
+      "local_three_block_count": 19,
+      "query_files": {
+        "combined": "protocol/queries/v1.0.0/scopus.txt"
+      },
+      "query_sha256": {
+        "combined": "790797bb11b87de2ee77ed539a8e994acb330a1c4e2150951a50e81f692f0cc6"
+      },
+      "normalized_file": "data/searches/complete/2026-08-02-v1.1.2-all-automated/normalized/scopus.csv",
+      "normalized_sha256": "37048620b20ffa45e43b753961ef38423e84e37cfdc497983516710e5c3f4152",
+      "started_at": "2026-08-02T11:29:21.056133+00:00",
+      "completed_at": "2026-08-02T11:32:33.047561+00:00",
+      "source_details": {
+        "view": "STANDARD",
+        "abstract_entitlement": false
+      }
+    },
+    "semantic_scholar": {
+      "search_directory": "data/searches/complete/2026-08-02-v1.1.2-all-automated",
+      "source_manifest": "data/searches/complete/2026-08-02-v1.1.2-all-automated/manifests/semantic_scholar.json",
+      "source_manifest_sha256": "7dcbc27e06f90c09d783a098c73b6f4e6aad25390fb02e3aea12430f4b923549",
+      "reported_count": 3494,
+      "retrieved_count": 3494,
+      "local_three_block_count": 1221,
+      "query_files": {
+        "combined": "protocol/queries/v1.0.0/semantic_scholar.txt"
+      },
+      "query_sha256": {
+        "combined": "e724204631d22ca424ceb31952a1094d07c9a0968d168917e9d7c2351e34076e"
+      },
+      "normalized_file": "data/searches/complete/2026-08-02-v1.1.2-all-automated/normalized/semantic_scholar.csv",
+      "normalized_sha256": "fca9b8fd03ed7c4ac9904a3eda9395e6128e9e60d55b1aebc18bc44ab5bc2ef2",
+      "started_at": "2026-08-02T11:29:21.056190+00:00",
+      "completed_at": "2026-08-02T11:29:58.385303+00:00",
+      "source_details": {}
+    }
+  },
+  "complete_retrieval": true,
+  "total_source_records": 12528,
+  "total_local_three_block_records": 5869,
+  "combined_file": "normalized/all_sources.csv",
+  "combined_sha256": "5f377887f1d21e77be4d43cedf15bc43bebf30b8d9f2f256b640f03fe0e3fbdd",
+  "interpretation": "Source records are counts before cross-database deduplication. OpenAlex has already been deduplicated across query branches."
+}

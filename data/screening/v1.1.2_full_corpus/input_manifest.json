@@ -1,0 +1,154 @@
+{
+  "status": "frozen_full_corpus_screening_input",
+  "canonical_source": {
+    "path": "data/normalized/v1.1.2/canonical_all_sources.csv",
+    "sha256": "4161a35f7dc5cf26cbcc65afe2569a52998ad71c0b79a84adb04fbd7e89de5cc",
+    "records": 7858
+  },
+  "doi_audit": {
+    "nonempty_doi_rows": 7580,
+    "unique_normalized_doi": 7580,
+    "duplicate_normalized_doi": 0,
+    "missing_doi_rows": 278
+  },
+  "bibliographic_audit": {
+    "unique_record_ids": 7858,
+    "duplicate_record_ids": 0,
+    "duplicate_normalized_title_year": 0
+  },
+  "screening_input": {
+    "path": "data/screening/v1.1.2_full_corpus/input.csv",
+    "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2",
+    "records": 5022
+  },
+  "missing_abstract_queue": {
+    "path": "data/screening/v1.1.2_full_corpus/missing_abstract.csv",
+    "sha256": "0f1549257d437205b9a79205bec8b095027e32a3460e4d9ca17985d41920a89f",
+    "records": 2836,
+    "route": "metadata_enrichment_then_full_text_or_manual_review"
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_01.csv",
+      "sha256": "bb6a6da125c550b20e6f50f74dcf3116b6fe1c45b7a54ecb36a60a9b5412ecc9",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_02.csv",
+      "sha256": "c5768809b88f5122c3ca9255e6d6f82261aae0bcd7f403f5ff60e80bbe265436",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_03.csv",
+      "sha256": "d58dfe61bc65618bcd81618902b19d32a05c0d9bca96cc3b466425b322486bf9",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_04.csv",
+      "sha256": "410f679e4956c59f9131fdc5edffe9d28709d4152e71ab1e8d8f26e3230fdfbe",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_05.csv",
+      "sha256": "d2d22aafd6000ef0fd49cdb46de2609e357fc87b8201455ea45f0d6fe8152140",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_06.csv",
+      "sha256": "9d086fddee22d90436f9268f7c3473153bde0c24206cfee85567a34038a995b1",
+      "records": 210
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_07.csv",
+      "sha256": "9b8b576bfe6227a9b29a1a00860d37240e687950985c549ad176f973405f5fd1",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_08.csv",
+      "sha256": "d30f02edba23d58ce5c1bffb0462d5032eb67a521bd2b17f6b012c73e466a3cf",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_09.csv",
+      "sha256": "7eac7996a4b874bf5d6850f69e0fcaab07d3ddeed277ac0f1f81a4abc2831519",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_10.csv",
+      "sha256": "aab59b6cf8dd9734853b49a061f3bbf5e9141d6900dbb8f10c41c168a7643887",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_11.csv",
+      "sha256": "077ae89cbf39fad862f3ee07fdc2f7659ab9bd7ba5333fb8dffe5b285771776a",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_12.csv",
+      "sha256": "c2caae77ce8280e3f916ca02fe3b4118b112d78a687c31dac2f6551b349e80a0",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_13.csv",
+      "sha256": "ab6dfab973a4d79276b608f451dbb29a22b99a8b0902c8a6de040fc95c5220d2",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_14.csv",
+      "sha256": "d17649ed8b606d133b62b6efc1109a52f3ac68d55a2541ac113a87c418275bf0",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_15.csv",
+      "sha256": "07e38d370bb2fa47d2dbec3dedcb96bd7260f746f308a9c0d9d44f065fa8747b",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_16.csv",
+      "sha256": "3aaba254083716e84cfd55010d414adb75bde826dcc60a78824c7bc834878198",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_17.csv",
+      "sha256": "767cceff3d8b5ebb27a45f7ca3c736f127b29da86afa383ee1fcf65e928224e5",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_18.csv",
+      "sha256": "3994c8f123dcee357244737571698a87a5bde80573fa1e08b132ff9543b74fd5",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_19.csv",
+      "sha256": "58cbb95cf226c4c0ace705b51f08f90722c7e3a8451664eee619919efbe9c38f",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_20.csv",
+      "sha256": "41b2a740ad324dcffbabd1dc47debc1c0a173a51c47f0ef1647e79dd228018d7",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_21.csv",
+      "sha256": "69b55ea47fae4b81465105b24226bd3967ff7d3b2566baf23aa2af69f4491d45",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_22.csv",
+      "sha256": "067c072918f2f6cd912ecf65e4e418a7a60580ab092aa297a9e786002c753f0c",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_23.csv",
+      "sha256": "f7d6ae537a486710c558705b145f35189fc95f320d50b7a8e3483e72152a19bb",
+      "records": 209
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus/shards/shard_24.csv",
+      "sha256": "f7304058e7d438a41ddb9f9b93f04a24801b1627f335cc6fed45622a7f5bddcc",
+      "records": 209
+    }
+  ],
+  "model_screening_status": "not_started",
+  "gold_standard": false
+}

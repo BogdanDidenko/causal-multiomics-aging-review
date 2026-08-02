@@ -1,0 +1,24 @@
+{
+  "manifest_version": "1.0.0",
+  "protocol_version": "1.1.2",
+  "created_at": "2026-08-02T11:34:37.509409+00:00",
+  "git_revision": "0803511a673f22a5dbcbef4b6ac6b5c8d0c7cc7f",
+  "search_config_path": "protocol/search_config_v1.1.2.json",
+  "search_config_sha256": "584090980a694070e4d5d51f233d108bf6e01083f5c583e5b7fb5084fed50be9",
+  "sources_requested": [
+    "pubmed"
+  ],
+  "sources_completed": [],
+  "failures": {
+    "pubmed": "HttpError: HTTP 200: b' Ken K KK MRC Epidemiology Unit, Institute of Metabolic Science, School of Clinical Medicine, University of Cambridge, Cambridge, U.K. alexia.cardona@mrc-epid.cam.ac.uk ken.ong@mrc-epid.cam.ac.uk. eng RG/18/13/33946 BHF_ British Heart Foundation United Kingdom C864/A8257 CRUK_ Cancer Research UK United Kingdom 212945/Z/18/Z WT_ Wellcome Trust United Kingdom G1000143 MRC_ Medical Research Council United Kingdom G9502233 MRC_ Me'"
+  },
+  "pilot_max_records_per_source": null,
+  "openalex_pilot_limit_semantics": "per_query_branch",
+  "openalex_sample_seed": null,
+  "complete_retrieval": true,
+  "source_manifests": {},
+  "total_source_records": 0,
+  "total_local_three_block_records": 0,
+  "combined_file": "normalized/all_sources.csv",
+  "google_scholar_status": "manual_pending"
+}

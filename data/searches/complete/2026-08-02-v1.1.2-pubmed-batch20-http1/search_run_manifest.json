@@ -1,0 +1,591 @@
+{
+  "manifest_version": "1.0.0",
+  "protocol_version": "1.1.2",
+  "created_at": "2026-08-02T11:37:55.075275+00:00",
+  "git_revision": "046242068d984856e55e7ace1bc47a5630d35ab2",
+  "search_config_path": "protocol/search_config_v1.1.2.json",
+  "search_config_sha256": "584090980a694070e4d5d51f233d108bf6e01083f5c583e5b7fb5084fed50be9",
+  "sources_requested": [
+    "pubmed"
+  ],
+  "sources_completed": [
+    "pubmed"
+  ],
+  "failures": {},
+  "pilot_max_records_per_source": null,
+  "openalex_pilot_limit_semantics": "per_query_branch",
+  "openalex_sample_seed": null,
+  "complete_retrieval": true,
+  "source_manifests": {
+    "pubmed": {
+      "source": "pubmed",
+      "started_at": "2026-08-02T11:35:17.770087+00:00",
+      "completed_at": "2026-08-02T11:37:55.030699+00:00",
+      "query_files": {
+        "combined": "protocol/queries/v1.0.0/pubmed.txt"
+      },
+      "query_sha256": {
+        "combined": "94bc9afa584e3c73cc9e74f72edb27780d08547aad0f87fc2f6b2cf36feea3f1"
+      },
+      "reported_count": 2133,
+      "source_details": {
+        "fetch_batch_size": 20
+      },
+      "retrieved_count": 2133,
+      "local_three_block_count": 1823,
+      "local_explicit_multiomics_count": 566,
+      "local_layer_pair_count": 1743,
+      "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+      "canonical_positive_found": true,
+      "canonical_positive_local_three_block_match": true,
+      "normalized_file": "normalized/pubmed.csv",
+      "normalized_sha256": "be4dc0de06e115834726995d4666287f292c8352fc355f4ee3aa044cfde8be95",
+      "raw_responses": [
+        {
+          "path": "raw/pubmed/page_0001.xml.gz",
+          "sha256": "51f31bfca575d749b76c89c9591fed19f6554f3fefd1ee4e97d6e8fcab4b70ef",
+          "bytes": 200148
+        },
+        {
+          "path": "raw/pubmed/page_0002.xml.gz",
+          "sha256": "808b4506afd09df00d99fe79461d6cdf5a5595bae1a31dec5886e7af71fa2428",
+          "bytes": 158575
+        },
+        {
+          "path": "raw/pubmed/page_0003.xml.gz",
+          "sha256": "b98cba0addb6f15f73fa908cfc54a5ab40f4324f32d90bbe98e656973b591876",
+          "bytes": 152809
+        },
+        {
+          "path": "raw/pubmed/page_0004.xml.gz",
+          "sha256": "554e02ddb48bf9d25a0f6c1e9298669392d435b38e50b7b20a468791675114c3",
+          "bytes": 66337
+        },
+        {
+          "path": "raw/pubmed/page_0005.xml.gz",
+          "sha256": "c516509a027621c0ad5f21e85d7e0218dfdb4bc3abdcafa0344d7c1db707fdf8",
+          "bytes": 143775
+        },
+        {
+          "path": "raw/pubmed/page_0006.xml.gz",
+          "sha256": "b080d5dea9248a8449ca85c5493bde90bdc8f6b484374eec68eadc57e3989d40",
+          "bytes": 168831
+        },
+        {
+          "path": "raw/pubmed/page_0007.xml.gz",
+          "sha256": "3977a0f6b99605ac2936f2fa4aa706fa818072658e21f85be25be9a00c1fcf3c",
+          "bytes": 129764
+        },
+        {
+          "path": "raw/pubmed/page_0008.xml.gz",
+          "sha256": "47e23b33f9d78c26448b3ba34b82213e2f1d593180d2859c454d8df55eb9d711",
+          "bytes": 161746
+        },
+        {
+          "path": "raw/pubmed/page_0009.xml.gz",
+          "sha256": "72f17a7b9d4f2c9879a1dc02f22b3f4908df1048952fb2bacb11a50d3a109299",
+          "bytes": 214627
+        },
+        {
+          "path": "raw/pubmed/page_0010.xml.gz",
+          "sha256": "5515b861e4412a4b0ba5df731b9c7f196df26e7f9781d3a56f16c12f38dbe8b6",
+          "bytes": 119818
+        },
+        {
+          "path": "raw/pubmed/page_0011.xml.gz",
+          "sha256": "871c50f465be5ef202003003f8e06dc645d7fad267646e33ad007e67b26bf850",
+          "bytes": 165145
+        },
+        {
+          "path": "raw/pubmed/page_0012.xml.gz",
+          "sha256": "d881fe1276dc477766f6215c56e63215a23f5eede74c9558c2b67df8a52a7b74",
+          "bytes": 224610
+        },
+        {
+          "path": "raw/pubmed/page_0013.xml.gz",
+          "sha256": "7fb15109a8fd6b3345c1894ed3cfb91858f51aedd3e7adf652aed0aa0f51fe7a",
+          "bytes": 157330
+        },
+        {
+          "path": "raw/pubmed/page_0014.xml.gz",
+          "sha256": "d088dcc51c935ef931de5a444b5a1c7e0d5ae67c2d50b82bdabaf07c15543ca9",
+          "bytes": 177143
+        },
+        {
+          "path": "raw/pubmed/page_0015.xml.gz",
+          "sha256": "6d4348ac6c27fe4ded54b0f333f4fb122c54095c74f5190859a595903a287550",
+          "bytes": 220820
+        },
+        {
+          "path": "raw/pubmed/page_0016.xml.gz",
+          "sha256": "92e37e79d9e6bc49cb66008df2a9672a46db07a8e3e04cd49235913b0f1c3c7c",
+          "bytes": 184704
+        },
+        {
+          "path": "raw/pubmed/page_0017.xml.gz",
+          "sha256": "a6f7b2cfd7470931a5be81b286e97bb5cb0d3ddd129f7e6d3b15286c4f24e747",
+          "bytes": 179987
+        },
+        {
+          "path": "raw/pubmed/page_0018.xml.gz",
+          "sha256": "ac9f9390191e31dcf16d3ff3b88415f431adb3dde6253c6f2fee938afba3e4e1",
+          "bytes": 222169
+        },
+        {
+          "path": "raw/pubmed/page_0019.xml.gz",
+          "sha256": "870d802752c336fb74591be76cb8a583b477259d119693b0d0e61b6871e9d062",
+          "bytes": 219871
+        },
+        {
+          "path": "raw/pubmed/page_0020.xml.gz",
+          "sha256": "7054c7662c533760e3b02e77f2a34dec50ca9c031e0ad7f66fae349a4aa647fc",
+          "bytes": 181907
+        },
+        {
+          "path": "raw/pubmed/page_0021.xml.gz",
+          "sha256": "ac164d433c86c94009af0cee831151b9b629d3726d458146e0318b0050591dc6",
+          "bytes": 189898
+        },
+        {
+          "path": "raw/pubmed/page_0022.xml.gz",
+          "sha256": "bc12ce393a2ffbe7c49731100a4aaeca90ae73667ac0cd64a12d5e0cc6413030",
+          "bytes": 187529
+        },
+        {
+          "path": "raw/pubmed/page_0023.xml.gz",
+          "sha256": "ed181d31048851cc17757ede809cc722acf5973b6fa9b0730845b08dc1514ee6",
+          "bytes": 186236
+        },
+        {
+          "path": "raw/pubmed/page_0024.xml.gz",
+          "sha256": "503f0afdcdcba58ffc520f96c2123a2e186f46486802dbfad375314be5ae1436",
+          "bytes": 195388
+        },
+        {
+          "path": "raw/pubmed/page_0025.xml.gz",
+          "sha256": "934d5e036968fde5acfc50005503eae6f66f2f8075547013f34ccd17f3d396d2",
+          "bytes": 168935
+        },
+        {
+          "path": "raw/pubmed/page_0026.xml.gz",
+          "sha256": "a70e51c766615245ed4455dec3979148d7cb055a047465dccf53c423db4f1778",
+          "bytes": 235604
+        },
+        {
+          "path": "raw/pubmed/page_0027.xml.gz",
+          "sha256": "e4c1dd2d57a6dbcf22745c3e024ff770ed62fd371e8c8524c542ae9c9b68bf66",
+          "bytes": 285655
+        },
+        {
+          "path": "raw/pubmed/page_0028.xml.gz",
+          "sha256": "b4f0e63b6c3e1917ce40d337a1d61027fe8b6c16286c82836079164253321bbf",
+          "bytes": 164754
+        },
+        {
+          "path": "raw/pubmed/page_0029.xml.gz",
+          "sha256": "0073ded0f640c9689a2503276ff183aac48f7ca6f10048dcb3b8e17da28fe1f0",
+          "bytes": 228111
+        },
+        {
+          "path": "raw/pubmed/page_0030.xml.gz",
+          "sha256": "18b4e1699a96fb638bda2f66def34e2a488d7143386079e366cf18ac2f4b24f2",
+          "bytes": 214676
+        },
+        {
+          "path": "raw/pubmed/page_0031.xml.gz",
+          "sha256": "37a6c8f4028d9026dcd27404c09786c17360c849295741b135abaebd68c11517",
+          "bytes": 175206
+        },
+        {
+          "path": "raw/pubmed/page_0032.xml.gz",
+          "sha256": "45c00c5b9ede88c37fdadce598a5391519dd6b3c500dc0571cbdf9271bdf14d3",
+          "bytes": 167461
+        },
+        {
+          "path": "raw/pubmed/page_0033.xml.gz",
+          "sha256": "569b736353238ba7846923deb69219596ab6e57cbfd521127882d44acfb41c6b",
+          "bytes": 237022
+        },
+        {
+          "path": "raw/pubmed/page_0034.xml.gz",
+          "sha256": "066e01b92b24da9c9b058e96571083d551a5b0959fdc64dbaf2a8c0a4229dc9b",
+          "bytes": 165237
+        },
+        {
+          "path": "raw/pubmed/page_0035.xml.gz",
+          "sha256": "38a48b6be1856c9b9cde6aef7e8935873cfd41bee7d9b69d9ac27e164005273f",
+          "bytes": 173473
+        },
+        {
+          "path": "raw/pubmed/page_0036.xml.gz",
+          "sha256": "6eb4cafad29975c6983a16bb907e4474d37417656fe178d4db9ae0c710f478fb",
+          "bytes": 152776
+        },
+        {
+          "path": "raw/pubmed/page_0037.xml.gz",
+          "sha256": "c545e8fa492af8263e564e0914821c19476efd1566613e82e4f41fd329a1df12",
+          "bytes": 145961
+        },
+        {
+          "path": "raw/pubmed/page_0038.xml.gz",
+          "sha256": "7a1b174d3f509caa50c5824ba094977686cafae88343337a9342c9cf51f05ae6",
+          "bytes": 163646
+        },
+        {
+          "path": "raw/pubmed/page_0039.xml.gz",
+          "sha256": "953def0908aa751529dab5969c73c42d4f137fd02c2719f5f668f6548ba60227",
+          "bytes": 250497
+        },
+        {
+          "path": "raw/pubmed/page_0040.xml.gz",
+          "sha256": "a0042871bdb97a6325983fe5ce80aca0b77d74861418e1b3873115b7e0589d1d",
+          "bytes": 150646
+        },
+        {
+          "path": "raw/pubmed/page_0041.xml.gz",
+          "sha256": "366011bf077352a78463153c50c6ad2d9caf8588db4dbc19c3e8eee8fdc32b85",
+          "bytes": 165805
+        },
+        {
+          "path": "raw/pubmed/page_0042.xml.gz",
+          "sha256": "1da793e9c601965ab230295941a2c4104dd4fa9ce0ae86cd23301cbe1ade0ea1",
+          "bytes": 162001
+        },
+        {
+          "path": "raw/pubmed/page_0043.xml.gz",
+          "sha256": "23ab815984641894d65364b9afb0ea1c10ae582670b6f9bf52796b9a36912d9b",
+          "bytes": 175369
+        },
+        {
+          "path": "raw/pubmed/page_0044.xml.gz",
+          "sha256": "e5fbbad91e7457da702fbd24d71f123dcf2b09dcb0c2a185c28b2235cbd378b0",
+          "bytes": 206321
+        },
+        {
+          "path": "raw/pubmed/page_0045.xml.gz",
+          "sha256": "3a18c0c82456ae5ba53524ffefef403d2454d7b587e11b3f7634a3e84dcf143c",
+          "bytes": 165641
+        },
+        {
+          "path": "raw/pubmed/page_0046.xml.gz",
+          "sha256": "fa59b85a50d897368e4894fd6852055bc49406b92b17731d8c671b87bd5e622f",
+          "bytes": 150446
+        },
+        {
+          "path": "raw/pubmed/page_0047.xml.gz",
+          "sha256": "2589bf5876df23a1b16779d617c401b5aed11a723b8a247fd463f7cf9a483a0c",
+          "bytes": 246862
+        },
+        {
+          "path": "raw/pubmed/page_0048.xml.gz",
+          "sha256": "40908ac0f2a977b16fcae4ae3fbd42bd994b4d2a82ba5e6134482926d4e84bd9",
+          "bytes": 138262
+        },
+        {
+          "path": "raw/pubmed/page_0049.xml.gz",
+          "sha256": "5461b6f2e8b429a44dc28c2910c4b0345c37613bc7804ea4fd83b26f6c85a398",
+          "bytes": 200095
+        },
+        {
+          "path": "raw/pubmed/page_0050.xml.gz",
+          "sha256": "e18fa72f41136356ff5cf51d1bec6974658177054ffcdad18d1e62272f46fd7a",
+          "bytes": 167664
+        },
+        {
+          "path": "raw/pubmed/page_0051.xml.gz",
+          "sha256": "38275927f05dca03a39857f19c37f9bef610e2c74d15f9c9a90004a8fef2f930",
+          "bytes": 172413
+        },
+        {
+          "path": "raw/pubmed/page_0052.xml.gz",
+          "sha256": "f1bd9d6726421ff0d45042684087f722fef37e3b5228b50b3e2ecc43d91bcf2d",
+          "bytes": 182458
+        },
+        {
+          "path": "raw/pubmed/page_0053.xml.gz",
+          "sha256": "c9946002c8a330d61274528fb0564c327ca78ec06f139c27ed1a98efa6e6310a",
+          "bytes": 175512
+        },
+        {
+          "path": "raw/pubmed/page_0054.xml.gz",
+          "sha256": "655caa2780fd075b61b81bfd2a2a7ede90159e497df3b42c06348bc2cc7e79ad",
+          "bytes": 161884
+        },
+        {
+          "path": "raw/pubmed/page_0055.xml.gz",
+          "sha256": "63960fd8479e01526eb754a5fc14059e5db95482c5617b31bd2fd43196c6c6bc",
+          "bytes": 243639
+        },
+        {
+          "path": "raw/pubmed/page_0056.xml.gz",
+          "sha256": "968c93a1b6e876e199aed0ba717e1d68fa92b7c2a7b5f6d250c1cb6e988efd9d",
+          "bytes": 169015
+        },
+        {
+          "path": "raw/pubmed/page_0057.xml.gz",
+          "sha256": "c854de7ca8bf020e15f3660bf5c43cb2601db64057a54c293fd5bc5baa37671f",
+          "bytes": 187606
+        },
+        {
+          "path": "raw/pubmed/page_0058.xml.gz",
+          "sha256": "d26c2e52b6910f75e83ee7bde301fca7c122d9bd266764e919b13e0a1562d265",
+          "bytes": 231466
+        },
+        {
+          "path": "raw/pubmed/page_0059.xml.gz",
+          "sha256": "233fa92b0a5e4d5358b9fca865b2383e9e5c898678f48de3268877353da1b619",
+          "bytes": 215582
+        },
+        {
+          "path": "raw/pubmed/page_0060.xml.gz",
+          "sha256": "f677218a785a611afb3c34465efaf274eebbdd8101b2858552b549cfbb3ead2d",
+          "bytes": 200329
+        },
+        {
+          "path": "raw/pubmed/page_0061.xml.gz",
+          "sha256": "df7fcd079dfd0c91e63d726d4bb2a081be44f19b0204869fe86434d433216f59",
+          "bytes": 177777
+        },
+        {
+          "path": "raw/pubmed/page_0062.xml.gz",
+          "sha256": "efdea7a244fa4fef9c2fee4ce43f7bf7f60b900d22d32188a8beb7fab61c9fd2",
+          "bytes": 195678
+        },
+        {
+          "path": "raw/pubmed/page_0063.xml.gz",
+          "sha256": "b9c9aadcca19d1b8aa567d13ad445d186228cf60cb84390e418b2640ef7e4464",
+          "bytes": 168407
+        },
+        {
+          "path": "raw/pubmed/page_0064.xml.gz",
+          "sha256": "14730f61652600ee3b2c523d4c5178a2f43ac359902662dd9e15a432331fec3e",
+          "bytes": 237756
+        },
+        {
+          "path": "raw/pubmed/page_0065.xml.gz",
+          "sha256": "9f8d0eb97abb66e61010a215ff28d3fc8a260132dd13fa24aeb150688d518faa",
+          "bytes": 200525
+        },
+        {
+          "path": "raw/pubmed/page_0066.xml.gz",
+          "sha256": "c20b9910123a211e59e04535a3f1483a58a77e2d03bc115534c1ebc43bd0bb5a",
+          "bytes": 182788
+        },
+        {
+          "path": "raw/pubmed/page_0067.xml.gz",
+          "sha256": "13b7a155df674d098dc58d2814891d62c7b54e2c16477a5592e88fd4ab44e445",
+          "bytes": 207385
+        },
+        {
+          "path": "raw/pubmed/page_0068.xml.gz",
+          "sha256": "bf0594368460a650b5cd731bf3cb8922281645a65439eedb97deac292ff4a436",
+          "bytes": 165281
+        },
+        {
+          "path": "raw/pubmed/page_0069.xml.gz",
+          "sha256": "32457475d9df76d60364eca3688101e13d550baf0014d58bb55244650f8df492",
+          "bytes": 271866
+        },
+        {
+          "path": "raw/pubmed/page_0070.xml.gz",
+          "sha256": "598652ba2ca2773a0253287fed60a0a9bdd3437dd80d2fdc22532312b1d7f125",
+          "bytes": 172057
+        },
+        {
+          "path": "raw/pubmed/page_0071.xml.gz",
+          "sha256": "9550b9f464999a2d499d6427cb97b32502a6ff55c4e9cacc8d460ef828230b8e",
+          "bytes": 229211
+        },
+        {
+          "path": "raw/pubmed/page_0072.xml.gz",
+          "sha256": "0bc423cbd4f51cf0b822b92f99f8867a498fcbb26b6bb92fd3b40fe39b027973",
+          "bytes": 162933
+        },
+        {
+          "path": "raw/pubmed/page_0073.xml.gz",
+          "sha256": "ad014964738c7c876cfd93d64f3e8a2c30a37e9b6f8769c7bb4d46c0576d29be",
+          "bytes": 237797
+        },
+        {
+          "path": "raw/pubmed/page_0074.xml.gz",
+          "sha256": "637197bb7731a0159e9e5d751930082df7ee9b0c95f1c86e2cc1ed1ca65f3a9a",
+          "bytes": 243522
+        },
+        {
+          "path": "raw/pubmed/page_0075.xml.gz",
+          "sha256": "f8d6c2b74a82f05217c2ed11ab12f5206e9ccc44ee2f9827d2bcabb0a99a3311",
+          "bytes": 214588
+        },
+        {
+          "path": "raw/pubmed/page_0076.xml.gz",
+          "sha256": "f3af89863703466324003ecc5079c6b8ee433e66e00fb21b87deff5a373d583c",
+          "bytes": 245036
+        },
+        {
+          "path": "raw/pubmed/page_0077.xml.gz",
+          "sha256": "a9373b22eecb42652d3d62e6786d17c39fa86eece5b89eadf51055b2b27e5066",
+          "bytes": 186919
+        },
+        {
+          "path": "raw/pubmed/page_0078.xml.gz",
+          "sha256": "e646d6b7084993a2dd623910fd05293dcbcf685037d717f9a5530a0cc0ab6353",
+          "bytes": 186927
+        },
+        {
+          "path": "raw/pubmed/page_0079.xml.gz",
+          "sha256": "ca15af089ffe55176b502217880186094a02f4a2c7b1f1ed4a7951aa0381f79e",
+          "bytes": 212600
+        },
+        {
+          "path": "raw/pubmed/page_0080.xml.gz",
+          "sha256": "a9b987ebb1eec4c4e898230269ebb5abc15784ebeb192b9619c8de69b0afde9d",
+          "bytes": 205739
+        },
+        {
+          "path": "raw/pubmed/page_0081.xml.gz",
+          "sha256": "5f61da2f05344e79a698ae4d83c26a881e6ef1c11bece2d714234413e8c2e1f1",
+          "bytes": 222138
+        },
+        {
+          "path": "raw/pubmed/page_0082.xml.gz",
+          "sha256": "7dd4340dd4d340bf28936eb590360c7cbac33fa696f5b25a9728facd77112aaa",
+          "bytes": 178078
+        },
+        {
+          "path": "raw/pubmed/page_0083.xml.gz",
+          "sha256": "167a2cb188e35d9bc3474ee06ea236475a2db6b2e6cc5ee2eef8aa50d6f6be5d",
+          "bytes": 165246
+        },
+        {
+          "path": "raw/pubmed/page_0084.xml.gz",
+          "sha256": "d04a0068be49b05780308f5eabaf6dcfcdc7648cbcd6ededbc8ee0984e385ef2",
+          "bytes": 198927
+        },
+        {
+          "path": "raw/pubmed/page_0085.xml.gz",
+          "sha256": "06c8f6b158a18f0f906f3b14f5f0c2432bb5a3e4454bb569e3f4b8741e9771ea",
+          "bytes": 184374
+        },
+        {
+          "path": "raw/pubmed/page_0086.xml.gz",
+          "sha256": "c2ce4cd578977aa8f050f68993ea61a52c8bf9700631768fb39c420c6f365fe1",
+          "bytes": 184737
+        },
+        {
+          "path": "raw/pubmed/page_0087.xml.gz",
+          "sha256": "d8d433b8487b715b3fc0a135080032f3fd7be939f5db51ddb5abe21bbf035a3b",
+          "bytes": 193984
+        },
+        {
+          "path": "raw/pubmed/page_0088.xml.gz",
+          "sha256": "f6c511910aa61333c638a8180e7719298b8454129eff1d870b110061b1a286a3",
+          "bytes": 177583
+        },
+        {
+          "path": "raw/pubmed/page_0089.xml.gz",
+          "sha256": "f636fb07954b5457091ffa060cf7d2639015184dbc8d6db4cd077995831b56c5",
+          "bytes": 200631
+        },
+        {
+          "path": "raw/pubmed/page_0090.xml.gz",
+          "sha256": "fa0ae419c51db1c95db023a7b4e581f152d4ab1f1a526f07b1da2d160d3aae56",
+          "bytes": 156018
+        },
+        {
+          "path": "raw/pubmed/page_0091.xml.gz",
+          "sha256": "40acf335fb56ea5f9ccf78ec50fb4377f381112393d15b93de969877c99d219c",
+          "bytes": 99649
+        },
+        {
+          "path": "raw/pubmed/page_0092.xml.gz",
+          "sha256": "aa097f07ef0d3eddc324e9e959ada7e86a6a83059fc9f8aba94d236049f0ed65",
+          "bytes": 132800
+        },
+        {
+          "path": "raw/pubmed/page_0093.xml.gz",
+          "sha256": "1b31f95fc75a17311a874922432d53b230d0f9c54b84aaf179534cba7c8058e2",
+          "bytes": 153411
+        },
+        {
+          "path": "raw/pubmed/page_0094.xml.gz",
+          "sha256": "7ce738c91632cd570cf93e51060984663943fc3b4141f4433e598bd8c324634f",
+          "bytes": 197771
+        },
+        {
+          "path": "raw/pubmed/page_0095.xml.gz",
+          "sha256": "cef95659b9e60f7245597fbc218a476dc2cb9190ad2689d4e87eae530788d38d",
+          "bytes": 155247
+        },
+        {
+          "path": "raw/pubmed/page_0096.xml.gz",
+          "sha256": "ae4dac40da43ffa6e0dc86289b394d1608fd479140d122f554f593ed59131001",
+          "bytes": 138860
+        },
+        {
+          "path": "raw/pubmed/page_0097.xml.gz",
+          "sha256": "8c6c43f37bf91367d53ea74c6571d4d46adf08527d0b91efc599cbede6615920",
+          "bytes": 205245
+        },
+        {
+          "path": "raw/pubmed/page_0098.xml.gz",
+          "sha256": "3706b53e01f7ecde7f0e0b0efddb8f31825ad311596c19a89f61353147592054",
+          "bytes": 143412
+        },
+        {
+          "path": "raw/pubmed/page_0099.xml.gz",
+          "sha256": "685db8c0533fcbf4fa22430d929255982449940115a86077720eefb0f4239a27",
+          "bytes": 136787
+        },
+        {
+          "path": "raw/pubmed/page_0100.xml.gz",
+          "sha256": "27ec5ae700db8c99e818f976e330512522f79c9425485131593b0a60e2015be8",
+          "bytes": 160551
+        },
+        {
+          "path": "raw/pubmed/page_0101.xml.gz",
+          "sha256": "382468a4ba2246887826b7a93eff0691080342f95f8a3cee9500de3e6dcb3315",
+          "bytes": 120076
+        },
+        {
+          "path": "raw/pubmed/page_0102.xml.gz",
+          "sha256": "aab339ef75710f274f26918506600ae019a38bd2240145b195be74e39dec05c6",
+          "bytes": 169225
+        },
+        {
+          "path": "raw/pubmed/page_0103.xml.gz",
+          "sha256": "d44036b62cd5e4ef8c34b2491b7da2c653dc1a3d100fba15aba2661996ea858a",
+          "bytes": 113424
+        },
+        {
+          "path": "raw/pubmed/page_0104.xml.gz",
+          "sha256": "2aabf1cb50a75206c9b79dbc3f8b5e90c0816cb65b708a612c8615c86dd10d71",
+          "bytes": 107519
+        },
+        {
+          "path": "raw/pubmed/page_0105.xml.gz",
+          "sha256": "6f3c404c2179f7aab06168ddf01ec00a0d6726ced71cd7c5dc5665c52f2c9fcd",
+          "bytes": 90399
+        },
+        {
+          "path": "raw/pubmed/page_0106.xml.gz",
+          "sha256": "0260e34f67cdb24135f8ed99c4d543200946138e72c0f13011b8c810c6e50ea3",
+          "bytes": 61991
+        },
+        {
+          "path": "raw/pubmed/page_0107.xml.gz",
+          "sha256": "a3871021c5c44379064f32992549de4f7a9e584b844f2be4c7b438e1e7da0743",
+          "bytes": 22443
+        },
+        {
+          "path": "raw/pubmed/search.json.gz",
+          "sha256": "4f44d266ae6a3ee7d2ee4e5a212f4de22caeaaaf64d8d057af9c99b3c1ada30a",
+          "bytes": 962
+        }
+      ]
+    }
+  },
+  "total_source_records": 2133,
+  "total_local_three_block_records": 1823,
+  "combined_file": "normalized/all_sources.csv",
+  "google_scholar_status": "manual_pending"
+}

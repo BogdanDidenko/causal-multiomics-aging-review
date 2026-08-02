@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.1.0",
+  "created_at": "2026-08-02T11:46:05Z",
+  "protocol_version": "1.1.2",
+  "automated_search_date": "2026-08-02",
+  "manual_google_scholar_search_date_utc": "2026-07-26",
+  "automated_database_records": 12348,
+  "manual_supplementary_records": 180,
+  "total_records_identified": 12528,
+  "duplicate_instances_removed": 4670,
+  "unique_records_for_title_abstract_screening": 7858,
+  "unique_records_with_abstract": 5022,
+  "unique_records_missing_abstract": 2836,
+  "unique_records_with_oversized_abstract_metadata": 397,
+  "screening_status": "input_frozen_run_pending",
+  "source_counts": {
+    "pubmed": {
+      "reported": 2133,
+      "retrieved": 2133,
+      "local_three_block": 1823,
+      "canonical_positive_found": true
+    },
+    "europepmc": {
+      "reported": 1651,
+      "retrieved": 1651,
+      "local_three_block": 1608,
+      "canonical_positive_found": true
+    },
+    "scopus": {
+      "reported": 3889,
+      "retrieved": 3889,
+      "local_three_block": 19,
+      "canonical_positive_found": true,
+      "abstract_entitlement": false
+    },
+    "semantic_scholar": {
+      "reported": 3494,
+      "retrieved": 3494,
+      "local_three_block": 1221,
+      "canonical_positive_found": true
+    },
+    "openalex": {
+      "reported_branch_occurrences": 1600,
+      "retrieved_unique_works": 1181,
+      "duplicate_branch_occurrences_removed": 419,
+      "local_three_block": 1067,
+      "canonical_positive_found": true
+    },
+    "google_scholar": {
+      "reported_approximate": 180,
+      "retrieved": 180,
+      "local_three_block": 131,
+      "canonical_positive_found": true,
+      "mode": "manual_browser_export"
+    }
+  },
+  "excluded_identification_sources": {
+    "springernature": {
+      "included_in_prisma_denominator": false,
+      "reason": "The Meta API full-text search could not express the calibrated database-native scope with acceptable precision. The superseded pilot retrieval is retained separately for audit only."
+    }
+  },
+  "doi_audit": {
+    "canonical_records_with_doi": 7580,
+    "unique_normalized_doi": 7580,
+    "duplicate_normalized_doi": 0,
+    "canonical_records_without_doi": 278,
+    "abstract_records_with_doi": 4913,
+    "unique_abstract_record_doi": 4913,
+    "duplicate_abstract_record_doi": 0,
+    "abstract_records_without_doi": 109
+  },
+  "bibliographic_audit": {
+    "unique_record_ids": 7858,
+    "duplicate_record_ids": 0,
+    "duplicate_normalized_title_year": 0
+  },
+  "provenance_source_count_distribution": {
+    "1": 5879,
+    "2": 543,
+    "3": 587,
+    "4": 642,
+    "5": 192,
+    "6": 15
+  },
+  "canonical_positive": {
+    "doi": "10.1038/s41467-023-37729-w",
+    "title": "Multi-omic underpinnings of epigenetic aging and human longevity",
+    "provenance_sources": [
+      "europepmc",
+      "google_scholar",
+      "openalex",
+      "pubmed",
+      "scopus",
+      "semantic_scholar"
+    ]
+  },
+  "audit_files": {
+    "search_manifest": "data/searches/final/2026-08-02-v1.1.2-composite/search_run_manifest.json",
+    "combined_source_records": "data/searches/final/2026-08-02-v1.1.2-composite/normalized/all_sources.csv",
+    "canonical_records": "data/normalized/v1.1.2/canonical_all_sources.csv",
+    "deduplication_log": "data/normalized/v1.1.2/deduplication_log.csv",
+    "screening_input_manifest": "data/screening/v1.1.2_full_corpus/input_manifest.json"
+  },
+  "notes": [
+    "Local three-block matching is retrieval metadata QA, not an eligibility decision or a screening filter.",
+    "OpenAlex reported counts are branch occurrences; 1,181 unique Works enter the source denominator after within-source branch deduplication.",
+    "Google Scholar has no official search API. Its count is approximate and its 180 displayed records were frozen from 18 manually captured pages.",
+    "Scopus STANDARD-view records lack abstracts under the available API entitlement; abstracts are backfilled only when another source provides one.",
+    "Records without abstracts route to metadata enrichment, full-text retrieval, or manual review and are not silently discarded.",
+    "Abstract metadata over 5,000 characters routes directly to seek_full_text to avoid full-text leakage into title/abstract model review.",
+    "The 2026-07-27 identification snapshot is a superseded pilot and is excluded from the final PRISMA denominator."
+  ]
+}

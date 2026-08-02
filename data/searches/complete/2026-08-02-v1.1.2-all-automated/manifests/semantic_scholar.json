@@ -1,0 +1,44 @@
+{
+  "source": "semantic_scholar",
+  "started_at": "2026-08-02T11:29:21.056190+00:00",
+  "completed_at": "2026-08-02T11:29:58.385303+00:00",
+  "query_files": {
+    "combined": "protocol/queries/v1.0.0/semantic_scholar.txt"
+  },
+  "query_sha256": {
+    "combined": "e724204631d22ca424ceb31952a1094d07c9a0968d168917e9d7c2351e34076e"
+  },
+  "reported_count": 3494,
+  "source_details": {},
+  "retrieved_count": 3494,
+  "local_three_block_count": 1221,
+  "local_explicit_multiomics_count": 1570,
+  "local_layer_pair_count": 2143,
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_found": true,
+  "canonical_positive_local_three_block_match": true,
+  "normalized_file": "normalized/semantic_scholar.csv",
+  "normalized_sha256": "fca9b8fd03ed7c4ac9904a3eda9395e6128e9e60d55b1aebc18bc44ab5bc2ef2",
+  "raw_responses": [
+    {
+      "path": "raw/semantic_scholar/page_0001.json.gz",
+      "sha256": "e64499495c7edb9eba373f241c6c70c219a20bbe20c390b770ab8fa390ded6d4",
+      "bytes": 1009250
+    },
+    {
+      "path": "raw/semantic_scholar/page_0002.json.gz",
+      "sha256": "27c8b309ea523cfc77a65e1d156400c9f506cd4a6f9fd5cc9262ae5c5c6eb1ea",
+      "bytes": 1070030
+    },
+    {
+      "path": "raw/semantic_scholar/page_0003.json.gz",
+      "sha256": "8a48b667f1f455c681c99988596280ae4a5c5d7627f692866761aaf2a2ca1402",
+      "bytes": 1101067
+    },
+    {
+      "path": "raw/semantic_scholar/page_0004.json.gz",
+      "sha256": "c495c9e5141f08cf6a477da97e49fc3652b31d86d800db1295dfed50b783bda6",
+      "bytes": 508161
+    }
+  ]
+}
