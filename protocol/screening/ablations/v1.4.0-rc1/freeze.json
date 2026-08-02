@@ -1,0 +1,60 @@
+{
+  "candidate_id": "causal_multiomics_aging_title_abstract_v1.4.0-rc1",
+  "status": "frozen_before_sealed_holdout",
+  "selected_development_arm": "T+C",
+  "selection_source_commit": "69b2a4d",
+  "last_development_cycle_commit": "3a54e00",
+  "prompt_freeze_parent_commit": "3a54e00",
+  "development_result": {
+    "records": 60,
+    "all_tracked_exact": "58/60",
+    "all_tracked_exact_rate": 0.9666666666666667,
+    "decision_driving_exact": "58/60",
+    "route_exact": "59/60",
+    "schema_valid_after_retry": "60/60",
+    "acceptance_100_percent_met": false,
+    "summary_path": "analysis/prompt_ablation_v1.3.0/development/summary.json",
+    "summary_sha256": "27334f073d209ba3ff0e915aad231d74ab24538ae32443d8cd4106e3c1a5a68e"
+  },
+  "frozen_artifacts": {
+    "scope_prompt": {
+      "path": "protocol/screening/prompts/title_abstract/v1.4.0-rc1/scope_reviewer.txt",
+      "sha256": "1940c272a40ba0b0a9673f967134baf330043c331b3ea5e43e4a57faa0d31f6b"
+    },
+    "causal_prompt": {
+      "path": "protocol/screening/prompts/title_abstract/v1.4.0-rc1/causal_method_reviewer.txt",
+      "sha256": "965b7dac206ea81b9399f54c7d5495f3df56ee5fa4bfb7a2d9d260467b25841f"
+    },
+    "scope_schema": {
+      "path": "protocol/screening/schemas/title_abstract/v1.0.0/scope_reviewer.schema.json",
+      "sha256": "d075af474d6eb65239c31298ee555f04412a6b4e5fdafe36ccfcbe6cf18219db"
+    },
+    "causal_schema": {
+      "path": "protocol/screening/schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json",
+      "sha256": "d48b54eb4f75dafe78c64c9d52922e441c334bb8c6f93866d04b6d6274ba3e08"
+    },
+    "suite": {
+      "path": "protocol/screening/configs/prompt_suite_v1.4.0-rc1.json",
+      "sha256": "8f3b4ec54d8cec21c43f3fb43561f8fc8d168abc83c0be8c6cf60d6c54f1d8f6"
+    }
+  },
+  "runtime": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "max_retries": 1,
+    "context_window": 32768,
+    "codex_cli_version": "codex-cli 0.145.0"
+  },
+  "sealed_holdout": {
+    "path": "protocol/screening/ablations/v1.1.0/samples/sealed_holdout_60.csv",
+    "sha256": "5d5163ff46f9c2f27f6e6444606320f78c5567052caf6d757596d1e425c5f83c",
+    "records": 60,
+    "status_at_freeze": "unopened",
+    "evaluation_arms": ["A0", "RC1"],
+    "open_once": true,
+    "post_holdout_tuning_permitted": false
+  },
+  "decision_rule": "The candidate remains rejected unless all tracked fields, decision-driving fields, route, and schema validity are 100% exact on the sealed holdout; development shortfall is reported regardless.",
+  "rejected_development_arms": ["M", "D", "M+D", "S", "C", "S+C", "R+C"]
+}

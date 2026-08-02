@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -105,6 +106,33 @@ def test_final_micro_ablation_has_a_stop_rule() -> None:
     assert experiment["reference_arm"] == "T+C"
     assert "No further development-set prompt tuning" in experiment["stop_rule"]
     assert len(experiment["factor"]["R"]["semantic_deltas"]) == 2
+
+
+def test_release_candidate_keeps_acceptance_at_exact_agreement() -> None:
+    suite = json.loads(
+        (
+            ROOT
+            / "protocol/screening/configs/prompt_suite_v1.4.0-rc1.json"
+        ).read_text()
+    )
+    assert suite["approval_status"] == "sealed_holdout_pending_not_active"
+    assert suite["stability_policy"]["acceptance"][
+        "all_tracked_criteria_exact_agreement"
+    ] == 1.0
+    assert suite["stages"]["title_abstract"]["decision_repeats"] == 5
+
+
+def test_release_candidate_freeze_hashes_match() -> None:
+    freeze = json.loads(
+        (
+            ROOT / "protocol/screening/ablations/v1.4.0-rc1/freeze.json"
+        ).read_text()
+    )
+    assert freeze["sealed_holdout"]["status_at_freeze"] == "unopened"
+    assert freeze["sealed_holdout"]["post_holdout_tuning_permitted"] is False
+    for artifact in freeze["frozen_artifacts"].values():
+        digest = hashlib.sha256((ROOT / artifact["path"]).read_bytes()).hexdigest()
+        assert digest == artifact["sha256"]
 
 
 def test_ablation_sets_are_disjoint_and_prior_samples_are_excluded() -> None:

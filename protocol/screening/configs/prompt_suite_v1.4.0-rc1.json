@@ -1,0 +1,123 @@
+{
+  "suite_id": "causal_multiomics_aging_screening",
+  "suite_version": "1.4.0-rc1",
+  "approval_status": "sealed_holdout_pending_not_active",
+  "provider": {
+    "protocol": "codex_cli",
+    "codex_bin": "codex",
+    "codex_cli_version": "codex-cli 0.145.0",
+    "model": "gpt-5.6-terra",
+    "display_name": "GPT 5.6 Terra Medium",
+    "sandbox": "read-only",
+    "approval_policy": "never",
+    "ephemeral": true,
+    "ignore_user_config": true,
+    "ignore_rules": true,
+    "isolated_home": true,
+    "disabled_features": ["plugins"]
+  },
+  "runtime": {
+    "provider_protocol": "codex_cli",
+    "reasoning_effort": "medium",
+    "context_window": 32768,
+    "codex_timeout_seconds": 900,
+    "max_retries": 1,
+    "response_format": "json_schema"
+  },
+  "stability_policy": {
+    "model": "gpt-5.6-terra",
+    "repeats": 5,
+    "agent_stages": [
+      "scope_reviewer",
+      "causal_method_reviewer",
+      "eligibility_reviewer",
+      "causal_evidence_reviewer"
+    ],
+    "acceptance": {
+      "schema_success_rate": 1.0,
+      "final_decision_exact_agreement": 1.0,
+      "decisive_criteria_exact_agreement": 1.0,
+      "all_tracked_criteria_exact_agreement": 1.0,
+      "causal_evidence_level_exact_agreement": 1.0,
+      "internal_decision_field_unanimity_rate": 1.0,
+      "manual_review_rate": 0.0
+    },
+    "on_instability": "reject_candidate_and_preserve_sealed_set_as_evaluation_only"
+  },
+  "validation_acceptance": {
+    "title_abstract": {
+      "canonical_positive_retention": 1.0,
+      "seek_full_text_sensitivity": 0.98,
+      "direct_exclusion_precision": 0.95,
+      "schema_success_rate": 1.0,
+      "unsupported_evidence_span_count": 0
+    },
+    "full_text": {
+      "eligibility_sensitivity": 0.95,
+      "design_family_macro_f1": 0.85,
+      "exact_level_agreement": 0.8,
+      "quadratic_weighted_kappa": 0.8,
+      "within_one_level_agreement": 0.95,
+      "unsupported_section_citations": 0
+    }
+  },
+  "stages": {
+    "title_abstract": {
+      "architecture": "v1_two_role_unanimous",
+      "input_format": "csv",
+      "max_tokens": 4000,
+      "max_input_abstract_chars": 5000,
+      "decision_repeats": 5,
+      "roles": {
+        "scope_reviewer": {
+          "prompt": "prompts/title_abstract/v1.4.0-rc1/scope_reviewer.txt",
+          "schema": "schemas/title_abstract/v1.0.0/scope_reviewer.schema.json"
+        },
+        "causal_method_reviewer": {
+          "prompt": "prompts/title_abstract/v1.4.0-rc1/causal_method_reviewer.txt",
+          "schema": "schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json"
+        }
+      },
+      "routing": {
+        "unresolved": "seek_full_text",
+        "positive_causal_basis": "seek_full_text",
+        "unanimous_exclusion": "exclude",
+        "nonunanimous_exclusion": "seek_full_text"
+      }
+    },
+    "full_text": {
+      "architecture": "v1_deterministic_sections_unanimous",
+      "input_format": "jsonl",
+      "max_tokens": 16000,
+      "decision_repeats": 5,
+      "deterministic_section_packaging": {
+        "max_chars": 60000,
+        "max_section_chars": 12000,
+        "required_heading_terms": ["abstract", "method", "material", "result", "finding", "discussion", "limitation"],
+        "priority_text_terms": ["mendelian random", "instrumental variable", "intervention", "perturb", "crispr", "knockout", "mediation", "causal", "directed acyclic", "structural equation", "bayesian network", "omics", "aging", "ageing", "longevity", "lifespan", "senescence"]
+      },
+      "roles": {
+        "eligibility_reviewer": {
+          "prompt": "prompts/full_text/v1.0.0/eligibility_reviewer.txt",
+          "schema": "schemas/full_text/v1.0.0/eligibility_reviewer.schema.json"
+        },
+        "causal_evidence_reviewer": {
+          "prompt": "prompts/full_text/v1.0.0/causal_evidence_reviewer.txt",
+          "schema": "schemas/full_text/v1.0.0/causal_evidence_reviewer.schema.json"
+        }
+      },
+      "level_labels": {
+        "0": "context_only",
+        "1": "associational",
+        "2": "causal_hypothesis",
+        "3": "causal_evidence",
+        "4": "causal_evidence_validated"
+      },
+      "routing": {
+        "unanimous": "assessed",
+        "disagreement": "manual_review",
+        "insufficient": "manual_review"
+      }
+    }
+  }
+}
