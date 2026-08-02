@@ -1,0 +1,337 @@
+{
+  "causal_RC1": {
+    "fields": {
+      "causal_basis": {
+        "assessed_n": 60,
+        "stable_n": 45,
+        "unstable_n": 15,
+        "value_count_signatures": [
+          {
+            "records": 2,
+            "signature": {
+              "\"causal_wording_only\"": 3,
+              "\"none\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 2,
+              "\"named_causal_effect_design\"": 3
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 2,
+              "\"causal_wording_only\"": 3
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 1,
+              "\"formal_directed_hypothesis\"": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 4,
+              "\"causal_analysis_method_unspecified\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 2,
+              "\"none\"": 3
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 4,
+              "\"formal_directed_hypothesis\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 1,
+              "\"causal_wording_only\"": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"causal_wording_only\"": 4,
+              "\"none\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 3,
+              "\"causal_analysis_method_unspecified\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 4,
+              "\"causal_wording_only\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"causal_wording_only\"": 1,
+              "\"none\"": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 3,
+              "\"named_causal_effect_design\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"association_or_prediction_only\"": 3,
+              "\"causal_wording_only\"": 2
+            }
+          }
+        ]
+      },
+      "causal_information_sufficiency": {
+        "assessed_n": 60,
+        "stable_n": 59,
+        "unstable_n": 1,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "\"insufficient\"": 2,
+              "\"sufficient\"": 3
+            }
+          }
+        ]
+      },
+      "current_report_application": {
+        "assessed_n": 60,
+        "stable_n": 54,
+        "unstable_n": 6,
+        "value_count_signatures": [
+          {
+            "records": 2,
+            "signature": {
+              "\"no\"": 4,
+              "\"yes\"": 1
+            }
+          },
+          {
+            "records": 2,
+            "signature": {
+              "\"no\"": 3,
+              "\"yes\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 2,
+              "\"yes\"": 3
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 1,
+              "\"yes\"": 4
+            }
+          }
+        ]
+      },
+      "design_families": {
+        "assessed_n": 60,
+        "stable_n": 56,
+        "unstable_n": 4,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "[\"direct_perturbation\"]": 3,
+              "[]": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "[\"causal_discovery_algorithm\"]": 4,
+              "[]": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "[\"sem\"]": 1,
+              "[]": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "[\"direct_perturbation\"]": 2,
+              "[]": 3
+            }
+          }
+        ]
+      }
+    },
+    "manual_review_records": 0,
+    "records": 60,
+    "valid_five_run_records": 60
+  },
+  "scope_RC1": {
+    "fields": {
+      "aging_process_relevance": {
+        "assessed_n": 59,
+        "stable_n": 57,
+        "unstable_n": 2,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 4,
+              "\"yes\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 1,
+              "\"yes\"": 4
+            }
+          }
+        ]
+      },
+      "bio_health_scope": {
+        "assessed_n": 59,
+        "stable_n": 59,
+        "unstable_n": 0,
+        "value_count_signatures": []
+      },
+      "current_report_layer_use": {
+        "assessed_n": 59,
+        "stable_n": 55,
+        "unstable_n": 4,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 3,
+              "\"unclear\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 1,
+              "\"yes\"": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"unclear\"": 1,
+              "\"yes\"": 4
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"no\"": 1,
+              "\"unclear\"": 4
+            }
+          }
+        ]
+      },
+      "multiomics_evidence": {
+        "assessed_n": 59,
+        "stable_n": 54,
+        "unstable_n": 5,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "\"single_or_no_layer\"": 3,
+              "\"unclear\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"explicit_multiomics\"": 3,
+              "\"two_or_more_layers\"": 2
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"explicit_multiomics\"": 4,
+              "\"single_or_no_layer\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"explicit_multiomics\"": 4,
+              "\"unclear\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"single_or_no_layer\"": 4,
+              "\"two_or_more_layers\"": 1
+            }
+          }
+        ]
+      },
+      "report_type": {
+        "assessed_n": 59,
+        "stable_n": 56,
+        "unstable_n": 3,
+        "value_count_signatures": [
+          {
+            "records": 1,
+            "signature": {
+              "\"empirical_primary\"": 2,
+              "\"nonempirical\"": 3
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"empirical_primary\"": 4,
+              "\"nonempirical\"": 1
+            }
+          },
+          {
+            "records": 1,
+            "signature": {
+              "\"empirical_primary\"": 1,
+              "\"nonempirical\"": 4
+            }
+          }
+        ]
+      }
+    },
+    "manual_review_records": 1,
+    "records": 60,
+    "valid_five_run_records": 59
+  }
+}

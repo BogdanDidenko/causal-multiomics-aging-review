@@ -1,0 +1,37 @@
+{
+  "development_selected": {
+    "arm": "T+C",
+    "exact_n": 58,
+    "exact_rate": 0.9666666666666667,
+    "wilson_high": 0.9908106807438021,
+    "wilson_low": 0.886362257256914
+  },
+  "experiment": "title_abstract_prompt_ablation_study",
+  "holdout_reuse_policy": "report_only_no_prompt_tuning",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "run_accounting": {
+    "error_attempts": 141,
+    "planned_repeat_responses": 3600,
+    "provider_attempts": 3735,
+    "records_manual_review_across_artifacts": 6,
+    "valid_repeat_responses": 3594
+  },
+  "sealed_holdout": {
+    "acceptance_100_percent_met": false,
+    "baseline_exact_n": 29,
+    "baseline_exact_rate": 0.48333333333333334,
+    "decision_rate": 0.8,
+    "disposition": "rejected_not_active",
+    "mcnemar_p": 6.604194641113281e-05,
+    "paired_gains": 21,
+    "paired_losses": 2,
+    "rc1_exact_n": 48,
+    "rc1_exact_rate": 0.8,
+    "records": 60,
+    "route_rate": 0.8333333333333334,
+    "wilson_high": 0.8817149467710251,
+    "wilson_low": 0.6821819419437211
+  },
+  "validity_status": "not_assessed_no_expert_gold"
+}

@@ -1,0 +1,13 @@
+phase,artifact,records,planned_repeat_responses,valid_repeat_responses,provider_attempts,error_attempts,records_manual_review
+development_v1.1.0,scope_A0,60,300,299,318,19,1
+development_v1.1.0,scope_M,60,300,299,308,9,1
+development_v1.1.0,causal_A0,60,300,300,312,12,0
+development_v1.1.0,causal_D,60,300,300,304,4,0
+development_v1.2.0,scope_S,60,300,300,306,6,0
+development_v1.2.0,causal_C,60,300,300,303,3,0
+development_v1.3.0,scope_T,60,300,300,310,10,0
+development_v1.3.1,scope_R,60,300,300,308,8,0
+sealed_holdout_v1.4.0-rc1,scope_A0,60,300,299,332,33,1
+sealed_holdout_v1.4.0-rc1,causal_A0,60,300,298,312,14,2
+sealed_holdout_v1.4.0-rc1,scope_RC1,60,300,299,313,14,1
+sealed_holdout_v1.4.0-rc1,causal_RC1,60,300,300,309,9,0

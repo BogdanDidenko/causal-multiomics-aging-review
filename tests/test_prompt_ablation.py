@@ -135,6 +135,37 @@ def test_release_candidate_freeze_hashes_match() -> None:
         assert digest == artifact["sha256"]
 
 
+def test_release_candidate_is_rejected_after_one_shot_holdout() -> None:
+    evaluation = json.loads(
+        (
+            ROOT / "protocol/screening/ablations/v1.4.0-rc1/evaluation.json"
+        ).read_text()
+    )
+    assert evaluation["frozen_commit"] == "d025544"
+    assert evaluation["evaluation_phase"] == "one_shot_sealed_holdout"
+    assert evaluation["holdout"]["rc1_all_tracked_exact_rate"] == 0.8
+    assert evaluation["acceptance"]["passed"] is False
+    assert evaluation["disposition"] == "rejected_not_active"
+    assert evaluation["validity_status"] == "not_assessed_no_expert_gold"
+    for name, artifact in evaluation["artifacts"].items():
+        if name == "raw_runs":
+            continue
+        digest = hashlib.sha256((ROOT / artifact["path"]).read_bytes()).hexdigest()
+        assert digest == artifact["sha256"]
+
+
+def test_ablation_study_summary_accounts_for_every_planned_repeat() -> None:
+    summary = json.loads(
+        (
+            ROOT / "analysis/prompt_ablation_study_2026-08-02/summary.json"
+        ).read_text()
+    )
+    assert summary["run_accounting"]["planned_repeat_responses"] == 3600
+    assert summary["run_accounting"]["valid_repeat_responses"] == 3594
+    assert summary["sealed_holdout"]["disposition"] == "rejected_not_active"
+    assert summary["holdout_reuse_policy"] == "report_only_no_prompt_tuning"
+
+
 def test_ablation_sets_are_disjoint_and_prior_samples_are_excluded() -> None:
     manifest = json.loads((SAMPLE_ROOT / "manifest.json").read_text())
     with (SAMPLE_ROOT / "development_60.csv").open(newline="", encoding="utf-8") as handle:

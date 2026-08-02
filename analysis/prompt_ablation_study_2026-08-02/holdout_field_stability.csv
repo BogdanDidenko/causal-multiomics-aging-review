@@ -1,0 +1,10 @@
+artifact,field,stable_n,assessed_n,stable_rate,unstable_n
+scope_RC1,report_type,56,59,0.9491525423728814,3
+scope_RC1,bio_health_scope,59,59,1.0,0
+scope_RC1,aging_process_relevance,57,59,0.9661016949152542,2
+scope_RC1,multiomics_evidence,54,59,0.9152542372881356,5
+scope_RC1,current_report_layer_use,55,59,0.9322033898305084,4
+causal_RC1,current_report_application,54,60,0.9,6
+causal_RC1,causal_basis,45,60,0.75,15
+causal_RC1,design_families,56,60,0.9333333333333333,4
+causal_RC1,causal_information_sufficiency,59,60,0.9833333333333333,1

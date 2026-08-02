@@ -1,0 +1,28 @@
+{
+  "artifact": "scope_RC1",
+  "codex_cli_version": "codex-cli 0.145.0",
+  "completed_before_resume": 0,
+  "context_window": 32768,
+  "created_at": "2026-08-02T02:49:27.436875+00:00",
+  "experiment_id": "title_abstract_prompt_ablation_v1.1.0",
+  "git_revision": "d025544970580f3cdbec9d528aa545e75ef2caef",
+  "input_path": "protocol/screening/ablations/v1.1.0/samples/sealed_holdout_60.csv",
+  "input_records": 60,
+  "input_sha256": "5d5163ff46f9c2f27f6e6444606320f78c5567052caf6d757596d1e425c5f83c",
+  "max_retries": 1,
+  "model": "gpt-5.6-terra",
+  "processed_now": 60,
+  "prompt_path": "protocol/screening/prompts/title_abstract/v1.4.0-rc1/scope_reviewer.txt",
+  "prompt_sha256": "1940c272a40ba0b0a9673f967134baf330043c331b3ea5e43e4a57faa0d31f6b",
+  "reasoning_effort": "medium",
+  "repeats": 5,
+  "role": "scope_reviewer",
+  "schema_path": "protocol/screening/schemas/title_abstract/v1.0.0/scope_reviewer.schema.json",
+  "schema_sha256": "d075af474d6eb65239c31298ee555f04412a6b4e5fdafe36ccfcbe6cf18219db",
+  "status_counts_now": {
+    "manual_review": 1,
+    "ok": 59
+  },
+  "suite_config_sha256": "9c23270237230b37719b7d7cd31308fe9ce5efb98c016616bcf4b7a6c73407b7",
+  "workers": 4
+}

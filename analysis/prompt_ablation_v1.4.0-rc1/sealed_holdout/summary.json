@@ -1,0 +1,236 @@
+{
+  "arms": {
+    "A0": {
+      "all_tracked_fields_exact": {
+        "high": 0.6069218996740751,
+        "low": 0.36175049539732784,
+        "rate": 0.48333333333333334,
+        "successes": 29,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.6690634559324476,
+        "low": 0.4249193588533434,
+        "rate": 0.55,
+        "successes": 33,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 0.8618799089087867,
+          "low": 0.39062208887279953,
+          "rate": 0.6666666666666666,
+          "successes": 8,
+          "total": 12
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 1.0,
+          "low": 0.7575059933447592,
+          "rate": 1.0,
+          "successes": 12,
+          "total": 12
+        },
+        "causal.current_report_application": {
+          "high": 0.9110583316059453,
+          "low": 0.46769466506643426,
+          "rate": 0.75,
+          "successes": 9,
+          "total": 12
+        },
+        "causal.design_families": {
+          "high": 0.6804886874504503,
+          "low": 0.19326031365875665,
+          "rate": 0.4166666666666667,
+          "successes": 5,
+          "total": 12
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.9052416065081895,
+          "low": 0.71536779263512,
+          "rate": 0.8305084745762712,
+          "successes": 49,
+          "total": 59
+        },
+        "scope.bio_health_scope": {
+          "high": 1.0,
+          "low": 0.9388706294732116,
+          "rate": 1.0,
+          "successes": 59,
+          "total": 59
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9052416065081895,
+          "low": 0.71536779263512,
+          "rate": 0.8305084745762712,
+          "successes": 49,
+          "total": 59
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.8925727805799468,
+          "low": 0.6962104955303725,
+          "rate": 0.8135593220338984,
+          "successes": 48,
+          "total": 59
+        },
+        "scope.report_type": {
+          "high": 0.9970017660816444,
+          "low": 0.9100427403585771,
+          "rate": 0.9830508474576272,
+          "successes": 58,
+          "total": 59
+        }
+      },
+      "final_decisions": {
+        "exclude": 25,
+        "manual_review": 3,
+        "seek_full_text": 32
+      },
+      "retry_success_count": 41,
+      "single_repeat_route_exact": {
+        "high": 0.868769559518097,
+        "low": 0.6637997242680521,
+        "rate": 0.7833333333333333,
+        "successes": 47,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9828504978356043,
+        "low": 0.8629948352365147,
+        "rate": 0.95,
+        "successes": 57,
+        "total": 60
+      }
+    },
+    "RC1": {
+      "all_tracked_fields_exact": {
+        "high": 0.8817149467710251,
+        "low": 0.6821819419437211,
+        "rate": 0.8,
+        "successes": 48,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.8817149467710251,
+        "low": 0.6821819419437211,
+        "rate": 0.8,
+        "successes": 48,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 0.8922087325936989,
+          "low": 0.39677814746114537,
+          "rate": 0.7,
+          "successes": 7,
+          "total": 10
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 0.9999999999999999,
+          "low": 0.7224672001371107,
+          "rate": 1.0,
+          "successes": 10,
+          "total": 10
+        },
+        "causal.current_report_application": {
+          "high": 0.8922087325936989,
+          "low": 0.39677814746114537,
+          "rate": 0.7,
+          "successes": 7,
+          "total": 10
+        },
+        "causal.design_families": {
+          "high": 0.8922087325936989,
+          "low": 0.39677814746114537,
+          "rate": 0.7,
+          "successes": 7,
+          "total": 10
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.9906540909083387,
+          "low": 0.8845642924988925,
+          "rate": 0.9661016949152542,
+          "successes": 57,
+          "total": 59
+        },
+        "scope.bio_health_scope": {
+          "high": 1.0,
+          "low": 0.9388706294732116,
+          "rate": 1.0,
+          "successes": 59,
+          "total": 59
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9733213810286956,
+          "low": 0.838244756312555,
+          "rate": 0.9322033898305084,
+          "successes": 55,
+          "total": 59
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.9632579669823632,
+          "low": 0.8164820473258972,
+          "rate": 0.9152542372881356,
+          "successes": 54,
+          "total": 59
+        },
+        "scope.report_type": {
+          "high": 0.9825572825270099,
+          "low": 0.8608349778472311,
+          "rate": 0.9491525423728814,
+          "successes": 56,
+          "total": 59
+        }
+      },
+      "final_decisions": {
+        "exclude": 42,
+        "manual_review": 1,
+        "seek_full_text": 17
+      },
+      "retry_success_count": 21,
+      "single_repeat_route_exact": {
+        "high": 0.9068682302080855,
+        "low": 0.7196838683638547,
+        "rate": 0.8333333333333334,
+        "successes": 50,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9970518402052136,
+        "low": 0.9114487027240993,
+        "rate": 0.9833333333333333,
+        "successes": 59,
+        "total": 60
+      }
+    }
+  },
+  "baseline_arm": "A0",
+  "experiment_id": "title_abstract_prompt_ablation_v1.4.0-rc1",
+  "interpretation_constraint": "Reproducibility only; no expert-gold accuracy inference.",
+  "paired_vs_baseline": {
+    "RC1": {
+      "all_tracked_fields_exact": {
+        "exact_mcnemar_p_value": 6.604194641113281e-05,
+        "gains": 21,
+        "losses": 2,
+        "unchanged_failure": 10,
+        "unchanged_success": 27
+      },
+      "decision_driving_fields_exact": {
+        "exact_mcnemar_p_value": 0.000728607177734375,
+        "gains": 17,
+        "losses": 2,
+        "unchanged_failure": 10,
+        "unchanged_success": 31
+      },
+      "single_repeat_route_exact": {
+        "exact_mcnemar_p_value": 0.5078125,
+        "gains": 6,
+        "losses": 3,
+        "unchanged_failure": 7,
+        "unchanged_success": 44
+      }
+    }
+  },
+  "phase": "sealed_holdout",
+  "records": 60
+}

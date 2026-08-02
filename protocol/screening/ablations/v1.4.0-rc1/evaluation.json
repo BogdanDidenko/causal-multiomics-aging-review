@@ -1,0 +1,52 @@
+{
+  "candidate_id": "causal_multiomics_aging_title_abstract_v1.4.0-rc1",
+  "frozen_commit": "d025544",
+  "evaluation_date": "2026-08-02",
+  "evaluation_phase": "one_shot_sealed_holdout",
+  "holdout": {
+    "records": 60,
+    "input_sha256": "5d5163ff46f9c2f27f6e6444606320f78c5567052caf6d757596d1e425c5f83c",
+    "baseline_all_tracked_exact": "29/60",
+    "baseline_all_tracked_exact_rate": 0.48333333333333334,
+    "rc1_all_tracked_exact": "48/60",
+    "rc1_all_tracked_exact_rate": 0.8,
+    "rc1_wilson_95_low": 0.6821819419437211,
+    "rc1_wilson_95_high": 0.8817149467710251,
+    "rc1_decision_fields_exact_rate": 0.8,
+    "rc1_route_exact_rate": 0.8333333333333334,
+    "rc1_valid_five_runs": "59/60",
+    "paired_gains": 21,
+    "paired_losses": 2,
+    "exact_mcnemar_p": 0.00006604194641113281
+  },
+  "acceptance": {
+    "required_all_tracked_exact_rate": 1.0,
+    "required_decision_fields_exact_rate": 1.0,
+    "required_route_exact_rate": 1.0,
+    "required_valid_five_runs_rate": 1.0,
+    "passed": false
+  },
+  "disposition": "rejected_not_active",
+  "reason": "The frozen candidate improved reproducibility but failed every 100% sealed-holdout stability threshold and had already missed the development threshold.",
+  "post_holdout_policy": "No prompt tuning or candidate activation using this holdout.",
+  "validity_status": "not_assessed_no_expert_gold",
+  "artifacts": {
+    "holdout_summary": {
+      "path": "analysis/prompt_ablation_v1.4.0-rc1/sealed_holdout/summary.json",
+      "sha256": "97c8f259b60d7f6def333819a23b8678f62034136516e71b1d5afc81b23ac937"
+    },
+    "holdout_record_outcomes": {
+      "path": "analysis/prompt_ablation_v1.4.0-rc1/sealed_holdout/record_outcomes.csv",
+      "sha256": "9f732a5b9fc7504d1dcc55068c1fe8e6ed0d975d1381a20d654f206aa9981d89"
+    },
+    "study_summary": {
+      "path": "analysis/prompt_ablation_study_2026-08-02/summary.json",
+      "sha256": "8c9bc273690c16a0f929fc8d9bf89b7f3b823cb9cea916f7ce39803d4b7dace8"
+    },
+    "manuscript_section": {
+      "path": "analysis/prompt_ablation_study_2026-08-02/methods_results.md",
+      "sha256": "0c2e619f4cdfb77a8244ffe15a3baf0a6e728475b8ee27a4aaa56b9b1a0e4bd2"
+    },
+    "raw_runs": "data/screening/prompt_ablation_v1.4.0-rc1/sealed_holdout/roles"
+  }
+}
