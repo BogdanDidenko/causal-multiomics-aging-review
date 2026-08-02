@@ -1,0 +1,41 @@
+{
+  "experiment_id": "title_abstract_prompt_ablation_v1.3.0",
+  "status": "development_not_run",
+  "parent_cycle": "title_abstract_prompt_ablation_v1.2.0",
+  "parent_result_commit": "3a27309",
+  "design": "single_factor_additive_ablation_on_same_development_set",
+  "reference_arm": "S+C",
+  "factor": {
+    "T": {
+      "role": "scope_reviewer",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.3.0/T/scope_reviewer.txt",
+      "unchanged_artifacts": [
+        "protocol/screening/prompts/title_abstract/ablation_v1.2.0/C/causal_method_reviewer.txt",
+        "protocol/screening/schemas/title_abstract/v1.0.0/scope_reviewer.schema.json",
+        "protocol/screening/schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json"
+      ],
+      "hypothesis": "Explicit analytic-role boundaries for aging terms and coordinated omics grammar will resolve the residual scope disagreements without changing causal classification."
+    }
+  },
+  "arms": {
+    "S+C": {"scope": "S", "causal": "C"},
+    "T+C": {"scope": "T", "causal": "C"}
+  },
+  "constants": {
+    "development_sample_sha256": "80495d6d992aeb7567b304ead50a2f6edde54fc3fe55e67bbfa6faeb691fa3ce",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "max_retries": 1,
+    "schema_version": "1.0.0",
+    "python_routing_version": "1.0.0"
+  },
+  "primary_endpoint": "all_tracked_fields_exact_agreement_rate",
+  "selection_rule": [
+    "Select T+C only if all-tracked exact agreement is higher than S+C.",
+    "Reject T+C if decision-driving agreement or route agreement is lower than S+C.",
+    "Freeze the selected arm before opening the sealed holdout.",
+    "Do not tune on sealed-holdout results."
+  ],
+  "interpretation_constraint": "Residual-rule tuning is development-only and requires sealed-holdout confirmation."
+}

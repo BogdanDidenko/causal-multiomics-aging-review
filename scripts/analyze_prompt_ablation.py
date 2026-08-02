@@ -30,7 +30,12 @@ ARM_CYCLES = {
         "C": ("scope_A0", "causal_C"),
         "S+C": ("scope_S", "causal_C"),
     },
+    "v1.3.0": {
+        "S+C": ("scope_S", "causal_C"),
+        "T+C": ("scope_T", "causal_C"),
+    },
 }
+CYCLE_BASELINES = {"v1.1.0": "A0", "v1.2.0": "A0", "v1.3.0": "S+C"}
 CAUSAL_ROUTING_FIELDS = tuple(
     field for field in CAUSAL_DECISION_FIELDS if field != "design_families"
 )
@@ -217,19 +222,26 @@ def rate(summary: dict[str, Any], endpoint: str) -> float:
 def select_arm(
     summaries: dict[str, dict[str, Any]],
     arms: dict[str, tuple[str, str]] | None = None,
+    baseline_arm: str = "A0",
 ) -> str:
     arms = arms or ARM_CYCLES["v1.1.0"]
-    baseline_decision = rate(summaries["A0"], "decision_driving_fields_exact")
-    baseline_route = rate(summaries["A0"], "single_repeat_route_exact")
+    baseline_decision = rate(
+        summaries[baseline_arm], "decision_driving_fields_exact"
+    )
+    baseline_route = rate(summaries[baseline_arm], "single_repeat_route_exact")
     admissible = [
         arm
         for arm, summary in summaries.items()
         if rate(summary, "decision_driving_fields_exact") >= baseline_decision
         and rate(summary, "single_repeat_route_exact") >= baseline_route
     ]
+    baseline_roles = arms[baseline_arm]
     change_count = {
-        arm: int(scope != "scope_A0") + int(causal != "causal_A0")
-        for arm, (scope, causal) in arms.items()
+        arm: sum(
+            actual != baseline
+            for actual, baseline in zip(roles, baseline_roles, strict=True)
+        )
+        for arm, roles in arms.items()
     }
     return max(
         admissible,
@@ -266,10 +278,11 @@ def markdown_report(report: dict[str, Any]) -> str:
             values.append(f"{item['successes']}/{item['total']} ({100 * item['rate']:.1f}%)")
         lines.append(f"| {arm} | " + " | ".join(values) + " |")
     lines.extend(("", "## Paired comparisons", ""))
-    for arm, endpoints in report.get("paired_vs_A0", {}).items():
+    for arm, endpoints in report.get("paired_vs_baseline", {}).items():
         item = endpoints["all_tracked_fields_exact"]
         lines.append(
-            f"- `{arm}` vs `A0`: {item['gains']} gains, {item['losses']} losses; "
+            f"- `{arm}` vs `{report['baseline_arm']}`: {item['gains']} gains, "
+            f"{item['losses']} losses; "
             f"exact McNemar p={item['exact_mcnemar_p_value']:.4g}."
         )
     if report.get("selected_arm"):
@@ -302,14 +315,15 @@ def main() -> None:
     args = parser.parse_args()
 
     arms = ARM_CYCLES[args.cycle]
+    baseline_arm = CYCLE_BASELINES[args.cycle]
     if args.selected_arm and args.selected_arm not in arms:
         raise SystemExit(f"Unknown selected arm for {args.cycle}: {args.selected_arm}")
     arms_to_report = list(arms)
     if args.phase == "sealed_holdout":
         if not args.selected_arm:
             raise SystemExit("--selected-arm is required for sealed_holdout")
-        arms_to_report = ["A0"]
-        if args.selected_arm != "A0":
+        arms_to_report = [baseline_arm]
+        if args.selected_arm != baseline_arm:
             arms_to_report.append(args.selected_arm)
     required_artifacts = {
         artifact for arm in arms_to_report for artifact in arms[arm]
@@ -345,10 +359,12 @@ def main() -> None:
 
     paired = {}
     for arm in arms_to_report:
-        if arm == "A0":
+        if arm == baseline_arm:
             continue
         paired[arm] = {
-            endpoint: paired_comparison(arm_rows["A0"], arm_rows[arm], endpoint)
+            endpoint: paired_comparison(
+                arm_rows[baseline_arm], arm_rows[arm], endpoint
+            )
             for endpoint in (
                 "all_tracked_fields_exact",
                 "decision_driving_fields_exact",
@@ -359,36 +375,40 @@ def main() -> None:
         "experiment_id": f"title_abstract_prompt_ablation_{args.cycle}",
         "phase": args.phase,
         "records": len(identifiers),
+        "baseline_arm": baseline_arm,
         "arms": summaries,
-        "paired_vs_A0": paired,
+        "paired_vs_baseline": paired,
         "interpretation_constraint": "Reproducibility only; no expert-gold accuracy inference.",
     }
     if args.phase == "development":
-        factor_1, factor_2 = [arm for arm in arms if arm != "A0" and "+" not in arm]
-        combined = next(arm for arm in arms if "+" in arm)
-        report["factorial_effects"] = {
-            f"{factor_1}_main_effect": (
-                rate(summaries[factor_1], "all_tracked_fields_exact")
-                + rate(summaries[combined], "all_tracked_fields_exact")
-                - rate(summaries["A0"], "all_tracked_fields_exact")
-                - rate(summaries[factor_2], "all_tracked_fields_exact")
-            )
-            / 2,
-            f"{factor_2}_main_effect": (
-                rate(summaries[factor_2], "all_tracked_fields_exact")
-                + rate(summaries[combined], "all_tracked_fields_exact")
-                - rate(summaries["A0"], "all_tracked_fields_exact")
-                - rate(summaries[factor_1], "all_tracked_fields_exact")
-            )
-            / 2,
-            "interaction": (
-                rate(summaries[combined], "all_tracked_fields_exact")
-                - rate(summaries[factor_1], "all_tracked_fields_exact")
-                - rate(summaries[factor_2], "all_tracked_fields_exact")
-                + rate(summaries["A0"], "all_tracked_fields_exact")
-            ),
-        }
-        report["selected_arm"] = select_arm(summaries, arms)
+        if len(arms) == 4 and baseline_arm == "A0":
+            factor_1, factor_2 = [
+                arm for arm in arms if arm != "A0" and "+" not in arm
+            ]
+            combined = next(arm for arm in arms if "+" in arm)
+            report["factorial_effects"] = {
+                f"{factor_1}_main_effect": (
+                    rate(summaries[factor_1], "all_tracked_fields_exact")
+                    + rate(summaries[combined], "all_tracked_fields_exact")
+                    - rate(summaries["A0"], "all_tracked_fields_exact")
+                    - rate(summaries[factor_2], "all_tracked_fields_exact")
+                )
+                / 2,
+                f"{factor_2}_main_effect": (
+                    rate(summaries[factor_2], "all_tracked_fields_exact")
+                    + rate(summaries[combined], "all_tracked_fields_exact")
+                    - rate(summaries["A0"], "all_tracked_fields_exact")
+                    - rate(summaries[factor_1], "all_tracked_fields_exact")
+                )
+                / 2,
+                "interaction": (
+                    rate(summaries[combined], "all_tracked_fields_exact")
+                    - rate(summaries[factor_1], "all_tracked_fields_exact")
+                    - rate(summaries[factor_2], "all_tracked_fields_exact")
+                    + rate(summaries["A0"], "all_tracked_fields_exact")
+                ),
+            }
+        report["selected_arm"] = select_arm(summaries, arms, baseline_arm)
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "summary.json").write_text(
