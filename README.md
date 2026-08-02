@@ -74,11 +74,15 @@ or the existing macOS Keychain entries and are never written to the repository.
 
 ```bash
 python scripts/search_databases.py \
-  --search-config protocol/search_config_v1.0.0.json \
-  --output data/searches/pilots/2026-08-02-v1.0.0 \
-  --sources pubmed,europepmc,scopus,semantic_scholar,springernature,openalex \
+  --search-config protocol/search_config_v1.1.0.json \
+  --output data/searches/pilots/2026-08-02-v1.1.0 \
   --max-records-per-source 500
 ```
+
+The `v1.1.0` default excludes Springer Nature from identification because the
+available Meta API searches a broad full-text index. OpenAlex runs six scoped
+query branches and deduplicates their Work IDs locally. For OpenAlex, the pilot
+record cap applies separately to each branch.
 
 Google Scholar is a documented manual supplementary search because it has no
 official API. After freezing the browser export, normalize it and build the

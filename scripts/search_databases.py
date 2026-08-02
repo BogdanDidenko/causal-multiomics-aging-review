@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
 SEARCH_CONFIG = PROTOCOL / "search_config.json"
 QUERY_FILES: dict[str, Path] = {}
+QUERY_BRANCH_FILES: dict[str, dict[str, Path]] = {}
 MAX_RECORDS_PER_SOURCE: int | None = None
 
 PUBMED_ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
@@ -62,6 +63,7 @@ FIELDS = [
     "url",
     "is_preprint",
     "raw_page",
+    "query_branches",
     "local_multiomics_match",
     "local_explicit_multiomics_match",
     "local_layer_pair_match",
@@ -157,9 +159,27 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def git_revision() -> str:
+    completed = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    return completed.stdout.strip() if completed.returncode == 0 else "unknown"
+
+
 def read_query(source: str) -> str:
+    if source in QUERY_BRANCH_FILES:
+        raise ValueError(f"{source} uses branch query files")
     path = QUERY_FILES.get(source, PROTOCOL / "queries" / f"{source}.txt")
     return path.read_text(encoding="utf-8").strip()
+
+
+def read_query_paths(source: str) -> dict[str, Path]:
+    if source in QUERY_BRANCH_FILES:
+        return QUERY_BRANCH_FILES[source]
+    return {"combined": read_query_path(source)}
 
 
 def record_limit(reported_count: int) -> int:
@@ -797,38 +817,74 @@ def parse_openalex(item: dict[str, Any], raw_page: str) -> dict[str, Any]:
 
 
 def collect_openalex(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    query_filter = read_query("openalex")
     api_key = get_credential("OPENALEX_API_KEY")
-    cursor = "*"
-    records = []
-    expected = 0
-    page_index = 0
-    while cursor:
-        page_index += 1
-        page = request_json(
-            OPENALEX_WORKS,
-            {
-                "filter": query_filter,
-                "per_page": str(min(100, MAX_RECORDS_PER_SOURCE or 100)),
-                "cursor": cursor,
-                "sort": "cited_by_count:desc",
-                "select": (
-                    "id,doi,title,display_name,publication_year,publication_date,"
-                    "type,language,authorships,primary_location,"
-                    "abstract_inverted_index"
-                ),
-                "api_key": api_key,
-            },
-        )
-        name = f"page_{page_index:04d}.json.gz"
-        write_json_gzip(raw_dir / name, page)
-        expected = int(page.get("meta", {}).get("count", expected))
-        items = page.get("results", [])
-        records.extend(parse_openalex(item, name) for item in items)
-        cursor = clean_text(page.get("meta", {}).get("next_cursor"))
-        if not items or len(records) >= record_limit(expected):
-            break
-    return records[: record_limit(expected)], {"reported_count": expected}
+    query_paths = read_query_paths("openalex")
+    branch_counts: dict[str, int] = {}
+    branch_retrieved_counts: dict[str, int] = {}
+    records_by_id: dict[str, dict[str, Any]] = {}
+    branch_hits = 0
+
+    for branch, query_path in query_paths.items():
+        query_filter = query_path.read_text(encoding="utf-8").strip()
+        cursor = "*"
+        branch_records: list[dict[str, Any]] = []
+        expected = 0
+        page_index = 0
+        while cursor:
+            page_index += 1
+            page = request_json(
+                OPENALEX_WORKS,
+                {
+                    "filter": query_filter,
+                    "per_page": str(min(100, MAX_RECORDS_PER_SOURCE or 100)),
+                    "cursor": cursor,
+                    "sort": "cited_by_count:desc",
+                    "select": (
+                        "id,doi,title,display_name,publication_year,"
+                        "publication_date,type,language,authorships,"
+                        "primary_location,abstract_inverted_index"
+                    ),
+                    "api_key": api_key,
+                },
+            )
+            name = f"{branch}/page_{page_index:04d}.json.gz"
+            write_json_gzip(raw_dir / name, page)
+            expected = int(page.get("meta", {}).get("count", expected))
+            items = page.get("results", [])
+            for item in items:
+                record = parse_openalex(item, name)
+                record["query_branches"] = branch
+                branch_records.append(record)
+            cursor = clean_text(page.get("meta", {}).get("next_cursor"))
+            if not items or len(branch_records) >= record_limit(expected):
+                break
+
+        branch_records = branch_records[: record_limit(expected)]
+        branch_counts[branch] = expected
+        branch_retrieved_counts[branch] = len(branch_records)
+        branch_hits += len(branch_records)
+        for record in branch_records:
+            key = record["source_record_id"] or record["doi"]
+            if key not in records_by_id:
+                records_by_id[key] = record
+                continue
+            branches = set(records_by_id[key]["query_branches"].split(";"))
+            branches.add(branch)
+            records_by_id[key]["query_branches"] = ";".join(sorted(branches))
+
+    records = sorted(
+        records_by_id.values(),
+        key=lambda row: (row["publication_date"], row["source_record_id"]),
+    )
+    return records, {
+        "reported_count": sum(branch_counts.values()),
+        "reported_count_semantics": "sum_of_branch_counts_before_deduplication",
+        "branch_counts": branch_counts,
+        "branch_retrieved_counts": branch_retrieved_counts,
+        "retrieved_branch_hits_before_deduplication": branch_hits,
+        "duplicate_branch_hits_removed": branch_hits - len(records),
+        "unique_retrieved_count": len(records),
+    }
 
 
 COLLECTORS: dict[
@@ -860,7 +916,7 @@ def run_source(
     source: str, output: Path, canonical_doi: str
 ) -> tuple[str, list[dict[str, Any]], dict[str, Any]]:
     started = datetime.now(UTC)
-    query = read_query(source)
+    query_paths = read_query_paths(source)
     raw_dir = output / "raw" / source
     records, details = COLLECTORS[source](raw_dir)
     normalized_path = output / "normalized" / f"{source}.csv"
@@ -874,15 +930,20 @@ def run_source(
             "sha256": sha256_file(path),
             "bytes": path.stat().st_size,
         }
-        for path in sorted(raw_dir.glob("*"))
+        for path in sorted(raw_dir.rglob("*"))
         if path.is_file()
     ]
     manifest = {
         "source": source,
         "started_at": started.isoformat(),
         "completed_at": datetime.now(UTC).isoformat(),
-        "query_file": str(read_query_path(source).relative_to(ROOT)),
-        "query_sha256": sha256_text(query),
+        "query_files": {
+            branch: str(path.relative_to(ROOT))
+            for branch, path in query_paths.items()
+        },
+        "query_sha256": {
+            branch: sha256_file(path) for branch, path in query_paths.items()
+        },
         "reported_count": details.get("reported_count"),
         "source_details": {
             key: value
@@ -933,8 +994,10 @@ def main() -> None:
     )
     parser.add_argument(
         "--sources",
-        default=",".join(COLLECTORS),
-        help=f"comma-separated subset of: {','.join(COLLECTORS)}",
+        help=(
+            "comma-separated source subset; by default, run automated sources "
+            "marked active_for_identification in the search config"
+        ),
     )
     parser.add_argument("--parallel", type=int, default=4)
     parser.add_argument(
@@ -960,8 +1023,29 @@ def main() -> None:
             if item.get("query_file")
         }
     )
+    QUERY_BRANCH_FILES.clear()
+    QUERY_BRANCH_FILES.update(
+        {
+            source: {
+                branch: (PROTOCOL / path).resolve()
+                for branch, path in item["query_files"].items()
+            }
+            for source, item in configured_databases.items()
+            if item.get("query_files")
+        }
+    )
     canonical_doi = normalize_doi(config["canonical_positive_doi"])
-    sources = [source.strip() for source in args.sources.split(",") if source.strip()]
+    if args.sources:
+        sources = [
+            source.strip() for source in args.sources.split(",") if source.strip()
+        ]
+    else:
+        sources = [
+            source
+            for source, item in configured_databases.items()
+            if item.get("mode") == "automated"
+            and item.get("active_for_identification", True)
+        ]
     unknown = sorted(set(sources) - set(COLLECTORS))
     if unknown:
         raise SystemExit(f"Unknown sources: {', '.join(unknown)}")
@@ -1005,12 +1089,16 @@ def main() -> None:
         "manifest_version": "1.0.0",
         "protocol_version": config["protocol_version"],
         "created_at": datetime.now(UTC).isoformat(),
+        "git_revision": git_revision(),
         "search_config_path": str(search_config_path.relative_to(ROOT)),
         "search_config_sha256": hashlib.sha256(search_config_path.read_bytes()).hexdigest(),
         "sources_requested": sources,
         "sources_completed": sorted(manifests),
         "failures": failures,
         "pilot_max_records_per_source": MAX_RECORDS_PER_SOURCE,
+        "openalex_pilot_limit_semantics": (
+            "per_query_branch" if "openalex" in QUERY_BRANCH_FILES else None
+        ),
         "complete_retrieval": MAX_RECORDS_PER_SOURCE is None,
         "source_manifests": manifests,
         "total_source_records": len(all_records),

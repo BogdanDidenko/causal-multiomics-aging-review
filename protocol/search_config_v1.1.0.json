@@ -1,0 +1,68 @@
+{
+  "protocol_version": "1.1.0",
+  "status": "openalex_scope_calibration",
+  "search_end_date": "2026-08-02",
+  "lower_date_limit": null,
+  "multiomics_retrieval": "explicit_terms_or_two_distinct_layer_blocks",
+  "canonical_positive_doi": "10.1038/s41467-023-37729-w",
+  "canonical_positive_registry": "search_calibration/v1.0.0/canonical_positives.csv",
+  "databases": [
+    {
+      "id": "pubmed",
+      "query_file": "queries/v1.0.0/pubmed.txt",
+      "mode": "automated",
+      "active_for_identification": true,
+      "role": "primary"
+    },
+    {
+      "id": "scopus",
+      "query_file": "queries/v1.0.0/scopus.txt",
+      "mode": "automated",
+      "active_for_identification": true,
+      "role": "primary"
+    },
+    {
+      "id": "europepmc",
+      "query_file": "queries/v1.0.0/europepmc.txt",
+      "mode": "automated",
+      "active_for_identification": true,
+      "role": "primary"
+    },
+    {
+      "id": "semantic_scholar",
+      "query_file": "queries/v1.0.0/semantic_scholar.txt",
+      "mode": "automated",
+      "active_for_identification": true,
+      "role": "supplementary_recall"
+    },
+    {
+      "id": "openalex",
+      "query_files": {
+        "explicit_multiomics": "queries/v1.1.0/openalex/explicit_multiomics.txt",
+        "genomics_plus_other": "queries/v1.1.0/openalex/genomics_plus_other.txt",
+        "epigenomics_plus_downstream": "queries/v1.1.0/openalex/epigenomics_plus_downstream.txt",
+        "transcriptomics_plus_downstream": "queries/v1.1.0/openalex/transcriptomics_plus_downstream.txt",
+        "proteomics_plus_downstream": "queries/v1.1.0/openalex/proteomics_plus_downstream.txt",
+        "metabolomics_plus_microbiomics": "queries/v1.1.0/openalex/metabolomics_plus_microbiomics.txt"
+      },
+      "mode": "automated",
+      "active_for_identification": true,
+      "role": "supplementary_recall_scoped_branches"
+    },
+    {
+      "id": "google_scholar",
+      "query_file": "queries/v1.0.0/google_scholar.txt",
+      "mode": "manual",
+      "active_for_identification": true,
+      "role": "supplementary"
+    },
+    {
+      "id": "springernature",
+      "query_file": "queries/v1.0.0/springernature.txt",
+      "mode": "excluded",
+      "active_for_identification": false,
+      "role": "excluded_from_identification",
+      "exclusion_reason": "The available Meta API searches a broad full-text index and cannot provide a sufficiently precise title/abstract retrieval frame for this review. It may be used later for full-text retrieval by identifier only."
+    }
+  ]
+}
