@@ -71,10 +71,11 @@ def main() -> None:
         hashes = query_hashes(manifest)
         for branch, query_path_text in files.items():
             query_path = search.ROOT / query_path_text
-            observed = search.sha256_text(
+            observed_text = search.sha256_text(
                 query_path.read_text(encoding="utf-8").strip()
             )
-            if observed != hashes[branch]:
+            observed_file = search.sha256_file(query_path)
+            if hashes[branch] not in {observed_text, observed_file}:
                 raise SystemExit(f"{source}.{branch}: query SHA-256 mismatch")
 
         source_records.extend(rows)
