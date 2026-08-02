@@ -1,0 +1,36 @@
+{
+  "evaluation_id": "v1.4.0-rc1_secondary_regression_test_120",
+  "status": "prespecified_not_run",
+  "purpose": "Evaluate whether the frozen prompt candidate transports to the established 120-record regression test corpus.",
+  "set_role": "secondary_regression_test",
+  "not_production": true,
+  "not_sealed_confirmatory_holdout": true,
+  "independence_limitation": "The 120-record corpus and its baseline outputs were inspected before the ablation study and informed the initial instability diagnosis; it is therefore a regression test, not an unbiased confirmatory test.",
+  "input": {
+    "path": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/input.csv",
+    "sha256": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212",
+    "records": 120
+  },
+  "candidate": {
+    "suite": "protocol/screening/configs/prompt_suite_v1.4.0-rc1.json",
+    "scope_prompt_sha256": "1940c272a40ba0b0a9673f967134baf330043c331b3ea5e43e4a57faa0d31f6b",
+    "causal_prompt_sha256": "965b7dac206ea81b9399f54c7d5495f3df56ee5fa4bfb7a2d9d260467b25841f",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "runs_per_assessed_role": 5
+  },
+  "baseline": {
+    "summary": "analysis/v1_methodology/canonical_candidate_ai_annotation_2026-08-02.summary.json",
+    "all_assessed_fields_exact": "86/120",
+    "all_assessed_fields_exact_rate": 0.7166666666666667
+  },
+  "endpoints": [
+    "all_assessed_fields_5_of_5_rate",
+    "scope_and_causal_field_level_5_of_5_rates",
+    "model_route_counts",
+    "schema_or_provider_failures_after_retry",
+    "paired_record_level_gains_and_losses_vs_baseline"
+  ],
+  "interpretation": "Secondary regression evidence only. Results cannot reactivate RC1, revise the sealed-holdout result, or be used for prompt tuning.",
+  "production_definition": "The production corpus is the complete deduplicated database-retrieval corpus screened after an instrument passes all development, expert-validity, and sealed-stability gates."
+}
