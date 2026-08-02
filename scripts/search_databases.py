@@ -35,6 +35,7 @@ SEMANTIC_SCHOLAR_BULK = (
 )
 SPRINGER_META = "https://api.springernature.com/meta/v2/json"
 OPENALEX_WORKS = "https://api.openalex.org/works"
+PUBMED_FETCH_BATCH_SIZE = 50
 
 KEYCHAIN = {
     "PUBMED_API_KEY": ("eutils.ncbi.nlm.nih.gov", "PubMed API Key"),
@@ -443,8 +444,8 @@ def collect_pubmed(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
     result = search["esearchresult"]
     count = int(result["count"])
     records = []
-    for start in range(0, record_limit(count), 200):
-        name = f"page_{start // 200 + 1:04d}.xml.gz"
+    for start in range(0, record_limit(count), PUBMED_FETCH_BATCH_SIZE):
+        name = f"page_{start // PUBMED_FETCH_BATCH_SIZE + 1:04d}.xml.gz"
         payload = request(
             PUBMED_EFETCH,
             {
@@ -452,7 +453,9 @@ def collect_pubmed(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
                 "WebEnv": result["webenv"],
                 "query_key": result["querykey"],
                 "retstart": str(start),
-                "retmax": str(min(200, record_limit(count) - start)),
+                "retmax": str(
+                    min(PUBMED_FETCH_BATCH_SIZE, record_limit(count) - start)
+                ),
                 "rettype": "abstract",
                 "retmode": "xml",
                 "api_key": api_key,
@@ -462,7 +465,10 @@ def collect_pubmed(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]
         write_gzip(raw_dir / name, payload)
         records.extend(parse_pubmed(payload, name))
         time.sleep(0.12)
-    return records, {"reported_count": count}
+    return records, {
+        "reported_count": count,
+        "fetch_batch_size": PUBMED_FETCH_BATCH_SIZE,
+    }
 
 
 def parse_europepmc(item: dict[str, Any], raw_page: str) -> dict[str, Any]:
