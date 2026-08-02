@@ -1,0 +1,23 @@
+{
+  "protocol_version": "1.0.0",
+  "status": "calibration_pending_expert_query_review",
+  "candidate_pool_target": 120,
+  "canonical_positive_freeze_minimum": 100,
+  "candidate_pool_path": "canonical_positive_candidates_120.csv",
+  "candidate_pool_manifest_path": "canonical_positive_candidates_120.manifest.json",
+  "gold_registry_path": "canonical_positives.csv",
+  "expert_review": {
+    "reviewers": 2,
+    "independent_first_pass": true,
+    "criterion_level_annotation": true,
+    "adjudication_required_for_disagreements": true
+  },
+  "freeze_requirements": [
+    "At least 100 records are adjudicated as eligible canonical positives.",
+    "Positive records cover the design families actually supported by eligible literature.",
+    "Targeted supplemental searches have been completed for unrepresented prespecified design families.",
+    "Fifty records from each available database query branch have completed manual relevance review.",
+    "Every canonical positive is retrievable in each database that indexes it, or the database-specific miss is documented."
+  ],
+  "interpretation": "The 120-record candidate pool is an algorithmically prioritized expert-review queue, not a gold standard and not 120 confirmed eligible studies."
+}

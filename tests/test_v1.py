@@ -1,3 +1,4 @@
+import csv
 import json
 from pathlib import Path
 
@@ -15,6 +16,11 @@ from causal_multiomics_aging_review.v1 import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SUITE = ROOT / "protocol/screening/configs/prompt_suite_v1.0.0.json"
+CANDIDATE_POOL = (
+    ROOT
+    / "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv"
+)
+CANDIDATE_POLICY = ROOT / "protocol/search_calibration/v1.0.0/policy.json"
 
 
 class QueueProvider:
@@ -232,6 +238,52 @@ def test_v1_queries_have_both_omics_branches_without_directional_verbs() -> None
         assert "genom" in query and "transcriptom" in query
         assert "aging" in query or "ageing" in query
         assert not any(term in query.split() for term in forbidden)
+
+
+def test_v1_canonical_candidate_pool_is_large_unique_and_not_gold() -> None:
+    with CANDIDATE_POOL.open(encoding="utf-8", newline="") as handle:
+        candidates = list(csv.DictReader(handle))
+    assert len(candidates) == 120
+    assert len({row["candidate_id"] for row in candidates}) == 120
+    assert {row["candidate_status"] for row in candidates} == {
+        "unreviewed_candidate_not_gold"
+    }
+    for reviewer in ("expert_1", "expert_2"):
+        for criterion in (
+            "empirical_primary",
+            "aging_eligible",
+            "multiomics_eligible",
+            "causal_method_eligible",
+            "overall",
+        ):
+            field = f"{reviewer}_{criterion}"
+            assert {row[field] for row in candidates} == {"pending"}
+    for field in (
+        "adjudicated_empirical_primary",
+        "adjudicated_aging_eligible",
+        "adjudicated_multiomics_eligible",
+        "adjudicated_causal_method_eligible",
+        "adjudicated_status",
+    ):
+        assert {row[field] for row in candidates} == {"pending"}
+    assert all(row["formal_method_evidence"] for row in candidates)
+    assert all(row["aging_evidence"] for row in candidates)
+    represented = {row["proposed_design_family"] for row in candidates}
+    assert {
+        "genetic_instrument",
+        "direct_perturbation",
+        "formal_mediation",
+        "randomized_intervention",
+        "sem",
+    } <= represented
+
+
+def test_v1_search_freeze_requires_100_adjudicated_positives() -> None:
+    policy = json.loads(CANDIDATE_POLICY.read_text(encoding="utf-8"))
+    assert policy["candidate_pool_target"] == 120
+    assert policy["canonical_positive_freeze_minimum"] == 100
+    assert policy["expert_review"]["reviewers"] == 2
+    assert policy["expert_review"]["independent_first_pass"] is True
 
 
 def test_v1_title_stage_runs_each_role_five_times(tmp_path) -> None:

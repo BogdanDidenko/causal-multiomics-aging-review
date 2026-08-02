@@ -14,8 +14,11 @@ denominator.
    Scholar, Springer Nature, OpenAlex, and manual Google Scholar.
 2. For every database combine aging and formal-causal-design blocks with
    either explicit multi-omics terminology or pairwise molecular-layer terms.
-3. Review 50 records from each retrieval branch per database and establish at
-   least 20 expert-adjudicated canonical positives across design families.
+3. Review 50 records from each retrieval branch per database. Independently
+   assess the 120-record prioritized candidate pool by two experts, adjudicate
+   disagreements, and establish at least 100 eligible canonical positives.
+   Run targeted supplemental retrieval for prespecified design families not
+   represented in the initial pool.
 4. Freeze query text, end date, API parameters, quality decisions, and Git
    commit before the complete retrieval.
 5. Preserve each raw response, response hash, source count, normalized record,

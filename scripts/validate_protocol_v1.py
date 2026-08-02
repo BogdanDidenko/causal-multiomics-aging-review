@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import re
@@ -15,6 +16,27 @@ SCREENING = PROTOCOL / "screening"
 SEARCH_CONFIG = PROTOCOL / "search_config_v1.0.0.json"
 SUITE_CONFIG = SCREENING / "configs" / "prompt_suite_v1.0.0.json"
 MANIFEST = SCREENING / "prompt_manifest_v1.0.0.json"
+SEARCH_CALIBRATION = PROTOCOL / "search_calibration" / "v1.0.0"
+SEARCH_POLICY = SEARCH_CALIBRATION / "policy.json"
+CANDIDATE_POOL = SEARCH_CALIBRATION / "canonical_positive_candidates_120.csv"
+CANDIDATE_MANIFEST = SEARCH_CALIBRATION / "canonical_positive_candidates_120.manifest.json"
+PENDING_CANDIDATE_FIELDS = (
+    "expert_1_empirical_primary",
+    "expert_1_aging_eligible",
+    "expert_1_multiomics_eligible",
+    "expert_1_causal_method_eligible",
+    "expert_1_overall",
+    "expert_2_empirical_primary",
+    "expert_2_aging_eligible",
+    "expert_2_multiomics_eligible",
+    "expert_2_causal_method_eligible",
+    "expert_2_overall",
+    "adjudicated_empirical_primary",
+    "adjudicated_aging_eligible",
+    "adjudicated_multiomics_eligible",
+    "adjudicated_causal_method_eligible",
+    "adjudicated_status",
+)
 DATABASES = {
     "pubmed",
     "scopus",
@@ -197,14 +219,55 @@ def validate_manifest(errors: list[str]) -> None:
             errors.append(f"stale schema hash: {artifact.get('prompt_id')}")
 
 
+def validate_search_calibration(errors: list[str]) -> int:
+    policy = load(SEARCH_POLICY)
+    if policy.get("candidate_pool_target") != 120:
+        errors.append("v1 candidate pool target must be 120")
+    if policy.get("canonical_positive_freeze_minimum") != 100:
+        errors.append("v1 query freeze requires 100 adjudicated positives")
+    if not CANDIDATE_POOL.is_file() or not CANDIDATE_MANIFEST.is_file():
+        errors.append("missing v1 canonical-positive candidate pool or manifest")
+        return 0
+
+    with CANDIDATE_POOL.open(encoding="utf-8", newline="") as handle:
+        candidates = list(csv.DictReader(handle))
+    if len(candidates) != 120:
+        errors.append(f"v1 candidate pool contains {len(candidates)} records")
+    candidate_ids = [row["candidate_id"] for row in candidates]
+    if len(set(candidate_ids)) != len(candidate_ids):
+        errors.append("v1 candidate pool contains duplicate study identifiers")
+    for field in PENDING_CANDIDATE_FIELDS:
+        if {row[field] for row in candidates} != {"pending"}:
+            errors.append(f"v1 candidate pool has non-pending {field} values")
+    if {row["candidate_status"] for row in candidates} != {
+        "unreviewed_candidate_not_gold"
+    }:
+        errors.append("v1 candidate pool is incorrectly represented as gold")
+
+    manifest = load(CANDIDATE_MANIFEST)
+    if manifest.get("candidate_pool_is_gold_standard") is not False:
+        errors.append("v1 candidate manifest must explicitly deny gold status")
+    if manifest.get("candidate_count") != len(candidates):
+        errors.append("v1 candidate manifest has stale record count")
+    if manifest.get("required_adjudicated_positive_count") != 100:
+        errors.append("v1 candidate manifest has wrong freeze minimum")
+    if manifest.get("candidate_pool", {}).get("sha256") != sha256(CANDIDATE_POOL):
+        errors.append("v1 candidate manifest has stale pool hash")
+    return len(candidates)
+
+
 def main() -> None:
     errors: list[str] = []
     database_count = validate_queries(errors)
     prompt_count = validate_suite(errors)
     validate_manifest(errors)
+    candidate_count = validate_search_calibration(errors)
     if errors:
         raise SystemExit("v1 protocol validation failed:\n- " + "\n- ".join(errors))
-    print(f"v1_protocol_ok databases={database_count} prompts={prompt_count}")
+    print(
+        f"v1_protocol_ok databases={database_count} prompts={prompt_count} "
+        f"canonical_candidates={candidate_count}"
+    )
 
 
 if __name__ == "__main__":

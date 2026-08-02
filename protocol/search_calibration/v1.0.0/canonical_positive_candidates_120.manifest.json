@@ -1,0 +1,62 @@
+{
+  "protocol_version": "1.0.0",
+  "generated_date": "2026-08-02",
+  "status": "pending_two_expert_adjudication",
+  "candidate_pool_is_gold_standard": false,
+  "candidate_count": 120,
+  "required_adjudicated_positive_count": 100,
+  "selection_seed": "causal-multiomics-aging-canonical-v1",
+  "source": {
+    "path": "data/searches/pilots/2026-08-02-v1.0.0/normalized/all_sources.csv",
+    "sha256": "1bd904e092b2413a303423a0bb1990859ddde9afff66fd7cd59afe6a2878cf5b",
+    "record_count": 3000
+  },
+  "candidate_pool": {
+    "path": "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv",
+    "sha256": "b96cd52761974eba435caf85f80be10c3b84faa1e95c0419bebc6ec2050ad1c4"
+  },
+  "design_family_counts": {
+    "genetic_instrument": 68,
+    "direct_perturbation": 45,
+    "formal_mediation": 3,
+    "randomized_intervention": 1,
+    "quasi_experiment": 0,
+    "temporal_identification": 0,
+    "dag_scm": 0,
+    "sem": 3,
+    "bayesian_network": 0,
+    "causal_discovery_algorithm": 0
+  },
+  "represented_design_families": [
+    "genetic_instrument",
+    "direct_perturbation",
+    "formal_mediation",
+    "randomized_intervention",
+    "sem"
+  ],
+  "unrepresented_design_families": [
+    "quasi_experiment",
+    "temporal_identification",
+    "dag_scm",
+    "bayesian_network",
+    "causal_discovery_algorithm"
+  ],
+  "expert_fields": {
+    "expert_1_empirical_primary": "pending",
+    "expert_1_aging_eligible": "pending",
+    "expert_1_multiomics_eligible": "pending",
+    "expert_1_causal_method_eligible": "pending",
+    "expert_1_overall": "pending",
+    "expert_2_empirical_primary": "pending",
+    "expert_2_aging_eligible": "pending",
+    "expert_2_multiomics_eligible": "pending",
+    "expert_2_causal_method_eligible": "pending",
+    "expert_2_overall": "pending",
+    "adjudicated_empirical_primary": "pending",
+    "adjudicated_aging_eligible": "pending",
+    "adjudicated_multiomics_eligible": "pending",
+    "adjudicated_causal_method_eligible": "pending",
+    "adjudicated_status": "pending"
+  },
+  "freeze_rule": "Do not freeze database queries until at least 100 candidates are independently reviewed by two experts and adjudicated as eligible canonical positives, with supplemental retrieval for missing design families."
+}

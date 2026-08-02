@@ -34,8 +34,10 @@ unchanged as development history; they are not part of the v1 ledger or final
 PRISMA denominator.
 
 The v1 search count pilot has run, but the queries are not frozen. Expert query
-QA, a 20-paper canonical-positive registry, two-expert benchmark annotation,
-and model validation remain required before production screening.
+QA, at least 100 two-expert-adjudicated canonical positives, benchmark
+annotation, and model validation remain required before production screening.
+An algorithmically prioritized 120-record candidate pool is available for this
+review; it is not a gold standard until expert adjudication is complete.
 
 ## Pipeline
 

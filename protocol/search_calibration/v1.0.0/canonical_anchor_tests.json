@@ -17,5 +17,5 @@
     "openalex": {"method": "combined_filter_AND_DOI", "count": 1, "passed": true},
     "google_scholar": {"method": "manual", "count": null, "passed": null}
   },
-  "interpretation": "The initial anchor is retrievable in all six automated sources. Query freeze still requires at least 20 two-expert-adjudicated canonical positives across design families."
+  "interpretation": "The initial anchor is retrievable in all six automated sources. Query freeze still requires at least 100 two-expert-adjudicated canonical positives, plus targeted supplemental retrieval for design families absent from the initial candidate pool."
 }
