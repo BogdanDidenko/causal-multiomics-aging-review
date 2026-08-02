@@ -201,6 +201,7 @@ def manuscript_text(summary: dict[str, Any]) -> str:
     development = summary["development_selected"]
     holdout = summary["sealed_holdout"]
     accounting = summary["run_accounting"]
+    regression = summary["secondary_regression_test_120"]
     methods_1 = (
         "We evaluated repeated-run reproducibility of title/abstract screening "
         "with GPT 5.6 Terra Medium through Codex CLI "
@@ -226,7 +227,7 @@ def manuscript_text(summary: dict[str, Any]) -> str:
     methods_3 = (
         "The primary endpoint was the proportion of records with exact "
         "agreement across all five runs for every tracked field required by "
-        "the production routing path. Secondary endpoints were exact "
+        "the pre-specified sequential routing path. Secondary endpoints were "
         "agreement for decision-driving fields excluding the descriptive "
         "design anchor, repeat-level route agreement, schema validity after "
         "retry, field-level agreement, paired gains and losses, exact McNemar "
@@ -274,6 +275,22 @@ def manuscript_text(summary: dict[str, Any]) -> str:
         "establish sensitivity, specificity, or scientific validity against "
         "expert judgments; a separate expert-gold benchmark remains required."
     )
+    regression_text = (
+        "The established 120-record corpus was evaluated as a secondary "
+        "regression test, not as production and not as an independent sealed "
+        "holdout. Baseline exact agreement was "
+        f"{regression['baseline_exact_n']}/120 "
+        f"({100 * regression['baseline_exact_rate']:.1f}%), whereas frozen RC1 "
+        f"achieved {regression['rc1_exact_n']}/120 "
+        f"({100 * regression['rc1_exact_rate']:.1f}%; Wilson 95% CI "
+        f"{100 * regression['wilson_low']:.1f}-"
+        f"{100 * regression['wilson_high']:.1f}). There were "
+        f"{regression['paired_gains']} paired gains and "
+        f"{regression['paired_losses']} losses (exact McNemar "
+        f"p={regression['mcnemar_p']:.3g}). Because this corpus had informed "
+        "the initial instability diagnosis, these results are regression "
+        "evidence only and do not override the sealed-holdout rejection."
+    )
     return "\n\n".join(
         (
             "# Prompt ablation study: methods and results",
@@ -287,6 +304,8 @@ def manuscript_text(summary: dict[str, Any]) -> str:
             "## Sealed-holdout results",
             holdout_text,
             disposition,
+            "## Secondary 120-record regression test",
+            regression_text,
         )
     ) + "\n"
 
@@ -310,6 +329,10 @@ def main() -> None:
     holdout_report = load_json(
         ROOT
         / "analysis/prompt_ablation_v1.4.0-rc1/sealed_holdout/summary.json"
+    )
+    regression_report = load_json(
+        ROOT
+        / "analysis/prompt_ablation_v1.4.0-rc1/regression_test_120/comparison.json"
     )
     development = development_report["arms"]["T+C"]["all_tracked_fields_exact"]
     holdout_baseline = holdout_report["arms"]["A0"]["all_tracked_fields_exact"]
@@ -357,6 +380,31 @@ def main() -> None:
             "records_manual_review_across_artifacts": sum(
                 row["records_manual_review"] for row in accounting
             ),
+        },
+        "secondary_regression_test_120": {
+            "set_role": "secondary_regression_test_not_production",
+            "independence": "previously_inspected_not_confirmatory",
+            "baseline_exact_n": regression_report["baseline"]["successes"],
+            "baseline_exact_rate": regression_report["baseline"]["rate"],
+            "rc1_exact_n": regression_report["candidate"]["successes"],
+            "rc1_exact_rate": regression_report["candidate"]["rate"],
+            "wilson_low": regression_report["candidate"]["low"],
+            "wilson_high": regression_report["candidate"]["high"],
+            "paired_gains": regression_report["paired"]["gains"],
+            "paired_losses": regression_report["paired"]["losses"],
+            "mcnemar_p": regression_report["paired"]["exact_mcnemar_p"],
+            "provider_attempts": (
+                regression_report["candidate_provider_attempts"]["attempt_ok"]
+                + regression_report["candidate_provider_attempts"]["attempt_error"]
+            ),
+            "valid_responses": regression_report["candidate_provider_attempts"][
+                "attempt_ok"
+            ],
+            "error_attempts": regression_report["candidate_provider_attempts"][
+                "attempt_error"
+            ],
+            "sealed_holdout_disposition_unchanged": "rejected_not_active",
+            "tuning_permitted": False,
         },
         "validity_status": "not_assessed_no_expert_gold",
         "holdout_reuse_policy": "report_only_no_prompt_tuning",

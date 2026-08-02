@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "high": 0.7895937190824355,
+    "low": 0.6302979754694596,
+    "rate": 0.7166666666666667,
+    "successes": 86,
+    "total": 120
+  },
+  "baseline_status_counts": {
+    "preliminary_exclude": 19,
+    "preliminary_include": 86,
+    "preliminary_unclear": 15
+  },
+  "candidate": {
+    "high": 0.8894400363201539,
+    "low": 0.7565471860673773,
+    "rate": 0.8333333333333334,
+    "successes": 100,
+    "total": 120
+  },
+  "candidate_manual_review_count": 1,
+  "candidate_provider_attempts": {
+    "attempt_error": 50,
+    "attempt_ok": 998,
+    "retry_attempts": 49
+  },
+  "candidate_status_counts": {
+    "preliminary_exclude": 27,
+    "preliminary_include": 76,
+    "preliminary_unclear": 17
+  },
+  "evaluation_id": "v1.4.0-rc1_secondary_regression_test_120",
+  "paired": {
+    "exact_mcnemar_p": 0.03355243967962451,
+    "gains": 26,
+    "losses": 12,
+    "stable_both": 74,
+    "unstable_both": 8
+  },
+  "records": 120,
+  "sealed_holdout_disposition_unchanged": "rejected_not_active",
+  "set_role": "secondary_regression_test_not_production",
+  "tuning_permitted": false
+}

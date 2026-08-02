@@ -41,11 +41,11 @@
     },
     "study_summary": {
       "path": "analysis/prompt_ablation_study_2026-08-02/summary.json",
-      "sha256": "8c9bc273690c16a0f929fc8d9bf89b7f3b823cb9cea916f7ce39803d4b7dace8"
+      "sha256": "abfc2f78ea3608b50eefa7432c3fc667bcf5203173f3c6c8e7864dd26b22ee23"
     },
     "manuscript_section": {
       "path": "analysis/prompt_ablation_study_2026-08-02/methods_results.md",
-      "sha256": "0c2e619f4cdfb77a8244ffe15a3baf0a6e728475b8ee27a4aaa56b9b1a0e4bd2"
+      "sha256": "56765a245fb8fd79ce060aa713f46be915da9a0bb9fb742a5329631d09469519"
     },
     "raw_runs": "data/screening/prompt_ablation_v1.4.0-rc1/sealed_holdout/roles"
   }

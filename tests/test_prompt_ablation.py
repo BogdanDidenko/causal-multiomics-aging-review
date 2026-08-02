@@ -180,6 +180,27 @@ def test_120_record_corpus_is_a_regression_test_not_production() -> None:
     assert protocol["input"]["records"] == 120
 
 
+def test_120_record_regression_result_does_not_reactivate_candidate() -> None:
+    evaluation = json.loads(
+        (
+            ROOT
+            / "protocol/screening/ablations/v1.4.0-rc1/"
+            "regression_test_120_evaluation.json"
+        ).read_text()
+    )
+    assert evaluation["not_production"] is True
+    assert evaluation["results"]["rc1_all_assessed_exact"] == "100/120"
+    assert evaluation["sealed_holdout_disposition_unchanged"] == (
+        "rejected_not_active"
+    )
+    assert evaluation["tuning_permitted"] is False
+    for name, artifact in evaluation["artifacts"].items():
+        if name == "raw_runs":
+            continue
+        digest = hashlib.sha256((ROOT / artifact["path"]).read_bytes()).hexdigest()
+        assert digest == artifact["sha256"]
+
+
 def test_ablation_sets_are_disjoint_and_prior_samples_are_excluded() -> None:
     manifest = json.loads((SAMPLE_ROOT / "manifest.json").read_text())
     with (SAMPLE_ROOT / "development_60.csv").open(newline="", encoding="utf-8") as handle:

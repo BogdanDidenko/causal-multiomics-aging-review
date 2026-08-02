@@ -1,0 +1,293 @@
+{
+  "status": "ai_preliminary_annotation_complete_not_gold",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "runs_per_assessed_role": 5,
+  "records": 120,
+  "records_with_repeated_screening_attempts": [],
+  "superseded_screened_record_ids": [],
+  "preliminary_status_counts": {
+    "preliminary_exclude": 27,
+    "preliminary_include": 76,
+    "preliminary_unclear": 17
+  },
+  "first_failed_criterion_counts": {
+    "EC3": 13,
+    "EC4": 14
+  },
+  "proposed_family_by_status": {
+    "direct_perturbation": {
+      "preliminary_exclude": 16,
+      "preliminary_include": 27,
+      "preliminary_unclear": 5
+    },
+    "formal_mediation": {
+      "preliminary_exclude": 1,
+      "preliminary_include": 1,
+      "preliminary_unclear": 1
+    },
+    "genetic_instrument": {
+      "preliminary_exclude": 9,
+      "preliminary_include": 47,
+      "preliminary_unclear": 9
+    },
+    "randomized_intervention": {
+      "preliminary_include": 1
+    },
+    "sem": {
+      "preliminary_exclude": 1,
+      "preliminary_unclear": 2
+    }
+  },
+  "all_assessed_fields_5_of_5_count": 100,
+  "all_assessed_fields_5_of_5_rate": 0.8333333333333334,
+  "field_stability": {
+    "scope_reviewer": {
+      "report_type": {
+        "assessed": 119,
+        "exact_5_of_5": 119,
+        "rate": 1.0
+      },
+      "bio_health_scope": {
+        "assessed": 119,
+        "exact_5_of_5": 119,
+        "rate": 1.0
+      },
+      "aging_process_relevance": {
+        "assessed": 119,
+        "exact_5_of_5": 111,
+        "rate": 0.9327731092436975
+      },
+      "multiomics_evidence": {
+        "assessed": 119,
+        "exact_5_of_5": 109,
+        "rate": 0.9159663865546218
+      },
+      "current_report_layer_use": {
+        "assessed": 119,
+        "exact_5_of_5": 119,
+        "rate": 1.0
+      }
+    },
+    "causal_method_reviewer": {
+      "current_report_application": {
+        "assessed": 80,
+        "exact_5_of_5": 79,
+        "rate": 0.9875
+      },
+      "causal_basis": {
+        "assessed": 80,
+        "exact_5_of_5": 79,
+        "rate": 0.9875
+      },
+      "design_families": {
+        "assessed": 80,
+        "exact_5_of_5": 79,
+        "rate": 0.9875
+      },
+      "causal_information_sufficiency": {
+        "assessed": 80,
+        "exact_5_of_5": 79,
+        "rate": 0.9875
+      }
+    }
+  },
+  "provider_attempts": {
+    "attempt_error": 50,
+    "attempt_ok": 998,
+    "retry_attempts": 49
+  },
+  "input": {
+    "path": "data/screening/v1_canonical_ai_preliminary/study_deduplicated/input.csv",
+    "sha256": "a9eb5e3b49596a03a60841a980a2587fee49bc153be3bd880cea66235c1e0212"
+  },
+  "output": {
+    "path": "analysis/prompt_ablation_v1.4.0-rc1/regression_test_120/rc1_annotation.csv",
+    "sha256": "8ec1fb48b6e27fe1fd2dee62272760490f06e8273704b0ed91893c8f61afebea"
+  },
+  "raw_run_artifacts": [
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_01/manifest.json",
+      "sha256": "b666a57fa0d97adfd71cf4bcc2a958e702d104326ae6ba360bc6392936c68c96",
+      "bytes": 2659
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_01/raw_provider_responses.jsonl",
+      "sha256": "5b41dd7f7d0e849d4858c524c4096941ac4601871942e2036c4ec22e4f5ba497",
+      "bytes": 1227993
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_01/screening_results.jsonl",
+      "sha256": "17c5533e7ff8842be559df3ff2937bd84e0ede0e2cad2effb55968aae01b8078",
+      "bytes": 150212
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_02/manifest.json",
+      "sha256": "56d007292e093c090a9dc373754cf2c8f4e9f883563633ce1c49dcf521640eb6",
+      "bytes": 2642
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_02/raw_provider_responses.jsonl",
+      "sha256": "db89b9dd49527189916f140605c9d6f86639d8abf5a18bd3aa0e8a11a7c5ee0e",
+      "bytes": 1033640
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_02/screening_results.jsonl",
+      "sha256": "ae7c2636c272b943ece542443e252633730f965c19d7bf8ae9f4f90c447e41e3",
+      "bytes": 134051
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_03/manifest.json",
+      "sha256": "dd91e62b7400fb2cb9543f5a3767b07fd1e04d8ea233ad528cd697aab229841b",
+      "bytes": 2653
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_03/raw_provider_responses.jsonl",
+      "sha256": "60825d1c34273e031378fe10b8ad0d315aeb6eee6d3e4c87121579d2705a81ed",
+      "bytes": 1143002
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_03/screening_results.jsonl",
+      "sha256": "c35445be3af1c6b21339ea7975a81cb61b4a840cdc6927234cf46bb11054570e",
+      "bytes": 144619
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_04/manifest.json",
+      "sha256": "55b9a5b836a8d65be16e848c20b4f07deb9ffb2b17adfc3c0f6896cb73668d5a",
+      "bytes": 2637
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_04/raw_provider_responses.jsonl",
+      "sha256": "5c1f0af7193d21a61690c5c8069858c71b12814160cba40a9472ae9566e632d7",
+      "bytes": 911450
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_04/screening_results.jsonl",
+      "sha256": "61e7c50860e8a85407407d9ad47615faa0c4e03b7c302422f1feab16d2eadaca",
+      "bytes": 113543
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_05/manifest.json",
+      "sha256": "5c289125ebb656dc62c3ee2c114e123a69dffa2fd2c837d800e2bdd47716845b",
+      "bytes": 2620
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_05/raw_provider_responses.jsonl",
+      "sha256": "8e5fdedfae927a1fc53c3ddf15c64145a556f8182b7b9311cbe3249fb25e9563",
+      "bytes": 1183758
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_05/screening_results.jsonl",
+      "sha256": "8cb703b395124036e810310db132d74fbb7a1fd179abd48356723084fd32e6d4",
+      "bytes": 149473
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_06/manifest.json",
+      "sha256": "2cb800379d849cf0b4a371956b1782f6888062d204dcf937c5cbd53ba6cb90f8",
+      "bytes": 2661
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_06/raw_provider_responses.jsonl",
+      "sha256": "114c8aa0ce5b0aa11d382ddcb3e2e06dbf94191064d5c7c5e5f3c304d2838f51",
+      "bytes": 1204003
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_06/screening_results.jsonl",
+      "sha256": "636ca1f34493dc6ac34ed85d645d63b878033a002846796232e82f75d0523285",
+      "bytes": 137206
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_07/manifest.json",
+      "sha256": "473cad490939c3275725e40a17a78c2e4bf784c6f411abd8ad37ca33c987a75b",
+      "bytes": 2651
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_07/raw_provider_responses.jsonl",
+      "sha256": "94831e4ca72a87b1eab5270460d4f0fb9f28e1fccbcc71f55c109ec33389947f",
+      "bytes": 999781
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_07/screening_results.jsonl",
+      "sha256": "5a284efb7766cf7533f8bb1a733e8ecb54699c57eacaf47d81cfc7edb0807d67",
+      "bytes": 131252
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_08/manifest.json",
+      "sha256": "3e23d6f8ee00d5d5ec0f1db64c253ebf5468a76af2254adf5971880c90c67bd2",
+      "bytes": 2643
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_08/raw_provider_responses.jsonl",
+      "sha256": "551bb05a042fb316d7b0f0c7907e20ff2ace4532f34049e7526ca5babdb7735a",
+      "bytes": 1200774
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_08/screening_results.jsonl",
+      "sha256": "96fbf5b54a8ead573fe8d587c62a41d92444670ae1c8e4d3615432ed70c57c6d",
+      "bytes": 151056
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_09/manifest.json",
+      "sha256": "f353808a7dbca56a93b226978b1a2db8f1a7ffcdcb7613c0ce0177cdd0bb51f1",
+      "bytes": 2645
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_09/raw_provider_responses.jsonl",
+      "sha256": "0075a004738de97aa4013820cc9e1d0796f171da981169eda93b4b2e3ff362b5",
+      "bytes": 1159990
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_09/screening_results.jsonl",
+      "sha256": "7077838135de51fc92f5667f7c9cdca5de7bf130721121ae5a447ef52e192ddd",
+      "bytes": 127454
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_10/manifest.json",
+      "sha256": "249d1d1c361a341e21463a6b0b85c5908a71c82af90cf47f472c782f024714ea",
+      "bytes": 2635
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_10/raw_provider_responses.jsonl",
+      "sha256": "3df7bd9623e93015a6f9862bfaaebc1a498f16a6e71f6e63efecc192e905d3af",
+      "bytes": 1305158
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_10/screening_results.jsonl",
+      "sha256": "0f9f50d862135b51e3daebd2e11f043f613052d511d1f54e03d6b582c7ed3261",
+      "bytes": 160285
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_11/manifest.json",
+      "sha256": "1e1a8935fe15d0f76331009873cb4858bebc673769d05e84ffd862e4dd91e732",
+      "bytes": 2646
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_11/raw_provider_responses.jsonl",
+      "sha256": "1a68ff5dfc65f189215085138cf4a28961865df5aa6a2bbc1e5a6a39dddd22c9",
+      "bytes": 1157193
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_11/screening_results.jsonl",
+      "sha256": "f3de218ad0175cec492a4ee6cfac2de300be900bca5c59387e0a491ec28f1513",
+      "bytes": 152330
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_12/manifest.json",
+      "sha256": "a65fbead829d87319168b40fef8e9fafb7bd6aa9e434f136d9e3dd3b691fdc2f",
+      "bytes": 2720
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_12/raw_provider_responses.jsonl",
+      "sha256": "bb94d3ba538e46b2869a7c71ab860a84fdb29ea2a78a57e38649433df66a565b",
+      "bytes": 1196106
+    },
+    {
+      "path": "data/screening/v1_120_regression_test_rc1/runs/shard_12/screening_results.jsonl",
+      "sha256": "0c8e30b55001b4e8305681a4f0e3b8f724354d10492cf0367a73dc66ab731236",
+      "bytes": 149645
+    }
+  ],
+  "gold_standard": false,
+  "human_expert_status": "pending",
+  "interpretation": "Preliminary labels are repeated model judgments for prioritization. They are not independent expert labels and cannot satisfy the query-freeze gold-standard requirement."
+}

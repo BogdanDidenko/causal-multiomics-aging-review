@@ -1,0 +1,42 @@
+{
+  "evaluation_id": "v1.4.0-rc1_secondary_regression_test_120",
+  "protocol_commit": "2afd74d",
+  "evaluation_date": "2026-08-02",
+  "set_role": "secondary_regression_test",
+  "not_production": true,
+  "not_confirmatory": true,
+  "records": 120,
+  "results": {
+    "baseline_all_assessed_exact": "86/120",
+    "baseline_rate": 0.7166666666666667,
+    "rc1_all_assessed_exact": "100/120",
+    "rc1_rate": 0.8333333333333334,
+    "rc1_wilson_95_low": 0.7565471860673773,
+    "rc1_wilson_95_high": 0.8894400363201539,
+    "paired_gains": 26,
+    "paired_losses": 12,
+    "stable_both": 74,
+    "unstable_both": 8,
+    "exact_mcnemar_p": 0.03355243967962451,
+    "candidate_manual_review_count": 1
+  },
+  "field_level_caution": "Role-assessment denominators changed under sequential routing. Field-rate deltas must be interpreted with their assessed counts.",
+  "interpretation": "RC1 improved stability on the 120-record regression test, but this previously inspected set is not an unbiased holdout.",
+  "sealed_holdout_disposition_unchanged": "rejected_not_active",
+  "tuning_permitted": false,
+  "artifacts": {
+    "comparison": {
+      "path": "analysis/prompt_ablation_v1.4.0-rc1/regression_test_120/comparison.json",
+      "sha256": "37b14b890488658e3f721e461be76c21760f82379cb679fc496d52fe9db1a3f7"
+    },
+    "rc1_summary": {
+      "path": "analysis/prompt_ablation_v1.4.0-rc1/regression_test_120/rc1_summary.json",
+      "sha256": "31229889f24dcb0df387af7694e51c14f7b87d9d4ac35d4e934d367316170f18"
+    },
+    "paired_outcomes": {
+      "path": "analysis/prompt_ablation_v1.4.0-rc1/regression_test_120/paired_outcomes.csv",
+      "sha256": "3e87562fec136b48882a97f2a0452133b04e424bfbb0c57beb41c4751e9e7518"
+    },
+    "raw_runs": "data/screening/v1_120_regression_test_rc1/runs"
+  }
+}

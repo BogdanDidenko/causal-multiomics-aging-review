@@ -33,5 +33,23 @@
     "wilson_high": 0.8817149467710251,
     "wilson_low": 0.6821819419437211
   },
+  "secondary_regression_test_120": {
+    "baseline_exact_n": 86,
+    "baseline_exact_rate": 0.7166666666666667,
+    "error_attempts": 50,
+    "independence": "previously_inspected_not_confirmatory",
+    "mcnemar_p": 0.03355243967962451,
+    "paired_gains": 26,
+    "paired_losses": 12,
+    "provider_attempts": 1048,
+    "rc1_exact_n": 100,
+    "rc1_exact_rate": 0.8333333333333334,
+    "sealed_holdout_disposition_unchanged": "rejected_not_active",
+    "set_role": "secondary_regression_test_not_production",
+    "tuning_permitted": false,
+    "valid_responses": 998,
+    "wilson_high": 0.8894400363201539,
+    "wilson_low": 0.7565471860673773
+  },
   "validity_status": "not_assessed_no_expert_gold"
 }
