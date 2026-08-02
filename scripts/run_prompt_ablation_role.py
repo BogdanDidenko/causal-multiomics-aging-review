@@ -61,6 +61,11 @@ ARTIFACTS = {
         "prompt": REPO_ROOT
         / "protocol/screening/prompts/title_abstract/ablation_v1.3.0/T/scope_reviewer.txt",
     },
+    "scope_R": {
+        "role": "scope_reviewer",
+        "prompt": REPO_ROOT
+        / "protocol/screening/prompts/title_abstract/ablation_v1.3.1/R/scope_reviewer.txt",
+    },
 }
 SCHEMAS = {
     "scope_reviewer": REPO_ROOT

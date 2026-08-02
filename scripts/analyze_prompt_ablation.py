@@ -34,8 +34,17 @@ ARM_CYCLES = {
         "S+C": ("scope_S", "causal_C"),
         "T+C": ("scope_T", "causal_C"),
     },
+    "v1.3.1": {
+        "T+C": ("scope_T", "causal_C"),
+        "R+C": ("scope_R", "causal_C"),
+    },
 }
-CYCLE_BASELINES = {"v1.1.0": "A0", "v1.2.0": "A0", "v1.3.0": "S+C"}
+CYCLE_BASELINES = {
+    "v1.1.0": "A0",
+    "v1.2.0": "A0",
+    "v1.3.0": "S+C",
+    "v1.3.1": "T+C",
+}
 CAUSAL_ROUTING_FIELDS = tuple(
     field for field in CAUSAL_DECISION_FIELDS if field != "design_families"
 )

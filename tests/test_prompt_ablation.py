@@ -97,6 +97,16 @@ def test_third_cycle_changes_only_residual_scope_contract() -> None:
     }
 
 
+def test_final_micro_ablation_has_a_stop_rule() -> None:
+    experiment = json.loads(
+        (ROOT / "protocol/screening/ablations/v1.3.1/experiment.json").read_text()
+    )
+    assert experiment["parent_result_commit"] == "69b2a4d"
+    assert experiment["reference_arm"] == "T+C"
+    assert "No further development-set prompt tuning" in experiment["stop_rule"]
+    assert len(experiment["factor"]["R"]["semantic_deltas"]) == 2
+
+
 def test_ablation_sets_are_disjoint_and_prior_samples_are_excluded() -> None:
     manifest = json.loads((SAMPLE_ROOT / "manifest.json").read_text())
     with (SAMPLE_ROOT / "development_60.csv").open(newline="", encoding="utf-8") as handle:

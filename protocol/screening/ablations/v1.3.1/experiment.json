@@ -1,0 +1,41 @@
+{
+  "experiment_id": "title_abstract_prompt_ablation_v1.3.1",
+  "status": "development_not_run",
+  "parent_cycle": "title_abstract_prompt_ablation_v1.3.0",
+  "parent_result_commit": "69b2a4d",
+  "design": "final_two-definition_micro_ablation",
+  "reference_arm": "T+C",
+  "factor": {
+    "R": {
+      "role": "scope_reviewer",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.3.1/R/scope_reviewer.txt",
+      "semantic_deltas": [
+        "An explicit aging-versus-control molecular comparison is an aging analytic role.",
+        "The explicit_multiomics lexical set is closed; compound layer names route to two_or_more_layers."
+      ],
+      "unchanged_causal_prompt": "protocol/screening/prompts/title_abstract/ablation_v1.2.0/C/causal_method_reviewer.txt",
+      "unchanged_schemas": "1.0.0"
+    }
+  },
+  "arms": {
+    "T+C": {"scope": "T", "causal": "C"},
+    "R+C": {"scope": "R", "causal": "C"}
+  },
+  "constants": {
+    "development_sample_sha256": "80495d6d992aeb7567b304ead50a2f6edde54fc3fe55e67bbfa6faeb691fa3ce",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "max_retries": 1,
+    "schema_version": "1.0.0",
+    "python_routing_version": "1.0.0"
+  },
+  "primary_endpoint": "all_tracked_fields_exact_agreement_rate",
+  "selection_rule": [
+    "Select R+C only if all-tracked exact agreement is higher than T+C.",
+    "Reject R+C if decision-driving agreement or route agreement is lower than T+C.",
+    "Freeze the selected arm before opening the sealed holdout."
+  ],
+  "stop_rule": "No further development-set prompt tuning after this cycle, regardless of outcome.",
+  "interpretation_constraint": "The sealed holdout is the only confirmation set and cannot be reused for tuning."
+}
