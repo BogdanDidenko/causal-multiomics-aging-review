@@ -76,13 +76,16 @@ or the existing macOS Keychain entries and are never written to the repository.
 python scripts/search_databases.py \
   --search-config protocol/search_config_v1.1.1.json \
   --output data/searches/pilots/2026-08-02-v1.1.1 \
-  --max-records-per-source 500
+  --max-records-per-source 50 \
+  --sample-seed 20260802
 ```
 
 The `v1.1.1` default excludes Springer Nature from identification because the
 available Meta API searches a broad full-text index. OpenAlex runs six scoped
 query branches, uses exact aging-term matching, and deduplicates their Work IDs
 locally. For OpenAlex, the pilot record cap applies separately to each branch.
+The fixed sample seed creates a reproducible random branch-quality sample;
+omitting `--sample-seed` retains deterministic citation-count ordering.
 
 Google Scholar is a documented manual supplementary search because it has no
 official API. After freezing the browser export, normalize it and build the

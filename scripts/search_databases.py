@@ -24,6 +24,7 @@ SEARCH_CONFIG = PROTOCOL / "search_config.json"
 QUERY_FILES: dict[str, Path] = {}
 QUERY_BRANCH_FILES: dict[str, dict[str, Path]] = {}
 MAX_RECORDS_PER_SOURCE: int | None = None
+SAMPLE_SEED: int | None = None
 
 PUBMED_ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 PUBMED_EFETCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
@@ -830,6 +831,44 @@ def collect_openalex(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any
         branch_records: list[dict[str, Any]] = []
         expected = 0
         page_index = 0
+
+        if MAX_RECORDS_PER_SOURCE is not None and SAMPLE_SEED is not None:
+            count_page = request_json(
+                OPENALEX_WORKS,
+                {
+                    "filter": query_filter,
+                    "per_page": "1",
+                    "select": "id",
+                    "api_key": api_key,
+                },
+            )
+            write_json_gzip(raw_dir / branch / "count.json.gz", count_page)
+            expected = int(count_page.get("meta", {}).get("count", 0))
+            sample_size = min(MAX_RECORDS_PER_SOURCE, expected)
+            if sample_size:
+                page = request_json(
+                    OPENALEX_WORKS,
+                    {
+                        "filter": query_filter,
+                        "sample": str(sample_size),
+                        "seed": str(SAMPLE_SEED),
+                        "per_page": str(sample_size),
+                        "select": (
+                            "id,doi,title,display_name,publication_year,"
+                            "publication_date,type,language,authorships,"
+                            "primary_location,abstract_inverted_index"
+                        ),
+                        "api_key": api_key,
+                    },
+                )
+                name = f"{branch}/sample_seed_{SAMPLE_SEED}.json.gz"
+                write_json_gzip(raw_dir / name, page)
+                for item in page.get("results", []):
+                    record = parse_openalex(item, name)
+                    record["query_branches"] = branch
+                    branch_records.append(record)
+            cursor = ""
+
         while cursor:
             page_index += 1
             page = request_json(
@@ -884,6 +923,7 @@ def collect_openalex(raw_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any
         "retrieved_branch_hits_before_deduplication": branch_hits,
         "duplicate_branch_hits_removed": branch_hits - len(records),
         "unique_retrieved_count": len(records),
+        "sampling_seed": SAMPLE_SEED,
     }
 
 
@@ -1005,12 +1045,23 @@ def main() -> None:
         type=int,
         help="pilot-only cap; omit for a complete final retrieval",
     )
+    parser.add_argument(
+        "--sample-seed",
+        type=int,
+        help=(
+            "fixed OpenAlex random-sample seed; requires "
+            "--max-records-per-source"
+        ),
+    )
     args = parser.parse_args()
 
-    global MAX_RECORDS_PER_SOURCE
+    global MAX_RECORDS_PER_SOURCE, SAMPLE_SEED
     if args.max_records_per_source is not None and args.max_records_per_source < 1:
         raise SystemExit("--max-records-per-source must be positive")
+    if args.sample_seed is not None and args.max_records_per_source is None:
+        raise SystemExit("--sample-seed requires --max-records-per-source")
     MAX_RECORDS_PER_SOURCE = args.max_records_per_source
+    SAMPLE_SEED = args.sample_seed
 
     search_config_path = args.search_config.resolve()
     config = json.loads(search_config_path.read_text(encoding="utf-8"))
@@ -1099,6 +1150,7 @@ def main() -> None:
         "openalex_pilot_limit_semantics": (
             "per_query_branch" if "openalex" in QUERY_BRANCH_FILES else None
         ),
+        "openalex_sample_seed": SAMPLE_SEED,
         "complete_retrieval": MAX_RECORDS_PER_SOURCE is None,
         "source_manifests": manifests,
         "total_source_records": len(all_records),
