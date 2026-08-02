@@ -149,6 +149,8 @@
       "records": 209
     }
   ],
-  "model_screening_status": "not_started",
+  "model_screening_status": "completed_on_byte_identical_96_shard_execution_input",
+  "execution_manifest": "data/screening/v1.1.2_full_corpus_96shards/runs/orchestrator_manifest.json",
+  "screening_audit": "analysis/v1_full_corpus_screening_2026-08-02/audit.json",
   "gold_standard": false
 }

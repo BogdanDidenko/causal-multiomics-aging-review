@@ -69,3 +69,55 @@ sources and merged into one canonical record.
 
 The 2026-07-27 search snapshot is a superseded pilot and must not be combined with
 these counts.
+
+## Title/abstract screening status
+
+The complete abstract-bearing corpus was evaluated with GPT 5.6 Terra Medium,
+`reasoning.effort=medium`, five independent role runs, and prompt suite
+`v1.4.0-rc1`. The suite remains marked
+`sealed_holdout_pending_not_active`; this was a full-corpus evaluation, not an
+activation run.
+
+- Records with abstracts entering the pipeline: **5,022**.
+- Complete, unique screening outputs: **5,022**.
+- Automatic exclusions requiring the same five-of-five criterion path: **2,978**.
+- Routed to `seek_full_text`: **1,972**.
+- Routed to `manual_review` after one failed retry: **72**.
+- Records without abstracts still awaiting enrichment: **2,836**.
+- Records remaining after automatic exclusions: **4,880**.
+
+Automatic exclusion codes were EC1 **939**, EC2 **0**, EC3 **1,433**, EC4 **425**,
+and EC5 **181**. The `seek_full_text` routes comprised 700 positive causal bases,
+824 unresolved or non-unanimous scope decisions, 47 unresolved or non-unanimous
+causal decisions, 397 oversized abstract records, and four conference-metadata
+issues.
+
+The run passed the corpus-integrity audit: 5,022 unique record IDs, no missing or
+unexpected outputs, no duplicate DOI, no routing recomputation errors, and 130,467
+accepted evidence spans checked with zero unsupported spans. The 96-worker run used
+frozen Git revision `b73c7b2` and completed from 2026-08-02 11:58:39 UTC to
+15:04:50 UTC.
+
+## Stability result
+
+The prompt suite did **not** pass the predeclared 100% stability gate:
+
+- All assessed decision fields exact across five runs: **3,624/4,549 (79.7%)**
+  among records with completed model assessment.
+- The same numerator over the full 5,022-record abstract input: **72.2%**; this
+  denominator also includes deterministic metadata routes and 72 failed role
+  contracts.
+- Scope all-tracked-field agreement: **81.5%**.
+- Causal all-tracked-field agreement: **91.1%**.
+
+The conservative routing remains valid for workflow prioritization because only
+unanimous exclusions are automatic. However, `v1.4.0-rc1` must not be described as
+a validated production instrument. The 72 role failures and all non-unanimous
+records remain retained for manual review or full text.
+
+Screening audit artifacts:
+
+- `analysis/v1_full_corpus_screening_2026-08-02/audit.json`
+- `analysis/v1_full_corpus_screening_2026-08-02/summary.json`
+- `analysis/v1_full_corpus_screening_2026-08-02/preliminary_annotations.csv`
+- `data/screening/v1.1.2_full_corpus_96shards/runs/orchestrator_manifest.json`

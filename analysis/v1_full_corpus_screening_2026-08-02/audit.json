@@ -1,0 +1,123 @@
+{
+  "artifacts": {
+    "input": {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/input.csv",
+      "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2"
+    },
+    "missing_abstract": {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/missing_abstract.csv",
+      "sha256": "0f1549257d437205b9a79205bec8b095027e32a3460e4d9ca17985d41920a89f"
+    },
+    "runs_dir": "data/screening/v1.1.2_full_corpus_96shards/runs"
+  },
+  "core_integrity_passed": true,
+  "coverage": {
+    "failed_shards": [],
+    "orchestrator_status": "complete",
+    "result_records": 5022,
+    "shard_manifests": 96,
+    "unique_result_record_ids": 5022
+  },
+  "error_examples": {
+    "doi_record_id_mismatches": [],
+    "duplicate_results": [],
+    "evidence": [],
+    "missing_results": [],
+    "repeats": [],
+    "routing": [],
+    "unexpected_results": []
+  },
+  "evidence_audit": {
+    "accepted_evidence_spans_checked": 130467,
+    "unsupported_or_inconsistent": 0
+  },
+  "integrity_errors": {
+    "doi_record_id_mismatches": 0,
+    "duplicate_input_record_ids": 0,
+    "duplicate_missing_abstract_record_ids": 0,
+    "duplicate_normalized_doi": 0,
+    "duplicate_result_record_ids": 0,
+    "evidence_or_consistency_errors": 0,
+    "input_missing_queue_overlap": 0,
+    "missing_result_record_ids": 0,
+    "model_mismatch": 0,
+    "repeat_count_errors": 0,
+    "routing_recomputation_errors": 0,
+    "shard_manifest_count_mismatch": 0,
+    "shard_manifest_decision_mismatch": 0,
+    "shard_manifest_record_total_mismatch": 0,
+    "suite_hash_mismatch": 0,
+    "unexpected_result_record_ids": 0
+  },
+  "interpretation": "The complete corpus may be routed conservatively because only unanimous exclusions are automatic. The prompt suite remains unvalidated because the predeclared 100% all-tracked-field stability gate was not met.",
+  "population": {
+    "canonical_records": 7858,
+    "records_missing_abstract": 2836,
+    "records_with_abstract": 5022,
+    "records_with_doi": 7580,
+    "records_without_doi": 278,
+    "unique_normalized_doi": 7580
+  },
+  "production_instrument_accepted": false,
+  "provider_attempts": {
+    "retry_attempts": 978,
+    "status_counts": {
+      "error": 1050,
+      "ok": 27539
+    },
+    "total": 28589
+  },
+  "routing": {
+    "decision_counts": {
+      "exclude": 2978,
+      "manual_review": 72,
+      "seek_full_text": 1972
+    },
+    "decision_reason_counts": {
+      "causal_unresolved_or_nonunanimous_exclusion": 47,
+      "conference_abstract_body_fragment": 1,
+      "conference_abstract_number_mismatch": 3,
+      "five_of_five_same_scope_exclusion": 2797,
+      "five_of_five_same_sufficient_causal_exclusion": 181,
+      "oversized_abstract_metadata": 397,
+      "positive_causal_basis": 700,
+      "role_execution_failed": 72,
+      "scope_unresolved_or_nonunanimous_exclusion": 824
+    },
+    "exclusion_code_counts": {
+      "EC1": 939,
+      "EC3": 1433,
+      "EC4": 425,
+      "EC5": 181,
+      "none": 2044
+    },
+    "manual_review_reason_counts": {
+      "role_execution_failed": 72
+    }
+  },
+  "runtime": {
+    "completed_at": "2026-08-02T15:04:50.912545+00:00",
+    "git_revision": "b73c7b21c66de7ee87f266ddaa69f1cab8eab648",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "started_at": "2026-08-02T11:58:39.645615+00:00",
+    "suite_approval_status": "sealed_holdout_pending_not_active",
+    "suite_config_sha256": "8f3b4ec54d8cec21c43f3fb43561f8fc8d168abc83c0be8c6cf60d6c54f1d8f6",
+    "suite_version": "1.4.0-rc1",
+    "workers": 96
+  },
+  "stability": {
+    "all_assessed_fields_exact_rate_among_full_abstract_input": 0.7216248506571087,
+    "all_assessed_fields_exact_rate_among_model_assessed": 0.7966586062870961,
+    "all_assessed_fields_exact_records": 3624,
+    "causal_all_tracked_exact_rate": 0.9105603448275862,
+    "causal_all_tracked_exact_records": 845,
+    "causal_assessed_records": 928,
+    "expected_repeats": 5,
+    "scope_all_tracked_exact_rate": 0.8146845460540778,
+    "scope_all_tracked_exact_records": 3706,
+    "scope_assessed_records": 4549
+  },
+  "stability_gate_passed": false,
+  "status": "complete_integrity_passed_stability_failed"
+}

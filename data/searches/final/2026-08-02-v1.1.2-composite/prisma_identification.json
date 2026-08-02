@@ -12,7 +12,7 @@
   "unique_records_with_abstract": 5022,
   "unique_records_missing_abstract": 2836,
   "unique_records_with_oversized_abstract_metadata": 397,
-  "screening_status": "input_frozen_run_pending",
+  "screening_status": "title_abstract_model_run_complete_metadata_enrichment_and_manual_review_pending",
   "source_counts": {
     "pubmed": {
       "reported": 2133,
@@ -75,6 +75,68 @@
     "duplicate_record_ids": 0,
     "duplicate_normalized_title_year": 0
   },
+  "title_abstract_screening": {
+    "run_classification": "full_corpus_evaluation_with_unvalidated_prompt_suite",
+    "records_with_abstract_entering_pipeline": 5022,
+    "records_with_complete_unique_outputs": 5022,
+    "automatic_exclusions": 2978,
+    "seek_full_text": 1972,
+    "manual_review": 72,
+    "records_missing_abstract_pending_enrichment": 2836,
+    "records_remaining_after_automatic_exclusion": 4880,
+    "exclusion_code_counts": {
+      "EC1": 939,
+      "EC2": 0,
+      "EC3": 1433,
+      "EC4": 425,
+      "EC5": 181
+    },
+    "seek_full_text_reason_counts": {
+      "positive_causal_basis": 700,
+      "scope_unresolved_or_nonunanimous_exclusion": 824,
+      "causal_unresolved_or_nonunanimous_exclusion": 47,
+      "oversized_abstract_metadata": 397,
+      "conference_abstract_number_mismatch": 3,
+      "conference_abstract_body_fragment": 1
+    },
+    "manual_review_reason_counts": {
+      "role_execution_failed_after_one_retry": 72
+    },
+    "runtime": {
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "medium",
+      "repeats": 5,
+      "suite_version": "1.4.0-rc1",
+      "suite_approval_status": "sealed_holdout_pending_not_active",
+      "git_revision": "b73c7b21c66de7ee87f266ddaa69f1cab8eab648",
+      "started_at": "2026-08-02T11:58:39.645615+00:00",
+      "completed_at": "2026-08-02T15:04:50.912545+00:00"
+    },
+    "integrity": {
+      "passed": true,
+      "duplicate_result_record_ids": 0,
+      "missing_result_record_ids": 0,
+      "unexpected_result_record_ids": 0,
+      "routing_recomputation_errors": 0,
+      "accepted_evidence_spans_checked": 130467,
+      "unsupported_evidence_spans": 0
+    },
+    "stability": {
+      "predeclared_gate_passed": false,
+      "all_assessed_fields_exact_records": 3624,
+      "all_assessed_fields_exact_rate_among_model_assessed": 0.7966586062870961,
+      "all_assessed_fields_exact_rate_among_full_abstract_input": 0.7216248506571087,
+      "scope_all_tracked_exact_rate": 0.8146845460540778,
+      "causal_all_tracked_exact_rate": 0.9105603448275862,
+      "interpretation": "Only unanimous exclusions are retained, but the prompt suite is not accepted as a validated production instrument because the predeclared 100% all-tracked-field agreement threshold was not met."
+    },
+    "audit_files": {
+      "orchestrator_manifest": "data/screening/v1.1.2_full_corpus_96shards/runs/orchestrator_manifest.json",
+      "screening_audit": "analysis/v1_full_corpus_screening_2026-08-02/audit.json",
+      "screening_summary": "analysis/v1_full_corpus_screening_2026-08-02/summary.json",
+      "preliminary_annotations": "analysis/v1_full_corpus_screening_2026-08-02/preliminary_annotations.csv"
+    }
+  },
   "provenance_source_count_distribution": {
     "1": 5879,
     "2": 543,
@@ -100,7 +162,8 @@
     "combined_source_records": "data/searches/final/2026-08-02-v1.1.2-composite/normalized/all_sources.csv",
     "canonical_records": "data/normalized/v1.1.2/canonical_all_sources.csv",
     "deduplication_log": "data/normalized/v1.1.2/deduplication_log.csv",
-    "screening_input_manifest": "data/screening/v1.1.2_full_corpus/input_manifest.json"
+    "screening_input_manifest": "data/screening/v1.1.2_full_corpus/input_manifest.json",
+    "execution_input_manifest": "data/screening/v1.1.2_full_corpus_96shards/input_manifest.json"
   },
   "notes": [
     "Local three-block matching is retrieval metadata QA, not an eligibility decision or a screening filter.",
@@ -109,6 +172,8 @@
     "Scopus STANDARD-view records lack abstracts under the available API entitlement; abstracts are backfilled only when another source provides one.",
     "Records without abstracts route to metadata enrichment, full-text retrieval, or manual review and are not silently discarded.",
     "Abstract metadata over 5,000 characters routes directly to seek_full_text to avoid full-text leakage into title/abstract model review.",
-    "The 2026-07-27 identification snapshot is a superseded pilot and is excluded from the final PRISMA denominator."
+    "The 2026-07-27 identification snapshot is a superseded pilot and is excluded from the final PRISMA denominator.",
+    "The 2,978 title/abstract exclusions require five-of-five agreement on the same criterion-level path; disagreement is retained for full text or manual review.",
+    "The full-corpus RC1 run passed integrity checks but failed the predeclared 100% all-tracked-field stability gate and therefore does not activate the prompt suite as a validated production instrument."
   ]
 }
