@@ -35,7 +35,7 @@ SEMANTIC_SCHOLAR_BULK = (
 )
 SPRINGER_META = "https://api.springernature.com/meta/v2/json"
 OPENALEX_WORKS = "https://api.openalex.org/works"
-PUBMED_FETCH_BATCH_SIZE = 50
+PUBMED_FETCH_BATCH_SIZE = 20
 
 KEYCHAIN = {
     "PUBMED_API_KEY": ("eutils.ncbi.nlm.nih.gov", "PubMed API Key"),
@@ -227,6 +227,7 @@ def request(
         command = [
             "curl",
             "-sS",
+            "--http1.1",
             "--max-time",
             "180",
             "-w",
