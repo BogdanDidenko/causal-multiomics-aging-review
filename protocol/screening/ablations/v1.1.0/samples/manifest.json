@@ -1,0 +1,306 @@
+{
+  "development": {
+    "path": "protocol/screening/ablations/v1.1.0/samples/development_60.csv",
+    "records": 60,
+    "sha256": "80495d6d992aeb7567b304ead50a2f6edde54fc3fe55e67bbfa6faeb691fa3ce",
+    "strata": {
+      "both|direct_perturbation|long|aging_anchor|causal_anchor": 1,
+      "both|direct_perturbation|long|aging_boundary|causal_anchor": 1,
+      "both|direct_perturbation|medium|aging_boundary|causal_anchor": 1,
+      "both|formal_mediation|long|aging_boundary|causal_anchor": 1,
+      "both|formal_mediation|medium|aging_anchor|causal_anchor": 1,
+      "both|formal_mediation|medium|aging_boundary|causal_anchor": 1,
+      "both|genetic_instrument|long|aging_boundary|causal_anchor": 1,
+      "both|other_causal_or_boundary|long|aging_anchor|causal_anchor": 1,
+      "both|other_causal_or_boundary|long|aging_boundary|causal_anchor": 1,
+      "both|other_causal_or_boundary|medium|aging_anchor|causal_anchor": 1,
+      "both|other_causal_or_boundary|medium|aging_boundary|causal_boundary": 1,
+      "both|other_intervention|long|aging_boundary|causal_anchor": 1,
+      "both|other_intervention|medium|aging_anchor|causal_anchor": 1,
+      "both|other_intervention|medium|aging_boundary|causal_boundary": 1,
+      "both|randomized_or_quasi_intervention|long|aging_anchor|causal_boundary": 1,
+      "both|randomized_or_quasi_intervention|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|direct_perturbation|long|aging_anchor|causal_boundary": 1,
+      "explicit_only|direct_perturbation|long|aging_boundary|causal_boundary": 1,
+      "explicit_only|direct_perturbation|medium|aging_anchor|causal_boundary": 1,
+      "explicit_only|direct_perturbation|medium|aging_boundary|causal_boundary": 1,
+      "explicit_only|formal_mediation|long|aging_anchor|causal_boundary": 1,
+      "explicit_only|formal_mediation|long|aging_boundary|causal_boundary": 1,
+      "explicit_only|formal_mediation|medium|aging_anchor|causal_boundary": 1,
+      "explicit_only|genetic_instrument|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|genetic_instrument|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|other_causal_or_boundary|long|aging_anchor|causal_boundary": 1,
+      "explicit_only|other_causal_or_boundary|long|aging_boundary|causal_boundary": 1,
+      "explicit_only|other_causal_or_boundary|medium|aging_boundary|causal_boundary": 1,
+      "explicit_only|other_intervention|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|other_intervention|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|other_intervention|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|other_intervention|medium|aging_boundary|causal_anchor": 1,
+      "explicit_only|other_intervention|thin|aging_anchor|causal_anchor": 1,
+      "explicit_only|randomized_or_quasi_intervention|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|direct_perturbation|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|direct_perturbation|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|direct_perturbation|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|direct_perturbation|medium|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|formal_directed_model|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|medium|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|thin|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|genetic_instrument|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|genetic_instrument|medium|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|long|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|other_causal_or_boundary|long|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|other_causal_or_boundary|medium|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|other_causal_or_boundary|medium|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|other_intervention|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|other_intervention|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_intervention|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|other_intervention|medium|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_intervention|thin|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|randomized_or_quasi_intervention|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|randomized_or_quasi_intervention|medium|aging_anchor|causal_anchor": 1,
+      "neither|direct_perturbation|long|aging_boundary|causal_anchor": 1,
+      "neither|direct_perturbation|medium|aging_boundary|causal_anchor": 1,
+      "neither|formal_mediation|long|aging_anchor|causal_anchor": 1
+    }
+  },
+  "eligible_unique_after_exclusions": 1787,
+  "experiment_id": "title_abstract_prompt_ablation_v1.1.0",
+  "gold_labels": "none; stability experiment only",
+  "identity_overlap_count": 0,
+  "input": "data/searches/pilots/2026-08-02-v1.0.0/normalized/all_sources.csv",
+  "input_sha256": "1bd904e092b2413a303423a0bb1990859ddde9afff66fd7cd59afe6a2878cf5b",
+  "prior_sample_exclusions": [
+    {
+      "new_identity_keys": 50,
+      "path": "protocol/screening/benchmarks/high_signal_development_25.csv",
+      "rows": 25,
+      "sha256": "1d6825e437c969d129cddabbbb0761b01d0d512a847233fa79f8aa4fc72fa57e"
+    },
+    {
+      "new_identity_keys": 16,
+      "path": "protocol/screening/benchmarks/title_abstract_atomic_focus_v0.78.0_8.csv",
+      "rows": 8,
+      "sha256": "e3a301f748b370721abc5ddfbfb41dcf143f1b5265de43437a2ed64b517f6702"
+    },
+    {
+      "new_identity_keys": 44,
+      "path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_25.csv",
+      "rows": 25,
+      "sha256": "af471cf1af4bbbbf5ce698d6a56ad0c1610ce5a31909b259bcd0d88d81795dea"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.2.0_25.csv",
+      "rows": 25,
+      "sha256": "0b8b69c4d64919f6fc93bdc0a69add5a5f6661fde34b609f0e516061b81a1f3f"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_boundary_pilot_v0.3.0_25.csv",
+      "rows": 25,
+      "sha256": "9df1a10e2723420e2a0953e33c4eec1c3e3fc485ab17da1482552449cf06ad36"
+    },
+    {
+      "new_identity_keys": 45,
+      "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.17.0_50.csv",
+      "rows": 50,
+      "sha256": "56dcdc58d1432fd3999d0dc819a0e4d61854b8317bd756d6ebffdaa529c07be7"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.24.0_50.csv",
+      "rows": 50,
+      "sha256": "aebd47eea150dc7a09e001a64b81a6fba972f13390c7fb4467cfa61ba447b59c"
+    },
+    {
+      "new_identity_keys": 30,
+      "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.92.0_16.csv",
+      "rows": 16,
+      "sha256": "69c50d1328d0a55029f9288ef73bc2668552664dca6971408428b80f48d8736e"
+    },
+    {
+      "new_identity_keys": 94,
+      "path": "protocol/screening/benchmarks/title_abstract_calibration_v0.96.0_50.csv",
+      "rows": 50,
+      "sha256": "dd42265341c98be46d21c9261fcab59b7188ab87babd9c3823cb60aada704c91"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_class_focus_v0.84.0_12.csv",
+      "rows": 12,
+      "sha256": "c6ea7681e6f20c91d9ae2c0c5269508fa90ce51d61a104cfb7457fc4d6819669"
+    },
+    {
+      "new_identity_keys": 10,
+      "path": "protocol/screening/benchmarks/title_abstract_contract_focus_v0.87.0_19.csv",
+      "rows": 19,
+      "sha256": "fc45b187f268bb7ff95cadc3c6cbde9a8f92294320e5ea5aae8b6b8836e770e4"
+    },
+    {
+      "new_identity_keys": 48,
+      "path": "protocol/screening/benchmarks/title_abstract_holdout_v2_quarantined_25.csv",
+      "rows": 25,
+      "sha256": "fa48090b913537240d35ab0be3b845d2258517d83b3f0963f67126e74d5c1051"
+    },
+    {
+      "new_identity_keys": 178,
+      "path": "protocol/screening/benchmarks/title_abstract_regression_116.csv",
+      "rows": 116,
+      "sha256": "89dac4c57d90a01cee4ea3b36db5afb6b59aa51b00ce330687c1be3937f55cf1"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_regression_v0.17.0_remaining_91.csv",
+      "rows": 91,
+      "sha256": "41df4791389a130449165e8e3d3fc3113e841ee30244079598d789550a8c1a5f"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_regression_v0.24.0_remaining_91.csv",
+      "rows": 91,
+      "sha256": "8f9aa73ce86b86937d402ca8dedbd156bb3e97a17b96cbce33d4e482a23b6ad9"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_regression_v0.41.0_remaining_66.csv",
+      "rows": 66,
+      "sha256": "d3a7e64adbfed1b09c091c9d3ca5c627fd2cdcb300c2d23a47278f87418291b7"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_regression_v0.51.0_remaining_41.csv",
+      "rows": 41,
+      "sha256": "281ae1c187997e430e7dff0b5b77d03d2b9cf5d01daeb01e989324b3ce5f1088"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_25.csv",
+      "rows": 25,
+      "sha256": "e71a57550427d2e9711682aae7123a4c8d0666304395717a726f230e3c90f661"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_25.csv",
+      "rows": 25,
+      "sha256": "32e2a80d60db0335e6d0328c0006eb84ca6dfb6b96a9ddcef4c97f43cc7e99ff"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v4_metadata_v0.24.0_25.csv",
+      "rows": 25,
+      "sha256": "f870806cf29d09da89dc37b7eac167f16cbb65bd3d4d1dd6e25e7f5ce85ad216"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v5_v0.41.0_25.csv",
+      "rows": 25,
+      "sha256": "3caaa4406ece8ca0ac147b20f9e4b912f1323fbf925165517a790082c000f06c"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v6_v0.51.0_25.csv",
+      "rows": 25,
+      "sha256": "283d2ebffcbb797c0cec30db80b3176bfa4f19d20155283b8733f9b166d0f46f"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v7_v0.92.0_25.csv",
+      "rows": 25,
+      "sha256": "17fa64ed5893f6a9c44803d18b87dae9677b760e1d6e264a761b4066270faca5"
+    },
+    {
+      "new_identity_keys": 48,
+      "path": "protocol/screening/benchmarks/title_abstract_stability_holdout_v8_v0.96.0_25.csv",
+      "rows": 25,
+      "sha256": "72049f3f6ad74babdd9c2e819ed7b1e9e4800147d044f0efaacccd420d5c6443"
+    },
+    {
+      "new_identity_keys": 0,
+      "path": "protocol/screening/benchmarks/title_abstract_syntax_focus_v0.85.0_17.csv",
+      "rows": 17,
+      "sha256": "1159250ca991e387fa5d4f08dd04d03544f01fd6c2773d6382dcd6f437540954"
+    },
+    {
+      "new_identity_keys": 223,
+      "path": "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv",
+      "rows": 120,
+      "sha256": "b6e0df184f2bcf63d2a81ba35da8a70b915dbcdeda15fe1cdce192c655cd67e7"
+    }
+  ],
+  "removed_incomplete_abstract_rows": 756,
+  "removed_prior_sample_rows": 223,
+  "sampling_method": "deterministic_round_robin_over_retrieval_strata_then_paired_alternation",
+  "sampling_seed": "causal-multiomics-aging-ablation-v1.1.0",
+  "sealed_holdout": {
+    "path": "protocol/screening/ablations/v1.1.0/samples/sealed_holdout_60.csv",
+    "records": 60,
+    "sha256": "5d5163ff46f9c2f27f6e6444606320f78c5567052caf6d757596d1e425c5f83c",
+    "status": "sealed_unopened_until_prompt_freeze",
+    "strata": {
+      "both|direct_perturbation|long|aging_anchor|causal_boundary": 1,
+      "both|direct_perturbation|medium|aging_anchor|causal_anchor": 1,
+      "both|formal_mediation|long|aging_anchor|causal_anchor": 1,
+      "both|formal_mediation|long|aging_boundary|causal_boundary": 1,
+      "both|formal_mediation|medium|aging_anchor|causal_boundary": 1,
+      "both|genetic_instrument|long|aging_anchor|causal_anchor": 1,
+      "both|genetic_instrument|medium|aging_anchor|causal_anchor": 1,
+      "both|other_causal_or_boundary|long|aging_anchor|causal_boundary": 1,
+      "both|other_causal_or_boundary|long|aging_boundary|causal_boundary": 1,
+      "both|other_causal_or_boundary|medium|aging_anchor|causal_boundary": 1,
+      "both|other_intervention|long|aging_anchor|causal_anchor": 1,
+      "both|other_intervention|long|aging_boundary|causal_boundary": 1,
+      "both|other_intervention|medium|aging_boundary|causal_anchor": 1,
+      "both|randomized_or_quasi_intervention|long|aging_anchor|causal_anchor": 1,
+      "both|randomized_or_quasi_intervention|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|direct_perturbation|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|direct_perturbation|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|direct_perturbation|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|direct_perturbation|medium|aging_boundary|causal_anchor": 1,
+      "explicit_only|formal_mediation|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|formal_mediation|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|formal_mediation|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|formal_mediation|medium|aging_boundary|causal_anchor": 1,
+      "explicit_only|genetic_instrument|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|other_causal_or_boundary|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|other_causal_or_boundary|long|aging_boundary|causal_anchor": 1,
+      "explicit_only|other_causal_or_boundary|medium|aging_anchor|causal_anchor": 1,
+      "explicit_only|other_causal_or_boundary|thin|aging_boundary|causal_boundary": 1,
+      "explicit_only|other_intervention|long|aging_anchor|causal_boundary": 1,
+      "explicit_only|other_intervention|long|aging_boundary|causal_boundary": 1,
+      "explicit_only|other_intervention|medium|aging_anchor|causal_boundary": 1,
+      "explicit_only|other_intervention|medium|aging_boundary|causal_boundary": 1,
+      "explicit_only|randomized_or_quasi_intervention|long|aging_anchor|causal_anchor": 1,
+      "explicit_only|randomized_or_quasi_intervention|medium|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|direct_perturbation|long|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|direct_perturbation|long|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|direct_perturbation|medium|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|direct_perturbation|medium|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|formal_directed_model|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|formal_mediation|long|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|formal_mediation|long|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|formal_mediation|medium|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|formal_mediation|medium|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|genetic_instrument|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|genetic_instrument|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|long|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|medium|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|medium|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_causal_or_boundary|thin|aging_boundary|causal_anchor": 1,
+      "layer_pair_only|other_intervention|long|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|other_intervention|long|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|other_intervention|medium|aging_anchor|causal_boundary": 1,
+      "layer_pair_only|other_intervention|medium|aging_boundary|causal_boundary": 1,
+      "layer_pair_only|randomized_or_quasi_intervention|long|aging_anchor|causal_anchor": 1,
+      "layer_pair_only|randomized_or_quasi_intervention|long|aging_boundary|causal_boundary": 1,
+      "neither|direct_perturbation|long|aging_anchor|causal_anchor": 1,
+      "neither|direct_perturbation|medium|aging_anchor|causal_anchor": 1,
+      "neither|direct_perturbation|medium|aging_boundary|causal_boundary": 1,
+      "neither|formal_mediation|long|aging_anchor|causal_boundary": 1
+    }
+  },
+  "source_rows": 3000
+}

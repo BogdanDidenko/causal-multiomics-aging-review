@@ -1,0 +1,60 @@
+{
+  "experiment_id": "title_abstract_prompt_ablation_v1.1.0",
+  "status": "development_not_run",
+  "objective": "Improve five-run exact agreement without changing schemas, model, runtime, or Python routing.",
+  "design": "2x2_factorial",
+  "baseline": "A0",
+  "factors": {
+    "M": {
+      "role": "scope_reviewer",
+      "hypothesis": "An explicit precedence rule and atomic molecular-layer inventory will reduce multiomics_evidence disagreement.",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.1.0/M/scope_reviewer.txt",
+      "unchanged_schema": "protocol/screening/schemas/title_abstract/v1.0.0/scope_reviewer.schema.json"
+    },
+    "D": {
+      "role": "causal_method_reviewer",
+      "hypothesis": "A single frozen routing anchor will reduce design_families disagreement while preserving causal_basis routing.",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.1.0/D/causal_method_reviewer.txt",
+      "unchanged_schema": "protocol/screening/schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json"
+    }
+  },
+  "arms": {
+    "A0": {"scope": "baseline", "causal": "baseline"},
+    "M": {"scope": "M", "causal": "baseline"},
+    "D": {"scope": "baseline", "causal": "D"},
+    "M+D": {"scope": "M", "causal": "D"}
+  },
+  "constants": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "max_retries": 1,
+    "context_window": 32768,
+    "schema_version": "1.0.0",
+    "python_routing_version": "1.0.0"
+  },
+  "samples": {
+    "development_records": 60,
+    "sealed_holdout_records": 60,
+    "transport_records": 120,
+    "sampling_seed": "causal-multiomics-aging-ablation-v1.1.0"
+  },
+  "primary_endpoint": "all_tracked_fields_exact_agreement_rate",
+  "secondary_endpoints": [
+    "decision_driving_fields_exact_agreement_rate",
+    "field_level_exact_agreement",
+    "single_repeat_route_exact_agreement_rate",
+    "schema_validity_after_retry",
+    "paired_gain_loss_counts_vs_A0",
+    "exact_mcnemar_p_value",
+    "wilson_95_percent_intervals"
+  ],
+  "selection_rule": [
+    "Maximize all-tracked-fields exact agreement on development.",
+    "Reject an arm if decision-driving agreement or route agreement is lower than A0.",
+    "Break ties by decision-driving agreement, then fewer retry failures, then the smaller prompt change.",
+    "Freeze the selected arm before opening the sealed holdout.",
+    "Do not tune on sealed-holdout results."
+  ],
+  "interpretation_constraint": "This experiment measures reproducibility, not model-to-expert validity."
+}
