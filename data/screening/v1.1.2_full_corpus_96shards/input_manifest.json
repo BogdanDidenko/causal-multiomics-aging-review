@@ -1,0 +1,514 @@
+{
+  "status": "frozen_full_corpus_screening_input",
+  "canonical_source": {
+    "path": "data/normalized/v1.1.2/canonical_all_sources.csv",
+    "sha256": "4161a35f7dc5cf26cbcc65afe2569a52998ad71c0b79a84adb04fbd7e89de5cc",
+    "records": 7858
+  },
+  "doi_audit": {
+    "nonempty_doi_rows": 7580,
+    "unique_normalized_doi": 7580,
+    "duplicate_normalized_doi": 0,
+    "missing_doi_rows": 278
+  },
+  "bibliographic_audit": {
+    "unique_record_ids": 7858,
+    "duplicate_record_ids": 0,
+    "duplicate_normalized_title_year": 0
+  },
+  "screening_input": {
+    "path": "data/screening/v1.1.2_full_corpus_96shards/input.csv",
+    "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2",
+    "records": 5022
+  },
+  "missing_abstract_queue": {
+    "path": "data/screening/v1.1.2_full_corpus_96shards/missing_abstract.csv",
+    "sha256": "0f1549257d437205b9a79205bec8b095027e32a3460e4d9ca17985d41920a89f",
+    "records": 2836,
+    "route": "metadata_enrichment_then_full_text_or_manual_review"
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_01.csv",
+      "sha256": "b6e57873786d1fcca6149b2badcd917cd8885716c3daf5e57f02266e85f5cdc0",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_02.csv",
+      "sha256": "98f73dede4e7be5bd7f749e8aaeac51be9ac27199c72eeb40f44d451d19cd0c6",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_03.csv",
+      "sha256": "f2b0c68abb8572f06352e6a4af4f20e45e7c72eb5c550c7dba3675f53632ad4e",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_04.csv",
+      "sha256": "470cf1cb46e7fac11762b9cc79584e06a77cbb366b28434d2e44ecd7f2d5636a",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_05.csv",
+      "sha256": "e87c4277139837921ee89bf4e43e317822b7eea9f07717a7f062f9974861c302",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_06.csv",
+      "sha256": "8bba842a595f98287e8c031e927e111886b49c3f608475afe5345e9a27d98f0e",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_07.csv",
+      "sha256": "2a8a36d88fd35e65fb56c06a7b754b9b243203577d94507ee47cf94be1263586",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_08.csv",
+      "sha256": "682e79f942dcfcff5a0f874b1157012096913597f97a1e6ed384ee8d12d4f7c8",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_09.csv",
+      "sha256": "a1cbcb46d5fac6bc9e69866d66c0f01d2cd520b4c610d0061c0688772f11ce43",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_10.csv",
+      "sha256": "acb3f05f859e0b7f75cd2bffa434d55890e6f8a3fcfd01ffbc9b4a85865e3269",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_11.csv",
+      "sha256": "42bb61d626b8bd11483c35848eb2458774bdece5ab0af5ec2213566de02df61f",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_12.csv",
+      "sha256": "a7b05320751d557eb0a590e2c1ec2c9b8717fe994054509f20c4583079ec8053",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_13.csv",
+      "sha256": "0219e1c955f97582fc68e6eb320ecfb41af1573e38038b52a76d402123db68cc",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_14.csv",
+      "sha256": "76855d83bdf7c421a0b8dd5b81fb50cf90c95069bb279f9c29cc96e0c8d902df",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_15.csv",
+      "sha256": "b810c46b666eab8349896ff468ed1b752abc08d7bb79492f0bf6b21de91bcbbb",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_16.csv",
+      "sha256": "2472fcaa05708f37d5e338c7c5ac43974d494a2da1db7f5f10474d37e0ba0b2e",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_17.csv",
+      "sha256": "35709dc5ce4a2239f4f752e79074677467fd9239736bf9ef9fd28d70af3f009b",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_18.csv",
+      "sha256": "817b9f657c7e4dc800aa0131eddc4f2d682e72d02950403ef9286ffaa74f919f",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_19.csv",
+      "sha256": "43ca6e45650deaca211cb129c3e78a1946e42657d47745fa65af36ca610ccb7d",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_20.csv",
+      "sha256": "0119895786103a3ccb7c20e5a0f76d208c36414ddf29a8584ff99cdc22f589e5",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_21.csv",
+      "sha256": "8809e959bd9c4f40b45a228587dd913368583e910c7c404ca5bc1adbe070a1e8",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_22.csv",
+      "sha256": "b2cedcbd30f6f985e56d9606267c466375a9e609988acad170530aaad67e4bc2",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_23.csv",
+      "sha256": "adf5376904d841c5d07a12980937f5235ee94cfc2846186a97f47453abf763bc",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_24.csv",
+      "sha256": "63cf62d7cb9922f8b69db776a87b6b156434439c192656a9d2e4563537660c35",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_25.csv",
+      "sha256": "16d9c073142eb6cff6702fb8bac6f0711454c41aa69a9815ade27aa3019680bc",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_26.csv",
+      "sha256": "075ee16868294467a922039a1f0c2ccd59ac6746edc86a0b0a27725ea8cfb1c5",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_27.csv",
+      "sha256": "3c0e7241dd2d5e7ba728064a1af618257ba6eea6e6193247378b153e30e860a2",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_28.csv",
+      "sha256": "83146527088f6e13f326299ec84733a74c4bb62d06b1e71a5bd2b3516aa4e73c",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_29.csv",
+      "sha256": "b22b101a2866d1ab7863c14a9e99c12aee38a9638e14488985f9a2e4eaeeeeff",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_30.csv",
+      "sha256": "515d062e99c1d852b6c11e8d0362b645d2b6438c9983814d1e944847082e48b0",
+      "records": 53
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_31.csv",
+      "sha256": "36f4ab4ebb471173f3eec67d93d158e91a2725ee4214d18ed9eeb6f8f24354da",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_32.csv",
+      "sha256": "d39c3b36c62b9f4cc390466381ca46d3b3d79b7b3505147b2f92d68dca28532a",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_33.csv",
+      "sha256": "66037ff160e89bd36d46d08fdf8023263f9c6f55d446bd7aab8de6a6817cb386",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_34.csv",
+      "sha256": "0bd056eb23de2ff15176a36608c3daaadaa4a3134eee433c3ff52d824e6b8dad",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_35.csv",
+      "sha256": "56cac9fdbf46a82f83878178c1c84a7031f3508e89ae07bee26324d29cb18de7",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_36.csv",
+      "sha256": "69f4099a13ff05bc290000aaeee7c4bf806121cf188f2f18c774936a22ce4938",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_37.csv",
+      "sha256": "aa1429da6724bc7161285dc2b1d1632507159b45428379164628ccf97690798a",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_38.csv",
+      "sha256": "544d26f16b27632951a08e7208812fd8da572d95a1a009caa692d96a394f2b68",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_39.csv",
+      "sha256": "99e37015f4d08da386af7ce0353db90616b5700d8518131809d44a2e6d402d03",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_40.csv",
+      "sha256": "4d5c52f7504771610de341dc796940019baa562780859feafd6c07db74b15073",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_41.csv",
+      "sha256": "e968e56ffc541bb0d8a5fd48982bdf4d1a2263ad838d3c918c241f1ecdb0df5f",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_42.csv",
+      "sha256": "112254efbccda7cce69bc958206c2bae2cd0d6e9e805f641e52645ba18081281",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_43.csv",
+      "sha256": "0a1b402879898168acad05e75ac9798e16c1ef147098ca31ab9c69c72876f868",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_44.csv",
+      "sha256": "edbed22efa181e8c8c12a9b4bec212ead1dffdbdf1fe3b138f3a3189507c73e0",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_45.csv",
+      "sha256": "8e82b63d6ae9737acc69296929bd757ce8f4bce56cf7a23d60314fbabbc19a71",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_46.csv",
+      "sha256": "66b2077369ba69ccaaf9f7dfc307da4aafae352388163c9163596a7ce7d0f7a5",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_47.csv",
+      "sha256": "60e6a3ad27d74ff572358786d660b453bfaa2eba7fa260be1ac0048de0927e7e",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_48.csv",
+      "sha256": "084ce8ff47c7866d6a2d4ff4c756e024ccad98b47cd75a09fc211845a1f34024",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_49.csv",
+      "sha256": "462c36e311508bf7ecceb2ace06fae7abec63930c8c1043615381e442afd545c",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_50.csv",
+      "sha256": "b2ba7ccda154a770cbca7adb3c8bc5d67bef806720c8337a44acc168368aa502",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_51.csv",
+      "sha256": "21ab63b023b1b479e5a204d91787a1e89310ce0998120c2210b05f612eb299c9",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_52.csv",
+      "sha256": "4e38b196bdaba8fed7bba1c8b300b13489c6ea60997dc19b2e469089e6697210",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_53.csv",
+      "sha256": "0bddfe5e740eb187cdfc56f2e0c670872d9a395b2e9acbd68c18ee19c8281640",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_54.csv",
+      "sha256": "cace475e9e28116899412325b26b3eb2dd0cb53554d1912371bf8f44eed58470",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_55.csv",
+      "sha256": "4aad310e0bd5d11d11f8580d54db56fa3cc5ae642fda893fe00c01fcf0188cad",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_56.csv",
+      "sha256": "796053a7b6fb74ea6f3fe58139c98c293b0dada89ed45a02b8433996f7686d08",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_57.csv",
+      "sha256": "5fe31ce9fc2b81dbfd9f0ad8e84e5446ba569d3016e11c1f74cfd89e2e940711",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_58.csv",
+      "sha256": "9a536a41448037d4a744582fa623469cfd9821fea69724aa9d7751050454faef",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_59.csv",
+      "sha256": "c373d53cd1a1d40cd73b41b3d3e70860b5cd191c4d6c3c95ee0c26ab0504b1f3",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_60.csv",
+      "sha256": "7aa0a32a1a00932280318bc457e9f8cb950cb478297f8077f828c96126ac7ab9",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_61.csv",
+      "sha256": "550ca2319cb3261c182e2f73291291467368465bfa5287e4e987b5b49ff40228",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_62.csv",
+      "sha256": "852eebf6d29f7e4ae755772663d9ad6a5b0f2ba2ae1725af1bf7b41b495b1502",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_63.csv",
+      "sha256": "15af97dabe41e910ac61493ba9adedc539b27a8581dc5a312a6a1db434fb9a3e",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_64.csv",
+      "sha256": "beef9fdd004283f01a9fe8e51b3d68e254f0210c5fc8acf36c8d406cf64033e4",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_65.csv",
+      "sha256": "a4304ef592bdd4be81450192a1d5d8671f7e6f0e944884848c3f23daf1efcaf6",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_66.csv",
+      "sha256": "388187133f2aa98cef3a01e874944b4f3328fe9d4e356c34b6d2c1e0dc475259",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_67.csv",
+      "sha256": "f3c648e312d5d24d93befacaad4cc46f25b7af67e077c1517e651670a79c1e6f",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_68.csv",
+      "sha256": "5903ea652b0dc55b11298b3f7e86eeb35b4592745d2bab588f38ec8a06f2fa0c",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_69.csv",
+      "sha256": "30996a54a4079b65fa01b01c06004d1d44172dd647f710469bec89fcc9105053",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_70.csv",
+      "sha256": "8db7d4fc1e3cb04e1876a15fd8c1c0ca2b17db50fc0f6eee10351bdeff113711",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_71.csv",
+      "sha256": "502892d3e95e2bbfc0171378e84a8fde5c2d39718ddeaf63e2da43cde6f19d94",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_72.csv",
+      "sha256": "254daaf9af1a361fe18e6a4d7a01c95d53a2eac51c80430e5736e7147fc13876",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_73.csv",
+      "sha256": "ffc09443cb57031a73f3f41eec864e4b65eaca7735d98c00babec2003b10d8d2",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_74.csv",
+      "sha256": "5cb7621d7f4628e992454e8d700dc366792ced31bb763eb10d3ba2ba83f0a3f3",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_75.csv",
+      "sha256": "34504b9ea7c234b419b3819f305ecbcb0d7d6474442fe0d3025bb127f4fe259c",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_76.csv",
+      "sha256": "37ae7f338dbb5047242c1433264491fc45b86e827149011c4f56ea58e187cabe",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_77.csv",
+      "sha256": "e554900d7daafc2ecdb8c3f0d116cfd4e06f0b631a9246182f9629be6eb4db02",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_78.csv",
+      "sha256": "17daa140a05c4a83a4e9c874acf4b1871ffce153e6ebd76b7f9afc001c86c2f4",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_79.csv",
+      "sha256": "a709c1e0356ff567e8f32016e2cb455fd9b27ae5d3f581f812fbd4411136dd1d",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_80.csv",
+      "sha256": "020366c19141e619ecd66b91593bc74cfde744f5fdbfec85c219ea8fd81e1698",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_81.csv",
+      "sha256": "37978525bc1f24e25506ef5171a1416e20faa58f9106421f0f4217f3c9dce849",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_82.csv",
+      "sha256": "322ae3e357f0cb43988c3cedfd5565a717c4f203e694a4f766b6e3ffbabcc3a4",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_83.csv",
+      "sha256": "7d957b56fb30b10e22177859134532b08dd350b807cfd296c32fbd5f86d84e15",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_84.csv",
+      "sha256": "30c2fc8989df391d7f2bc4fa7b595591fe1b84d369d37aabfb7010ca758fab67",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_85.csv",
+      "sha256": "23c014f20038add0e27d955ad3c7bf54049d629fb32a902370c42a4594a53b75",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_86.csv",
+      "sha256": "86e94ad597ce88fa278868e6b8f31187c7dd7d3d3acc87133dcac64deb472aa9",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_87.csv",
+      "sha256": "2d1b78a854bba9a93f4781e204607f5d0af7a3ac945a00eb353c39ef5bf0b5cb",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_88.csv",
+      "sha256": "4c4e18525c003d65e4fffba89d39208a97cd5dafd1fc791a03997c0e22e42971",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_89.csv",
+      "sha256": "c30fdfc20fed60ad0354bdeacff0c6adb87db94c1b539e69817d8e8bdd7d8661",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_90.csv",
+      "sha256": "31f1d56f9b0ec7fd8bedaf4212b778b7debaea9366332dd4ac3c9968095e61b8",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_91.csv",
+      "sha256": "50ef9d398250bf44a15c5d62bd4bc1fcd77eecc22d1ed16625cd6f4c95b2f04d",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_92.csv",
+      "sha256": "b4d15e71e4d87487fe8913467a33c281557c1bb0d8b6c94930be8170e215e023",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_93.csv",
+      "sha256": "7f8c84c8abc523e76f03a355b549a362add599277ded631d09b308c85573bd2d",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_94.csv",
+      "sha256": "f03b464f3058f866f4884569b4edccc9fced21f337fd9a32d9afb99e37f2bd4d",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_95.csv",
+      "sha256": "1cb7835425af8eb088f0b6e8c7904c36ce7b5142517e2540a34f9f25b2cacc5c",
+      "records": 52
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/shards/shard_96.csv",
+      "sha256": "64199213fb4e95ef6a6a210633b578d2ad1fb7f7853502f91df8f2a3a8a4f2b3",
+      "records": 52
+    }
+  ],
+  "model_screening_status": "not_started",
+  "gold_standard": false
+}

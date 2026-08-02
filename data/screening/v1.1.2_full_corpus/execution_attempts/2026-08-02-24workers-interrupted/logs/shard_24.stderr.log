@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/scripts/run_screening.py", line 149, in <module>
+    main()
+    ~~~~^^
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/scripts/run_screening.py", line 135, in main
+    counts = run_stage_screening(
+        args.input,
+    ...<6 lines>...
+        record_ids=set(args.record_id),
+    )
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/src/causal_multiomics_aging_review/screening.py", line 381, in run_stage_screening
+    result = processor(
+        record,
+    ...<4 lines>...
+        suite["runtime"]["max_retries"],
+    )
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/src/causal_multiomics_aging_review/screening.py", line 496, in _process_title_abstract_v1
+    scope_runs = _call_v1_title_role_repeated(
+        record,
+    ...<5 lines>...
+        max_retries,
+    )
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/src/causal_multiomics_aging_review/screening.py", line 585, in _call_v1_title_role_repeated
+    _call_role(
+    ~~~~~~~~~~^
+        provider,
+        ^^^^^^^^^
+    ...<11 lines>...
+        repeat_index=repeat_index,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/src/causal_multiomics_aging_review/screening.py", line 1821, in _call_role
+    answer, raw = provider.complete_json(
+                  ~~~~~~~~~~~~~~~~~~~~~~^
+        attempt_prompt,
+        ^^^^^^^^^^^^^^^
+        schema=schema,
+        ^^^^^^^^^^^^^^
+        schema_name=role,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/bogdan.didenko/lpnu/causal-multiomics-aging-review/src/causal_multiomics_aging_review/llm.py", line 279, in complete_json
+    completed = subprocess.run(
+        command,
+    ...<6 lines>...
+        check=False,
+    )
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1220, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 2126, in _communicate
+    ready = selector.select(timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py", line 398, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
