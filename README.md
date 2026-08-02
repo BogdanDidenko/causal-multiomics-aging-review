@@ -74,13 +74,13 @@ or the existing macOS Keychain entries and are never written to the repository.
 
 ```bash
 python scripts/search_databases.py \
-  --search-config protocol/search_config_v1.1.1.json \
-  --output data/searches/pilots/2026-08-02-v1.1.1 \
+  --search-config protocol/search_config_v1.1.2.json \
+  --output data/searches/pilots/2026-08-02-v1.1.2 \
   --max-records-per-source 50 \
   --sample-seed 20260802
 ```
 
-The `v1.1.1` default excludes Springer Nature from identification because the
+The `v1.1.2` default excludes Springer Nature from identification because the
 available Meta API searches a broad full-text index. OpenAlex runs six scoped
 query branches, uses exact aging-term matching, and deduplicates their Work IDs
 locally. For OpenAlex, the pilot record cap applies separately to each branch.

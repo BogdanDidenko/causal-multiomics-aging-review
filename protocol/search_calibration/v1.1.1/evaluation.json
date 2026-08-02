@@ -1,0 +1,41 @@
+{
+  "protocol_version": "1.1.1",
+  "evaluated_at": "2026-08-02",
+  "status": "retained_as_exact_aging_ablation",
+  "not_production": true,
+  "reported_branch_hits_before_deduplication": 1457,
+  "branch_counts": {
+    "explicit_multiomics": 297,
+    "genomics_plus_other": 536,
+    "epigenomics_plus_downstream": 232,
+    "transcriptomics_plus_downstream": 251,
+    "proteomics_plus_downstream": 94,
+    "metabolomics_plus_microbiomics": 47
+  },
+  "high_signal_pilot": {
+    "path": "data/searches/pilots/2026-08-02-v1.1.1",
+    "git_revision": "98c6d0e8fe6552995df4295870b319170d5a267c",
+    "branch_hits_retrieved": 297,
+    "unique_records": 239,
+    "local_three_block_records": 213,
+    "local_three_block_rate": 0.8912133891213389
+  },
+  "random_quality_pilot": {
+    "path": "data/searches/pilots/2026-08-02-v1.1.1-random-seed-20260802",
+    "git_revision": "9cde4759f5586e6d71e6204ba10c0a2c64b5779a",
+    "seed": 20260802,
+    "branch_hits_retrieved": 297,
+    "unique_records": 244,
+    "local_three_block_records": 213,
+    "local_three_block_rate": 0.8729508196721312
+  },
+  "development_candidate_recall": {
+    "interpretation": "Assistant-selected candidates, not expert gold.",
+    "candidates_with_doi": 96,
+    "openalex_indexed": 96,
+    "openalex_has_abstract": 78,
+    "query_matched": 74,
+    "recall_among_records_with_openalex_abstract": 0.9487179487179487
+  },
+  "next_ablation": "v1.1.2 adds metabolite to the metabolomics-layer vocabulary to restore one concept-valid network-MR miss."
+}

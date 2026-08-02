@@ -952,6 +952,16 @@ def write_records(path: Path, records: list[dict[str, Any]]) -> None:
         writer.writerows(records)
 
 
+def write_records_with_fields(path: Path, records: list[dict[str, Any]]) -> None:
+    if not records:
+        raise ValueError("Cannot infer CSV fields from an empty record list")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(records[0]), lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(records)
+
+
 def run_source(
     source: str, output: Path, canonical_doi: str
 ) -> tuple[str, list[dict[str, Any]], dict[str, Any]]:

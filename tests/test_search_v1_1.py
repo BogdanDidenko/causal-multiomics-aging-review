@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
-CONFIG = PROTOCOL / "search_config_v1.1.1.json"
+CONFIG = PROTOCOL / "search_config_v1.1.2.json"
 
 
 def load_config() -> dict:
@@ -93,3 +93,13 @@ def test_openalex_uses_exact_aging_search() -> None:
         query = (PROTOCOL / path_text).read_text(encoding="utf-8")
         assert "title_and_abstract.search.exact:aging|" in query
         assert "title_and_abstract.search:aging|" not in query
+
+
+def test_openalex_pairwise_queries_include_metabolite_recall_term() -> None:
+    databases = {item["id"]: item for item in load_config()["databases"]}
+    for branch, path_text in databases["openalex"]["query_files"].items():
+        query = (PROTOCOL / path_text).read_text(encoding="utf-8")
+        if branch == "explicit_multiomics":
+            continue
+        if branch == "genomics_plus_other" or "metabolomics" in branch:
+            assert "metabolome|metabolite|lipidomic" in query
