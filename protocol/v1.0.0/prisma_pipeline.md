@@ -8,6 +8,10 @@ five-run stability gates. The 2026-07-27 retrieval and all `v0.x` screening
 outputs are superseded pilot evidence and are excluded from the final PRISMA
 denominator.
 
+Identification-source scope is amended by
+`protocol/v1.1.2/search_scope_amendment.md`. In particular, Springer Nature is
+excluded from identification and OpenAlex uses the scoped `v1.1.2` branch pack.
+
 ## 1. Identification
 
 1. Calibrate database-native searches in PubMed, Scopus, Europe PMC, Semantic

@@ -1,0 +1,58 @@
+{
+  "protocol_version": "1.1.2",
+  "evaluated_at": "2026-08-02",
+  "status": "provisionally_selected_for_complete_retrieval",
+  "not_production_screening": true,
+  "springernature_identification_status": "excluded",
+  "openalex": {
+    "reported_branch_hits_before_deduplication": 1600,
+    "branch_counts": {
+      "explicit_multiomics": 297,
+      "genomics_plus_other": 582,
+      "epigenomics_plus_downstream": 248,
+      "transcriptomics_plus_downstream": 276,
+      "proteomics_plus_downstream": 112,
+      "metabolomics_plus_microbiomics": 85
+    },
+    "complete_retrieval": {
+      "path": "data/searches/complete/2026-08-02-v1.1.2-openalex",
+      "git_revision": "62fe7fe21474ae5c893100305738e992a73dac48",
+      "branch_occurrences": 1600,
+      "duplicate_branch_hits_removed": 419,
+      "unique_works": 1181,
+      "local_three_block_records": 1067,
+      "local_three_block_rate": 0.903471634208298,
+      "local_three_block_wilson_95_ci": [
+        0.8852974787783462,
+        0.9190295414362802
+      ],
+      "canonical_positive_retrieved": true
+    },
+    "random_quality_pilot": {
+      "path": "data/searches/pilots/2026-08-02-v1.1.2-random-seed-20260802",
+      "seed": 20260802,
+      "branch_occurrences": 300,
+      "unique_works": 244,
+      "local_three_block_records": 217,
+      "local_three_block_rate": 0.889344262295082,
+      "local_three_block_wilson_95_ci": [
+        0.8437905043483725,
+        0.9228286113721306
+      ]
+    },
+    "development_candidate_recall": {
+      "path": "analysis/openalex_scope_calibration/v1.1.2_candidate_recall",
+      "interpretation": "Assistant-selected development candidates; not expert gold and not an accuracy denominator.",
+      "candidates_with_doi": 96,
+      "openalex_indexed": 96,
+      "openalex_has_abstract": 78,
+      "query_matched": 75,
+      "recall_among_records_with_openalex_abstract": 0.9615384615384616,
+      "wilson_95_ci": [
+        0.8929155395249817,
+        0.986834174586839
+      ]
+    }
+  },
+  "interpretation": "The scoped query replaces the invalid 32273-result broad pilot. The 1181 unique Works are retrieval candidates, not eligible studies. Query freeze still requires criterion-level quality annotation; full-corpus LLM screening remains blocked until that audit is recorded."
+}

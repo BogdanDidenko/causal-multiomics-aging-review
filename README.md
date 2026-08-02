@@ -107,6 +107,8 @@ python scripts/summarize_search.py \
 The frozen 2026-07-27 run is a superseded pilot and is not a final PRISMA
 denominator. The v1 count/quality pilot and unresolved gates are documented in
 [`docs/search_calibration_v1.0.0.md`](docs/search_calibration_v1.0.0.md).
+The current OpenAlex scope ablation and complete retrieval are documented in
+[`analysis/openalex_scope_calibration/report.md`](analysis/openalex_scope_calibration/report.md).
 
 After expert-gold development annotation, run the v1 suite with GPT 5.6 Terra
 Medium through the locally authenticated Codex CLI:

@@ -1,0 +1,147 @@
+{
+  "protocol_version": "1.1.1",
+  "candidate_source": "analysis/v1_methodology/canonical_candidate_final_ai_annotation_2026-08-02.csv",
+  "candidate_interpretation": "Assistant-selected development candidates; not expert gold and not an accuracy denominator.",
+  "candidates_with_doi": 96,
+  "openalex_indexed": 96,
+  "openalex_has_abstract": 78,
+  "query_matched": 74,
+  "query_recall_among_indexed": 0.7708333333333334,
+  "query_recall_among_records_with_openalex_abstract": 0.9487179487179487,
+  "query_files": {
+    "explicit_multiomics": {
+      "path": "protocol/queries/v1.1.1/openalex/explicit_multiomics.txt",
+      "sha256": "d51760f17e7cb9d8df21e2fab790bafa21272b33803d75e93638e1a58ff6a142"
+    },
+    "genomics_plus_other": {
+      "path": "protocol/queries/v1.1.1/openalex/genomics_plus_other.txt",
+      "sha256": "39843ecdb893c2c21302c5669831f24d8f08e7e1248ec25b558e13121d8091db"
+    },
+    "epigenomics_plus_downstream": {
+      "path": "protocol/queries/v1.1.1/openalex/epigenomics_plus_downstream.txt",
+      "sha256": "e10dc61567dd148edadf750b0743ec56b86f0dd76609893e9613248054a385f4"
+    },
+    "transcriptomics_plus_downstream": {
+      "path": "protocol/queries/v1.1.1/openalex/transcriptomics_plus_downstream.txt",
+      "sha256": "031f90c8489fa8c19717c63bae6ef2e3f299350c1186ce6e790211f48e809306"
+    },
+    "proteomics_plus_downstream": {
+      "path": "protocol/queries/v1.1.1/openalex/proteomics_plus_downstream.txt",
+      "sha256": "38ee0258cd42c041bb30bfdf7bbd10456b1e7ef61fcb5f5bd9ce556458467692"
+    },
+    "metabolomics_plus_microbiomics": {
+      "path": "protocol/queries/v1.1.1/openalex/metabolomics_plus_microbiomics.txt",
+      "sha256": "1afaa139898387b8cfc57c34d12bec00357da127cd7c4bdcc9b7d832550527ac"
+    }
+  },
+  "raw_responses": [
+    {
+      "path": "raw/epigenomics_plus_downstream/batch_01.json.gz",
+      "sha256": "4e9fa21ef69cbf6c3df17ac13dbe334464e3c1bcfa2c9351dc462ebd585e3d9c",
+      "bytes": 2998
+    },
+    {
+      "path": "raw/epigenomics_plus_downstream/batch_02.json.gz",
+      "sha256": "6ceeb7ded8c0af303ca8d10282af67c5ce6657ae6d4a4dd1c9898b492327a66d",
+      "bytes": 3065
+    },
+    {
+      "path": "raw/epigenomics_plus_downstream/batch_03.json.gz",
+      "sha256": "1e639f037546c2a04eec17f06f6d2d5b9390f6feb1fbb6e051ce309504831359",
+      "bytes": 2487
+    },
+    {
+      "path": "raw/explicit_multiomics/batch_01.json.gz",
+      "sha256": "906596de1f8e8d4c0ef1ed43c7b13253eaa2d15a34fd09d732489f45b1132073",
+      "bytes": 2885
+    },
+    {
+      "path": "raw/explicit_multiomics/batch_02.json.gz",
+      "sha256": "d90e129a2c18350142186eb28f8e14428e794f4f04a7017ac8f3f386d81d29f5",
+      "bytes": 3053
+    },
+    {
+      "path": "raw/explicit_multiomics/batch_03.json.gz",
+      "sha256": "a05f1a1eb92d09b636f39839b56f10d59db15a619209d6d9ad3969decb7df982",
+      "bytes": 2352
+    },
+    {
+      "path": "raw/genomics_plus_other/batch_01.json.gz",
+      "sha256": "632509650aa311a7f528747c471d490c86aa30ae36cb5ac469b13c803df07027",
+      "bytes": 3221
+    },
+    {
+      "path": "raw/genomics_plus_other/batch_02.json.gz",
+      "sha256": "b751e3a606a021bd6196c7a99bfcd22da80b2b37fba1e3010221b76f778ca767",
+      "bytes": 3318
+    },
+    {
+      "path": "raw/genomics_plus_other/batch_03.json.gz",
+      "sha256": "8c7e248377d0eab51329442eb0c2fcdfb6be12b31fc9e76aa2e86992cb8ab03a",
+      "bytes": 2608
+    },
+    {
+      "path": "raw/indexed/batch_01.json.gz",
+      "sha256": "d3c1536cb77498fa3130e7bd3160a202e8f83a92917bd3fb271cf33d02fc2780",
+      "bytes": 35091
+    },
+    {
+      "path": "raw/indexed/batch_02.json.gz",
+      "sha256": "095c8108e98af46fb691402f8c1fd18da0e2bf464d6536e886938ca090f79804",
+      "bytes": 55108
+    },
+    {
+      "path": "raw/indexed/batch_03.json.gz",
+      "sha256": "e8ff65ac23862e692812e8d2c4d051374d6a5b475a199c77186b2dc32f1530c9",
+      "bytes": 20996
+    },
+    {
+      "path": "raw/metabolomics_plus_microbiomics/batch_01.json.gz",
+      "sha256": "9d2cc8e6aa327d12bf8c81cae8e0ef94199b53466993384d4cfcd6bb44d9744f",
+      "bytes": 2749
+    },
+    {
+      "path": "raw/metabolomics_plus_microbiomics/batch_02.json.gz",
+      "sha256": "3da811bd75118c031c60aeb23170915b69ce9b19fc342f475fc783c814acfdb8",
+      "bytes": 2765
+    },
+    {
+      "path": "raw/metabolomics_plus_microbiomics/batch_03.json.gz",
+      "sha256": "6fb0ead8ce0e7584bcffda17acac18a1dd70428295ae2633c0e27aee964a3b96",
+      "bytes": 2231
+    },
+    {
+      "path": "raw/proteomics_plus_downstream/batch_01.json.gz",
+      "sha256": "04a56dca8f6e34fbcdb61d7dbab3d53da43d434befbdb1f13b723a06e171f0fc",
+      "bytes": 2787
+    },
+    {
+      "path": "raw/proteomics_plus_downstream/batch_02.json.gz",
+      "sha256": "9cda79d0166e4d0116023529e046b75e9cad68d659f4c3fc2419aabafa36bc86",
+      "bytes": 2918
+    },
+    {
+      "path": "raw/proteomics_plus_downstream/batch_03.json.gz",
+      "sha256": "acbae9bb8a563bcaaa18254b9d2df2ef0f6feb56ee253fba020a4177c5f6a37c",
+      "bytes": 2323
+    },
+    {
+      "path": "raw/transcriptomics_plus_downstream/batch_01.json.gz",
+      "sha256": "0a90e0894d930e4830d7efe6d21b506ba8b9aa5e37f6e1ebfc12063ea61ad28b",
+      "bytes": 2910
+    },
+    {
+      "path": "raw/transcriptomics_plus_downstream/batch_02.json.gz",
+      "sha256": "b96fc4d20e3f609fe8ca275cec68c366377d64a06362f13bfec6c54e18743637",
+      "bytes": 2988
+    },
+    {
+      "path": "raw/transcriptomics_plus_downstream/batch_03.json.gz",
+      "sha256": "24da4618d72c3a42f990c7c90b51528ba4adfe6a2b56505ca775718c10c77547",
+      "bytes": 2476
+    }
+  ],
+  "candidate_recall_file": "candidate_recall.csv",
+  "candidate_recall_sha256": "9bb76f308317b3a3da6f6d20addcfa9bd363892a79d6a43713f3db48e2e3931c",
+  "git_revision": "62fe7fe21474ae5c893100305738e992a73dac48"
+}
