@@ -17,11 +17,19 @@ from causal_multiomics_aging_review.v1 import (
     scope_status,
 )
 
-ARMS = {
-    "A0": ("scope_A0", "causal_A0"),
-    "M": ("scope_M", "causal_A0"),
-    "D": ("scope_A0", "causal_D"),
-    "M+D": ("scope_M", "causal_D"),
+ARM_CYCLES = {
+    "v1.1.0": {
+        "A0": ("scope_A0", "causal_A0"),
+        "M": ("scope_M", "causal_A0"),
+        "D": ("scope_A0", "causal_D"),
+        "M+D": ("scope_M", "causal_D"),
+    },
+    "v1.2.0": {
+        "A0": ("scope_A0", "causal_A0"),
+        "S": ("scope_S", "causal_A0"),
+        "C": ("scope_A0", "causal_C"),
+        "S+C": ("scope_S", "causal_C"),
+    },
 }
 CAUSAL_ROUTING_FIELDS = tuple(
     field for field in CAUSAL_DECISION_FIELDS if field != "design_families"
@@ -206,7 +214,11 @@ def rate(summary: dict[str, Any], endpoint: str) -> float:
     return float(summary[endpoint]["rate"] or 0.0)
 
 
-def select_arm(summaries: dict[str, dict[str, Any]]) -> str:
+def select_arm(
+    summaries: dict[str, dict[str, Any]],
+    arms: dict[str, tuple[str, str]] | None = None,
+) -> str:
+    arms = arms or ARM_CYCLES["v1.1.0"]
     baseline_decision = rate(summaries["A0"], "decision_driving_fields_exact")
     baseline_route = rate(summaries["A0"], "single_repeat_route_exact")
     admissible = [
@@ -215,7 +227,10 @@ def select_arm(summaries: dict[str, dict[str, Any]]) -> str:
         if rate(summary, "decision_driving_fields_exact") >= baseline_decision
         and rate(summary, "single_repeat_route_exact") >= baseline_route
     ]
-    change_count = {"A0": 0, "M": 1, "D": 1, "M+D": 2}
+    change_count = {
+        arm: int(scope != "scope_A0") + int(causal != "causal_A0")
+        for arm, (scope, causal) in arms.items()
+    }
     return max(
         admissible,
         key=lambda arm: (
@@ -277,17 +292,23 @@ def main() -> None:
     parser.add_argument(
         "--phase", choices=("development", "sealed_holdout", "transport"), required=True
     )
-    parser.add_argument("--selected-arm", choices=sorted(ARMS))
+    parser.add_argument("--cycle", choices=sorted(ARM_CYCLES), default="v1.1.0")
+    parser.add_argument("--selected-arm")
     args = parser.parse_args()
 
-    arms_to_report = list(ARMS)
+    arms = ARM_CYCLES[args.cycle]
+    if args.selected_arm and args.selected_arm not in arms:
+        raise SystemExit(f"Unknown selected arm for {args.cycle}: {args.selected_arm}")
+    arms_to_report = list(arms)
     if args.phase == "sealed_holdout":
         if not args.selected_arm:
             raise SystemExit("--selected-arm is required for sealed_holdout")
         arms_to_report = ["A0"]
         if args.selected_arm != "A0":
             arms_to_report.append(args.selected_arm)
-    required_artifacts = {artifact for arm in arms_to_report for artifact in ARMS[arm]}
+    required_artifacts = {
+        artifact for arm in arms_to_report for artifact in arms[arm]
+    }
     artifacts = {
         artifact: read_jsonl(args.role_root / artifact / "role_results.jsonl")
         for artifact in required_artifacts
@@ -299,7 +320,7 @@ def main() -> None:
     arm_rows: dict[str, list[dict[str, Any]]] = {}
     summaries = {}
     for arm in arms_to_report:
-        scope_key, causal_key = ARMS[arm]
+        scope_key, causal_key = arms[arm]
         rows = [
             evaluate_record(
                 identifier,
@@ -326,7 +347,7 @@ def main() -> None:
             )
         }
     report: dict[str, Any] = {
-        "experiment_id": "title_abstract_prompt_ablation_v1.1.0",
+        "experiment_id": f"title_abstract_prompt_ablation_{args.cycle}",
         "phase": args.phase,
         "records": len(identifiers),
         "arms": summaries,
@@ -334,29 +355,31 @@ def main() -> None:
         "interpretation_constraint": "Reproducibility only; no expert-gold accuracy inference.",
     }
     if args.phase == "development":
+        factor_1, factor_2 = [arm for arm in arms if arm != "A0" and "+" not in arm]
+        combined = next(arm for arm in arms if "+" in arm)
         report["factorial_effects"] = {
-            "M_main_effect": (
-                rate(summaries["M"], "all_tracked_fields_exact")
-                + rate(summaries["M+D"], "all_tracked_fields_exact")
+            f"{factor_1}_main_effect": (
+                rate(summaries[factor_1], "all_tracked_fields_exact")
+                + rate(summaries[combined], "all_tracked_fields_exact")
                 - rate(summaries["A0"], "all_tracked_fields_exact")
-                - rate(summaries["D"], "all_tracked_fields_exact")
+                - rate(summaries[factor_2], "all_tracked_fields_exact")
             )
             / 2,
-            "D_main_effect": (
-                rate(summaries["D"], "all_tracked_fields_exact")
-                + rate(summaries["M+D"], "all_tracked_fields_exact")
+            f"{factor_2}_main_effect": (
+                rate(summaries[factor_2], "all_tracked_fields_exact")
+                + rate(summaries[combined], "all_tracked_fields_exact")
                 - rate(summaries["A0"], "all_tracked_fields_exact")
-                - rate(summaries["M"], "all_tracked_fields_exact")
+                - rate(summaries[factor_1], "all_tracked_fields_exact")
             )
             / 2,
             "interaction": (
-                rate(summaries["M+D"], "all_tracked_fields_exact")
-                - rate(summaries["M"], "all_tracked_fields_exact")
-                - rate(summaries["D"], "all_tracked_fields_exact")
+                rate(summaries[combined], "all_tracked_fields_exact")
+                - rate(summaries[factor_1], "all_tracked_fields_exact")
+                - rate(summaries[factor_2], "all_tracked_fields_exact")
                 + rate(summaries["A0"], "all_tracked_fields_exact")
             ),
         }
-        report["selected_arm"] = select_arm(summaries)
+        report["selected_arm"] = select_arm(summaries, arms)
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "summary.json").write_text(

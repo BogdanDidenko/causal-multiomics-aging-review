@@ -46,6 +46,16 @@ ARTIFACTS = {
         "prompt": REPO_ROOT
         / "protocol/screening/prompts/title_abstract/ablation_v1.1.0/D/causal_method_reviewer.txt",
     },
+    "scope_S": {
+        "role": "scope_reviewer",
+        "prompt": REPO_ROOT
+        / "protocol/screening/prompts/title_abstract/ablation_v1.2.0/S/scope_reviewer.txt",
+    },
+    "causal_C": {
+        "role": "causal_method_reviewer",
+        "prompt": REPO_ROOT
+        / "protocol/screening/prompts/title_abstract/ablation_v1.2.0/C/causal_method_reviewer.txt",
+    },
 }
 SCHEMAS = {
     "scope_reviewer": REPO_ROOT

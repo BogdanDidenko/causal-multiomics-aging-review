@@ -72,6 +72,19 @@ def test_ablation_changes_only_one_prompt_per_factor() -> None:
     ).read_text()
 
 
+def test_second_cycle_is_predeclared_from_first_cycle_results() -> None:
+    experiment = json.loads(
+        (ROOT / "protocol/screening/ablations/v1.2.0/experiment.json").read_text()
+    )
+    assert experiment["parent_result_commit"] == "1701cc7"
+    assert experiment["arms"] == {
+        "A0": {"scope": "baseline", "causal": "baseline"},
+        "S": {"scope": "S", "causal": "baseline"},
+        "C": {"scope": "baseline", "causal": "C"},
+        "S+C": {"scope": "S", "causal": "C"},
+    }
+
+
 def test_ablation_sets_are_disjoint_and_prior_samples_are_excluded() -> None:
     manifest = json.loads((SAMPLE_ROOT / "manifest.json").read_text())
     with (SAMPLE_ROOT / "development_60.csv").open(newline="", encoding="utf-8") as handle:

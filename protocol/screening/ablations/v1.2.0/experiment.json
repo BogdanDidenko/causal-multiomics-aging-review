@@ -1,0 +1,52 @@
+{
+  "experiment_id": "title_abstract_prompt_ablation_v1.2.0",
+  "status": "development_not_run",
+  "parent_cycle": "title_abstract_prompt_ablation_v1.1.0",
+  "parent_result_commit": "1701cc7",
+  "design": "sequential_2x2_factorial_on_same_development_set",
+  "rationale": {
+    "observed_without_new_tuning": {
+      "primary_endpoint": "No v1.1.0 arm improved the 60.0% all-tracked exact-agreement rate.",
+      "M": "multiomics_evidence improved from 72.9% to 93.2%, but current_report_layer_use fell from 93.2% to 84.7%.",
+      "D": "The singleton design anchor improved independent-role design_families agreement from 88.3% to 95.0%, but causal_basis did not improve."
+    },
+    "S_hypothesis": "Closing the aging boundary and deriving layer-use from a stated output table will retain M's multi-omics gain without transferring ambiguity.",
+    "C_hypothesis": "Mutually exclusive positive/negative causal-basis tables plus operational anchor definitions will reduce basis and family disagreement together."
+  },
+  "factors": {
+    "S": {
+      "role": "scope_reviewer",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.2.0/S/scope_reviewer.txt",
+      "unchanged_schema": "protocol/screening/schemas/title_abstract/v1.0.0/scope_reviewer.schema.json"
+    },
+    "C": {
+      "role": "causal_method_reviewer",
+      "changed_artifact": "protocol/screening/prompts/title_abstract/ablation_v1.2.0/C/causal_method_reviewer.txt",
+      "unchanged_schema": "protocol/screening/schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json"
+    }
+  },
+  "arms": {
+    "A0": {"scope": "baseline", "causal": "baseline"},
+    "S": {"scope": "S", "causal": "baseline"},
+    "C": {"scope": "baseline", "causal": "C"},
+    "S+C": {"scope": "S", "causal": "C"}
+  },
+  "constants": {
+    "development_sample_sha256": "80495d6d992aeb7567b304ead50a2f6edde54fc3fe55e67bbfa6faeb691fa3ce",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "max_retries": 1,
+    "schema_version": "1.0.0",
+    "python_routing_version": "1.0.0"
+  },
+  "primary_endpoint": "all_tracked_fields_exact_agreement_rate",
+  "selection_rule": [
+    "Maximize all-tracked-fields exact agreement on development.",
+    "Reject an arm if decision-driving agreement or route agreement is lower than A0.",
+    "Break ties by decision-driving agreement, then fewer retry failures, then the smaller prompt change.",
+    "Freeze the selected arm before opening the same v1.1.0 sealed holdout.",
+    "Do not tune on sealed-holdout results."
+  ],
+  "interpretation_constraint": "This cycle tunes reproducibility on development and does not estimate model-to-expert validity."
+}
