@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocol"
-CONFIG = PROTOCOL / "search_config_v1.1.0.json"
+CONFIG = PROTOCOL / "search_config_v1.1.1.json"
 
 
 def load_config() -> dict:
@@ -68,7 +68,8 @@ def test_pairwise_openalex_queries_require_two_layer_filters() -> None:
             continue
         query = (PROTOCOL / path_text).read_text(encoding="utf-8")
         layer_filters = re.findall(r"title_and_abstract\.search:[^,]+", query)
-        assert len(layer_filters) >= 4
+        assert len(layer_filters) >= 3
+        assert "title_and_abstract.search.exact:aging|" in query
 
 
 def test_openalex_does_not_use_bare_generic_causal_anchors() -> None:
@@ -84,3 +85,11 @@ def test_openalex_does_not_use_bare_generic_causal_anchors() -> None:
             "mediation",
             "perturbation",
         }
+
+
+def test_openalex_uses_exact_aging_search() -> None:
+    databases = {item["id"]: item for item in load_config()["databases"]}
+    for path_text in databases["openalex"]["query_files"].values():
+        query = (PROTOCOL / path_text).read_text(encoding="utf-8")
+        assert "title_and_abstract.search.exact:aging|" in query
+        assert "title_and_abstract.search:aging|" not in query

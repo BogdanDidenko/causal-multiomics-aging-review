@@ -1,0 +1,31 @@
+{
+  "protocol_version": "1.1.1",
+  "status": "openalex_exact_aging_calibration",
+  "supersedes_search_pilot": "v1.1.0",
+  "springernature": {
+    "identification_status": "excluded",
+    "reason": "The available Meta API searches a broad full-text index and produced 11896 raw matches, while only 32 of the first 500 records contained all three review concept blocks in title/abstract.",
+    "permitted_later_use": "identifier_based_full_text_retrieval_only"
+  },
+  "openalex": {
+    "previous_count": 3029,
+    "previous_status": "rejected_stemmed_aging_ablation",
+    "previous_problem": "OpenAlex stemming treated generic uses of age as an aging-process signal; only 103 of 234 unique pilot records contained a locally verifiable aging construct.",
+    "new_strategy": "retain the six v1.1.0 multi-omics branches and formal causal anchors while applying exact title/abstract search semantics to the aging block",
+    "requires_abstract": true,
+    "generic_causal_terms_removed": [
+      "causal",
+      "causality",
+      "intervention",
+      "mediation",
+      "perturbation"
+    ],
+    "acceptance": [
+      "The canonical positive DOI is retrieved.",
+      "Every query branch has a frozen API count and SHA-256 hash.",
+      "At least 50 records per branch, or all records when fewer than 50 are available, receive criterion-level quality review.",
+      "Known candidate misses are documented by causal design family before query freeze."
+    ]
+  },
+  "production_screening_status": "blocked_until_search_query_freeze"
+}

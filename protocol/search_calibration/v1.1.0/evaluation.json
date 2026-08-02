@@ -1,0 +1,21 @@
+{
+  "protocol_version": "1.1.0",
+  "evaluated_at": "2026-08-02",
+  "status": "rejected_stemmed_aging_ablation",
+  "not_production": true,
+  "search_run": "data/searches/pilots/2026-08-02-v1.1.0",
+  "git_revision": "3017d2c5adad2fa18776c670999cf1c9ad62d70b",
+  "reported_branch_hits_before_deduplication": 3029,
+  "pilot_branch_hits_retrieved": 300,
+  "pilot_unique_records": 234,
+  "duplicate_branch_hits_removed": 66,
+  "local_title_abstract_checks": {
+    "abstract_present": 234,
+    "multiomics": 220,
+    "aging": 103,
+    "formal_causal_anchor": 217,
+    "all_three_blocks": 97
+  },
+  "canonical_positive_retrieved": true,
+  "rejection_reason": "The ordinary OpenAlex search filter stemmed aging to generic uses of age, producing avoidable scope noise. The next ablation changes only the aging filter to title_and_abstract.search.exact."
+}
