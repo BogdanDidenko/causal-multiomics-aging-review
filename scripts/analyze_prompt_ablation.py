@@ -294,6 +294,11 @@ def main() -> None:
     )
     parser.add_argument("--cycle", choices=sorted(ARM_CYCLES), default="v1.1.0")
     parser.add_argument("--selected-arm")
+    parser.add_argument(
+        "--baseline-role-root",
+        type=Path,
+        help="fallback directory for immutable role artifacts reused from a prior cycle",
+    )
     args = parser.parse_args()
 
     arms = ARM_CYCLES[args.cycle]
@@ -309,10 +314,14 @@ def main() -> None:
     required_artifacts = {
         artifact for arm in arms_to_report for artifact in arms[arm]
     }
-    artifacts = {
-        artifact: read_jsonl(args.role_root / artifact / "role_results.jsonl")
-        for artifact in required_artifacts
-    }
+    artifacts = {}
+    for artifact in required_artifacts:
+        path = args.role_root / artifact / "role_results.jsonl"
+        if not path.is_file() and args.baseline_role_root:
+            path = args.baseline_role_root / artifact / "role_results.jsonl"
+        if not path.is_file():
+            raise SystemExit(f"Missing role artifact: {artifact}")
+        artifacts[artifact] = read_jsonl(path)
     identifier_sets = [set(rows) for rows in artifacts.values()]
     if not identifier_sets or any(items != identifier_sets[0] for items in identifier_sets[1:]):
         raise SystemExit("Role artifacts contain different record IDs")

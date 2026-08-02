@@ -1,0 +1,487 @@
+{
+  "arms": {
+    "A0": {
+      "all_tracked_fields_exact": {
+        "high": 0.7143050946511744,
+        "low": 0.4736605349204075,
+        "rate": 0.6,
+        "successes": 36,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.7437908331277456,
+        "low": 0.5068300063010303,
+        "rate": 0.6333333333333333,
+        "successes": 38,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 0.9775825085499433,
+          "low": 0.5291118177871464,
+          "rate": 0.875,
+          "successes": 7,
+          "total": 8
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 1.0,
+          "low": 0.6755924351161198,
+          "rate": 1.0,
+          "successes": 8,
+          "total": 8
+        },
+        "causal.current_report_application": {
+          "high": 1.0,
+          "low": 0.6755924351161198,
+          "rate": 1.0,
+          "successes": 8,
+          "total": 8
+        },
+        "causal.design_families": {
+          "high": 0.8631557141764026,
+          "low": 0.30574239460262737,
+          "rate": 0.625,
+          "successes": 5,
+          "total": 8
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.879637275797828,
+          "low": 0.6773198772795009,
+          "rate": 0.7966101694915254,
+          "successes": 47,
+          "total": 59
+        },
+        "scope.bio_health_scope": {
+          "high": 1.0,
+          "low": 0.9388706294732116,
+          "rate": 1.0,
+          "successes": 59,
+          "total": 59
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9733213810286956,
+          "low": 0.838244756312555,
+          "rate": 0.9322033898305084,
+          "successes": 55,
+          "total": 59
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.8256302906208195,
+          "low": 0.6040223703245484,
+          "rate": 0.7288135593220338,
+          "successes": 43,
+          "total": 59
+        },
+        "scope.report_type": {
+          "high": 0.9970017660816444,
+          "low": 0.9100427403585771,
+          "rate": 0.9830508474576272,
+          "successes": 58,
+          "total": 59
+        }
+      },
+      "final_decisions": {
+        "exclude": 32,
+        "manual_review": 1,
+        "seek_full_text": 27
+      },
+      "retry_success_count": 29,
+      "single_repeat_route_exact": {
+        "high": 0.9638795433982692,
+        "low": 0.8193105798166558,
+        "rate": 0.9166666666666666,
+        "successes": 55,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9970518402052136,
+        "low": 0.9114487027240993,
+        "rate": 0.9833333333333333,
+        "successes": 59,
+        "total": 60
+      }
+    },
+    "C": {
+      "all_tracked_fields_exact": {
+        "high": 0.7437908331277456,
+        "low": 0.5068300063010303,
+        "rate": 0.6333333333333333,
+        "successes": 38,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.7437908331277456,
+        "low": 0.5068300063010303,
+        "rate": 0.6333333333333333,
+        "successes": 38,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 0.9775825085499433,
+          "low": 0.5291118177871464,
+          "rate": 0.875,
+          "successes": 7,
+          "total": 8
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 1.0,
+          "low": 0.6755924351161198,
+          "rate": 1.0,
+          "successes": 8,
+          "total": 8
+        },
+        "causal.current_report_application": {
+          "high": 0.9775825085499433,
+          "low": 0.5291118177871464,
+          "rate": 0.875,
+          "successes": 7,
+          "total": 8
+        },
+        "causal.design_families": {
+          "high": 0.9775825085499433,
+          "low": 0.5291118177871464,
+          "rate": 0.875,
+          "successes": 7,
+          "total": 8
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.879637275797828,
+          "low": 0.6773198772795009,
+          "rate": 0.7966101694915254,
+          "successes": 47,
+          "total": 59
+        },
+        "scope.bio_health_scope": {
+          "high": 1.0,
+          "low": 0.9388706294732116,
+          "rate": 1.0,
+          "successes": 59,
+          "total": 59
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9733213810286956,
+          "low": 0.838244756312555,
+          "rate": 0.9322033898305084,
+          "successes": 55,
+          "total": 59
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.8256302906208195,
+          "low": 0.6040223703245484,
+          "rate": 0.7288135593220338,
+          "successes": 43,
+          "total": 59
+        },
+        "scope.report_type": {
+          "high": 0.9970017660816444,
+          "low": 0.9100427403585771,
+          "rate": 0.9830508474576272,
+          "successes": 58,
+          "total": 59
+        }
+      },
+      "final_decisions": {
+        "exclude": 32,
+        "manual_review": 1,
+        "seek_full_text": 27
+      },
+      "retry_success_count": 20,
+      "single_repeat_route_exact": {
+        "high": 0.9533571655261158,
+        "low": 0.7985053527602123,
+        "rate": 0.9,
+        "successes": 54,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9970518402052136,
+        "low": 0.9114487027240993,
+        "rate": 0.9833333333333333,
+        "successes": 59,
+        "total": 60
+      }
+    },
+    "S": {
+      "all_tracked_fields_exact": {
+        "high": 0.8944220311080237,
+        "low": 0.7008024625353194,
+        "rate": 0.8166666666666667,
+        "successes": 49,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.9190255941983225,
+        "low": 0.7388541093022145,
+        "rate": 0.85,
+        "successes": 51,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 0.9699466302516935,
+          "low": 0.43649717781352987,
+          "rate": 0.8333333333333334,
+          "successes": 5,
+          "total": 6
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "causal.current_report_application": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "causal.design_families": {
+          "high": 0.8123836935173494,
+          "low": 0.1876163064826506,
+          "rate": 0.5,
+          "successes": 3,
+          "total": 6
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.9533571655261158,
+          "low": 0.7985053527602123,
+          "rate": 0.9,
+          "successes": 54,
+          "total": 60
+        },
+        "scope.bio_health_scope": {
+          "high": 0.9999999999999998,
+          "low": 0.93982814785791,
+          "rate": 1.0,
+          "successes": 60,
+          "total": 60
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9970518402052136,
+          "low": 0.9114487027240993,
+          "rate": 0.9833333333333333,
+          "successes": 59,
+          "total": 60
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.9908106807438021,
+          "low": 0.886362257256914,
+          "rate": 0.9666666666666667,
+          "successes": 58,
+          "total": 60
+        },
+        "scope.report_type": {
+          "high": 0.9970518402052136,
+          "low": 0.9114487027240993,
+          "rate": 0.9833333333333333,
+          "successes": 59,
+          "total": 60
+        }
+      },
+      "final_decisions": {
+        "exclude": 46,
+        "seek_full_text": 14
+      },
+      "retry_success_count": 18,
+      "single_repeat_route_exact": {
+        "high": 0.9737713012754938,
+        "low": 0.8407464268680283,
+        "rate": 0.9333333333333333,
+        "successes": 56,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9999999999999998,
+        "low": 0.93982814785791,
+        "rate": 1.0,
+        "successes": 60,
+        "total": 60
+      }
+    },
+    "S+C": {
+      "all_tracked_fields_exact": {
+        "high": 0.9308589051941303,
+        "low": 0.7583484032350039,
+        "rate": 0.8666666666666667,
+        "successes": 52,
+        "total": 60
+      },
+      "decision_driving_fields_exact": {
+        "high": 0.9308589051941303,
+        "low": 0.7583484032350039,
+        "rate": 0.8666666666666667,
+        "successes": 52,
+        "total": 60
+      },
+      "field_level": {
+        "causal.causal_basis": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "causal.causal_information_sufficiency": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "causal.current_report_application": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "causal.design_families": {
+          "high": 1.0,
+          "low": 0.6096657120978346,
+          "rate": 1.0,
+          "successes": 6,
+          "total": 6
+        },
+        "scope.aging_process_relevance": {
+          "high": 0.9533571655261158,
+          "low": 0.7985053527602123,
+          "rate": 0.9,
+          "successes": 54,
+          "total": 60
+        },
+        "scope.bio_health_scope": {
+          "high": 0.9999999999999998,
+          "low": 0.93982814785791,
+          "rate": 1.0,
+          "successes": 60,
+          "total": 60
+        },
+        "scope.current_report_layer_use": {
+          "high": 0.9970518402052136,
+          "low": 0.9114487027240993,
+          "rate": 0.9833333333333333,
+          "successes": 59,
+          "total": 60
+        },
+        "scope.multiomics_evidence": {
+          "high": 0.9908106807438021,
+          "low": 0.886362257256914,
+          "rate": 0.9666666666666667,
+          "successes": 58,
+          "total": 60
+        },
+        "scope.report_type": {
+          "high": 0.9970518402052136,
+          "low": 0.9114487027240993,
+          "rate": 0.9833333333333333,
+          "successes": 59,
+          "total": 60
+        }
+      },
+      "final_decisions": {
+        "exclude": 46,
+        "seek_full_text": 14
+      },
+      "retry_success_count": 9,
+      "single_repeat_route_exact": {
+        "high": 0.9737713012754938,
+        "low": 0.8407464268680283,
+        "rate": 0.9333333333333333,
+        "successes": 56,
+        "total": 60
+      },
+      "valid_five_runs": {
+        "high": 0.9999999999999998,
+        "low": 0.93982814785791,
+        "rate": 1.0,
+        "successes": 60,
+        "total": 60
+      }
+    }
+  },
+  "experiment_id": "title_abstract_prompt_ablation_v1.2.0",
+  "factorial_effects": {
+    "C_main_effect": 0.041666666666666685,
+    "S_main_effect": 0.2250000000000001,
+    "interaction": 0.01666666666666672
+  },
+  "interpretation_constraint": "Reproducibility only; no expert-gold accuracy inference.",
+  "paired_vs_A0": {
+    "C": {
+      "all_tracked_fields_exact": {
+        "exact_mcnemar_p_value": 0.625,
+        "gains": 3,
+        "losses": 1,
+        "unchanged_failure": 21,
+        "unchanged_success": 35
+      },
+      "decision_driving_fields_exact": {
+        "exact_mcnemar_p_value": 1.0,
+        "gains": 1,
+        "losses": 1,
+        "unchanged_failure": 21,
+        "unchanged_success": 37
+      },
+      "single_repeat_route_exact": {
+        "exact_mcnemar_p_value": 1.0,
+        "gains": 0,
+        "losses": 1,
+        "unchanged_failure": 5,
+        "unchanged_success": 54
+      }
+    },
+    "S": {
+      "all_tracked_fields_exact": {
+        "exact_mcnemar_p_value": 0.007197380065917969,
+        "gains": 17,
+        "losses": 4,
+        "unchanged_failure": 7,
+        "unchanged_success": 32
+      },
+      "decision_driving_fields_exact": {
+        "exact_mcnemar_p_value": 0.007197380065917969,
+        "gains": 17,
+        "losses": 4,
+        "unchanged_failure": 5,
+        "unchanged_success": 34
+      },
+      "single_repeat_route_exact": {
+        "exact_mcnemar_p_value": 1.0,
+        "gains": 4,
+        "losses": 3,
+        "unchanged_failure": 1,
+        "unchanged_success": 52
+      }
+    },
+    "S+C": {
+      "all_tracked_fields_exact": {
+        "exact_mcnemar_p_value": 0.001543879508972168,
+        "gains": 20,
+        "losses": 4,
+        "unchanged_failure": 4,
+        "unchanged_success": 32
+      },
+      "decision_driving_fields_exact": {
+        "exact_mcnemar_p_value": 0.004343509674072266,
+        "gains": 18,
+        "losses": 4,
+        "unchanged_failure": 4,
+        "unchanged_success": 34
+      },
+      "single_repeat_route_exact": {
+        "exact_mcnemar_p_value": 1.0,
+        "gains": 4,
+        "losses": 3,
+        "unchanged_failure": 1,
+        "unchanged_success": 52
+      }
+    }
+  },
+  "phase": "development",
+  "records": 60,
+  "selected_arm": "S+C"
+}
