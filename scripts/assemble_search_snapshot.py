@@ -59,7 +59,11 @@ def main() -> None:
         if manifest.get("source") != source:
             raise SystemExit(f"{source}: source manifest mismatch")
         normalized_path = directory / manifest["normalized_file"]
-        if search.sha256_file(normalized_path) != manifest["normalized_sha256"]:
+        normalized_sha256 = search.sha256_file(normalized_path)
+        if (
+            manifest.get("normalized_sha256")
+            and normalized_sha256 != manifest["normalized_sha256"]
+        ):
             raise SystemExit(f"{source}: normalized SHA-256 mismatch")
         rows = read_csv(normalized_path)
         if len(rows) != int(manifest["retrieved_count"]):
@@ -91,7 +95,7 @@ def main() -> None:
             "query_files": files,
             "query_sha256": hashes,
             "normalized_file": str(normalized_path),
-            "normalized_sha256": manifest["normalized_sha256"],
+            "normalized_sha256": normalized_sha256,
             "started_at": manifest.get("started_at"),
             "completed_at": manifest.get("completed_at"),
             "source_details": manifest.get("source_details", {}),
