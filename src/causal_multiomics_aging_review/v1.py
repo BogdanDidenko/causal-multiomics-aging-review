@@ -176,6 +176,16 @@ def agreement_audit(
     return audit
 
 
+def decisive_fields_unanimous(
+    rows: list[dict[str, Any]], fields: tuple[str, ...]
+) -> bool:
+    """Retained for non-v1 title/full-text contracts that require field unanimity."""
+    return all(
+        len({json.dumps(row.get(field), sort_keys=True) for row in rows}) == 1
+        for field in fields
+    )
+
+
 def derive_title_result(
     scope_runs: list[dict[str, Any]],
     causal_runs: list[dict[str, Any]] | None,
@@ -184,7 +194,6 @@ def derive_title_result(
     same_scope_exclusion = (
         len(set(scope_paths)) == 1
         and scope_paths[0][0] == "exclude"
-        and decisive_fields_unanimous(scope_runs, SCOPE_DECISION_FIELDS)
     )
     selected = {
         field: unanimous_value(scope_runs, field) for field in SCOPE_DECISION_FIELDS
@@ -224,12 +233,6 @@ def derive_title_result(
     same_causal_exclusion = (
         len(set(causal_paths)) == 1
         and causal_paths[0] == ("exclude", "EC5")
-        and decisive_fields_unanimous(causal_runs, CAUSAL_DECISION_FIELDS)
-        and len({row.get("causal_basis") for row in causal_runs}) == 1
-        and len(
-            {row.get("causal_information_sufficiency") for row in causal_runs}
-        )
-        == 1
     )
     if same_causal_exclusion:
         decision = "exclude"
@@ -249,15 +252,6 @@ def derive_title_result(
         "final_exclusion_code": exclusion_code,
         "decision_reason": reason,
     }
-
-
-def decisive_fields_unanimous(
-    rows: list[dict[str, Any]], fields: tuple[str, ...]
-) -> bool:
-    return all(
-        len({json.dumps(row.get(field), sort_keys=True) for row in rows}) == 1
-        for field in fields
-    )
 
 
 def package_full_text_sections(

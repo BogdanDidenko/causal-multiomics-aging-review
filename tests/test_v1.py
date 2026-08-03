@@ -134,11 +134,12 @@ def test_nonunanimous_scope_failure_seeks_full_text() -> None:
     assert result["final_exclusion_code"] == "none"
 
 
-def test_same_scope_path_with_downstream_field_drift_seeks_full_text() -> None:
+def test_same_scope_path_with_downstream_field_drift_excludes() -> None:
     runs = repeated(scope_answer(aging_process_relevance="no"))
     runs[-1]["multiomics_evidence"] = "unclear"
     result = derive_title_result(runs, None)
-    assert result["final_decision"] == "seek_full_text"
+    assert result["final_decision"] == "exclude"
+    assert result["final_exclusion_code"] == "EC3"
 
 
 @pytest.mark.parametrize(
@@ -171,6 +172,19 @@ def test_sufficient_causal_wording_only_excludes_only_when_unanimous() -> None:
     mixed[-1]["causal_information_sufficiency"] = "insufficient"
     result = derive_title_result(repeated(scope_answer()), mixed)
     assert result["final_decision"] == "seek_full_text"
+
+
+def test_same_causal_exclusion_path_with_negative_basis_drift_excludes() -> None:
+    negative = causal_answer(
+        causal_basis="causal_wording_only",
+        current_report_application="no",
+        design_families=[],
+    )
+    mixed_negative = repeated(negative)
+    mixed_negative[-1]["causal_basis"] = "association_or_prediction_only"
+    result = derive_title_result(repeated(scope_answer()), mixed_negative)
+    assert result["final_decision"] == "exclude"
+    assert result["final_exclusion_code"] == "EC5"
 
 
 def test_full_text_evidence_quote_must_match_its_section() -> None:

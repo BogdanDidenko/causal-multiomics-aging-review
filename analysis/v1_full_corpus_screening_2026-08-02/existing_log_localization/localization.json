@@ -1,0 +1,79 @@
+{
+  "artifacts": {
+    "input": {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/input.csv",
+      "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2"
+    },
+    "runs_dir": "data/screening/v1.1.2_full_corpus_96shards/runs"
+  },
+  "interpretation": "This is deterministic post-hoc routing and manual-triage support from saved outputs. It does not validate model accuracy, alter raw provider responses, or justify automatic exclusion from any priority subset.",
+  "model_calls": 0,
+  "positive_causal_candidates": {
+    "all_original_positive_routes": 700,
+    "criterion_path_retained": 700,
+    "manual_triage_queue_counts": {
+      "priority_1_textually_focused": 135,
+      "priority_2_aging_title": 169,
+      "priority_3_explicit_multiomics": 128,
+      "priority_4_broad_candidate": 192,
+      "retain_for_manual_title_abstract_adjudication": 76
+    },
+    "priority_1_design_anchor_counts": {
+      "direct_perturbation": 105,
+      "formal_mediation": 2,
+      "genetic_instrument": 23,
+      "nonrandomized_intervention": 1,
+      "randomized_intervention": 4
+    }
+  },
+  "records": {
+    "changed_route_original_reason_counts": {
+      "causal_unresolved_or_nonunanimous_exclusion": 12,
+      "scope_unresolved_or_nonunanimous_exclusion": 318
+    },
+    "criterion_path_exclusion_code_counts": {
+      "EC1": 1040,
+      "EC3": 1635,
+      "EC4": 440,
+      "EC5": 193,
+      "none": 1714
+    },
+    "criterion_path_route_counts": {
+      "exclude": 3308,
+      "manual_review": 72,
+      "seek_full_text": 1642
+    },
+    "input_results": 5022,
+    "original_route_counts": {
+      "exclude": 2978,
+      "manual_review": 72,
+      "seek_full_text": 1972
+    },
+    "records_changed_by_criterion_path_rerouting": 330
+  },
+  "reference_record": {
+    "abstract": "Biological aging is accompanied by increasing morbidity, mortality, and healthcare costs; however, its molecular mechanisms are poorly understood. Here, we use multi-omic methods to integrate genomic, transcriptomic, and metabolomic data and identify biological associations with four measures of epigenetic age acceleration and a human longevity phenotype comprising healthspan, lifespan, and exceptional longevity (multivariate longevity). Using transcriptomic imputation, fine-mapping, and conditional analysis, we identify 22 high confidence associations with epigenetic age acceleration and seven with multivariate longevity. FLOT1 , KPNA4 , and TMX2 are novel, high confidence genes associated with epigenetic age acceleration. In parallel, cis-instrument Mendelian randomization of the druggable genome associates TPMT and NHLRC1 with epigenetic aging, supporting transcriptomic imputation findings. Metabolomics Mendelian randomization identifies a negative effect of non-high-density lipoprotein cholesterol and associated lipoproteins on multivariate longevity, but not epigenetic age acceleration. Finally, cell-type enrichment analysis implicates immune cells and precursors in epigenetic age acceleration and, more modestly, multivariate longevity. Follow-up Mendelian randomization of immune cell traits suggests lymphocyte subpopulations and lymphocytic surface molecules affect multivariate longevity and epigenetic age acceleration. Our results highlight druggable targets and biological pathways involved in aging and facilitate multi-omic comparisons of epigenetic clocks and human longevity. Here, the authors integrate genomic, bulk and single-cell transcriptomic, and metabolomic data sets to compare the biological underpinning of four epigenetic clocks and human longevity, offering novel insights into aging biology.",
+    "aging_title_anchor": "true",
+    "causal_all_tracked_5_of_5": "true",
+    "criterion_path_exclusion_code": "none",
+    "criterion_path_reason": "positive_causal_basis",
+    "criterion_path_route": "seek_full_text",
+    "design_anchor": "genetic_instrument",
+    "doi": "10.1038/s41467-023-37729-w",
+    "manual_triage_queue": "priority_1_textually_focused",
+    "multiomics_evidence": "explicit_multiomics",
+    "original_exclusion_code": "none",
+    "original_reason": "positive_causal_basis",
+    "original_route": "seek_full_text",
+    "record_id": "doi:10.1038/s41467-023-37729-w",
+    "scope_all_tracked_5_of_5": "true",
+    "source": "semantic_scholar",
+    "title": "Multi-omic underpinnings of epigenetic aging and human longevity",
+    "year": "2023"
+  },
+  "routing_rule": {
+    "description": "Automatic exclusion requires five identical criterion-level exclusion paths; unrelated field drift does not override that path.",
+    "name": "unanimous_first_failed_criterion"
+  },
+  "status": "posthoc_log_localization_complete"
+}
