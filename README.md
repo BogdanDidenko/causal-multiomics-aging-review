@@ -4,14 +4,14 @@ Reproducible PRISMA-oriented pipeline for identifying empirical multi-omics
 studies that investigate aging processes and contain an assessable causal
 design or directed causal hypothesis.
 
-The repository is a clean aging-specific rebuild. It reuses only the general
+The repository is an aging-specific rebuild. It reuses only the general
 pipeline architecture of
 [`BogdanDidenko/text-bio-fundational-models-review`](https://github.com/BogdanDidenko/text-bio-fundational-models-review)
 and `BogdanDidenko/causal-multiomics-review`: database-native retrieval,
 conservative deduplication, criterion-level LLM screening, deterministic
 Python gates, selective adjudication, repeated runs, and an audit trail. It
-does not contain the earlier non-aging queries, corpora, benchmarks, prompt
-history, or run outputs.
+keeps rejected prompt and run history segregated as methodological audit
+material; it is not part of the active review ledger.
 
 ## Review Question
 
@@ -24,23 +24,23 @@ discovery`. Its causal block includes genetic instruments, mediation,
 interventions, perturbations, quasi-experiments, temporal designs, and directed
 models. Eligibility is decided from the reported design, not keyword presence.
 
-## v1 Status
+## Current Status
 
-`v1.0.0` is the current calibration candidate. It replaces the rejected
-`v0.99.0` title/abstract instrument, which measured reproducibility without an
-expert gold standard and incorrectly allowed directional wording to create a
-causal candidate. The old prompts, 790 outcomes, and 9,515 raw responses remain
-unchanged as development history; they are not part of the v1 ledger or final
-PRISMA denominator.
+The final `v1.1.2` search is frozen: 12,528 source records were deduplicated to
+7,858 canonical records. The 5,022 records with abstracts were evaluated using
+GPT 5.6 Terra Medium, five independent runs per assessed role, and prompt suite
+`v1.4.0-rc1`. The suite remains `sealed_holdout_pending_not_active`: it failed
+the predeclared 100% five-run stability gate and has not received expert-gold
+validation. It is therefore an auditable prioritization instrument, not a
+validated screening instrument.
 
-The v1 search count pilot has run, but the queries are not frozen. Expert query
-QA, at least 100 two-expert-adjudicated canonical positives, benchmark
-annotation, and model validation remain required before production screening.
-An algorithmically prioritized 120-record candidate pool is available for this
-review. Repeated Terra Medium screening plus assistant adjudication yielded 95
-include, 23 exclude, and two seek-full-text labels, but only 71.7% exact
-all-tracked-field agreement. The run is an audited calibration result, not a
-gold standard, and the suite does not pass its 100% stability gate.
+The authoritative path to the current 135-record human title/abstract queue,
+the deterministic routing correction, the five-repeat rationale, and all
+material that must remain outside the final PRISMA flow are in
+[`docs/review_execution_record_2026-08-04.md`](docs/review_execution_record_2026-08-04.md).
+The rejected `v0.99.0` pilot remains immutable instrument-development history
+only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
+final PRISMA denominator.
 
 ## Pipeline
 

@@ -1,0 +1,70 @@
+{
+  "all_tracked_field_stability": {
+    "first_five_exact_rate": 0.7966586062870961,
+    "first_five_exact_records": 3624,
+    "first_three_exact_rate": 0.8480984831831172,
+    "first_three_exact_records": 3858
+  },
+  "artifacts": {
+    "runs_dir": "data/screening/v1.1.2_full_corpus_96shards/runs"
+  },
+  "causal_completed_route_comparison": {
+    "first_five_route_counts": {
+      "exclude|EC5": 193,
+      "seek_full_text|none": 735
+    },
+    "first_three_route_counts": {
+      "exclude|EC5": 198,
+      "seek_full_text|none": 730
+    },
+    "route_changes_after_runs_four_and_five": {
+      "exclude|EC5 -> seek_full_text|none": 5
+    },
+    "route_changes_after_runs_four_and_five_total": 5
+  },
+  "causal_criterion_paths": {
+    "first_five_unanimous_exclusions": {
+      "EC5": 193
+    },
+    "first_three_exclusions_not_sustained_by_runs_four_and_five": {
+      "EC5": 5
+    },
+    "first_three_exclusions_not_sustained_total": 5,
+    "first_three_unanimous_exclusions": {
+      "EC5": 198
+    },
+    "records_with_five_completed_runs": 928
+  },
+  "frozen_configuration": {
+    "configured_repeats": 5,
+    "suite_config": "protocol/screening/configs/prompt_suite_v1.4.0-rc1.json",
+    "suite_config_sha256": "8f3b4ec54d8cec21c43f3fb43561f8fc8d168abc83c0be8c6cf60d6c54f1d8f6"
+  },
+  "interpretation": "Five was a frozen operational stability gate before the full-corpus run. This prefix comparison describes what extra runs four and five detected; it does not establish an optimal repeat count, assume independent calls, validate accuracy, or estimate a seven-run result.",
+  "model_calls": 0,
+  "population": {
+    "causal_completed_five_runs": 928,
+    "result_records": 5022,
+    "scope_completed_five_runs": 4549
+  },
+  "scope_criterion_paths": {
+    "first_five_unanimous_exclusions": {
+      "EC1": 1040,
+      "EC3": 1635,
+      "EC4": 440
+    },
+    "first_three_exclusions_not_sustained_by_runs_four_and_five": {
+      "EC1": 8,
+      "EC3": 36,
+      "EC4": 17
+    },
+    "first_three_exclusions_not_sustained_total": 61,
+    "first_three_unanimous_exclusions": {
+      "EC1": 1048,
+      "EC3": 1671,
+      "EC4": 457
+    },
+    "records_with_five_completed_runs": 4549
+  },
+  "status": "complete_saved_output_sensitivity_only"
+}
