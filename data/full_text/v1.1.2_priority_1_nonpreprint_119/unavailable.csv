@@ -1,8 +1,6 @@
 record_id,doi,title,retrieval_status
-doi:10.1002/imo2.70128,10.1002/imo2.70128,A uterine‐centric view of reproductive senescence: Genetic insights into late‐life performance in laying hens,open_location_unavailable
 doi:10.1007/s11306-023-02022-w,10.1007/s11306-023-02022-w,The metabolic contribution of SKN-1/Nrf2 to the lifespan of Caenorhabditis elegans.,no_open_full_text_found
 doi:10.1016/j.archger.2025.105765,10.1016/j.archger.2025.105765,Causal relationship between gut microbiota and ageing: A multi-omics Mendelian randomization study.,no_open_full_text_found
-doi:10.1016/j.celrep.2024.115099,10.1016/j.celrep.2024.115099,The glial UDP-glycosyltransferase Ugt35b regulates longevity by maintaining lipid homeostasis in Drosophila.,open_location_unavailable
 doi:10.1016/j.drup.2026.101415,10.1016/j.drup.2026.101415,The RELA-FTH1 axis in senescent cancer-associated fibroblasts creates a stromal iron sink that drives ferroptosis resistance and therapy failure across solid malignant tumors.,no_open_full_text_found
 doi:10.1016/j.exger.2025.112815,10.1016/j.exger.2025.112815,Acupuncture modulates ovarian senescence through metabolic reprogramming: A multi-omics investigation in chemotherapy - induced POF model.,open_location_unavailable
 doi:10.1016/j.freeradbiomed.2025.08.053,10.1016/j.freeradbiomed.2025.08.053,The m6A modification-mediated upregulation of ETS2 translation drives arsenic-induced spermatogonial senescence.,no_open_full_text_found
@@ -13,7 +11,6 @@ doi:10.1016/j.jhazmat.2025.140429,10.1016/j.jhazmat.2025.140429,Integrative epid
 doi:10.1016/j.jhazmat.2026.142949,10.1016/j.jhazmat.2026.142949,Gestational exposure to PP-NPs promotes premature placental ageing through global reprogramming of the trophoblast phosphoproteome,open_location_unavailable
 doi:10.1016/j.phymed.2025.156697,10.1016/j.phymed.2025.156697,Vaccarin ameliorates osteoarthritis by suppressing the c-Jun N-terminal kinase (JNK)-serum amyloid A2 (SAA2) pathway mediating chondrocyte senescence.,open_location_unavailable
 doi:10.1016/j.phymed.2026.158628,10.1016/j.phymed.2026.158628,Poricoic acid a ameliorates ulcerative colitis via AMPK/PPARγ pathway-dependent cellular senescence inhibition and concomitant gut microbiota-metabolome modulation.,no_open_full_text_found
-doi:10.1016/j.ymthe.2025.12.035,10.1016/j.ymthe.2025.12.035,Targeting KAT8 Alleviates Vascular Senescence by Modulating the INHBA/TGF-β Pathway.,open_location_unavailable
 doi:10.1038/s42255-020-0200-2,10.1038/s42255-020-0200-2,NFYB-1 regulates mitochondrial function and longevity via lysosomal prosaposin.,no_open_full_text_found
 doi:10.1038/s42255-026-01515-x,10.1038/s42255-026-01515-x,Redox rhythms promote fitness by modulating ageing-dependent reprogramming.,no_open_full_text_found
 doi:10.1038/s43587-026-01100-7,10.1038/s43587-026-01100-7,Multiomic single-cell perturbation screens reveal critical lncRNA regulators of senescence.,no_open_full_text_found
@@ -21,7 +18,6 @@ doi:10.1039/d4fo01156b,10.1039/d4fo01156b,Longevity extension in rats via improv
 doi:10.1039/d6fo00039h,10.1039/d6fo00039h,Dietary purple sweet potato anthocyanin extracts attenuate intestinal barrier decline in naturally aged mice <i>via</i> the microbiota-autophagy-stem cell axis.,no_open_full_text_found
 doi:10.1080/15548627.2026.2711595,10.1080/15548627.2026.2711595,Targeting chaperone-mediated autophagy by nutritional interventions mitigates age-related cardiac fibrosis and diastolic dysfunction.,no_open_full_text_found
 doi:10.1093/ajrccm/aamag162.1185,10.1093/ajrccm/aamag162.1185,C29-10 Senotyping Reveals Myc as an Age-Dependent Regulator of Senescence With Differential Response to Senolytics in Developing Lungs,no_open_full_text_found
-doi:10.1093/brain/awaf282,10.1093/brain/awaf282,Compensatory roles of STT3A and ALG5 in glucose metabolism of aged macaque hippocampus.,open_location_unavailable
 doi:10.1093/cvr/cvag165,10.1093/cvr/cvag165,Multi-omic profiling of cardiomyocyte ageing and functional decline,no_open_full_text_found
 doi:10.1093/jimmun/vkag141.260,10.1093/jimmun/vkag141.260,IL-15—Driven NK-like Activation Is Augmented in Senescent CD57+CD8+ Memory T Cells 2255278,open_location_unavailable
 doi:10.1093/jxb/erag169,10.1093/jxb/erag169,Jujube Development and Ripening Process Provides a Two-Stage Coloration Model: ZjHY5-Mediated Flavonoid Biosynthesis Precedes Senescence-Driven Phenolic Oxidation.,no_open_full_text_found
@@ -32,4 +28,3 @@ doi:10.1158/1538-7445.am2026-2074,10.1158/1538-7445.am2026-2074,Abstract 2074: A
 doi:10.1161/circ.148.suppl_1.13364,10.1161/circ.148.suppl_1.13364,Abstract 13364: Transplantation of Mutant Clostridium_ASF356 Rescues Aging Gut-Derived Phenylacetate-Mediated Perivascular Adipose Tissue and Endothelial Senescence,no_open_full_text_found
 doi:10.1161/circ.150.suppl_1.4141726,10.1161/circ.150.suppl_1.4141726,Abstract 4141726: Ceramides produced by gut bacteria Bacteroides thetaiotaomicron causally induce aortic perivascular adipose tissue-endothelial cell senescence in aged host,no_open_full_text_found
 doi:10.1182/blood-2025-3244,10.1182/blood-2025-3244,Therapy-induced senescence reprograms non-M3 AML into a drug-exploitable APL-like state,open_location_unavailable
-doi:10.1186/s13578-026-01594-z,10.1186/s13578-026-01594-z,Multi-omic analysis reveals Wharton's jelly mesenchymal stem cells shift the pro-inflammatory phenotype of fibroblast subpopulation to induce skin rejuvenation.,open_location_unavailable

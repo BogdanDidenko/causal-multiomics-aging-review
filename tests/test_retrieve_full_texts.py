@@ -18,6 +18,7 @@ public_copy_locations = MODULE.public_copy_locations
 semantic_scholar_pdf_locations = MODULE.semantic_scholar_pdf_locations
 pmc_fulltext_html_locations = MODULE.pmc_fulltext_html_locations
 unpaywall_locations = MODULE.unpaywall_locations
+valid_fulltext_html = MODULE.valid_fulltext_html
 
 
 def test_openalex_oa_landing_urls_excludes_non_oa_locations() -> None:
@@ -134,8 +135,28 @@ def test_public_copy_locations_match_normalized_doi_and_validate_urls(tmp_path: 
             "source": "Author lab",
             "license": "",
             "version": "Public copy",
+            "kind": "pdf",
         }
     ]
+
+
+def test_public_copy_locations_can_record_public_html(tmp_path: Path) -> None:
+    copy_list = tmp_path / "public_copies.csv"
+    copy_list.write_text(
+        "doi,url,source,access_basis,format\n"
+        "10.1186/example,https://publisher.example/article,Publisher,Open access,html\n",
+        encoding="utf-8",
+    )
+
+    assert public_copy_locations(copy_list, "10.1186/example")[0]["kind"] == "html"
+
+
+def test_fulltext_html_accepts_pmc_and_publisher_article_markup() -> None:
+    assert valid_fulltext_html(b"<html><div class='article-body'>Abstract</div></html>")
+    assert valid_fulltext_html(
+        b"<html><article><h2>Abstract</h2><h2>References</h2></article></html>"
+    )
+    assert not valid_fulltext_html(b"<html><body>Sign in to read the abstract</body></html>")
 
 
 def test_unpaywall_locations_preserve_direct_pdfs_and_repository_pages() -> None:

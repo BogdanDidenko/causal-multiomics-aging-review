@@ -1,19 +1,19 @@
 {
   "excluded_preprints": 16,
-  "manifest_sha256": "dbcdaf70ae4aeb9a031afe7127ff21f79438c24dbe47340f074e7f0801c54373",
+  "manifest_sha256": "dedceb6c22564b1c07c36ad7a04f98fd3f1f9f2f21c90c1b74e05a02cd7df454",
   "queue": "priority_1_textually_focused",
-  "retried_count": 36,
-  "retrieval_policy": "OpenAlex, Unpaywall, Europe PMC, Crossref, Semantic Scholar, and OpenAIRE metadata routes; explicit publisher PDF links from verified OA landing pages; and explicitly recorded public author-hosted copies. No publisher access controls were bypassed.",
+  "retried_count": 1,
+  "retrieval_policy": "OpenAlex, Unpaywall, Europe PMC, Crossref, Semantic Scholar, and OpenAIRE metadata routes; explicit publisher PDF links from verified OA landing pages; and explicitly recorded public copies, including browser-visible official open full-text HTML. No publisher access controls were bypassed.",
   "status": "retrieval_complete",
   "status_counts": {
-    "downloaded_html": 3,
-    "downloaded_pdf": 81,
+    "downloaded_html": 7,
+    "downloaded_pdf": 82,
     "downloaded_xml": 1,
     "no_open_full_text_found": 20,
-    "open_location_unavailable": 14
+    "open_location_unavailable": 9
   },
   "target_count": 119,
   "target_list_sha256": "b36b7c65d53ebca602e9400470948fe9d28c1444de10e790b5994727e1e6f47e",
-  "timeout_seconds": 12,
-  "workers": 4
+  "timeout_seconds": 15,
+  "workers": 1
 }

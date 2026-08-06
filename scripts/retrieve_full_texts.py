@@ -106,9 +106,10 @@ def public_copy_locations(path: Path | None, doi: str) -> list[dict[str, str]]:
         locations.append(
             {
                 "url": url,
-                "source": row.get("source", "Public author-hosted copy").strip(),
+                "source": row.get("source", "Recorded public copy").strip(),
                 "license": "",
-                "version": row.get("access_basis", "public author-hosted copy").strip(),
+                "version": row.get("access_basis", "recorded public copy").strip(),
+                "kind": row.get("format", "pdf").strip().casefold() or "pdf",
             }
         )
     return locations
@@ -546,7 +547,14 @@ def valid_xml(payload: bytes) -> bool:
 
 def valid_fulltext_html(payload: bytes) -> bool:
     prefix = payload[:2_000_000].lower()
-    return b"<html" in prefix[:2048] and b"article-body" in prefix
+    if b"<html" not in prefix[:2048]:
+        return False
+    # PMC uses ``article-body``. Publisher full-text pages have different markup,
+    # so require an article element plus both core scholarly sections instead of a
+    # publisher-specific CSS class.
+    return b"article-body" in prefix or (
+        b"<article" in prefix and b"abstract" in prefix and b"references" in prefix
+    )
 
 
 def try_download(
@@ -914,10 +922,19 @@ def retrieve_one(
             }
 
     for location in public_copy_locations(public_copy_list, target.doi):
+        kind = location["kind"]
+        if kind not in {"pdf", "xml", "html"}:
+            attempts.append(
+                {
+                    **location,
+                    "status": "unsupported_recorded_public_copy_format",
+                }
+            )
+            continue
         attempt, _, path = try_download(
             target,
             location["url"],
-            "pdf",
+            kind,
             location["source"],
             location["license"],
             location["version"],
@@ -930,7 +947,7 @@ def retrieve_one(
                 "record_id": target.record_id,
                 "doi": target.doi,
                 "title": target.title,
-                "target_status": "downloaded_pdf",
+                "target_status": f"downloaded_{kind}",
                 "selected_file": path,
                 "metadata_attempts": metadata_audit,
                 "content_attempts": attempts,
@@ -1066,7 +1083,10 @@ def main() -> None:
     parser.add_argument(
         "--public-copy-list",
         type=Path,
-        help="CSV of publicly hosted author copies: doi,url,source,access_basis.",
+        help=(
+            "CSV of recorded public copies: doi,url,source,access_basis[,format]. "
+            "Format defaults to pdf and may also be html or xml."
+        ),
     )
     parser.add_argument(
         "--unpaywall-email",
@@ -1077,6 +1097,12 @@ def main() -> None:
         "--resume-unavailable",
         action="store_true",
         help="Retry only records that were not downloaded in the current manifest.",
+    )
+    parser.add_argument(
+        "--only-doi",
+        action="append",
+        default=[],
+        help="With --resume-unavailable, retry only these normalized DOI values.",
     )
     args = parser.parse_args()
     if args.workers < 1 or args.workers > 8:
@@ -1106,6 +1132,15 @@ def main() -> None:
 
     results: list[dict[str, Any]] = []
     retry_targets = targets
+    requested_dois = {normalize_doi(doi) for doi in args.only_doi}
+    target_dois = {target.doi for target in targets}
+    if requested_dois and not args.resume_unavailable:
+        raise ValueError("--only-doi requires --resume-unavailable")
+    if unknown_dois := requested_dois - target_dois:
+        raise ValueError(
+            "--only-doi contains DOI values outside the frozen target set: "
+            f"{unknown_dois}"
+        )
     if args.resume_unavailable:
         manifest_path = args.output_dir / "retrieval_manifest.jsonl"
         if not manifest_path.exists():
@@ -1119,13 +1154,15 @@ def main() -> None:
         results.extend(
             row
             for row in existing_by_doi.values()
-            if row.get("target_status") in FULL_TEXT_STATUSES
+            if (not requested_dois and row.get("target_status") in FULL_TEXT_STATUSES)
+            or (requested_dois and str(row["doi"]) not in requested_dois)
         )
         retry_targets = [
             target
             for target in targets
-            if existing_by_doi[target.doi].get("target_status")
-            not in FULL_TEXT_STATUSES
+            if (not requested_dois and existing_by_doi[target.doi].get("target_status")
+                not in FULL_TEXT_STATUSES)
+            or (requested_dois and target.doi in requested_dois)
         ]
 
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
@@ -1201,7 +1238,8 @@ def main() -> None:
         "retrieval_policy": (
             "OpenAlex, Unpaywall, Europe PMC, Crossref, Semantic Scholar, and OpenAIRE "
             "metadata routes; explicit publisher PDF links from verified OA landing pages; "
-            "and explicitly recorded public author-hosted copies. "
+            "and explicitly recorded public copies, including browser-visible official "
+            "open full-text HTML. "
             "No publisher access controls were bypassed."
         ),
         "target_list_sha256": sha256_bytes((args.output_dir / "targets.csv").read_bytes()),
@@ -1218,19 +1256,20 @@ def main() -> None:
         "Targets are the 119 non-preprint records in `priority_1_textually_focused`: "
         "the previous 135-record manual title/abstract queue minus 16 preprints. "
         "`targets.csv`, `retrieval_manifest.jsonl`, and `summary.json` are the audit "
-        "trail. `files/` contains locally downloaded PDFs, XML, or public PMC author-"
-        "manuscript HTML and is intentionally excluded from Git. `selected_files/` is "
+        "trail. `files/` contains locally downloaded PDFs, XML, or public full-text "
+        "HTML and is intentionally excluded from Git. `selected_files/` is "
         "the canonical local view: it contains links only to files selected in the "
         "manifest. `raw_metadata/` "
         "contains source metadata responses and is also local.\n\n"
         "Retrieval uses OpenAlex and Unpaywall OA locations (including explicit publisher "
         "PDF links found on verified OA landing pages), Europe PMC free PDFs/full-text "
         "XML, Crossref, Semantic Scholar, OpenAIRE, and explicitly recorded public "
-        "author-hosted copies. It does not bypass paywalls; `unavailable.csv` lists "
+        "copies, including browser-visible official open full-text HTML. It does "
+        "not bypass paywalls; `unavailable.csv` lists "
         "records without a retrieved legal open full text.\n\n"
         f"This retrieval obtained {statuses.get('downloaded_pdf', 0)} PDFs and "
         f"{statuses.get('downloaded_xml', 0)} XML and "
-        f"{statuses.get('downloaded_html', 0)} public PMC HTML full texts. "
+        f"{statuses.get('downloaded_html', 0)} public HTML full texts. "
         f"The remaining {len(unavailable_rows)} records are listed in `unavailable.csv`.\n",
         encoding="utf-8",
     )
