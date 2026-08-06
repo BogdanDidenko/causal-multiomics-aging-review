@@ -1,0 +1,17 @@
+{
+  "excluded_preprints": 16,
+  "manifest_sha256": "e6a0546c78317c28692ddd8401d7b596791919ac1979c7bfc0d545d1f6da898d",
+  "queue": "priority_1_textually_focused",
+  "retrieval_policy": "OpenAlex OA PDF locations and explicit publisher PDF links from OpenAlex-confirmed OA landing pages, followed by Europe PMC free PDFs and full-text XML. No publisher access controls were bypassed.",
+  "status": "retrieval_complete",
+  "status_counts": {
+    "downloaded_pdf": 78,
+    "downloaded_xml": 1,
+    "no_open_full_text_found": 22,
+    "open_location_unavailable": 18
+  },
+  "target_count": 119,
+  "target_list_sha256": "b36b7c65d53ebca602e9400470948fe9d28c1444de10e790b5994727e1e6f47e",
+  "timeout_seconds": 45,
+  "workers": 2
+}

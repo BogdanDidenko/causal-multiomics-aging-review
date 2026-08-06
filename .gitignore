@@ -21,6 +21,12 @@ runs/*/raw/
 runs/*/*.jsonl
 runs/*/*.csv
 
+# Downloaded full texts can be large and may have redistribution restrictions.
+# Keep retrieval manifests and target lists versioned, but not article binaries.
+data/full_text/**/files/
+data/full_text/**/raw_metadata/
+data/full_text/**/selected_files/
+
 # OS and editors
 .DS_Store
 Thumbs.db
