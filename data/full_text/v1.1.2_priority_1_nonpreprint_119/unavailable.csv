@@ -1,5 +1,4 @@
 record_id,doi,title,retrieval_status
-doi:10.1007/s11306-023-02022-w,10.1007/s11306-023-02022-w,The metabolic contribution of SKN-1/Nrf2 to the lifespan of Caenorhabditis elegans.,no_open_full_text_found
 doi:10.1016/j.archger.2025.105765,10.1016/j.archger.2025.105765,Causal relationship between gut microbiota and ageing: A multi-omics Mendelian randomization study.,no_open_full_text_found
 doi:10.1016/j.drup.2026.101415,10.1016/j.drup.2026.101415,The RELA-FTH1 axis in senescent cancer-associated fibroblasts creates a stromal iron sink that drives ferroptosis resistance and therapy failure across solid malignant tumors.,no_open_full_text_found
 doi:10.1016/j.exger.2025.112815,10.1016/j.exger.2025.112815,Acupuncture modulates ovarian senescence through metabolic reprogramming: A multi-omics investigation in chemotherapy - induced POF model.,open_location_unavailable
@@ -11,9 +10,6 @@ doi:10.1016/j.jhazmat.2025.140429,10.1016/j.jhazmat.2025.140429,Integrative epid
 doi:10.1016/j.jhazmat.2026.142949,10.1016/j.jhazmat.2026.142949,Gestational exposure to PP-NPs promotes premature placental ageing through global reprogramming of the trophoblast phosphoproteome,open_location_unavailable
 doi:10.1016/j.phymed.2025.156697,10.1016/j.phymed.2025.156697,Vaccarin ameliorates osteoarthritis by suppressing the c-Jun N-terminal kinase (JNK)-serum amyloid A2 (SAA2) pathway mediating chondrocyte senescence.,open_location_unavailable
 doi:10.1016/j.phymed.2026.158628,10.1016/j.phymed.2026.158628,Poricoic acid a ameliorates ulcerative colitis via AMPK/PPARγ pathway-dependent cellular senescence inhibition and concomitant gut microbiota-metabolome modulation.,no_open_full_text_found
-doi:10.1038/s42255-020-0200-2,10.1038/s42255-020-0200-2,NFYB-1 regulates mitochondrial function and longevity via lysosomal prosaposin.,no_open_full_text_found
-doi:10.1038/s42255-026-01515-x,10.1038/s42255-026-01515-x,Redox rhythms promote fitness by modulating ageing-dependent reprogramming.,no_open_full_text_found
-doi:10.1038/s43587-026-01100-7,10.1038/s43587-026-01100-7,Multiomic single-cell perturbation screens reveal critical lncRNA regulators of senescence.,no_open_full_text_found
 doi:10.1039/d4fo01156b,10.1039/d4fo01156b,Longevity extension in rats via improved redox homeostasis with high carbohydrate diet intervention from weaning to adulthood: a comprehensive multi-omics study.,no_open_full_text_found
 doi:10.1039/d6fo00039h,10.1039/d6fo00039h,Dietary purple sweet potato anthocyanin extracts attenuate intestinal barrier decline in naturally aged mice <i>via</i> the microbiota-autophagy-stem cell axis.,no_open_full_text_found
 doi:10.1080/15548627.2026.2711595,10.1080/15548627.2026.2711595,Targeting chaperone-mediated autophagy by nutritional interventions mitigates age-related cardiac fibrosis and diastolic dysfunction.,no_open_full_text_found

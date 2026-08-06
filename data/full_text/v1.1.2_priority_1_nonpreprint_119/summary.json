@@ -1,15 +1,15 @@
 {
   "excluded_preprints": 16,
-  "manifest_sha256": "dedceb6c22564b1c07c36ad7a04f98fd3f1f9f2f21c90c1b74e05a02cd7df454",
+  "manifest_sha256": "398f893232b3047258536d14c6974500110536026768aa0ecdfb18bcde0f5731",
   "queue": "priority_1_textually_focused",
-  "retried_count": 1,
+  "retried_count": 3,
   "retrieval_policy": "OpenAlex, Unpaywall, Europe PMC, Crossref, Semantic Scholar, and OpenAIRE metadata routes; explicit publisher PDF links from verified OA landing pages; and explicitly recorded public copies, including browser-visible official open full-text HTML. No publisher access controls were bypassed.",
   "status": "retrieval_complete",
   "status_counts": {
-    "downloaded_html": 7,
+    "downloaded_html": 11,
     "downloaded_pdf": 82,
     "downloaded_xml": 1,
-    "no_open_full_text_found": 20,
+    "no_open_full_text_found": 16,
     "open_location_unavailable": 9
   },
   "target_count": 119,

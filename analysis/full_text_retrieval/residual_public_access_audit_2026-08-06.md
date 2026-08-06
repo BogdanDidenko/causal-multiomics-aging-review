@@ -1,6 +1,6 @@
 # Residual Public-Access Audit (2026-08-06)
 
-This audit covers the 29 records in the frozen 119-record priority-1 full-text
+This audit covers the 25 records in the frozen 119-record priority-1 full-text
 queue that did not have a locally validated full text after the retrieval run
 recorded in `data/full_text/v1.1.2_priority_1_nonpreprint_119/`.
 
@@ -32,9 +32,24 @@ screening rather than being misclassified as retrieved studies:
 | `10.1093/jimmun/vkag141.260` | Journal supplement abstract |
 | `10.1182/blood-2025-3244` | Blood supplement abstract |
 
+## Browser-visible publisher full texts recovered after the initial audit
+
+The first resolver-only pass produced false negatives for the following
+publisher pages. Each page visibly rendered a complete article without login;
+the archived HTML includes an article element, abstract, and references. These
+records are now `downloaded_html` in the manifest and are excluded from the
+25-record residual count.
+
+| DOI | Publisher |
+| --- | --- |
+| `10.1007/s11306-023-02022-w` | Springer Nature Link |
+| `10.1038/s42255-020-0200-2` | Nature.com |
+| `10.1038/s42255-026-01515-x` | Nature.com |
+| `10.1038/s43587-026-01100-7` | Nature.com |
+
 ## Confirmed non-open records
 
-The remaining 20 records had no OA location in OpenAlex/Unpaywall and no
+The remaining 16 records had no OA location in OpenAlex/Unpaywall and no
 public full text in Semantic Scholar or OpenAIRE at the time of retrieval.
 They remain in `unavailable.csv` with `no_open_full_text_found` and are not
 treated as paywall-bypass candidates.
