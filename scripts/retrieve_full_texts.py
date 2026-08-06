@@ -2,10 +2,10 @@
 """Retrieve lawful open full texts for a frozen review target set.
 
 The script selects non-preprint records from a named manual-triage queue,
-queries OpenAlex and Europe PMC by identifier, and downloads only open PDF
-locations or Europe PMC full-text XML. It does not bypass publisher access
-controls. All identifiers, source URLs, responses, checksums, and failures are
-recorded in the output directory.
+queries scholarly OA resolvers by identifier, and downloads only publicly
+available PDFs, full-text XML, or public PMC author-manuscript HTML. It does
+not bypass publisher access controls. All identifiers, source URLs, responses,
+checksums, and failures are recorded in the output directory.
 """
 
 from __future__ import annotations
@@ -14,6 +14,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import ssl
 import time
 from collections import Counter
@@ -32,10 +33,15 @@ import certifi
 OPENALEX_WORK = "https://api.openalex.org/works/https://doi.org/"
 EUROPEPMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 EUROPEPMC_XML = "https://www.ebi.ac.uk/europepmc/webservices/rest/{pmcid}/fullTextXML"
+CROSSREF_WORK = "https://api.crossref.org/works/"
+OPENAIRE_SEARCH = "https://api.openaire.eu/search/publications"
+SEMANTIC_SCHOLAR_PAPER = "https://api.semanticscholar.org/graph/v1/paper/DOI:"
+UNPAYWALL_WORK = "https://api.unpaywall.org/v2/"
 USER_AGENT = "causal-multiomics-aging-review/1.0 full-text-retrieval"
 PDF_MAGIC = b"%PDF-"
 MAX_DOWNLOAD_BYTES = 100 * 1024 * 1024
 LANDING_PAGE_TIMEOUT_SECONDS = 12
+FULL_TEXT_STATUSES = {"downloaded_pdf", "downloaded_xml", "downloaded_html"}
 
 
 class PdfLinkParser(HTMLParser):
@@ -86,6 +92,28 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def public_copy_locations(path: Path | None, doi: str) -> list[dict[str, str]]:
+    if path is None or not path.exists():
+        return []
+    locations: list[dict[str, str]] = []
+    for row in read_csv(path):
+        if normalize_doi(row.get("doi", "")) != doi:
+            continue
+        url = row.get("url", "").strip()
+        parsed = urlparse(url)
+        if parsed.scheme not in {"http", "https"}:
+            raise ValueError(f"Invalid public-copy URL for {doi}: {url}")
+        locations.append(
+            {
+                "url": url,
+                "source": row.get("source", "Public author-hosted copy").strip(),
+                "license": "",
+                "version": row.get("access_basis", "public author-hosted copy").strip(),
+            }
+        )
+    return locations
+
+
 def write_csv(path: Path, rows: Iterable[dict[str, str]]) -> None:
     materialized = list(rows)
     if not materialized:
@@ -108,7 +136,20 @@ def http_get(url: str, timeout: int) -> tuple[int, dict[str, str], bytes]:
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     try:
         with urlopen(request, timeout=timeout, context=ssl_context) as response:  # noqa: S310
-            payload = response.read(MAX_DOWNLOAD_BYTES + 1)
+            deadline = time.monotonic() + timeout
+            chunks: list[bytes] = []
+            received = 0
+            while True:
+                if time.monotonic() > deadline:
+                    raise TimeoutError(f"response_read_exceeded_{timeout}_seconds")
+                chunk = response.read(min(64 * 1024, MAX_DOWNLOAD_BYTES + 1 - received))
+                if not chunk:
+                    break
+                chunks.append(chunk)
+                received += len(chunk)
+                if received > MAX_DOWNLOAD_BYTES:
+                    raise ValueError(f"response_exceeds_{MAX_DOWNLOAD_BYTES}_bytes")
+            payload = b"".join(chunks)
             if len(payload) > MAX_DOWNLOAD_BYTES:
                 raise ValueError(f"response_exceeds_{MAX_DOWNLOAD_BYTES}_bytes")
             return response.status, dict(response.headers.items()), payload
@@ -186,15 +227,22 @@ def openalex_oa_landing_urls(metadata: dict[str, Any]) -> list[str]:
 
 
 def landing_page_pdf_locations(
-    url: str, timeout: int
+    url: str, source: str, timeout: int
 ) -> tuple[list[dict[str, str]], dict[str, Any]]:
-    """Find publisher-declared PDF links on an OpenAlex-confirmed OA page."""
+    """Find explicitly declared PDF links on a scholarly repository or OA page."""
     try:
         status, headers, payload = http_get(url, timeout)
     except (ConnectionError, ValueError) as error:
-        return [], {"kind": "oa_landing_page", "url": url, "status": "error", "error": str(error)}
+        return [], {
+            "kind": "landing_page",
+            "source": source,
+            "url": url,
+            "status": "error",
+            "error": str(error),
+        }
     audit = {
-        "kind": "oa_landing_page",
+        "kind": "landing_page",
+        "source": source,
         "url": url,
         "status": status,
         "content_type": headers.get("Content-Type", ""),
@@ -215,7 +263,7 @@ def landing_page_pdf_locations(
         locations.append(
             {
                 "url": pdf_url,
-                "source": "OpenAlex-confirmed OA landing page",
+                "source": source,
                 "license": "",
                 "version": "publisher-declared PDF link",
             }
@@ -261,9 +309,244 @@ def europepmc_record(doi: str, timeout: int) -> tuple[dict[str, Any] | None, dic
     return results[0], audit
 
 
+def crossref_record(doi: str, timeout: int) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    response, audit = fetch_json(CROSSREF_WORK + quote(doi, safe=""), timeout)
+    message = (response or {}).get("message")
+    if not isinstance(message, dict):
+        return None, {**audit, "error": "no_crossref_record"}
+    return message, audit
+
+
+def crossref_pdf_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
+    locations: list[dict[str, str]] = []
+    seen: set[str] = set()
+    links = metadata.get("link") or []
+    for link in links if isinstance(links, list) else []:
+        if not isinstance(link, dict) or link.get("content-type") != "application/pdf":
+            continue
+        url = link.get("URL")
+        if not isinstance(url, str) or not url or url in seen:
+            continue
+        seen.add(url)
+        locations.append(
+            {
+                "url": url,
+                "source": "Crossref publisher content link",
+                "license": "",
+                "version": str(link.get("content-version") or ""),
+            }
+        )
+    return locations
+
+
+def unpaywall_record(
+    doi: str, email: str | None, timeout: int
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Retrieve OA locations without persisting the required contact email."""
+    if not email:
+        return None, {"status": "skipped", "error": "unpaywall_email_not_configured"}
+    url = f"{UNPAYWALL_WORK}{quote(doi, safe='')}?email={quote(email, safe='')}"
+    response, audit = fetch_json(url, timeout)
+    audit["url"] = f"{UNPAYWALL_WORK}{quote(doi, safe='')}?email=[redacted]"
+    return response, audit
+
+
+def unpaywall_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
+    """Return direct PDFs and repository landing pages reported by Unpaywall."""
+    locations: list[dict[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    candidates = [metadata.get("best_oa_location"), *(metadata.get("oa_locations") or [])]
+    for location in candidates:
+        if not isinstance(location, dict):
+            continue
+        host_type = str(location.get("host_type") or "")
+        license_value = str(location.get("license") or "")
+        version = str(location.get("version") or "")
+        for kind, field in (("pdf", "url_for_pdf"), ("landing", "url")):
+            url = location.get(field)
+            if not isinstance(url, str) or not url or (kind, url) in seen:
+                continue
+            parsed = urlparse(url)
+            if parsed.scheme not in {"http", "https"}:
+                continue
+            seen.add((kind, url))
+            locations.append(
+                {
+                    "url": url,
+                    "kind": kind,
+                    "source": f"Unpaywall {host_type or 'OA'} location",
+                    "license": license_value,
+                    "version": version,
+                }
+            )
+    return locations
+
+
+def pmc_fulltext_html_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
+    """Return public PMC full-text pages when a manuscript has no retrievable PDF."""
+    locations: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for location in unpaywall_locations(metadata):
+        parsed = urlparse(location["url"])
+        if parsed.netloc != "pmc.ncbi.nlm.nih.gov":
+            continue
+        parts = parsed.path.strip("/").split("/")
+        if len(parts) < 2 or parts[0] != "articles" or not parts[1].startswith("PMC"):
+            continue
+        html_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{parts[1]}/"
+        if html_url in seen:
+            continue
+        seen.add(html_url)
+        locations.append(
+            {
+                **location,
+                "url": html_url,
+                "kind": "landing",
+                "source": "PubMed Central public author manuscript HTML",
+                "version": location["version"] or "author manuscript",
+            }
+        )
+    return locations
+
+
+def canonical_publisher_pdf_locations(doi: str) -> list[dict[str, str]]:
+    """Known publisher PDF routes that are not consistently present in metadata APIs."""
+    if doi.startswith("10.1038/"):
+        return [
+            {
+                "url": f"https://www.nature.com/articles/{doi.removeprefix('10.1038/')}.pdf",
+                "source": "Nature canonical article PDF",
+                "license": "",
+                "version": "publisher version of record",
+            }
+        ]
+    if doi.startswith(("10.1007/", "10.1186/")):
+        return [
+            {
+                "url": f"https://link.springer.com/content/pdf/{doi}.pdf",
+                "source": "Springer Nature canonical article PDF",
+                "license": "",
+                "version": "publisher version of record",
+            }
+        ]
+    return []
+
+
+def semantic_scholar_record(
+    doi: str, timeout: int
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    fields = "title,openAccessPdf,publicationTypes,publicationDate,url"
+    url = f"{SEMANTIC_SCHOLAR_PAPER}{quote(doi, safe='')}?fields={fields}"
+    return fetch_json(url, timeout)
+
+
+def semantic_scholar_pdf_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
+    pdf = metadata.get("openAccessPdf")
+    if not isinstance(pdf, dict):
+        return []
+    url = pdf.get("url")
+    status = str(pdf.get("status") or "").upper()
+    parsed = urlparse(url) if isinstance(url, str) else None
+    if (
+        not isinstance(url, str)
+        or not url
+        or not parsed
+        or parsed.scheme not in {"http", "https"}
+        or parsed.netloc.casefold() in {"doi.org", "dx.doi.org"}
+        or status not in {"BRONZE", "GOLD", "GREEN", "HYBRID"}
+    ):
+        return []
+    return [
+        {
+            "url": url,
+            "source": "Semantic Scholar open-access PDF",
+            "license": str(pdf.get("license") or ""),
+            "version": f"Semantic Scholar {status}",
+        }
+    ]
+
+
+def openaire_record(doi: str, timeout: int) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    url = f"{OPENAIRE_SEARCH}?doi={quote(doi, safe='')}&format=json&size=1"
+    return fetch_json(url, timeout)
+
+
+def openaire_text(value: Any) -> str:
+    if isinstance(value, dict):
+        candidate = value.get("$")
+        return candidate if isinstance(candidate, str) else ""
+    return value if isinstance(value, str) else ""
+
+
+def openaire_repository_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
+    """Use repository instance links exposed by OpenAIRE, not publisher DOI links."""
+    locations: list[dict[str, str]] = []
+    seen: set[str] = set()
+
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for item in value:
+                visit(item)
+            return
+        if not isinstance(value, dict):
+            return
+        nested_instance = value.get("instance")
+        if isinstance(nested_instance, list):
+            instances = [item for item in nested_instance if isinstance(item, dict)]
+        elif isinstance(nested_instance, dict):
+            instances = [nested_instance]
+        elif "accessright" in value:
+            instances = [value]
+        else:
+            instances = []
+        for instance in instances:
+            accessright = instance.get("accessright")
+            access_class = (
+                str(accessright.get("@classid") or "").upper()
+                if isinstance(accessright, dict)
+                else ""
+            )
+            hosted = instance.get("hostedby")
+            host_name = (
+                openaire_text(hosted.get("@name")) if isinstance(hosted, dict) else "repository"
+            )
+            webresource = instance.get("webresource")
+            resource_url = (
+                openaire_text(webresource.get("url")) if isinstance(webresource, dict) else ""
+            )
+            direct_url = openaire_text(instance.get("url")) or resource_url
+            parsed = urlparse(direct_url)
+            if (
+                access_class != "CLOSED"
+                and parsed.scheme in {"http", "https"}
+                and parsed.netloc.casefold()
+                not in {"doi.org", "dx.doi.org", "pubmed.ncbi.nlm.nih.gov"}
+                and direct_url not in seen
+            ):
+                seen.add(direct_url)
+                locations.append(
+                    {
+                        "url": direct_url,
+                        "source": f"OpenAIRE repository ({host_name})",
+                        "license": "",
+                        "version": f"OpenAIRE {access_class or 'unknown'} access",
+                    }
+                )
+        for child in value.values():
+            visit(child)
+
+    visit(metadata)
+    return locations
+
+
 def valid_xml(payload: bytes) -> bool:
     prefix = payload.lstrip()[:512].lower()
     return prefix.startswith(b"<?xml") or b"<article" in prefix
+
+
+def valid_fulltext_html(payload: bytes) -> bool:
+    prefix = payload[:2_000_000].lower()
+    return b"<html" in prefix[:2048] and b"article-body" in prefix
 
 
 def try_download(
@@ -283,11 +566,17 @@ def try_download(
         "license": license_name,
         "version": version,
     }
-    extension = "pdf" if kind == "pdf" else "xml"
+    extension = {"pdf": "pdf", "xml": "xml", "html": "html"}[kind]
     destination = files_dir / f"{target.file_stem}.{extension}"
     if destination.exists():
         payload = destination.read_bytes()
-        valid = payload.startswith(PDF_MAGIC) if kind == "pdf" else valid_xml(payload)
+        valid = (
+            payload.startswith(PDF_MAGIC)
+            if kind == "pdf"
+            else valid_xml(payload)
+            if kind == "xml"
+            else valid_fulltext_html(payload)
+        )
         if valid:
             return (
                 {
@@ -315,7 +604,13 @@ def try_download(
     )
     if status != 200:
         return attempt, None, None
-    valid = payload.startswith(PDF_MAGIC) if kind == "pdf" else valid_xml(payload)
+    valid = (
+        payload.startswith(PDF_MAGIC)
+        if kind == "pdf"
+        else valid_xml(payload)
+        if kind == "xml"
+        else valid_fulltext_html(payload)
+    )
     if not valid:
         return {**attempt, "status": "invalid_content"}, None, None
 
@@ -374,7 +669,14 @@ def select_targets(
     return sorted(targets, key=lambda target: target.doi)
 
 
-def retrieve_one(target: Target, output_dir: Path, timeout: int, dry_run: bool) -> dict[str, Any]:
+def retrieve_one(
+    target: Target,
+    output_dir: Path,
+    timeout: int,
+    dry_run: bool,
+    public_copy_list: Path | None,
+    unpaywall_email: str | None,
+) -> dict[str, Any]:
     metadata_dir = output_dir / "raw_metadata"
     files_dir = output_dir / "files"
     attempts: list[dict[str, Any]] = []
@@ -392,6 +694,34 @@ def retrieve_one(target: Target, output_dir: Path, timeout: int, dry_run: bool) 
     if europepmc:
         (metadata_dir / f"{target.file_stem}.europepmc.json").write_text(
             json.dumps(europepmc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+    crossref, audit = crossref_record(target.doi, timeout)
+    metadata_audit.append({"source": "crossref", **audit})
+    if crossref:
+        (metadata_dir / f"{target.file_stem}.crossref.json").write_text(
+            json.dumps(crossref, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+    semantic_scholar, audit = semantic_scholar_record(target.doi, timeout)
+    metadata_audit.append({"source": "semantic_scholar", **audit})
+    if semantic_scholar:
+        (metadata_dir / f"{target.file_stem}.semantic_scholar.json").write_text(
+            json.dumps(semantic_scholar, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+    openaire, audit = openaire_record(target.doi, timeout)
+    metadata_audit.append({"source": "openaire", **audit})
+    if openaire:
+        (metadata_dir / f"{target.file_stem}.openaire.json").write_text(
+            json.dumps(openaire, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+    unpaywall, audit = unpaywall_record(target.doi, unpaywall_email, timeout)
+    metadata_audit.append({"source": "unpaywall", **audit})
+    if unpaywall:
+        (metadata_dir / f"{target.file_stem}.unpaywall.json").write_text(
+            json.dumps(unpaywall, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
 
     if dry_run:
@@ -432,7 +762,9 @@ def retrieve_one(target: Target, output_dir: Path, timeout: int, dry_run: bool) 
         # that page solely for an explicit publisher PDF link; do not probe paywalls.
         for landing_url in openalex_oa_landing_urls(openalex):
             locations, landing_audit = landing_page_pdf_locations(
-                landing_url, min(timeout, LANDING_PAGE_TIMEOUT_SECONDS)
+                landing_url,
+                "OpenAlex-confirmed OA landing page",
+                min(timeout, LANDING_PAGE_TIMEOUT_SECONDS),
             )
             attempts.append(landing_audit)
             for location in locations:
@@ -443,6 +775,205 @@ def retrieve_one(target: Target, output_dir: Path, timeout: int, dry_run: bool) 
                     location["source"],
                     location["license"],
                     location["version"],
+                    files_dir,
+                    timeout,
+                )
+                attempts.append(attempt)
+                if path:
+                    return {
+                        "record_id": target.record_id,
+                        "doi": target.doi,
+                        "title": target.title,
+                        "target_status": "downloaded_pdf",
+                        "selected_file": path,
+                        "metadata_attempts": metadata_audit,
+                        "content_attempts": attempts,
+                    }
+
+    if crossref:
+        for location in crossref_pdf_locations(crossref):
+            attempt, _, path = try_download(
+                target,
+                location["url"],
+                "pdf",
+                location["source"],
+                location["license"],
+                location["version"],
+                files_dir,
+                timeout,
+            )
+            attempts.append(attempt)
+            if path:
+                return {
+                    "record_id": target.record_id,
+                    "doi": target.doi,
+                    "title": target.title,
+                    "target_status": "downloaded_pdf",
+                    "selected_file": path,
+                    "metadata_attempts": metadata_audit,
+                    "content_attempts": attempts,
+                }
+
+    if unpaywall:
+        for location in unpaywall_locations(unpaywall):
+            if location["kind"] == "pdf":
+                attempt, _, path = try_download(
+                    target,
+                    location["url"],
+                    "pdf",
+                    location["source"],
+                    location["license"],
+                    location["version"],
+                    files_dir,
+                    timeout,
+                )
+                attempts.append(attempt)
+                if path:
+                    return {
+                        "record_id": target.record_id,
+                        "doi": target.doi,
+                        "title": target.title,
+                        "target_status": "downloaded_pdf",
+                        "selected_file": path,
+                        "metadata_attempts": metadata_audit,
+                        "content_attempts": attempts,
+                    }
+                continue
+
+            locations, landing_audit = landing_page_pdf_locations(
+                location["url"], location["source"], min(timeout, LANDING_PAGE_TIMEOUT_SECONDS)
+            )
+            attempts.append(landing_audit)
+            for pdf_location in locations:
+                attempt, _, path = try_download(
+                    target,
+                    pdf_location["url"],
+                    "pdf",
+                    pdf_location["source"],
+                    location["license"],
+                    location["version"],
+                    files_dir,
+                    timeout,
+                )
+                attempts.append(attempt)
+                if path:
+                    return {
+                        "record_id": target.record_id,
+                        "doi": target.doi,
+                        "title": target.title,
+                        "target_status": "downloaded_pdf",
+                        "selected_file": path,
+                        "metadata_attempts": metadata_audit,
+                        "content_attempts": attempts,
+                    }
+
+        for location in pmc_fulltext_html_locations(unpaywall):
+            attempt, _, path = try_download(
+                target,
+                location["url"],
+                "html",
+                location["source"],
+                location["license"],
+                location["version"],
+                files_dir,
+                timeout,
+            )
+            attempts.append(attempt)
+            if path:
+                return {
+                    "record_id": target.record_id,
+                    "doi": target.doi,
+                    "title": target.title,
+                    "target_status": "downloaded_html",
+                    "selected_file": path,
+                    "metadata_attempts": metadata_audit,
+                    "content_attempts": attempts,
+                }
+
+    for location in canonical_publisher_pdf_locations(target.doi):
+        attempt, _, path = try_download(
+            target,
+            location["url"],
+            "pdf",
+            location["source"],
+            location["license"],
+            location["version"],
+            files_dir,
+            timeout,
+        )
+        attempts.append(attempt)
+        if path:
+            return {
+                "record_id": target.record_id,
+                "doi": target.doi,
+                "title": target.title,
+                "target_status": "downloaded_pdf",
+                "selected_file": path,
+                "metadata_attempts": metadata_audit,
+                "content_attempts": attempts,
+            }
+
+    for location in public_copy_locations(public_copy_list, target.doi):
+        attempt, _, path = try_download(
+            target,
+            location["url"],
+            "pdf",
+            location["source"],
+            location["license"],
+            location["version"],
+            files_dir,
+            timeout,
+        )
+        attempts.append(attempt)
+        if path:
+            return {
+                "record_id": target.record_id,
+                "doi": target.doi,
+                "title": target.title,
+                "target_status": "downloaded_pdf",
+                "selected_file": path,
+                "metadata_attempts": metadata_audit,
+                "content_attempts": attempts,
+            }
+
+    if semantic_scholar:
+        for location in semantic_scholar_pdf_locations(semantic_scholar):
+            attempt, _, path = try_download(
+                target,
+                location["url"],
+                "pdf",
+                location["source"],
+                location["license"],
+                location["version"],
+                files_dir,
+                timeout,
+            )
+            attempts.append(attempt)
+            if path:
+                return {
+                    "record_id": target.record_id,
+                    "doi": target.doi,
+                    "title": target.title,
+                    "target_status": "downloaded_pdf",
+                    "selected_file": path,
+                    "metadata_attempts": metadata_audit,
+                    "content_attempts": attempts,
+                }
+
+    if openaire:
+        for location in openaire_repository_locations(openaire):
+            locations, landing_audit = landing_page_pdf_locations(
+                location["url"], location["source"], min(timeout, LANDING_PAGE_TIMEOUT_SECONDS)
+            )
+            attempts.append(landing_audit)
+            for pdf_location in locations:
+                attempt, _, path = try_download(
+                    target,
+                    pdf_location["url"],
+                    "pdf",
+                    pdf_location["source"],
+                    pdf_location["license"],
+                    pdf_location["version"],
                     files_dir,
                     timeout,
                 )
@@ -507,7 +1038,11 @@ def retrieve_one(target: Target, output_dir: Path, timeout: int, dry_run: bool) 
                 "content_attempts": attempts,
             }
 
-    oa_status = (openalex or {}).get("open_access", {}).get("is_oa")
+    # A transient OpenAlex error must not relabel a verified OA record as closed.
+    # Unpaywall is an independent DOI-level OA resolver and is sufficient here.
+    oa_status = bool((openalex or {}).get("open_access", {}).get("is_oa")) or bool(
+        (unpaywall or {}).get("is_oa")
+    )
     return {
         "record_id": target.record_id,
         "doi": target.doi,
@@ -528,6 +1063,21 @@ def main() -> None:
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=45)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--public-copy-list",
+        type=Path,
+        help="CSV of publicly hosted author copies: doi,url,source,access_basis.",
+    )
+    parser.add_argument(
+        "--unpaywall-email",
+        default=os.environ.get("UNPAYWALL_EMAIL"),
+        help="Contact email required by Unpaywall; defaults to UNPAYWALL_EMAIL.",
+    )
+    parser.add_argument(
+        "--resume-unavailable",
+        action="store_true",
+        help="Retry only records that were not downloaded in the current manifest.",
+    )
     args = parser.parse_args()
     if args.workers < 1 or args.workers > 8:
         raise ValueError("workers must be between 1 and 8")
@@ -555,12 +1105,41 @@ def main() -> None:
     )
 
     results: list[dict[str, Any]] = []
+    retry_targets = targets
+    if args.resume_unavailable:
+        manifest_path = args.output_dir / "retrieval_manifest.jsonl"
+        if not manifest_path.exists():
+            raise ValueError("--resume-unavailable requires an existing retrieval manifest")
+        existing_by_doi = {
+            str(row["doi"]): row
+            for row in (json.loads(line) for line in manifest_path.open(encoding="utf-8"))
+        }
+        if set(existing_by_doi) != {target.doi for target in targets}:
+            raise ValueError("Existing manifest does not match the frozen target DOI set")
+        results.extend(
+            row
+            for row in existing_by_doi.values()
+            if row.get("target_status") in FULL_TEXT_STATUSES
+        )
+        retry_targets = [
+            target
+            for target in targets
+            if existing_by_doi[target.doi].get("target_status")
+            not in FULL_TEXT_STATUSES
+        ]
+
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         future_to_target = {
             executor.submit(
-                retrieve_one, target, args.output_dir, args.timeout, args.dry_run
+                retrieve_one,
+                target,
+                args.output_dir,
+                args.timeout,
+                args.dry_run,
+                args.public_copy_list,
+                args.unpaywall_email,
             ): target
-            for target in targets
+            for target in retry_targets
         }
         for future in as_completed(future_to_target):
             target = future_to_target[future]
@@ -592,7 +1171,7 @@ def main() -> None:
             "retrieval_status": str(result["target_status"]),
         }
         for result in results
-        if result["target_status"] not in {"downloaded_pdf", "downloaded_xml"}
+        if result["target_status"] not in FULL_TEXT_STATUSES
     ]
     if unavailable_rows:
         write_csv(args.output_dir / "unavailable.csv", unavailable_rows)
@@ -613,15 +1192,16 @@ def main() -> None:
     summary = {
         "status": "dry_run_complete" if args.dry_run else "retrieval_complete",
         "target_count": len(targets),
+        "retried_count": len(retry_targets),
         "queue": args.queue,
         "excluded_preprints": 16,
         "workers": args.workers,
         "timeout_seconds": args.timeout,
         "status_counts": dict(sorted(statuses.items())),
         "retrieval_policy": (
-            "OpenAlex OA PDF locations and explicit publisher PDF links from "
-            "OpenAlex-confirmed OA landing pages, followed by Europe PMC free PDFs "
-            "and full-text XML. "
+            "OpenAlex, Unpaywall, Europe PMC, Crossref, Semantic Scholar, and OpenAIRE "
+            "metadata routes; explicit publisher PDF links from verified OA landing pages; "
+            "and explicitly recorded public author-hosted copies. "
             "No publisher access controls were bypassed."
         ),
         "target_list_sha256": sha256_bytes((args.output_dir / "targets.csv").read_bytes()),
@@ -638,16 +1218,19 @@ def main() -> None:
         "Targets are the 119 non-preprint records in `priority_1_textually_focused`: "
         "the previous 135-record manual title/abstract queue minus 16 preprints. "
         "`targets.csv`, `retrieval_manifest.jsonl`, and `summary.json` are the audit "
-        "trail. `files/` contains locally downloaded open PDFs or Europe PMC XML and "
-        "is intentionally excluded from Git. `selected_files/` is the canonical local "
-        "view: it contains links only to files selected in the manifest. `raw_metadata/` "
+        "trail. `files/` contains locally downloaded PDFs, XML, or public PMC author-"
+        "manuscript HTML and is intentionally excluded from Git. `selected_files/` is "
+        "the canonical local view: it contains links only to files selected in the "
+        "manifest. `raw_metadata/` "
         "contains source metadata responses and is also local.\n\n"
-        "Retrieval uses OpenAlex-confirmed OA locations (including explicit publisher "
-        "PDF links found on their OA landing pages) and Europe PMC free PDFs/full-text "
-        "XML. It does not bypass paywalls; `unavailable.csv` lists records without a "
-        "retrieved legal open full text.\n\n"
+        "Retrieval uses OpenAlex and Unpaywall OA locations (including explicit publisher "
+        "PDF links found on verified OA landing pages), Europe PMC free PDFs/full-text "
+        "XML, Crossref, Semantic Scholar, OpenAIRE, and explicitly recorded public "
+        "author-hosted copies. It does not bypass paywalls; `unavailable.csv` lists "
+        "records without a retrieved legal open full text.\n\n"
         f"This retrieval obtained {statuses.get('downloaded_pdf', 0)} PDFs and "
-        f"{statuses.get('downloaded_xml', 0)} XML full texts. "
+        f"{statuses.get('downloaded_xml', 0)} XML and "
+        f"{statuses.get('downloaded_html', 0)} public PMC HTML full texts. "
         f"The remaining {len(unavailable_rows)} records are listed in `unavailable.csv`.\n",
         encoding="utf-8",
     )
