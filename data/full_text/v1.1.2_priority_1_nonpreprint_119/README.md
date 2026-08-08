@@ -4,4 +4,4 @@ Targets are the 119 non-preprint records in `priority_1_textually_focused`: the 
 
 Retrieval uses OpenAlex and Unpaywall OA locations (including explicit publisher PDF links found on verified OA landing pages), Europe PMC free PDFs/full-text XML, Crossref, Semantic Scholar, OpenAIRE, and explicitly recorded public copies, including browser-visible official open full-text HTML. It does not bypass paywalls; `unavailable.csv` lists records without a retrieved legal open full text.
 
-This retrieval obtained 82 PDFs and 1 XML and 11 public HTML full texts. The remaining 25 records are listed in `unavailable.csv`.
+This retrieval obtained 86 PDFs and 1 XML and 11 public HTML full texts. The remaining 21 records are listed in `unavailable.csv`.
