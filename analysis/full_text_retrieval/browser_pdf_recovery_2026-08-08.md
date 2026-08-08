@@ -38,5 +38,17 @@ must not be treated as proof of unauthenticated full-text availability.
 
 The frozen queue remains 119 records. After this recovery pass, 98 have a
 locally validated full text: 86 PDFs, 11 complete publisher HTML files, and one
-XML full text. The remaining 21 records comprise 16 with no open full text found
-and five with an open-location signal that did not yield an eligible full text.
+XML full text.
+
+A subsequent browser audit checked the 12 full-article records previously
+labelled only `no_open_full_text_found`. Every official publisher page displayed
+an abstract/article preview plus purchase or institutional-access controls, and
+none exposed a public publisher PDF. The item-level evidence is recorded in
+`manual_publisher_access_audit_2026-08-08.csv`.
+
+The remaining 21 records therefore have a resolved explanation: 15 full
+articles were blocked by publisher access controls in the available browser
+session, and six records were conference or journal-supplement abstracts rather
+than retrievable full research reports. The six abstract-only records should be
+removed from the PRISMA full-text retrieval denominator rather than reported as
+full texts that could not be retrieved.
