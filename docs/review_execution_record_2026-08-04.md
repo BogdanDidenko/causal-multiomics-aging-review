@@ -54,6 +54,39 @@ epigenetic aging and human longevity*, is in this 135-record queue. It has
 five-of-five stable scope and causal outputs, with `genetic_instrument` as its
 causal routing anchor.
 
+## Current priority-1 report-retrieval subflow
+
+The priority-1 queue now has a completed, PRISMA-aligned retrieval audit. This
+is a bounded subflow for workflow reporting, not the final review denominator:
+
+| Retrieval node | Records |
+|---|---:|
+| Priority-1 candidate records | 135 |
+| Preprints outside this non-preprint retrieval batch | 16 |
+| Non-preprint candidates audited | 119 |
+| Abstract-only reports excluded before report retrieval | 6 |
+| Reports sought for retrieval | 113 |
+| Reports not retrieved: verified publisher access controls | 15 |
+| Reports retrieved and available for full-text assessment | 98 |
+| Reports assessed for eligibility | pending |
+
+The 98 available reports comprise 86 PDFs, 11 complete publisher HTML files,
+and one XML full text. All 21 records without a selected full-text artifact
+were manually resolved: 15 are full articles behind publisher access controls
+in the available browser session, while six are conference or journal-
+supplement abstracts rather than full research reports. There are no
+unclassified retrieval outcomes.
+
+The 16 preprints are outside this retrieval batch; this subflow does not declare
+them finally excluded from the review.
+
+The machine-readable source of truth is
+[`prisma_retrieval.json`](../data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json),
+generated from the retrieval manifest and
+[`retrieval_adjudication.csv`](../data/full_text/v1.1.2_priority_1_nonpreprint_119/retrieval_adjudication.csv).
+The item-level browser evidence is retained in
+[`manual_publisher_access_audit_2026-08-08.csv`](../analysis/full_text_retrieval/manual_publisher_access_audit_2026-08-08.csv).
+
 ## What the 135 records mean
 
 The 135 are the **first manual title/abstract triage queue**, not a final PRISMA
@@ -129,6 +162,8 @@ decisions are frozen. The machine-readable audit is
   post-hoc correction, not a replacement for the archived raw-run report.
 - The 135-record queue is not a PRISMA denominator and must not be reported as
   “studies included” or “full texts assessed.”
+- The 98 retrieved reports are available for assessment but have not yet been
+  assessed for eligibility. They must not be reported as included studies.
 
 ## Reproduction commands
 

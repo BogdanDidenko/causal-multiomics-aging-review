@@ -38,6 +38,14 @@ The authoritative path to the current 135-record human title/abstract queue,
 the deterministic routing correction, the five-repeat rationale, and all
 material that must remain outside the final PRISMA flow are in
 [`docs/review_execution_record_2026-08-04.md`](docs/review_execution_record_2026-08-04.md).
+The current priority-1 retrieval subflow has 113 reports sought, 98 retrieved
+and available for full-text assessment, and 15 not retrieved because of
+verified publisher access controls; six abstract-only records were removed
+before the report-retrieval denominator. Sixteen preprints are outside this
+non-preprint batch and are not declared finally excluded. This remains an
+interim priority-subset flow, not the final review PRISMA denominator. Its
+machine-readable source is
+[`prisma_retrieval.json`](data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.

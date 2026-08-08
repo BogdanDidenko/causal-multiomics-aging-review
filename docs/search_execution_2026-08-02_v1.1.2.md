@@ -121,3 +121,18 @@ Screening audit artifacts:
 - `analysis/v1_full_corpus_screening_2026-08-02/summary.json`
 - `analysis/v1_full_corpus_screening_2026-08-02/preliminary_annotations.csv`
 - `data/screening/v1.1.2_full_corpus_96shards/runs/orchestrator_manifest.json`
+
+## Interim priority-1 report retrieval
+
+The first bounded retrieval subflow is complete for the 135-record priority-1
+manual queue. Sixteen preprints are outside this non-preprint retrieval batch;
+this does not constitute their final exclusion. Six
+abstract-only reports were reclassified before the PRISMA report-retrieval
+denominator. Of 113 reports sought, 98 were retrieved and 15 were not retrieved
+because the official publisher pages required purchase or institutional access.
+Full-text eligibility assessment has not yet started.
+
+This priority subset is not the final review PRISMA denominator. Records outside
+the 135-record prioritization queue remain retained upstream. The validated
+machine-readable subflow is
+`data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json`.

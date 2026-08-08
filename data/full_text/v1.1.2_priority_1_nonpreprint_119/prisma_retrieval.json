@@ -1,0 +1,48 @@
+{
+  "flow": {
+    "full_text_assessment_status": "pending",
+    "nonpreprint_candidate_records_audited": 119,
+    "preprints_outside_this_retrieval_batch": 16,
+    "priority_queue_records": 135,
+    "records_excluded_before_report_retrieval": 6,
+    "records_excluded_before_report_retrieval_reasons": {
+      "abstract_only_report": 6
+    },
+    "reports_assessed_for_eligibility": null,
+    "reports_not_retrieved": 15,
+    "reports_not_retrieved_reasons": {
+      "publisher_access_controls": 15
+    },
+    "reports_retrieved_and_available_for_assessment": 98,
+    "reports_sought_for_retrieval": 113
+  },
+  "protocol_version": "1.1.2",
+  "retrieved_format_counts": {
+    "html": 11,
+    "pdf": 86,
+    "xml": 1
+  },
+  "schema_version": "1.0.0",
+  "scope": {
+    "interpretation": "Interim PRISMA-aligned retrieval subflow for the frozen priority-1 manual queue; records outside this queue remain unresolved upstream.",
+    "is_final_review_prisma_denominator": false,
+    "queue": "priority_1_textually_focused"
+  },
+  "source_artifacts": {
+    "retrieval_adjudication": "data/full_text/v1.1.2_priority_1_nonpreprint_119/retrieval_adjudication.csv",
+    "retrieval_adjudication_sha256": "3c81646ad151e47e4956c0ea774046cf06558d9054208c1b0198b07ec52f2cc6",
+    "retrieval_manifest": "data/full_text/v1.1.2_priority_1_nonpreprint_119/retrieval_manifest.jsonl",
+    "retrieval_manifest_sha256": "85079485dcf4f5060f375b8ccd75b52b577749287fc8d8b87c57037cd57668eb",
+    "targets": "data/full_text/v1.1.2_priority_1_nonpreprint_119/targets.csv",
+    "targets_sha256": "b36b7c65d53ebca602e9400470948fe9d28c1444de10e790b5994727e1e6f47e"
+  },
+  "status": "priority_subset_retrieval_complete_full_text_assessment_pending",
+  "verification": {
+    "arithmetic_valid": true,
+    "publisher_access_audit_dates": [
+      "2026-08-08"
+    ],
+    "unclassified_unresolved_records": 0,
+    "unresolved_records_classified": 21
+  }
+}
