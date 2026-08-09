@@ -1,0 +1,125 @@
+{
+  "attempt_error_rate": 0.09002904162633107,
+  "calls_with_deterministic_quote_repair": 486,
+  "criterion_agreement": {
+    "causal_evidence_reviewer.assumptions_assessable": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.9230769230769231,
+      "unanimous_records": 84
+    },
+    "causal_evidence_reviewer.causal_claim_present": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    },
+    "causal_evidence_reviewer.design_role": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.9230769230769231,
+      "unanimous_records": 84
+    },
+    "causal_evidence_reviewer.estimand_complete": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.5274725274725275,
+      "unanimous_records": 48
+    },
+    "causal_evidence_reviewer.identification_status": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.9010989010989011,
+      "unanimous_records": 82
+    },
+    "causal_evidence_reviewer.primary_design_family": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.8901098901098901,
+      "unanimous_records": 81
+    },
+    "causal_evidence_reviewer.supporting_design_families": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.46153846153846156,
+      "unanimous_records": 42
+    },
+    "causal_evidence_reviewer.validation_strength": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.6813186813186813,
+      "unanimous_records": 62
+    },
+    "eligibility_reviewer.aging_process_relevance": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    },
+    "eligibility_reviewer.aging_role": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.5604395604395604,
+      "unanimous_records": 51
+    },
+    "eligibility_reviewer.bio_health_scope": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    },
+    "eligibility_reviewer.empirical_primary": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    },
+    "eligibility_reviewer.first_failed_criterion": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.8791208791208791,
+      "unanimous_records": 80
+    },
+    "eligibility_reviewer.full_text_sufficient": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.9120879120879121,
+      "unanimous_records": 83
+    },
+    "eligibility_reviewer.integration_mode": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.7032967032967034,
+      "unanimous_records": 64
+    },
+    "eligibility_reviewer.multiomics_status": {
+      "evaluated_records": 91,
+      "unanimous_rate": 0.9560439560439561,
+      "unanimous_records": 87
+    },
+    "eligibility_reviewer.relevant_causal_design": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    },
+    "eligibility_reviewer.report_type": {
+      "evaluated_records": 91,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 91
+    }
+  },
+  "deterministic_quote_repairs": 1291,
+  "failed_attempts_before_retry_or_manual_review": 93,
+  "five_run_level_exact_rate": 0.44329896907216493,
+  "five_run_level_exact_records": 43,
+  "five_run_signature_exact_including_unresolved": 47,
+  "five_run_stable_level_counts": {
+    "0": 5,
+    "2": 6,
+    "3": 32,
+    "unstable_or_unresolved": 54
+  },
+  "interpretation": "Strict assessment requires unanimity on every configured decision field. Five-run level exactness is reported separately and does not override the frozen strict route. Outputs are not expert-gold validation.",
+  "manual_review_reason_counts": {
+    "five_run_decisive_criterion_disagreement": 88,
+    "none": 3,
+    "role_execution_failed": 6
+  },
+  "model_attempts": 1033,
+  "records": 97,
+  "status": "complete_full_corpus_evaluation_pending_expert_gold",
+  "strict_decision_counts": {
+    "assessed": 3,
+    "manual_review": 94
+  },
+  "strict_level_counts": {
+    "2": 1,
+    "3": 2
+  },
+  "successful_attempts": 940
+}

@@ -53,11 +53,18 @@ The dated correction is documented in
 Docling Graph preprocessing is complete for all 97 sufficient full texts using
 GPT 5.6 Luna Light: 97 graphs, 1,475 grounded nodes, zero unresolved nodes, and
 zero graph-extraction failures. A 12-report repeat audit produced 12/12 exact
-whole-graph SHA-256 agreement. Full-text eligibility assessment remains pending.
+whole-graph SHA-256 agreement. Criterion-level full-text evaluation with GPT
+5.6 Terra Medium is also complete for 97/97 reports under suite `v1.0.2` and
+five runs per role. The candidate failed its strict stability gate: 3 reports
+were unanimously assessed and 94 routed to human review; numeric Level 0-4 was
+exact across five runs for 43/97 reports. These are instrument-evaluation
+results, not final eligibility or synthesis counts.
 See
 [`execution_report_v1.0.0.md`](analysis/docling_graph/execution_report_v1.0.0.md)
 and the machine-readable
 [`prisma_full_text_processing.json`](data/full_text_graph/v1.0.0_luna_light/prisma_full_text_processing.json).
+The full-text stability result is documented in
+[`execution_report_v1.0.2.md`](analysis/full_text_screening/execution_report_v1.0.2.md).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.

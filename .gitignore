@@ -40,6 +40,7 @@ data/full_text_graph/**/codex_adapter.log
 data/full_text_screening/**/input.jsonl
 data/full_text_screening/**/shards/
 data/full_text_screening/**/runs/
+data/full_text_screening/**/logs/
 
 # OS and editors
 .DS_Store

@@ -1,0 +1,10 @@
+{
+  "note": "Final PRISMA exclusion and inclusion counts remain unset until human adjudication and expert-gold validation.",
+  "reports_assessed_by_model_pipeline": 97,
+  "reports_excluded_after_full_text": null,
+  "reports_pending_human_adjudication": 94,
+  "reports_with_strict_unanimous_assessment": 3,
+  "run_status": "complete_full_corpus_evaluation_pending_expert_gold",
+  "stage": "full_text_screening",
+  "studies_included_in_synthesis": null
+}
