@@ -1,0 +1,2 @@
+doi,original_retrieval_status,docling_conversion_status,visible_body_characters,publisher_pdf_status,springer_open_access_api_body,final_status,prisma_effect,reason
+10.1186/s13578-026-01594-z,downloaded_html,failed,719,404,absent,insufficient_full_text,reclassify_from_retrieved_to_not_retrieved,"Archived HTML contains metadata, styles, and an access/challenge shell but no article body; publisher PDF was unavailable and the identifier-based Open Access API response contained abstract/back matter only."

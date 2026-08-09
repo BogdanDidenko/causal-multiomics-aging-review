@@ -7,6 +7,7 @@ api_keys.json
 
 # Python
 .venv/
+.venv-docling-graph/
 venv/
 __pycache__/
 *.py[cod]
@@ -26,6 +27,13 @@ runs/*/*.csv
 data/full_text/**/files/
 data/full_text/**/raw_metadata/
 data/full_text/**/selected_files/
+
+# Docling Graph conversions and raw model traces are reproducible local artifacts.
+# Version only compact manifests, aggregate QA tables, and methodology notes.
+data/full_text_graph/**/converted/
+data/full_text_graph/**/artifacts/
+data/full_text_graph/**/audit/
+data/full_text_graph/**/codex_adapter.log
 
 # OS and editors
 .DS_Store

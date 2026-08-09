@@ -19,6 +19,13 @@ The 98 retrieved reports comprise 86 PDFs, 11 complete publisher HTML files,
 and one XML full text. The equality `113 = 98 + 15` is validated by
 `scripts/summarize_prisma_retrieval.py`.
 
+**Post-snapshot correction (2026-08-09):** Docling conversion QA established
+that one presumed-complete Springer HTML (`10.1186/s13578-026-01594-z`) has no
+article body. The immutable retrieval snapshot above remains reproducible, but
+the active downstream PRISMA flow uses 97 sufficient full texts and 16 not
+retrieved or insufficient. See
+`analysis/docling_graph/full_text_sufficiency_correction_v1.0.0.md`.
+
 This is an interim PRISMA-aligned subflow for the frozen priority-1 manual
 queue, not the final review PRISMA denominator. Records outside this priority
 queue remain unresolved upstream and must not be represented as excluded. The

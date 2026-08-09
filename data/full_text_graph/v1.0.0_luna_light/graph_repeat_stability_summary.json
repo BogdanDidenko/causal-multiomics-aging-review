@@ -1,0 +1,17 @@
+{
+  "aging_constructs_exact": 12,
+  "aging_constructs_mean_jaccard": 1.0,
+  "causal_family_status_exact": 12,
+  "causal_family_status_mean_jaccard": 1.0,
+  "causal_methods_exact": 12,
+  "causal_methods_mean_jaccard": 1.0,
+  "detail_csv": "data/full_text_graph/v1.0.0_luna_light/graph_repeat_stability.csv",
+  "interpretation": "This quantifies preprocessing nondeterminism only. Graph agreement is not an eligibility acceptance gate because graphs do not make exclusions.",
+  "omics_layer_types_exact": 12,
+  "omics_layer_types_mean_jaccard": 1.0,
+  "omics_layers_exact": 12,
+  "omics_layers_mean_jaccard": 1.0,
+  "repeated_documents": 12,
+  "schema_version": "1.0.0",
+  "whole_graph_hash_exact": 12
+}

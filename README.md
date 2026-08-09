@@ -38,14 +38,26 @@ The authoritative path to the current 135-record human title/abstract queue,
 the deterministic routing correction, the five-repeat rationale, and all
 material that must remain outside the final PRISMA flow are in
 [`docs/review_execution_record_2026-08-04.md`](docs/review_execution_record_2026-08-04.md).
-The current priority-1 retrieval subflow has 113 reports sought, 98 retrieved
-and available for full-text assessment, and 15 not retrieved because of
-verified publisher access controls; six abstract-only records were removed
+The current priority-1 retrieval subflow has 113 reports sought. The original
+snapshot archived 98 candidate files, but Docling sufficiency validation found
+one Springer HTML access shell without an article body. The corrected active
+counts are therefore 97 reports available for full-text assessment and 16 not
+retrieved or insufficient; six abstract-only records were removed
 before the report-retrieval denominator. Sixteen preprints are outside this
 non-preprint batch and are not declared finally excluded. This remains an
 interim priority-subset flow, not the final review PRISMA denominator. Its
 machine-readable source is
 [`prisma_retrieval.json`](data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json).
+The dated correction is documented in
+[`full_text_sufficiency_correction_v1.0.0.md`](analysis/docling_graph/full_text_sufficiency_correction_v1.0.0.md).
+Docling Graph preprocessing is complete for all 97 sufficient full texts using
+GPT 5.6 Luna Light: 97 graphs, 1,475 grounded nodes, zero unresolved nodes, and
+zero graph-extraction failures. A 12-report repeat audit produced 12/12 exact
+whole-graph SHA-256 agreement. Full-text eligibility assessment remains pending.
+See
+[`execution_report_v1.0.0.md`](analysis/docling_graph/execution_report_v1.0.0.md)
+and the machine-readable
+[`prisma_full_text_processing.json`](data/full_text_graph/v1.0.0_luna_light/prisma_full_text_processing.json).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.
@@ -62,7 +74,8 @@ flowchart LR
   E --> I["Unanimous Python criterion gates"]
   F --> I
   I --> K["Deterministically packaged full text"]
-  K --> L["Causal evidence level"]
+  K --> G["Docling Graph evidence index, Luna Light"]
+  G --> L["Criterion-level full-text review"]
   L --> M["PRISMA flow and synthesis"]
 ```
 

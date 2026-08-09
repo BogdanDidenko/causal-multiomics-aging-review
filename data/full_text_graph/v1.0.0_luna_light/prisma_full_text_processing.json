@@ -1,0 +1,54 @@
+{
+  "artifacts": {
+    "config": {
+      "path": "protocol/full_text/docling_graph_v1.0.0.json",
+      "sha256": "8e82909c49d7d581e68e923aa374aec61b0107e507cd2551c99746b126e76bda"
+    },
+    "conversion_manifest": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/conversion_manifest.jsonl",
+      "sha256": "c7cc8beba23e1ac65901a818cd39cc03df30b7892820ba88a3236005840866c8"
+    },
+    "corpus_manifest": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/corpus_manifest.csv",
+      "sha256": "49a4cae9292981bdac7ca1c0d44136eb25761f7d3423d34cfc44be656e11aac7"
+    },
+    "quality_summary": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/graph_quality_summary.json",
+      "sha256": "19d806b289d0680c9748e2d665c40ea01c4bb25f1c422688927a393dd63c81a9"
+    },
+    "repeat_stability_summary": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/graph_repeat_stability_summary.json",
+      "sha256": "a30c96bd492e1f8b92424baedbb51c4e6a1a85ffaa11268fd228ac623c306eb8"
+    },
+    "retrieval_snapshot": {
+      "path": "data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json",
+      "sha256": "57e232a6812a4cf0dbc382cc6000b9dbe77f179d31c8b1538aadf6f78f69468a"
+    },
+    "run_manifest": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/run_manifest.jsonl",
+      "sha256": "f1dc11dcfcce901caef6dd1faa9ebadd5a4e628d4fb664efe9ac7fdb2e629ef0"
+    },
+    "sufficiency_correction": {
+      "path": "data/full_text_graph/v1.0.0_luna_light/full_text_sufficiency_audit.csv",
+      "sha256": "60190eef5a580698db5f811e47796d3371b635640cd2af16c096346a1431f141"
+    }
+  },
+  "methodological_boundary": "Docling conversion and Luna Light graph extraction are preprocessing, not eligibility assessment. Graph absence cannot produce a PRISMA exclusion.",
+  "prisma_counts": {
+    "reports_assessed_for_eligibility": "pending",
+    "reports_not_retrieved_or_insufficient": 16,
+    "reports_retrieved_and_sufficient_for_assessment": 97,
+    "reports_sought_for_retrieval": 113
+  },
+  "processing_counts": {
+    "canonical_docling_conversions": 97,
+    "conversion_failures_due_to_insufficient_full_text": 1,
+    "graph_extraction_failures": 0,
+    "graph_nodes": 1475,
+    "luna_light_graphs_built": 97,
+    "retrieval_candidates_presented_to_conversion": 98,
+    "unresolved_graph_nodes": 0
+  },
+  "schema_version": "1.0.0",
+  "status": "full_text_preprocessing_complete"
+}

@@ -1,0 +1,12 @@
+{
+  "attempt_count": 99,
+  "corpus_documents": 98,
+  "documents_converted": 97,
+  "documents_failed": 0,
+  "documents_insufficient_full_text": 1,
+  "documents_pending": 0,
+  "manifest": "data/full_text_graph/v1.0.0_luna_light/conversion_manifest.jsonl",
+  "ocr_enabled": false,
+  "schema_version": "1.0.0",
+  "status": "complete"
+}

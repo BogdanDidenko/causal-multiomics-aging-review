@@ -66,26 +66,37 @@ is a bounded subflow for workflow reporting, not the final review denominator:
 | Non-preprint candidates audited | 119 |
 | Abstract-only reports excluded before report retrieval | 6 |
 | Reports sought for retrieval | 113 |
-| Reports not retrieved: verified publisher access controls | 15 |
-| Reports retrieved and available for full-text assessment | 98 |
+| Reports not retrieved or insufficient after conversion QA | 16 |
+| Reports retrieved and sufficient for full-text assessment | 97 |
 | Reports assessed for eligibility | pending |
 
-The 98 available reports comprise 86 PDFs, 11 complete publisher HTML files,
-and one XML full text. All 21 records without a selected full-text artifact
-were manually resolved: 15 are full articles behind publisher access controls
-in the available browser session, while six are conference or journal-
-supplement abstracts rather than full research reports. There are no
-unclassified retrieval outcomes.
+The frozen retrieval snapshot initially archived 86 PDFs, 11 presumed-complete
+publisher HTML files, and one XML. Docling conversion QA showed that one
+Springer HTML was an access/challenge shell with metadata but no article body.
+It was reclassified as insufficient, leaving 97 assessable full texts. This is
+a retrieval correction, not a scientific eligibility exclusion. The dated
+evidence is in
+[`full_text_sufficiency_correction_v1.0.0.md`](../analysis/docling_graph/full_text_sufficiency_correction_v1.0.0.md).
 
 The 16 preprints are outside this retrieval batch; this subflow does not declare
 them finally excluded from the review.
 
-The machine-readable source of truth is
+The original machine-readable retrieval snapshot is
 [`prisma_retrieval.json`](../data/full_text/v1.1.2_priority_1_nonpreprint_119/prisma_retrieval.json),
 generated from the retrieval manifest and
 [`retrieval_adjudication.csv`](../data/full_text/v1.1.2_priority_1_nonpreprint_119/retrieval_adjudication.csv).
 The item-level browser evidence is retained in
 [`manual_publisher_access_audit_2026-08-08.csv`](../analysis/full_text_retrieval/manual_publisher_access_audit_2026-08-08.csv).
+The active downstream PRISMA count applies the conversion-stage correction.
+
+Docling Graph evidence indexing was completed on 2026-08-09 for all 97
+sufficient full texts with GPT 5.6 Luna Light. The run produced 97 graphs and
+1,475 provenance-grounded nodes, with zero unresolved nodes and zero graph
+extraction failures. This is preprocessing only; `Reports assessed for
+eligibility` remains pending. The execution report is
+[`execution_report_v1.0.0.md`](../analysis/docling_graph/execution_report_v1.0.0.md),
+and the PRISMA processing record is
+[`prisma_full_text_processing.json`](../data/full_text_graph/v1.0.0_luna_light/prisma_full_text_processing.json).
 
 ## What the 135 records mean
 

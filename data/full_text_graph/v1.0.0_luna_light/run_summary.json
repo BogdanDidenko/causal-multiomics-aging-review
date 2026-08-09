@@ -1,0 +1,24 @@
+{
+  "attempt_count": 110,
+  "attempt_manifest": "data/full_text_graph/v1.0.0_luna_light/run_manifest.jsonl",
+  "config_sha256": "8e82909c49d7d581e68e923aa374aec61b0107e507cd2551c99746b126e76bda",
+  "corpus_documents": 98,
+  "documents_attempted": 98,
+  "documents_failed": 0,
+  "documents_insufficient_full_text": 1,
+  "documents_pending": 0,
+  "documents_succeeded": 97,
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "runtime": {
+    "codex_cli": "codex-cli 0.145.0",
+    "docling": "2.118.1",
+    "docling_core": "2.91.0",
+    "docling_graph": "1.9.1",
+    "litellm": "1.95.0",
+    "python": "3.14.0"
+  },
+  "schema_version": "1.0.0",
+  "status": "complete",
+  "template_sha256": "d3ab3390c42a9f8b02f59391d21bda7c7d7fd6e5d9d30d585796c3858b2c48cb"
+}

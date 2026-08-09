@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -272,13 +273,15 @@ def main() -> None:
     else:
         errors.append("missing prompt_manifest.json")
 
-    for path in ROOT.rglob("*"):
-        if (
-            not path.is_file()
-            or ".git" in path.parts
-            or ".venv" in path.parts
-            or path == Path(__file__).resolve()
-        ):
+    candidate_output = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        cwd=ROOT,
+        capture_output=True,
+        check=True,
+    ).stdout
+    candidate_paths = [ROOT / raw.decode("utf-8") for raw in candidate_output.split(b"\0") if raw]
+    for path in candidate_paths:
+        if not path.is_file() or path == Path(__file__).resolve():
             continue
         if path.suffix in {".md", ".txt", ".json", ".py"}:
             text = path.read_text(encoding="utf-8", errors="ignore")
