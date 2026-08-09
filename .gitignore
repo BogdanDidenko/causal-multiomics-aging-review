@@ -35,6 +35,12 @@ data/full_text_graph/**/artifacts/
 data/full_text_graph/**/audit/
 data/full_text_graph/**/codex_adapter.log
 
+# Full-text screening packets contain article text. Version their hashes and
+# compact ledgers, not the packets or raw model responses.
+data/full_text_screening/**/input.jsonl
+data/full_text_screening/**/shards/
+data/full_text_screening/**/runs/
+
 # OS and editors
 .DS_Store
 Thumbs.db

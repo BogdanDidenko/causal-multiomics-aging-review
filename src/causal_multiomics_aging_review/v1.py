@@ -265,6 +265,7 @@ def package_full_text_sections(
     text_terms = tuple(
         str(item).casefold() for item in config.get("priority_text_terms", [])
     )
+    graph_priority_score = int(config.get("graph_priority_score", 0))
     ranked: list[tuple[int, int, dict[str, Any]]] = []
     for index, section in enumerate(sections):
         heading = str(section.get("heading", ""))
@@ -274,6 +275,8 @@ def package_full_text_sections(
         score = 100 * sum(term in heading_folded for term in heading_terms)
         score += 20 * sum(term in heading_folded for term in text_terms)
         score += sum(term in text_folded for term in text_terms)
+        if section.get("graph_priority") is True:
+            score += graph_priority_score
         ranked.append((score, index, section))
 
     selected_by_index: dict[int, dict[str, Any]] = {}
@@ -298,6 +301,10 @@ def package_full_text_sections(
     selected_ids = {str(section["section_id"]) for section in selected}
     audit = {
         "selection_method": "deterministic_heading_keyword_v1",
+        "graph_priority_score": graph_priority_score,
+        "graph_priority_selected": sum(
+            section.get("graph_priority") is True for section in selected
+        ),
         "coverage_status": "sufficient" if selected else "insufficient",
         "selected_sections": [
             {

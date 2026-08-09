@@ -229,6 +229,24 @@ def test_deterministic_section_packaging_is_stable_and_bounded() -> None:
     assert "S2" in audit["truncated_section_ids"]
 
 
+def test_graph_priority_affects_deterministic_full_text_packaging() -> None:
+    sections = [
+        {"section_id": "chunk:0000", "heading": "Background", "text": "x" * 10},
+        {
+            "section_id": "chunk:0001",
+            "heading": "Background",
+            "text": "y" * 10,
+            "graph_priority": True,
+        },
+    ]
+    selected, audit = package_full_text_sections(
+        sections,
+        {"max_chars": 10, "max_section_chars": 10, "graph_priority_score": 200},
+    )
+    assert [row["section_id"] for row in selected] == ["chunk:0001"]
+    assert audit["graph_priority_selected"] == 1
+
+
 def test_v1_suite_has_only_two_model_roles_per_stage() -> None:
     suite = json.loads(
         (ROOT / "protocol/screening/configs/prompt_suite_v1.0.0.json").read_text()

@@ -1,0 +1,139 @@
+{
+  "audit": {
+    "path": "data/full_text_screening/v1.0.0_graph_chunks_97/input_audit.jsonl",
+    "sha256": "2cc269117ac0a75a6b42686d0bfef559d2d3be75d4e98117a0e502ce5eab1bc0"
+  },
+  "graph_root": "data/full_text_graph/v1.0.0_luna_light",
+  "graph_run_manifest_sha256": "f1dc11dcfcce901caef6dd1faa9ebadd5a4e628d4fb664efe9ac7fdb2e629ef0",
+  "input": {
+    "path": "data/full_text_screening/v1.0.0_graph_chunks_97/input.jsonl",
+    "sha256": "677172c57e4d1f74d66a3ca7c429c02979a3edc46d50cedd6bf063a9916b4a8b"
+  },
+  "metadata_path": "data/screening/v1.1.2_full_corpus/input.csv",
+  "metadata_sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2",
+  "records": 97,
+  "shards": [
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_01.jsonl",
+      "records": 5,
+      "sha256": "5a79403095eafd513644e0a03954ddc17ef6c0f0c574a7a451c69ab0f89829a2"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_02.jsonl",
+      "records": 4,
+      "sha256": "5a0b3bb50553c898fe0797fc3e51520340599816ffe2fb7e68ba77b545387071"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_03.jsonl",
+      "records": 4,
+      "sha256": "c7395b8866f91d8ef4bc6a15854355b60fa0b0a00ede207e71bd7a05227a4860"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_04.jsonl",
+      "records": 4,
+      "sha256": "fbb0da86c132bba5a5fce46213ba214379b0219dc3c900a4fc37983c722f3dcc"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_05.jsonl",
+      "records": 4,
+      "sha256": "55b851707e06e5521d8034673ea21f857b3f99604c80df6b1cea6547ef367e82"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_06.jsonl",
+      "records": 4,
+      "sha256": "770473c4626c40b3cb9f3ce7a82083b1093943568482629c6b725421fa99e5e7"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_07.jsonl",
+      "records": 4,
+      "sha256": "fc99d2d8470d54ae4701cf750604a6d613b54be2481748ec220aa4f68a2b5f2a"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_08.jsonl",
+      "records": 4,
+      "sha256": "669ed5a147b36be7c81d84b56c77f20aa0dde4a70b7823197efa7b1c3d3e524e"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_09.jsonl",
+      "records": 4,
+      "sha256": "f7f37d7be9418326b185cb6d172a309cc7d9bcd2d33fad888fc4f6638691eb54"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_10.jsonl",
+      "records": 4,
+      "sha256": "0180e5e3e8fd3bb251b59b5e4327c36a03e6cc771cc8dc8c70d6d49367c9c790"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_11.jsonl",
+      "records": 4,
+      "sha256": "ef131c2b107221c420760ee63c31744290dc2a3382a706c5124d4cbbcf1ec36d"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_12.jsonl",
+      "records": 4,
+      "sha256": "99e148ea78d35bc90601ed61072cbd107435cf3805666bea8c284f87635f6c4e"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_13.jsonl",
+      "records": 4,
+      "sha256": "8dffc5fdee1511c0cfc90dc6079ba3ed5c97256f8c434d744086e4035835323b"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_14.jsonl",
+      "records": 4,
+      "sha256": "1af924919634e2a2b86426b6ab91d3d45321b6bd4080de85443ca1adfc902e08"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_15.jsonl",
+      "records": 4,
+      "sha256": "45c8b9bcb39720f30f9df0de3b579291c559f9852af7c0128c5a4ac64d8d29c8"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_16.jsonl",
+      "records": 4,
+      "sha256": "87b7ac892e3da7169cd1378cf39e43d2303ab88624395039aae55756383b08d6"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_17.jsonl",
+      "records": 4,
+      "sha256": "1d1b6bb6a0492255567dcd04ade113a4c09b3446d3b2df7db2b27dca4b79f643"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_18.jsonl",
+      "records": 4,
+      "sha256": "9676101283a4f118e979d295a33770cc688808bdfd1fc67c47973421781b3f1f"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_19.jsonl",
+      "records": 4,
+      "sha256": "97fe1bd760c5ea34faeab1b46fc143b1c5e5bb20754e64f9def5b8b7439dba74"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_20.jsonl",
+      "records": 4,
+      "sha256": "2b8ebafc8f27f73f32f41e29785542b92bee392d99e82d6261c40d06b8782185"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_21.jsonl",
+      "records": 4,
+      "sha256": "1bdcc9cdb3667528a4e61258d899049b7295b45b63714f019af7d7571ca5b822"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_22.jsonl",
+      "records": 4,
+      "sha256": "4fa42ff4514ce0679537eb095848e48aac1e7f326ee30d54716bc1a92bc839ce"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_23.jsonl",
+      "records": 4,
+      "sha256": "7bbbf9fd3f942d938c02d62e7b6bc1d166b1a4d64f6405928d432361848dc6e2"
+    },
+    {
+      "path": "data/full_text_screening/v1.0.0_graph_chunks_97/shards/shard_24.jsonl",
+      "records": 4,
+      "sha256": "d00c9e9f2cb3651a45995b2c92d1f099638fb0013accbd91756c9950365e27d6"
+    }
+  ],
+  "status": "frozen_full_text_screening_input",
+  "unique_doi": 97
+}

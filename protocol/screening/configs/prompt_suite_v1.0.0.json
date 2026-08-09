@@ -93,6 +93,7 @@
       "deterministic_section_packaging": {
         "max_chars": 60000,
         "max_section_chars": 12000,
+        "graph_priority_score": 200,
         "required_heading_terms": ["abstract", "method", "material", "result", "finding", "discussion", "limitation"],
         "priority_text_terms": ["mendelian random", "instrumental variable", "intervention", "perturb", "crispr", "knockout", "mediation", "causal", "directed acyclic", "structural equation", "bayesian network", "omics", "aging", "ageing", "longevity", "lifespan", "senescence"]
       },

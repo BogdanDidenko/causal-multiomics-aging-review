@@ -3,12 +3,12 @@
   "candidate_suite": "causal_multiomics_aging_screening@1.0.0",
   "suite_config": {
     "path": "configs/prompt_suite_v1.0.0.json",
-    "sha256": "9c23270237230b37719b7d7cd31308fe9ce5efb98c016616bcf4b7a6c73407b7"
+    "sha256": "a66bce0efd900ac3d024528d6f0edc4a0d2e8f9139e089bc44517a637bd586b8"
   },
   "approval_status": "calibration_pending_expert_gold",
   "benchmark_version": "v1_pending_codebook_and_disjoint_sets",
   "created_date": "2026-08-02",
-  "change_note": "Major-version candidate removes directional-language routing, model verifiers, model adjudication, and model section selection. It is not active until expert-gold accuracy and five-run stability gates pass.",
+  "change_note": "Major-version candidate removes directional-language routing, model verifiers, model adjudication, and model section selection. Frozen Docling Graph provenance adds a deterministic priority score to chunk packaging without supplying graph claims as evidence. It is not active until expert-gold accuracy and five-run stability gates pass.",
   "artifacts": [
     {
       "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer",
