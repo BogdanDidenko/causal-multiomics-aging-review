@@ -1,6 +1,6 @@
 {
   "suite_id": "causal_multiomics_aging_screening",
-  "suite_version": "1.0.0",
+  "suite_version": "1.0.1",
   "approval_status": "calibration_pending_expert_gold",
   "provider": {
     "protocol": "codex_cli",
@@ -93,16 +93,17 @@
       "deterministic_section_packaging": {
         "max_chars": 60000,
         "max_section_chars": 12000,
+        "graph_priority_score": 200,
         "required_heading_terms": ["abstract", "method", "material", "result", "finding", "discussion", "limitation"],
         "priority_text_terms": ["mendelian random", "instrumental variable", "intervention", "perturb", "crispr", "knockout", "mediation", "causal", "directed acyclic", "structural equation", "bayesian network", "omics", "aging", "ageing", "longevity", "lifespan", "senescence"]
       },
       "roles": {
         "eligibility_reviewer": {
-          "prompt": "prompts/full_text/v1.0.0/eligibility_reviewer.txt",
+          "prompt": "prompts/full_text/v1.0.1/eligibility_reviewer.txt",
           "schema": "schemas/full_text/v1.0.0/eligibility_reviewer.schema.json"
         },
         "causal_evidence_reviewer": {
-          "prompt": "prompts/full_text/v1.0.0/causal_evidence_reviewer.txt",
+          "prompt": "prompts/full_text/v1.0.1/causal_evidence_reviewer.txt",
           "schema": "schemas/full_text/v1.0.0/causal_evidence_reviewer.schema.json"
         }
       },
