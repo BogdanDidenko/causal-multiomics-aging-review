@@ -1,0 +1,54 @@
+{
+  "manifest_version": "1.0.2",
+  "candidate_suite": "causal_multiomics_aging_screening@1.0.2",
+  "suite_config": {
+    "path": "configs/prompt_suite_v1.0.2.json",
+    "sha256": "c47e19d8ebb903ce052a60ba7952dc7d3fee775d192a7f4c2860dd75d91717b6"
+  },
+  "approval_status": "calibration_pending_expert_gold",
+  "benchmark_version": "v1_pending_codebook_and_disjoint_sets",
+  "created_date": "2026-08-09",
+  "change_note": "Grounding ablation after v1.0.1 still failed exact-span retries: deterministic same-chunk repair may only preserve whitespace or select the longest contiguous source-word span of at least three words. No semantic matching is allowed; unresolved quotes retry then route to manual review. Scientific criteria, prompts, schemas, decision fields, repeated-run policy, and Python grading are unchanged.",
+  "artifacts": [
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.scope_reviewer",
+      "version": "1.0.0",
+      "stage": "title_abstract",
+      "role": "scope_reviewer",
+      "prompt_path": "prompts/title_abstract/v1.0.0/scope_reviewer.txt",
+      "prompt_sha256": "5789e6792786dc532e15619e0b4873bf145cc076b0d8d9c1a111d7fe7977b3e2",
+      "schema_path": "schemas/title_abstract/v1.0.0/scope_reviewer.schema.json",
+      "schema_sha256": "d075af474d6eb65239c31298ee555f04412a6b4e5fdafe36ccfcbe6cf18219db"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.title_abstract.causal_method_reviewer",
+      "version": "1.0.0",
+      "stage": "title_abstract",
+      "role": "causal_method_reviewer",
+      "prompt_path": "prompts/title_abstract/v1.0.0/causal_method_reviewer.txt",
+      "prompt_sha256": "7ebd9bda577dfe2dc2ff4e7447f580f5fa0806455061f5a7796b8c959fbcea35",
+      "schema_path": "schemas/title_abstract/v1.0.0/causal_method_reviewer.schema.json",
+      "schema_sha256": "d48b54eb4f75dafe78c64c9d52922e441c334bb8c6f93866d04b6d6274ba3e08"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.eligibility_reviewer",
+      "version": "1.0.1",
+      "stage": "full_text",
+      "role": "eligibility_reviewer",
+      "prompt_path": "prompts/full_text/v1.0.1/eligibility_reviewer.txt",
+      "prompt_sha256": "c39f9e028dc36b2da1fde8ff077656550ad3f549adf131e35df7cc5a294f2333",
+      "schema_path": "schemas/full_text/v1.0.0/eligibility_reviewer.schema.json",
+      "schema_sha256": "ec03abe776ba44b0fea5783686431b0cad15b4379ddfea08b66abf050760b764"
+    },
+    {
+      "prompt_id": "causal_multiomics_aging.full_text.causal_evidence_reviewer",
+      "version": "1.0.1",
+      "stage": "full_text",
+      "role": "causal_evidence_reviewer",
+      "prompt_path": "prompts/full_text/v1.0.1/causal_evidence_reviewer.txt",
+      "prompt_sha256": "c97c51548813357222d7311cf5ef97a771a10dc65b9317819669adcf166d207f",
+      "schema_path": "schemas/full_text/v1.0.0/causal_evidence_reviewer.schema.json",
+      "schema_sha256": "d48e109b432c38a0f961ff594042f00a8f0b761a9837ceed8fa479f0cac04185"
+    }
+  ]
+}

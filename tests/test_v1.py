@@ -8,6 +8,7 @@ from causal_multiomics_aging_review.screening import run_stage_screening
 from causal_multiomics_aging_review.v1 import (
     derive_title_result,
     package_full_text_sections,
+    repair_full_text_evidence_spans,
     validate_causal_answer_consistency,
     validate_full_text_evidence_spans,
     validate_scope_answer_consistency,
@@ -16,14 +17,10 @@ from causal_multiomics_aging_review.v1 import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SUITE = ROOT / "protocol/screening/configs/prompt_suite_v1.0.0.json"
-CANDIDATE_POOL = (
-    ROOT
-    / "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv"
-)
+CANDIDATE_POOL = ROOT / "protocol/search_calibration/v1.0.0/canonical_positive_candidates_120.csv"
 CANDIDATE_POLICY = ROOT / "protocol/search_calibration/v1.0.0/policy.json"
 STUDY_VERSION_DEDUP_LOG = (
-    ROOT
-    / "protocol/search_calibration/v1.0.0/study_version_deduplication_log.csv"
+    ROOT / "protocol/search_calibration/v1.0.0/study_version_deduplication_log.csv"
 )
 
 
@@ -93,9 +90,7 @@ def test_title_evidence_must_be_verbatim() -> None:
 
 def test_scope_consistency_requires_two_named_layers() -> None:
     with pytest.raises(ValueError, match="at least two"):
-        validate_scope_answer_consistency(
-            scope_answer(layer_candidates=["genomics"])
-        )
+        validate_scope_answer_consistency(scope_answer(layer_candidates=["genomics"]))
 
 
 def test_causal_consistency_rejects_wording_as_applied_method() -> None:
@@ -119,9 +114,7 @@ def test_causal_consistency_allows_unspecified_current_analysis() -> None:
 
 
 def test_five_identical_scope_failures_exclude() -> None:
-    result = derive_title_result(
-        repeated(scope_answer(aging_process_relevance="no")), None
-    )
+    result = derive_title_result(repeated(scope_answer(aging_process_relevance="no")), None)
     assert result["final_decision"] == "exclude"
     assert result["final_exclusion_code"] == "EC3"
 
@@ -247,10 +240,40 @@ def test_graph_priority_affects_deterministic_full_text_packaging() -> None:
     assert audit["graph_priority_selected"] == 1
 
 
+def test_full_text_quote_repair_only_anchors_contiguous_source_words() -> None:
+    sections = [
+        {
+            "section_id": "chunk:0002",
+            "text": (
+                "summary-level genome-wide association study (GWAS) data, "
+                "gene expression, and proteomic data"
+            ),
+        }
+    ]
+    answer = {
+        "evidence_spans": [
+            {
+                "section_id": "chunk:0002",
+                "quote": "GWAS data, gene expression, and proteomic data",
+            }
+        ]
+    }
+    repairs = repair_full_text_evidence_spans(answer, sections)
+    assert answer["evidence_spans"][0]["quote"] == ("data, gene expression, and proteomic data")
+    assert repairs[0]["original_quote"].startswith("GWAS data")
+
+
+def test_full_text_quote_repair_rejects_noncontiguous_semantic_paraphrase() -> None:
+    sections = [{"section_id": "S1", "text": "genetic instruments were strong"}]
+    answer = {
+        "evidence_spans": [{"section_id": "S1", "quote": "randomization established causality"}]
+    }
+    assert repair_full_text_evidence_spans(answer, sections) == []
+    assert answer["evidence_spans"][0]["quote"] == "randomization established causality"
+
+
 def test_v1_suite_has_only_two_model_roles_per_stage() -> None:
-    suite = json.loads(
-        (ROOT / "protocol/screening/configs/prompt_suite_v1.0.0.json").read_text()
-    )
+    suite = json.loads((ROOT / "protocol/screening/configs/prompt_suite_v1.0.0.json").read_text())
     title = suite["stages"]["title_abstract"]
     full_text = suite["stages"]["full_text"]
     assert set(title["roles"]) == {"scope_reviewer", "causal_method_reviewer"}
@@ -281,9 +304,7 @@ def test_v1_canonical_candidate_pool_is_large_unique_and_not_gold() -> None:
         candidates = list(csv.DictReader(handle))
     assert len(candidates) == 120
     assert len({row["candidate_id"] for row in candidates}) == 120
-    assert {row["candidate_status"] for row in candidates} == {
-        "unreviewed_candidate_not_gold"
-    }
+    assert {row["candidate_status"] for row in candidates} == {"unreviewed_candidate_not_gold"}
     for reviewer in ("expert_1", "expert_2"):
         for criterion in (
             "empirical_primary",
@@ -330,9 +351,7 @@ def test_v1_candidate_pool_excludes_logged_preprint_versions() -> None:
     assert len(deduplicated) == 5
     assert not ({row["superseded_id"] for row in deduplicated} & candidate_ids)
     assert {row["retained_id"] for row in deduplicated} <= candidate_ids
-    assert {row["disposition"] for row in deduplicated} == {
-        "retain_journal_publication"
-    }
+    assert {row["disposition"] for row in deduplicated} == {"retain_journal_publication"}
 
 
 def test_v1_title_stage_runs_each_role_five_times(tmp_path) -> None:
@@ -385,15 +404,9 @@ def test_v1_title_stage_runs_each_role_five_times(tmp_path) -> None:
     )
     result = json.loads((output / "screening_results.jsonl").read_text())
     assert counts == {"seek_full_text": 1}
-    assert provider.calls == ["scope_reviewer"] * 5 + [
-        "causal_method_reviewer"
-    ] * 5
-    assert result["role_agreement"]["scope_reviewer"]["report_type"][
-        "unanimous"
-    ]
-    assert result["selected_criteria"]["causal_basis"] == (
-        "named_causal_effect_design"
-    )
+    assert provider.calls == ["scope_reviewer"] * 5 + ["causal_method_reviewer"] * 5
+    assert result["role_agreement"]["scope_reviewer"]["report_type"]["unanimous"]
+    assert result["selected_criteria"]["causal_basis"] == ("named_causal_effect_design")
 
 
 def test_v1_full_text_uses_deterministic_sections_and_five_runs(tmp_path) -> None:
@@ -443,9 +456,7 @@ def test_v1_full_text_uses_deterministic_sections_and_five_runs(tmp_path) -> Non
         "relevant_causal_design": "yes",
         "full_text_sufficient": "yes",
         "first_failed_criterion": "none",
-        "evidence_spans": [
-            {"criterion": "IC3", "section_id": "S1", "quote": "GWAS and eQTL"}
-        ],
+        "evidence_spans": [{"criterion": "IC3", "section_id": "S1", "quote": "GWAS and eQTL"}],
         "uncertainty_reason": "",
         "concise_rationale": "The empirical report integrates two layers.",
     }
@@ -512,11 +523,7 @@ def test_v1_full_text_uses_deterministic_sections_and_five_runs(tmp_path) -> Non
     )
     result = json.loads((output / "screening_results.jsonl").read_text())
     assert counts == {"assessed": 1}
-    assert provider.calls == ["eligibility_reviewer"] * 5 + [
-        "causal_evidence_reviewer"
-    ] * 5
-    assert result["section_selection"]["selection_method"] == (
-        "deterministic_heading_keyword_v1"
-    )
+    assert provider.calls == ["eligibility_reviewer"] * 5 + ["causal_evidence_reviewer"] * 5
+    assert result["section_selection"]["selection_method"] == ("deterministic_heading_keyword_v1")
     assert result["causal_evidence_level"] == 4
     assert result["final_study_label"] == "causal_evidence_validated"

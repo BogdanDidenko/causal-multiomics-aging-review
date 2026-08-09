@@ -37,6 +37,7 @@ from .v1 import (
     decisive_fields_unanimous,
     derive_title_result,
     package_full_text_sections,
+    repair_full_text_evidence_spans,
     scope_status,
     validate_causal_answer_consistency,
     validate_full_text_evidence_spans,
@@ -78,9 +79,7 @@ def record_id(record: dict[str, Any]) -> str:
     for field in ("record_id", "canonical_id", "source_record_id", "id", "doi", "pmid"):
         if str(record.get(field, "")).strip():
             return str(record[field]).strip()
-    raise ValueError(
-        "Record has no record_id, canonical_id, source_record_id, id, DOI, or PMID"
-    )
+    raise ValueError("Record has no record_id, canonical_id, source_record_id, id, DOI, or PMID")
 
 
 def audit_input_path(path: str | Path) -> str:
@@ -156,9 +155,10 @@ def run_screening(
             "schema": load_json(schema_path),
         }
 
-    with result_path.open("w", encoding="utf-8") as results, raw_path.open(
-        "w", encoding="utf-8"
-    ) as raw_results:
+    with (
+        result_path.open("w", encoding="utf-8") as results,
+        raw_path.open("w", encoding="utf-8") as raw_results,
+    ):
         for record in records:
             answers: dict[str, dict[str, Any]] = {}
             role_gates: dict[str, str] = {}
@@ -168,9 +168,7 @@ def run_screening(
                 validate_object(answer, artifacts[role]["schema"])
                 answers[role] = answer
                 raw_results.write(
-                    json.dumps(
-                        {"record_id": record_id(record), "role": role, "response": raw}
-                    )
+                    json.dumps({"record_id": record_id(record), "role": role, "response": raw})
                     + "\n"
                 )
 
@@ -229,9 +227,7 @@ def run_screening(
             ),
             "artifacts": {
                 role: {
-                    key: value
-                    for key, value in artifact.items()
-                    if key not in {"prompt", "schema"}
+                    key: value for key, value in artifact.items() if key not in {"prompt", "schema"}
                 }
                 for role, artifact in artifacts.items()
             },
@@ -254,8 +250,7 @@ class ContractConsensusError(RuntimeError):
         self.role = role
         self.unresolved_fields = unresolved_fields
         super().__init__(
-            f"{role} has no strict verifier majority for "
-            f"{', '.join(unresolved_fields)}"
+            f"{role} has no strict verifier majority for {', '.join(unresolved_fields)}"
         )
 
 
@@ -279,11 +274,7 @@ def run_stage_screening(
     else:
         raise ValueError(f"Unsupported input format: {stage_config['input_format']}")
     if record_ids:
-        records = [
-            record
-            for record in records
-            if _record_matches_filter(record, record_ids)
-        ]
+        records = [record for record in records if _record_matches_filter(record, record_ids)]
         found_ids = {record_id(record) for record in records}
         missing_ids = sorted(record_ids - found_ids)
         if missing_ids:
@@ -301,9 +292,10 @@ def run_stage_screening(
     counts = _existing_decision_counts(result_path) if resume else {}
     processed_now = 0
 
-    with result_path.open(mode, encoding="utf-8") as results, raw_path.open(
-        mode, encoding="utf-8"
-    ) as raw_results:
+    with (
+        result_path.open(mode, encoding="utf-8") as results,
+        raw_path.open(mode, encoding="utf-8") as raw_results,
+    ):
         for position, source_record in enumerate(records, start=1):
             record = source_record
             try:
@@ -326,8 +318,7 @@ def run_stage_screening(
                     result = (
                         _v1_title_metadata_result(record, "missing_abstract")
                         if stage == "title_abstract"
-                        and stage_config.get("architecture")
-                        == "v1_two_role_unanimous"
+                        and stage_config.get("architecture") == "v1_two_role_unanimous"
                         else _manual_review_result(record, stage, "missing_abstract")
                     )
                 elif (
@@ -344,8 +335,7 @@ def run_stage_screening(
                                 "maximum": stage_config["max_input_abstract_chars"],
                             },
                         )
-                        if stage_config.get("architecture")
-                        == "v1_two_role_unanimous"
+                        if stage_config.get("architecture") == "v1_two_role_unanimous"
                         else _manual_review_result(
                             record,
                             stage,
@@ -362,8 +352,7 @@ def run_stage_screening(
                         reason, details = metadata_issue
                         result = (
                             _v1_title_metadata_result(record, reason, details)
-                            if stage_config.get("architecture")
-                            == "v1_two_role_unanimous"
+                            if stage_config.get("architecture") == "v1_two_role_unanimous"
                             else _manual_review_result(
                                 record,
                                 stage,
@@ -374,8 +363,7 @@ def run_stage_screening(
                     else:
                         processor = (
                             _process_title_abstract_v1
-                            if stage_config.get("architecture")
-                            == "v1_two_role_unanimous"
+                            if stage_config.get("architecture") == "v1_two_role_unanimous"
                             else _process_title_abstract_record
                         )
                         result = processor(
@@ -389,8 +377,7 @@ def run_stage_screening(
                 elif stage == "full_text":
                     processor = (
                         _process_full_text_v1
-                        if stage_config.get("architecture")
-                        == "v1_deterministic_sections_unanimous"
+                        if stage_config.get("architecture") == "v1_deterministic_sections_unanimous"
                         else _process_full_text_record
                     )
                     result = processor(
@@ -517,9 +504,7 @@ def _process_title_abstract_v1(
 
     decision = derive_title_result(scope_runs, causal_runs)
     selected = decision["selected_criteria"]
-    selected["evidence_spans"] = _unique_evidence_spans(
-        scope_runs + (causal_runs or [])
-    )
+    selected["evidence_spans"] = _unique_evidence_spans(scope_runs + (causal_runs or []))
     basis = selected.get("causal_basis")
     selected["identification_status"] = (
         "causal_candidate"
@@ -530,8 +515,7 @@ def _process_title_abstract_v1(
             "causal_analysis_method_unspecified",
         }
         else "noncausal"
-        if basis
-        in {"association_or_prediction_only", "causal_wording_only", "none"}
+        if basis in {"association_or_prediction_only", "causal_wording_only", "none"}
         else "unclear"
     )
     role_runs = {
@@ -541,9 +525,7 @@ def _process_title_abstract_v1(
     agreement = {
         "scope_reviewer": agreement_audit(scope_runs, SCOPE_DECISION_FIELDS),
         "causal_method_reviewer": (
-            agreement_audit(causal_runs, CAUSAL_DECISION_FIELDS)
-            if causal_runs
-            else None
+            agreement_audit(causal_runs, CAUSAL_DECISION_FIELDS) if causal_runs else None
         ),
     }
     return {
@@ -622,8 +604,7 @@ def _process_title_abstract_record(
     for role in stage_config["roles"]:
         if (
             role == "directional_effect_reviewer"
-            and stage_config.get("directional_family_precedence")
-            == "action_then_effect"
+            and stage_config.get("directional_family_precedence") == "action_then_effect"
             and draft_answers.get("directional_result_reviewer", {}).get(
                 "directional_action_signal"
             )
@@ -716,23 +697,17 @@ def _process_title_abstract_record(
                         [],
                     )
                 )
-                verified_answers[role], consensus_audit[role] = (
-                    _title_role_consensus(
-                        role,
-                        role_votes,
-                        no_majority_fallback=no_majority_fallback,
-                        unanimous_required_values=unanimous_required_values,
-                    )
+                verified_answers[role], consensus_audit[role] = _title_role_consensus(
+                    role,
+                    role_votes,
+                    no_majority_fallback=no_majority_fallback,
+                    unanimous_required_values=unanimous_required_values,
                 )
             else:
                 verified_answers[role] = role_votes[0]
 
     verification: dict[str, Any] | None = None
-    answers = (
-        verified_answers
-        if per_role_verification
-        else draft_answers
-    )
+    answers = verified_answers if per_role_verification else draft_answers
     contract_corrections: list[str] = []
     if verification_config.get("enabled") and per_role_verification:
         verification = verified_answers
@@ -742,12 +717,8 @@ def _process_title_abstract_record(
         )
     elif verification_config.get("enabled"):
         extra = {
-            "SCOPE_DRAFT": json.dumps(
-                draft_answers["scope_reviewer"], ensure_ascii=False
-            ),
-            "CAUSAL_DRAFT": json.dumps(
-                draft_answers["causal_design_reviewer"], ensure_ascii=False
-            ),
+            "SCOPE_DRAFT": json.dumps(draft_answers["scope_reviewer"], ensure_ascii=False),
+            "CAUSAL_DRAFT": json.dumps(draft_answers["causal_design_reviewer"], ensure_ascii=False),
             "DIRECTIONAL_DRAFT": json.dumps(
                 draft_answers["directional_result_reviewer"], ensure_ascii=False
             ),
@@ -782,21 +753,14 @@ def _process_title_abstract_record(
     if (
         route == "adjudicate"
         and scope_resolution == "unresolved"
-        and stage_config.get("unresolved_upstream_scope_route")
-        == "seek_full_text"
+        and stage_config.get("unresolved_upstream_scope_route") == "seek_full_text"
     ):
         route = "seek_full_text"
         role_gates["scope_short_circuit"] = "seek_full_text"
-        consistency_rules.append(
-            "unresolved_upstream_scope_routes_directly_to_full_text"
-        )
+        consistency_rules.append("unresolved_upstream_scope_routes_directly_to_full_text")
     elif route == "adjudicate":
         causal_review = _merge_answers(
-            *(
-                answer
-                for role, answer in answers.items()
-                if role != "scope_reviewer"
-            )
+            *(answer for role, answer in answers.items() if role != "scope_reviewer")
         )
         extra = {
             "SCOPE_REVIEW": json.dumps(answers["scope_reviewer"], ensure_ascii=False),
@@ -813,9 +777,7 @@ def _process_title_abstract_record(
             max_retries,
             phase="selective_adjudication",
         )
-        consistency_rules.extend(
-            _normalize_title_adjudication(adjudication, stage_config)
-        )
+        consistency_rules.extend(_normalize_title_adjudication(adjudication, stage_config))
         route, adjudicator_gate = route_adjudicated(adjudication, stage_config)
         role_gates["adjudicator"] = adjudicator_gate
         selected = adjudication
@@ -827,9 +789,7 @@ def _process_title_abstract_record(
         "stage": "title_abstract",
         "title": record.get("title", ""),
         "draft_round_a": draft_answers,
-        "contract_verification_runs": (
-            verification_runs if verification_runs else None
-        ),
+        "contract_verification_runs": (verification_runs if verification_runs else None),
         "contract_consensus": consensus_audit if consensus_audit else None,
         "contract_verification": verification,
         "contract_corrections": contract_corrections,
@@ -871,9 +831,7 @@ def _title_answers_from_contract_verification(
             "concise_rationale": rationale,
         },
         "directional_result_reviewer": {
-            "directional_language_signal": verification[
-                "directional_language_signal"
-            ],
+            "directional_language_signal": verification["directional_language_signal"],
             "evidence_spans": evidence,
             "concise_rationale": rationale,
         },
@@ -921,30 +879,25 @@ def _title_role_consensus(
             "votes": values,
             "counts": dict(sorted(counts.items())),
             "selected": (
-                "unclear"
-                if nonunanimous_exclusion
-                else selected if has_majority else None
+                "unclear" if nonunanimous_exclusion else selected if has_majority else None
             ),
             "unanimous": count == len(votes),
             "selection_basis": (
                 "nonunanimous_exclusion_to_unclear"
                 if nonunanimous_exclusion
-                else "strict_majority" if has_majority else None
+                else "strict_majority"
+                if has_majority
+                else None
             ),
         }
         if nonunanimous_exclusion:
             consensus[field] = "unclear"
         elif has_majority:
             consensus[field] = selected
-        elif (
-            no_majority_fallback == "unclear"
-            and field in _TITLE_UNCLEAR_CONSENSUS_FIELDS
-        ):
+        elif no_majority_fallback == "unclear" and field in _TITLE_UNCLEAR_CONSENSUS_FIELDS:
             consensus[field] = "unclear"
             field_audit[field]["selected"] = "unclear"
-            field_audit[field]["selection_basis"] = (
-                "no_majority_categorical_unclear"
-            )
+            field_audit[field]["selection_basis"] = "no_majority_categorical_unclear"
         else:
             unresolved.append(field)
 
@@ -962,9 +915,7 @@ def _title_role_consensus(
     consensus["evidence_spans"] = evidence
     return consensus, {
         "vote_count": len(votes),
-        "all_fields_unanimous": all(
-            item["unanimous"] for item in field_audit.values()
-        ),
+        "all_fields_unanimous": all(item["unanimous"] for item in field_audit.values()),
         "fields": field_audit,
     }
 
@@ -980,8 +931,7 @@ def _title_model_role_validator(
         invalid = [field for field in fields if answer.get(field) == "not_assessed"]
         if invalid:
             raise ValueError(
-                "not_assessed is reserved for Python scope consistency: "
-                + ", ".join(invalid)
+                "not_assessed is reserved for Python scope consistency: " + ", ".join(invalid)
             )
 
     return validate
@@ -1003,9 +953,7 @@ def _normalize_title_round_a(
     if _normalize_title_multiomics(
         scope,
         defer_inventory=defer_layers,
-        sequential_short_circuit=stage_config.get(
-            "title_scope_sequential_short_circuit", False
-        ),
+        sequential_short_circuit=stage_config.get("title_scope_sequential_short_circuit", False),
     ):
         rules.append(
             "multiomics_status_normalized_from_scope_short_circuit"
@@ -1019,8 +967,7 @@ def _normalize_title_round_a(
     if (
         scope_resolution in {"excluded", "unresolved"}
         and status_contract == "causal_candidate_design_bundle_v7"
-        and stage_config.get("causal_short_circuit_after_scope")
-        == "clear_exclusion_or_unresolved"
+        and stage_config.get("causal_short_circuit_after_scope") == "clear_exclusion_or_unresolved"
     ):
         directional = answers["directional_result_reviewer"]
         causal["completed_current_report"] = (
@@ -1033,9 +980,7 @@ def _normalize_title_round_a(
         ):
             causal[field] = "not_assessed"
         directional["directional_language_signal"] = "not_assessed"
-        rules.append(
-            f"{scope_resolution}_scope_short_circuits_causal_criteria"
-        )
+        rules.append(f"{scope_resolution}_scope_short_circuits_causal_criteria")
 
     if status_contract == "causal_candidate_design_bundle_v7":
         design_fields = (
@@ -1052,12 +997,8 @@ def _normalize_title_round_a(
         causal["applied_design_signal"] = _logical_any_signal(
             causal[field] for field in design_fields
         )
-        directional["directional_result_signal"] = directional[
-            "directional_language_signal"
-        ]
-        causal["directional_result_signal"] = directional[
-            "directional_result_signal"
-        ]
+        directional["directional_result_signal"] = directional["directional_language_signal"]
+        causal["directional_result_signal"] = directional["directional_result_signal"]
         rules.extend(
             [
                 "applied_design_signal_derived_from_atomic_design_signals",
@@ -1080,14 +1021,10 @@ def _normalize_title_round_a(
             rules.append("incomplete_report_implies_no_applied_or_directional_signal")
         elif causal.get("directional_action_signal") == "yes":
             causal["directional_effect_signal"] = "not_assessed"
-            rules.append(
-                "directional_effect_not_assessed_after_positive_action_signal"
-            )
+            rules.append("directional_effect_not_assessed_after_positive_action_signal")
         elif causal.get("directional_effect_signal") == "not_assessed":
             causal["directional_effect_signal"] = "no"
-            rules.append(
-                "directional_effect_assessed_when_action_signal_not_positive"
-            )
+            rules.append("directional_effect_assessed_when_action_signal_not_positive")
         causal["applied_design_signal"] = _logical_any_signal(
             causal[field] for field in design_fields
         )
@@ -1108,9 +1045,7 @@ def _normalize_title_round_a(
             "manipulation_design_signal": answers["manipulation_reviewer"][
                 "manipulation_design_signal"
             ],
-            "directed_model_signal": answers["directed_model_reviewer"][
-                "directed_model_signal"
-            ],
+            "directed_model_signal": answers["directed_model_reviewer"]["directed_model_signal"],
         }
         directional_signals = {
             "directional_action_signal": answers["directional_result_reviewer"][
@@ -1130,16 +1065,10 @@ def _normalize_title_round_a(
         for field, value in directional_signals.items():
             role = _TITLE_DIRECTIONAL_SIGNAL_ROLES[field]
             answers[role][field] = value
-        causal["applied_design_signal"] = _logical_any_signal(
-            design_signals.values()
-        )
+        causal["applied_design_signal"] = _logical_any_signal(design_signals.values())
         directional = answers["directional_result_reviewer"]
-        directional["directional_result_signal"] = _logical_any_signal(
-            directional_signals.values()
-        )
-        causal["directional_result_signal"] = directional[
-            "directional_result_signal"
-        ]
+        directional["directional_result_signal"] = _logical_any_signal(directional_signals.values())
+        causal["directional_result_signal"] = directional["directional_result_signal"]
         rules.extend(
             [
                 "applied_design_signal_derived_from_design_family_signals",
@@ -1148,9 +1077,7 @@ def _normalize_title_round_a(
         )
     elif status_contract == "causal_candidate_split_v4":
         directional = answers["directional_result_reviewer"]
-        causal["directional_result_signal"] = directional[
-            "directional_result_signal"
-        ]
+        causal["directional_result_signal"] = directional["directional_result_signal"]
         rules.append("directional_result_signal_merged_from_specialist")
     if _derive_title_identification_status(
         causal,
@@ -1228,9 +1155,7 @@ def _normalize_title_adjudication(
     if _normalize_title_multiomics(
         answer,
         defer_inventory=defer_layers,
-        sequential_short_circuit=stage_config.get(
-            "title_scope_sequential_short_circuit", False
-        ),
+        sequential_short_circuit=stage_config.get("title_scope_sequential_short_circuit", False),
     ):
         rules.append(
             "multiomics_status_normalized_from_scope_short_circuit"
@@ -1257,9 +1182,13 @@ def _normalize_title_adjudication(
                 else "identification_status_derived_from_atomic_causal_signals"
             )
         )
-    if answer.get("aging_process_relevance") == "no" or answer.get(
-        "report_type"
-    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}:
+    if answer.get("aging_process_relevance") == "no" or answer.get("report_type") in {
+        "nonempirical",
+        "review_editorial",
+        "protocol",
+        "methods_only",
+        "resource",
+    }:
         answer["identification_status"] = "noncausal"
         if "primary_design_family" in answer:
             answer.update(
@@ -1452,9 +1381,13 @@ def _normalize_title_multiomics(
     sequential_short_circuit: bool = False,
 ) -> bool:
     status = answer.get("multiomics_status")
-    failed_scope = answer.get("aging_process_relevance") == "no" or answer.get(
-        "report_type"
-    ) in {"nonempirical", "review_editorial", "protocol", "methods_only", "resource"}
+    failed_scope = answer.get("aging_process_relevance") == "no" or answer.get("report_type") in {
+        "nonempirical",
+        "review_editorial",
+        "protocol",
+        "methods_only",
+        "resource",
+    }
     unresolved_or_failed_scope = (
         answer.get("report_type") != "empirical_primary"
         or answer.get("bio_health_scope") != "yes"
@@ -1474,8 +1407,7 @@ def _normalize_title_multiomics(
         if isinstance(item, dict)
         and (
             "use_status" not in item
-            or item.get("use_status")
-            in {"measured_in_study", "external_dataset_analyzed"}
+            or item.get("use_status") in {"measured_in_study", "external_dataset_analyzed"}
         )
     }
     used_layers.discard(None)
@@ -1549,12 +1481,8 @@ def _process_full_text_record(
             {"section_selection": selection},
         )
 
-    selected_ids = {
-        item["section_id"] for item in selection["selected_sections"]
-    }
-    selected_sections = [
-        section for section in sections if section["section_id"] in selected_ids
-    ]
+    selected_ids = {item["section_id"] for item in selection["selected_sections"]}
+    selected_sections = [section for section in sections if section["section_id"] in selected_ids]
     selected_context = _format_sections(selected_sections)
     answers: dict[str, dict[str, Any]] = {}
 
@@ -1579,9 +1507,7 @@ def _process_full_text_record(
         record,
         {
             "SELECTED_SECTIONS": selected_context,
-            "ELIGIBILITY_REVIEW": json.dumps(
-                answers["eligibility_reviewer"], ensure_ascii=False
-            ),
+            "ELIGIBILITY_REVIEW": json.dumps(answers["eligibility_reviewer"], ensure_ascii=False),
         },
     )
     answers["causal_evidence_reviewer"] = _call_role(
@@ -1696,9 +1622,13 @@ def _process_full_text_v1(
             identifier,
             raw_results,
             max_retries,
-            lambda answer: (
-                validate_evidence_references(answer, selected_ids),
-                validate_full_text_evidence_spans(answer, selected_sections),
+            lambda answer: _ground_and_validate_full_text_answer(
+                answer,
+                selected_sections,
+                selected_ids,
+                int(
+                    stage_config.get("deterministic_evidence_grounding", {}).get("minimum_words", 3)
+                ),
             ),
             phase="v1_unanimous_decision",
             repeat_index=index,
@@ -1713,9 +1643,7 @@ def _process_full_text_v1(
             record,
             {
                 "SELECTED_SECTIONS": selected_context,
-                "ELIGIBILITY_REVIEW": json.dumps(
-                    eligibility, ensure_ascii=False
-                ),
+                "ELIGIBILITY_REVIEW": json.dumps(eligibility, ensure_ascii=False),
             },
         )
         causal_runs.append(
@@ -1727,9 +1655,15 @@ def _process_full_text_v1(
                 identifier,
                 raw_results,
                 max_retries,
-                lambda answer: (
-                    validate_evidence_references(answer, selected_ids),
-                    validate_full_text_evidence_spans(answer, selected_sections),
+                lambda answer: _ground_and_validate_full_text_answer(
+                    answer,
+                    selected_sections,
+                    selected_ids,
+                    int(
+                        stage_config.get("deterministic_evidence_grounding", {}).get(
+                            "minimum_words", 3
+                        )
+                    ),
                 ),
                 phase="v1_unanimous_decision",
                 repeat_index=index,
@@ -1739,13 +1673,9 @@ def _process_full_text_v1(
     eligibility_unanimous = decisive_fields_unanimous(
         eligibility_runs, FULL_TEXT_ELIGIBILITY_FIELDS
     )
-    causal_unanimous = decisive_fields_unanimous(
-        causal_runs, FULL_TEXT_CAUSAL_FIELDS
-    )
+    causal_unanimous = decisive_fields_unanimous(causal_runs, FULL_TEXT_CAUSAL_FIELDS)
     selected = _merge_answers(eligibility_runs[0], causal_runs[0])
-    selected["evidence_spans"] = _unique_evidence_spans(
-        eligibility_runs + causal_runs
-    )
+    selected["evidence_spans"] = _unique_evidence_spans(eligibility_runs + causal_runs)
     grade = derive_evidence_level(selected) if eligibility_unanimous and causal_unanimous else None
     manual_reason = None
     if not eligibility_unanimous or not causal_unanimous:
@@ -1775,12 +1705,8 @@ def _process_full_text_v1(
             "causal_evidence_reviewer": causal_runs,
         },
         "role_agreement": {
-            "eligibility_reviewer": agreement_audit(
-                eligibility_runs, FULL_TEXT_ELIGIBILITY_FIELDS
-            ),
-            "causal_evidence_reviewer": agreement_audit(
-                causal_runs, FULL_TEXT_CAUSAL_FIELDS
-            ),
+            "eligibility_reviewer": agreement_audit(eligibility_runs, FULL_TEXT_ELIGIBILITY_FIELDS),
+            "causal_evidence_reviewer": agreement_audit(causal_runs, FULL_TEXT_CAUSAL_FIELDS),
         },
         "round_a": {
             "eligibility_reviewer": eligibility_runs[0],
@@ -1794,6 +1720,20 @@ def _process_full_text_v1(
         "final_decision": final_decision,
         "manual_review_reason": manual_reason,
     }
+
+
+def _ground_and_validate_full_text_answer(
+    answer: dict[str, Any],
+    selected_sections: list[dict[str, Any]],
+    selected_ids: set[str],
+    minimum_words: int,
+) -> dict[str, Any] | None:
+    repairs = repair_full_text_evidence_spans(
+        answer, selected_sections, minimum_words=minimum_words
+    )
+    validate_evidence_references(answer, selected_ids)
+    validate_full_text_evidence_spans(answer, selected_sections)
+    return {"evidence_quote_repairs": repairs} if repairs else None
 
 
 def _call_role(
@@ -1824,8 +1764,7 @@ def _call_role(
                 schema_name=role,
             )
             validate_object(answer, schema)
-            if post_validate:
-                post_validate(answer)
+            post_validation = post_validate(answer) if post_validate else None
             audit_row = {
                 "record_id": identifier,
                 "role": role,
@@ -1833,14 +1772,13 @@ def _call_role(
                 "status": "ok",
                 "response": raw,
             }
+            if post_validation:
+                audit_row["post_validation"] = post_validation
             if phase:
                 audit_row["phase"] = phase
             if repeat_index is not None:
                 audit_row["repeat_index"] = repeat_index
-            raw_results.write(
-                json.dumps(audit_row, ensure_ascii=False)
-                + "\n"
-            )
+            raw_results.write(json.dumps(audit_row, ensure_ascii=False) + "\n")
             raw_results.flush()
             return answer
         except (ProviderError, SchemaError, EvidenceReferenceError, ValueError) as error:
@@ -1993,9 +1931,7 @@ def _format_sections(sections: list[dict[str, Any]]) -> str:
         identifier = str(section["section_id"])
         heading = str(section.get("heading", ""))
         text = str(section.get("text", ""))
-        blocks.append(
-            f'<section id="{identifier}" heading="{heading}">\n{text}\n</section>'
-        )
+        blocks.append(f'<section id="{identifier}" heading="{heading}">\n{text}\n</section>')
     return "\n\n".join(blocks)
 
 
@@ -2020,9 +1956,7 @@ def _completed_record_ids(path: Path) -> set[str]:
         return set()
     with path.open(encoding="utf-8") as handle:
         return {
-            str(row["record_id"])
-            for line in handle
-            if line.strip() and (row := json.loads(line))
+            str(row["record_id"]) for line in handle if line.strip() and (row := json.loads(line))
         }
 
 

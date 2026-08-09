@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 POSITIVE_CAUSAL_BASES = {
@@ -59,18 +60,14 @@ FULL_TEXT_CAUSAL_FIELDS = (
 )
 
 
-def validate_title_evidence_spans(
-    answer: dict[str, Any], record: dict[str, Any]
-) -> None:
+def validate_title_evidence_spans(answer: dict[str, Any], record: dict[str, Any]) -> None:
     for item in answer.get("evidence_spans", []):
         source = item.get("source")
         quote = item.get("quote")
         if source not in {"title", "abstract"} or not isinstance(quote, str):
             raise ValueError("Invalid title/abstract evidence span")
         if quote not in str(record.get(source, "")):
-            raise ValueError(
-                f"Evidence quote is not an exact substring of {source}: {quote!r}"
-            )
+            raise ValueError(f"Evidence quote is not an exact substring of {source}: {quote!r}")
 
 
 def validate_scope_answer_consistency(answer: dict[str, Any]) -> None:
@@ -95,9 +92,7 @@ def validate_causal_answer_consistency(answer: dict[str, Any]) -> None:
         raise ValueError("a negative causal basis requires no causal-method application")
     if basis == "named_causal_effect_design" and not families:
         raise ValueError("named_causal_effect_design requires a design family")
-    if basis == "formal_directed_hypothesis" and not (
-        families & FORMAL_HYPOTHESIS_FAMILIES
-    ):
+    if basis == "formal_directed_hypothesis" and not (families & FORMAL_HYPOTHESIS_FAMILIES):
         raise ValueError("formal_directed_hypothesis requires a directed-method family")
     if basis == "causal_analysis_method_unspecified" and families:
         raise ValueError("an unspecified method cannot have a named design family")
@@ -109,8 +104,7 @@ def validate_full_text_evidence_spans(
     answer: dict[str, Any], sections: list[dict[str, Any]]
 ) -> None:
     section_text = {
-        str(section["section_id"]): str(section.get("text", ""))
-        for section in sections
+        str(section["section_id"]): str(section.get("text", "")) for section in sections
     }
     for item in answer.get("evidence_spans", []):
         section_id = item.get("section_id")
@@ -119,9 +113,57 @@ def validate_full_text_evidence_spans(
             raise ValueError("Invalid full-text evidence span")
         if quote not in section_text[section_id]:
             raise ValueError(
-                f"Evidence quote is not an exact substring of section {section_id}: "
-                f"{quote!r}"
+                f"Evidence quote is not an exact substring of section {section_id}: {quote!r}"
             )
+
+
+def repair_full_text_evidence_spans(
+    answer: dict[str, Any], sections: list[dict[str, Any]], minimum_words: int = 3
+) -> list[dict[str, str]]:
+    """Anchor near-verbatim model quotes without interpreting article content."""
+    section_text = {
+        str(section["section_id"]): str(section.get("text", "")) for section in sections
+    }
+    repairs: list[dict[str, str]] = []
+    for item in answer.get("evidence_spans", []):
+        section_id = item.get("section_id")
+        quote = item.get("quote")
+        text = section_text.get(str(section_id))
+        if not text or not isinstance(quote, str) or quote in text:
+            continue
+        replacement = _whitespace_exact_span(quote, text)
+        if replacement is None:
+            replacement = _longest_exact_word_span(quote, text, minimum_words)
+        if replacement is None:
+            continue
+        item["quote"] = replacement
+        repairs.append(
+            {
+                "section_id": str(section_id),
+                "original_quote": quote,
+                "repaired_quote": replacement,
+            }
+        )
+    return repairs
+
+
+def _whitespace_exact_span(quote: str, text: str) -> str | None:
+    parts = re.split(r"\s+", quote.strip())
+    if not parts:
+        return None
+    match = re.search(r"\s+".join(re.escape(part) for part in parts), text)
+    return match.group(0) if match else None
+
+
+def _longest_exact_word_span(quote: str, text: str, minimum_words: int) -> str | None:
+    tokens = list(re.finditer(r"\S+", quote))
+    for width in range(len(tokens), minimum_words - 1, -1):
+        for start in range(len(tokens) - width + 1):
+            candidate = quote[tokens[start].start() : tokens[start + width - 1].end()]
+            replacement = _whitespace_exact_span(candidate, text)
+            if replacement is not None:
+                return replacement
+    return None
 
 
 def scope_status(answer: dict[str, Any]) -> tuple[str, str]:
@@ -162,9 +204,7 @@ def unanimous_value(rows: list[dict[str, Any]], field: str) -> Any:
     return values[0] if len(serialized) == 1 else "unclear"
 
 
-def agreement_audit(
-    rows: list[dict[str, Any]], fields: tuple[str, ...]
-) -> dict[str, Any]:
+def agreement_audit(rows: list[dict[str, Any]], fields: tuple[str, ...]) -> dict[str, Any]:
     audit: dict[str, Any] = {}
     for field in fields:
         values = [row.get(field) for row in rows]
@@ -176,13 +216,10 @@ def agreement_audit(
     return audit
 
 
-def decisive_fields_unanimous(
-    rows: list[dict[str, Any]], fields: tuple[str, ...]
-) -> bool:
+def decisive_fields_unanimous(rows: list[dict[str, Any]], fields: tuple[str, ...]) -> bool:
     """Retained for non-v1 title/full-text contracts that require field unanimity."""
     return all(
-        len({json.dumps(row.get(field), sort_keys=True) for row in rows}) == 1
-        for field in fields
+        len({json.dumps(row.get(field), sort_keys=True) for row in rows}) == 1 for field in fields
     )
 
 
@@ -191,13 +228,8 @@ def derive_title_result(
     causal_runs: list[dict[str, Any]] | None,
 ) -> dict[str, Any]:
     scope_paths = [scope_status(row) for row in scope_runs]
-    same_scope_exclusion = (
-        len(set(scope_paths)) == 1
-        and scope_paths[0][0] == "exclude"
-    )
-    selected = {
-        field: unanimous_value(scope_runs, field) for field in SCOPE_DECISION_FIELDS
-    }
+    same_scope_exclusion = len(set(scope_paths)) == 1 and scope_paths[0][0] == "exclude"
+    selected = {field: unanimous_value(scope_runs, field) for field in SCOPE_DECISION_FIELDS}
     selected["layer_candidates"] = sorted(
         {
             layer
@@ -230,10 +262,7 @@ def derive_title_result(
         {field: unanimous_value(causal_runs, field) for field in CAUSAL_DECISION_FIELDS}
     )
     causal_paths = [causal_status(row) for row in causal_runs]
-    same_causal_exclusion = (
-        len(set(causal_paths)) == 1
-        and causal_paths[0] == ("exclude", "EC5")
-    )
+    same_causal_exclusion = len(set(causal_paths)) == 1 and causal_paths[0] == ("exclude", "EC5")
     if same_causal_exclusion:
         decision = "exclude"
         exclusion_code = "EC5"
@@ -259,12 +288,8 @@ def package_full_text_sections(
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     max_chars = int(config.get("max_chars", 60000))
     max_section_chars = int(config.get("max_section_chars", 12000))
-    heading_terms = tuple(
-        str(item).casefold() for item in config.get("required_heading_terms", [])
-    )
-    text_terms = tuple(
-        str(item).casefold() for item in config.get("priority_text_terms", [])
-    )
+    heading_terms = tuple(str(item).casefold() for item in config.get("required_heading_terms", []))
+    text_terms = tuple(str(item).casefold() for item in config.get("priority_text_terms", []))
     graph_priority_score = int(config.get("graph_priority_score", 0))
     ranked: list[tuple[int, int, dict[str, Any]]] = []
     for index, section in enumerate(sections):
@@ -327,9 +352,10 @@ def package_full_text_sections(
 
 def _multiomics_status(answer: dict[str, Any]) -> str:
     evidence = answer.get("multiomics_evidence")
-    if evidence in {"explicit_multiomics", "two_or_more_layers"} and answer.get(
-        "current_report_layer_use"
-    ) == "yes":
+    if (
+        evidence in {"explicit_multiomics", "two_or_more_layers"}
+        and answer.get("current_report_layer_use") == "yes"
+    ):
         return "yes"
     if evidence == "single_or_no_layer":
         return "no"
