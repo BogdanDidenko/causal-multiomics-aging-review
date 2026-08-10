@@ -21,6 +21,7 @@ dist/
 runs/*/raw/
 runs/*/*.jsonl
 runs/*/*.csv
+data/screening/**/retry_runs/
 
 # Downloaded full texts can be large and may have redistribution restrictions.
 # Keep retrieval manifests and target lists versioned, but not article binaries.
