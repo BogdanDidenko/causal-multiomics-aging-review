@@ -1,0 +1,10 @@
+record_id,title,primary_decision,primary_reason,retry_decision,retry_exclusion_code,retry_reason,retry_manual_review_reason,retry_scope_runs,retry_causal_runs
+doi:10.1093/gerona/gln058,Current Thoughts on the Role of Mitochondria and Free Radicals in the Biology of Aging,manual_review,role_execution_failed,manual_review,,,role_execution_failed,0,0
+doi:10.1093/jxb/eru104,A tribute to Ko Shimamoto (1949–2013),manual_review,role_execution_failed,exclude,EC1,five_of_five_same_scope_exclusion,,5,0
+doi:10.1093/lifemedi/lnae020,Unlocking heart anti-aging potential: the SIRT2-STAT3-CDKN2B pathway as a bridge between fiction and reality,manual_review,role_execution_failed,seek_full_text,none,scope_unresolved_or_nonunanimous_exclusion,,5,0
+doi:10.1093/plphys/kiac182,A bZIP transcription factor accelerates the transition to reproductive tuber growth and aging in Solanum tuberosum,manual_review,role_execution_failed,exclude,EC1,five_of_five_same_scope_exclusion,,5,0
+doi:10.1111/jcmm.14657,Effect of oxidative stress and 3‐hydroxytyrosol on DNA methylation levels of miR‐9 promoters,manual_review,role_execution_failed,exclude,EC3,five_of_five_same_scope_exclusion,,5,0
+doi:10.1136/bmjopen-2025-112826,"Efficacy of bumetanide for cognitive improvement in children and adolescents with Down syndrome: study protocol of a randomised, double-blind, placebo-controlled trial",manual_review,role_execution_failed,exclude,EC1,five_of_five_same_scope_exclusion,,5,0
+doi:10.1210/jc.2007-2078,"Phenomics, Lamin A/C, and Metabolic Disease",manual_review,role_execution_failed,manual_review,,,role_execution_failed,0,0
+doi:10.3389/fnut.2026.1773391,The therapeutic potential of gypenosides for age-related macular degeneration,manual_review,role_execution_failed,exclude,EC1,five_of_five_same_scope_exclusion,,5,0
+doi:10.4103/1673-5374.230283,Epigenetic interventions for brain rejuvenation: anchoring age-related transposons,manual_review,role_execution_failed,seek_full_text,none,scope_unresolved_or_nonunanimous_exclusion,,5,0
