@@ -1,0 +1,124 @@
+{
+  "expected_primary_failure_reason": "role_execution_failed",
+  "expected_records": 27,
+  "failure_index": {
+    "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/failure_index.csv",
+    "records": 27,
+    "sha256": "2ddeefc278dc7ff59b0122d829b53c6d5ec067c00b2dc2c57b7943a5c100edee"
+  },
+  "missing_abstract_queue": {
+    "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/missing_abstract.csv",
+    "records": 0,
+    "sha256": "0cd4a4eba2892869c6e9a14e707fbde82d1dba4d56ddc49ba7f7eee2c413a598"
+  },
+  "primary_result_files": [
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_01/screening_results.jsonl",
+      "sha256": "58b372030bf317ae048c6dbe1ba0c2548a10d0c027214857140b4d67026e64f6"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_02/screening_results.jsonl",
+      "sha256": "4dd066bb0e72ec0c901485c62e68b11a97611ae3963862ced75949eb9d92761a"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_03/screening_results.jsonl",
+      "sha256": "116b4b0f91803e801e23912c4a0ce081b838e4e41a8e395bda9bdac16d204d73"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_04/screening_results.jsonl",
+      "sha256": "d9420e6a96170829ae2c5dd2ecb0a8b449b70268576c0668cd78e35b4b892796"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_05/screening_results.jsonl",
+      "sha256": "16a7b6e09ad4bf917e30206fcf9c3150f2c482c90067cae480b387f8622fd1d5"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_06/screening_results.jsonl",
+      "sha256": "4d1a01226ac9da33645a3df6c91d72266d3b9c04eae6a82757cfe936f714f074"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_07/screening_results.jsonl",
+      "sha256": "fede4ca23d3d48d11c745fd4844fbe7170d7cf0a67762ef3fc6a91df09d6d571"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_08/screening_results.jsonl",
+      "sha256": "718c188a65851dab72977cefa46ad35c6c570b030406037edbfa3126aacb72aa"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_09/screening_results.jsonl",
+      "sha256": "0d56c71773fa52d12304ccb5987e2f6928ac56f0978ed22a351a8217d53c7ea2"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_10/screening_results.jsonl",
+      "sha256": "9253abfd214084a166eb63e92690ad37032fd1b46403d1e621e5548317ba1949"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_11/screening_results.jsonl",
+      "sha256": "e4c0fef01229987d7d43d38a42a27f976c1969d4fc38efa141e1258075bb68a3"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_12/screening_results.jsonl",
+      "sha256": "4eb456696a8b2116c6f5a46d7c4aea6f0c9c83fb8247eb06717d27c313714030"
+    }
+  ],
+  "primary_result_records": 72,
+  "primary_screening_input": {
+    "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/input.csv",
+    "records": 72,
+    "sha256": "9e4d3d2b05e5dca0dc89186303b2ff5303501198f96d64dad78e762675b7f0d3"
+  },
+  "retry_policy": "fresh five-run evaluation of each failed record; primary outputs remain immutable",
+  "screening_input": {
+    "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/input.csv",
+    "records": 27,
+    "sha256": "206eb12549ef10667cf9873d47e23e06bc53a0ce8b5d4dca6f3a69d381010fb7"
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_01.csv",
+      "records": 3,
+      "sha256": "a51636f1a26c50b060dbdda50be36f9c1c60200f861227c177ecab54016965e7"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_02.csv",
+      "records": 3,
+      "sha256": "9578ea4b8b248bf5cec24cab51d44560f8b30fd254af2d6c0f4d887eef4f8767"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_03.csv",
+      "records": 3,
+      "sha256": "cd3f914346c34668209f29a0966af9a04e17fdaffa0e702679244e6d7b81d28e"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_04.csv",
+      "records": 3,
+      "sha256": "04673eeb7873bbf60991186a64664d30522add8e3260cba34fd5a1a94af6a270"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_05.csv",
+      "records": 3,
+      "sha256": "005427f601cdb21ea1aca7c2f77a61bea17af9d5eee30ae32d76a993ee946688"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_06.csv",
+      "records": 3,
+      "sha256": "28c89babed0cde9f08bcd2bcfe69951259cb03620813eb0d56fd3ef91cb7c0a7"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_07.csv",
+      "records": 3,
+      "sha256": "2558fa1f5f08ab65cb48ed567af2a060490cc1da20eb3a80fd727231d6491bb9"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_08.csv",
+      "records": 3,
+      "sha256": "30661cabd9b07cb06e5704769ae2551fa41d56f8205e1a2e0e30758feb2803ed"
+    },
+    {
+      "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/shards/shard_09.csv",
+      "records": 3,
+      "sha256": "81a45ddeed5e808396c1b9df7f47f0e782df4f982f300a15e04b5b9960285b09"
+    }
+  ],
+  "status": "frozen_title_abstract_role_execution_failure_retry"
+}

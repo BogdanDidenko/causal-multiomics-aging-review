@@ -1,0 +1,117 @@
+{
+  "before_after": {
+    "primary_decision_counts": {
+      "exclude": 2978,
+      "manual_review": 72,
+      "seek_full_text": 1972
+    },
+    "primary_role_execution_failures": 72,
+    "updated_decision_counts": {
+      "exclude": 3009,
+      "manual_review": 27,
+      "seek_full_text": 1986
+    },
+    "updated_role_execution_failures": 27
+  },
+  "interpretation": "Derived replacement only: immutable primary outputs are preserved and retry results supersede exactly the frozen role_execution_failed IDs.",
+  "provenance": {
+    "primary_result_files_match_frozen_manifest": true,
+    "replacement_ledger": "analysis/v1_title_abstract_role_failure_retry_2026-08-10/retry_replacement_ledger.csv",
+    "replacement_ledger_sha256": "f16fde577ffe814ed08e3168320dbe7cb82b1a0f688a873873fe9ccb7430cbc5",
+    "retry_input_manifest": "data/screening/v1.1.2_role_failure_retry_2026-08-10/input_manifest.json",
+    "retry_input_manifest_sha256": "390ad9558be949dcde73e6c95cf8d544a82251a73d11dc83c7d9b9cf53ff0e38",
+    "retry_orchestrator_manifest": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/orchestrator_manifest.json",
+    "retry_orchestrator_manifest_sha256": "40595f562e951da3f0391f6f92967bc24dbd9767d4cc616c44f6cbba6ef2fe3e",
+    "retry_result_files": [
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_01/screening_results.jsonl",
+        "sha256": "58b372030bf317ae048c6dbe1ba0c2548a10d0c027214857140b4d67026e64f6"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_02/screening_results.jsonl",
+        "sha256": "4dd066bb0e72ec0c901485c62e68b11a97611ae3963862ced75949eb9d92761a"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_03/screening_results.jsonl",
+        "sha256": "116b4b0f91803e801e23912c4a0ce081b838e4e41a8e395bda9bdac16d204d73"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_04/screening_results.jsonl",
+        "sha256": "d9420e6a96170829ae2c5dd2ecb0a8b449b70268576c0668cd78e35b4b892796"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_05/screening_results.jsonl",
+        "sha256": "16a7b6e09ad4bf917e30206fcf9c3150f2c482c90067cae480b387f8622fd1d5"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_06/screening_results.jsonl",
+        "sha256": "4d1a01226ac9da33645a3df6c91d72266d3b9c04eae6a82757cfe936f714f074"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_07/screening_results.jsonl",
+        "sha256": "fede4ca23d3d48d11c745fd4844fbe7170d7cf0a67762ef3fc6a91df09d6d571"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_08/screening_results.jsonl",
+        "sha256": "718c188a65851dab72977cefa46ad35c6c570b030406037edbfa3126aacb72aa"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_09/screening_results.jsonl",
+        "sha256": "0d56c71773fa52d12304ccb5987e2f6928ac56f0978ed22a351a8217d53c7ea2"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_10/screening_results.jsonl",
+        "sha256": "9253abfd214084a166eb63e92690ad37032fd1b46403d1e621e5548317ba1949"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_11/screening_results.jsonl",
+        "sha256": "e4c0fef01229987d7d43d38a42a27f976c1969d4fc38efa141e1258075bb68a3"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_2026-08-10/retry_runs/shard_12/screening_results.jsonl",
+        "sha256": "4eb456696a8b2116c6f5a46d7c4aea6f0c9c83fb8247eb06717d27c313714030"
+      }
+    ]
+  },
+  "records": {
+    "frozen_retry": 72,
+    "primary": 5022,
+    "retry_results": 72,
+    "updated_derived_ledger": 5022
+  },
+  "retry": {
+    "decision_counts": {
+      "exclude": 31,
+      "manual_review": 27,
+      "seek_full_text": 14
+    },
+    "exclusion_code_counts": {
+      "EC1": 3,
+      "EC3": 24,
+      "EC4": 2,
+      "EC5": 2,
+      "none": 41
+    },
+    "remaining_role_execution_failures": 27,
+    "route_counts": {
+      "exclude:five_of_five_same_scope_exclusion": 29,
+      "exclude:five_of_five_same_sufficient_causal_exclusion": 2,
+      "manual_review:role_execution_failed": 27,
+      "seek_full_text:causal_unresolved_or_nonunanimous_exclusion": 1,
+      "seek_full_text:positive_causal_basis": 8,
+      "seek_full_text:scope_unresolved_or_nonunanimous_exclusion": 5
+    }
+  },
+  "runtime": {
+    "completed_at": "2026-08-10T11:35:57.172605+00:00",
+    "git_revision": "7f33a4dbd1fcab954aa04fa814fe6ba3dbb3abfc",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "started_at": "2026-08-10T11:21:29.098364+00:00",
+    "suite_config_sha256": "fc01748541443bd1b47283ca445afd29418bd5a8e8259776644df581100c9a13",
+    "suite_version": "1.5.1-rc1",
+    "workers": 12
+  },
+  "status": "complete"
+}

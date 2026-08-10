@@ -119,6 +119,8 @@ def main() -> None:
     primary_decisions = Counter(str(row.get("final_decision")) for row in primary)
     retry_decisions = Counter(str(row.get("final_decision")) for row in retry)
     updated_decisions = Counter(str(row.get("final_decision")) for row in updated.values())
+    orchestrator_path = args.retry_runs / "orchestrator_manifest.json"
+    orchestrator = read_json(orchestrator_path)
     report = {
         "status": "complete",
         "interpretation": (
@@ -152,13 +154,22 @@ def main() -> None:
                 for row in updated.values()
             ),
         },
+        "runtime": {
+            "git_revision": orchestrator.get("git_revision"),
+            "model": orchestrator.get("model"),
+            "reasoning_effort": orchestrator.get("reasoning_effort"),
+            "repeats": orchestrator.get("repeats"),
+            "suite_version": orchestrator.get("suite_version"),
+            "suite_config_sha256": orchestrator.get("suite_config_sha256"),
+            "workers": orchestrator.get("workers"),
+            "started_at": orchestrator.get("started_at"),
+            "completed_at": orchestrator.get("completed_at"),
+        },
         "provenance": {
             "retry_input_manifest": str(manifest_path),
             "retry_input_manifest_sha256": sha256(manifest_path),
-            "retry_orchestrator_manifest": str(args.retry_runs / "orchestrator_manifest.json"),
-            "retry_orchestrator_manifest_sha256": sha256(
-                args.retry_runs / "orchestrator_manifest.json"
-            ),
+            "retry_orchestrator_manifest": str(orchestrator_path),
+            "retry_orchestrator_manifest_sha256": sha256(orchestrator_path),
             "retry_result_files": [
                 {"path": str(path), "sha256": sha256(path)} for path in retry_files
             ],
