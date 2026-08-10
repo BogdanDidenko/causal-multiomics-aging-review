@@ -47,6 +47,7 @@ def main() -> None:
     parser.add_argument("retry_runs", type=Path)
     parser.add_argument("primary_runs", type=Path)
     parser.add_argument("output_dir", type=Path)
+    parser.add_argument("--corpus-primary-runs", type=Path)
     args = parser.parse_args()
 
     manifest_path = args.retry_input_dir / "input_manifest.json"
@@ -181,6 +182,66 @@ def main() -> None:
             "replacement_ledger_sha256": sha256(ledger_path),
         },
     }
+    if args.corpus_primary_runs:
+        corpus_files = sorted(args.corpus_primary_runs.glob("shard_*/screening_results.jsonl"))
+        corpus = [row for path in corpus_files for row in read_jsonl(path)]
+        corpus_by_id = {str(row["record_id"]): row for row in corpus}
+        if len(corpus_by_id) != len(corpus):
+            raise SystemExit("Duplicate record IDs in corpus primary results")
+        if not set(updated) <= corpus_by_id.keys():
+            raise SystemExit("Effective retry IDs are absent from corpus primary results")
+        invalid_corpus_targets = [
+            identifier
+            for identifier in updated
+            if corpus_by_id[identifier].get("manual_review_reason") != "role_execution_failed"
+        ]
+        if invalid_corpus_targets:
+            raise SystemExit("Corpus replacement target includes non-execution failures")
+        effective_corpus = dict(corpus_by_id)
+        effective_corpus.update(updated)
+        effective_ledger_path = output / "effective_retry_ledger.csv"
+        with effective_ledger_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            for identifier in sorted(updated):
+                old = corpus_by_id[identifier]
+                new = updated[identifier]
+                role_runs = new.get("role_runs") or {}
+                writer.writerow(
+                    {
+                        "record_id": identifier,
+                        "title": new.get("title", old.get("title", "")),
+                        "primary_decision": old.get("final_decision", ""),
+                        "primary_reason": old.get("manual_review_reason", ""),
+                        "retry_decision": new.get("final_decision", ""),
+                        "retry_exclusion_code": new.get("final_exclusion_code", ""),
+                        "retry_reason": new.get("decision_reason", ""),
+                        "retry_manual_review_reason": new.get("manual_review_reason", ""),
+                        "retry_scope_runs": len(role_runs.get("scope_reviewer") or []),
+                        "retry_causal_runs": len(role_runs.get("causal_method_reviewer") or []),
+                    }
+                )
+        corpus_before = Counter(str(row.get("final_decision")) for row in corpus_by_id.values())
+        corpus_after = Counter(str(row.get("final_decision")) for row in effective_corpus.values())
+        report["effective_retry_chain"] = {
+            "rounds": 2,
+            "corpus_records": len(corpus),
+            "effective_retry_records": len(updated),
+            "effective_retry_decision_counts": dict(
+                sorted(Counter(str(row.get("final_decision")) for row in updated.values()).items())
+            ),
+            "corpus_decision_counts_before": dict(sorted(corpus_before.items())),
+            "corpus_decision_counts_after": dict(sorted(corpus_after.items())),
+            "remaining_role_execution_failures": sum(
+                row.get("manual_review_reason") == "role_execution_failed"
+                for row in effective_corpus.values()
+            ),
+            "effective_retry_ledger": str(effective_ledger_path),
+            "effective_retry_ledger_sha256": sha256(effective_ledger_path),
+            "corpus_primary_result_files": [
+                {"path": str(path), "sha256": sha256(path)} for path in corpus_files
+            ],
+        }
     report_path = output / "retry_summary.json"
     report_path.write_text(
         json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",

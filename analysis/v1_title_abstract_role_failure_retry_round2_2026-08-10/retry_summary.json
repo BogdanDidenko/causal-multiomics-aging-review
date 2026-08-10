@@ -1,0 +1,512 @@
+{
+  "before_after": {
+    "primary_decision_counts": {
+      "exclude": 31,
+      "manual_review": 27,
+      "seek_full_text": 14
+    },
+    "primary_role_execution_failures": 27,
+    "updated_decision_counts": {
+      "exclude": 39,
+      "manual_review": 12,
+      "seek_full_text": 21
+    },
+    "updated_role_execution_failures": 12
+  },
+  "effective_retry_chain": {
+    "corpus_decision_counts_after": {
+      "exclude": 3017,
+      "manual_review": 12,
+      "seek_full_text": 1993
+    },
+    "corpus_decision_counts_before": {
+      "exclude": 2978,
+      "manual_review": 72,
+      "seek_full_text": 1972
+    },
+    "corpus_primary_result_files": [
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_01/screening_results.jsonl",
+        "sha256": "a2d93106a2245b813ca44aa150d8271e496bac40a329f4b4a317414435cda3f5"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_02/screening_results.jsonl",
+        "sha256": "371bc87a87dc694fa18e5d228dab61ce24fa4f654e9fcadd70fcb1ff0b410b63"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_03/screening_results.jsonl",
+        "sha256": "9e08cf96e79f8400556508c49257aa6279281c0eab084891a8f9176dda7bad82"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_04/screening_results.jsonl",
+        "sha256": "8f008b3409f4d661e023302fedcb1d1382daf380b9511ebe63942916627645e1"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_05/screening_results.jsonl",
+        "sha256": "5f1271282fd3fe0f7ce88f57b7c8c273aab341fd66afa35d0d9df6b0b5ab284c"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_06/screening_results.jsonl",
+        "sha256": "200e095f8667318bb4844ca9b75c889b0652630f34f087a26eee1879d132aa05"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_07/screening_results.jsonl",
+        "sha256": "588cbb186308de7e220c78a74390eecb2b52d843c2a75ac95fec7534c51c2646"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_08/screening_results.jsonl",
+        "sha256": "4ddb6f26baa3a85f3700bdb4486b4704d650d5c52cc0ae70b11e892bd76843b3"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_09/screening_results.jsonl",
+        "sha256": "7247e67315d50e3fa883b330cea93a91c56dc06bb402229549e7dc22135148a5"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_10/screening_results.jsonl",
+        "sha256": "d4531ef64ceb851c4d40cba0e9b6e0da86dc20a508001d91a909db9f87ddec1f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_11/screening_results.jsonl",
+        "sha256": "ebdf637d3340bcd624a990225b9629d7e6d7b712e084320e09a8c4ab54d723f8"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_12/screening_results.jsonl",
+        "sha256": "6ce26482c9c81ca872b46832999307010390c60befb91584292bc0d9b758add2"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_13/screening_results.jsonl",
+        "sha256": "37bdf31fd066a2fa83a28b06e57492db63d43c8ccdbedf3780617dafae0540b5"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_14/screening_results.jsonl",
+        "sha256": "dfff5da23ae3f179a86449b904c17f1d817f2b70b7d11cbdbe4fdcdb7d844d2c"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_15/screening_results.jsonl",
+        "sha256": "5452bcfedf4fef4e76b8c3c297e9cbb03deb7b8e7cd20ce6bae3470fc2a99972"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_16/screening_results.jsonl",
+        "sha256": "9d99d2faaabd1ca85f6584af9d121e3537cc60efb7e43ffdd1d337163fdca3c8"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_17/screening_results.jsonl",
+        "sha256": "c57c1a007ac6e4507d77ef34df44fc56d32ca91aa617b76c8324cbf75b8d3f4b"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_18/screening_results.jsonl",
+        "sha256": "f38069d68c522f4132e855e33222a599b5008e3533999635b0ec1990035a8a46"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_19/screening_results.jsonl",
+        "sha256": "731ebd8c2085d7786c326cf53ccbc38126e57e66ecee520fe9f9da2b9231297b"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_20/screening_results.jsonl",
+        "sha256": "7bcbcc9dd5c5e12f8a4d58bed21726c4367711a0a6b8043c1a958ea117b0649e"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_21/screening_results.jsonl",
+        "sha256": "efa5c236f8188101dc6ecaeaedd0438312e68de11896ba568eeb6c53dc88be9f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_22/screening_results.jsonl",
+        "sha256": "147a348dcad2cb0a1c1abf42d46cde35d430f66c008f045faab95ffad7e430e0"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_23/screening_results.jsonl",
+        "sha256": "51503f2f8a6fdf9630234107ecd8f8c136145a2d11b699da6060cd275218ebeb"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_24/screening_results.jsonl",
+        "sha256": "ec7d876ad7048ca22ca8b169bb17963aea06b4fb368b194843e30f2944986f0c"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_25/screening_results.jsonl",
+        "sha256": "3280a226632822acf95edc1cdbf55afc877a18a7d06d2953eb9f55a47d6596de"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_26/screening_results.jsonl",
+        "sha256": "e7e2664998721620ec1dff35ff1bed8272e5d5a12371fb22ebe0c05db6f56134"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_27/screening_results.jsonl",
+        "sha256": "080793945e007c4e38d098fce84b2f238e05d5cb09f057c96037d0464df2585b"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_28/screening_results.jsonl",
+        "sha256": "909ce27fcfd9909be4c11dd4d5d4a330709c112501831ab25257eef6b66544b2"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_29/screening_results.jsonl",
+        "sha256": "5525e1295e58dbf6e9e862536c40a32faaadc0a7178a86c0507f8bb6fc05478a"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_30/screening_results.jsonl",
+        "sha256": "112121bdf76586d784d82f8dc8de5d3719a2069bd02813ca4be77d7d0f24ae50"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_31/screening_results.jsonl",
+        "sha256": "f9ce5cdec69ed7f8b0c53fa6925f3dd6306297d92895d7c883c17e692a47b512"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_32/screening_results.jsonl",
+        "sha256": "ca38807064348fb6f542ea82eda377111b726caf19887f02222caf786ffeea11"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_33/screening_results.jsonl",
+        "sha256": "77c5af2063925ce3fb2e340ac6e9a90b5bd4eca30b08df6c7386daad2ae8911d"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_34/screening_results.jsonl",
+        "sha256": "cd62bf91a7142780287e04382a3d650ab00fe698e243e998d215abb8bc31f7ba"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_35/screening_results.jsonl",
+        "sha256": "a0b3f0a8a560ee74467b446e6e3a424c56cef889b223d244978b1afd00c8e5ed"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_36/screening_results.jsonl",
+        "sha256": "5c5e3b3459ca97df1f45c1ea1734fe78029f43c1d3495a260f2e38bef498ea46"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_37/screening_results.jsonl",
+        "sha256": "ac39825e78893ae5783b5918826fd4d99c843303ff5ad753013dc6d7ebd3c1c2"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_38/screening_results.jsonl",
+        "sha256": "971359b909d83d02e8d80d9324cb42e1517ccd8607796afe7ab32acfaef3de6f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_39/screening_results.jsonl",
+        "sha256": "cc50b838e1201d6fe238144d0d962bd09c659bbdaf12ff28f1ad266ae48afb78"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_40/screening_results.jsonl",
+        "sha256": "0fd4c7fff24da9b05f6954bdd64aed398100503f546a535b4efb9b9def70854f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_41/screening_results.jsonl",
+        "sha256": "f977855d335cb46bf7ad2aa6863a0d78292e053130fe2a0b8a839348596ab2eb"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_42/screening_results.jsonl",
+        "sha256": "9b15d940aefe0ea7bfd77b5bc29c7abf757ddc82708d97e32dca1e802cec8ab6"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_43/screening_results.jsonl",
+        "sha256": "6a27802fc58de66e9afea0cc6a90f6e5f85302fd9b2b32561f74e6eb1fa94c98"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_44/screening_results.jsonl",
+        "sha256": "67685937a5671b0cf8c71a4c0d0767fa3d77526387d0d967a06ab0679889c1e6"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_45/screening_results.jsonl",
+        "sha256": "0e3ba83491d01f58599854236ba3e4e456f405f43aa28aebd80f18769572c82d"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_46/screening_results.jsonl",
+        "sha256": "3993f62ee0f20fd0c0bf1f85c0d92c1fbb724560c9730ae22d1985f8f4b98c30"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_47/screening_results.jsonl",
+        "sha256": "4c69f447a4d95d59e052a09860b7d9df6249170e32d916c64c8e273a69def4be"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_48/screening_results.jsonl",
+        "sha256": "5454348ad9aa03c896598346e790d7ceca50f0ed652ae2b9c6e0c4671e7472b7"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_49/screening_results.jsonl",
+        "sha256": "50ceb2775504a37212a031467b30fef9d4a616a42dc66aa559ef34902d7f8d4f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_50/screening_results.jsonl",
+        "sha256": "8119e010687456c02396f8718bee802322f88d68e08b6b7c91e4f05ed71bdce4"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_51/screening_results.jsonl",
+        "sha256": "15528f1867807099fec210f2fd7731cc776f70ca3862e73d1a3842890196b8fb"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_52/screening_results.jsonl",
+        "sha256": "f9f7eab48837e0ee181ba29f7820d5e7e399b520ef4bafad8a941a6656291129"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_53/screening_results.jsonl",
+        "sha256": "40ebec5ef7362736436fa4def048f56ba76a8f853e8c53fc996daa9d1e4fd82b"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_54/screening_results.jsonl",
+        "sha256": "72e7bb77a6f638b9817554edb7e9c450c265ebd4ee7adda17627879c615ccff5"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_55/screening_results.jsonl",
+        "sha256": "7c48e8473980b22b5292fcddfde9800942d878c04d1a9dd485e5d24ff73ce9dc"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_56/screening_results.jsonl",
+        "sha256": "4a80d9d4badcbe15a6c3a7623f4b6a8b48106d63f80a5f8bfa7964df6e83036d"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_57/screening_results.jsonl",
+        "sha256": "e19e6ad120969c5f219ac85ffb594fc9fd980ac210209f04358bbf2cca862289"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_58/screening_results.jsonl",
+        "sha256": "499022e0a045c67e461e5234897e25b85953d228b93fe25905d737d795c2bdb6"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_59/screening_results.jsonl",
+        "sha256": "d4ea15ed7df0d6480103a23fcf3b31308d5392b812fe38f135ea8fe1b560d21e"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_60/screening_results.jsonl",
+        "sha256": "1f9b941bd88829923e552278b35ff759fa133d80d518ff5cc28026b7aa8036b1"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_61/screening_results.jsonl",
+        "sha256": "99894c3a450b7ddc81b3ef9cf4e9655afbaca11ad80fdcdb3fbb79c55ff857a9"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_62/screening_results.jsonl",
+        "sha256": "8e1e3e44f0b058900f5979591bf4d29065665f2cdf57c5d673449411472ec4b8"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_63/screening_results.jsonl",
+        "sha256": "b266372b1e2a124ccefdbe626d280134d5aeb4e78fcabe593f8e4a25f000c372"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_64/screening_results.jsonl",
+        "sha256": "e5bbd3877e5149a8f497baa7697bdbc803f82c81f86edc32d073d3cb92b6118d"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_65/screening_results.jsonl",
+        "sha256": "e2c70f641fd455bff444741c349a3a83d4e4603eafddb38cbc93a483c634a240"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_66/screening_results.jsonl",
+        "sha256": "08f0c273229cbaeaaf622bf0d57744fe1c450f0a5741abcf26bea53762ea7faf"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_67/screening_results.jsonl",
+        "sha256": "5920c658bbb63706040c02e832bd5458b76fb10215ba4988aec78ebe5b3dc6e6"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_68/screening_results.jsonl",
+        "sha256": "2ebda273d3bd5a4d7124c2e5d5d349daca28beda3458a4f0b278868709725b80"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_69/screening_results.jsonl",
+        "sha256": "ee4b7e1a7860e45d7c189d66d0f98709106afaa22c270cc206396f89dad36eee"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_70/screening_results.jsonl",
+        "sha256": "19a85334b7657b6eab60d3a896dfd416cc519ddb52769d8af6be9d7165cc04ee"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_71/screening_results.jsonl",
+        "sha256": "5d0afa9ef62e820e9eba895fc9e02bb141011b823d332ba7d293c16b63900ad7"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_72/screening_results.jsonl",
+        "sha256": "c1075424cba95703e870bc5ff23534749787c083215a637c2eb9e58cf95e1742"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_73/screening_results.jsonl",
+        "sha256": "82d621c59173ff2d050f1e998137d71a87c9dcffd3635c3234deb87a2ba46833"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_74/screening_results.jsonl",
+        "sha256": "8bbe9b7ff2a6acc6932cee594c5dcb7ba29275f1a7902fc36064254330d83ec7"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_75/screening_results.jsonl",
+        "sha256": "e3921be8a3de94ba0bc171e61c260a24f28bb3d5e7dd3df3a0339a9922eaf0fc"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_76/screening_results.jsonl",
+        "sha256": "feb60d4bad470f7fb91497665621bc70ee0a2c00d7aae3dcc1630f4b7231cc30"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_77/screening_results.jsonl",
+        "sha256": "9e63610e02c21da449eb9efd104ec757395bd223307b167cc356bdbe4abeda11"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_78/screening_results.jsonl",
+        "sha256": "5f42541123ac8e42ac4c4c8f36251e5bb73ffb01780aa270d3ecc4eca9d9177f"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_79/screening_results.jsonl",
+        "sha256": "77f0efcfb4e178522de398b4fed37f111da2e187bfee4eb2e4fef3ef04ec956d"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_80/screening_results.jsonl",
+        "sha256": "6d7800ed4bce9cbe79026029b2668af221c050bd89421ea7e4e908d41f8f8cee"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_81/screening_results.jsonl",
+        "sha256": "03fc54c3ec2ac2230f9caa6d76d1fd25f6a435d63faf48a53c2c5edd76b93d52"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_82/screening_results.jsonl",
+        "sha256": "4dd026df104996eda7fb6f704dd2d000b94e6f83dae75aaa35aae4b04c0ec0ff"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_83/screening_results.jsonl",
+        "sha256": "99c93e57bee638a59a325ee2e8cb36d3b5c23773e48f0fe7b0fca6e6e473d19a"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_84/screening_results.jsonl",
+        "sha256": "dadc8e620c0d1a8f8bfe2a3ba96a6ec55fc1dc08f491fa544cf33d4b05048fe9"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_85/screening_results.jsonl",
+        "sha256": "83fffb5a28822e1258b7a474c5ecb9766ec65c03831243fd092a436f72ed6773"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_86/screening_results.jsonl",
+        "sha256": "ca599932f6aa5926e79e4fcfa52b70d853ce1ac35f0a9d32dad6e171a0e24b73"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_87/screening_results.jsonl",
+        "sha256": "fb59828757007c51c723716c8f6bcb3b9cd91dfff452a6915598413d68f73602"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_88/screening_results.jsonl",
+        "sha256": "3805f55ad9963a2ed063448bb8bd869575e85a603ff11c99ed6e34bfbafbdb8e"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_89/screening_results.jsonl",
+        "sha256": "2a4ce071eac86bf627edfcf495b4c296c4b4664bf23e973f185c6d92d48834c4"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_90/screening_results.jsonl",
+        "sha256": "b9614d6383e201c0760cbff038afab528e22dc1a5a205cecca14165eb5eb7a6a"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_91/screening_results.jsonl",
+        "sha256": "4cc184d21f45ab0a34a63ab5d3d100eb48ca2a3782324d8e1b45d39ee39f17fc"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_92/screening_results.jsonl",
+        "sha256": "b08b6e25876f54c6ccc5ce03c693b91bf9e8f49c5dfe75714c00669365490fdd"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_93/screening_results.jsonl",
+        "sha256": "bdccb8639ca10a9ab9e3ffd33b0332969e07a3fc61637706e37744a0da9e79ba"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_94/screening_results.jsonl",
+        "sha256": "3a407683ae1bc54cecf92c8f150debc41a9fbccd4bc0387f35d49d881b96a4d2"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_95/screening_results.jsonl",
+        "sha256": "987acf09913354f63ad3825e498d48ecc5b63a30bb620fa5666fb5f2b73816e2"
+      },
+      {
+        "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_96/screening_results.jsonl",
+        "sha256": "b5239cfa798e3f50b8cf2f66f9566616ddd50f95f76de6832896fe50267bc9ae"
+      }
+    ],
+    "corpus_records": 5022,
+    "effective_retry_decision_counts": {
+      "exclude": 39,
+      "manual_review": 12,
+      "seek_full_text": 21
+    },
+    "effective_retry_ledger": "analysis/v1_title_abstract_role_failure_retry_round2_2026-08-10/effective_retry_ledger.csv",
+    "effective_retry_ledger_sha256": "349218a3a28359712cd82b2559f74bc46704cb032f0fbfb626a6c9afba086ad3",
+    "effective_retry_records": 72,
+    "remaining_role_execution_failures": 12,
+    "rounds": 2
+  },
+  "interpretation": "Derived replacement only: immutable primary outputs are preserved and retry results supersede exactly the frozen role_execution_failed IDs.",
+  "provenance": {
+    "primary_result_files_match_frozen_manifest": true,
+    "replacement_ledger": "analysis/v1_title_abstract_role_failure_retry_round2_2026-08-10/retry_replacement_ledger.csv",
+    "replacement_ledger_sha256": "6956ae2c02f98baa9803730df0ab5a94310adfe87197ae1ea009562d290e1be9",
+    "retry_input_manifest": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/input_manifest.json",
+    "retry_input_manifest_sha256": "92df333bd0ec744c1ce2348739a128cd4e339406234f38115659590cb822f9b3",
+    "retry_orchestrator_manifest": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/orchestrator_manifest.json",
+    "retry_orchestrator_manifest_sha256": "3e05cc4836c37170a607c971fc6748373fd3d8a486cd3156b9a434f20a9c29c9",
+    "retry_result_files": [
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_01/screening_results.jsonl",
+        "sha256": "d32bbb30e03fc4b3df7e174af4a82f13e5071463d58129b88383677a638b07ea"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_02/screening_results.jsonl",
+        "sha256": "75af9275bb0772e14ec9d5da02c47e372f7ebd126fcbebec029ccc0fa9108bab"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_03/screening_results.jsonl",
+        "sha256": "ecafb461437d60504e3da1571ed01769af8b73fe40d18867a1d7ec9330541b66"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_04/screening_results.jsonl",
+        "sha256": "f7d44bca3f7a9feb7c1e508c7fded285edfd7cde2177a7b557ebc71eb9de7ec2"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_05/screening_results.jsonl",
+        "sha256": "2d909c1a942a33fdd1fe4a5f8eba518ac8ef7b31fa4fbf9f9e9a34d37f71e928"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_06/screening_results.jsonl",
+        "sha256": "49f65c7614f6415f6063369264f5980050d04ff286a246016ed9ce24a3a138df"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_07/screening_results.jsonl",
+        "sha256": "837902ed3a079e4dc54851f7458a27729ca59277e02255de1cae72d5de55674f"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_08/screening_results.jsonl",
+        "sha256": "8cf7da58847c87b9089012dcffec83f2b2c726c6fb828c2201e05ffc8876b2c9"
+      },
+      {
+        "path": "data/screening/v1.1.2_role_failure_retry_round2_2026-08-10/retry_runs/shard_09/screening_results.jsonl",
+        "sha256": "fc497a9ebe76798d409087403bdc6234039689fa58dceb8415fb25d25127a01d"
+      }
+    ]
+  },
+  "records": {
+    "frozen_retry": 27,
+    "primary": 72,
+    "retry_results": 27,
+    "updated_derived_ledger": 72
+  },
+  "retry": {
+    "decision_counts": {
+      "exclude": 8,
+      "manual_review": 12,
+      "seek_full_text": 7
+    },
+    "exclusion_code_counts": {
+      "EC1": 1,
+      "EC3": 5,
+      "EC4": 1,
+      "EC5": 1,
+      "none": 19
+    },
+    "remaining_role_execution_failures": 12,
+    "route_counts": {
+      "exclude:five_of_five_same_scope_exclusion": 7,
+      "exclude:five_of_five_same_sufficient_causal_exclusion": 1,
+      "manual_review:role_execution_failed": 12,
+      "seek_full_text:positive_causal_basis": 7
+    }
+  },
+  "runtime": {
+    "completed_at": "2026-08-10T11:44:40.986350+00:00",
+    "git_revision": "72f67983191ef0c15faa49c970a95d408ccf0356",
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats": 5,
+    "started_at": "2026-08-10T11:37:03.969892+00:00",
+    "suite_config_sha256": "fc01748541443bd1b47283ca445afd29418bd5a8e8259776644df581100c9a13",
+    "suite_version": "1.5.1-rc1",
+    "workers": 9
+  },
+  "status": "complete"
+}
