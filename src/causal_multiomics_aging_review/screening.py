@@ -1538,28 +1538,18 @@ def _process_full_text_shared_template_v1(
 
     causal_runs: list[dict[str, Any]] = []
     if all(path[0] == "pass" for path in scope_paths):
-        causal_prompt = render_prompt(
-            artifacts["causal_method_reviewer"]["prompt"],
+        causal_runs = run_shared_template_causal_role(
             record,
-            {"SELECTED_SECTIONS": selected_context},
+            selected_sections,
+            selected_context,
+            artifacts,
+            provider,
+            raw_results,
+            max_retries=max_retries,
+            repeat_count=repeat_count,
+            minimum_words=minimum_words,
+            phase="v1_shared_template_full_text_stability",
         )
-        causal_runs = [
-            _call_role(
-                provider,
-                "causal_method_reviewer",
-                causal_prompt,
-                artifacts["causal_method_reviewer"]["schema"],
-                identifier,
-                raw_results,
-                max_retries,
-                post_validate=lambda answer: ground_and_validate(
-                    answer, validate_causal_answer_consistency
-                ),
-                phase="v1_shared_template_full_text_stability",
-                repeat_index=index,
-            )
-            for index in range(1, repeat_count + 1)
-        ]
 
     route = derive_full_text_eligibility_route(
         scope_runs,
@@ -1611,6 +1601,55 @@ def _process_full_text_shared_template_v1(
         "decision_reason": route["decision_reason"],
         "manual_review_reason": route["manual_review_reason"],
     }
+
+
+def run_shared_template_causal_role(
+    record: dict[str, Any],
+    selected_sections: list[dict[str, Any]],
+    selected_context: str,
+    artifacts: dict[str, dict[str, Any]],
+    provider: OpenAICompatibleProvider,
+    raw_results: Any,
+    *,
+    max_retries: int,
+    repeat_count: int,
+    minimum_words: int,
+    phase: str,
+) -> list[dict[str, Any]]:
+    """Run the canonical causal role independently of scope-model outputs."""
+    identifier = record_id(record)
+    causal_prompt = render_prompt(
+        artifacts["causal_method_reviewer"]["prompt"],
+        record,
+        {"SELECTED_SECTIONS": selected_context},
+    )
+
+    def ground_and_validate(answer: dict[str, Any]) -> dict[str, Any] | None:
+        repairs = repair_mixed_full_text_evidence_spans(
+            answer,
+            record,
+            selected_sections,
+            minimum_words=minimum_words,
+        )
+        validate_mixed_full_text_evidence_spans(answer, record, selected_sections)
+        validate_causal_answer_consistency(answer)
+        return {"evidence_quote_repairs": repairs} if repairs else None
+
+    return [
+        _call_role(
+            provider,
+            "causal_method_reviewer",
+            causal_prompt,
+            artifacts["causal_method_reviewer"]["schema"],
+            identifier,
+            raw_results,
+            max_retries,
+            post_validate=ground_and_validate,
+            phase=phase,
+            repeat_index=index,
+        )
+        for index in range(1, repeat_count + 1)
+    ]
 
 
 def _process_full_text_record(
