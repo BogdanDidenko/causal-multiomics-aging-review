@@ -1,0 +1,9 @@
+{
+  "status": "audit_semantics_correction",
+  "original_manifest": "manifest.json",
+  "original_manifest_sha256": "fef9abd974ca28e5a0e3ca509bf952f4d27e9a1255d6b158d28b0bd83cc3a760",
+  "git_revision_at_start": "cf700697014f30474dc297da9b8f26ce9afa9631",
+  "git_worktree_dirty_at_start": false,
+  "git_worktree_dirty_at_completion": true,
+  "explanation": "The executed runner measured git_worktree_dirty only after creating its untracked output directory, so the original true value describes completion state rather than start state. The run began immediately after commit cf70069 with an empty git status. The original manifest is preserved unchanged. Future runner versions record start and completion state separately."
+}

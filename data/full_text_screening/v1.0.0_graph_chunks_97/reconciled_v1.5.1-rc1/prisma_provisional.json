@@ -1,0 +1,8 @@
+{
+  "reports_assessed_by_model_pipeline": 97,
+  "reports_pending_human_adjudication": 1,
+  "reports_with_unanimous_exclusion": 0,
+  "reports_with_unanimous_positive_route": 96,
+  "stage": "full_text_eligibility_screening",
+  "status": "provisional_pending_expert_validation_and_evidence_extraction"
+}

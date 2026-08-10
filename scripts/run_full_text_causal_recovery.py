@@ -58,6 +58,7 @@ def main() -> int:
     parser.add_argument("--workers", type=int, default=7)
     args = parser.parse_args()
 
+    git_dirty_at_start = git_worktree_dirty(REPO_ROOT)
     suite, stage_config = load_stage_config("full_text", args.suite_config)
     artifacts = _load_stage_artifacts(stage_config)
     records = {
@@ -181,7 +182,8 @@ def main() -> int:
         "started_at": started_at,
         "completed_at": now(),
         "git_revision": git_revision(REPO_ROOT),
-        "git_worktree_dirty": git_worktree_dirty(REPO_ROOT),
+        "git_worktree_dirty_at_start": git_dirty_at_start,
+        "git_worktree_dirty_at_completion": git_worktree_dirty(REPO_ROOT),
         "suite_version": suite["suite_version"],
         "suite_config": str(args.suite_config),
         "suite_config_sha256": sha256_file(args.suite_config),

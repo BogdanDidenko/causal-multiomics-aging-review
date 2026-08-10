@@ -1,0 +1,17 @@
+{
+  "status": "complete_missing_causal_recovery",
+  "records": 14,
+  "planned_model_calls": 70,
+  "successful_model_calls": 70,
+  "failed_model_calls": 0,
+  "five_of_five_retain_records": 14,
+  "causal_all_fields_exact_records": 13,
+  "causal_taxonomy_disagreement_records": 1,
+  "causal_taxonomy_disagreement_record_ids": [
+    "doi:10.1002/advs.202502249"
+  ],
+  "causal_taxonomy_disagreement_fields": [
+    "design_families"
+  ],
+  "interpretation": "All recovered records had five identical positive causal route statuses. One record differed only in design-family taxonomy, which is preserved as an audit variable and does not alter the route."
+}

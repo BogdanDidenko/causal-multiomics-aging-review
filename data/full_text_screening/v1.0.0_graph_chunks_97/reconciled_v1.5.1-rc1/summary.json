@@ -1,0 +1,44 @@
+{
+  "all_tracked_fields_exact_records": 71,
+  "decision_counts": {
+    "assessed": 96,
+    "manual_review": 1
+  },
+  "five_request_route_exact_records": 96,
+  "interpretation": "This ledger applies v1.5.1 route rules without changing stored model judgments. It substitutes two documented grounding retries and adds only the 14 causal roles skipped by the rejected routing implementation.",
+  "provenance_counts": {
+    "grounding_retry": 2,
+    "primary": 81,
+    "primary_scope_plus_causal_recovery": 14
+  },
+  "records": 97,
+  "source_files": {
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_grounding_retry/screening_results.jsonl": "c7e8f49ac6910a21a11123c609ee6305c51faec6bd872875aedca3937bbee460",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_01/screening_results.jsonl": "06473b6a95f947a5c26d0929dbaff068e36f58dedd9167da7c3784ee370a793e",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_02/screening_results.jsonl": "d786bfebde5b3d156f18e2f04b71ae5fa58ad2990fc44cc9a5bffe2a1c1087df",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_03/screening_results.jsonl": "aa2b6696f3853219d5b753eedc5893bee2d09a51ee5a5edb9e1a52046dc15e58",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_04/screening_results.jsonl": "3c89a69ce5cba0f39f1a5c30afb56eec5acfdfb399ccecde878d7de82a025a60",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_05/screening_results.jsonl": "02417675e81fbeeb24908de0728e34a397e90004277bfe8afc1bb27fa4950402",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_06/screening_results.jsonl": "fb5057c1acba5324651fad073726f07eba581e07ac83cb5a515d02221bbede1e",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_07/screening_results.jsonl": "a6021924c07cf2d08319f4336c2166b5c41aa4ad7fa463cd1bd0221e81900616",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_08/screening_results.jsonl": "5e792af76c3d65454dc4d2569135b7fa4f998b99e35a60d8d14b3e2f1a4ba67b",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_09/screening_results.jsonl": "62bd83bd51575eb4bbab2404ba409e9e1609a0e30845793e987f9a4783ef5da6",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_10/screening_results.jsonl": "48548aaff786ed53b0a1671327ee6df349a5090ab88234a7efc34f1e005f19c4",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_11/screening_results.jsonl": "a862a1f6a3bc0efda02221eca9180da00e968111ec84192f8773439a33637c87",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_12/screening_results.jsonl": "9bd807a2370f562afebea2bd019f0eeb54029e81f557497607de68b14a4d6afd",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_13/screening_results.jsonl": "652d77b935b87d9f65b4b0d9e8ee8ee862746bc2fed67a8886248eb839682588",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_14/screening_results.jsonl": "9540fb8419d558ea2845eb02d6191331b9dcc5bf7f0c9acbd0b0722302668c15",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_15/screening_results.jsonl": "ded6cbbf9f0d3ccc3c3e0c440bd8f015510d851d273c40ccf15fe39e447c831d",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_16/screening_results.jsonl": "29f153d1218b37ecb00d81e2de5803b3ce1d7e7301687e4898b682abe2600518",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_17/screening_results.jsonl": "82c1b526dd16b193fc50d87676c35ac4100d69d2d3d0d537b9ebedeb403da331",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_18/screening_results.jsonl": "f8cad425c6bb8e9862ec8299c679bf59d904d691c59262bad32c3fa1f3e8d4b2",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_19/screening_results.jsonl": "b4511a561b842deecf54004d5a475c8d780d142b2e9a1caa2b440edaed2c9588",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_20/screening_results.jsonl": "e54f5c703a2d857ce44cae48aebc3709e59d45b4cf8bac5ce1fe4bc448166c40",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_21/screening_results.jsonl": "208806457f1c938038253b4f4c9f8bfe323ec89c93f09be76d879bdff710784c",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_22/screening_results.jsonl": "4c7fd4629d2e7b21a6cd1480c3cae5dc09f8839c85d4e2606f85b3a886a478e2",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_23/screening_results.jsonl": "8d3fa0e7d985f2f66d9f1f40c0f35fc83a1f12285cf555c5da71e6e9d7ed8b27",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates/runs/shard_24/screening_results.jsonl": "cd76f2ab197badd7a2ae41d4becee0998b32f81ee441b5fc4a70473f2d109d19",
+    "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.1-rc1_causal_recovery_14/causal_recovery_results.jsonl": "07e410c48c3f59d98e96edff2c97010fe3996d99b377834776b64d312a67b64a"
+  },
+  "status": "reconciled_v1.5.1_rc1_full_text_eligibility"
+}
