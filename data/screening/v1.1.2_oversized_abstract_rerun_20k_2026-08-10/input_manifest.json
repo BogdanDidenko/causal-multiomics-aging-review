@@ -1,0 +1,658 @@
+{
+  "expected_records": 397,
+  "missing_abstract_queue": {
+    "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/missing_abstract.csv",
+    "records": 0,
+    "sha256": "0cd4a4eba2892869c6e9a14e707fbde82d1dba4d56ddc49ba7f7eee2c413a598"
+  },
+  "new_maximum_chars": 20000,
+  "oversized_index": {
+    "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/oversized_index.csv",
+    "records": 397,
+    "sha256": "f73bd0698e4e675e2e2df53b782bb3c64f347c1774ad9ae8922b68030754a8ca"
+  },
+  "policy": "full abstract is retained; no truncation or semantic packaging",
+  "primary_result_files": [
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_01/screening_results.jsonl",
+      "sha256": "a2d93106a2245b813ca44aa150d8271e496bac40a329f4b4a317414435cda3f5"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_02/screening_results.jsonl",
+      "sha256": "371bc87a87dc694fa18e5d228dab61ce24fa4f654e9fcadd70fcb1ff0b410b63"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_03/screening_results.jsonl",
+      "sha256": "9e08cf96e79f8400556508c49257aa6279281c0eab084891a8f9176dda7bad82"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_04/screening_results.jsonl",
+      "sha256": "8f008b3409f4d661e023302fedcb1d1382daf380b9511ebe63942916627645e1"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_05/screening_results.jsonl",
+      "sha256": "5f1271282fd3fe0f7ce88f57b7c8c273aab341fd66afa35d0d9df6b0b5ab284c"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_06/screening_results.jsonl",
+      "sha256": "200e095f8667318bb4844ca9b75c889b0652630f34f087a26eee1879d132aa05"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_07/screening_results.jsonl",
+      "sha256": "588cbb186308de7e220c78a74390eecb2b52d843c2a75ac95fec7534c51c2646"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_08/screening_results.jsonl",
+      "sha256": "4ddb6f26baa3a85f3700bdb4486b4704d650d5c52cc0ae70b11e892bd76843b3"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_09/screening_results.jsonl",
+      "sha256": "7247e67315d50e3fa883b330cea93a91c56dc06bb402229549e7dc22135148a5"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_10/screening_results.jsonl",
+      "sha256": "d4531ef64ceb851c4d40cba0e9b6e0da86dc20a508001d91a909db9f87ddec1f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_11/screening_results.jsonl",
+      "sha256": "ebdf637d3340bcd624a990225b9629d7e6d7b712e084320e09a8c4ab54d723f8"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_12/screening_results.jsonl",
+      "sha256": "6ce26482c9c81ca872b46832999307010390c60befb91584292bc0d9b758add2"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_13/screening_results.jsonl",
+      "sha256": "37bdf31fd066a2fa83a28b06e57492db63d43c8ccdbedf3780617dafae0540b5"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_14/screening_results.jsonl",
+      "sha256": "dfff5da23ae3f179a86449b904c17f1d817f2b70b7d11cbdbe4fdcdb7d844d2c"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_15/screening_results.jsonl",
+      "sha256": "5452bcfedf4fef4e76b8c3c297e9cbb03deb7b8e7cd20ce6bae3470fc2a99972"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_16/screening_results.jsonl",
+      "sha256": "9d99d2faaabd1ca85f6584af9d121e3537cc60efb7e43ffdd1d337163fdca3c8"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_17/screening_results.jsonl",
+      "sha256": "c57c1a007ac6e4507d77ef34df44fc56d32ca91aa617b76c8324cbf75b8d3f4b"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_18/screening_results.jsonl",
+      "sha256": "f38069d68c522f4132e855e33222a599b5008e3533999635b0ec1990035a8a46"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_19/screening_results.jsonl",
+      "sha256": "731ebd8c2085d7786c326cf53ccbc38126e57e66ecee520fe9f9da2b9231297b"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_20/screening_results.jsonl",
+      "sha256": "7bcbcc9dd5c5e12f8a4d58bed21726c4367711a0a6b8043c1a958ea117b0649e"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_21/screening_results.jsonl",
+      "sha256": "efa5c236f8188101dc6ecaeaedd0438312e68de11896ba568eeb6c53dc88be9f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_22/screening_results.jsonl",
+      "sha256": "147a348dcad2cb0a1c1abf42d46cde35d430f66c008f045faab95ffad7e430e0"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_23/screening_results.jsonl",
+      "sha256": "51503f2f8a6fdf9630234107ecd8f8c136145a2d11b699da6060cd275218ebeb"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_24/screening_results.jsonl",
+      "sha256": "ec7d876ad7048ca22ca8b169bb17963aea06b4fb368b194843e30f2944986f0c"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_25/screening_results.jsonl",
+      "sha256": "3280a226632822acf95edc1cdbf55afc877a18a7d06d2953eb9f55a47d6596de"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_26/screening_results.jsonl",
+      "sha256": "e7e2664998721620ec1dff35ff1bed8272e5d5a12371fb22ebe0c05db6f56134"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_27/screening_results.jsonl",
+      "sha256": "080793945e007c4e38d098fce84b2f238e05d5cb09f057c96037d0464df2585b"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_28/screening_results.jsonl",
+      "sha256": "909ce27fcfd9909be4c11dd4d5d4a330709c112501831ab25257eef6b66544b2"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_29/screening_results.jsonl",
+      "sha256": "5525e1295e58dbf6e9e862536c40a32faaadc0a7178a86c0507f8bb6fc05478a"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_30/screening_results.jsonl",
+      "sha256": "112121bdf76586d784d82f8dc8de5d3719a2069bd02813ca4be77d7d0f24ae50"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_31/screening_results.jsonl",
+      "sha256": "f9ce5cdec69ed7f8b0c53fa6925f3dd6306297d92895d7c883c17e692a47b512"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_32/screening_results.jsonl",
+      "sha256": "ca38807064348fb6f542ea82eda377111b726caf19887f02222caf786ffeea11"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_33/screening_results.jsonl",
+      "sha256": "77c5af2063925ce3fb2e340ac6e9a90b5bd4eca30b08df6c7386daad2ae8911d"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_34/screening_results.jsonl",
+      "sha256": "cd62bf91a7142780287e04382a3d650ab00fe698e243e998d215abb8bc31f7ba"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_35/screening_results.jsonl",
+      "sha256": "a0b3f0a8a560ee74467b446e6e3a424c56cef889b223d244978b1afd00c8e5ed"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_36/screening_results.jsonl",
+      "sha256": "5c5e3b3459ca97df1f45c1ea1734fe78029f43c1d3495a260f2e38bef498ea46"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_37/screening_results.jsonl",
+      "sha256": "ac39825e78893ae5783b5918826fd4d99c843303ff5ad753013dc6d7ebd3c1c2"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_38/screening_results.jsonl",
+      "sha256": "971359b909d83d02e8d80d9324cb42e1517ccd8607796afe7ab32acfaef3de6f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_39/screening_results.jsonl",
+      "sha256": "cc50b838e1201d6fe238144d0d962bd09c659bbdaf12ff28f1ad266ae48afb78"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_40/screening_results.jsonl",
+      "sha256": "0fd4c7fff24da9b05f6954bdd64aed398100503f546a535b4efb9b9def70854f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_41/screening_results.jsonl",
+      "sha256": "f977855d335cb46bf7ad2aa6863a0d78292e053130fe2a0b8a839348596ab2eb"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_42/screening_results.jsonl",
+      "sha256": "9b15d940aefe0ea7bfd77b5bc29c7abf757ddc82708d97e32dca1e802cec8ab6"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_43/screening_results.jsonl",
+      "sha256": "6a27802fc58de66e9afea0cc6a90f6e5f85302fd9b2b32561f74e6eb1fa94c98"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_44/screening_results.jsonl",
+      "sha256": "67685937a5671b0cf8c71a4c0d0767fa3d77526387d0d967a06ab0679889c1e6"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_45/screening_results.jsonl",
+      "sha256": "0e3ba83491d01f58599854236ba3e4e456f405f43aa28aebd80f18769572c82d"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_46/screening_results.jsonl",
+      "sha256": "3993f62ee0f20fd0c0bf1f85c0d92c1fbb724560c9730ae22d1985f8f4b98c30"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_47/screening_results.jsonl",
+      "sha256": "4c69f447a4d95d59e052a09860b7d9df6249170e32d916c64c8e273a69def4be"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_48/screening_results.jsonl",
+      "sha256": "5454348ad9aa03c896598346e790d7ceca50f0ed652ae2b9c6e0c4671e7472b7"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_49/screening_results.jsonl",
+      "sha256": "50ceb2775504a37212a031467b30fef9d4a616a42dc66aa559ef34902d7f8d4f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_50/screening_results.jsonl",
+      "sha256": "8119e010687456c02396f8718bee802322f88d68e08b6b7c91e4f05ed71bdce4"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_51/screening_results.jsonl",
+      "sha256": "15528f1867807099fec210f2fd7731cc776f70ca3862e73d1a3842890196b8fb"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_52/screening_results.jsonl",
+      "sha256": "f9f7eab48837e0ee181ba29f7820d5e7e399b520ef4bafad8a941a6656291129"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_53/screening_results.jsonl",
+      "sha256": "40ebec5ef7362736436fa4def048f56ba76a8f853e8c53fc996daa9d1e4fd82b"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_54/screening_results.jsonl",
+      "sha256": "72e7bb77a6f638b9817554edb7e9c450c265ebd4ee7adda17627879c615ccff5"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_55/screening_results.jsonl",
+      "sha256": "7c48e8473980b22b5292fcddfde9800942d878c04d1a9dd485e5d24ff73ce9dc"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_56/screening_results.jsonl",
+      "sha256": "4a80d9d4badcbe15a6c3a7623f4b6a8b48106d63f80a5f8bfa7964df6e83036d"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_57/screening_results.jsonl",
+      "sha256": "e19e6ad120969c5f219ac85ffb594fc9fd980ac210209f04358bbf2cca862289"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_58/screening_results.jsonl",
+      "sha256": "499022e0a045c67e461e5234897e25b85953d228b93fe25905d737d795c2bdb6"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_59/screening_results.jsonl",
+      "sha256": "d4ea15ed7df0d6480103a23fcf3b31308d5392b812fe38f135ea8fe1b560d21e"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_60/screening_results.jsonl",
+      "sha256": "1f9b941bd88829923e552278b35ff759fa133d80d518ff5cc28026b7aa8036b1"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_61/screening_results.jsonl",
+      "sha256": "99894c3a450b7ddc81b3ef9cf4e9655afbaca11ad80fdcdb3fbb79c55ff857a9"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_62/screening_results.jsonl",
+      "sha256": "8e1e3e44f0b058900f5979591bf4d29065665f2cdf57c5d673449411472ec4b8"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_63/screening_results.jsonl",
+      "sha256": "b266372b1e2a124ccefdbe626d280134d5aeb4e78fcabe593f8e4a25f000c372"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_64/screening_results.jsonl",
+      "sha256": "e5bbd3877e5149a8f497baa7697bdbc803f82c81f86edc32d073d3cb92b6118d"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_65/screening_results.jsonl",
+      "sha256": "e2c70f641fd455bff444741c349a3a83d4e4603eafddb38cbc93a483c634a240"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_66/screening_results.jsonl",
+      "sha256": "08f0c273229cbaeaaf622bf0d57744fe1c450f0a5741abcf26bea53762ea7faf"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_67/screening_results.jsonl",
+      "sha256": "5920c658bbb63706040c02e832bd5458b76fb10215ba4988aec78ebe5b3dc6e6"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_68/screening_results.jsonl",
+      "sha256": "2ebda273d3bd5a4d7124c2e5d5d349daca28beda3458a4f0b278868709725b80"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_69/screening_results.jsonl",
+      "sha256": "ee4b7e1a7860e45d7c189d66d0f98709106afaa22c270cc206396f89dad36eee"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_70/screening_results.jsonl",
+      "sha256": "19a85334b7657b6eab60d3a896dfd416cc519ddb52769d8af6be9d7165cc04ee"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_71/screening_results.jsonl",
+      "sha256": "5d0afa9ef62e820e9eba895fc9e02bb141011b823d332ba7d293c16b63900ad7"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_72/screening_results.jsonl",
+      "sha256": "c1075424cba95703e870bc5ff23534749787c083215a637c2eb9e58cf95e1742"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_73/screening_results.jsonl",
+      "sha256": "82d621c59173ff2d050f1e998137d71a87c9dcffd3635c3234deb87a2ba46833"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_74/screening_results.jsonl",
+      "sha256": "8bbe9b7ff2a6acc6932cee594c5dcb7ba29275f1a7902fc36064254330d83ec7"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_75/screening_results.jsonl",
+      "sha256": "e3921be8a3de94ba0bc171e61c260a24f28bb3d5e7dd3df3a0339a9922eaf0fc"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_76/screening_results.jsonl",
+      "sha256": "feb60d4bad470f7fb91497665621bc70ee0a2c00d7aae3dcc1630f4b7231cc30"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_77/screening_results.jsonl",
+      "sha256": "9e63610e02c21da449eb9efd104ec757395bd223307b167cc356bdbe4abeda11"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_78/screening_results.jsonl",
+      "sha256": "5f42541123ac8e42ac4c4c8f36251e5bb73ffb01780aa270d3ecc4eca9d9177f"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_79/screening_results.jsonl",
+      "sha256": "77f0efcfb4e178522de398b4fed37f111da2e187bfee4eb2e4fef3ef04ec956d"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_80/screening_results.jsonl",
+      "sha256": "6d7800ed4bce9cbe79026029b2668af221c050bd89421ea7e4e908d41f8f8cee"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_81/screening_results.jsonl",
+      "sha256": "03fc54c3ec2ac2230f9caa6d76d1fd25f6a435d63faf48a53c2c5edd76b93d52"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_82/screening_results.jsonl",
+      "sha256": "4dd026df104996eda7fb6f704dd2d000b94e6f83dae75aaa35aae4b04c0ec0ff"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_83/screening_results.jsonl",
+      "sha256": "99c93e57bee638a59a325ee2e8cb36d3b5c23773e48f0fe7b0fca6e6e473d19a"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_84/screening_results.jsonl",
+      "sha256": "dadc8e620c0d1a8f8bfe2a3ba96a6ec55fc1dc08f491fa544cf33d4b05048fe9"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_85/screening_results.jsonl",
+      "sha256": "83fffb5a28822e1258b7a474c5ecb9766ec65c03831243fd092a436f72ed6773"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_86/screening_results.jsonl",
+      "sha256": "ca599932f6aa5926e79e4fcfa52b70d853ce1ac35f0a9d32dad6e171a0e24b73"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_87/screening_results.jsonl",
+      "sha256": "fb59828757007c51c723716c8f6bcb3b9cd91dfff452a6915598413d68f73602"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_88/screening_results.jsonl",
+      "sha256": "3805f55ad9963a2ed063448bb8bd869575e85a603ff11c99ed6e34bfbafbdb8e"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_89/screening_results.jsonl",
+      "sha256": "2a4ce071eac86bf627edfcf495b4c296c4b4664bf23e973f185c6d92d48834c4"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_90/screening_results.jsonl",
+      "sha256": "b9614d6383e201c0760cbff038afab528e22dc1a5a205cecca14165eb5eb7a6a"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_91/screening_results.jsonl",
+      "sha256": "4cc184d21f45ab0a34a63ab5d3d100eb48ca2a3782324d8e1b45d39ee39f17fc"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_92/screening_results.jsonl",
+      "sha256": "b08b6e25876f54c6ccc5ce03c693b91bf9e8f49c5dfe75714c00669365490fdd"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_93/screening_results.jsonl",
+      "sha256": "bdccb8639ca10a9ab9e3ffd33b0332969e07a3fc61637706e37744a0da9e79ba"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_94/screening_results.jsonl",
+      "sha256": "3a407683ae1bc54cecf92c8f150debc41a9fbccd4bc0387f35d49d881b96a4d2"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_95/screening_results.jsonl",
+      "sha256": "987acf09913354f63ad3825e498d48ecc5b63a30bb620fa5666fb5f2b73816e2"
+    },
+    {
+      "path": "data/screening/v1.1.2_full_corpus_96shards/runs/shard_96/screening_results.jsonl",
+      "sha256": "b5239cfa798e3f50b8cf2f66f9566616ddd50f95f76de6832896fe50267bc9ae"
+    }
+  ],
+  "primary_result_records": 5022,
+  "primary_screening_input": {
+    "path": "data/screening/v1.1.2_full_corpus/input.csv",
+    "records": 5022,
+    "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2"
+  },
+  "prior_maximum_chars": 5000,
+  "records_still_over_new_maximum": 97,
+  "records_within_new_maximum": 300,
+  "screening_input": {
+    "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/input.csv",
+    "records": 397,
+    "sha256": "1abf6942e4c34ad573c50e1a5578744916298b69b21acd12be08d4ad264a5f04"
+  },
+  "shards": [
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_01.csv",
+      "records": 9,
+      "sha256": "598bd8db3cab63f0c033eee6aa661a1227da0aff98f68be7313e9958b9083c0e"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_02.csv",
+      "records": 9,
+      "sha256": "b6ad66f9ff25902f11452b7c17bb5904133ac8649c6b1a9646c6191ed1444c55"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_03.csv",
+      "records": 9,
+      "sha256": "12ba004d621fe839480d4f584e23687cb1309d161945cf2cff8076de0ec8508c"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_04.csv",
+      "records": 9,
+      "sha256": "52dde63321c6507e701c50d3b7ccbd878cdad11a3012d2854321faaf522c970f"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_05.csv",
+      "records": 9,
+      "sha256": "16e44b6385b3b70f20d021fe90bc7b840704e9da737c095924678b1283012638"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_06.csv",
+      "records": 9,
+      "sha256": "1fc33864f889f2bfb74f898a6444df6f743b09c81f69bd6615ec53085393a9d5"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_07.csv",
+      "records": 9,
+      "sha256": "d1bc4b3c9f21af0ad6571c0df99634987538d87aecb936923c5970efe89ffe92"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_08.csv",
+      "records": 9,
+      "sha256": "6055879d38d756b1ea4acc149ac684673599ead8cefc608cd04f00c5356ce935"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_09.csv",
+      "records": 9,
+      "sha256": "76ca8b1d18823837dc647dd9bb23b720a91a528706cbda337076fe0e96172429"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_10.csv",
+      "records": 9,
+      "sha256": "dbd321199614679b2bfc8b9f07de6a2406ac5812af1d43194f7be7453dfe21ca"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_11.csv",
+      "records": 9,
+      "sha256": "c2e36991beb99c3d8a59009f92bf5c5ab5223de84e4acd9a7cd20ba49d663ba6"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_12.csv",
+      "records": 9,
+      "sha256": "b7139efcfe857fe8f3b57f8c3e1e3b37720d3564e59a82a30c66742b3f7c185c"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_13.csv",
+      "records": 9,
+      "sha256": "90edeb7b05814e025ca764bda980dc3bc8e90978d46d34981f0d592666ecf04e"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_14.csv",
+      "records": 8,
+      "sha256": "53e5c7cddc8f0fc91b4b1c4438ff3bedc7dab580f27414f2648b3b3abc6ec007"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_15.csv",
+      "records": 8,
+      "sha256": "38f9f480eff50b939396fea2e6fc04e47873233fda154d6c9440062e5170e55e"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_16.csv",
+      "records": 8,
+      "sha256": "6317aa6a88eb5963cec6cad3bfd39c5fa9ba9fae57c0d8ae7faafd96f3c1ef66"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_17.csv",
+      "records": 8,
+      "sha256": "3a0a0c171d3d419bf51d006a1818e88463071f13e967cbe45b72adbba57af453"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_18.csv",
+      "records": 8,
+      "sha256": "bcd1cf1a8ef239bedb49294f9074bb0007774e45f043dcbbbd120b6d21bfbb29"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_19.csv",
+      "records": 8,
+      "sha256": "fcb1c5a367b1a56afe777e826502e4d50fb108a734aa09a57dd9634ae5012d3c"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_20.csv",
+      "records": 8,
+      "sha256": "813b9ba760f08af95d9261d52b7ce8c6923e80eaddc0239192f5890f1c6e8103"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_21.csv",
+      "records": 8,
+      "sha256": "8443c44a08a4a2733f12f436a348c8ce8daa54ccf6c692c52aa46fbe81ab429b"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_22.csv",
+      "records": 8,
+      "sha256": "a72c5dbe987b5a6dc109bd3370db5f54020ebff6214a6412572c0e4135428a47"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_23.csv",
+      "records": 8,
+      "sha256": "38ef23da883e669f6c3f7c48b25b54b6b98afbda0ea73a0777d67897bbf5bb81"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_24.csv",
+      "records": 8,
+      "sha256": "c854c81a4570a0c57987513685c706765a7cba01a156be3a9d555cb286581a62"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_25.csv",
+      "records": 8,
+      "sha256": "10fcc85bb285468c2d4d13794f8d9a6b64ec2b90c8916d3cbfe39bb5030f5e61"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_26.csv",
+      "records": 8,
+      "sha256": "1f23c38307e7d1f1289d0cb7bf01b0afd3d35c7d3b10575993f2b0ccad0302dd"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_27.csv",
+      "records": 8,
+      "sha256": "663444144620aa60559a13a65fa82b42838422777853078d3951b37395e007ee"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_28.csv",
+      "records": 8,
+      "sha256": "12aa10c853565fbab29104d905cacb343264e83e02636906107b748bd8dc767a"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_29.csv",
+      "records": 8,
+      "sha256": "9664cfea18755c1597eeb890e92f1f6d1b942771c7e06598b103824814f77c33"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_30.csv",
+      "records": 8,
+      "sha256": "5c4945d4b4b04e6bd2dd06710c2a3b2af07890f4d73c9458e449a9ed1c9044b5"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_31.csv",
+      "records": 8,
+      "sha256": "0900b8ae58a113d3311472f1e562ea6cca2db1ffff597215ac1ddb2bb6db9a99"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_32.csv",
+      "records": 8,
+      "sha256": "175c4b90bf0969cacc5f5f6be1265b27bcb756b6064443d8276f0589a1629f15"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_33.csv",
+      "records": 8,
+      "sha256": "a5e24615514b99d0cd4778a2eff3e896758cf0a593d335ea23e901c63f04eccf"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_34.csv",
+      "records": 8,
+      "sha256": "4e19cc4bbb4a1c4980f62a2e56ca62534b1c5e5947f2a2f808327b565d4bd3d2"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_35.csv",
+      "records": 8,
+      "sha256": "59f5f6bfc826d54dd478e998b2c227c78c87538a994b61cd43e6f65912d6ddf0"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_36.csv",
+      "records": 8,
+      "sha256": "808cc7c588549d9d0e64b73973f0ea23b33c8cadad614d622326ff6c6759501e"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_37.csv",
+      "records": 8,
+      "sha256": "4f50ba184afb90bf728c6ca7f8b18651a1804bb0efb3ce47b16aea40151c0680"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_38.csv",
+      "records": 8,
+      "sha256": "a4898ceb994e9097646bd139e1ab0377c0ecf62d5756bfc797bb36a42687e3b2"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_39.csv",
+      "records": 8,
+      "sha256": "be679d09af29d14f56a25d5b96cc0c35f987079a15b6cce86264b45aef6d61c8"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_40.csv",
+      "records": 8,
+      "sha256": "02423f39efd6f5aec4cc5495420d388a32aaa1b3c68f337f4ffaa33bedc5b8f1"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_41.csv",
+      "records": 8,
+      "sha256": "649ca8f1c6c344e91b6175e3ae1d245fbc26ac0d93d8e1f1d15836692ca9f8a5"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_42.csv",
+      "records": 8,
+      "sha256": "c7289dc9de810aff17311465f29b00a80849e6df57208898501155329f3aef35"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_43.csv",
+      "records": 8,
+      "sha256": "cea8761e1bcdd02607033b1434e6e3137db20cbf7431d2d5bb1a67976cdce157"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_44.csv",
+      "records": 8,
+      "sha256": "cb72421259adfcac695ddceefdff6b07c63b5e0331ab2f6e8ca359fc21c300fe"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_45.csv",
+      "records": 8,
+      "sha256": "a0eccde7462617cbf8f1c59807de280c893b212824cfffdbab41155b2aac8515"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_46.csv",
+      "records": 8,
+      "sha256": "1d4aae8ebe5beae0bc4b2c07a7a53aa2393128d09a97beac815b4f9fccce6542"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_47.csv",
+      "records": 8,
+      "sha256": "1cce62195e43703588460fb9be863a407e2bc54d5b218120e8faf1b81aef25c1"
+    },
+    {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/shards/shard_48.csv",
+      "records": 8,
+      "sha256": "c04a40656c2bf907655a4e6a5bdb350b73b8cd5c5d26f0234642bbc00d55d30c"
+    }
+  ],
+  "status": "frozen_oversized_abstract_rerun"
+}
