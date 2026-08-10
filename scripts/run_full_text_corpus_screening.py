@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from causal_multiomics_aging_review.audit import git_revision
+from causal_multiomics_aging_review.audit import git_revision, git_worktree_dirty
 from causal_multiomics_aging_review.config import REPO_ROOT
 
 
@@ -131,6 +131,28 @@ def main() -> int:
         "run_classification": "full_corpus_evaluation_pending_expert_gold",
         "started_at": now(),
         "git_revision": git_revision(REPO_ROOT),
+        "git_worktree_dirty": git_worktree_dirty(REPO_ROOT),
+        "execution_code": {
+            "scripts/run_full_text_corpus_screening.py": {
+                "sha256": sha256(Path(__file__))
+            },
+            "scripts/run_screening.py": {
+                "sha256": sha256(REPO_ROOT / "scripts" / "run_screening.py")
+            },
+            "src/causal_multiomics_aging_review/screening.py": {
+                "sha256": sha256(
+                    REPO_ROOT
+                    / "src"
+                    / "causal_multiomics_aging_review"
+                    / "screening.py"
+                )
+            },
+            "src/causal_multiomics_aging_review/v1.py": {
+                "sha256": sha256(
+                    REPO_ROOT / "src" / "causal_multiomics_aging_review" / "v1.py"
+                )
+            },
+        },
         "input_manifest": str(input_manifest_path.relative_to(REPO_ROOT)),
         "input_manifest_sha256": sha256(input_manifest_path),
         "records": int(manifest["records"]),

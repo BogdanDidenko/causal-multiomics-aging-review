@@ -6,6 +6,7 @@ from causal_multiomics_aging_review.screening import (
     _title_role_consensus,
     run_stage_screening,
 )
+from causal_multiomics_aging_review.v1 import repair_mixed_full_text_evidence_spans
 
 
 class QueueProvider:
@@ -148,6 +149,29 @@ def test_logical_any_signal_truth_table() -> None:
     assert _logical_any_signal(["no", "no"]) == "no"
     assert _logical_any_signal(["no", "unclear"]) == "unclear"
     assert _logical_any_signal(["unclear", "yes"]) == "yes"
+
+
+def test_docling_markdown_quote_repair_returns_exact_source_span() -> None:
+    answer = {
+        "evidence_spans": [
+            {
+                "criterion": "causal_basis",
+                "source": "chunk:0001",
+                "quote": "skn-1-knockdown C. elegans",
+            }
+        ]
+    }
+    source = "We profiled *skn-1*\n-knockdown\n*C. elegans.* animals."
+    repairs = repair_mixed_full_text_evidence_spans(
+        answer,
+        {"title": "", "abstract": ""},
+        [{"section_id": "chunk:0001", "text": source}],
+    )
+
+    repaired = answer["evidence_spans"][0]["quote"]
+    assert repaired == "skn-1*\n-knockdown\n*C. elegans"
+    assert repaired in source
+    assert repairs[0]["source"] == "chunk:0001"
 
 
 def test_title_role_consensus_uses_field_majorities_and_preserves_votes() -> None:
@@ -338,6 +362,44 @@ def causal_full_text_answer() -> dict[str, object]:
     }
 
 
+def shared_template_scope_answer() -> dict[str, object]:
+    return {
+        "report_type": "empirical_primary",
+        "bio_health_scope": "yes",
+        "aging_process_relevance": "yes",
+        "multiomics_evidence": "two_or_more_layers",
+        "layer_candidates": ["genomics", "transcriptomics"],
+        "current_report_layer_use": "yes",
+        "evidence_spans": [
+            {
+                "criterion": "multiomics_evidence",
+                "source": "chunk:0001",
+                "quote": "GWAS and eQTL data",
+            }
+        ],
+        "uncertainty_reason": "",
+        "concise_rationale": "The empirical aging report integrates two omics layers.",
+    }
+
+
+def shared_template_causal_answer() -> dict[str, object]:
+    return {
+        "current_report_application": "yes",
+        "causal_basis": "named_causal_effect_design",
+        "design_families": ["genetic_instrument"],
+        "causal_information_sufficiency": "sufficient",
+        "evidence_spans": [
+            {
+                "criterion": "causal_basis",
+                "source": "chunk:0002",
+                "quote": "two-sample Mendelian randomization",
+            }
+        ],
+        "uncertainty_reason": "",
+        "concise_rationale": "The report applies a named genetic-instrument design.",
+    }
+
+
 def test_title_stage_retries_invalid_response_and_resumes(tmp_path) -> None:
     input_path = tmp_path / "records.csv"
     input_path.write_text(
@@ -409,6 +471,220 @@ def test_full_text_stage_derives_level_four_and_ledger_fields(tmp_path) -> None:
     assert result["causal_evidence_level"] == 4
     assert result["final_study_label"] == "causal_evidence"
     assert result["ledger_fields"]["identification_source"] == "genetic_instrument"
+
+
+def test_shared_template_full_text_requires_five_run_exact_agreement(tmp_path) -> None:
+    input_path = tmp_path / "fulltext.jsonl"
+    record = {
+        "record_id": "r1",
+        "title": "Multi-omics MR study of longevity",
+        "abstract": "An empirical aging analysis.",
+        "year": 2024,
+        "source": "PubMed",
+        "sections": [
+            {
+                "section_id": "chunk:0001",
+                "heading": "Methods",
+                "text": "GWAS and eQTL data were integrated for longevity.",
+            },
+            {
+                "section_id": "chunk:0002",
+                "heading": "Analysis",
+                "text": "We applied two-sample Mendelian randomization.",
+            },
+        ],
+    }
+    input_path.write_text(json.dumps(record) + "\n", encoding="utf-8")
+    provider = QueueProvider(
+        {
+            "scope_reviewer": [shared_template_scope_answer() for _ in range(5)],
+            "causal_method_reviewer": [
+                shared_template_causal_answer() for _ in range(5)
+            ],
+        }
+    )
+    output = tmp_path / "run"
+    counts = run_stage_screening(
+        input_path,
+        output,
+        provider,
+        stage="full_text",
+        suite_config_path=(
+            "protocol/screening/configs/prompt_suite_v1.5.0-rc1.json"
+        ),
+    )
+    result = json.loads((output / "screening_results.jsonl").read_text())
+
+    assert counts == {"assessed": 1}
+    assert result["final_study_label"] == "eligible_for_causal_evidence_extraction"
+    assert provider.calls == ["scope_reviewer"] * 5 + ["causal_method_reviewer"] * 5
+
+
+def test_shared_template_full_text_does_not_block_on_nonrouting_scope_detail(
+    tmp_path,
+) -> None:
+    input_path = tmp_path / "fulltext.jsonl"
+    record = {
+        "record_id": "r1",
+        "title": "Multi-omics MR study of longevity",
+        "abstract": "An empirical aging analysis.",
+        "year": 2024,
+        "source": "PubMed",
+        "sections": [
+            {
+                "section_id": "chunk:0001",
+                "heading": "Methods",
+                "text": "GWAS and eQTL data were integrated for longevity.",
+            },
+            {
+                "section_id": "chunk:0002",
+                "heading": "Analysis",
+                "text": "We applied two-sample Mendelian randomization.",
+            },
+        ],
+    }
+    input_path.write_text(json.dumps(record) + "\n", encoding="utf-8")
+    unstable = shared_template_scope_answer()
+    unstable["multiomics_evidence"] = "explicit_multiomics"
+    provider = QueueProvider(
+        {
+            "scope_reviewer": [
+                shared_template_scope_answer(),
+                shared_template_scope_answer(),
+                unstable,
+                shared_template_scope_answer(),
+                shared_template_scope_answer(),
+                ],
+            "causal_method_reviewer": [
+                shared_template_causal_answer() for _ in range(5)
+            ],
+        }
+    )
+    output = tmp_path / "run"
+    counts = run_stage_screening(
+        input_path,
+        output,
+        provider,
+        stage="full_text",
+        suite_config_path=(
+            "protocol/screening/configs/prompt_suite_v1.5.0-rc1.json"
+        ),
+    )
+    result = json.loads((output / "screening_results.jsonl").read_text())
+
+    assert counts == {"assessed": 1}
+    assert result["role_agreement"]["scope_reviewer"]["multiomics_evidence"][
+        "unanimous"
+    ] is False
+    assert provider.calls == ["scope_reviewer"] * 5 + ["causal_method_reviewer"] * 5
+
+
+def test_shared_template_full_text_does_not_block_on_design_family_detail(
+    tmp_path,
+) -> None:
+    input_path = tmp_path / "fulltext.jsonl"
+    record = {
+        "record_id": "r1",
+        "title": "Randomized perturbation study",
+        "abstract": "An empirical multi-omics aging analysis.",
+        "year": 2024,
+        "source": "PubMed",
+        "sections": [
+            {
+                "section_id": "chunk:0001",
+                "heading": "Methods",
+                "text": "GWAS and eQTL data were integrated for longevity.",
+            },
+            {
+                "section_id": "chunk:0002",
+                "heading": "Analysis",
+                "text": "We applied two-sample Mendelian randomization.",
+            },
+        ],
+    }
+    input_path.write_text(json.dumps(record) + "\n", encoding="utf-8")
+    direct = shared_template_causal_answer()
+    direct["design_families"] = ["direct_perturbation"]
+    provider = QueueProvider(
+        {
+            "scope_reviewer": [shared_template_scope_answer() for _ in range(5)],
+            "causal_method_reviewer": [
+                shared_template_causal_answer(),
+                direct,
+                shared_template_causal_answer(),
+                direct,
+                shared_template_causal_answer(),
+            ],
+        }
+    )
+    output = tmp_path / "run"
+    counts = run_stage_screening(
+        input_path,
+        output,
+        provider,
+        stage="full_text",
+        suite_config_path=(
+            "protocol/screening/configs/prompt_suite_v1.5.0-rc1.json"
+        ),
+    )
+    result = json.loads((output / "screening_results.jsonl").read_text())
+
+    assert counts == {"assessed": 1}
+    assert result["role_agreement"]["causal_method_reviewer"]["design_families"][
+        "unanimous"
+    ] is False
+    assert result["selected_criteria"]["design_families"] == "unclear"
+
+
+def test_shared_template_full_text_exclusion_depends_on_same_scope_path(
+    tmp_path,
+) -> None:
+    input_path = tmp_path / "fulltext.jsonl"
+    record = {
+        "record_id": "r1",
+        "title": "Single-omics aging study",
+        "abstract": "An empirical aging analysis.",
+        "year": 2024,
+        "source": "PubMed",
+        "sections": [
+            {
+                "section_id": "chunk:0001",
+                "heading": "Methods",
+                "text": "Transcriptomic data were analyzed for longevity.",
+            }
+        ],
+    }
+    input_path.write_text(json.dumps(record) + "\n", encoding="utf-8")
+    exclusions = []
+    for layer_candidates in (["transcriptomics"], [], ["transcriptomics"], [], []):
+        answer = shared_template_scope_answer()
+        answer["multiomics_evidence"] = "single_or_no_layer"
+        answer["layer_candidates"] = layer_candidates
+        answer["current_report_layer_use"] = "yes" if layer_candidates else "no"
+        answer["evidence_spans"] = [
+            {
+                "criterion": "multiomics_evidence",
+                "source": "chunk:0001",
+                "quote": "Transcriptomic data",
+            }
+        ]
+        exclusions.append(answer)
+    provider = QueueProvider({"scope_reviewer": exclusions})
+    output = tmp_path / "run"
+    counts = run_stage_screening(
+        input_path,
+        output,
+        provider,
+        stage="full_text",
+        suite_config_path=(
+            "protocol/screening/configs/prompt_suite_v1.5.0-rc1.json"
+        ),
+    )
+    result = json.loads((output / "screening_results.jsonl").read_text())
+
+    assert counts == {"exclude": 1}
+    assert result["final_exclusion_code"] == "EC4"
+    assert provider.calls == ["scope_reviewer"] * 5
 
 
 def test_missing_abstract_routes_to_manual_review_without_model_call(tmp_path) -> None:

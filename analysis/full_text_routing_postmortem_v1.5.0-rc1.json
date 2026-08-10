@@ -1,0 +1,112 @@
+{
+  "corrected_route_replay_counts": {
+    "assessed": 80,
+    "manual_review": 17
+  },
+  "interpretation": "Route replay reuses stored model outputs and changes no model judgment. Records missing causal calls remain unresolved and require a separately versioned recovery run.",
+  "missing_causal_record_ids": [
+    "doi:10.1002/advs.202502249",
+    "doi:10.1007/s10753-026-02526-2",
+    "doi:10.1016/j.jnutbio.2023.109498",
+    "doi:10.1016/j.mcpro.2024.100882",
+    "doi:10.1038/s41438-020-00420-y",
+    "doi:10.1038/s41467-025-61433-6",
+    "doi:10.1038/s41586-025-09873-4",
+    "doi:10.1093/geroni/igac059.2661",
+    "doi:10.1093/geroni/igaf122.3850",
+    "doi:10.1111/acel.70064",
+    "doi:10.1111/acel.70103",
+    "doi:10.21203/rs.3.rs-1264931/v1",
+    "doi:10.26508/lsa.202201492",
+    "doi:10.64898/2026.07.09.736798"
+  ],
+  "original_decision_counts": {
+    "assessed": 69,
+    "manual_review": 28
+  },
+  "records": 97,
+  "records_changed_by_route_replay": 11,
+  "records_missing_causal_calls_after_five_scope_passes": 14,
+  "repeat_count": 5,
+  "route_changes": [
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1002/advs.202514269",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1002/imt2.70150",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1016/j.jare.2026.07.047",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1016/j.jhazmat.2026.142949",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1016/j.jot.2025.05.010",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1016/j.phymed.2025.156697",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1038/s41392-026-02799-x",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1111/acel.70498",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1111/acel.70564",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.1186/s13287-023-03415-3",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    },
+    {
+      "original_decision": "manual_review",
+      "original_reason": "full_text_causal_disagreement_or_unresolved",
+      "record_id": "doi:10.3389/fnmol.2026.1834102",
+      "replayed_decision": "assessed",
+      "replayed_reason": "five_of_five_same_positive_full_text_causal_basis"
+    }
+  ],
+  "source_run": "data/full_text_screening/v1.0.0_graph_chunks_97/evaluation_v1.5.0-rc1_shared_templates",
+  "status": "rejected_routing_implementation_audit"
+}

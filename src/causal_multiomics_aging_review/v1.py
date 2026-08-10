@@ -117,6 +117,69 @@ def validate_full_text_evidence_spans(
             )
 
 
+def validate_mixed_full_text_evidence_spans(
+    answer: dict[str, Any],
+    record: dict[str, Any],
+    sections: list[dict[str, Any]],
+) -> None:
+    evidence_text = {
+        "title": str(record.get("title", "")),
+        "abstract": str(record.get("abstract", "")),
+        **{
+            str(section["section_id"]): str(section.get("text", ""))
+            for section in sections
+        },
+    }
+    for item in answer.get("evidence_spans", []):
+        source = item.get("source")
+        quote = item.get("quote")
+        if source not in evidence_text or not isinstance(quote, str):
+            raise ValueError("Invalid mixed full-text evidence span")
+        if quote not in evidence_text[source]:
+            raise ValueError(
+                f"Evidence quote is not an exact substring of {source}: {quote!r}"
+            )
+
+
+def repair_mixed_full_text_evidence_spans(
+    answer: dict[str, Any],
+    record: dict[str, Any],
+    sections: list[dict[str, Any]],
+    minimum_words: int = 3,
+) -> list[dict[str, str]]:
+    evidence_text = {
+        "title": str(record.get("title", "")),
+        "abstract": str(record.get("abstract", "")),
+        **{
+            str(section["section_id"]): str(section.get("text", ""))
+            for section in sections
+        },
+    }
+    repairs: list[dict[str, str]] = []
+    for item in answer.get("evidence_spans", []):
+        source = item.get("source")
+        quote = item.get("quote")
+        text = evidence_text.get(str(source))
+        if not text or not isinstance(quote, str) or quote in text:
+            continue
+        replacement = _whitespace_exact_span(quote, text)
+        if replacement is None:
+            replacement = _docling_markdown_exact_span(quote, text)
+        if replacement is None:
+            replacement = _longest_exact_word_span(quote, text, minimum_words)
+        if replacement is None:
+            continue
+        item["quote"] = replacement
+        repairs.append(
+            {
+                "source": str(source),
+                "original_quote": quote,
+                "repaired_quote": replacement,
+            }
+        )
+    return repairs
+
+
 def repair_full_text_evidence_spans(
     answer: dict[str, Any], sections: list[dict[str, Any]], minimum_words: int = 3
 ) -> list[dict[str, str]]:
@@ -153,6 +216,40 @@ def _whitespace_exact_span(quote: str, text: str) -> str | None:
         return None
     match = re.search(r"\s+".join(re.escape(part) for part in parts), text)
     return match.group(0) if match else None
+
+
+def _docling_markdown_exact_span(quote: str, text: str) -> str | None:
+    """Map a quote through harmless Docling inline-markup and line-wrap changes."""
+
+    def normalized_with_positions(value: str) -> tuple[str, list[int]]:
+        emitted: list[str] = []
+        positions: list[int] = []
+        pending_space_at: int | None = None
+        for index, character in enumerate(value):
+            if character in {"*", "_", "\u00ad"}:
+                continue
+            if character.isspace():
+                if emitted and pending_space_at is None:
+                    pending_space_at = index
+                continue
+            if pending_space_at is not None:
+                if character not in {"-", ".", ",", ";", ":", ")", "]", "}"}:
+                    emitted.append(" ")
+                    positions.append(pending_space_at)
+                pending_space_at = None
+            emitted.append(character)
+            positions.append(index)
+        return "".join(emitted), positions
+
+    normalized_quote, _ = normalized_with_positions(quote.strip())
+    normalized_text, positions = normalized_with_positions(text)
+    if not normalized_quote:
+        return None
+    start = normalized_text.find(normalized_quote)
+    if start < 0:
+        return None
+    end = start + len(normalized_quote) - 1
+    return text[positions[start] : positions[end] + 1]
 
 
 def _longest_exact_word_span(quote: str, text: str, minimum_words: int) -> str | None:
@@ -280,6 +377,75 @@ def derive_title_result(
         "final_decision": decision,
         "final_exclusion_code": exclusion_code,
         "decision_reason": reason,
+    }
+
+
+def derive_full_text_eligibility_route(
+    scope_runs: list[dict[str, Any]],
+    causal_runs: list[dict[str, Any]],
+    repeat_count: int = 5,
+) -> dict[str, str | None]:
+    """Apply the title-stage status contract to a terminal full-text route."""
+    scope_paths = [scope_status(answer) for answer in scope_runs]
+    causal_paths = [causal_status(answer) for answer in causal_runs]
+    same_scope_exclusion = (
+        len(scope_paths) == repeat_count
+        and len(set(scope_paths)) == 1
+        and scope_paths[0][0] == "exclude"
+    )
+    same_causal_exclusion = (
+        len(causal_paths) == repeat_count
+        and len(set(causal_paths)) == 1
+        and causal_paths[0] == ("exclude", "EC5")
+    )
+    same_causal_retention = (
+        len(causal_paths) == repeat_count
+        and len(set(causal_paths)) == 1
+        and causal_paths[0][0] == "retain"
+    )
+
+    if same_scope_exclusion:
+        return {
+            "final_decision": "exclude",
+            "final_exclusion_code": scope_paths[0][1],
+            "decision_reason": "five_of_five_same_full_text_scope_exclusion",
+            "final_study_label": "excluded",
+            "manual_review_reason": None,
+        }
+    if len(scope_paths) != repeat_count or any(
+        path[0] != "pass" for path in scope_paths
+    ):
+        reason = "full_text_scope_route_disagreement_or_unresolved"
+        return {
+            "final_decision": "manual_review",
+            "final_exclusion_code": "none",
+            "decision_reason": reason,
+            "final_study_label": "pending",
+            "manual_review_reason": reason,
+        }
+    if same_causal_exclusion:
+        return {
+            "final_decision": "exclude",
+            "final_exclusion_code": "EC5",
+            "decision_reason": "five_of_five_same_sufficient_full_text_causal_exclusion",
+            "final_study_label": "excluded",
+            "manual_review_reason": None,
+        }
+    if same_causal_retention:
+        return {
+            "final_decision": "assessed",
+            "final_exclusion_code": "none",
+            "decision_reason": "five_of_five_same_positive_full_text_causal_basis",
+            "final_study_label": "eligible_for_causal_evidence_extraction",
+            "manual_review_reason": None,
+        }
+    reason = "full_text_causal_route_disagreement_or_unresolved"
+    return {
+        "final_decision": "manual_review",
+        "final_exclusion_code": "none",
+        "decision_reason": reason,
+        "final_study_label": "pending",
+        "manual_review_reason": reason,
     }
 
 

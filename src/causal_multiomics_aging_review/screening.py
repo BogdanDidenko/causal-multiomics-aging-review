@@ -7,7 +7,13 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
-from .audit import git_revision, sha256_file, write_manifest
+from .audit import (
+    git_revision,
+    git_worktree_dirty,
+    sha256_bytes,
+    sha256_file,
+    write_manifest,
+)
 from .config import (
     DEFAULT_SUITE_CONFIG,
     REPO_ROOT,
@@ -27,6 +33,7 @@ from .grading import (
 )
 from .llm import OpenAICompatibleProvider, ProviderError
 from .metadata_quality import title_abstract_metadata_issue
+from .prompt_templates import load_evidence_profile, render_evidence_template
 from .schema import SchemaError, validate_object
 from .v1 import (
     CAUSAL_DECISION_FIELDS,
@@ -35,12 +42,16 @@ from .v1 import (
     SCOPE_DECISION_FIELDS,
     agreement_audit,
     decisive_fields_unanimous,
+    derive_full_text_eligibility_route,
     derive_title_result,
     package_full_text_sections,
     repair_full_text_evidence_spans,
+    repair_mixed_full_text_evidence_spans,
     scope_status,
+    unanimous_value,
     validate_causal_answer_consistency,
     validate_full_text_evidence_spans,
+    validate_mixed_full_text_evidence_spans,
     validate_scope_answer_consistency,
     validate_title_evidence_spans,
 )
@@ -217,6 +228,7 @@ def run_screening(
         output / "manifest.json",
         {
             "git_revision": git_revision(REPO_ROOT),
+            "git_worktree_dirty": git_worktree_dirty(REPO_ROOT),
             "input_path": audit_input_path(input_path),
             "input_sha256": sha256_file(input_path),
             "model": provider.model,
@@ -375,11 +387,13 @@ def run_stage_screening(
                             suite["runtime"]["max_retries"],
                         )
                 elif stage == "full_text":
-                    processor = (
-                        _process_full_text_v1
-                        if stage_config.get("architecture") == "v1_deterministic_sections_unanimous"
-                        else _process_full_text_record
-                    )
+                    architecture = stage_config.get("architecture")
+                    if architecture == "v1_shared_template_unanimous":
+                        processor = _process_full_text_shared_template_v1
+                    elif architecture == "v1_deterministic_sections_unanimous":
+                        processor = _process_full_text_v1
+                    else:
+                        processor = _process_full_text_record
                     result = processor(
                         record,
                         stage_config,
@@ -424,6 +438,7 @@ def run_stage_screening(
         output / "manifest.json",
         {
             "git_revision": git_revision(REPO_ROOT),
+            "git_worktree_dirty": git_worktree_dirty(REPO_ROOT),
             "suite_id": suite["suite_id"],
             "suite_version": suite["suite_version"],
             "stage": stage,
@@ -435,6 +450,7 @@ def run_stage_screening(
             "provider_url": provider.url,
             "runtime": _provider_runtime(provider),
             "artifacts": _manifest_artifacts(artifacts),
+            "execution_code": _execution_code_manifest(),
             "resume": resume,
             "record_ids": sorted(record_ids or []),
             "input_record_count": len(records),
@@ -1446,6 +1462,157 @@ def _normalize_title_scope_sequence(answer: dict[str, Any]) -> bool:
     return normalized != original
 
 
+def _process_full_text_shared_template_v1(
+    record: dict[str, Any],
+    stage_config: dict[str, Any],
+    artifacts: dict[str, dict[str, Any]],
+    provider: OpenAICompatibleProvider,
+    raw_results: Any,
+    max_retries: int,
+) -> dict[str, Any]:
+    sections = record.get("sections")
+    if not isinstance(sections, list) or not sections:
+        return _manual_review_result(record, "full_text", "missing_full_text_sections")
+    _validate_sections(sections)
+    selected_sections, selection = package_full_text_sections(
+        sections,
+        stage_config.get("deterministic_section_packaging", {}),
+    )
+    if selection["coverage_status"] != "sufficient":
+        return _manual_review_result(
+            record,
+            "full_text",
+            "insufficient_deterministic_full_text_package",
+            {"section_selection": selection},
+        )
+
+    selected_context = _format_sections(selected_sections)
+    repeat_count = int(stage_config.get("decision_repeats", 5))
+    identifier = record_id(record)
+    minimum_words = int(
+        stage_config.get("deterministic_evidence_grounding", {}).get(
+            "minimum_words", 3
+        )
+    )
+
+    def ground_and_validate(
+        answer: dict[str, Any],
+        consistency_validator: Callable[[dict[str, Any]], None],
+    ) -> dict[str, Any] | None:
+        repairs = repair_mixed_full_text_evidence_spans(
+            answer,
+            record,
+            selected_sections,
+            minimum_words=minimum_words,
+        )
+        validate_mixed_full_text_evidence_spans(answer, record, selected_sections)
+        consistency_validator(answer)
+        if "layer_candidates" in answer:
+            answer["layer_candidates"] = sorted(set(answer["layer_candidates"]))
+        return {"evidence_quote_repairs": repairs} if repairs else None
+
+    scope_prompt = render_prompt(
+        artifacts["scope_reviewer"]["prompt"],
+        record,
+        {"SELECTED_SECTIONS": selected_context},
+    )
+    scope_runs = [
+        _call_role(
+            provider,
+            "scope_reviewer",
+            scope_prompt,
+            artifacts["scope_reviewer"]["schema"],
+            identifier,
+            raw_results,
+            max_retries,
+            post_validate=lambda answer: ground_and_validate(
+                answer, validate_scope_answer_consistency
+            ),
+            phase="v1_shared_template_full_text_stability",
+            repeat_index=index,
+        )
+        for index in range(1, repeat_count + 1)
+    ]
+    scope_fields = (*SCOPE_DECISION_FIELDS, "layer_candidates")
+    scope_paths = [scope_status(answer) for answer in scope_runs]
+
+    causal_runs: list[dict[str, Any]] = []
+    if all(path[0] == "pass" for path in scope_paths):
+        causal_prompt = render_prompt(
+            artifacts["causal_method_reviewer"]["prompt"],
+            record,
+            {"SELECTED_SECTIONS": selected_context},
+        )
+        causal_runs = [
+            _call_role(
+                provider,
+                "causal_method_reviewer",
+                causal_prompt,
+                artifacts["causal_method_reviewer"]["schema"],
+                identifier,
+                raw_results,
+                max_retries,
+                post_validate=lambda answer: ground_and_validate(
+                    answer, validate_causal_answer_consistency
+                ),
+                phase="v1_shared_template_full_text_stability",
+                repeat_index=index,
+            )
+            for index in range(1, repeat_count + 1)
+        ]
+
+    route = derive_full_text_eligibility_route(
+        scope_runs,
+        causal_runs,
+        repeat_count=repeat_count,
+    )
+
+    selected = {
+        field: unanimous_value(scope_runs, field) for field in SCOPE_DECISION_FIELDS
+    }
+    selected["layer_candidates"] = sorted(
+        {
+            layer
+            for answer in scope_runs
+            for layer in answer.get("layer_candidates", [])
+            if isinstance(layer, str)
+        }
+    )
+    if causal_runs:
+        selected.update(
+            {
+                field: unanimous_value(causal_runs, field)
+                for field in CAUSAL_DECISION_FIELDS
+            }
+        )
+    selected["evidence_spans"] = _unique_evidence_spans(scope_runs + causal_runs)
+    return {
+        "record_id": identifier,
+        "stage": "full_text",
+        "title": record.get("title", ""),
+        "architecture": "v1_shared_template_unanimous",
+        "section_selection": selection,
+        "role_runs": {
+            "scope_reviewer": scope_runs,
+            "causal_method_reviewer": causal_runs,
+        },
+        "role_agreement": {
+            "scope_reviewer": agreement_audit(scope_runs, scope_fields),
+            "causal_method_reviewer": (
+                agreement_audit(causal_runs, CAUSAL_DECISION_FIELDS)
+                if causal_runs
+                else {}
+            ),
+        },
+        "selected_criteria": selected,
+        "final_study_label": route["final_study_label"],
+        "final_exclusion_code": route["final_exclusion_code"],
+        "final_decision": route["final_decision"],
+        "decision_reason": route["decision_reason"],
+        "manual_review_reason": route["manual_review_reason"],
+    }
+
+
 def _process_full_text_record(
     record: dict[str, Any],
     stage_config: dict[str, Any],
@@ -1831,28 +1998,88 @@ def _load_stage_artifacts(stage_config: dict[str, Any]) -> dict[str, dict[str, A
 
     artifacts: dict[str, dict[str, Any]] = {}
     for role, role_config in role_configs.items():
-        prompt_path = resolve_suite_artifact(role_config["prompt"])
         schema_path = resolve_suite_artifact(role_config["schema"])
-        artifacts[role] = {
-            "prompt_path": prompt_path,
+        artifact: dict[str, Any] = {
             "schema_path": schema_path,
-            "prompt": prompt_path.read_text(encoding="utf-8"),
             "schema": load_json(schema_path),
         }
+        if "template" in role_config:
+            template_path = resolve_suite_artifact(role_config["template"])
+            profile_path = resolve_suite_artifact(role_config["evidence_profile"])
+            template = template_path.read_text(encoding="utf-8")
+            profile = load_evidence_profile(profile_path)
+            artifact.update(
+                {
+                    "prompt_path": template_path,
+                    "prompt_template_path": template_path,
+                    "evidence_profile_path": profile_path,
+                    "evidence_profile_id": str(profile["profile_id"]),
+                    "prompt": render_evidence_template(
+                        template,
+                        profile,
+                        str(role_config.get("template_role", role)),
+                    ),
+                }
+            )
+        else:
+            prompt_path = resolve_suite_artifact(role_config["prompt"])
+            artifact.update(
+                {
+                    "prompt_path": prompt_path,
+                    "prompt": prompt_path.read_text(encoding="utf-8"),
+                }
+            )
+        artifacts[role] = artifact
     return artifacts
 
 
 def _manifest_artifacts(
     artifacts: dict[str, dict[str, Any]],
 ) -> dict[str, dict[str, str]]:
-    return {
-        role: {
+    manifest: dict[str, dict[str, str]] = {}
+    for role, artifact in artifacts.items():
+        row = {
             "prompt_path": str(artifact["prompt_path"].relative_to(REPO_ROOT)),
             "prompt_sha256": sha256_file(artifact["prompt_path"]),
+            "rendered_prompt_sha256": sha256_bytes(
+                artifact["prompt"].encode("utf-8")
+            ),
             "schema_path": str(artifact["schema_path"].relative_to(REPO_ROOT)),
             "schema_sha256": sha256_file(artifact["schema_path"]),
         }
-        for role, artifact in artifacts.items()
+        if "evidence_profile_path" in artifact:
+            row.update(
+                {
+                    "prompt_template_path": str(
+                        artifact["prompt_template_path"].relative_to(REPO_ROOT)
+                    ),
+                    "prompt_template_sha256": sha256_file(
+                        artifact["prompt_template_path"]
+                    ),
+                    "evidence_profile_path": str(
+                        artifact["evidence_profile_path"].relative_to(REPO_ROOT)
+                    ),
+                    "evidence_profile_sha256": sha256_file(
+                        artifact["evidence_profile_path"]
+                    ),
+                    "evidence_profile_id": artifact["evidence_profile_id"],
+                }
+            )
+        manifest[role] = row
+    return manifest
+
+
+def _execution_code_manifest() -> dict[str, dict[str, str]]:
+    paths = (
+        Path(__file__),
+        REPO_ROOT / "src" / "causal_multiomics_aging_review" / "v1.py",
+        REPO_ROOT / "src" / "causal_multiomics_aging_review" / "prompt_templates.py",
+        REPO_ROOT / "src" / "causal_multiomics_aging_review" / "llm.py",
+        REPO_ROOT / "scripts" / "run_screening.py",
+    )
+    return {
+        str(path.relative_to(REPO_ROOT)): {"sha256": sha256_file(path)}
+        for path in paths
     }
 
 

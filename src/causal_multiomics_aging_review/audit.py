@@ -28,6 +28,19 @@ def git_revision(repo: str | Path) -> str | None:
     return result.stdout.strip() or None
 
 
+def git_worktree_dirty(repo: str | Path) -> bool | None:
+    result = subprocess.run(
+        ["git", "status", "--porcelain"],
+        cwd=repo,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        return None
+    return bool(result.stdout.strip())
+
+
 def write_manifest(path: str | Path, payload: dict[str, Any]) -> None:
     document = {
         "created_at": datetime.now(timezone.utc).isoformat(),

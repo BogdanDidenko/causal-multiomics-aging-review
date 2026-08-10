@@ -1,0 +1,34 @@
+{
+  "profile_id": "title_abstract",
+  "description": "Frozen values that reproduce the prompts used for the completed title/abstract screening. Rendering either canonical template with this profile must be byte-identical to its v1.4.0-rc1 title/abstract prompt.",
+  "canonical_prompt_version": "1.4.0-rc1",
+  "allowed_runtime_placeholders": [
+    "RECORD_ID",
+    "SOURCE",
+    "YEAR",
+    "DOCUMENT_TYPE",
+    "TITLE",
+    "ABSTRACT"
+  ],
+  "values": {
+    "PROMPT_VERSION": "1.4.0-rc1",
+    "SCREENING_RECORD_KIND": "title/abstract screening record",
+    "ALLOWED_EVIDENCE_FIELDS": "title, abstract, year, source, and document type",
+    "EVIDENCE_UNIT": "abstract",
+    "INSUFFICIENT_EVIDENCE_DESCRIPTION": "thin/truncated abstract",
+    "MISSING_EVIDENCE_RULE": "A visible ellipsis normally makes unresolved fields `unclear`.",
+    "CAUSAL_EVIDENCE_SCOPE": "title and\nabstract",
+    "SCREENING_STAGE": "title/abstract screening",
+    "DESIGN_PROFILING_DEFERRAL": "Full design profiling is deferred to full text.",
+    "EVIDENCE_MODE_RULES": "",
+    "ADDITIONAL_EVIDENCE_BLOCK": ""
+  },
+  "role_values": {
+    "scope_reviewer": {
+      "PROMPT_ID": "causal_multiomics_aging.title_abstract.scope_reviewer"
+    },
+    "causal_method_reviewer": {
+      "PROMPT_ID": "causal_multiomics_aging.title_abstract.causal_method_reviewer"
+    }
+  }
+}

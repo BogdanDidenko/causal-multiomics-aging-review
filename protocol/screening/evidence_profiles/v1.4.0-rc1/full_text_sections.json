@@ -1,0 +1,35 @@
+{
+  "profile_id": "full_text_sections",
+  "description": "Values for applying the frozen title/abstract criterion contracts to title, abstract, and deterministically selected Docling sections. The frozen graph may prioritize and index chunks but is provenance, not scientific evidence.",
+  "canonical_prompt_version": "1.4.0-rc1",
+  "allowed_runtime_placeholders": [
+    "RECORD_ID",
+    "SOURCE",
+    "YEAR",
+    "DOCUMENT_TYPE",
+    "TITLE",
+    "ABSTRACT",
+    "SELECTED_SECTIONS"
+  ],
+  "values": {
+    "PROMPT_VERSION": "1.4.0-rc1",
+    "SCREENING_RECORD_KIND": "full-text screening record",
+    "ALLOWED_EVIDENCE_FIELDS": "title, abstract, year, source, document type, and deterministic Docling sections",
+    "EVIDENCE_UNIT": "full-text evidence package",
+    "INSUFFICIENT_EVIDENCE_DESCRIPTION": "missing or truncated full-text evidence package",
+    "MISSING_EVIDENCE_RULE": "A missing or visibly truncated section makes unresolved fields `unclear`.",
+    "CAUSAL_EVIDENCE_SCOPE": "title, abstract, and supplied full-text sections",
+    "SCREENING_STAGE": "full-text screening",
+    "DESIGN_PROFILING_DEFERRAL": "This routing anchor is not an exhaustive design inventory; detailed causal-evidence profiling follows eligibility screening.",
+    "EVIDENCE_MODE_RULES": "\n\nFULL-TEXT EVIDENCE CONTRACT\n\n- The supplied sections are deterministic Docling chunks with stable `section_id` values.\n- A frozen graph may prioritize or index chunks, but graph relations are retrieval provenance and are not scientific evidence.\n- For every evidence span drawn from full text, set `source` to the exact `section_id` containing the verbatim quote.\n- Prefer a more specific full-text statement when it clarifies the abstract. If supplied sections do not resolve a criterion, return `unclear`; absence from the selected package is not negative evidence.",
+    "ADDITIONAL_EVIDENCE_BLOCK": "\n<full_text_sections provenance=\"deterministic_docling_chunks\" graph_index=\"frozen\">\n{{SELECTED_SECTIONS}}\n</full_text_sections>"
+  },
+  "role_values": {
+    "scope_reviewer": {
+      "PROMPT_ID": "causal_multiomics_aging.full_text.scope_reviewer"
+    },
+    "causal_method_reviewer": {
+      "PROMPT_ID": "causal_multiomics_aging.full_text.causal_method_reviewer"
+    }
+  }
+}

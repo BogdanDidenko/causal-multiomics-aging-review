@@ -1,0 +1,59 @@
+{
+  "suite_version": "1.5.0-rc1",
+  "records": 97,
+  "unique_doi": 97,
+  "requests_per_evaluated_role": 5,
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "primary_run": {
+    "strict_positive": 69,
+    "strict_manual_review": 28,
+    "strict_exclusion": 0,
+    "five_request_route_exact": 94,
+    "all_evaluated_fields_exact": 69,
+    "model_attempt_log_rows": 916,
+    "failed_attempts_before_retry_or_manual_review": 36
+  },
+  "technical_grounding_retry": {
+    "reason": "Docling inline-markup and line-wrap quote anchoring",
+    "prompt_changed": false,
+    "records": [
+      "doi:10.1007/s11306-023-02022-w",
+      "doi:10.1016/j.celrep.2024.115099"
+    ],
+    "resolved_with_all_fields_exact": 2
+  },
+  "reconciled": {
+    "strict_positive": 71,
+    "strict_manual_review": 26,
+    "strict_exclusion": 0,
+    "five_request_route_exact": 96,
+    "five_request_route_exact_rate": 0.9896907216494846,
+    "five_request_route_exact_wilson_95_ci": [
+      0.943895009757101,
+      0.9981778351917131
+    ],
+    "all_tracked_fields_exact": 71,
+    "all_tracked_fields_exact_rate": 0.7319587628865979,
+    "all_tracked_fields_exact_wilson_95_ci": [
+      0.6362205885733584,
+      0.8100244432445008
+    ],
+    "route_unstable_records": [
+      "doi:10.1002/ccs3.70045"
+    ]
+  },
+  "field_exact_counts": {
+    "scope_reviewer.report_type": [97, 97],
+    "scope_reviewer.bio_health_scope": [97, 97],
+    "scope_reviewer.aging_process_relevance": [97, 97],
+    "scope_reviewer.current_report_layer_use": [97, 97],
+    "scope_reviewer.multiomics_evidence": [95, 97],
+    "scope_reviewer.layer_candidates": [84, 97],
+    "causal_method_reviewer.current_report_application": [82, 82],
+    "causal_method_reviewer.causal_basis": [82, 82],
+    "causal_method_reviewer.causal_information_sufficiency": [82, 82],
+    "causal_method_reviewer.design_families": [71, 82]
+  },
+  "interpretation": "Stability evaluation only; expert-gold validity and final PRISMA decisions remain pending."
+}

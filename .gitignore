@@ -41,6 +41,7 @@ data/full_text_screening/**/input.jsonl
 data/full_text_screening/**/shards/
 data/full_text_screening/**/runs/
 data/full_text_screening/**/logs/
+data/full_text_screening/**/raw_provider_responses.jsonl
 
 # OS and editors
 .DS_Store

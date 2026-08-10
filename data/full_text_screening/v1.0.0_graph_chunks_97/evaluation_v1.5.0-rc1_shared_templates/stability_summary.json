@@ -1,0 +1,123 @@
+{
+  "all_evaluated_fields_exact_rate": 0.711340206185567,
+  "all_evaluated_fields_exact_records": 69,
+  "all_evaluated_fields_exact_wilson_95_ci": [
+    0.6144813647096283,
+    0.7920974420577547
+  ],
+  "causal_all_fields_exact_records": 69,
+  "causal_evaluated_records": 80,
+  "criterion_agreement": {
+    "causal_method_reviewer.causal_basis": {
+      "evaluated_records": 80,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 80,
+      "wilson_95_ci": [
+        0.9541818704644728,
+        0.9999999999999999
+      ]
+    },
+    "causal_method_reviewer.causal_information_sufficiency": {
+      "evaluated_records": 80,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 80,
+      "wilson_95_ci": [
+        0.9541818704644728,
+        0.9999999999999999
+      ]
+    },
+    "causal_method_reviewer.current_report_application": {
+      "evaluated_records": 80,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 80,
+      "wilson_95_ci": [
+        0.9541818704644728,
+        0.9999999999999999
+      ]
+    },
+    "causal_method_reviewer.design_families": {
+      "evaluated_records": 80,
+      "unanimous_rate": 0.8625,
+      "unanimous_records": 69,
+      "wilson_95_ci": [
+        0.7703289993301339,
+        0.9214528567566089
+      ]
+    },
+    "scope_reviewer.aging_process_relevance": {
+      "evaluated_records": 95,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 95,
+      "wilson_95_ci": [
+        0.9611351464605271,
+        1.0
+      ]
+    },
+    "scope_reviewer.bio_health_scope": {
+      "evaluated_records": 95,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 95,
+      "wilson_95_ci": [
+        0.9611351464605271,
+        1.0
+      ]
+    },
+    "scope_reviewer.current_report_layer_use": {
+      "evaluated_records": 95,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 95,
+      "wilson_95_ci": [
+        0.9611351464605271,
+        1.0
+      ]
+    },
+    "scope_reviewer.layer_candidates": {
+      "evaluated_records": 95,
+      "unanimous_rate": 0.8631578947368421,
+      "unanimous_records": 82,
+      "wilson_95_ci": [
+        0.7798355682887077,
+        0.9182520644036751
+      ]
+    },
+    "scope_reviewer.multiomics_evidence": {
+      "evaluated_records": 95,
+      "unanimous_rate": 0.9789473684210527,
+      "unanimous_records": 93,
+      "wilson_95_ci": [
+        0.9264588050529105,
+        0.9942074931355945
+      ]
+    },
+    "scope_reviewer.report_type": {
+      "evaluated_records": 95,
+      "unanimous_rate": 1.0,
+      "unanimous_records": 95,
+      "wilson_95_ci": [
+        0.9611351464605271,
+        1.0
+      ]
+    }
+  },
+  "deterministic_quote_repairs": 969,
+  "failed_attempts_before_retry_or_manual_review": 36,
+  "five_request_route_exact_rate": 0.9690721649484536,
+  "five_request_route_exact_records": 94,
+  "five_request_route_exact_wilson_95_ci": [
+    0.9129799648468901,
+    0.9894266550514474
+  ],
+  "interpretation": "Each role used five independent Codex CLI requests over the same frozen deterministic evidence package. Python normalized unordered layer arrays and applied only consistency and routing rules. Any decision-field disagreement routes the record to manual review.",
+  "model_attempts": 916,
+  "records": 97,
+  "schema_and_grounding_success_rate": 0.9606986899563319,
+  "scope_all_fields_exact_rate": 0.8247422680412371,
+  "scope_all_fields_exact_records": 80,
+  "status": "complete_full_text_shared_template_stability_evaluation",
+  "strict_decision_counts": {
+    "assessed": 69,
+    "manual_review": 28
+  },
+  "strict_exclusion_code_counts": {},
+  "successful_attempts": 880
+}
