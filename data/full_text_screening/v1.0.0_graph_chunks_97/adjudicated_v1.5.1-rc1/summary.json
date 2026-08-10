@@ -1,0 +1,17 @@
+{
+  "adjudicated_records": 1,
+  "adjudications": "data/full_text_screening/v1.0.0_graph_chunks_97/human_adjudication_v1.5.1-rc1.jsonl",
+  "adjudications_sha256": "8b25844f6d23fee6e5eb92bc6b4b864caa3fd7bf194812a0be269db9f43bbbe9",
+  "decision_counts": {
+    "assessed": 96,
+    "exclude": 1
+  },
+  "exclusion_code_counts": {
+    "EC4": 1
+  },
+  "output_ledger_sha256": "2531878cf41e7dbfbbb3a55d889b875b262fe1b13dd9afc3670c7a3f64451b57",
+  "records": 97,
+  "source_ledger": "data/full_text_screening/v1.0.0_graph_chunks_97/reconciled_v1.5.1-rc1/eligibility_ledger.csv",
+  "source_ledger_sha256": "f9aaaec60217369c751c342c449fa99315e1dd1975b0d0c3639eb2912002c316",
+  "status": "complete_working_adjudication_pending_second_human_verification"
+}

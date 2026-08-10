@@ -1,0 +1,11 @@
+{
+  "full_text_exclusion_reasons": {
+    "EC4": 1
+  },
+  "reports_assessed": 97,
+  "reports_excluded": 1,
+  "reports_meeting_eligibility": 96,
+  "reports_pending_adjudication": 0,
+  "stage": "full_text_eligibility_screening",
+  "status": "working_counts_pending_second_human_verification_and_expert_gold_validation"
+}
