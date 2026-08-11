@@ -96,12 +96,14 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
-def public_copy_locations(path: Path | None, doi: str) -> list[dict[str, str]]:
+def public_copy_locations(path: Path | None, doi: str, record_id: str = "") -> list[dict[str, str]]:
     if path is None or not path.exists():
         return []
     locations: list[dict[str, str]] = []
     for row in read_csv(path):
-        if normalize_doi(row.get("doi", "")) != doi:
+        row_doi = normalize_doi(row.get("doi", ""))
+        row_record_id = row.get("record_id", "").strip()
+        if not ((doi and row_doi == doi) or (record_id and row_record_id == record_id)):
             continue
         url = row.get("url", "").strip()
         parsed = urlparse(url)
@@ -951,7 +953,7 @@ def retrieve_one(
                 "content_attempts": attempts,
             }
 
-    for location in public_copy_locations(public_copy_list, target.doi):
+    for location in public_copy_locations(public_copy_list, target.doi, target.record_id):
         kind = location["kind"]
         if kind not in {"pdf", "xml", "html"}:
             attempts.append(
