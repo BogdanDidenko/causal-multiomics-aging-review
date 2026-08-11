@@ -8,7 +8,9 @@ import csv
 import hashlib
 import json
 import shutil
+import tempfile
 import time
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
@@ -70,6 +72,75 @@ def make_converter() -> Any:
     return DocumentConverter(
         format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=options)}
     )
+
+
+def local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def element_text(element: ET.Element) -> str:
+    return " ".join("".join(element.itertext()).split())
+
+
+def jats_xml_to_markdown(path: Path) -> str:
+    """Render the article-bearing parts of JATS XML into deterministic Markdown."""
+    root = ET.parse(path).getroot()
+    lines: list[str] = []
+
+    article_title = next(
+        (element_text(node) for node in root.iter() if local_name(node.tag) == "article-title"),
+        path.stem,
+    )
+    lines.extend((f"# {article_title}", ""))
+
+    def emit_container(container: ET.Element, depth: int) -> None:
+        for child in container:
+            tag = local_name(child.tag)
+            if tag == "title":
+                title = element_text(child)
+                if title:
+                    lines.extend((f"{'#' * min(depth, 6)} {title}", ""))
+            elif tag in {"p", "statement", "disp-quote"}:
+                text = element_text(child)
+                if text:
+                    lines.extend((text, ""))
+            elif tag in {"sec", "abstract", "boxed-text", "supplementary-material"}:
+                emit_container(child, depth + (tag == "sec"))
+            elif tag in {"list", "def-list"}:
+                for item in child:
+                    text = element_text(item)
+                    if text:
+                        lines.append(f"- {text}")
+                lines.append("")
+            elif tag in {"table-wrap", "fig"}:
+                caption = next(
+                    (element_text(node) for node in child.iter() if local_name(node.tag) == "caption"),
+                    "",
+                )
+                if caption:
+                    lines.extend((f"**{caption}**", ""))
+                for node in child.iter():
+                    if local_name(node.tag) in {"tr", "p"}:
+                        text = element_text(node)
+                        if text:
+                            lines.extend((text, ""))
+
+    for node in root.iter():
+        tag = local_name(node.tag)
+        if tag == "abstract":
+            lines.extend(("## Abstract", ""))
+            emit_container(node, 3)
+            break
+
+    body = next((node for node in root.iter() if local_name(node.tag) == "body"), None)
+    if body is not None:
+        lines.extend(("## Main text", ""))
+        emit_container(body, 3)
+
+    markdown = "\n".join(lines).strip() + "\n"
+    if len(markdown) < 1000:
+        raise ValueError("Converted document is unexpectedly small")
+    return markdown
 
 
 def existing_export(output_root: Path, document_id: str) -> tuple[Path, Path] | None:
@@ -173,10 +244,19 @@ def main() -> int:
             else:
                 if converter is None:
                     converter = make_converter()
-                result = converter.convert(REPO / row["source_path"])
+                source_path = REPO / row["source_path"]
+                if source_path.suffix.casefold() == ".xml":
+                    jats_markdown = jats_xml_to_markdown(source_path)
+                    with tempfile.TemporaryDirectory(prefix="jats-docling-") as temp_dir:
+                        intermediary = Path(temp_dir) / f"{document_id}.md"
+                        intermediary.write_text(jats_markdown, encoding="utf-8")
+                        result = converter.convert(intermediary)
+                    conversion_source = "deterministic_jats_markdown_then_docling"
+                else:
+                    result = converter.convert(source_path)
+                    conversion_source = "reusable_no_ocr_converter"
                 result.document.save_as_json(document_json)
                 markdown.write_text(result.document.export_to_markdown(), encoding="utf-8")
-                conversion_source = "reusable_no_ocr_converter"
             if document_json.stat().st_size < 1000 or markdown.stat().st_size < 1000:
                 raise ValueError("Converted document is unexpectedly small")
             attempt.update(

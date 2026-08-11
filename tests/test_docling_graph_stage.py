@@ -101,3 +101,25 @@ def test_graph_quote_normalization_handles_markup_not_content_changes() -> None:
     source = "Cochran *Q* test\nwas used for heterogeneity."
     assert module.normalized_text("Cochran Q test was used") in module.normalized_text(source)
     assert module.normalized_text("Egger test was used") not in module.normalized_text(source)
+
+
+def test_jats_xml_conversion_preserves_article_sections_and_text(tmp_path: Path) -> None:
+    module = load_script("convert_corpus.py")
+    xml = tmp_path / "article.xml"
+    repeated = "Aging molecular evidence across transcriptomic and proteomic layers. " * 20
+    xml.write_text(
+        "<article><front><article-meta><title-group><article-title>Test paper"
+        "</article-title></title-group><abstract><p>Abstract evidence.</p></abstract>"
+        "</article-meta></front><body><sec><title>Methods</title><p>"
+        + repeated
+        + "</p></sec></body></article>",
+        encoding="utf-8",
+    )
+
+    markdown = module.jats_xml_to_markdown(xml)
+
+    assert markdown.startswith("# Test paper")
+    assert "## Abstract" in markdown
+    assert "Abstract evidence." in markdown
+    assert "### Methods" in markdown
+    assert repeated.strip() in markdown

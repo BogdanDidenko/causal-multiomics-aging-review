@@ -1,0 +1,12 @@
+{
+  "attempt_count": 52,
+  "corpus_documents": 44,
+  "documents_converted": 44,
+  "documents_failed": 0,
+  "documents_insufficient_full_text": 0,
+  "documents_pending": 0,
+  "manifest": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/conversion_manifest.jsonl",
+  "ocr_enabled": false,
+  "schema_version": "1.0.0",
+  "status": "complete"
+}
