@@ -74,8 +74,12 @@ class Target:
     pmcid: str
 
     @property
+    def canonical_key(self) -> str:
+        return self.doi or self.record_id
+
+    @property
     def file_stem(self) -> str:
-        return hashlib.sha256(self.doi.encode("utf-8")).hexdigest()[:16]
+        return hashlib.sha256(self.canonical_key.encode("utf-8")).hexdigest()[:16]
 
 
 def normalize_doi(value: str) -> str:
@@ -131,9 +135,7 @@ def sha256_bytes(payload: bytes) -> str:
 
 def http_get(url: str, timeout: int) -> tuple[int, dict[str, str], bytes]:
     request_url = quote(url, safe=":/?&=%#[];,+")
-    request = Request(
-        request_url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"}
-    )
+    request = Request(request_url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     try:
         with urlopen(request, timeout=timeout, context=ssl_context) as response:  # noqa: S310
@@ -298,8 +300,11 @@ def europepmc_pdf_locations(metadata: dict[str, Any]) -> list[dict[str, str]]:
     return locations
 
 
-def europepmc_record(doi: str, timeout: int) -> tuple[dict[str, Any] | None, dict[str, Any]]:
-    query = quote(f'DOI:"{doi}"', safe=":")
+def europepmc_record(
+    identifier: str, timeout: int, *, identifier_type: str = "doi"
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    field = "DOI" if identifier_type == "doi" else "EXT_ID"
+    query = quote(f'{field}:"{identifier}"', safe=":")
     url = f"{EUROPEPMC_SEARCH}?query={query}&format=json&pageSize=1&resultType=core"
     response, audit = fetch_json(url, timeout)
     if not response:
@@ -433,9 +438,7 @@ def canonical_publisher_pdf_locations(doi: str) -> list[dict[str, str]]:
     return []
 
 
-def semantic_scholar_record(
-    doi: str, timeout: int
-) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+def semantic_scholar_record(doi: str, timeout: int) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     fields = "title,openAccessPdf,publicationTypes,publicationDate,url"
     url = f"{SEMANTIC_SCHOLAR_PAPER}{quote(doi, safe='')}?fields={fields}"
     return fetch_json(url, timeout)
@@ -640,6 +643,9 @@ def select_targets(
     screening_input_path: Path,
     queue: str,
     expected_count: int,
+    *,
+    include_preprints: bool = False,
+    allow_missing_doi: bool = False,
 ) -> list[Target]:
     triage = read_csv(triage_path)
     input_by_id = {row["record_id"]: row for row in read_csv(screening_input_path)}
@@ -650,11 +656,15 @@ def select_targets(
         source = input_by_id.get(row["record_id"])
         if not source:
             raise ValueError(f"Missing screening-input record: {row['record_id']}")
-        if source.get("is_preprint") == "True":
+        if source.get("is_preprint") == "True" and not include_preprints:
             continue
         doi = normalize_doi(row.get("doi", ""))
-        if not doi:
+        if not doi and not allow_missing_doi:
             raise ValueError(f"Target record lacks DOI: {row['record_id']}")
+        if not doi and not (source.get("pmcid") or source.get("pmid")):
+            raise ValueError(
+                f"DOI-less target lacks a PMID/PMCID retrieval fallback: {row['record_id']}"
+            )
         targets.append(
             Target(
                 record_id=row["record_id"],
@@ -671,10 +681,13 @@ def select_targets(
         raise ValueError(
             f"Expected {expected_count} non-preprint {queue} records, found {len(targets)}"
         )
-    dois = [target.doi for target in targets]
+    dois = [target.doi for target in targets if target.doi]
     if len(dois) != len(set(dois)):
         raise ValueError("Target list contains duplicate normalized DOIs")
-    return sorted(targets, key=lambda target: target.doi)
+    record_ids = [target.record_id for target in targets]
+    if len(record_ids) != len(set(record_ids)):
+        raise ValueError("Target list contains duplicate record IDs")
+    return sorted(targets, key=lambda target: target.canonical_key)
 
 
 def retrieve_one(
@@ -689,48 +702,65 @@ def retrieve_one(
     files_dir = output_dir / "files"
     attempts: list[dict[str, Any]] = []
     metadata_audit: list[dict[str, Any]] = []
-    openalex_url = OPENALEX_WORK + quote(target.doi, safe="")
-    openalex, audit = fetch_json(openalex_url, timeout)
-    metadata_audit.append({"source": "openalex", **audit})
-    if openalex:
-        (metadata_dir / f"{target.file_stem}.openalex.json").write_text(
-            json.dumps(openalex, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+    openalex = None
+    crossref = None
+    semantic_scholar = None
+    openaire = None
+    unpaywall = None
+    if target.doi:
+        openalex_url = OPENALEX_WORK + quote(target.doi, safe="")
+        openalex, audit = fetch_json(openalex_url, timeout)
+        metadata_audit.append({"source": "openalex", **audit})
+        if openalex:
+            (metadata_dir / f"{target.file_stem}.openalex.json").write_text(
+                json.dumps(openalex, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
 
-    europepmc, audit = europepmc_record(target.doi, timeout)
+    europepmc_query = target.doi or target.pmid
+    europepmc, audit = europepmc_record(
+        europepmc_query,
+        timeout,
+        identifier_type="doi" if target.doi else "ext_id",
+    )
     metadata_audit.append({"source": "europepmc", **audit})
     if europepmc:
         (metadata_dir / f"{target.file_stem}.europepmc.json").write_text(
             json.dumps(europepmc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
 
-    crossref, audit = crossref_record(target.doi, timeout)
-    metadata_audit.append({"source": "crossref", **audit})
-    if crossref:
-        (metadata_dir / f"{target.file_stem}.crossref.json").write_text(
-            json.dumps(crossref, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+    if target.doi:
+        crossref, audit = crossref_record(target.doi, timeout)
+        metadata_audit.append({"source": "crossref", **audit})
+        if crossref:
+            (metadata_dir / f"{target.file_stem}.crossref.json").write_text(
+                json.dumps(crossref, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
 
-    semantic_scholar, audit = semantic_scholar_record(target.doi, timeout)
-    metadata_audit.append({"source": "semantic_scholar", **audit})
-    if semantic_scholar:
-        (metadata_dir / f"{target.file_stem}.semantic_scholar.json").write_text(
-            json.dumps(semantic_scholar, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+        semantic_scholar, audit = semantic_scholar_record(target.doi, timeout)
+        metadata_audit.append({"source": "semantic_scholar", **audit})
+        if semantic_scholar:
+            (metadata_dir / f"{target.file_stem}.semantic_scholar.json").write_text(
+                json.dumps(semantic_scholar, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
 
-    openaire, audit = openaire_record(target.doi, timeout)
-    metadata_audit.append({"source": "openaire", **audit})
-    if openaire:
-        (metadata_dir / f"{target.file_stem}.openaire.json").write_text(
-            json.dumps(openaire, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+        openaire, audit = openaire_record(target.doi, timeout)
+        metadata_audit.append({"source": "openaire", **audit})
+        if openaire:
+            (metadata_dir / f"{target.file_stem}.openaire.json").write_text(
+                json.dumps(openaire, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
 
-    unpaywall, audit = unpaywall_record(target.doi, unpaywall_email, timeout)
-    metadata_audit.append({"source": "unpaywall", **audit})
-    if unpaywall:
-        (metadata_dir / f"{target.file_stem}.unpaywall.json").write_text(
-            json.dumps(unpaywall, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+        unpaywall, audit = unpaywall_record(target.doi, unpaywall_email, timeout)
+        metadata_audit.append({"source": "unpaywall", **audit})
+        if unpaywall:
+            (metadata_dir / f"{target.file_stem}.unpaywall.json").write_text(
+                json.dumps(unpaywall, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
 
     if dry_run:
         return {
@@ -898,7 +928,7 @@ def retrieve_one(
                     "content_attempts": attempts,
                 }
 
-    for location in canonical_publisher_pdf_locations(target.doi):
+    for location in canonical_publisher_pdf_locations(target.doi) if target.doi else []:
         attempt, _, path = try_download(
             target,
             location["url"],
@@ -1080,6 +1110,8 @@ def main() -> None:
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=45)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--include-preprints", action="store_true")
+    parser.add_argument("--allow-missing-doi", action="store_true")
     parser.add_argument(
         "--public-copy-list",
         type=Path,
@@ -1108,7 +1140,14 @@ def main() -> None:
     if args.workers < 1 or args.workers > 8:
         raise ValueError("workers must be between 1 and 8")
 
-    targets = select_targets(args.triage, args.screening_input, args.queue, args.expected_count)
+    targets = select_targets(
+        args.triage,
+        args.screening_input,
+        args.queue,
+        args.expected_count,
+        include_preprints=args.include_preprints,
+        allow_missing_doi=args.allow_missing_doi,
+    )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     (args.output_dir / "files").mkdir(exist_ok=True)
     (args.output_dir / "raw_metadata").mkdir(exist_ok=True)
@@ -1133,35 +1172,36 @@ def main() -> None:
     results: list[dict[str, Any]] = []
     retry_targets = targets
     requested_dois = {normalize_doi(doi) for doi in args.only_doi}
-    target_dois = {target.doi for target in targets}
+    target_dois = {target.doi for target in targets if target.doi}
     if requested_dois and not args.resume_unavailable:
         raise ValueError("--only-doi requires --resume-unavailable")
     if unknown_dois := requested_dois - target_dois:
         raise ValueError(
-            "--only-doi contains DOI values outside the frozen target set: "
-            f"{unknown_dois}"
+            f"--only-doi contains DOI values outside the frozen target set: {unknown_dois}"
         )
     if args.resume_unavailable:
         manifest_path = args.output_dir / "retrieval_manifest.jsonl"
         if not manifest_path.exists():
             raise ValueError("--resume-unavailable requires an existing retrieval manifest")
-        existing_by_doi = {
-            str(row["doi"]): row
+        existing_by_id = {
+            str(row["record_id"]): row
             for row in (json.loads(line) for line in manifest_path.open(encoding="utf-8"))
         }
-        if set(existing_by_doi) != {target.doi for target in targets}:
-            raise ValueError("Existing manifest does not match the frozen target DOI set")
+        if set(existing_by_id) != {target.record_id for target in targets}:
+            raise ValueError("Existing manifest does not match the frozen target record set")
         results.extend(
             row
-            for row in existing_by_doi.values()
+            for row in existing_by_id.values()
             if (not requested_dois and row.get("target_status") in FULL_TEXT_STATUSES)
             or (requested_dois and str(row["doi"]) not in requested_dois)
         )
         retry_targets = [
             target
             for target in targets
-            if (not requested_dois and existing_by_doi[target.doi].get("target_status")
-                not in FULL_TEXT_STATUSES)
+            if (
+                not requested_dois
+                and existing_by_id[target.record_id].get("target_status") not in FULL_TEXT_STATUSES
+            )
             or (requested_dois and target.doi in requested_dois)
         ]
 
@@ -1195,7 +1235,7 @@ def main() -> None:
                     }
                 )
             time.sleep(0.05)
-    results.sort(key=lambda row: str(row["doi"]))
+    results.sort(key=lambda row: (str(row["doi"]), str(row["record_id"])))
     with (args.output_dir / "retrieval_manifest.jsonl").open("w", encoding="utf-8") as handle:
         for result in results:
             handle.write(json.dumps(result, ensure_ascii=False, sort_keys=True) + "\n")
@@ -1231,7 +1271,13 @@ def main() -> None:
         "target_count": len(targets),
         "retried_count": len(retry_targets),
         "queue": args.queue,
-        "excluded_preprints": 16,
+        "excluded_preprints": sum(
+            row.get("is_preprint") == "True"
+            for row in read_csv(args.screening_input)
+            if row["record_id"] in {item["record_id"] for item in read_csv(args.triage)}
+        )
+        if not args.include_preprints
+        else 0,
         "workers": args.workers,
         "timeout_seconds": args.timeout,
         "status_counts": dict(sorted(statuses.items())),
@@ -1252,9 +1298,8 @@ def main() -> None:
         encoding="utf-8",
     )
     (args.output_dir / "README.md").write_text(
-        "# Full-Text Retrieval: 119 Non-Preprint Priority-1 Records\n\n"
-        "Targets are the 119 non-preprint records in `priority_1_textually_focused`: "
-        "the previous 135-record manual title/abstract queue minus 16 preprints. "
+        f"# Full-Text Retrieval: {len(targets)} Frozen Records\n\n"
+        f"Targets are the records in `{args.queue}` from the supplied frozen cohort. "
         "`targets.csv`, `retrieval_manifest.jsonl`, and `summary.json` are the audit "
         "trail. `files/` contains locally downloaded PDFs, XML, or public full-text "
         "HTML and is intentionally excluded from Git. `selected_files/` is "

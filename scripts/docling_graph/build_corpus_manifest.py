@@ -21,8 +21,8 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def document_id(doi: str) -> str:
-    return "doi_" + hashlib.sha256(doi.casefold().encode()).hexdigest()[:16]
+def document_id(identifier: str) -> str:
+    return "record_" + hashlib.sha256(identifier.casefold().encode()).hexdigest()[:16]
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -34,24 +34,31 @@ def build_rows(config_path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]
     source_path = REPO / config["corpus"]["retrieval_manifest"]
     accepted = set(config["corpus"]["accepted_statuses"])
     source_rows = read_jsonl(source_path)
-    seen: set[str] = set()
+    seen_identifiers: set[str] = set()
+    seen_dois: set[str] = set()
     rows: list[dict[str, Any]] = []
     for source in source_rows:
         if source.get("target_status") not in accepted or not source.get("selected_file"):
             continue
         doi = str(source["doi"]).strip().casefold()
-        if not doi or doi in seen:
-            raise ValueError(f"Missing or duplicate selected DOI: {doi!r}")
-        seen.add(doi)
+        record_id = str(source.get("record_id", "")).strip()
+        identifier = doi or record_id
+        if not identifier or identifier in seen_identifiers:
+            raise ValueError(f"Missing or duplicate selected identifier: {identifier!r}")
+        if doi and doi in seen_dois:
+            raise ValueError(f"Duplicate selected DOI: {doi!r}")
+        seen_identifiers.add(identifier)
+        if doi:
+            seen_dois.add(doi)
         local_path = REPO / str(source["selected_file"])
         if not local_path.is_file():
             raise FileNotFoundError(local_path)
         rows.append(
             {
-                "document_id": document_id(doi),
+                "document_id": document_id(identifier),
                 "doi": doi,
                 "title": str(source.get("title", "")),
-                "record_id": str(source.get("record_id", "")),
+                "record_id": record_id,
                 "source_format": local_path.suffix.lstrip(".").lower(),
                 "source_path": str(local_path.relative_to(REPO)),
                 "source_bytes": local_path.stat().st_size,

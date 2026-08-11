@@ -23,9 +23,7 @@ def sha256_file(path: Path) -> str:
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return [
-        json.loads(line)
-        for line in path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
+        json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()
     ]
 
 
@@ -39,10 +37,18 @@ def graph_chunk_ids(graph: dict[str, Any]) -> set[int]:
     return identifiers
 
 
-def abstract_metadata(path: Path) -> dict[str, dict[str, str]]:
+def abstract_metadata(
+    path: Path,
+) -> tuple[dict[str, dict[str, str]], dict[str, dict[str, str]]]:
     with path.open(encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    return {str(row.get("doi", "")).strip().casefold(): row for row in rows}
+    by_doi = {
+        str(row.get("doi", "")).strip().casefold(): row
+        for row in rows
+        if str(row.get("doi", "")).strip()
+    }
+    by_record_id = {str(row.get("record_id", "")): row for row in rows}
+    return by_doi, by_record_id
 
 
 def canonical_graph_runs(path: Path) -> dict[str, dict[str, Any]]:
@@ -57,7 +63,7 @@ def build_records(
     graph_root: Path,
     metadata_path: Path,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    metadata = abstract_metadata(metadata_path)
+    metadata_by_doi, metadata_by_record_id = abstract_metadata(metadata_path)
     corpus_path = graph_root / "corpus_manifest.csv"
     with corpus_path.open(encoding="utf-8", newline="") as handle:
         corpus = list(csv.DictReader(handle))
@@ -75,7 +81,7 @@ def build_records(
         chunks = json.loads(chunks_path.read_text(encoding="utf-8"))
         priority = graph_chunk_ids(graph)
         doi = source["doi"].casefold()
-        meta = metadata.get(doi, {})
+        meta = metadata_by_doi.get(doi) or metadata_by_record_id.get(source["record_id"], {})
         sections = []
         for chunk in chunks:
             chunk_id = int(chunk["chunk_id"])
@@ -154,8 +160,11 @@ def main() -> int:
     records, audit = build_records(graph_root, args.metadata.resolve())
     if len(records) != args.expected:
         raise SystemExit(f"Expected {args.expected} records, found {len(records)}")
-    if len({row["doi"] for row in records}) != len(records):
-        raise SystemExit("Duplicate DOI in full-text screening input")
+    nonempty_dois = [row["doi"] for row in records if row["doi"]]
+    if len(set(nonempty_dois)) != len(nonempty_dois):
+        raise SystemExit("Duplicate non-empty DOI in full-text screening input")
+    if len({row["record_id"] for row in records}) != len(records):
+        raise SystemExit("Duplicate record ID in full-text screening input")
     input_path = output / "input.jsonl"
     write_jsonl(input_path, records)
     shard_items = []
@@ -178,7 +187,9 @@ def main() -> int:
     manifest = {
         "status": "frozen_full_text_screening_input",
         "records": len(records),
-        "unique_doi": len({row["doi"] for row in records}),
+        "records_with_doi": len(nonempty_dois),
+        "unique_doi": len(set(nonempty_dois)),
+        "records_without_doi": len(records) - len(nonempty_dois),
         "graph_root": str(graph_root.relative_to(REPO)),
         "graph_run_manifest_sha256": sha256_file(graph_root / "run_manifest.jsonl"),
         "metadata_path": str(args.metadata.resolve().relative_to(REPO)),
