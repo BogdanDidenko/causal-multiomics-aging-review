@@ -1,0 +1,67 @@
+{
+  "artifacts": {
+    "cohort_manifest": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/cohort_manifest.json",
+      "sha256": "e217be74517e0a0b867b84b15f6644f1683aa3cf38e0c5edf72e0057ca7bfdea"
+    },
+    "graph_run_summary": {
+      "path": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/run_summary.json",
+      "sha256": "b4dd4cf437d4f33ac70790ee868f35b43352dc7efe9372f09b6275f8d5208bc1"
+    },
+    "orchestrator_manifest": {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/evaluation_v1.5.2-rc1/orchestrator_manifest.json",
+      "sha256": "45bbee3b1e9181d4b697fc9f176681b67b3122bc13db0f700de8cdbe4b2c8366"
+    },
+    "retrieval_summary": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/summary.json",
+      "sha256": "84e1d0f839e3c99e3ec3243ba3c3b5db341d5322d3f58b64b901c647108f3137"
+    },
+    "screening_input_manifest": {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/input_manifest.json",
+      "sha256": "9ee064d3a420166f7c24f0c7c62bf3b25023f020ee8a5cf7c4440c578fc4dbdd"
+    },
+    "stability_summary": {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/evaluation_v1.5.2-rc1/stability_summary.json",
+      "sha256": "154f95e3f95e1abddc22cd81ccc792d1c77fac0f8710a845ecde27c9fa3920a3"
+    }
+  },
+  "cohort": "oversized_abstract_20k_seek_full_text_followup",
+  "consistency_checks": {
+    "cohort_input_minus_collapsed_duplicate_equals_unique_reports": true,
+    "graph_count_equals_retrieved_reports": true,
+    "retrieved_plus_not_retrieved_equals_reports_sought": true,
+    "screening_input_equals_graph_count": true,
+    "screening_output_equals_input": true,
+    "screening_routes_partition_assessed_reports": true
+  },
+  "flow": {
+    "duplicate_reports_collapsed_before_retrieval": 1,
+    "reports_not_retrieved": 21,
+    "reports_pending_expert_adjudication": 16,
+    "reports_retrieved_and_assessed": 44,
+    "reports_sought_for_retrieval": 65,
+    "reports_with_unanimous_model_exclusion": 25,
+    "reports_with_unanimous_positive_model_assessment": 3,
+    "studies_included_in_synthesis": null,
+    "title_abstract_records_routed_to_followup": 66
+  },
+  "interpretation": "Unanimous model routes are screening outputs, not expert-gold final eligibility decisions. Reports not retrieved are retrieval losses and must not be counted as scientific full-text exclusions.",
+  "model": {
+    "name": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "repeats_per_role": 5,
+    "suite_approval_status": "calibration_pending_expert_gold",
+    "suite_config": "protocol/screening/configs/prompt_suite_v1.5.2-rc1.json"
+  },
+  "schema_version": "1.0.0",
+  "stability": {
+    "all_evaluated_fields_exact_rate": 0.4772727272727273,
+    "all_evaluated_fields_exact_records": 21,
+    "failed_attempts_recovered_by_retry": 4,
+    "five_run_route_exact_rate": 0.6363636363636364,
+    "five_run_route_exact_records": 28,
+    "model_attempts": 244,
+    "successful_final_role_runs": 240
+  },
+  "status": "followup_full_text_screening_complete_pending_expert_adjudication"
+}

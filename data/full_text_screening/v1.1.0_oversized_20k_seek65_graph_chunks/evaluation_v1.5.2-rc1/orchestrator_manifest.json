@@ -1,0 +1,138 @@
+{
+  "completed_at": "2026-08-11T15:09:30.778199+00:00",
+  "completed_shards": 12,
+  "execution_code": {
+    "scripts/run_full_text_corpus_screening.py": {
+      "sha256": "7e23ba3fa45b0321122e2649050a8ea2b6fa22f927d08d2c1c86e76d0cb7fd7d"
+    },
+    "scripts/run_screening.py": {
+      "sha256": "edcef8fb2964b1a1daed55105aa95b1ff3f4211dd4b17303f6c59fac684cc91d"
+    },
+    "src/causal_multiomics_aging_review/screening.py": {
+      "sha256": "93932eb9df41ed764409f64665b15b3011bd163c9097f8bf28d16d7b4ad85cc1"
+    },
+    "src/causal_multiomics_aging_review/v1.py": {
+      "sha256": "41d85f57ffc0c1a7229a599497901ca3fde3fc9733226ef2a2836290801f24f7"
+    }
+  },
+  "failed_shards": [],
+  "git_revision": "3f09491390e7d15a9edd0d29ebb1e8a630fb4868",
+  "git_worktree_dirty": false,
+  "input_manifest": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/input_manifest.json",
+  "input_manifest_sha256": "9ee064d3a420166f7c24f0c7c62bf3b25023f020ee8a5cf7c4440c578fc4dbdd",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "records": 44,
+  "repeats_per_role": 5,
+  "result_records": 44,
+  "roles": [
+    "scope_reviewer",
+    "causal_method_reviewer"
+  ],
+  "run_classification": "full_corpus_evaluation_pending_expert_gold",
+  "shards": [
+    {
+      "completed_at": "2026-08-11T15:07:55.042018+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_01",
+      "started_at": "2026-08-11T15:01:29.856064+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:09:30.777423+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_02",
+      "started_at": "2026-08-11T15:01:29.856271+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:07:49.985539+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_03",
+      "started_at": "2026-08-11T15:01:29.856226+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:08:46.353631+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_04",
+      "started_at": "2026-08-11T15:01:29.857181+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:08:02.890567+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_05",
+      "started_at": "2026-08-11T15:01:29.860811+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:08:29.070705+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_06",
+      "started_at": "2026-08-11T15:01:29.860732+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:06:44.665214+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_07",
+      "started_at": "2026-08-11T15:01:29.861839+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:07:26.847194+00:00",
+      "expected_records": 4,
+      "result_records": 4,
+      "returncode": 0,
+      "shard": "shard_08",
+      "started_at": "2026-08-11T15:01:29.862210+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:06:22.425174+00:00",
+      "expected_records": 3,
+      "result_records": 3,
+      "returncode": 0,
+      "shard": "shard_09",
+      "started_at": "2026-08-11T15:01:29.865403+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:06:15.868371+00:00",
+      "expected_records": 3,
+      "result_records": 3,
+      "returncode": 0,
+      "shard": "shard_10",
+      "started_at": "2026-08-11T15:01:29.866542+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:06:16.583930+00:00",
+      "expected_records": 3,
+      "result_records": 3,
+      "returncode": 0,
+      "shard": "shard_11",
+      "started_at": "2026-08-11T15:01:29.870181+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T15:06:03.895086+00:00",
+      "expected_records": 3,
+      "result_records": 3,
+      "returncode": 0,
+      "shard": "shard_12",
+      "started_at": "2026-08-11T15:01:29.868980+00:00"
+    }
+  ],
+  "started_at": "2026-08-11T15:01:29.772284+00:00",
+  "status": "complete",
+  "suite_approval_status": "calibration_pending_expert_gold",
+  "suite_config": "protocol/screening/configs/prompt_suite_v1.5.2-rc1.json",
+  "suite_config_sha256": "4c41ee1fe1f9a674bb520785e7ab95e13abc2e28d7c930e61e15e9dfc94b049e",
+  "unique_doi": 43,
+  "workers": 12
+}
