@@ -1,0 +1,52 @@
+{
+  "strategy": "version_author_copy_discovery",
+  "audit_closed_at": "2026-08-11T23:18:43+03:00",
+  "target_count": 21,
+  "recovered_count": 15,
+  "unresolved_count": 6,
+  "format_counts": {
+    "application/pdf": 6,
+    "text/html": 1,
+    "text/plain": 7,
+    "text/markdown": 1
+  },
+  "unresolved_records": [
+    {"record_id": "doi:10.1002/hon.2950", "doi": "10.1002/hon.2950", "title": "Differential transcriptomic profiling in ibrutinib-naive versus ibrutinib-resistant Richter syndrome"},
+    {"record_id": "doi:10.1095/biolreprod.113.108985", "doi": "10.1095/biolreprod.113.108985", "title": "WORLD OF REPRODUCTIVE BIOLOGY: Epigenetics: Get Them While They're Young"},
+    {"record_id": "doi:10.1095/biolreprod.114.117291", "doi": "10.1095/biolreprod.114.117291", "title": "WORLD OF REPRODUCTIVE BIOLOGY: IVF--It's the Hormones"},
+    {"record_id": "doi:10.1095/biolreprod.114.117887", "doi": "10.1095/biolreprod.114.117887", "title": "WORLD OF REPRODUCTIVE BIOLOGY: Mendel Meets Imprinting"},
+    {"record_id": "doi:10.1097/01.jcma.0001096048.54396.64", "doi": "10.1097/01.jcma.0001096048.54396.64", "title": "Title Index"},
+    {"record_id": "doi:10.7936/zw5q-8j61", "doi": "10.7936/zw5q-8j61", "title": "Investigating Biological Mechanisms of Radiation Resistance in Advanced Stage Cervical Cancer"}
+  ],
+  "files_created": [
+    "files/10.1002_alz.12278.txt",
+    "files/10.1016_j.jid.2019.07.004.pdf",
+    "files/10.1093_ije_dyaa075.pdf",
+    "files/10.1093_nsr_nwx146.pdf",
+    "files/10.1096_fj.202100317.txt",
+    "files/10.1097_hjh.0b013e32834ee23c.html",
+    "files/10.1111_bjd.21182.txt",
+    "files/10.1111_exd.12771.txt",
+    "files/10.1111_gbb.12646.txt",
+    "files/10.1111_nbu.12575.txt",
+    "files/10.1113_jp287235.pdf",
+    "files/10.1158_1538-7445.am2025-sy02-01.txt",
+    "files/10.4081_ejtm.2026.14960.pdf",
+    "files/10.4103_nrr.nrr-d-25-00422.pdf",
+    "files/10.5281_zenodo.20257527.md",
+    "manifest.jsonl",
+    "summary.json"
+  ],
+  "validation": {
+    "manifest_rows": 21,
+    "recovered_artifacts": 15,
+    "all_recovered_files_exist": true,
+    "all_recovered_files_have_sha256": true,
+    "rejected_partial_or_metadata_only_files": 4
+  },
+  "notes": [
+    "No paywalls or access controls were bypassed.",
+    "Rendered text captures are retained only where the public publisher page contained the complete article or the complete target conference abstract.",
+    "The incomplete WUSTL dissertation transfer and all rejected metadata-only or unrelated captures are excluded from files_created and recovered_count."
+  ]
+}

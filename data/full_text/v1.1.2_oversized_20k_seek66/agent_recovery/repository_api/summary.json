@@ -1,0 +1,94 @@
+{
+  "files_directory": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files",
+  "format_counts": {
+    "html": 5,
+    "md": 1,
+    "pdf": 5
+  },
+  "manifest": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/manifest.jsonl",
+  "manifest_sha256": "2c3e90e77c94e9a5de7c09546083e6dbe9b41e1a60b77b80c7809e0d7c91af4b",
+  "recovered_count": 11,
+  "recovered_files": [
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/18004e7456e890d9.pdf",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/8102648f6cfdbe49.pdf",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/07359190d9dc502e.pdf",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/3c0245b9ab08c2bd.html",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/bce5e182c440a7ff.html",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/6eaf1c42e5741782.html",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/890b76a9df53fc29.html",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/89b5443d3070819a.pdf",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/f257916f64f084eb.html",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/6655c6d6751743bb.md",
+    "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/e4b0b5520a4d2e2c.pdf"
+  ],
+  "retrieval_policy": "Repository/API-first legal public access only; no paywall or access-control bypass. Abstract pages, login HTML, supplement-only files, non-article indexes, and DOI/title mismatches were rejected.",
+  "status": "complete",
+  "status_counts": {
+    "recovered": 11,
+    "unresolved": 10
+  },
+  "target_count": 21,
+  "unresolved_count": 10,
+  "unresolved_records": [
+    {
+      "doi": "10.1002/alz.12278",
+      "failure_reason": "No legal standalone article full text found; the target is an abstracts collection and available candidates were publisher-blocked or supplement/abstract compilation content, which was rejected.",
+      "record_id": "doi:10.1002/alz.12278",
+      "title": "Neuroscience Next 2020 Abstracts"
+    },
+    {
+      "doi": "10.1002/hon.2950",
+      "failure_reason": "No open repository copy found; Wiley did not mark the article Free Access and exposed no article body, while indexed repository/API locations returned no downloadable full text.",
+      "record_id": "doi:10.1002/hon.2950",
+      "title": "Differential transcriptomic profiling in ibrutinib‐naïve versus ibrutinib‐resistant Richter syndrome"
+    },
+    {
+      "doi": "10.1016/j.jid.2019.07.004",
+      "failure_reason": "The target is a conference abstract; available locations were abstract pages or an abstracts supplement, not standalone article full text, and were rejected.",
+      "record_id": "doi:10.1016/j.jid.2019.07.004",
+      "title": "Genome-wide association study of acne inversa in a multi-ethnic cohort"
+    },
+    {
+      "doi": "10.1095/biolreprod.113.108985",
+      "failure_reason": "No open full text found; the publisher PDF redirected to an abstract/sign-in page and repository APIs exposed no legal copy.",
+      "record_id": "doi:10.1095/biolreprod.113.108985",
+      "title": "WORLD OF REPRODUCTIVE BIOLOGY: Epigenetics: Get Them While They're Young"
+    },
+    {
+      "doi": "10.1095/biolreprod.114.117291",
+      "failure_reason": "No open full text found; repository APIs exposed no matching legal copy, and a reused OUP PDF candidate resolved to a different DOI/title and was rejected.",
+      "record_id": "doi:10.1095/biolreprod.114.117291",
+      "title": "WORLD OF REPRODUCTIVE BIOLOGY: IVF--It's the Hormones"
+    },
+    {
+      "doi": "10.1095/biolreprod.114.117887",
+      "failure_reason": "No open full text found; repository APIs exposed no matching legal copy, and a reused OUP PDF candidate resolved to a different DOI/title and was rejected.",
+      "record_id": "doi:10.1095/biolreprod.114.117887",
+      "title": "WORLD OF REPRODUCTIVE BIOLOGY: Mendel Meets Imprinting"
+    },
+    {
+      "doi": "10.1097/01.jcma.0001096048.54396.64",
+      "failure_reason": "Target resolves to a title index rather than an article; only index/landing HTML was available and was rejected as non-article content.",
+      "record_id": "doi:10.1097/01.jcma.0001096048.54396.64",
+      "title": "Title Index"
+    },
+    {
+      "doi": "10.1111/bjd.21182",
+      "failure_reason": "The target is a conference abstract (P60); available content was abstract-only and the publisher PDF endpoint returned access denial, so no article full text was accepted.",
+      "record_id": "doi:10.1111/bjd.21182",
+      "title": "P60: Merkel cell cancer: the need to standardize care"
+    },
+    {
+      "doi": "10.1158/1538-7445.am2025-sy02-01",
+      "failure_reason": "The target is a conference abstract; only the abstract landing page was available and was rejected as abstract-only content.",
+      "record_id": "doi:10.1158/1538-7445.am2025-sy02-01",
+      "title": "Abstract SY02-01: Inflammatory memory and selective advantage in human clonal hematopoiesis"
+    },
+    {
+      "doi": "10.4081/ejtm.2026.14960",
+      "failure_reason": "The target is explicitly a meeting abstract; the DOI landing endpoint was unavailable during retrieval and no standalone article full text exists in the queried repositories.",
+      "record_id": "doi:10.4081/ejtm.2026.14960",
+      "title": "Abstract | 009 | Lecture - FES in mice, rats and men: adaptation and recovery in aging rodent muscle"
+    }
+  ]
+}

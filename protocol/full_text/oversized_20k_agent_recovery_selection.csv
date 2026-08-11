@@ -1,0 +1,22 @@
+target_doi,strategy,report_form,source_file,decision_note
+10.1002/alz.12278,version_resolution,proceedings_collection,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/version_resolution/files/10.1002_alz.12278.txt,Complete target proceedings collection captured from official publisher page
+10.1002/hon.2950,,unavailable,,No legal full target content found by any strategy
+10.1016/j.jid.2019.07.004,version_resolution,conference_abstract_in_supplement,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/version_resolution/files/10.1016_j.jid.2019.07.004.pdf,Official complete conference supplement containing the target abstract
+10.1093/ije/dyaa075,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/18004e7456e890d9.pdf,Official publisher PDF
+10.1093/nsr/nwx146,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/8102648f6cfdbe49.pdf,Official publisher PDF
+10.1095/biolreprod.113.108985,,unavailable,,No legal full target content found by any strategy
+10.1095/biolreprod.114.117291,,unavailable,,No legal full target content found by any strategy
+10.1095/biolreprod.114.117887,,unavailable,,No legal full target content found by any strategy
+10.1096/fj.202100317,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/07359190d9dc502e.pdf,Institutional repository version-of-record PDF
+10.1097/01.jcma.0001096048.54396.64,publisher_browser,title_index,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/publisher_browser/files/10.1097_01.jcma.0001096048.54396.64.txt,Complete target title-index page; retain as non-article report
+10.1097/hjh.0b013e32834ee23c,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/3c0245b9ab08c2bd.html,PMC full-text HTML
+10.1111/bjd.21182,version_resolution,conference_abstract,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/version_resolution/files/10.1111_bjd.21182.txt,Complete target abstract captured from official publisher page
+10.1111/exd.12771,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/bce5e182c440a7ff.html,Official public full-text HTML
+10.1111/gbb.12646,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/6eaf1c42e5741782.html,Official public full-text HTML
+10.1111/nbu.12575,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/890b76a9df53fc29.html,Official public full-text HTML
+10.1113/jp287235,repository_api,accepted_manuscript,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/89b5443d3070819a.pdf,Institutional accepted manuscript with exact DOI and title
+10.1158/1538-7445.am2025-sy02-01,version_resolution,conference_abstract,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/version_resolution/files/10.1158_1538-7445.am2025-sy02-01.txt,Complete target abstract captured from official publisher page
+10.4081/ejtm.2026.14960,version_resolution,conference_abstract_in_supplement,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/version_resolution/files/10.4081_ejtm.2026.14960.pdf,Official conference abstract collection containing target abstract
+10.4103/nrr.nrr-d-25-00422,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/f257916f64f084eb.html,PMC full-text HTML
+10.5281/zenodo.20257527,repository_api,standalone_report,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/6655c6d6751743bb.md,Exact Zenodo record content recovered from linked public repository
+10.7936/zw5q-8j61,repository_api,thesis,data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/repository_api/files/e4b0b5520a4d2e2c.pdf,Institutional repository thesis PDF with exact DOI and title

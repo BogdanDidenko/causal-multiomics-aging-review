@@ -1,0 +1,34 @@
+{
+  "strategy": "publisher_browser_first",
+  "target_count": 21,
+  "recovered_count": 9,
+  "unresolved_count": 12,
+  "recovered_record_ids": [
+    "doi:10.1093/ije/dyaa075",
+    "doi:10.1093/nsr/nwx146",
+    "doi:10.1096/fj.202100317",
+    "doi:10.1097/01.jcma.0001096048.54396.64",
+    "doi:10.1097/hjh.0b013e32834ee23c",
+    "doi:10.1111/exd.12771",
+    "doi:10.1111/gbb.12646",
+    "doi:10.1111/nbu.12575",
+    "doi:10.4103/nrr.nrr-d-25-00422"
+  ],
+  "unresolved_record_ids": [
+    "doi:10.1002/alz.12278",
+    "doi:10.1002/hon.2950",
+    "doi:10.1016/j.jid.2019.07.004",
+    "doi:10.1095/biolreprod.113.108985",
+    "doi:10.1095/biolreprod.114.117291",
+    "doi:10.1095/biolreprod.114.117887",
+    "doi:10.1111/bjd.21182",
+    "doi:10.1113/jp287235",
+    "doi:10.1158/1538-7445.am2025-sy02-01",
+    "doi:10.4081/ejtm.2026.14960",
+    "doi:10.5281/zenodo.20257527",
+    "doi:10.7936/zw5q-8j61"
+  ],
+  "file_format": "UTF-8 plain text extracted from browser-rendered official full-text publisher pages",
+  "validation": "Each retained file was checked for target DOI, matching title, substantive body text, publication-appropriate section/reference evidence, byte size, character count, and SHA-256. Abstract-only, access/login HTML, invalid archive/PDF responses, and wrong-DOI redirects were rejected.",
+  "files_created": 11
+}

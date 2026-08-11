@@ -1,0 +1,31 @@
+{
+  "manifest": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/combined/manifest.jsonl",
+  "manifest_sha256": "796033cd47f1c6e406d2106d3db047d66b0812c5e5e3110566562cea7776ce40",
+  "non_article_target_contents": 6,
+  "recovered_target_reports": 17,
+  "report_form_counts": {
+    "accepted_manuscript": 1,
+    "conference_abstract": 2,
+    "conference_abstract_in_supplement": 2,
+    "proceedings_collection": 1,
+    "standalone_report": 9,
+    "thesis": 1,
+    "title_index": 1
+  },
+  "selection": "protocol/full_text/oversized_20k_agent_recovery_selection.csv",
+  "selection_sha256": "054826eceec33ca97bb6ae9f8a16cd3f2feeea07958bd535acc0766c49d2ad38",
+  "standalone_article_or_report_files": 11,
+  "status": "complete",
+  "strategy_selected_counts": {
+    "publisher_browser": 1,
+    "repository_api": 11,
+    "version_resolution": 5
+  },
+  "target_count": 21,
+  "unresolved_target_reports": 4,
+  "validation": {
+    "all_pdf_signatures_valid": true,
+    "all_selected_source_hashes_match": true,
+    "all_targets_covered_once": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "artifacts": {
+    "combined_manifest": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/combined/manifest.jsonl",
+      "sha256": "796033cd47f1c6e406d2106d3db047d66b0812c5e5e3110566562cea7776ce40"
+    },
+    "selection": {
+      "path": "protocol/full_text/oversized_20k_agent_recovery_selection.csv",
+      "sha256": "054826eceec33ca97bb6ae9f8a16cd3f2feeea07958bd535acc0766c49d2ad38"
+    }
+  },
+  "content_boundary": {
+    "additional_non_article_target_contents": 6,
+    "additional_standalone_article_or_report_files": 11,
+    "note": "Non-article target contents are exact proceedings, abstract, or index records retained so report type can be resolved during screening."
+  },
+  "flow": {
+    "additional_reports_pending_full_text_screening": 17,
+    "additional_target_reports_recovered": 17,
+    "reports_not_retrieved_after_agent_recovery": 4,
+    "reports_not_retrieved_before_agent_recovery": 21,
+    "reports_retrieved_after_agent_recovery": 61,
+    "reports_retrieved_before_agent_recovery": 44,
+    "reports_sought_for_retrieval": 65
+  },
+  "schema_version": "1.0.0",
+  "status": "agent_recovery_complete_pending_incremental_full_text_screening"
+}
