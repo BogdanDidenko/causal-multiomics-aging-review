@@ -1,0 +1,81 @@
+{
+  "audit": {
+    "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/input_audit.jsonl",
+    "sha256": "ab155f968c875d70b8a91c1485eb25ac4b693a0fb572913e163fb840b5030c6c"
+  },
+  "graph_root": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light",
+  "graph_run_manifest_sha256": "be89ba2bbf922a9430004c8b9797b2d419287c9d3b599cae7c7fcc74110233b3",
+  "input": {
+    "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/input.jsonl",
+    "sha256": "92b5594b449bf6a18ed5b304c04590e76bd087402e6ad7ed239ba86d0c42497d"
+  },
+  "metadata_path": "data/full_text/v1.1.2_oversized_20k_seek66/cohort.csv",
+  "metadata_sha256": "4b5ff469ded481c391e50e49cf22bf473c830d51110f7585fa1afef6be9d143c",
+  "records": 44,
+  "records_with_doi": 43,
+  "records_without_doi": 1,
+  "shards": [
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_01.jsonl",
+      "records": 4,
+      "sha256": "efb4eef09e4d4e5cc0f76264b3fb33940abef0f6b54e4f7072ca7dbe5db4b635"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_02.jsonl",
+      "records": 4,
+      "sha256": "f0e697f229b56a8973678bbad950efe85aeafb5bee3abb8f231b8e091291ad02"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_03.jsonl",
+      "records": 4,
+      "sha256": "a8304c9d6fbf87578f976cdadf52fc0533e8b138040d9d3499b6f348c16021bd"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_04.jsonl",
+      "records": 4,
+      "sha256": "a69dcee22686750d33e2052784612182481b23780e72b69e24bed9e8d140d03e"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_05.jsonl",
+      "records": 4,
+      "sha256": "b840ae62fc34cf3d7ca79fdc6d4a4cee173df41445bf687b6e29494bdff12f6a"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_06.jsonl",
+      "records": 4,
+      "sha256": "eef92ea0e27454f28b9d730bba07f6ca8c765a3e08b3da8fc612e86b5117f5fe"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_07.jsonl",
+      "records": 4,
+      "sha256": "f9ee5069ce5dbda376da33a73a289de283cbb4daf97203825df26c8ea53ce561"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_08.jsonl",
+      "records": 4,
+      "sha256": "c7d55e5e67adecc7bd0d41e7f34d169eac7a205809f512f3156cb19f36f681fe"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_09.jsonl",
+      "records": 3,
+      "sha256": "c49d6814fba61d7228794f6a840e82120ffad75bd0c35573adc9cf93344ce7e4"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_10.jsonl",
+      "records": 3,
+      "sha256": "136474874afaaefe5fdd2f83b6d13e81b3717df573b4752add182703e74f3eaa"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_11.jsonl",
+      "records": 3,
+      "sha256": "a9c853d5aaccdb75a2f2a908b4301e982d0301e8d358b8f7730a3f3ac9761f74"
+    },
+    {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/shards/shard_12.jsonl",
+      "records": 3,
+      "sha256": "a7cd98872cf1b2ad0aa89a0681d2683a7fd403655359a8c0d459dfeaf3881107"
+    }
+  ],
+  "status": "frozen_full_text_screening_input",
+  "unique_doi": 43
+}

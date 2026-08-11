@@ -1,0 +1,16 @@
+{
+  "all_graph_hashes_valid": true,
+  "all_provenance_hashes_valid": true,
+  "detail_csv": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/graph_quality.csv",
+  "documents_audited": 44,
+  "evidence_quotes": 404,
+  "evidence_quotes_exact": 283,
+  "evidence_quotes_normalized": 344,
+  "graphs_audited": 44,
+  "graphs_with_all_nodes_grounded": 44,
+  "insufficient_full_text": 0,
+  "interpretation": "Graph entities are evidence-index candidates only. Model-provided quotes must be resolved to deterministic source chunks before screening citations.",
+  "nodes": 357,
+  "schema_version": "1.0.0",
+  "unresolved_nodes": 0
+}
