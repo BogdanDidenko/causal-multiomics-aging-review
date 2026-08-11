@@ -197,6 +197,20 @@ def is_context_overflow(exc: Exception) -> bool:
     )
 
 
+def initial_extraction_contract(
+    conversion: dict[str, Any], config: dict[str, Any]
+) -> str:
+    graph = config["docling_graph"]
+    direct = str(graph["extraction_contract"])
+    context_limit = int(graph["llm_overrides"]["context_limit"])
+    max_output = int(graph["llm_overrides"]["max_output_tokens"])
+    markdown_characters = int(conversion.get("markdown_characters") or 0)
+    estimated_input_tokens = (markdown_characters + 3) // 4
+    if estimated_input_tokens + max_output > context_limit:
+        return str(graph["fallback_contract_on_context_overflow"])
+    return direct
+
+
 def write_summary(
     output_root: Path,
     corpus_rows: list[dict[str, str]],
@@ -364,7 +378,7 @@ def main() -> int:
 
             source = REPO / str(conversion["docling_json_path"])
             document_output = output_root / "artifacts" / document_id_value
-            active_contract = str(config["docling_graph"]["extraction_contract"])
+            active_contract = initial_extraction_contract(conversion, config)
             for retry in range(max_retries + 1):
                 started = time.time()
                 attempt: dict[str, Any] = {

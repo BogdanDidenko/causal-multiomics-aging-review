@@ -96,6 +96,23 @@ def test_execution_shards_are_stable_and_non_overlapping() -> None:
     assert not (shards[0] & shards[1] or shards[0] & shards[2] or shards[1] & shards[2])
 
 
+def test_oversized_graph_input_selects_dense_contract_before_llm_call() -> None:
+    module = load_script("run_corpus.py")
+    config = {
+        "docling_graph": {
+            "extraction_contract": "direct",
+            "fallback_contract_on_context_overflow": "dense",
+            "llm_overrides": {"context_limit": 128000, "max_output_tokens": 8000},
+        }
+    }
+    assert module.initial_extraction_contract(
+        {"markdown_characters": 1_300_000}, config
+    ) == "dense"
+    assert module.initial_extraction_contract(
+        {"markdown_characters": 180_000}, config
+    ) == "direct"
+
+
 def test_graph_quote_normalization_handles_markup_not_content_changes() -> None:
     module = load_script("audit_graph_outputs.py")
     source = "Cochran *Q* test\nwas used for heterogeneity."
