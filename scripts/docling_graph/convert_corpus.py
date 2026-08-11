@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import shutil
+import subprocess
 import tempfile
 import time
 import xml.etree.ElementTree as ET
@@ -143,6 +144,56 @@ def jats_xml_to_markdown(path: Path) -> str:
     return markdown
 
 
+def pdf_layout_report_slice(path: Path, spec: dict[str, Any]) -> str:
+    """Extract one DOI-level report from a two-column proceedings page."""
+    page = int(spec["page"])
+    completed = subprocess.run(
+        [
+            "pdftotext",
+            "-f",
+            str(page),
+            "-l",
+            str(page),
+            "-layout",
+            str(path),
+            "-",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    lines = completed.stdout.splitlines()
+    start_marker = str(spec["start_marker"])
+    end_marker = str(spec["end_marker"])
+    right_marker = str(spec["right_column_marker"])
+    split_at = None
+    for line in lines:
+        if line.strip().startswith(start_marker) and right_marker in line:
+            split_at = line.index(right_marker)
+            break
+    if split_at is None:
+        raise ValueError("Could not identify deterministic report-column boundary")
+
+    selected: list[str] = []
+    active = False
+    for line in lines:
+        left = line[:split_at].rstrip()
+        stripped = left.strip()
+        if not active and stripped.startswith(start_marker):
+            active = True
+        if active and stripped.startswith(end_marker):
+            break
+        if active:
+            selected.append(left.strip())
+    markdown = "\n".join(selected).strip() + "\n"
+    required_title = str(spec.get("required_title") or "")
+    if required_title and required_title.casefold() not in markdown.casefold():
+        raise ValueError("Required report title is absent from deterministic slice")
+    if len(markdown) < 1000:
+        raise ValueError("Converted document is unexpectedly small")
+    return markdown
+
+
 def existing_export(output_root: Path, document_id: str) -> tuple[Path, Path] | None:
     roots = sorted(
         (output_root / "artifacts" / document_id).glob("*/docling/document.json"),
@@ -192,9 +243,18 @@ def main() -> int:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--doi", action="append", default=[])
     parser.add_argument("--no-resume", action="store_true")
+    parser.add_argument("--report-packaging-manifest", type=Path)
     args = parser.parse_args()
 
     config = json.loads(args.config.resolve().read_text(encoding="utf-8"))
+    packaging_manifest_path = (
+        args.report_packaging_manifest.resolve() if args.report_packaging_manifest else None
+    )
+    packaging = (
+        json.loads(packaging_manifest_path.read_text(encoding="utf-8"))
+        if packaging_manifest_path
+        else {"report_slices": {}}
+    )
     output_root = (REPO / config["runtime"]["output_root"]).resolve()
     corpus_rows = read_csv(output_root / "corpus_manifest.csv")
     all_corpus_rows = list(corpus_rows)
@@ -236,8 +296,31 @@ def main() -> int:
             "started_at_unix": started,
         }
         try:
+            slice_spec = packaging.get("report_slices", {}).get(row["doi"].casefold())
             reusable = existing_export(output_root, document_id)
-            if reusable and config["conversion"]["reuse_existing_docling_graph_exports"]:
+            if slice_spec:
+                if converter is None:
+                    converter = make_converter()
+                source_path = REPO / row["source_path"]
+                report_markdown = pdf_layout_report_slice(source_path, slice_spec)
+                with tempfile.TemporaryDirectory(prefix="report-slice-docling-") as temp_dir:
+                    intermediary = Path(temp_dir) / f"{document_id}.md"
+                    intermediary.write_text(report_markdown, encoding="utf-8")
+                    result = converter.convert(intermediary)
+                result.document.save_as_json(document_json)
+                markdown.write_text(result.document.export_to_markdown(), encoding="utf-8")
+                conversion_source = "deterministic_pdf_layout_doi_report_slice_then_docling"
+                attempt["report_slice"] = slice_spec
+                attempt["report_slice_sha256"] = hashlib.sha256(
+                    report_markdown.encode("utf-8")
+                ).hexdigest()
+                attempt["report_packaging_manifest"] = str(
+                    packaging_manifest_path.relative_to(REPO)
+                )
+                attempt["report_packaging_manifest_sha256"] = sha256_file(
+                    packaging_manifest_path
+                )
+            elif reusable and config["conversion"]["reuse_existing_docling_graph_exports"]:
                 shutil.copyfile(reusable[0], document_json)
                 shutil.copyfile(reusable[1], markdown)
                 conversion_source = "reused_docling_graph_export"

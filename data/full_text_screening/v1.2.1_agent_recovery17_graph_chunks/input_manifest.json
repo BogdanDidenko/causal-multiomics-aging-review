@@ -1,0 +1,61 @@
+{
+  "audit": {
+    "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/input_audit.jsonl",
+    "sha256": "bad7bc55ec4af5657457d2c57c2a166784cb38acefda3cf60a648ee151327b11"
+  },
+  "graph_root": "data/full_text_graph/v1.2.0_agent_recovery17_luna_light",
+  "graph_run_manifest_sha256": "217577924cfb75d6180d0a6b430130f210f763fbbc3c275c13ffe090d68d4f69",
+  "input": {
+    "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/input.jsonl",
+    "sha256": "cdc103d0f020c78e0e0fe26f070bf1679ab663b037b8ea41be7b02f1382ddec5"
+  },
+  "metadata_path": "data/full_text/v1.1.2_oversized_20k_seek66/cohort.csv",
+  "metadata_sha256": "4b5ff469ded481c391e50e49cf22bf473c830d51110f7585fa1afef6be9d143c",
+  "records": 17,
+  "records_with_doi": 17,
+  "records_without_doi": 0,
+  "shards": [
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_01.jsonl",
+      "records": 3,
+      "sha256": "156ca9df38517656b00ae4968a2fc24b8384956cd590a980077131204e170f1e"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_02.jsonl",
+      "records": 2,
+      "sha256": "50c6dc1801b12ae4e633e2e5908364d8c26025265ee017f29193c6f593ea4902"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_03.jsonl",
+      "records": 2,
+      "sha256": "0b0801fcda4d888ede50d866ea674558a786a543f010ff4e6a42e16c546ea8a9"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_04.jsonl",
+      "records": 2,
+      "sha256": "a07c9f1d3a8a95f03d8bf584eae53603b40fd7eb53546eb07a30fbb533a60bb0"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_05.jsonl",
+      "records": 2,
+      "sha256": "f192cf18748244050ebaac7ac491f03d7b022f606d8bdb2e3f8563e3b8728604"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_06.jsonl",
+      "records": 2,
+      "sha256": "012789940f48cdca0d2db79b60f12d188fee27c3faf296b07fe6822e1170d4df"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_07.jsonl",
+      "records": 2,
+      "sha256": "7a831408abca39d720251fbe6ecb5e33394cd53efb35cdcf83059dfd5a929f44"
+    },
+    {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/shards/shard_08.jsonl",
+      "records": 2,
+      "sha256": "9e828c4a8c3e8bd07b782bfab3e33df9a0ff3e35213f8ba262e3defe2684f4b3"
+    }
+  ],
+  "status": "frozen_full_text_screening_input",
+  "unique_doi": 17
+}

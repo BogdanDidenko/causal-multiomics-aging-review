@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Deterministic DOI-level packaging when a retrieved file contains multiple reports.",
+  "report_slices": {
+    "10.1016/j.jid.2019.07.004": {
+      "method": "pdftotext_layout_column",
+      "page": 5,
+      "start_marker": "001",
+      "end_marker": "003",
+      "right_column_marker": "002",
+      "required_title": "Genome-wide association study of acne inversa in a multi-ethnic cohort",
+      "source_scope": "official complete conference supplement containing the target abstract"
+    }
+  }
+}

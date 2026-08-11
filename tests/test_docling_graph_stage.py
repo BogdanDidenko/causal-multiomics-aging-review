@@ -142,6 +142,34 @@ def test_jats_xml_conversion_preserves_article_sections_and_text(tmp_path: Path)
     assert repeated.strip() in markdown
 
 
+def test_pdf_layout_report_slice_keeps_only_target_column(monkeypatch, tmp_path: Path) -> None:
+    module = load_script("convert_corpus.py")
+
+    class Completed:
+        stdout = (
+            "001" + (" " * 57) + "002\n"
+            "Target report title" + (" " * 41) + "Other title\n"
+            + (("Target evidence sentence." + (" " * 35) + "Other evidence.\n") * 45)
+            + "003" + (" " * 57) + "004\n"
+        )
+
+    monkeypatch.setattr(module.subprocess, "run", lambda *args, **kwargs: Completed())
+    result = module.pdf_layout_report_slice(
+        tmp_path / "supplement.pdf",
+        {
+            "page": 5,
+            "start_marker": "001",
+            "end_marker": "003",
+            "right_column_marker": "002",
+            "required_title": "Target report title",
+        },
+    )
+    assert "Target report title" in result
+    assert "Target evidence sentence" in result
+    assert "Other title" not in result
+    assert "003" not in result
+
+
 def test_recovery_manifest_builds_17_unique_hashed_documents() -> None:
     module = load_script("build_corpus_manifest.py")
     config = REPO / "protocol/full_text/docling_graph_v1.2.0_agent_recovery17.json"

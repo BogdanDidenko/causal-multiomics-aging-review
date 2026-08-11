@@ -371,6 +371,9 @@ def main() -> int:
                 and previous
                 and previous.get("status") == "success"
                 and previous.get("source_sha256") == row["source_sha256"]
+                and previous.get("graph_input_sha256") == conversion.get("docling_json_sha256")
+                and previous.get("config_sha256") == config_hash
+                and previous.get("template_sha256") == template_hash
                 and (REPO / str(previous["graph_path"])).is_file()
             ):
                 print(f"[{index}/{len(corpus_rows)}] resume {row['doi']}", flush=True)
