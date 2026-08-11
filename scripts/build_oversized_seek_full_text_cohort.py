@@ -48,6 +48,7 @@ def main() -> None:
     parser.add_argument("--resolutions", type=Path, required=True)
     parser.add_argument("--existing-targets", type=Path)
     parser.add_argument("--expected", type=int, default=66)
+    parser.add_argument("--expected-unique", type=int, default=65)
     args = parser.parse_args()
 
     source_rows = read_csv(args.screening_input)
@@ -112,6 +113,43 @@ def main() -> None:
                 }
             )
 
+    deduplicated_cohort: list[dict[str, str]] = []
+    deduplicated_triage: list[dict[str, str]] = []
+    position_by_key: dict[str, int] = {}
+    duplicate_aliases: list[dict[str, str]] = []
+    for source, route in zip(cohort, triage, strict=True):
+        key = source["doi"] or source["record_id"]
+        if key not in position_by_key:
+            position_by_key[key] = len(deduplicated_cohort)
+            source["duplicate_record_ids"] = ""
+            deduplicated_cohort.append(source)
+            deduplicated_triage.append(route)
+            continue
+        position = position_by_key[key]
+        existing = deduplicated_cohort[position]
+        existing_route = deduplicated_triage[position]
+        prefer_source = bool(source.get("original_doi")) and not bool(existing.get("original_doi"))
+        kept = source if prefer_source else existing
+        kept_route = route if prefer_source else existing_route
+        alias = existing if prefer_source else source
+        kept["duplicate_record_ids"] = ";".join(
+            value for value in (kept.get("duplicate_record_ids", ""), alias["record_id"]) if value
+        )
+        deduplicated_cohort[position] = kept
+        deduplicated_triage[position] = kept_route
+        duplicate_aliases.append(
+            {
+                "normalized_identifier": key,
+                "kept_record_id": kept["record_id"],
+                "collapsed_record_id": alias["record_id"],
+                "basis": "resolved DOI identity",
+            }
+        )
+
+    cohort = deduplicated_cohort
+    triage = deduplicated_triage
+    if len(cohort) != args.expected_unique:
+        raise SystemExit(f"Expected {args.expected_unique} unique reports, found {len(cohort)}")
     dois = [row["doi"] for row in cohort if row["doi"]]
     record_ids = [row["record_id"] for row in cohort]
     if len(dois) != len(set(dois)):
@@ -133,17 +171,22 @@ def main() -> None:
     cohort_path = output / "cohort.csv"
     triage_path = output / "triage.csv"
     resolution_path = output / "identifier_resolution_audit.csv"
+    duplicate_path = output / "duplicate_resolution_audit.csv"
     write_csv(cohort_path, cohort)
     write_csv(triage_path, triage)
     if resolution_audit:
         write_csv(resolution_path, resolution_audit)
+    if duplicate_aliases:
+        write_csv(duplicate_path, duplicate_aliases)
     manifest = {
         "status": "frozen_full_text_followup_cohort",
         "selection_rule": (
             "effective 20,000-character title/abstract rerun route is seek_full_text, "
             "excluding records still routed solely as oversized metadata"
         ),
+        "input_records": len(selected_results),
         "records": len(cohort),
+        "duplicate_records_collapsed": len(duplicate_aliases),
         "records_with_doi": len(dois),
         "unique_normalized_doi": len(set(dois)),
         "records_without_doi": len(cohort) - len(dois),
@@ -159,6 +202,10 @@ def main() -> None:
             "identifier_resolution_audit": {
                 "path": str(resolution_path),
                 "sha256": sha256(resolution_path),
+            },
+            "duplicate_resolution_audit": {
+                "path": str(duplicate_path),
+                "sha256": sha256(duplicate_path),
             },
             "source_screening_input": {
                 "path": str(args.screening_input),

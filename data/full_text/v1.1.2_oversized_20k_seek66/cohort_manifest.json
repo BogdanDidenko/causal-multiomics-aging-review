@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "cohort": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/cohort.csv",
+      "sha256": "4b5ff469ded481c391e50e49cf22bf473c830d51110f7585fa1afef6be9d143c"
+    },
+    "duplicate_resolution_audit": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/duplicate_resolution_audit.csv",
+      "sha256": "5c60ca23ad014dc3029e8b8b67aa9b4e9418aa916b92b2b5da6048636666d291"
+    },
+    "identifier_resolution_audit": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/identifier_resolution_audit.csv",
+      "sha256": "5d7257fe1eed40f453eacc7d596738dd1f24432a31169b2aa002d513b748177d"
+    },
+    "resolution_source": {
+      "path": "protocol/full_text/oversized_20k_identifier_resolutions.csv",
+      "sha256": "b28ef1e606c5aad98ec3a48d31db1febcd405499a0eee5822b5f0cd6de95e4ed"
+    },
+    "source_screening_input": {
+      "path": "data/screening/v1.1.2_oversized_abstract_rerun_20k_2026-08-10/input.csv",
+      "sha256": "1abf6942e4c34ad573c50e1a5578744916298b69b21acd12be08d4ad264a5f04"
+    },
+    "triage": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/triage.csv",
+      "sha256": "9a8acfa7a57f2fd3afbb655364711741ada4088252a2c6c355abd7771615841b"
+    }
+  },
+  "duplicate_records_collapsed": 1,
+  "input_records": 66,
+  "overlap_with_existing_119_dois": 0,
+  "preprints_included": 2,
+  "reason_counts": {
+    "positive_causal_basis": 4,
+    "scope_unresolved_or_nonunanimous_exclusion": 61
+  },
+  "records": 65,
+  "records_with_doi": 64,
+  "records_without_doi": 1,
+  "selection_rule": "effective 20,000-character title/abstract rerun route is seek_full_text, excluding records still routed solely as oversized metadata",
+  "status": "frozen_full_text_followup_cohort",
+  "unique_normalized_doi": 64,
+  "unique_record_ids": 65
+}
