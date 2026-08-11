@@ -1,0 +1,106 @@
+{
+  "completed_at": "2026-08-11T22:18:59.123370+00:00",
+  "completed_shards": 8,
+  "execution_code": {
+    "scripts/run_full_text_corpus_screening.py": {
+      "sha256": "7e23ba3fa45b0321122e2649050a8ea2b6fa22f927d08d2c1c86e76d0cb7fd7d"
+    },
+    "scripts/run_screening.py": {
+      "sha256": "edcef8fb2964b1a1daed55105aa95b1ff3f4211dd4b17303f6c59fac684cc91d"
+    },
+    "src/causal_multiomics_aging_review/screening.py": {
+      "sha256": "93932eb9df41ed764409f64665b15b3011bd163c9097f8bf28d16d7b4ad85cc1"
+    },
+    "src/causal_multiomics_aging_review/v1.py": {
+      "sha256": "41d85f57ffc0c1a7229a599497901ca3fde3fc9733226ef2a2836290801f24f7"
+    }
+  },
+  "failed_shards": [],
+  "git_revision": "d600e3f033f166844e96e36d1d3454df63da7450",
+  "git_worktree_dirty": false,
+  "input_manifest": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/input_manifest.json",
+  "input_manifest_sha256": "077d8d62aff0e4a47f24e9673381c80f8e6c95b73955a24e960b6a79b9b10fd2",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "records": 17,
+  "repeats_per_role": 5,
+  "result_records": 17,
+  "roles": [
+    "scope_reviewer",
+    "causal_method_reviewer"
+  ],
+  "run_classification": "full_corpus_evaluation_pending_expert_gold",
+  "shards": [
+    {
+      "completed_at": "2026-08-11T22:18:59.122752+00:00",
+      "expected_records": 3,
+      "result_records": 3,
+      "returncode": 0,
+      "shard": "shard_01",
+      "started_at": "2026-08-11T22:14:21.665034+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:17:17.305921+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_02",
+      "started_at": "2026-08-11T22:14:21.666355+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:16:51.619050+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_03",
+      "started_at": "2026-08-11T22:14:21.667319+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:16:51.976665+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_04",
+      "started_at": "2026-08-11T22:14:21.667604+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:17:00.722732+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_05",
+      "started_at": "2026-08-11T22:14:21.669994+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:17:34.420461+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_06",
+      "started_at": "2026-08-11T22:14:21.668632+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:17:23.599494+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_07",
+      "started_at": "2026-08-11T22:14:21.671005+00:00"
+    },
+    {
+      "completed_at": "2026-08-11T22:17:10.137160+00:00",
+      "expected_records": 2,
+      "result_records": 2,
+      "returncode": 0,
+      "shard": "shard_08",
+      "started_at": "2026-08-11T22:14:21.673255+00:00"
+    }
+  ],
+  "started_at": "2026-08-11T22:14:21.567732+00:00",
+  "status": "complete",
+  "suite_approval_status": "calibration_pending_expert_gold",
+  "suite_config": "protocol/screening/configs/prompt_suite_v1.5.2-rc1.json",
+  "suite_config_sha256": "4c41ee1fe1f9a674bb520785e7ab95e13abc2e28d7c930e61e15e9dfc94b049e",
+  "unique_doi": 17,
+  "workers": 8
+}

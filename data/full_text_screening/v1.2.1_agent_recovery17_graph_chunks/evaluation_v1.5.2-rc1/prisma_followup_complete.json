@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "initial_stability_summary": {
+      "path": "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks/evaluation_v1.5.2-rc1/stability_summary.json",
+      "sha256": "154f95e3f95e1abddc22cd81ccc792d1c77fac0f8710a845ecde27c9fa3920a3"
+    },
+    "recovery_screening_input": {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/input_manifest.json",
+      "sha256": "077d8d62aff0e4a47f24e9673381c80f8e6c95b73955a24e960b6a79b9b10fd2"
+    },
+    "recovery_selection": {
+      "path": "protocol/full_text/oversized_20k_agent_recovery_selection.csv",
+      "sha256": "054826eceec33ca97bb6ae9f8a16cd3f2feeea07958bd535acc0766c49d2ad38"
+    },
+    "recovery_stability_summary": {
+      "path": "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks/evaluation_v1.5.2-rc1/stability_summary.json",
+      "sha256": "a3d8aa4e9724c61a279a93498dc9de6f62c047c2a619388aaa03c2f3e2998399"
+    },
+    "retrieval_addendum": {
+      "path": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/prisma_recovery_addendum.json",
+      "sha256": "fdb8efc0a3f0585ff05b9a28cd073b7750f11e2f84e380353c51e2529172aa7f"
+    }
+  },
+  "cohort": "oversized_abstract_20k_seek_full_text_followup",
+  "flow": {
+    "duplicate_reports_collapsed_before_retrieval": 1,
+    "reports_assessed_by_model_pipeline": 61,
+    "reports_not_retrieved": 4,
+    "reports_pending_expert_adjudication": 21,
+    "reports_retrieved": 61,
+    "reports_sought_for_retrieval": 65,
+    "reports_with_unanimous_model_exclusion": 35,
+    "reports_with_unanimous_positive_model_assessment": 5,
+    "studies_included_in_synthesis": null,
+    "title_abstract_records_routed_to_followup": 66
+  },
+  "interpretation": "The four unavailable reports are retrieval losses, not scientific exclusions. Unanimous model routes are provisional screening outputs; final PRISMA eligibility and synthesis counts require expert adjudication.",
+  "not_retrieved_reports": [
+    {
+      "doi": "10.1002/hon.2950",
+      "prisma_classification": "report_not_retrieved",
+      "reason": "No legal full target content found by any strategy"
+    },
+    {
+      "doi": "10.1095/biolreprod.113.108985",
+      "prisma_classification": "report_not_retrieved",
+      "reason": "No legal full target content found by any strategy"
+    },
+    {
+      "doi": "10.1095/biolreprod.114.117291",
+      "prisma_classification": "report_not_retrieved",
+      "reason": "No legal full target content found by any strategy"
+    },
+    {
+      "doi": "10.1095/biolreprod.114.117887",
+      "prisma_classification": "report_not_retrieved",
+      "reason": "No legal full target content found by any strategy"
+    }
+  ],
+  "recovery_batch_stability": {
+    "all_evaluated_fields_exact_rate": 0.5882352941176471,
+    "all_evaluated_fields_exact_records": 10,
+    "five_request_route_exact_rate": 0.7058823529411765,
+    "five_request_route_exact_records": 12,
+    "records": 17,
+    "schema_and_grounding_success_rate": 0.9387755102040817,
+    "technical_failure_record_id": "doi:10.1002/alz.12278",
+    "technical_role_execution_failures": 1
+  },
+  "schema_version": "1.0.0",
+  "screening_batches": {
+    "agent_recovered_17": {
+      "assessed": 2,
+      "exclude": 10,
+      "manual_review": 5
+    },
+    "initial_retrieved_44": {
+      "assessed": 3,
+      "exclude": 25,
+      "manual_review": 16
+    }
+  },
+  "status": "retrieval_and_model_screening_complete_pending_expert_adjudication"
+}
