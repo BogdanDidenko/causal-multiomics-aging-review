@@ -252,6 +252,15 @@ def main() -> int:
                         intermediary.write_text(jats_markdown, encoding="utf-8")
                         result = converter.convert(intermediary)
                     conversion_source = "deterministic_jats_markdown_then_docling"
+                elif source_path.suffix.casefold() == ".txt":
+                    plain_text = source_path.read_text(encoding="utf-8")
+                    if len(plain_text) < 1000:
+                        raise ValueError("Converted document is unexpectedly small")
+                    with tempfile.TemporaryDirectory(prefix="text-docling-") as temp_dir:
+                        intermediary = Path(temp_dir) / f"{document_id}.md"
+                        intermediary.write_text(plain_text, encoding="utf-8")
+                        result = converter.convert(intermediary)
+                    conversion_source = "deterministic_plain_text_then_docling"
                 else:
                     result = converter.convert(source_path)
                     conversion_source = "reusable_no_ocr_converter"

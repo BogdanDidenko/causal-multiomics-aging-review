@@ -38,7 +38,9 @@ def build_rows(config_path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]
     seen_dois: set[str] = set()
     rows: list[dict[str, Any]] = []
     for source in source_rows:
-        if source.get("target_status") not in accepted or not source.get("selected_file"):
+        retrieval_status = source.get("target_status") or source.get("status")
+        selected_file = source.get("selected_file") or source.get("canonical_file")
+        if retrieval_status not in accepted or not selected_file:
             continue
         doi = str(source["doi"]).strip().casefold()
         record_id = str(source.get("record_id", "")).strip()
@@ -50,7 +52,7 @@ def build_rows(config_path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]
         seen_identifiers.add(identifier)
         if doi:
             seen_dois.add(doi)
-        local_path = REPO / str(source["selected_file"])
+        local_path = REPO / str(selected_file)
         if not local_path.is_file():
             raise FileNotFoundError(local_path)
         rows.append(
@@ -63,7 +65,7 @@ def build_rows(config_path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]
                 "source_path": str(local_path.relative_to(REPO)),
                 "source_bytes": local_path.stat().st_size,
                 "source_sha256": sha256_file(local_path),
-                "retrieval_status": str(source["target_status"]),
+                "retrieval_status": str(retrieval_status),
             }
         )
     rows.sort(key=lambda row: row["doi"])

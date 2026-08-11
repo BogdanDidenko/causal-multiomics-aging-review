@@ -123,3 +123,14 @@ def test_jats_xml_conversion_preserves_article_sections_and_text(tmp_path: Path)
     assert "Abstract evidence." in markdown
     assert "### Methods" in markdown
     assert repeated.strip() in markdown
+
+
+def test_recovery_manifest_builds_17_unique_hashed_documents() -> None:
+    module = load_script("build_corpus_manifest.py")
+    config = REPO / "protocol/full_text/docling_graph_v1.2.0_agent_recovery17.json"
+    _, rows = module.build_rows(config)
+    assert len(rows) == 17
+    assert len({row["doi"] for row in rows}) == 17
+    assert len({row["document_id"] for row in rows}) == 17
+    assert {row["retrieval_status"] for row in rows} == {"recovered"}
+    assert {row["source_format"] for row in rows} == {"html", "md", "pdf", "txt"}
