@@ -1,0 +1,17 @@
+{
+  "config_path": "protocol/full_text/docling_graph_v1.1.0_oversized_20k_seek65.json",
+  "config_sha256": "3a8e848ec117ca23f6bb26d81a573e4d11890ceb35b1211cbec6bc4025ce276c",
+  "corpus_manifest": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/corpus_manifest.csv",
+  "corpus_manifest_sha256": "ad81274f2fce8be4757f4274712a7e3d032ccd1cab42b01c0ab92c51974d7e98",
+  "documents": 44,
+  "format_counts": {
+    "html": 9,
+    "pdf": 21,
+    "xml": 14
+  },
+  "retrieval_manifest": "data/full_text/v1.1.2_oversized_20k_seek66/retrieval_manifest.jsonl",
+  "retrieval_manifest_sha256": "d49dbb7f03512e679700173f82c42b401ea2b763087be2e71c458a98dda19fd2",
+  "schema_version": "1.0.0",
+  "source_bytes": 65461222,
+  "status": "frozen_for_docling_graph_processing"
+}
