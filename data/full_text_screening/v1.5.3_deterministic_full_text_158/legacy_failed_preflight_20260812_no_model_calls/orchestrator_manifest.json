@@ -1,0 +1,259 @@
+{
+  "completed_at": "2026-08-12T12:39:50.473866+00:00",
+  "completed_shards": 24,
+  "execution_code": {
+    "scripts/run_full_text_corpus_screening.py": {
+      "sha256": "7e23ba3fa45b0321122e2649050a8ea2b6fa22f927d08d2c1c86e76d0cb7fd7d"
+    },
+    "scripts/run_screening.py": {
+      "sha256": "edcef8fb2964b1a1daed55105aa95b1ff3f4211dd4b17303f6c59fac684cc91d"
+    },
+    "src/causal_multiomics_aging_review/screening.py": {
+      "sha256": "93932eb9df41ed764409f64665b15b3011bd163c9097f8bf28d16d7b4ad85cc1"
+    },
+    "src/causal_multiomics_aging_review/v1.py": {
+      "sha256": "5ff0dddd13f0ac58259342e6718640da114b76e72c73e5d4b905bccef072d554"
+    }
+  },
+  "failed_shards": [
+    "shard_01",
+    "shard_02",
+    "shard_03",
+    "shard_04",
+    "shard_05",
+    "shard_06",
+    "shard_07",
+    "shard_08",
+    "shard_09",
+    "shard_10",
+    "shard_11",
+    "shard_12",
+    "shard_13",
+    "shard_14",
+    "shard_15",
+    "shard_16",
+    "shard_17",
+    "shard_18",
+    "shard_19",
+    "shard_20",
+    "shard_21",
+    "shard_22",
+    "shard_23",
+    "shard_24"
+  ],
+  "git_revision": "83deff5bbb14bd9fcea0a3c70a099809399695a6",
+  "git_worktree_dirty": false,
+  "input_manifest": "data/full_text_screening/v1.5.3_deterministic_full_text_158/input_manifest.json",
+  "input_manifest_sha256": "5b4f415b5882ea32f9a13cdf8fe160d0d0704609efcb32cfc3a0dbdebc41e1d4",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "records": 158,
+  "repeats_per_role": 5,
+  "result_records": 0,
+  "roles": [
+    "scope_reviewer",
+    "causal_method_reviewer"
+  ],
+  "run_classification": "full_corpus_evaluation_pending_expert_gold",
+  "shards": [
+    {
+      "completed_at": "2026-08-12T12:39:50.295486+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_01",
+      "started_at": "2026-08-12T12:39:50.096859+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.282773+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_02",
+      "started_at": "2026-08-12T12:39:50.098077+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.287884+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_03",
+      "started_at": "2026-08-12T12:39:50.099188+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.281889+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_04",
+      "started_at": "2026-08-12T12:39:50.100656+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.290534+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_05",
+      "started_at": "2026-08-12T12:39:50.100519+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.292631+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_06",
+      "started_at": "2026-08-12T12:39:50.101031+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.282205+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_07",
+      "started_at": "2026-08-12T12:39:50.101984+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.297004+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_08",
+      "started_at": "2026-08-12T12:39:50.102088+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.289101+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_09",
+      "started_at": "2026-08-12T12:39:50.104552+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.287623+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_10",
+      "started_at": "2026-08-12T12:39:50.105597+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.300033+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_11",
+      "started_at": "2026-08-12T12:39:50.112300+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.287953+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_12",
+      "started_at": "2026-08-12T12:39:50.110741+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.459419+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_13",
+      "started_at": "2026-08-12T12:39:50.282591+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.459102+00:00",
+      "expected_records": 7,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_14",
+      "started_at": "2026-08-12T12:39:50.282859+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.459291+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_15",
+      "started_at": "2026-08-12T12:39:50.284333+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.459622+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_16",
+      "started_at": "2026-08-12T12:39:50.288087+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.459591+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_17",
+      "started_at": "2026-08-12T12:39:50.288000+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.464161+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_18",
+      "started_at": "2026-08-12T12:39:50.290860+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.464452+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_19",
+      "started_at": "2026-08-12T12:39:50.291043+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.466340+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_20",
+      "started_at": "2026-08-12T12:39:50.292803+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.470195+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_21",
+      "started_at": "2026-08-12T12:39:50.294103+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.470029+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_22",
+      "started_at": "2026-08-12T12:39:50.297360+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.470163+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_23",
+      "started_at": "2026-08-12T12:39:50.297537+00:00"
+    },
+    {
+      "completed_at": "2026-08-12T12:39:50.473259+00:00",
+      "expected_records": 6,
+      "result_records": 0,
+      "returncode": 1,
+      "shard": "shard_24",
+      "started_at": "2026-08-12T12:39:50.300274+00:00"
+    }
+  ],
+  "started_at": "2026-08-12T12:39:49.997203+00:00",
+  "status": "failed",
+  "suite_approval_status": "calibration_pending_expert_gold",
+  "suite_config": "protocol/screening/configs/prompt_suite_v1.5.3-rc1.json",
+  "suite_config_sha256": "1b1b7a55a2cfcf6369324c4cd326eb44a3e37eeb86b3a31bf6527bddee076895",
+  "unique_doi": 157,
+  "workers": 12
+}

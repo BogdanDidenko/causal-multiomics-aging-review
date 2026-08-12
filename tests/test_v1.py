@@ -256,6 +256,9 @@ def test_v153_full_text_suite_disables_model_generated_ranking() -> None:
             / "protocol/screening/configs/prompt_suite_v1.5.3-rc1.json"
         ).read_text()
     )
+    assert suite["stages"]["full_text"]["architecture"] == (
+        "v1_shared_template_unanimous"
+    )
     packaging = suite["stages"]["full_text"]["deterministic_section_packaging"]
     assert packaging["graph_priority_score"] == 0
     assert packaging["drop_section_fields"] == ["graph_priority"]

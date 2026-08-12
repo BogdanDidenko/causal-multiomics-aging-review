@@ -91,7 +91,7 @@
       }
     },
     "full_text": {
-      "architecture": "v1_shared_template_unanimous_deterministic_packaging",
+      "architecture": "v1_shared_template_unanimous",
       "input_format": "jsonl",
       "max_tokens": 16000,
       "decision_repeats": 5,
