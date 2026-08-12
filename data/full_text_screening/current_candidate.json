@@ -1,0 +1,30 @@
+{
+  "status": "complete_candidate_pending_human_adjudication_and_expert_gold",
+  "method_version": "v1.5.3-rc1",
+  "selection_contract": "no_model_generated_section_selection_or_ranking",
+  "legacy_registry": "data/full_text_screening/legacy_registry.json",
+  "input_manifest": {
+    "path": "data/full_text_screening/v1.5.3_deterministic_full_text_158/input_manifest.json",
+    "sha256": "5b4f415b5882ea32f9a13cdf8fe160d0d0704609efcb32cfc3a0dbdebc41e1d4"
+  },
+  "suite_config": {
+    "path": "protocol/screening/configs/prompt_suite_v1.5.3-rc1.json",
+    "sha256": "be1701b8980718692518fa985ba249ac51cf6ef0e761a9cc24136d42561826bf"
+  },
+  "run_root": "data/full_text_screening/v1.5.3_deterministic_full_text_158/evaluation_v1.5.3-rc1",
+  "artifacts": {
+    "orchestrator_manifest_sha256": "24e95e7b1e72c9d4acdd3a11afd8dae3c48858d1ac204830fb5a65e8b430f1d8",
+    "stability_summary_sha256": "95c0421135b307bd57da0278e489dcd30a19ffd64f9a675d9950abddb0c76333",
+    "stability_ledger_sha256": "8dfeb3ffa3806d6fb42c74ed1aefffb6dcb07d9de949c046db6fc06296e03049",
+    "prisma_full_text_screening_sha256": "1f76d894b2d3c9db538e8a11b34c3eb3aec02e999139a49fcfeddb19d5d6a11f"
+  },
+  "records": 158,
+  "unique_doi": 157,
+  "records_without_doi": 1,
+  "model_pipeline_counts": {
+    "unanimous_positive_assessment": 100,
+    "unanimous_ai_exclusion": 33,
+    "manual_review": 25
+  },
+  "final_prisma_eligibility_counts_available": false
+}

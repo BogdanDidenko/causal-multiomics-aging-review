@@ -77,6 +77,13 @@ The only current candidate full-text input is
 model-generated section-selection fields. All earlier full-text screening roots
 are registered as `legacy_not_for_prisma` in
 [`legacy_registry.json`](data/full_text_screening/legacy_registry.json).
+The clean `v1.5.3-rc1` run completed 158/158 reports across 24/24 shards with no
+failed shard. Its strict model-pipeline routes were 100 unanimous positive
+assessments, 33 unanimous AI exclusions, and 25 manual-review records. Exact
+five-request route agreement was 133/158 (84.2%). These are not final PRISMA
+eligibility counts; the canonical pointer and execution report are
+[`current_candidate.json`](data/full_text_screening/current_candidate.json) and
+[`execution_report_v1.5.3-rc1.md`](analysis/full_text_screening/execution_report_v1.5.3-rc1.md).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.

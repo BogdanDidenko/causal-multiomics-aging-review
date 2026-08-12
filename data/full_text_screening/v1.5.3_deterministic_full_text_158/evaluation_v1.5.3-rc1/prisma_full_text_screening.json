@@ -1,0 +1,9 @@
+{
+  "note": "These are model-pipeline eligibility counts. Final PRISMA inclusion and exclusion counts require human adjudication and expert-gold validation.",
+  "reports_assessed_by_model_pipeline": 158,
+  "reports_pending_human_adjudication": 25,
+  "reports_with_strict_unanimous_exclusion": 33,
+  "reports_with_strict_unanimous_positive_assessment": 100,
+  "run_status": "complete_full_text_shared_template_stability_evaluation",
+  "stage": "full_text_eligibility_screening"
+}
