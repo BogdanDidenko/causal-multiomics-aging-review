@@ -23,6 +23,9 @@ validation are complete.
 - `manual_adjudication_form_25.csv` is the empty human-decision ledger. It must
   be completed from the frozen evidence packets, not from newly generated
   model summaries.
+- `ai_assisted_adjudication_draft_25.csv` is a transparent draft prepared from
+  the frozen packets and existing five-run outputs. It is not an independent
+  human decision and cannot replace the empty human-decision ledger.
 - `restricted_archive_receipt.json` identifies the immutable local archive
   that contains the exact rendered prompts, raw responses, deterministic
   evidence packages, and the 25 record-level adjudication packets.

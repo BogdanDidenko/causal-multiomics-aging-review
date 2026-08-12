@@ -15,6 +15,7 @@
   "prisma_traice_audit": {
     "manifest": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/prisma_traice_audit_manifest.json",
     "manual_adjudication_index": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/manual_adjudication_queue_25_index.jsonl",
+    "ai_assisted_adjudication_draft": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/ai_assisted_adjudication_draft_25.csv",
     "human_form": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/manual_adjudication_form_25.csv",
     "restricted_archive_receipt": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/restricted_archive_receipt.json"
   },
