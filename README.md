@@ -65,6 +65,12 @@ and the machine-readable
 [`prisma_full_text_processing.json`](data/full_text_graph/v1.0.0_luna_light/prisma_full_text_processing.json).
 The full-text stability result is documented in
 [`execution_report_v1.0.2.md`](analysis/full_text_screening/execution_report_v1.0.2.md).
+Those graph-prioritized full-text runs are now classified as superseded
+instrument-development pilots because a model-generated graph affected chunk
+ranking. Suite `v1.5.3-rc1` removes graph influence and reviewer-visible graph
+metadata while preserving the canonical prompt templates. The correction is
+documented in
+[`deterministic_packaging_correction_v1.5.3-rc1.md`](analysis/full_text_screening/deterministic_packaging_correction_v1.5.3-rc1.md).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.
@@ -80,9 +86,8 @@ flowchart LR
   D --> F["Causal-method reviewer, five runs"]
   E --> I["Unanimous Python criterion gates"]
   F --> I
-  I --> K["Deterministically packaged full text"]
-  K --> G["Docling Graph evidence index, Luna Light"]
-  G --> L["Criterion-level full-text review"]
+  I --> K["Deterministic Docling chunks and rule-based packaging"]
+  K --> L["Criterion-level full-text review"]
   L --> M["PRISMA flow and synthesis"]
 ```
 

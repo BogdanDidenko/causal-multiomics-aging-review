@@ -457,6 +457,9 @@ def package_full_text_sections(
     heading_terms = tuple(str(item).casefold() for item in config.get("required_heading_terms", []))
     text_terms = tuple(str(item).casefold() for item in config.get("priority_text_terms", []))
     graph_priority_score = int(config.get("graph_priority_score", 0))
+    drop_section_fields = {
+        str(item) for item in config.get("drop_section_fields", [])
+    }
     ranked: list[tuple[int, int, dict[str, Any]]] = []
     for index, section in enumerate(sections):
         heading = str(section.get("heading", ""))
@@ -481,7 +484,12 @@ def package_full_text_sections(
         packaged_text = text[:allowance]
         if not packaged_text:
             continue
-        packaged = {**section, "text": packaged_text}
+        packaged = {
+            key: value
+            for key, value in section.items()
+            if key not in drop_section_fields
+        }
+        packaged["text"] = packaged_text
         if len(packaged_text) < len(text):
             packaged["packaging_truncated"] = True
             truncated_ids.append(str(section["section_id"]))
@@ -491,7 +499,9 @@ def package_full_text_sections(
     selected = [selected_by_index[index] for index in sorted(selected_by_index)]
     selected_ids = {str(section["section_id"]) for section in selected}
     audit = {
-        "selection_method": "deterministic_heading_keyword_v1",
+        "selection_method": str(
+            config.get("selection_method", "deterministic_heading_keyword_v1")
+        ),
         "graph_priority_score": graph_priority_score,
         "graph_priority_selected": sum(
             section.get("graph_priority") is True for section in selected
@@ -512,6 +522,7 @@ def package_full_text_sections(
         "truncated_section_ids": truncated_ids,
         "selected_chars": used_chars,
         "max_chars": max_chars,
+        "dropped_section_fields": sorted(drop_section_fields),
     }
     return selected, audit
 

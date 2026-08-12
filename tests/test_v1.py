@@ -222,7 +222,7 @@ def test_deterministic_section_packaging_is_stable_and_bounded() -> None:
     assert "S2" in audit["truncated_section_ids"]
 
 
-def test_graph_priority_affects_deterministic_full_text_packaging() -> None:
+def test_corrected_packaging_ignores_and_hides_graph_priority() -> None:
     sections = [
         {"section_id": "chunk:0000", "heading": "Background", "text": "x" * 10},
         {
@@ -234,10 +234,34 @@ def test_graph_priority_affects_deterministic_full_text_packaging() -> None:
     ]
     selected, audit = package_full_text_sections(
         sections,
-        {"max_chars": 10, "max_section_chars": 10, "graph_priority_score": 200},
+        {
+            "max_chars": 10,
+            "max_section_chars": 10,
+            "graph_priority_score": 0,
+            "drop_section_fields": ["graph_priority"],
+            "selection_method": "deterministic_heading_keyword_v2_no_model_ranking",
+        },
     )
-    assert [row["section_id"] for row in selected] == ["chunk:0001"]
-    assert audit["graph_priority_selected"] == 1
+    assert [row["section_id"] for row in selected] == ["chunk:0000"]
+    assert "graph_priority" not in selected[0]
+    assert audit["graph_priority_score"] == 0
+    assert audit["selection_method"] == "deterministic_heading_keyword_v2_no_model_ranking"
+    assert audit["dropped_section_fields"] == ["graph_priority"]
+
+
+def test_v153_full_text_suite_disables_model_generated_ranking() -> None:
+    suite = json.loads(
+        (
+            ROOT
+            / "protocol/screening/configs/prompt_suite_v1.5.3-rc1.json"
+        ).read_text()
+    )
+    packaging = suite["stages"]["full_text"]["deterministic_section_packaging"]
+    assert packaging["graph_priority_score"] == 0
+    assert packaging["drop_section_fields"] == ["graph_priority"]
+    assert packaging["selection_method"] == (
+        "deterministic_heading_keyword_v2_no_model_ranking"
+    )
 
 
 def test_full_text_quote_repair_only_anchors_contiguous_source_words() -> None:
