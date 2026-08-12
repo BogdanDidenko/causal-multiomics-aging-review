@@ -71,6 +71,12 @@ ranking. Suite `v1.5.3-rc1` removes graph influence and reviewer-visible graph
 metadata while preserving the canonical prompt templates. The correction is
 documented in
 [`deterministic_packaging_correction_v1.5.3-rc1.md`](analysis/full_text_screening/deterministic_packaging_correction_v1.5.3-rc1.md).
+The only current candidate full-text input is
+[`v1.5.3_deterministic_full_text_158`](data/full_text_screening/v1.5.3_deterministic_full_text_158/input_manifest.json):
+158 unique records, 157 unique DOI values, one DOI-less report, and no
+model-generated section-selection fields. All earlier full-text screening roots
+are registered as `legacy_not_for_prisma` in
+[`legacy_registry.json`](data/full_text_screening/legacy_registry.json).
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.

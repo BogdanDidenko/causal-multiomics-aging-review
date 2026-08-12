@@ -1,0 +1,24 @@
+{
+  "registry_version": "1.0.0",
+  "status": "legacy_not_for_prisma",
+  "reason": "A Luna Light graph-derived priority flag influenced full-text chunk ranking, or the directory is an intermediate duplicate of that workflow.",
+  "superseded_by": {
+    "suite": "v1.5.3-rc1",
+    "selection_contract": "no_model_generated_section_selection_or_ranking"
+  },
+  "legacy_roots": [
+    "data/full_text_screening/v1.0.0_graph_chunks_97",
+    "data/full_text_screening/v1.1.0_oversized_20k_seek65_graph_chunks",
+    "data/full_text_screening/v1.2.0_agent_recovery17_graph_chunks",
+    "data/full_text_screening/v1.2.1_agent_recovery17_graph_chunks"
+  ],
+  "allowed_use": [
+    "audit",
+    "methodological_postmortem"
+  ],
+  "forbidden_use": [
+    "final_prisma_counts",
+    "final_eligibility",
+    "evidence_synthesis"
+  ]
+}
