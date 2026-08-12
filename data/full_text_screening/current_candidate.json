@@ -12,6 +12,12 @@
     "sha256": "be1701b8980718692518fa985ba249ac51cf6ef0e761a9cc24136d42561826bf"
   },
   "run_root": "data/full_text_screening/v1.5.3_deterministic_full_text_158/evaluation_v1.5.3-rc1",
+  "prisma_traice_audit": {
+    "manifest": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/prisma_traice_audit_manifest.json",
+    "manual_adjudication_index": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/manual_adjudication_queue_25_index.jsonl",
+    "human_form": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/manual_adjudication_form_25.csv",
+    "restricted_archive_receipt": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/restricted_archive_receipt.json"
+  },
   "artifacts": {
     "orchestrator_manifest_sha256": "24e95e7b1e72c9d4acdd3a11afd8dae3c48858d1ac204830fb5a65e8b430f1d8",
     "stability_summary_sha256": "95c0421135b307bd57da0278e489dcd30a19ffd64f9a675d9950abddb0c76333",

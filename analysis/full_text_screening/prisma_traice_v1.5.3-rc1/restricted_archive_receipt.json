@@ -1,0 +1,15 @@
+{
+  "archive_path": "artifacts/prisma_traice/full_text_v1.5.3-rc1_audit.tar.zst",
+  "archive_bytes": 5626051,
+  "archive_sha256": "8aee9108b21edc2ec0ed632cd7c691bb51d1e36847a3220612519b6f81b1f635",
+  "audit_manifest_path": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/prisma_traice_audit_manifest.json",
+  "audit_manifest_sha256": "533df184f8146bc42d6ffa1bfe301742f0860e5476dfc519ed281628340107e0",
+  "manual_adjudication_packet_path": "data/full_text_screening/v1.5.3_deterministic_full_text_158/evaluation_v1.5.3-rc1/restricted_audit/manual_adjudication_packets_25.jsonl",
+  "manual_adjudication_packet_bytes": 9618540,
+  "manual_adjudication_packet_sha256": "137f5c87c8c260605ed0a55d27ebac02f2b1b6eb88bbf884cf857baa11a719c1",
+  "records_in_manual_adjudication_packet": 25,
+  "raw_attempts": 1357,
+  "attempts_with_exact_rendered_prompt_preserved": 1357,
+  "distribution": "restricted_local_archive; public Git stores only this receipt and the redacted index",
+  "reason": "Exact prompts and evidence packets contain full-text article content subject to copyright and source terms."
+}
