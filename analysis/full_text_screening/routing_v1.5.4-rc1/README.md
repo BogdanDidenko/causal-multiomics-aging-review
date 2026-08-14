@@ -12,5 +12,9 @@ manual-review records.
 `routing_ledger.csv` preserves both routes for every report.
 `remaining_manual_review_6.csv` is the active adjudication queue.
 `human_adjudication_decisions.csv` records user decisions separately from the
-immutable blank form in the v1.5.3-rc1 audit snapshot. Four of the six active
-records have been confirmed, leaving two decisions outstanding.
+immutable blank form in the v1.5.3-rc1 audit snapshot. Five of the six active
+records have been confirmed, leaving one decision outstanding.
+
+`citation_grounding_audit.json` reports exact-quote validation failures. These
+failures never produce an automatic scientific decision: one retry is allowed,
+and an unrecovered role slot is routed to adjudication.

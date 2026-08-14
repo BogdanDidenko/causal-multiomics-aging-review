@@ -1,0 +1,44 @@
+{
+  "attempt_status_counts": {
+    "error": 68,
+    "ok": 1289
+  },
+  "citation_affected_slot_rate": 0.04102167182662539,
+  "citation_affected_slots": 53,
+  "citation_failed_attempt_rate": 0.04126750184229919,
+  "citation_failed_attempts": 56,
+  "citation_slot_retry_recovery_rate": 0.9433962264150944,
+  "citation_slots_recovered_by_retry": 50,
+  "citation_slots_unrecovered": 3,
+  "citation_unrecovered_slot_rate": 0.0023219814241486067,
+  "logical_role_repeat_slots": 1292,
+  "raw_attempts": 1357,
+  "records": 158,
+  "records_with_any_citation_failure": 34,
+  "records_with_any_citation_failure_rate": 0.21518987341772153,
+  "records_with_unrecovered_citation_failure": 3,
+  "records_with_unrecovered_citation_failure_rate": 0.0189873417721519,
+  "unrecovered_slots": [
+    {
+      "attempts": 2,
+      "record_id": "doi:10.1002/ccs3.70045",
+      "repeat_index": 1,
+      "role": "scope_reviewer",
+      "route": "manual_review"
+    },
+    {
+      "attempts": 2,
+      "record_id": "doi:10.1007/s00112-022-01643-0",
+      "repeat_index": 1,
+      "role": "scope_reviewer",
+      "route": "manual_review"
+    },
+    {
+      "attempts": 2,
+      "record_id": "doi:10.1016/j.jare.2026.07.047",
+      "repeat_index": 5,
+      "role": "scope_reviewer",
+      "route": "manual_review"
+    }
+  ]
+}

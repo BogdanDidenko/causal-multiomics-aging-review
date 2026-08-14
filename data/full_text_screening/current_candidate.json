@@ -25,6 +25,8 @@
     "ledger": "analysis/full_text_screening/routing_v1.5.4-rc1/routing_ledger.csv",
     "remaining_manual_queue": "analysis/full_text_screening/routing_v1.5.4-rc1/remaining_manual_review_6.csv",
     "human_decisions": "analysis/full_text_screening/routing_v1.5.4-rc1/human_adjudication_decisions.csv",
+    "adjudication_status": "analysis/full_text_screening/routing_v1.5.4-rc1/adjudication_status.json",
+    "citation_grounding_audit": "analysis/full_text_screening/routing_v1.5.4-rc1/citation_grounding_audit.json",
     "model_rerun": false
   },
   "artifacts": {

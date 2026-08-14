@@ -1,0 +1,20 @@
+{
+  "status": "one_decision_pending",
+  "pre_human_route_counts": {
+    "assessed": 100,
+    "exclude": 52,
+    "manual_review": 6
+  },
+  "human_adjudication": {
+    "confirmed_exclude": 5,
+    "confirmed_assessed": 0,
+    "pending": 1
+  },
+  "current_prisma_full_text_counts": {
+    "assessed": 100,
+    "excluded": 57,
+    "pending": 1
+  },
+  "pending_record_id": "doi:10.1016/j.jare.2026.07.047",
+  "decision_provenance": "AI routes and human adjudications are reported separately."
+}
