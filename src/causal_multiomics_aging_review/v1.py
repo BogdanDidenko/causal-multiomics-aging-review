@@ -384,10 +384,14 @@ def derive_full_text_eligibility_route(
     scope_runs: list[dict[str, Any]],
     causal_runs: list[dict[str, Any]],
     repeat_count: int = 5,
+    scope_exclusion_policy: str = "same_first_failed_path",
 ) -> dict[str, str | None]:
     """Apply the title-stage status contract to a terminal full-text route."""
     scope_paths = [scope_status(answer) for answer in scope_runs]
     causal_paths = [causal_status(answer) for answer in causal_runs]
+    unanimous_criterion_failure = _unanimous_scope_criterion_failure(
+        scope_runs, repeat_count
+    )
     same_scope_exclusion = (
         len(scope_paths) == repeat_count
         and len(set(scope_paths)) == 1
@@ -404,6 +408,22 @@ def derive_full_text_eligibility_route(
         and causal_paths[0][0] == "retain"
     )
 
+    if (
+        scope_exclusion_policy == "unanimous_decisive_criterion"
+        and unanimous_criterion_failure is not None
+    ):
+        return {
+            "final_decision": "exclude",
+            "final_exclusion_code": unanimous_criterion_failure,
+            "decision_reason": "five_of_five_unanimous_decisive_criterion_failure",
+            "final_study_label": "excluded",
+            "manual_review_reason": None,
+        }
+    if scope_exclusion_policy not in {
+        "same_first_failed_path",
+        "unanimous_decisive_criterion",
+    }:
+        raise ValueError(f"Unknown scope exclusion policy: {scope_exclusion_policy}")
     if same_scope_exclusion:
         return {
             "final_decision": "exclude",
@@ -447,6 +467,25 @@ def derive_full_text_eligibility_route(
         "final_study_label": "pending",
         "manual_review_reason": reason,
     }
+
+
+def _unanimous_scope_criterion_failure(
+    scope_runs: list[dict[str, Any]], repeat_count: int
+) -> str | None:
+    """Return the earliest criterion independently failed by every valid run."""
+    if len(scope_runs) != repeat_count:
+        return None
+    checks = (
+        ("EC1", "report_type", "nonempirical"),
+        ("EC2", "bio_health_scope", "no"),
+        ("EC3", "aging_process_relevance", "no"),
+        ("EC4", "multiomics_evidence", "single_or_no_layer"),
+        ("EC4", "current_report_layer_use", "no"),
+    )
+    for code, field, failed_value in checks:
+        if all(answer.get(field) == failed_value for answer in scope_runs):
+            return code
+    return None
 
 
 def package_full_text_sections(

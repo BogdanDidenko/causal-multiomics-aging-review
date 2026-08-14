@@ -19,6 +19,14 @@
     "human_form": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/manual_adjudication_form_25.csv",
     "restricted_archive_receipt": "analysis/full_text_screening/prisma_traice_v1.5.3-rc1/restricted_archive_receipt.json"
   },
+  "deterministic_routing_amendment": {
+    "policy": "protocol/screening/configs/full_text_routing_v1.5.4-rc1.json",
+    "summary": "analysis/full_text_screening/routing_v1.5.4-rc1/summary.json",
+    "ledger": "analysis/full_text_screening/routing_v1.5.4-rc1/routing_ledger.csv",
+    "remaining_manual_queue": "analysis/full_text_screening/routing_v1.5.4-rc1/remaining_manual_review_6.csv",
+    "human_decisions": "analysis/full_text_screening/routing_v1.5.4-rc1/human_adjudication_decisions.csv",
+    "model_rerun": false
+  },
   "artifacts": {
     "orchestrator_manifest_sha256": "24e95e7b1e72c9d4acdd3a11afd8dae3c48858d1ac204830fb5a65e8b430f1d8",
     "stability_summary_sha256": "95c0421135b307bd57da0278e489dcd30a19ffd64f9a675d9950abddb0c76333",

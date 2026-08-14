@@ -1555,6 +1555,9 @@ def _process_full_text_shared_template_v1(
         scope_runs,
         causal_runs,
         repeat_count=repeat_count,
+        scope_exclusion_policy=stage_config.get("routing", {}).get(
+            "scope_exclusion_policy", "same_first_failed_path"
+        ),
     )
 
     selected = {

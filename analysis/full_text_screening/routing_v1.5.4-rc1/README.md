@@ -1,0 +1,16 @@
+# Full-text routing v1.5.4-rc1
+
+This deterministic amendment reuses the frozen v1.5.3-rc1 model outputs. No
+model call, prompt, schema, evidence package, or raw response was changed.
+
+The original route contained 100 assessed reports, 33 exclusions, and 25
+manual-review records. Criterion-level short-circuiting moved 19 records with
+a five-of-five unanimous decisive failure to exclusion: 13 as EC3 and 6 as
+EC4. The amended route contains 100 assessed reports, 52 exclusions, and 6
+manual-review records.
+
+`routing_ledger.csv` preserves both routes for every report.
+`remaining_manual_review_6.csv` is the active adjudication queue.
+`human_adjudication_decisions.csv` records user decisions separately from the
+immutable blank form in the v1.5.3-rc1 audit snapshot. Two of the six active
+records have been confirmed, leaving four decisions outstanding.

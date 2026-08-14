@@ -6,6 +6,7 @@ import pytest
 
 from causal_multiomics_aging_review.screening import run_stage_screening
 from causal_multiomics_aging_review.v1 import (
+    derive_full_text_eligibility_route,
     derive_title_result,
     package_full_text_sections,
     repair_full_text_evidence_spans,
@@ -133,6 +134,43 @@ def test_same_scope_path_with_downstream_field_drift_excludes() -> None:
     result = derive_title_result(runs, None)
     assert result["final_decision"] == "exclude"
     assert result["final_exclusion_code"] == "EC3"
+
+
+def test_full_text_unanimous_criterion_short_circuits_other_field_disagreement() -> None:
+    runs = repeated(scope_answer(aging_process_relevance="no"))
+    runs[0]["report_type"] = "nonempirical"
+    runs[1]["report_type"] = "unclear"
+    result = derive_full_text_eligibility_route(
+        runs,
+        [],
+        scope_exclusion_policy="unanimous_decisive_criterion",
+    )
+    assert result["final_decision"] == "exclude"
+    assert result["final_exclusion_code"] == "EC3"
+    assert result["decision_reason"] == (
+        "five_of_five_unanimous_decisive_criterion_failure"
+    )
+
+
+def test_full_text_unanimous_criterion_policy_does_not_infer_from_mixed_votes() -> None:
+    runs = repeated(scope_answer())
+    for index, run in enumerate(runs):
+        run["report_type"] = "nonempirical" if index < 3 else "unclear"
+        run["aging_process_relevance"] = "no" if index >= 3 else "unclear"
+    result = derive_full_text_eligibility_route(
+        runs,
+        [],
+        scope_exclusion_policy="unanimous_decisive_criterion",
+    )
+    assert result["final_decision"] == "manual_review"
+    assert result["final_exclusion_code"] == "none"
+
+
+def test_full_text_legacy_policy_preserves_frozen_route() -> None:
+    runs = repeated(scope_answer(aging_process_relevance="no"))
+    runs[0]["report_type"] = "nonempirical"
+    result = derive_full_text_eligibility_route(runs, [])
+    assert result["final_decision"] == "manual_review"
 
 
 @pytest.mark.parametrize(

@@ -1,0 +1,20 @@
+{
+  "amended_decision_counts": {
+    "assessed": 100,
+    "exclude": 52,
+    "manual_review": 6
+  },
+  "changed_route_exclusion_codes": {
+    "EC3": 13,
+    "EC4": 6
+  },
+  "changed_routes": 19,
+  "model_rerun": false,
+  "original_decision_counts": {
+    "assessed": 100,
+    "exclude": 33,
+    "manual_review": 25
+  },
+  "policy_version": "1.5.4-rc1",
+  "records": 158
+}

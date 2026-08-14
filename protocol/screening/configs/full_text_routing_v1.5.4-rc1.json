@@ -1,0 +1,13 @@
+{
+  "policy_id": "full_text_eligibility_routing",
+  "policy_version": "1.5.4-rc1",
+  "base_suite": "protocol/screening/configs/prompt_suite_v1.5.3-rc1.json",
+  "model_outputs_changed": false,
+  "prompt_or_schema_changed": false,
+  "scope_exclusion_policy": "unanimous_decisive_criterion",
+  "criterion_precedence": ["EC1", "EC2", "EC3", "EC4"],
+  "rule": "Exclude when all five valid scope runs independently fail the same eligibility criterion. Disagreement in other fields remains in the audit but does not route an already ineligible record to manual review.",
+  "execution_failure_route": "manual_review",
+  "mixed_or_unresolved_criterion_route": "manual_review",
+  "approval_status": "deterministic_routing_amendment_pending_expert_gold"
+}

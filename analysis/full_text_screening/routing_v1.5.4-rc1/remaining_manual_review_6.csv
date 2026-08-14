@@ -1,0 +1,7 @@
+record_id,doi,title,original_decision,amended_reason
+doi:10.1002/alz.12278,10.1002/alz.12278,Neuroscience Next 2020 Abstracts,manual_review,full_text_scope_route_disagreement_or_unresolved
+doi:10.1002/ccs3.70045,10.1002/ccs3.70045,Integrated genomics reveals cellular senescence-driven molecular networks and immune crosstalk in myopia pathogenesis.,manual_review,
+doi:10.1007/s00112-022-01643-0,10.1007/s00112-022-01643-0,Abstracts der 96. Wissenschaftlichen Tagung der Gesellschaft für Pädiatrische Onkologie und Hämatologie (GPOH),manual_review,
+doi:10.1016/j.jare.2026.07.047,10.1016/j.jare.2026.07.047,Bioorthogonal epigenetic anchoring of heterochromatin to the nuclear lamina reverses senescence and osteoarthritis.,manual_review,
+doi:10.1212/nxg.0000000000000100,10.1212/nxg.0000000000000100,"19th Workshop of the International Stroke Genetics Consortium, April 28–29, 2016, Boston, Massachusetts, USA",manual_review,full_text_causal_route_disagreement_or_unresolved
+doi:10.4103/1673-5374.230283,10.4103/1673-5374.230283,Epigenetic interventions for brain rejuvenation: anchoring age-related transposons,manual_review,full_text_scope_route_disagreement_or_unresolved

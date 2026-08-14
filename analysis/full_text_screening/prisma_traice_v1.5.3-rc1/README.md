@@ -35,6 +35,11 @@ or otherwise redistribution-limited article text. Its cryptographic receipt
 allows the retained local artifact to be verified without publishing that
 content.
 
+The deterministic v1.5.4-rc1 routing amendment is reported separately under
+`analysis/full_text_screening/routing_v1.5.4-rc1`. It preserves this frozen
+25-record queue as historical pre-amendment evidence while reducing the active
+queue through criterion-level logical short-circuiting without model reruns.
+
 ## Stage boundary
 
 This run answers eligibility criteria IC1-IC5. `assessed` means eligible for a
