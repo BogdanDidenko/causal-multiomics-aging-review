@@ -1,0 +1,59 @@
+{
+  "decision_provenance": {
+    "ai_five_run_route": 133,
+    "deterministic_python_amendment": 19,
+    "human_adjudication": 6
+  },
+  "doi_audit": {
+    "eligibility_ledger": {
+      "duplicate_normalized_doi": 0,
+      "records": 158,
+      "records_with_doi": 157,
+      "records_without_doi": 1,
+      "unique_normalized_doi": 157
+    },
+    "report_disposition": {
+      "duplicate_normalized_doi": 0,
+      "records": 162,
+      "records_with_doi": 161,
+      "records_without_doi": 1,
+      "unique_normalized_doi": 161
+    }
+  },
+  "flow": {
+    "reports_advanced_to_causal_evidence_extraction": 101,
+    "reports_assessed_for_eligibility": 158,
+    "reports_excluded_after_full_text_assessment": 57,
+    "reports_meeting_full_text_eligibility": 101,
+    "reports_not_retrieved": 4,
+    "reports_pending_eligibility_adjudication": 0,
+    "reports_sought_for_retrieval": 162
+  },
+  "full_text_exclusion_reasons": {
+    "EC1": 26,
+    "EC3": 22,
+    "EC4": 8,
+    "EC5": 1
+  },
+  "integrity": {
+    "eligibility_balance": true,
+    "no_pending_eligibility_decisions": true,
+    "retrieval_balance": true,
+    "unique_doi_in_eligibility_ledger": true,
+    "unique_doi_in_report_disposition": true
+  },
+  "interpretation": {
+    "eligible_reports_are_not_yet_final_synthesis_inclusions": true,
+    "next_stage": "causal_evidence_extraction_and_python_level_assignment",
+    "overall_review_prisma_status": "provisional_upstream_title_abstract_work_incomplete"
+  },
+  "notes": [
+    "EC7 is retained as an internal protocol disposition for the four reports not retrieved; these reports are not counted among exclusions after full-text assessment.",
+    "The 101 eligible reports advance to causal evidence extraction and are not yet final Level 2-4 synthesis inclusions.",
+    "This flow is final only for the frozen 162-report full-text candidate cohort; the overall review PRISMA flow remains provisional because upstream title/abstract processing is not fully resolved."
+  ],
+  "schema_version": "1.0.0",
+  "scope": "frozen_162_report_full_text_candidate_cohort",
+  "stage": "full_text_retrieval_and_eligibility",
+  "status": "final_for_frozen_full_text_candidate_cohort"
+}

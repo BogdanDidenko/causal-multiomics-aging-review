@@ -80,8 +80,19 @@ are registered as `legacy_not_for_prisma` in
 The clean `v1.5.3-rc1` run completed 158/158 reports across 24/24 shards with no
 failed shard. Its strict model-pipeline routes were 100 unanimous positive
 assessments, 33 unanimous AI exclusions, and 25 manual-review records. Exact
-five-request route agreement was 133/158 (84.2%). These are not final PRISMA
-eligibility counts; the canonical pointer and execution report are
+five-request route agreement was 133/158 (84.2%). These are the frozen model
+outputs, not the final eligibility counts. Deterministic criterion routing and
+six confirmed human adjudications closed the 158 assessed reports at 101
+meeting full-text eligibility and 57 exclusions. Four additional reports were
+not retrieved, producing a closed 162-report full-text flow with zero pending
+eligibility decisions. See the
+[`final eligibility ledger`](analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv)
+and
+[`full-text PRISMA flow`](analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.md).
+These 101 reports advance to causal evidence extraction and are not yet final
+synthesis inclusions. The overall review PRISMA flow remains provisional while
+upstream title/abstract processing is unresolved. The canonical pointer and
+execution report are
 [`current_candidate.json`](data/full_text_screening/current_candidate.json) and
 [`execution_report_v1.5.3-rc1.md`](analysis/full_text_screening/execution_report_v1.5.3-rc1.md).
 The rejected `v0.99.0` pilot remains immutable instrument-development history

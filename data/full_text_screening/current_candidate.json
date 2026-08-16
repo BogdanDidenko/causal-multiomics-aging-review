@@ -1,5 +1,5 @@
 {
-  "status": "complete_candidate_pending_human_adjudication_and_expert_gold",
+  "status": "full_text_eligibility_complete_pending_expert_gold_and_causal_extraction",
   "method_version": "v1.5.3-rc1",
   "selection_contract": "no_model_generated_section_selection_or_ranking",
   "legacy_registry": "data/full_text_screening/legacy_registry.json",
@@ -43,5 +43,20 @@
     "unanimous_ai_exclusion": 33,
     "manual_review": 25
   },
-  "final_prisma_eligibility_counts_available": false
+  "final_full_text_eligibility": {
+    "scope": "frozen_162_report_full_text_candidate_cohort",
+    "ledger": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+    "report_disposition": "analysis/full_text_screening/final_eligibility_v1.5.4/report_disposition_162.csv",
+    "prisma_flow": "analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.json",
+    "prisma_flow_markdown": "analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.md",
+    "summary": "analysis/full_text_screening/final_eligibility_v1.5.4/summary.json",
+    "reports_sought": 162,
+    "reports_not_retrieved": 4,
+    "reports_assessed": 158,
+    "reports_excluded": 57,
+    "reports_meeting_eligibility": 101,
+    "reports_pending": 0,
+    "overall_review_prisma_status": "provisional_upstream_title_abstract_work_incomplete"
+  },
+  "final_prisma_eligibility_counts_available": true
 }

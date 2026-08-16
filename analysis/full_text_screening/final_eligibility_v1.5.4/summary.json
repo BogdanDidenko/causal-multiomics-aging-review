@@ -1,0 +1,44 @@
+{
+  "decision_counts": {
+    "assessed": 101,
+    "exclude": 57
+  },
+  "decision_source_counts": {
+    "ai_five_run_route": 133,
+    "deterministic_python_amendment": 19,
+    "human_adjudication": 6
+  },
+  "exclusion_code_counts": {
+    "EC1": 26,
+    "EC3": 22,
+    "EC4": 8,
+    "EC5": 1
+  },
+  "output_artifacts": {
+    "eligibility_ledger": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+    "eligibility_ledger_sha256": "17bd41303372a4f7cbd9c1697c7e6a93874348b3d61bfd60d033b3e06ba1bae7",
+    "prisma_full_text_flow": "analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.json",
+    "prisma_full_text_flow_markdown": "analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.md",
+    "prisma_full_text_flow_markdown_sha256": "b9f07ee3123e25037a9e5c62c4210b4678995e800b643898b999b2f138ef7618",
+    "prisma_full_text_flow_sha256": "0f013a49479aaf034e324b83ed243659308e4a86db492234e4cde58cf0e0fadf",
+    "report_disposition": "analysis/full_text_screening/final_eligibility_v1.5.4/report_disposition_162.csv",
+    "report_disposition_sha256": "be3db276d88cde9ce67ce221b54f98e4f67074c1ffa765d52bcb2adddb5129e2"
+  },
+  "records": {
+    "reports_assessed": 158,
+    "reports_excluded": 57,
+    "reports_meeting_eligibility": 101,
+    "reports_not_retrieved": 4,
+    "reports_pending": 0,
+    "reports_sought": 162
+  },
+  "source_artifacts": {
+    "human_adjudications": "analysis/full_text_screening/routing_v1.5.4-rc1/human_adjudication_decisions.csv",
+    "human_adjudications_sha256": "6a4c63bda5bbe2a15e0acf30a69d538a76e5074e1540c4a905eb1e0ee8c049c0",
+    "retrieval_manifest": "data/full_text/v1.1.2_oversized_20k_seek66/agent_recovery/combined/manifest.jsonl",
+    "retrieval_manifest_sha256": "796033cd47f1c6e406d2106d3db047d66b0812c5e5e3110566562cea7776ce40",
+    "routing_ledger": "analysis/full_text_screening/routing_v1.5.4-rc1/routing_ledger.csv",
+    "routing_ledger_sha256": "013fdfa7a58d948dbb8e092dfdd52bfc5d7578a7e3c4c5ee078d20a71fb62794"
+  },
+  "status": "final_for_frozen_full_text_candidate_cohort"
+}

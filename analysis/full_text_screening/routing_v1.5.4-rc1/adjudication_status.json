@@ -1,5 +1,5 @@
 {
-  "status": "one_decision_pending",
+  "status": "complete",
   "pre_human_route_counts": {
     "assessed": 100,
     "exclude": 52,
@@ -7,14 +7,14 @@
   },
   "human_adjudication": {
     "confirmed_exclude": 5,
-    "confirmed_assessed": 0,
-    "pending": 1
+    "confirmed_assessed": 1,
+    "pending": 0
   },
   "current_prisma_full_text_counts": {
-    "assessed": 100,
+    "assessed": 101,
     "excluded": 57,
-    "pending": 1
+    "pending": 0
   },
-  "pending_record_id": "doi:10.1016/j.jare.2026.07.047",
+  "pending_record_id": null,
   "decision_provenance": "AI routes and human adjudications are reported separately."
 }

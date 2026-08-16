@@ -12,8 +12,13 @@ manual-review records.
 `routing_ledger.csv` preserves both routes for every report.
 `remaining_manual_review_6.csv` is the active adjudication queue.
 `human_adjudication_decisions.csv` records user decisions separately from the
-immutable blank form in the v1.5.3-rc1 audit snapshot. Five of the six active
-records have been confirmed, leaving one decision outstanding.
+immutable blank form in the v1.5.3-rc1 audit snapshot. All six active records
+have been confirmed: one was assessed as eligible and five were excluded.
+
+The resulting full-text eligibility counts are 101 reports meeting eligibility,
+57 reports excluded after assessment, and zero pending decisions. The final
+ledger and the 162-report retrieval-to-eligibility flow are generated in
+`../final_eligibility_v1.5.4/`.
 
 `citation_grounding_audit.json` reports exact-quote validation failures. These
 failures never produce an automatic scientific decision: one retry is allowed,
