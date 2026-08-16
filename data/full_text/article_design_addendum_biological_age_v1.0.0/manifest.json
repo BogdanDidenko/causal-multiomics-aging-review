@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "full_text_article_structure_addendum",
+  "acquisition_date": "2026-08-16",
+  "status": "complete",
+  "storage_policy": {
+    "full_text_files_gitignored": true,
+    "tracked_manifest_only": true,
+    "license_status": "NIH author manuscript; no open-content license declared in the PMC record"
+  },
+  "article": {
+    "doi": "10.1038/s41576-022-00511-7",
+    "pmcid": "PMC10048602",
+    "pmid": "35715611",
+    "title": "Measuring biological age using omics data",
+    "authors": [
+      "Jarod Rutledge",
+      "Hamilton Oh",
+      "Tony Wyss-Coray"
+    ],
+    "journal": "Nature Reviews Genetics",
+    "publication_year": 2022,
+    "article_type": "narrative review",
+    "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10048602/",
+    "files": [
+      {
+        "path": "data/full_text/article_design_addendum_biological_age_v1.0.0/files/measuring_biological_age_review.html",
+        "retrieval_source": "PMC article HTML",
+        "retrieval_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10048602/",
+        "media_type": "text/html",
+        "bytes": 357086,
+        "sha256": "4616243eef5a430bb678ff67a26a5591314d78cb3be0e836e898028964545655"
+      },
+      {
+        "path": "data/full_text/article_design_addendum_biological_age_v1.0.0/files/measuring_biological_age_review.bioc.xml",
+        "retrieval_source": "NCBI BioC PMC API",
+        "retrieval_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_xml/PMC10048602/unicode",
+        "media_type": "application/xml",
+        "bytes": 171439,
+        "sha256": "4558189608642cc5654eb8843944a7c171483429f91025bd9cec44e12497e124"
+      },
+      {
+        "path": "data/full_text/article_design_addendum_biological_age_v1.0.0/files/measuring_biological_age_review.bioc.json",
+        "retrieval_source": "NCBI BioC PMC API",
+        "retrieval_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/pmcoa.cgi/BioC_json/PMC10048602/unicode",
+        "media_type": "application/json",
+        "bytes": 155562,
+        "sha256": "0ccb3724615bf5f33120f460e758aba0b5f4624f3ec774480d06f58264f29e98"
+      }
+    ]
+  }
+}
