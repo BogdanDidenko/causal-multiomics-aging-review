@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "analysis_date": "2026-08-16",
+  "purpose": "independent_full_text_article_structure_analysis",
+  "source_manifest": "data/full_text/article_design_comparators_v1.0.0/manifest.json",
+  "shared_repository_inputs": [
+    "analysis/article_design/related_review_structure_scan_v1.0.0.md",
+    "protocol/v1.0.0/eligibility_criteria.md",
+    "analysis/full_text_screening/final_eligibility_v1.5.4/README.md",
+    "analysis/full_text_screening/final_eligibility_v1.5.4/prisma_full_text_flow.md"
+  ],
+  "runs": [
+    {
+      "agent_id": "01a00ab0-7de1-7b91-8663-4c3ccf0efb9e",
+      "nickname": "James",
+      "role": "methodology_and_appraisal",
+      "status": "completed"
+    },
+    {
+      "agent_id": "01a00ab0-7e39-7661-93da-3a9336e26cc9",
+      "nickname": "Kant",
+      "role": "results_tables_and_figures",
+      "status": "completed"
+    },
+    {
+      "agent_id": "01a00ab0-7eac-76f3-b1d1-dc39076f392e",
+      "nickname": "Euclid",
+      "role": "scientific_narrative_and_section_architecture",
+      "status": "completed"
+    },
+    {
+      "agent_id": "01a00ab0-7f2a-7592-969e-2f2c6b2ce0ff",
+      "nickname": "Jason",
+      "role": "skeptical_peer_review_and_overclaiming_audit",
+      "status": "completed"
+    }
+  ],
+  "independence_note": "Each role analyzed the same frozen source documents independently before synthesis. The reports contain concise auditable rationales, not hidden chain-of-thought.",
+  "screening_impact": "none"
+}
