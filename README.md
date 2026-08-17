@@ -95,6 +95,14 @@ upstream title/abstract processing is unresolved. The canonical pointer and
 execution report are
 [`current_candidate.json`](data/full_text_screening/current_candidate.json) and
 [`execution_report_v1.5.3-rc1.md`](analysis/full_text_screening/execution_report_v1.5.3-rc1.md).
+Article planning is now grounded in all 101 eligible report graphs plus
+stratified checks of their deterministic full texts. The current five-question
+manuscript architecture is
+[`article_structure_corpus_grounded_v1.2.0.md`](analysis/article_design/article_structure_corpus_grounded_v1.2.0.md),
+and its reproducible orientation pack and independent agent reports are in
+[`corpus_grounding_v1.0.0`](analysis/article_design/corpus_grounding_v1.0.0/README.md).
+This exploratory article-design work does not alter eligibility, PRISMA counts,
+or final causal levels.
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.

@@ -1,5 +1,11 @@
 # Working article structure synthesis v1.1.0
 
+> **Superseded for article planning.** Corpus-grounded review of all 101
+> eligible graph profiles and stratified full-text checks showed that this
+> design gives formal causal discovery disproportionate narrative weight. Use
+> `article_structure_corpus_grounded_v1.2.0.md` as the current working
+> architecture. This file is retained as a versioned design-history artifact.
+
 ## Status
 
 This is the next working architecture for the review article. It integrates the

@@ -1,0 +1,70 @@
+{
+  "artifact_id": "corpus-grounding-agent-analyses",
+  "version": "v1.0.0",
+  "created_at": "2026-08-17",
+  "purpose": "Exploratory bottom-up article-structure analysis",
+  "corpus_size_reports": 101,
+  "corpus_fingerprint_sha256": "0443b521ba173aea29c71ba6040a3b7c70f80315f28fadeb1a68c06407244749",
+  "methodological_status": "article_design_only",
+  "allowed_uses": [
+    "orient article structure",
+    "identify candidate study archetypes",
+    "select full-text examples for claim-level verification"
+  ],
+  "prohibited_uses": [
+    "change eligibility",
+    "change PRISMA counts",
+    "assign final causal evidence levels",
+    "report graph labels as validated review findings"
+  ],
+  "agents": [
+    {
+      "agent_id": "01a01079-4fa1-7602-aaa0-58004e157d8b",
+      "nickname": "Heisenberg",
+      "role": "bottom-up study archetypes",
+      "profiles_reviewed": 101,
+      "full_texts_checked": 38,
+      "report": "agent_reports/study_archetypes.md",
+      "report_sha256": "4647a709fe4125180dd60c69cc52e51b47ca2cd9e71ec419bfa11bf2a0bf1396"
+    },
+    {
+      "agent_id": "01a01079-5004-75b2-876b-2e3089071c92",
+      "nickname": "Euclid",
+      "role": "causal-design and inferential-boundary audit",
+      "profiles_reviewed": 101,
+      "full_texts_checked": 35,
+      "causal_candidates_checked": 117,
+      "report": "agent_reports/causal_design_audit.md",
+      "report_sha256": "0f8c9603c3e1398156231acf424ad1460758a82b145a0b07e8f28dfff4a4be79"
+    },
+    {
+      "agent_id": "01a01079-506d-79c2-a72d-8e76ab3b3136",
+      "nickname": "Plato",
+      "role": "biological-aging narrative",
+      "profiles_reviewed": 101,
+      "full_texts_checked": 40,
+      "report": "agent_reports/aging_narrative.md",
+      "report_sha256": "d084e188e85952bddda4323167f70980939b1993867f0c3ca722f4bc40fb3980"
+    },
+    {
+      "agent_id": "01a01079-50d9-7883-b785-1078446373e4",
+      "nickname": "Dalton",
+      "role": "multi-omics integration architecture",
+      "profiles_reviewed": 101,
+      "full_texts_checked": 40,
+      "report": "agent_reports/multiomics_integration.md",
+      "report_sha256": "51311156f90e5f12a20296812274aa1d2dc7dc18361a6c387d49aa4c650abdbd"
+    },
+    {
+      "agent_id": "01a01086-c881-7353-9100-46d8907e228d",
+      "nickname": "Curie",
+      "role": "cross-report manuscript-structure synthesis",
+      "input_reports": 4,
+      "comparator_analyses": 3,
+      "report": "agent_reports/structure_synthesis.md",
+      "report_sha256": "8150ccf0c6fa7cb0f77cdd287f8023702c3d37e3cdbb8f41ae7b1b2bd7dfbc08"
+    }
+  ],
+  "runtime_note": "Agents inherited the parent runtime; no model-specific override was requested.",
+  "independence_note": "The first four agents received distinct analytical questions and produced their reports without reading each other. The fifth agent synthesized those four frozen reports with the comparator-review analyses."
+}

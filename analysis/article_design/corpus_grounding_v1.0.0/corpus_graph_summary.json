@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "exploratory_article_structure_grounding",
+  "methodological_boundary": "Docling Graph nodes are model-generated evidence-index candidates. They may guide corpus orientation and representative full-text checks, but cannot determine eligibility, final causal levels, or synthesis claims.",
+  "eligibility_ledger": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+  "eligible_reports": 101,
+  "eligible_reports_with_canonical_graph": 101,
+  "eligible_reports_with_causal_analysis_nodes": 100,
+  "reports_with_multiple_successful_graph_candidates": 11,
+  "graph_roots": [
+    "data/full_text_graph/v1.0.0_luna_light",
+    "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light",
+    "data/full_text_graph/v1.2.0_agent_recovery17_luna_light"
+  ],
+  "corpus_fingerprint_sha256": "0443b521ba173aea29c71ba6040a3b7c70f80315f28fadeb1a68c06407244749",
+  "node_counts": {
+    "aging_constructs": 686,
+    "omics_layers": 437,
+    "causal_analyses": 312
+  },
+  "design_family_counts": {
+    "dag_scm": 1,
+    "direct_perturbation": 181,
+    "formal_mediation": 6,
+    "genetic_instrument": 33,
+    "nonrandomized_intervention": 59,
+    "other_formal_causal_design": 3,
+    "randomized_intervention": 24,
+    "temporal_identification": 5
+  },
+  "identification_status_counts": {
+    "association_only": 8,
+    "hypothesis_only": 6,
+    "identified": 297,
+    "unclear": 1
+  },
+  "aging_role_counts": {
+    "age_context_only": 33,
+    "aging_context_only": 1,
+    "aging_intervention_target": 70,
+    "aging_mechanism": 196,
+    "aging_outcome_or_trajectory": 293,
+    "longevity_or_healthspan": 93
+  },
+  "omics_layer_counts": {
+    "epigenomics": 54,
+    "genomics": 26,
+    "lipidomics": 11,
+    "metabolomics": 58,
+    "metagenomics": 3,
+    "microbiomics": 11,
+    "other_molecular_omics": 17,
+    "proteomics": 80,
+    "transcriptomics": 177
+  },
+  "outputs": {
+    "manifest": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_manifest_101.csv",
+    "profiles": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_profiles_101.jsonl"
+  }
+}
