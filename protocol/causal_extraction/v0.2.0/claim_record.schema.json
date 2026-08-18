@@ -1,0 +1,847 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claim-level causal identification record v0.2.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_id",
+    "doi",
+    "claim_id",
+    "extraction_mode",
+    "source_adequacy",
+    "normalized_claim",
+    "author_claim_type",
+    "exposure_or_intervention",
+    "exposure_operation",
+    "comparator",
+    "outcome",
+    "population_or_model",
+    "biological_system",
+    "time_horizon",
+    "primary_design_or_method",
+    "supporting_designs_or_methods",
+    "variation_sources",
+    "assignment_mechanism",
+    "method_output_type",
+    "estimand_or_contrast",
+    "contrast_components",
+    "assumption_judgments",
+    "diagnostics",
+    "reviewer_identification_assessment",
+    "result_status",
+    "omics_roles",
+    "validations_proposed_by_report",
+    "validations",
+    "field_anchors",
+    "evidence_anchors",
+    "reviewer_note"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "doi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9._-]+$"
+    },
+    "extraction_mode": {
+      "enum": [
+        "exhaustive_report",
+        "boundary_case_pilot"
+      ]
+    },
+    "source_adequacy": {
+      "$ref": "#/$defs/source_adequacy"
+    },
+    "normalized_claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author_claim_type": {
+      "enum": [
+        "causal_effect",
+        "mechanism_or_mediation",
+        "directed_hypothesis",
+        "association_prediction_or_prioritization",
+        "unclear"
+      ]
+    },
+    "exposure_or_intervention": {
+      "type": "string"
+    },
+    "exposure_operation": {
+      "type": "string"
+    },
+    "comparator": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "population_or_model": {
+      "type": "string"
+    },
+    "biological_system": {
+      "type": "string"
+    },
+    "time_horizon": {
+      "type": "string"
+    },
+    "primary_design_or_method": {
+      "$ref": "#/$defs/design_or_method"
+    },
+    "supporting_designs_or_methods": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/design_or_method"
+      }
+    },
+    "variation_sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/variation_source"
+      }
+    },
+    "assignment_mechanism": {
+      "enum": [
+        "randomized",
+        "investigator_assigned_nonrandom",
+        "quasi_exogenous_rule_or_event",
+        "unassigned_observational",
+        "inherited",
+        "none",
+        "unclear"
+      ]
+    },
+    "method_output_type": {
+      "enum": [
+        "total_effect",
+        "direct_or_controlled_effect",
+        "indirect_effect",
+        "necessity",
+        "sufficiency",
+        "rescue",
+        "effect_modification_or_epistasis",
+        "post_intervention_molecular_response",
+        "genetically_proxied_effect",
+        "temporal_ordering",
+        "directed_edge_or_structure",
+        "prediction",
+        "candidate_prioritization",
+        "other",
+        "unclear"
+      ]
+    },
+    "estimand_or_contrast": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement",
+        "effect_measure_or_logical_contrast"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string"
+        },
+        "effect_measure_or_logical_contrast": {
+          "type": "string"
+        }
+      }
+    },
+    "contrast_components": {
+      "$ref": "#/$defs/contrast_components"
+    },
+    "assumption_judgments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/assumption_judgment"
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    },
+    "reviewer_identification_assessment": {
+      "enum": [
+        "effect_assessable",
+        "effect_claim_not_assessable",
+        "formal_hypothesis_only",
+        "no_identification",
+        "unclear"
+      ]
+    },
+    "result_status": {
+      "enum": [
+        "supports_claim",
+        "null",
+        "conflicting_within_report",
+        "mixed_or_time_specific",
+        "not_reported",
+        "unclear"
+      ]
+    },
+    "omics_roles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/omics_role"
+      }
+    },
+    "validations_proposed_by_report": {
+      "enum": [
+        "none",
+        "one_or_more",
+        "unclear"
+      ]
+    },
+    "validations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/validation"
+      }
+    },
+    "field_anchors": {
+      "$ref": "#/$defs/field_anchors"
+    },
+    "evidence_anchors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_anchor"
+      }
+    },
+    "reviewer_note": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "validations_proposed_by_report": {
+            "const": "one_or_more"
+          }
+        },
+        "required": [
+          "validations_proposed_by_report"
+        ]
+      },
+      "then": {
+        "properties": {
+          "validations": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_adequacy": {
+            "properties": {
+              "full_text_status": {
+                "enum": [
+                  "abstract_or_preview_only",
+                  "partial",
+                  "unclear"
+                ]
+              }
+            },
+            "required": [
+              "full_text_status"
+            ]
+          }
+        },
+        "required": [
+          "source_adequacy"
+        ]
+      },
+      "then": {
+        "properties": {
+          "reviewer_identification_assessment": {
+            "const": "unclear"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "design_or_method": {
+      "enum": [
+        "randomized_intervention",
+        "controlled_nonrandomized_intervention",
+        "quasi_experiment",
+        "targeted_genetic_perturbation",
+        "targeted_pharmacologic_perturbation",
+        "biological_transfer",
+        "genetic_instrument",
+        "mediation_analysis",
+        "temporal_model",
+        "dag_scm",
+        "sem",
+        "bayesian_network",
+        "causal_discovery_algorithm",
+        "invariance_or_environment_based_model",
+        "predictive_or_associational_model",
+        "computational_prioritization",
+        "other_formal_design",
+        "none",
+        "unclear"
+      ]
+    },
+    "source_adequacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_text_status",
+        "sections_available",
+        "human_override_reason"
+      ],
+      "properties": {
+        "full_text_status": {
+          "enum": [
+            "full_text",
+            "abstract_or_preview_only",
+            "proceedings_abstract",
+            "partial",
+            "unclear"
+          ]
+        },
+        "sections_available": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "abstract",
+              "introduction",
+              "methods",
+              "results",
+              "discussion",
+              "limitations",
+              "figure_legends",
+              "supplementary_captions"
+            ]
+          }
+        },
+        "human_override_reason": {
+          "type": "string"
+        }
+      }
+    },
+    "variation_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "link_role",
+        "source"
+      ],
+      "properties": {
+        "link_role": {
+          "enum": [
+            "exposure_to_outcome",
+            "exposure_to_mediator",
+            "mediator_to_outcome",
+            "intervention_to_outcome",
+            "directed_pair",
+            "other"
+          ]
+        },
+        "source": {
+          "enum": [
+            "randomized_assignment",
+            "investigator_assigned_exposure",
+            "engineered_or_targeted_perturbation",
+            "transferred_biological_material",
+            "inherited_genetic_variation",
+            "quasi_exogenous_rule_or_event",
+            "within_unit_temporal_variation",
+            "observational_covariation",
+            "none",
+            "unclear"
+          ]
+        }
+      }
+    },
+    "contrast_components": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation_specified",
+        "comparator_specified",
+        "outcome_specified",
+        "population_and_system_specified",
+        "time_horizon_specified",
+        "effect_measure_or_logical_contrast_specified"
+      ],
+      "properties": {
+        "operation_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "comparator_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "outcome_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "population_and_system_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "time_horizon_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "effect_measure_or_logical_contrast_specified": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear",
+            "not_applicable"
+          ]
+        }
+      }
+    },
+    "assumption_judgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "status",
+        "assessment",
+        "evidence_anchor_ids",
+        "search_note"
+      ],
+      "properties": {
+        "domain": {
+          "enum": [
+            "allocation_mechanism",
+            "comparator_integrity",
+            "adherence_and_contamination",
+            "attrition_and_analysis_population",
+            "baseline_balance",
+            "assigned_contrast_analysis",
+            "outcome_timing_and_multiplicity",
+            "manipulated_operation_and_target",
+            "matched_control",
+            "intervention_specificity_or_off_target",
+            "functional_target_engagement",
+            "timing_relative_to_outcome",
+            "replication",
+            "necessity_sufficiency_or_rescue_logic",
+            "outcome_relevance_to_aging",
+            "donor_and_recipient_definition",
+            "transfer_procedure_and_control",
+            "recipient_assignment",
+            "compositional_specificity",
+            "co_transferred_material_and_interference",
+            "transfer_timing_and_outcome",
+            "instrument_relevance_and_strength",
+            "independence_and_ld_handling",
+            "exclusion_restriction_and_pleiotropy",
+            "directionality",
+            "population_and_sample_overlap",
+            "ancestry_and_tissue_relevance",
+            "heterogeneity_and_robust_estimators",
+            "colocalization",
+            "exposure_precedes_mediator_and_outcome",
+            "exposure_outcome_exchangeability",
+            "exposure_mediator_exchangeability",
+            "mediator_outcome_exchangeability",
+            "no_exposure_induced_confounder",
+            "interaction_handling",
+            "direct_and_indirect_estimands",
+            "sensitivity_analysis",
+            "temporal_spacing_and_lag",
+            "stationarity",
+            "time_varying_confounding",
+            "acyclicity_and_faithfulness",
+            "causal_sufficiency",
+            "markov_equivalence",
+            "edge_orientation_basis",
+            "interventional_or_instrumental_anchors",
+            "stability_and_external_checks",
+            "interaction_estimand"
+          ]
+        },
+        "status": {
+          "enum": [
+            "addressed",
+            "not_reported",
+            "violated",
+            "not_applicable",
+            "unclear"
+          ]
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "evidence_anchor_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "search_note": {
+          "type": "string"
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "name",
+        "result_or_role",
+        "evidence_anchor_ids"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "negative_control",
+            "balance_check",
+            "sensitivity_analysis",
+            "heterogeneity",
+            "pleiotropy",
+            "directionality",
+            "colocalization",
+            "replication",
+            "target_engagement",
+            "multiplicity",
+            "model_fit",
+            "other"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "result_or_role": {
+          "type": "string"
+        },
+        "evidence_anchor_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "omics_role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "layer_or_modality",
+        "molecular_qtl_layer",
+        "role",
+        "assay_scope"
+      ],
+      "properties": {
+        "layer_or_modality": {
+          "enum": [
+            "genomics",
+            "epigenomics_dna_methylation",
+            "epigenomics_chromatin_accessibility",
+            "transcriptomics_bulk",
+            "transcriptomics_single_cell",
+            "transcriptomics_spatial",
+            "proteomics",
+            "metabolomics",
+            "lipidomics",
+            "glycomics",
+            "microbiome_amplicon",
+            "microbiome_metagenomic",
+            "immunophenotyping_cytomics",
+            "other_omics"
+          ]
+        },
+        "molecular_qtl_layer": {
+          "enum": [
+            "eqtl",
+            "pqtl",
+            "mqtl",
+            "sqtl",
+            "none"
+          ]
+        },
+        "role": {
+          "enum": [
+            "exposure_measure",
+            "instrument_source",
+            "candidate_nominator",
+            "mediator_candidate",
+            "outcome_measure",
+            "effect_modifier",
+            "mechanistic_localization",
+            "perturbation_readout",
+            "validation_only",
+            "composite_index_input"
+          ]
+        },
+        "assay_scope": {
+          "enum": [
+            "discovery_scale",
+            "targeted_panel",
+            "single_analyte",
+            "validation_only",
+            "unclear"
+          ]
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "validation_type",
+        "same_link_alignment",
+        "operation_alignment",
+        "data_independence",
+        "experimental_independence",
+        "purpose",
+        "result_status",
+        "colocalization_threshold_met",
+        "evidence_anchor_ids"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "validation_type": {
+          "enum": [
+            "independent_same_link_replication",
+            "orthogonal_same_link_identification",
+            "appropriate_colocalization",
+            "measurement_confirmation",
+            "related_mechanism",
+            "plausibility"
+          ]
+        },
+        "same_link_alignment": {
+          "enum": [
+            "exact",
+            "partial",
+            "related_mechanism",
+            "none",
+            "unclear"
+          ]
+        },
+        "operation_alignment": {
+          "enum": [
+            "same",
+            "orthogonal",
+            "different",
+            "unclear"
+          ]
+        },
+        "data_independence": {
+          "enum": [
+            "independent",
+            "partially_independent",
+            "not_independent",
+            "unclear"
+          ]
+        },
+        "experimental_independence": {
+          "enum": [
+            "independent",
+            "partially_independent",
+            "not_independent",
+            "unclear"
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "identification",
+            "mechanism",
+            "prediction",
+            "measurement",
+            "plausibility"
+          ]
+        },
+        "result_status": {
+          "enum": [
+            "supports_claim",
+            "null",
+            "conflicting",
+            "mixed",
+            "unclear"
+          ]
+        },
+        "colocalization_threshold_met": {
+          "enum": [
+            "yes",
+            "no",
+            "not_applicable",
+            "unclear"
+          ]
+        },
+        "evidence_anchor_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "field_anchors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "author_claim_type",
+        "primary_design_or_method",
+        "variation_sources",
+        "assignment_mechanism",
+        "reviewer_identification_assessment",
+        "result_status",
+        "estimand_or_contrast",
+        "contrast_components"
+      ],
+      "properties": {
+        "author_claim_type": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "primary_design_or_method": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "variation_sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "assignment_mechanism": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reviewer_identification_assessment": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "result_status": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "estimand_or_contrast": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "contrast_components": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evidence_anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "anchor_id",
+        "document_path",
+        "nearest_section_heading",
+        "section_label",
+        "quote"
+      ],
+      "properties": {
+        "anchor_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nearest_section_heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section_label": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
+
