@@ -76,6 +76,13 @@ under `agent_reports/` as auditable inputs to article-structure synthesis:
 exploratory analyses, not independent eligibility decisions or validated
 claim-level extraction.
 
+## External advisory review
+
+`external_reviews/claude_opus_5_structure_review_2026-08-18.md` contains an
+independent read-only critique of the v1.2.0 architecture by Claude Opus 5. Its
+recommendations are preserved for an explicit accept/reject decision and have
+not been silently applied to the working structure.
+
 ## Initial orientation signal
 
 The graph index contains 312 causal-analysis candidates. Its raw labels are
