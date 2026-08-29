@@ -8,14 +8,23 @@
     "candidates_per_report": 2,
     "seed": "20260829-route-balanced-stability"
   },
+  "correction": {
+    "date": "2026-08-29",
+    "status": "corrected_after_independent_audit",
+    "reason": "legacy derived-level agreement counted repeated empty outputs as successful agreement",
+    "scientific_synthesis_permission": "rejected"
+  },
   "checkpoints": [
     {
       "checkpoint": "A",
       "reports": 15,
       "reports_with_incomplete_grounded_discovery": 11,
       "inventory_candidates": 1288,
+      "inventory_candidates_in_incomplete_discovery_reports": 1141,
+      "inventory_fraction_in_incomplete_discovery_reports": 0.8858695652173914,
       "sampled_candidates": 30,
       "sampled_candidates_with_five_valid_runs": 20,
+      "sampled_candidates_excluded_from_five_run_analysis": 10,
       "discovery_terminal_statuses": {
         "ok": 309,
         "grounding_failure": 31
@@ -27,35 +36,37 @@
         "grounding_failure": 29,
         "ok": 118
       },
-      "five_run_all_tracked_fields_exact": {
+      "analysis_set_candidate_statuses": {
+        "split_required": 16,
+        "duplicate_or_overlapping": 79,
+        "no_current_report_empirical_result": 5
+      },
+      "five_run_legacy_payload_exact": {
         "successes": 9,
         "total": 20,
         "proportion": 0.45,
-        "wilson_95_low": 0.2581978582556243,
-        "wilson_95_high": 0.6579146575496577
-      },
-      "first_three_all_tracked_fields_exact": {
-        "successes": 11,
-        "total": 20,
-        "proportion": 0.55,
-        "wilson_95_low": 0.34208534245034233,
-        "wilson_95_high": 0.7418021417443759
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
       "five_run_candidate_status_exact": {
         "successes": 18,
         "total": 20,
         "proportion": 0.9,
-        "wilson_95_low": 0.6989663547715128,
-        "wilson_95_high": 0.9721335187862319
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
+      "five_run_level_evaluable_candidates": 0,
       "five_run_derived_level_exact": {
-        "successes": 20,
-        "total": 20,
-        "proportion": 1.0,
-        "wilson_95_low": 0.8388748419471806,
-        "wilson_95_high": 1.0
+        "successes": 0,
+        "total": 0,
+        "proportion": null,
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
-      "candidates_exact_after_three_but_not_five": 2,
+      "first_three_policy_comparison": {
+        "status": "withdrawn",
+        "reason": "the legacy comparison conditioned the three-run estimate on survival through five valid grounded runs"
+      },
       "selected_candidates": [
         {
           "candidates_per_report_limit": 2,
@@ -316,8 +327,11 @@
       "reports": 15,
       "reports_with_incomplete_grounded_discovery": 11,
       "inventory_candidates": 1541,
+      "inventory_candidates_in_incomplete_discovery_reports": 1040,
+      "inventory_fraction_in_incomplete_discovery_reports": 0.6748864373783258,
       "sampled_candidates": 30,
       "sampled_candidates_with_five_valid_runs": 16,
+      "sampled_candidates_excluded_from_five_run_analysis": 14,
       "discovery_terminal_statuses": {
         "ok": 344,
         "grounding_failure": 36
@@ -328,35 +342,38 @@
         "ok": 107,
         "grounding_failure": 43
       },
-      "five_run_all_tracked_fields_exact": {
+      "analysis_set_candidate_statuses": {
+        "duplicate_or_overlapping": 65,
+        "split_required": 8,
+        "valid_single_claim": 5,
+        "no_current_report_empirical_result": 2
+      },
+      "five_run_legacy_payload_exact": {
         "successes": 8,
         "total": 16,
         "proportion": 0.5,
-        "wilson_95_low": 0.27999563610326017,
-        "wilson_95_high": 0.7200043638967398
-      },
-      "first_three_all_tracked_fields_exact": {
-        "successes": 9,
-        "total": 16,
-        "proportion": 0.5625,
-        "wilson_95_low": 0.331785563988119,
-        "wilson_95_high": 0.7690134759450765
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
       "five_run_candidate_status_exact": {
         "successes": 14,
         "total": 16,
         "proportion": 0.875,
-        "wilson_95_low": 0.639771727342413,
-        "wilson_95_high": 0.9650225122567595
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
+      "five_run_level_evaluable_candidates": 1,
       "five_run_derived_level_exact": {
-        "successes": 15,
-        "total": 16,
-        "proportion": 0.9375,
-        "wilson_95_low": 0.7167126242970107,
-        "wilson_95_high": 0.9888806552353576
+        "successes": 0,
+        "total": 1,
+        "proportion": 0.0,
+        "confidence_interval": null,
+        "confidence_interval_reason": "not_computed: candidates are clustered within reports"
       },
-      "candidates_exact_after_three_but_not_five": 1,
+      "first_three_policy_comparison": {
+        "status": "withdrawn",
+        "reason": "the legacy comparison conditioned the three-run estimate on survival through five valid grounded runs"
+      },
       "selected_candidates": [
         {
           "candidates_per_report_limit": 2,

@@ -1,0 +1,39 @@
+{
+  "consultation_id": "2026-08-29-opus5-v0.1.1-audit",
+  "date": "2026-08-29",
+  "source_git_revision": "62677622ad3768adc7d24be8b0bfb3e2febe7376",
+  "execution": {
+    "client": "claude-code-cli",
+    "requested_model_alias": "opus",
+    "provider_reported_model": "claude-opus-5",
+    "effort": "max",
+    "permission_mode": "plan",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Glob"
+    ],
+    "network_search_requests": 0,
+    "network_fetch_requests": 0,
+    "repository_write_permission": false,
+    "duration_api_ms": 810739,
+    "num_turns": 41,
+    "terminal_status": "completed"
+  },
+  "artifacts": {
+    "prompt": {
+      "path": "prompt.md",
+      "sha256": "7535a033b38f5c1badfaaf7a7c79ddca7f2d9c64bea370662495aa464ea664e8",
+      "transcription": "normalized; stale codebook path documented in file"
+    },
+    "report": {
+      "path": "report.md",
+      "sha256": "a0774f783aedb8623996be7d32330cad53d69863e02e8d71da1c96e514c58670"
+    }
+  },
+  "independence": {
+    "repository_mode": "read_only",
+    "web_used": false,
+    "report_checked_against_frozen_jsonl_by_primary_agent": true
+  }
+}
