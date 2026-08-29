@@ -1,0 +1,150 @@
+{
+  "artifacts": [
+    {
+      "bytes": 4487,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/analysis_plan.md",
+      "sha256": "c8e7c00565efe351bdf2b87168d978de9623aae5bae1160becd1d4ee8366e9af"
+    },
+    {
+      "bytes": 10958,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/checkpoint_inventory.json",
+      "sha256": "8d66f93b71867441f67c2e6553ea69f04f94e094c8b97fdc2a20566b7a1006e9"
+    },
+    {
+      "bytes": 1681,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/coverage_contract.json",
+      "sha256": "b5f53d269bee6562e02ac7ef40de1b82aa2c35682e3955f4121506e08efcee39"
+    },
+    {
+      "bytes": 10201,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/methodology.md",
+      "sha256": "a2feb184d4e79c8877c3ce51239c6d38bdb29cc5fee5b15142378216b1a277a2"
+    },
+    {
+      "bytes": 2633,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/dense_claim_coverage.txt",
+      "sha256": "c701d361a2f9a341ec6049ed26bff88c96dde41424a7577addb5b2a025239965"
+    },
+    {
+      "bytes": 2825,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/final_claim_adjudicator.txt",
+      "sha256": "93718896bd7b8b46c706448f4418851d0449bebda070eeb2b8c32f2afa3cf40e"
+    },
+    {
+      "bytes": 3456,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/fixed_candidate_classifier.txt",
+      "sha256": "b2aecebf1ac237e2bb8ca37f1c251442f7759a4d7e32f85667d2cfa28ba1d622"
+    },
+    {
+      "bytes": 3545,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/open_claim_discovery.txt",
+      "sha256": "ace0b90ccdc6064e8c53e559b738c711557055b96caa0088835c3a9a8b6e413f"
+    },
+    {
+      "bytes": 3077,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/run_artifact_contract.md",
+      "sha256": "39f47a9de5df08e93e90f92741f6b09a175fa422c9899c5aa67d0f9b4eb465f2"
+    },
+    {
+      "bytes": 2083,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/runtime.json",
+      "sha256": "731c4125f5ad67b299f3bd5564250b22b938322bce8e07b9044090b3366d013c"
+    },
+    {
+      "bytes": 5776,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/schemas/dense_claim_coverage.schema.json",
+      "sha256": "ad3742d220890c3322d38c6571f968e52614473c2d6c75eca573c069da6cd472"
+    },
+    {
+      "bytes": 28374,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/schemas/final_claim_adjudicator.schema.json",
+      "sha256": "6ae21cba5da2c7c9e14583674d9e4c96d7a783700ab6802134dc7919f9eea5da"
+    },
+    {
+      "bytes": 28242,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/schemas/fixed_candidate_classifier.schema.json",
+      "sha256": "973f41a21608cd9cb5c316a937f965eea9810de9da7e849d9196a7b8aab6aeb7"
+    },
+    {
+      "bytes": 5776,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/schemas/open_claim_discovery.schema.json",
+      "sha256": "a159eb42f51dbb1cca82f6242c848b9147d261e2f47b495885b6b3822b7bc062"
+    },
+    {
+      "bytes": 2761,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/stability_contract.json",
+      "sha256": "d15781e64b1c061c1961db28a393db25fe5d32a7617de55d042da78ca913125e"
+    }
+  ],
+  "claim_record_schema": {
+    "path": "protocol/causal_extraction/v0.2.0/claim_record.schema.json",
+    "sha256": "d3fe4e82e700e8d174686cd29039870a797240e3f3016ca8bd5d7e452f898c78"
+  },
+  "codebook": {
+    "path": "protocol/causal_extraction/v0.2.0/codebook.md",
+    "sha256": "32dea02967c7b95df117aa5c89897acfd4c3678f6184be3126de402a6df932b0",
+    "version": "0.2.0"
+  },
+  "manifest_date": "2026-08-29",
+  "prompts": [
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/dense_claim_coverage.txt",
+      "placeholders": [
+        "CANONICAL_SECTIONS_JSON",
+        "CONTEXT_SECTION_IDS_JSON",
+        "CORE_SECTION_IDS_JSON",
+        "DOCUMENT_SHA256",
+        "REPORT_ID",
+        "WORK_UNIT_ID"
+      ],
+      "prompt_id": "causal_extraction.dense_claim_coverage",
+      "prompt_version": "0.1.0-rc1",
+      "sha256": "c701d361a2f9a341ec6049ed26bff88c96dde41424a7577addb5b2a025239965"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/final_claim_adjudicator.txt",
+      "placeholders": [
+        "CANDIDATE_INVENTORY_SHA256",
+        "CANONICAL_EVIDENCE_JSON",
+        "CODEBOOK_TEXT",
+        "FIVE_RUN_OUTPUTS_JSON",
+        "FROZEN_CANDIDATES_JSON",
+        "REPORT_ID"
+      ],
+      "prompt_id": "causal_extraction.final_claim_adjudicator",
+      "prompt_version": "0.1.0-rc1",
+      "sha256": "93718896bd7b8b46c706448f4418851d0449bebda070eeb2b8c32f2afa3cf40e"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/fixed_candidate_classifier.txt",
+      "placeholders": [
+        "CANDIDATE_REF",
+        "CODEBOOK_TEXT",
+        "EVIDENCE_PACKET_JSON",
+        "FROZEN_CANDIDATE_JSON",
+        "PROVISIONAL_CLAIM_ID",
+        "REPORT_ID"
+      ],
+      "prompt_id": "causal_extraction.fixed_candidate_classifier",
+      "prompt_version": "0.1.0-rc1",
+      "sha256": "b2aecebf1ac237e2bb8ca37f1c251442f7759a4d7e32f85667d2cfa28ba1d622"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.0-rc1/prompts/open_claim_discovery.txt",
+      "placeholders": [
+        "CANONICAL_SECTIONS_JSON",
+        "CONTEXT_SECTION_IDS_JSON",
+        "CORE_SECTION_IDS_JSON",
+        "DOCUMENT_SHA256",
+        "REPORT_ID",
+        "WORK_UNIT_ID"
+      ],
+      "prompt_id": "causal_extraction.open_claim_discovery",
+      "prompt_version": "0.1.0-rc1",
+      "sha256": "ace0b90ccdc6064e8c53e559b738c711557055b96caa0088835c3a9a8b6e413f"
+    }
+  ],
+  "status": "pre_first_terra_run_frozen_candidate",
+  "suite_id": "causal_multiomics_aging.causal_extraction",
+  "suite_version": "0.1.0-rc1"
+}

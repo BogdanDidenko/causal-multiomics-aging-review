@@ -103,6 +103,17 @@ and its reproducible orientation pack and independent agent reports are in
 [`corpus_grounding_v1.0.0`](analysis/article_design/corpus_grounding_v1.0.0/README.md).
 This exploratory article-design work does not alter eligibility, PRISMA counts,
 or final causal levels.
+The pre-run causal claim extraction instrument is frozen as prompt suite
+[`v0.1.0-rc1`](protocol/causal_extraction/prompt_suite/v0.1.0-rc1/methodology.md).
+It uses complete deterministic Docling coverage, complementary open and dense
+candidate discovery, five isolated GPT-5.6 Terra Medium classifications of
+each frozen candidate, explicit adjudication, and Python-derived Levels 0-4.
+Exact prompts, generated schemas, runtime and stability contracts, source and
+prompt hashes, and the 15-report development checkpoint are preserved in the
+same directory. The checkpoint reuses reports previously annotated during
+codebook development, so it is a technical and instrument-development test,
+not an independent estimate of accuracy. No Terra call for this extraction
+suite preceded its Git freeze.
 The rejected `v0.99.0` pilot remains immutable instrument-development history
 only; its 790 outcomes and 9,515 raw responses are not part of the v1 ledger or
 final PRISMA denominator.
@@ -120,7 +131,11 @@ flowchart LR
   F --> I
   I --> K["Deterministic Docling chunks and rule-based packaging"]
   K --> L["Criterion-level full-text review"]
-  L --> M["PRISMA flow and synthesis"]
+  L --> M["Closed full-text eligibility and PRISMA flow"]
+  M --> N["Open and dense causal-claim discovery"]
+  N --> O["Five-run fixed-candidate classification"]
+  O --> P["Adjudication and Python-derived Levels 0-4"]
+  P --> Q["Causal synthesis"]
 ```
 
 ## Quick Start
