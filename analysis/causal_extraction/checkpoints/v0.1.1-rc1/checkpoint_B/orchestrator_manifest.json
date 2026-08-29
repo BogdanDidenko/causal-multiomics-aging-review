@@ -1,0 +1,56 @@
+{
+  "checkpoint": "B",
+  "checkpoint_design": "protocol/causal_extraction/checkpoints/v0.1.1-rc1/two_sample_design.json",
+  "checkpoint_design_sha256": "216ebded2289c9bad770257bec8d512e73cf5400b6e45b807e40d8d97e3e64d9",
+  "classification_repeats": 5,
+  "classification_sampling": {
+    "candidates_per_report": 2,
+    "purpose": "stability_checkpoint_only",
+    "seed": "20260829-route-balanced-stability"
+  },
+  "codex_cli_version": "codex-cli 0.145.0",
+  "completed_at": "2026-08-29T13:16:01.311970+00:00",
+  "git_revision_at_start": "397ff2f95a0094a6b4c7dafbec09167dbaa2a68e",
+  "git_worktree_dirty_at_start": false,
+  "library": {
+    "path": "src/causal_multiomics_aging_review/causal_extraction.py",
+    "sha256": "185eacd1ecde92e77d30dfed4664c424b53bfb2627cbff95835976f158f270ef"
+  },
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "reports": 15,
+  "resumed_at": "2026-08-29T13:16:01.283096+00:00",
+  "runner": {
+    "path": "scripts/run_causal_extraction_checkpoint.py",
+    "sha256": "b44dbdaf0cd76b4ac734f64a3a7ace990f59d7faddd6249f6904489c0c0140bd"
+  },
+  "runtime_revisions": [
+    {
+      "git_revision": "321f9bf93bf5ba2ebc2333a329c6a34a23ccb629",
+      "library_sha256": "a097ba353dfa7e53ebafbca71249084b476fada3189c1c6ebbbc15e9b20d86ae",
+      "reason": "Apply audited runner validity fixes established before B classifier outputs: one grounding retry, quarantine invalid evidence, validate field anchors as section IDs, and canonicalize Python-owned claim IDs. Prompts, schemas, codebook, sample, and model unchanged.",
+      "resumed_at": "2026-08-29T13:09:10.654903+00:00",
+      "runner_sha256": "edde3925c99a3be67714d27445336cad00b4ab222977d20d5abb478d7a4b6c78"
+    }
+  ],
+  "started_at": "2026-08-29T12:09:58.280439+00:00",
+  "status": "classification_checkpoint_complete",
+  "suite_manifest_sha256": "7b7818b193b7640c08b48784c4a1eb1ff1ac3dedcd0d32456bfdd673e7522252",
+  "suite_version": "0.1.1-rc1",
+  "summary": {
+    "all_grounding_valid_candidates": 16,
+    "candidates": 30,
+    "candidates_first_three_exact": 11,
+    "candidates_five_run_exact": 8,
+    "candidates_with_five_valid_runs": 16,
+    "checkpoint": "B",
+    "discovery_grounding_failures": 36,
+    "discovery_technical_failures": 0,
+    "reports": 15,
+    "reports_all_candidates_first_three_exact": 1,
+    "reports_all_candidates_five_run_exact": 1,
+    "reports_with_candidates": 15
+  },
+  "technical_retry_limit": 1,
+  "workers": 16
+}

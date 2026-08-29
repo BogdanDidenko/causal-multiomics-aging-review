@@ -1,0 +1,621 @@
+{
+  "instrument": "causal_extraction/v0.1.1-rc1",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "classification_repeats": 5,
+  "classification_sampling": {
+    "reports_per_checkpoint": 15,
+    "candidates_per_report": 2,
+    "seed": "20260829-route-balanced-stability"
+  },
+  "checkpoints": [
+    {
+      "checkpoint": "A",
+      "reports": 15,
+      "reports_with_incomplete_grounded_discovery": 11,
+      "inventory_candidates": 1288,
+      "sampled_candidates": 30,
+      "sampled_candidates_with_five_valid_runs": 20,
+      "discovery_terminal_statuses": {
+        "ok": 309,
+        "grounding_failure": 31
+      },
+      "discovery_primary_grounding_failures": 50,
+      "discovery_retry_recoveries": 19,
+      "classification_terminal_statuses": {
+        "technical_failure": 3,
+        "grounding_failure": 29,
+        "ok": 118
+      },
+      "five_run_all_tracked_fields_exact": {
+        "successes": 9,
+        "total": 20,
+        "proportion": 0.45,
+        "wilson_95_low": 0.2581978582556243,
+        "wilson_95_high": 0.6579146575496577
+      },
+      "first_three_all_tracked_fields_exact": {
+        "successes": 11,
+        "total": 20,
+        "proportion": 0.55,
+        "wilson_95_low": 0.34208534245034233,
+        "wilson_95_high": 0.7418021417443759
+      },
+      "five_run_candidate_status_exact": {
+        "successes": 18,
+        "total": 20,
+        "proportion": 0.9,
+        "wilson_95_low": 0.6989663547715128,
+        "wilson_95_high": 0.9721335187862319
+      },
+      "five_run_derived_level_exact": {
+        "successes": 20,
+        "total": 20,
+        "proportion": 1.0,
+        "wilson_95_low": 0.8388748419471806,
+        "wilson_95_high": 1.0
+      },
+      "candidates_exact_after_three_but_not_five": 2,
+      "selected_candidates": [
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 313,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1111/acel.70103",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_23b791406911bbd7::candidate-034",
+            "doi_23b791406911bbd7::candidate-085"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 15,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1093/bib/bbag271",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_3095090048b86d78::candidate-008",
+            "doi_3095090048b86d78::candidate-015"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 157,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s43587-023-00451-9",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_48e3a065d7269ec5::candidate-015",
+            "doi_48e3a065d7269ec5::candidate-106"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 26,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1093/eurheartj/ehad361",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_4d8760b707f819ef::candidate-007",
+            "doi_4d8760b707f819ef::candidate-023"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 46,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1111/acel.70064",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_682a64714ac9f395::candidate-027",
+            "doi_682a64714ac9f395::candidate-037"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 64,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s41536-026-00490-x",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_8ba1a47eb43c7c7a::candidate-017",
+            "doi_8ba1a47eb43c7c7a::candidate-044"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 168,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1186/s12964-026-02985-y",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_9eec505bb5091c11::candidate-050",
+            "doi_9eec505bb5091c11::candidate-058"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 87,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s41467-023-37729-w",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_c1b7e582e69cfca7::candidate-012",
+            "doi_c1b7e582e69cfca7::candidate-054"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 73,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1128/msystems.01665-24",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_c3e25e42195e076b::candidate-016",
+            "doi_c3e25e42195e076b::candidate-038"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 21,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1111/acel.70498",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_c94b578c4f19a44d::candidate-001",
+            "doi_c94b578c4f19a44d::candidate-018"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 110,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.26599/fshw.2026.9251125",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_c9d1be7c453392ef::candidate-024",
+            "doi_c9d1be7c453392ef::candidate-092"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 39,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1016/j.cels.2021.09.005",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_d83dc5cb41628ad5::candidate-009",
+            "doi_d83dc5cb41628ad5::candidate-019"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 76,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1001/jamapsychiatry.2024.1429",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_def153153292e09c::candidate-017",
+            "doi_def153153292e09c::candidate-069"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 25,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1002/imo2.70128",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_df9c04fe3eee2ae2::candidate-002",
+            "doi_df9c04fe3eee2ae2::candidate-006"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 68,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s43587-026-01100-7",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_ed7083b490beff1d::candidate-015",
+            "doi_ed7083b490beff1d::candidate-066"
+          ]
+        }
+      ],
+      "raw_artifact_inventory": {
+        "root": "data/causal_extraction/v0.1.1-rc1/checkpoint_A_15_run1",
+        "file_count": 8941,
+        "total_bytes": 364182426,
+        "tree_sha256": "1c02ef37069b9821d445372287be7a8af27d68b8f3d9e25e67ac7aa6b82ea876",
+        "suffix_counts": {
+          ".json": 4792,
+          ".jsonl": 33,
+          ".sha256": 2352,
+          ".txt": 1764
+        }
+      }
+    },
+    {
+      "checkpoint": "B",
+      "reports": 15,
+      "reports_with_incomplete_grounded_discovery": 11,
+      "inventory_candidates": 1541,
+      "sampled_candidates": 30,
+      "sampled_candidates_with_five_valid_runs": 16,
+      "discovery_terminal_statuses": {
+        "ok": 344,
+        "grounding_failure": 36
+      },
+      "discovery_primary_grounding_failures": 55,
+      "discovery_retry_recoveries": 19,
+      "classification_terminal_statuses": {
+        "ok": 107,
+        "grounding_failure": 43
+      },
+      "five_run_all_tracked_fields_exact": {
+        "successes": 8,
+        "total": 16,
+        "proportion": 0.5,
+        "wilson_95_low": 0.27999563610326017,
+        "wilson_95_high": 0.7200043638967398
+      },
+      "first_three_all_tracked_fields_exact": {
+        "successes": 9,
+        "total": 16,
+        "proportion": 0.5625,
+        "wilson_95_low": 0.331785563988119,
+        "wilson_95_high": 0.7690134759450765
+      },
+      "five_run_candidate_status_exact": {
+        "successes": 14,
+        "total": 16,
+        "proportion": 0.875,
+        "wilson_95_low": 0.639771727342413,
+        "wilson_95_high": 0.9650225122567595
+      },
+      "five_run_derived_level_exact": {
+        "successes": 15,
+        "total": 16,
+        "proportion": 0.9375,
+        "wilson_95_low": 0.7167126242970107,
+        "wilson_95_high": 0.9888806552353576
+      },
+      "candidates_exact_after_three_but_not_five": 1,
+      "selected_candidates": [
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 77,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1002/fsn3.71826",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_0fdf1fe178e02028::candidate-025",
+            "doi_0fdf1fe178e02028::candidate-031"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 48,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s41586-026-10524-5",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_24417aa331840447::candidate-010",
+            "doi_24417aa331840447::candidate-028"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 69,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1111/acel.13497",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_3235f5ac26693f37::candidate-001",
+            "doi_3235f5ac26693f37::candidate-026"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 171,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1002/imt2.70150",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_532149ab73857cb9::candidate-011",
+            "doi_532149ab73857cb9::candidate-069"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 148,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s41467-024-46037-w",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_5b5f58258cf21217::candidate-042",
+            "doi_5b5f58258cf21217::candidate-111"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 13,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1093/geroni/igae098.2630",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_5cbb907c49d1a9a4::candidate-008",
+            "doi_5cbb907c49d1a9a4::candidate-011"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 89,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1016/j.phymed.2025.156697",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_7624588d3676bfc5::candidate-064",
+            "doi_7624588d3676bfc5::candidate-088"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 58,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1111/acel.70564",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_7dcaf0c9d1fcc1f3::candidate-024",
+            "doi_7dcaf0c9d1fcc1f3::candidate-044"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 109,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1016/j.jhazmat.2026.142949",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_882aca60005956c9::candidate-041",
+            "doi_882aca60005956c9::candidate-056"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 38,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1016/j.jot.2025.05.010",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_884c15a783634c31::candidate-013",
+            "doi_884c15a783634c31::candidate-030"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 118,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1038/s41392-026-02799-x",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_a4bbea2e07b0c1db::candidate-070",
+            "doi_a4bbea2e07b0c1db::candidate-114"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 142,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1016/j.ymthe.2025.12.035",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_a5ca885d7050ff94::candidate-030",
+            "doi_a5ca885d7050ff94::candidate-116"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 94,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.1002/advs.202521633",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_e58973540cb0858a::candidate-022",
+            "doi_e58973540cb0858a::candidate-088"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 174,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.26508/lsa.202201492",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "doi_e8e389549079ffc8::candidate-030",
+            "doi_e8e389549079ffc8::candidate-161"
+          ]
+        },
+        {
+          "candidates_per_report_limit": 2,
+          "inventory_candidate_count": 193,
+          "purpose": "stability_checkpoint_only",
+          "report_id": "doi:10.7936/zw5q-8j61",
+          "route_balancing_order": [
+            "open_claim_discovery",
+            "dense_claim_coverage"
+          ],
+          "sampling_seed": "20260829-route-balanced-stability",
+          "selected_candidate_count": 2,
+          "selected_candidate_refs": [
+            "record_e4b0b5520a4d2e2c::candidate-080",
+            "record_e4b0b5520a4d2e2c::candidate-178"
+          ]
+        }
+      ],
+      "raw_artifact_inventory": {
+        "root": "data/causal_extraction/v0.1.1-rc1/checkpoint_B_15_run1",
+        "file_count": 10041,
+        "total_bytes": 411100327,
+        "tree_sha256": "13477493154d802caafc11fe5b3aadccefefc831fcd73984f3ea31203c11ea47",
+        "suffix_counts": {
+          ".json": 5528,
+          ".jsonl": 33,
+          ".sha256": 2560,
+          ".txt": 1920
+        }
+      }
+    }
+  ],
+  "acceptance": {
+    "quote_grounding_100_percent": false,
+    "five_run_all_tracked_fields_100_percent": false,
+    "overall": "fail"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "all_grounding_valid_candidates": 16,
+  "candidates": 30,
+  "candidates_first_three_exact": 11,
+  "candidates_five_run_exact": 8,
+  "candidates_with_five_valid_runs": 16,
+  "checkpoint": "B",
+  "discovery_grounding_failures": 36,
+  "discovery_technical_failures": 0,
+  "reports": 15,
+  "reports_all_candidates_first_three_exact": 1,
+  "reports_all_candidates_five_run_exact": 1,
+  "reports_with_candidates": 15
+}

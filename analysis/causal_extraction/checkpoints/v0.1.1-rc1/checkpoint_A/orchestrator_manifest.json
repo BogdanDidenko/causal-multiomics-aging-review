@@ -1,0 +1,98 @@
+{
+  "checkpoint": "A",
+  "checkpoint_design": "protocol/causal_extraction/checkpoints/v0.1.1-rc1/two_sample_design.json",
+  "checkpoint_design_sha256": "216ebded2289c9bad770257bec8d512e73cf5400b6e45b807e40d8d97e3e64d9",
+  "classification_repeats": 5,
+  "classification_sampling": {
+    "candidates_per_report": 2,
+    "purpose": "stability_checkpoint_only",
+    "seed": "20260829-route-balanced-stability"
+  },
+  "codex_cli_version": "codex-cli 0.145.0",
+  "completed_at": "2026-08-29T13:16:01.063094+00:00",
+  "git_revision_at_start": "6b379ec5e8cbd2abc991102630ec5407884026b9",
+  "git_worktree_dirty_at_start": false,
+  "library": {
+    "path": "src/causal_multiomics_aging_review/causal_extraction.py",
+    "sha256": "90913c641eaee05ac577cfff18ab59505b0ca8de5e589dca000dce4f437543ad"
+  },
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "reports": 15,
+  "resumed_at": "2026-08-29T13:16:01.025699+00:00",
+  "runner": {
+    "path": "scripts/run_causal_extraction_checkpoint.py",
+    "sha256": "4ec27d349688985b8f278b37f673e608f695919ca8853f5883d8f6fe361a39e3"
+  },
+  "runtime_revisions": [
+    {
+      "git_revision": "2e89421c414e082a211a9cd007188f3bf5ebda89",
+      "library_sha256": "90913c641eaee05ac577cfff18ab59505b0ca8de5e589dca000dce4f437543ad",
+      "reason": "Technical recovery: add the protocol-specified single retry for exact-quote grounding failures; prompts, schemas, codebook, coverage, and model settings unchanged.",
+      "resumed_at": "2026-08-29T12:00:56.114837+00:00",
+      "runner_sha256": "44ad852e485b41753b8ac13f4d422130a462cb932ccd84adfa7a7fb3d849e39a"
+    },
+    {
+      "git_revision": "4b02b11c22bc4afe81ae3430a8a238fb371e9e5e",
+      "library_sha256": "90913c641eaee05ac577cfff18ab59505b0ca8de5e589dca000dce4f437543ad",
+      "reason": "Technical validity fix: quarantine residual quote-grounding failures from automated candidate inventories and route affected reports to manual review; scientific instrument unchanged.",
+      "resumed_at": "2026-08-29T12:07:03.063067+00:00",
+      "runner_sha256": "87ab8304bbbc8bacfeb90f0bc1aa5ccef4594c5eb0599ad3c57e7ac21beac562"
+    },
+    {
+      "git_revision": "397ff2f95a0094a6b4c7dafbec09167dbaa2a68e",
+      "library_sha256": "185eacd1ecde92e77d30dfed4664c424b53bfb2627cbff95835976f158f270ef",
+      "reason": "Feasibility amendment: deterministic route-balanced sample of at most two frozen candidates per report for classifier stability only; all 1,288 discovery candidates retained in the audit inventory.",
+      "resumed_at": "2026-08-29T12:52:10.612672+00:00",
+      "runner_sha256": "b44dbdaf0cd76b4ac734f64a3a7ace990f59d7faddd6249f6904489c0c0140bd"
+    },
+    {
+      "git_revision": "66f38c85df00d9a9c8619e22edb2d000435a9763",
+      "library_sha256": "a097ba353dfa7e53ebafbca71249084b476fada3189c1c6ebbbc15e9b20d86ae",
+      "reason": "Validation-only recovery: field_anchors are schema-defined section ID strings. Revalidate 44 already-saved classifier responses without new provider calls; preserve residual grounding failure after attempt two.",
+      "resumed_at": "2026-08-29T13:00:27.511476+00:00",
+      "runner_sha256": "7f9cce00c41d13ceaccab3f3fbc9b08e32d485c78703c7897ab495dc9bba7360"
+    },
+    {
+      "git_revision": "f40b43cde82dcf98609fac56f385fda917ffc63e",
+      "library_sha256": "a097ba353dfa7e53ebafbca71249084b476fada3189c1c6ebbbc15e9b20d86ae",
+      "reason": "Administrative-only canonicalization of the model alias __claim to the frozen ::claim identifier; raw outputs preserved and normalization logged.",
+      "resumed_at": "2026-08-29T13:07:03.630319+00:00",
+      "runner_sha256": "2db35e0b80f5591f4f1f9b40b4428aa2d5fbed44431ebe6f8ca6f4cd3ffa8f50"
+    },
+    {
+      "git_revision": "0581f456883951274d4ba78fe64dd1f99b519fac",
+      "library_sha256": "a097ba353dfa7e53ebafbca71249084b476fada3189c1c6ebbbc15e9b20d86ae",
+      "reason": "Correct runner identity contract to the frozen schema-safe provisional claim ID using __claim; revalidate existing raw responses without provider calls.",
+      "resumed_at": "2026-08-29T13:07:55.625279+00:00",
+      "runner_sha256": "de34cc0491a3b44ec7e21ca0f2fec62fc605bc9d01e61273d28332d8cf682e17"
+    },
+    {
+      "git_revision": "321f9bf93bf5ba2ebc2333a329c6a34a23ccb629",
+      "library_sha256": "a097ba353dfa7e53ebafbca71249084b476fada3189c1c6ebbbc15e9b20d86ae",
+      "reason": "Canonicalize every model-returned administrative claim_id to the Python-frozen provisional ID while preserving raw values; scientific fields unchanged.",
+      "resumed_at": "2026-08-29T13:08:54.540938+00:00",
+      "runner_sha256": "edde3925c99a3be67714d27445336cad00b4ab222977d20d5abb478d7a4b6c78"
+    }
+  ],
+  "started_at": "2026-08-29T11:40:36.228145+00:00",
+  "status": "classification_checkpoint_complete",
+  "suite_manifest_sha256": "7b7818b193b7640c08b48784c4a1eb1ff1ac3dedcd0d32456bfdd673e7522252",
+  "suite_version": "0.1.1-rc1",
+  "summary": {
+    "all_grounding_valid_candidates": 20,
+    "candidates": 30,
+    "candidates_first_three_exact": 12,
+    "candidates_five_run_exact": 9,
+    "candidates_with_five_valid_runs": 20,
+    "checkpoint": "A",
+    "discovery_grounding_failures": 31,
+    "discovery_technical_failures": 0,
+    "reports": 15,
+    "reports_all_candidates_first_three_exact": 1,
+    "reports_all_candidates_five_run_exact": 1,
+    "reports_with_candidates": 15
+  },
+  "technical_retry_limit": 1,
+  "workers": 24
+}
