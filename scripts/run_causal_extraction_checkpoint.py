@@ -800,14 +800,11 @@ class CheckpointRunner:
                     ) -> tuple[dict[str, Any], list[dict[str, str]]]:
                         canonical = json.loads(json.dumps(response))
                         changes = []
-                        accepted_aliases = {
-                            provisional.replace("::claim", "__claim"),
-                        }
                         for index, claim in enumerate(
                             canonical.get("claim_records", [])
                         ):
                             observed = claim.get("claim_id")
-                            if observed in accepted_aliases:
+                            if observed != provisional:
                                 claim["claim_id"] = provisional
                                 changes.append(
                                     {
