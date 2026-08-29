@@ -275,7 +275,20 @@ class CheckpointRunner:
         if not terminal.is_file():
             return False
         value = read_json(terminal)
-        return value.get("status") in {"ok", "grounding_failure"}
+        return value.get("status") == "ok"
+
+    def _first_attempt(self, directory: Path) -> int:
+        terminal = directory / "terminal.json"
+        if not self.resume or not terminal.is_file():
+            return 1
+        value = read_json(terminal)
+        if (
+            value.get("status") == "grounding_failure"
+            and value.get("attempts") == 1
+            and (directory / "attempt-01").is_dir()
+        ):
+            return 2
+        return 1
 
     def execute_call(self, spec: CallSpec) -> dict[str, Any]:
         if self.resume and self._attempt_is_reusable(spec.output_dir):
@@ -285,7 +298,7 @@ class CheckpointRunner:
         runtime_schema = codex_runtime_schema(source_schema)
         rendered = render_prompt(template, spec.substitutions)
         last_terminal: dict[str, Any] | None = None
-        for attempt in (1, 2):
+        for attempt in range(self._first_attempt(spec.output_dir), 3):
             attempt_dir = spec.output_dir / f"attempt-{attempt:02d}"
             attempt_dir.mkdir(parents=True, exist_ok=True)
             write_text(attempt_dir / "rendered_prompt.txt", rendered)
@@ -405,6 +418,8 @@ class CheckpointRunner:
                 "prompt_sha256": sha256_text(rendered),
             }
             write_json(attempt_dir / "exit_status.json", last_terminal)
+            if grounding_failures and attempt == 1:
+                continue
             break
         assert last_terminal is not None
         write_json(spec.output_dir / "terminal.json", last_terminal)

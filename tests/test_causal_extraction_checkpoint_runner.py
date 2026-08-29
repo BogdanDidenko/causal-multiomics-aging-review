@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 from causal_multiomics_aging_review.causal_extraction import (
@@ -19,6 +20,13 @@ SPEC = importlib.util.spec_from_file_location("checkpoint_freezer", FREEZER_PATH
 assert SPEC is not None and SPEC.loader is not None
 FREEZER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(FREEZER)
+RUNNER_PATH = REPO / "scripts/run_causal_extraction_checkpoint.py"
+sys.path.insert(0, str(REPO))
+RUNNER_SPEC = importlib.util.spec_from_file_location("checkpoint_runner", RUNNER_PATH)
+assert RUNNER_SPEC is not None and RUNNER_SPEC.loader is not None
+RUNNER = importlib.util.module_from_spec(RUNNER_SPEC)
+sys.modules[RUNNER_SPEC.name] = RUNNER
+RUNNER_SPEC.loader.exec_module(RUNNER)
 
 
 def sections() -> list[dict]:
@@ -166,3 +174,21 @@ def test_codex_schema_compilation_adds_const_type_and_removes_conditionals() -> 
     assert compiled["properties"]["stage"] == {"const": "open", "type": "string"}
     assert "allOf" not in compiled
     assert "uniqueItems" not in compiled
+
+
+def test_grounding_failure_resumes_at_second_attempt(tmp_path: Path) -> None:
+    (tmp_path / "attempt-01").mkdir()
+    (tmp_path / "terminal.json").write_text(
+        json.dumps({"status": "grounding_failure", "attempts": 1})
+    )
+    runner = object.__new__(RUNNER.CheckpointRunner)
+    runner.resume = True
+    assert runner._attempt_is_reusable(tmp_path) is False
+    assert runner._first_attempt(tmp_path) == 2
+
+
+def test_valid_call_is_reusable(tmp_path: Path) -> None:
+    (tmp_path / "terminal.json").write_text(json.dumps({"status": "ok"}))
+    runner = object.__new__(RUNNER.CheckpointRunner)
+    runner.resume = True
+    assert runner._attempt_is_reusable(tmp_path) is True
