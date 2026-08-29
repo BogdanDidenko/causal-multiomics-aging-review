@@ -44,6 +44,10 @@ data/full_text_screening/**/runs/
 data/full_text_screening/**/logs/
 data/full_text_screening/**/raw_provider_responses.jsonl
 
+# Causal-extraction checkpoints contain rendered full-text evidence packets and
+# raw provider traces. Commit compact reports and checksum inventories with -f.
+data/causal_extraction/
+
 # Restricted PRISMA-trAIce audit snapshots contain copyrighted article text.
 # Version their cryptographic inventories and adjudication indexes, not content.
 data/full_text_screening/**/restricted_audit/
