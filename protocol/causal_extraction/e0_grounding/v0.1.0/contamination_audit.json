@@ -1,0 +1,26 @@
+{
+  "audit_date": "2026-08-29",
+  "audit_id": "causal_extraction_e0_prior_exposure_audit",
+  "eligible_reports": 101,
+  "future_sealed_requirement": "Acquire an external or temporal report sample after the replacement instrument, runtime, code, and acceptance thresholds are frozen.",
+  "genuinely_sealed_internal_reports": 0,
+  "interpretation": "All eligible reports had model-generated Luna Light graph profiles, and four article-design agents reviewed all 101 profiles. Reports outside checkpoints A and B remain usable for development, but none may be represented as an untouched sealed evaluation set.",
+  "reports_in_checkpoint_a": 15,
+  "reports_in_checkpoint_b": 15,
+  "reports_outside_checkpoints_a_b": 71,
+  "reports_with_prior_luna_graph_profile": 101,
+  "sources": {
+    "checkpoint_design": {
+      "path": "protocol/causal_extraction/checkpoints/v0.1.1-rc1/two_sample_design.json",
+      "sha256": "216ebded2289c9bad770257bec8d512e73cf5400b6e45b807e40d8d97e3e64d9"
+    },
+    "graph_agent_manifest": {
+      "path": "analysis/article_design/corpus_grounding_v1.0.0/agent_manifest.json",
+      "sha256": "badac8f5ed2e824cdfe87da411e14bb1d00debc368f87bbc4d2cf2afc0e38629"
+    },
+    "graph_profiles": {
+      "path": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_profiles_101.jsonl",
+      "sha256": "4cccd12016d5aadce4adf369626c35cc10aa569ce160aaa3bcb67bd56ee835f6"
+    }
+  }
+}

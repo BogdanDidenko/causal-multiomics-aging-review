@@ -1,0 +1,5 @@
+For every evidence reference return only the exact `evidence_atom_id` string of
+a supplied atom. Do not return quote text, section IDs, or offsets. Do not
+create, shorten, or modify an ID. Python will recover the exact raw quotation
+and offsets from the frozen atom index. At least one method or result evidence
+ID for each analysis must identify an atom whose `evidence_scope` is `core`.

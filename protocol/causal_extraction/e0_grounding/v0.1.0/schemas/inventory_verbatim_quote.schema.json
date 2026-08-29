@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "causal-extraction-e0-inventory-verbatim-quote-v0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "analyses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/analysis"
+      },
+      "maxItems": 40
+    }
+  },
+  "required": [
+    "analyses"
+  ],
+  "$defs": {
+    "evidence_anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "section_id": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "section_id",
+        "quote"
+      ]
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "analysis_basis": {
+          "type": "string",
+          "enum": [
+            "effect_identification_design",
+            "formal_directed_hypothesis_method"
+          ]
+        },
+        "design_family": {
+          "$ref": "#/$defs/design_family"
+        },
+        "method_name": {
+          "type": "string"
+        },
+        "exposure_construct": {
+          "type": "string"
+        },
+        "outcome_construct": {
+          "type": "string"
+        },
+        "biological_system": {
+          "type": "string"
+        },
+        "analysis_completeness": {
+          "type": "string",
+          "enum": [
+            "method_and_result",
+            "method_only",
+            "result_only",
+            "unclear"
+          ]
+        },
+        "method_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_anchor"
+          },
+          "maxItems": 8
+        },
+        "result_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_anchor"
+          },
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "analysis_basis",
+        "design_family",
+        "method_name",
+        "exposure_construct",
+        "outcome_construct",
+        "biological_system",
+        "analysis_completeness",
+        "method_evidence",
+        "result_evidence"
+      ]
+    },
+    "design_family": {
+      "type": "string",
+      "enum": [
+        "randomized_intervention",
+        "controlled_nonrandomized_intervention",
+        "quasi_experiment",
+        "targeted_genetic_perturbation",
+        "targeted_pharmacologic_perturbation",
+        "biological_transfer",
+        "genetic_instrument",
+        "mediation_analysis",
+        "temporal_model",
+        "dag_scm_sem",
+        "bayesian_network",
+        "causal_discovery_algorithm",
+        "invariance_environment_model",
+        "other_formal_causal_design"
+      ]
+    }
+  }
+}

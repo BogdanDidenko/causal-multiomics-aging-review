@@ -15,14 +15,18 @@ derived Levels must not enter the scientific synthesis.
 
 The next permitted model experiment is E0, the six-report grounding-contract
 bake-off defined in
-`design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md`.
+`design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md`. Its internal
+sample is development-only: earlier Luna Light profiles covered all 101
+eligible reports, so none of the reports outside checkpoints A and B is called
+sealed.
 
 Processing all 101 eligible reports remains blocked until:
 
 1. E0 passes;
 2. the hierarchical causal-analysis data model is frozen;
 3. development ablations are completed against expert gold labels;
-4. one configuration passes a single prespecified sealed-set evaluation.
+4. one configuration passes a single prespecified external or temporal
+   sealed-set evaluation acquired after instrument freeze.
 
 ## Corrected record
 

@@ -1,0 +1,12 @@
+{
+  "artifact_manifest_path": "protocol/causal_extraction/e0_grounding/v0.1.0/artifact_manifest.json",
+  "artifact_manifest_sha256": "ff4dcd7bad0178bb981876c28ecd3614032c0597bcfc01fb1669f163744bb454",
+  "experiment_id": "causal_extraction_e0_grounding",
+  "freeze_date": "2026-08-29",
+  "freeze_revision": "the Git commit containing this file",
+  "maximum_pre_human_verdict": "technical_pass_pending_human_semantic_audit",
+  "model_calls_before_freeze": 0,
+  "scientific_output_allowed": false,
+  "status": "frozen_before_any_e0_terra_output",
+  "version": "0.1.0"
+}

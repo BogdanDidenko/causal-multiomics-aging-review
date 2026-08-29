@@ -1,0 +1,40 @@
+{
+  "experiment_id": "causal_extraction_e0_grounding",
+  "version": "0.1.0",
+  "status": "frozen_protocol_pending_git_commit",
+  "provider": "codex_cli",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "context_window": 32768,
+  "repeats_per_arm": 2,
+  "technical_retry_limit": 1,
+  "workers": 8,
+  "atomization": {
+    "version": "evidence-atoms-v1",
+    "max_atom_characters": 1000,
+    "offset_unit": "unicode_codepoint"
+  },
+  "packaging": {
+    "max_core_characters": 24000,
+    "context_characters_per_side": 1500,
+    "max_core_atoms": 250,
+    "max_context_atoms_per_side": 20,
+    "maximum_rendered_prompt_tokens": 23000,
+    "core_atom_occurrences_required": 1,
+    "section_omission_allowed": false,
+    "relevance_ranking_allowed": false,
+    "graph_input_allowed": false
+  },
+  "arms": {
+    "verbatim_quote": {
+      "prompt": "prompts/inventory_template.txt",
+      "grounding_contract": "prompts/grounding_verbatim_quote.txt",
+      "schema": "schemas/inventory_verbatim_quote.schema.json"
+    },
+    "evidence_atom_id": {
+      "prompt": "prompts/inventory_template.txt",
+      "grounding_contract": "prompts/grounding_evidence_atom_id.txt",
+      "schema": "schemas/inventory_evidence_atom_id.schema.json"
+    }
+  }
+}

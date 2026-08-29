@@ -1,0 +1,7 @@
+For every evidence reference return an object with `section_id` and `quote`.
+Copy `section_id` exactly. `quote` must be a character-exact contiguous
+substring of one supplied atom's `text`. Preserve Unicode, whitespace,
+punctuation, Markdown, and OCR artifacts. Do not repair or paraphrase. Use the
+shortest passage sufficient to establish the method or result. At least one
+method or result evidence reference for each analysis must come from an atom
+whose `evidence_scope` is `core`.
