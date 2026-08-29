@@ -580,10 +580,11 @@ class CheckpointRunner:
                     if terminal["status"] not in {"ok", "grounding_failure"}:
                         failures.append(terminal)
                         continue
-                    response = read_json(REPO / terminal["response_path"])
-                    outputs.append(response)
                     if terminal["status"] == "grounding_failure":
                         grounding_failures.append(terminal)
+                        continue
+                    response = read_json(REPO / terminal["response_path"])
+                    outputs.append(response)
             candidates, atoms = freeze_candidates(report, outputs)
             packets = build_evidence_packets(report, candidates, atoms)
             root = self.output / "frozen_candidates" / report["document_id"]
@@ -729,7 +730,7 @@ class CheckpointRunner:
                 ]
                 responses = []
                 for terminal in terminals:
-                    if terminal["status"] in {"ok", "grounding_failure"}:
+                    if terminal["status"] == "ok":
                         responses.append(read_json(REPO / terminal["response_path"]))
                 payloads = [classifier_decision_payload(response) for response in responses]
                 hashes = [sha256_text(canonical_json(payload)) for payload in payloads]
@@ -768,6 +769,10 @@ class CheckpointRunner:
                 }
                 candidate_rows.append(row)
                 report_candidate_rows.append(row)
+            grounded_discovery_complete = not (
+                inventory["discovery_technical_failures"]
+                or inventory["discovery_grounding_failures"]
+            )
             report_rows.append(
                 {
                     "checkpoint": self.checkpoint,
@@ -775,9 +780,13 @@ class CheckpointRunner:
                     "doi": report["doi"],
                     "title": report["title"],
                     "candidate_count": len(report_candidate_rows),
-                    "all_candidates_five_run_exact": bool(report_candidate_rows)
+                    "grounded_discovery_complete": grounded_discovery_complete,
+                    "manual_review_required": not grounded_discovery_complete,
+                    "all_candidates_five_run_exact": grounded_discovery_complete
+                    and bool(report_candidate_rows)
                     and all(row["five_run_exact"] for row in report_candidate_rows),
-                    "all_candidates_first_three_exact": bool(report_candidate_rows)
+                    "all_candidates_first_three_exact": grounded_discovery_complete
+                    and bool(report_candidate_rows)
                     and all(row["first_three_exact"] for row in report_candidate_rows),
                     "discovery_technical_failures": len(
                         inventory["discovery_technical_failures"]
