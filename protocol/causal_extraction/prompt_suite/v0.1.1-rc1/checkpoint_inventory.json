@@ -1,0 +1,170 @@
+{
+  "checkpoint_id": "causal_extraction_v0.1.1-rc1_checkpoint_15",
+  "eligibility_ledger": {
+    "eligible_report_count": 101,
+    "path": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+    "sha256": "17bd41303372a4f7cbd9c1697c7e6a93874348b3d61bfd60d033b3e06ba1bae7"
+  },
+  "independent_accuracy_set": false,
+  "prior_human_codebook_annotations_exist": true,
+  "purpose": "instrument_development_and_technical_stability_checkpoint",
+  "report_count": 15,
+  "reports": [
+    {
+      "canonical_docling_bytes": 62015,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_def153153292e09c/def153153292e09c_xml_20260809_023916/docling/document.md",
+      "canonical_docling_sha256": "709ef1d1c7d5ed5b0ce817364ec65ed33c69da3a63e8ac76840216a8d95fbb35",
+      "checkpoint_order": 1,
+      "design_diversity_role": "two-sample and multivariable MR; sensitivity and replication boundary",
+      "doi": "10.1001/jamapsychiatry.2024.1429",
+      "report_id": "doi:10.1001/jamapsychiatry.2024.1429",
+      "title": "Major Psychiatric Disorders, Substance Use Behaviors, and Longevity"
+    },
+    {
+      "canonical_docling_bytes": 35473,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_df9c04fe3eee2ae2/df9c04fe3eee2ae2_html_20260809_024601/docling/document.md",
+      "canonical_docling_sha256": "91651969980ab2f38ce3fbc5bf703eb7570deb7fa36355568d8fe7cfd05a2b35",
+      "checkpoint_order": 2,
+      "design_diversity_role": "cross-sectional genetic mediation",
+      "doi": "10.1002/imo2.70128",
+      "report_id": "doi:10.1002/imo2.70128",
+      "title": "A uterine-centric view of reproductive senescence: Genetic insights into late-life performance in laying hens"
+    },
+    {
+      "canonical_docling_bytes": 121424,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_d83dc5cb41628ad5/doi_d83dc5cb41628ad5_docling_json_20260809_031025/docling/document.md",
+      "canonical_docling_sha256": "8b0d6c18f1918ff398de6b1c5cb603ff4ab65a180c23243642e57534b366c9fa",
+      "checkpoint_order": 3,
+      "design_diversity_role": "directed statistical model followed by cross-species perturbation",
+      "doi": "10.1016/j.cels.2021.09.005",
+      "report_id": "doi:10.1016/j.cels.2021.09.005",
+      "title": "Multiomic profiling of the liver across diets and age in a diverse mouse population"
+    },
+    {
+      "canonical_docling_bytes": 94239,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c1b7e582e69cfca7/doi_c1b7e582e69cfca7_docling_json_20260809_031627/docling/document.md",
+      "canonical_docling_sha256": "8f4642bc01d09f780a4a2372291d85bbf89d3290a51d16216961829e36ce97cd",
+      "checkpoint_order": 4,
+      "design_diversity_role": "TWAS fine-mapping versus molecular and metabolite MR",
+      "doi": "10.1038/s41467-023-37729-w",
+      "report_id": "doi:10.1038/s41467-023-37729-w",
+      "title": "Multi-omic underpinnings of epigenetic aging and human longevity"
+    },
+    {
+      "canonical_docling_bytes": 78146,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_8ba1a47eb43c7c7a/doi_8ba1a47eb43c7c7a_docling_json_20260809_031751/docling/document.md",
+      "canonical_docling_sha256": "b845d69b5b4f6abb5dce748ca1e00f5fe184472e8b77a5c922bcd03f86dfa8b7",
+      "checkpoint_order": 5,
+      "design_diversity_role": "randomized long-term mouse intervention with molecular but no renal-functional endpoints",
+      "doi": "10.1038/s41536-026-00490-x",
+      "report_id": "doi:10.1038/s41536-026-00490-x",
+      "title": "Multi-omics profiling reveals systemic rejuvenation of the aged kidney through senolytic therapy"
+    },
+    {
+      "canonical_docling_bytes": 112644,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_48e3a065d7269ec5/doi_48e3a065d7269ec5_docling_json_20260809_031945/docling/document.md",
+      "canonical_docling_sha256": "fde75e6c6ad5dd2e59ef991676cd98561e05910121b78914822cfd793e1e0cf1",
+      "checkpoint_order": 6,
+      "design_diversity_role": "heterochronic parabiosis and biological-transfer scope",
+      "doi": "10.1038/s43587-023-00451-9",
+      "report_id": "doi:10.1038/s43587-023-00451-9",
+      "title": "Multi-omic rejuvenation and lifespan extension upon exposure to youthful circulation"
+    },
+    {
+      "canonical_docling_bytes": 110016,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_ed7083b490beff1d/doi_ed7083b490beff1d_docling_json_20260809_031952/docling/document.md",
+      "canonical_docling_sha256": "2b7eb4aa4da18b0ad97bc3a431fcd3018cbed2f5537c12605eb5050aa7fe953e",
+      "checkpoint_order": 7,
+      "design_diversity_role": "CRISPRi multiome with cell and in-vivo follow-up",
+      "doi": "10.1038/s43587-026-01100-7",
+      "report_id": "doi:10.1038/s43587-026-01100-7",
+      "title": "Multiomic single-cell perturbation screens reveal critical lncRNA regulators of senescence"
+    },
+    {
+      "canonical_docling_bytes": 46541,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3095090048b86d78/doi_3095090048b86d78_docling_json_20260809_031725/docling/document.md",
+      "canonical_docling_sha256": "33220c19084f43b637d68f0f8da21dd668b03756b577f5b03dadd947562a2eb7",
+      "checkpoint_order": 8,
+      "design_diversity_role": "SEM mediation embedded in a prediction study",
+      "doi": "10.1093/bib/bbag271",
+      "report_id": "doi:10.1093/bib/bbag271",
+      "title": "StackAge: an ensemble-based clock for precise quantification of biological age using multi-omics data"
+    },
+    {
+      "canonical_docling_bytes": 87472,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4d8760b707f819ef/doi_4d8760b707f819ef_docling_json_20260809_031732/docling/document.md",
+      "canonical_docling_sha256": "e434c7613e735f26abd188c02575026556f5b77ecb8a207dba042aeeb080df5d",
+      "checkpoint_order": 9,
+      "design_diversity_role": "observational causal mediation with explicit causal limitation",
+      "doi": "10.1093/eurheartj/ehad361",
+      "report_id": "doi:10.1093/eurheartj/ehad361",
+      "title": "Subclinical atherosclerosis and accelerated epigenetic age mediated by inflammation: a multi-omics study"
+    },
+    {
+      "canonical_docling_bytes": 71413,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_682a64714ac9f395/doi_682a64714ac9f395_docling_json_20260809_032356/docling/document.md",
+      "canonical_docling_sha256": "d02c3b7a27a5f75b01fafd8bfad4f8b3f4058e83e7711c8c43cba391e7f0128b",
+      "checkpoint_order": 10,
+      "design_diversity_role": "aged FMT biological transfer and package-versus-component boundary",
+      "doi": "10.1111/acel.70064",
+      "report_id": "doi:10.1111/acel.70064",
+      "title": "Aged Gut Microbiota Contributes to Cognitive Impairment and Hippocampal Synapse Loss in Mice"
+    },
+    {
+      "canonical_docling_bytes": 103033,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_23b791406911bbd7/doi_23b791406911bbd7_docling_json_20260809_032451/docling/document.md",
+      "canonical_docling_sha256": "d62124fb96f7ff887189d5a196d3d6aeff0201191ab755973153ab8acc630f79",
+      "checkpoint_order": 11,
+      "design_diversity_role": "nominally randomized human trial with deterministic sequential allocation and time-specific effects",
+      "doi": "10.1111/acel.70103",
+      "report_id": "doi:10.1111/acel.70103",
+      "title": "Multi-Omics Analysis Reveals Biomarkers That Contribute to Biological Age Rejuvenation in Response to Single-Blinded Randomized Placebo-Controlled Therapeutic Plasma Exchange"
+    },
+    {
+      "canonical_docling_bytes": 53754,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c94b578c4f19a44d/doi_c94b578c4f19a44d_docling_json_20260809_032016/docling/document.md",
+      "canonical_docling_sha256": "ac8780be3dc2ccc484d10c2bad44383bc71f9c586abb4bfb05042e11d03c5e59",
+      "checkpoint_order": 12,
+      "design_diversity_role": "secondary dose-escalation analysis with dose-time confounding",
+      "doi": "10.1111/acel.70498",
+      "report_id": "doi:10.1111/acel.70498",
+      "title": "Multi-Omics Reveals Mechanisms of Metabolic Rejuvenation in Aged Mice and Pre-Frail Older Men by Losartan"
+    },
+    {
+      "canonical_docling_bytes": 68146,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c3e25e42195e076b/doi_c3e25e42195e076b_docling_json_20260809_032602/docling/document.md",
+      "canonical_docling_sha256": "3460845954623cbe2427178ffe3d9d856a808ed96c8789e21064ad24dc27f0c1",
+      "checkpoint_order": 13,
+      "design_diversity_role": "assigned supplementation plus mutant/RNAi epistasis",
+      "doi": "10.1128/msystems.01665-24",
+      "report_id": "doi:10.1128/msystems.01665-24",
+      "title": "Microbiota-derived indole acetic acid extends lifespan through the AhR-Sirt2 pathway in Drosophila"
+    },
+    {
+      "canonical_docling_bytes": 105282,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_9eec505bb5091c11/doi_9eec505bb5091c11_docling_json_20260809_032111/docling/document.md",
+      "canonical_docling_sha256": "a85421be26f2d4d0f3ff0d9f9e1018c4f208091fbd2e0b93ac3c43bc657f9067",
+      "checkpoint_order": 14,
+      "design_diversity_role": "positive inhibitor versus null siRNA operations and off-target concern",
+      "doi": "10.1186/s12964-026-02985-y",
+      "report_id": "doi:10.1186/s12964-026-02985-y",
+      "title": "Multi-omics and experimental evidence in human chondrocytes identify caspase-8 as a non-apoptotic regulator of inflammatory, senescent, and fibrotic signaling in osteoarthritis"
+    },
+    {
+      "canonical_docling_bytes": 105227,
+      "canonical_docling_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c9d1be7c453392ef/doi_c9d1be7c453392ef_docling_json_20260809_032314/docling/document.md",
+      "canonical_docling_sha256": "a2da3cf5b2644e8ab67c5787ff1ef9efb7a0a155a7551131d0120ecf7e789238",
+      "checkpoint_order": 15,
+      "design_diversity_role": "lifespan intervention and epistasis versus docking-based target nomination",
+      "doi": "10.26599/fshw.2026.9251125",
+      "report_id": "doi:10.26599/fshw.2026.9251125",
+      "title": "Unraveling the Key Pathways through Cordycepin Prolongs Lifespan in C. elegans by Integrating Multi-omics Approaches"
+    }
+  ],
+  "reuse_limit": "Results may guide a new prompt-suite version but cannot be used as an unbiased accuracy estimate. A revised version requires a disjoint checkpoint set.",
+  "selected_before_suite_terra_outputs": true,
+  "selection_source": {
+    "path": "analysis/causal_extraction/codebook_pilot_v0.1.0/reports_15.csv",
+    "sha256": "b06187d992ee2cccee6e05ad053b6c0aa4bc4d66a55d8c03c3a2fd0424bb486e"
+  }
+}

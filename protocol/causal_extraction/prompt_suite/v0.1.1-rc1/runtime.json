@@ -1,0 +1,64 @@
+{
+  "suite_id": "causal_multiomics_aging.causal_extraction",
+  "suite_version": "0.1.1-rc1",
+  "status": "pre_first_terra_run_frozen_candidate",
+  "codebook": {
+    "version": "0.2.0",
+    "path": "protocol/causal_extraction/v0.2.0/codebook.md",
+    "claim_schema_path": "protocol/causal_extraction/v0.2.0/claim_record.schema.json"
+  },
+  "provider": "codex_cli",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "session_policy": {
+    "isolated_session_per_call": true,
+    "ephemeral_codex_home": true,
+    "plugins_enabled": false,
+    "ignore_user_config": true,
+    "ignore_repository_instructions": true
+  },
+  "generation": {
+    "max_context_tokens": 32768,
+    "technical_retry_limit": 1,
+    "retry_requires_identical_rendered_prompt": true,
+    "structured_output": "json_schema",
+    "hidden_reasoning_requested": false
+  },
+  "stages": {
+    "open_claim_discovery": {
+      "prompt": "prompts/open_claim_discovery.txt",
+      "schema": "schemas/open_claim_discovery.schema.json",
+      "repeats": 1
+    },
+    "dense_claim_coverage": {
+      "prompt": "prompts/dense_claim_coverage.txt",
+      "schema": "schemas/dense_claim_coverage.schema.json",
+      "repeats": 1
+    },
+    "fixed_candidate_classifier": {
+      "prompt": "prompts/fixed_candidate_classifier.txt",
+      "schema": "schemas/fixed_candidate_classifier.schema.json",
+      "repeats": 5
+    },
+    "final_claim_adjudicator": {
+      "prompt": "prompts/final_claim_adjudicator.txt",
+      "schema": "schemas/final_claim_adjudicator.schema.json",
+      "repeats": 5,
+      "run_only_for_unresolved_reports": true
+    }
+  },
+  "decision_policy": {
+    "candidate_resolution": "five_of_five_exact_decision_field_agreement",
+    "majority_vote_allowed": false,
+    "python_assigns_level": true,
+    "model_assigns_level": false,
+    "unresolved_route": "manual_review"
+  },
+  "checkpoint": {
+    "report_count": 15,
+    "selection": "heterogeneous_preselected_before_output_inspection",
+    "prompt_changes_require_new_version": true,
+    "new_version_requires_disjoint_checkpoint": true
+  }
+}
+

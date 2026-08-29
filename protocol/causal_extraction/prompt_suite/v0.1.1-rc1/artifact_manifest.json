@@ -1,0 +1,155 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1410,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/CHANGELOG.md",
+      "sha256": "96567708918fb2c989070e58b3c31a7fc7b1a0280cd8238ba4d5311036f44ef9"
+    },
+    {
+      "bytes": 4487,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/analysis_plan.md",
+      "sha256": "cd0f5b4d763611e2b9b0d6e8a1c9b82861ff33789526f4f893f6b2d3474df38a"
+    },
+    {
+      "bytes": 10958,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/checkpoint_inventory.json",
+      "sha256": "fddd855d6627d637b65e0644bceb73e5ac9f9112e4b9d788e0d277ee528b7bcf"
+    },
+    {
+      "bytes": 1681,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/coverage_contract.json",
+      "sha256": "b8ee2e2d5b74a134af511a3660200c994538677a314a1205ad6b1302a286d788"
+    },
+    {
+      "bytes": 10879,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/methodology.md",
+      "sha256": "881126aaf08c520d29b6b7fdc22f3417cc5875628bb8de4df239d90d6e9b0ad3"
+    },
+    {
+      "bytes": 3383,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/dense_claim_coverage.txt",
+      "sha256": "4d70c0912803b383c0a1d6a0046a32e4cfe5771474bf09c17c32f39e49b562e5"
+    },
+    {
+      "bytes": 2825,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/final_claim_adjudicator.txt",
+      "sha256": "e8acea5e0c2d296f1cb663f196e3bd88eeaad93413a7e47f76632ad4782964c9"
+    },
+    {
+      "bytes": 3456,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/fixed_candidate_classifier.txt",
+      "sha256": "003eb155151c07bd2903f4e8fbf7ce574dce7d7d4feb468c774f26f305749f0f"
+    },
+    {
+      "bytes": 4881,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/open_claim_discovery.txt",
+      "sha256": "b4e11d8dac7ab88c51817da73d724d0f2c758cf6955a50d91bee110628c9817b"
+    },
+    {
+      "bytes": 3077,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/run_artifact_contract.md",
+      "sha256": "39f47a9de5df08e93e90f92741f6b09a175fa422c9899c5aa67d0f9b4eb465f2"
+    },
+    {
+      "bytes": 2083,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/runtime.json",
+      "sha256": "9ffcf41e3926af6a95f99414c63fa4af200926c30e5648c9bd719b400e890dbd"
+    },
+    {
+      "bytes": 5742,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/schemas/dense_claim_coverage.schema.json",
+      "sha256": "2faca6116c1cc657022be12451b7433665e0506d24fd9f748976a7be45d49e38"
+    },
+    {
+      "bytes": 28342,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/schemas/final_claim_adjudicator.schema.json",
+      "sha256": "4bab2d183194c9de354fc3044985fb7b76b8ea2cd2cdf1c0b55e40f556971651"
+    },
+    {
+      "bytes": 28210,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/schemas/fixed_candidate_classifier.schema.json",
+      "sha256": "13699a46fbe4da31fa0b8f8011ba9421c431ff58c0f9ed9abb2f4da4418ed268"
+    },
+    {
+      "bytes": 5742,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/schemas/open_claim_discovery.schema.json",
+      "sha256": "951375a49641d8c16faca22319835cb8774c41d03da54dbbaac62d89a894ca27"
+    },
+    {
+      "bytes": 2761,
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/stability_contract.json",
+      "sha256": "db722179c508c96e2955fbf299b7ae1291b3c8f10f9c622ffbd51724bc5ed825"
+    }
+  ],
+  "claim_record_schema": {
+    "path": "protocol/causal_extraction/v0.2.0/claim_record.schema.json",
+    "sha256": "d3fe4e82e700e8d174686cd29039870a797240e3f3016ca8bd5d7e452f898c78"
+  },
+  "codebook": {
+    "path": "protocol/causal_extraction/v0.2.0/codebook.md",
+    "sha256": "32dea02967c7b95df117aa5c89897acfd4c3678f6184be3126de402a6df932b0",
+    "version": "0.2.0"
+  },
+  "manifest_date": "2026-08-29",
+  "prompts": [
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/dense_claim_coverage.txt",
+      "placeholders": [
+        "CANONICAL_SECTIONS_JSON",
+        "CONTEXT_SECTION_IDS_JSON",
+        "CORE_SECTION_IDS_JSON",
+        "DOCUMENT_SHA256",
+        "REPORT_ID",
+        "WORK_UNIT_ID"
+      ],
+      "prompt_id": "causal_extraction.dense_claim_coverage",
+      "prompt_version": "0.1.1-rc1",
+      "sha256": "4d70c0912803b383c0a1d6a0046a32e4cfe5771474bf09c17c32f39e49b562e5"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/final_claim_adjudicator.txt",
+      "placeholders": [
+        "CANDIDATE_INVENTORY_SHA256",
+        "CANONICAL_EVIDENCE_JSON",
+        "CODEBOOK_TEXT",
+        "FIVE_RUN_OUTPUTS_JSON",
+        "FROZEN_CANDIDATES_JSON",
+        "REPORT_ID"
+      ],
+      "prompt_id": "causal_extraction.final_claim_adjudicator",
+      "prompt_version": "0.1.1-rc1",
+      "sha256": "e8acea5e0c2d296f1cb663f196e3bd88eeaad93413a7e47f76632ad4782964c9"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/fixed_candidate_classifier.txt",
+      "placeholders": [
+        "CANDIDATE_REF",
+        "CODEBOOK_TEXT",
+        "EVIDENCE_PACKET_JSON",
+        "FROZEN_CANDIDATE_JSON",
+        "PROVISIONAL_CLAIM_ID",
+        "REPORT_ID"
+      ],
+      "prompt_id": "causal_extraction.fixed_candidate_classifier",
+      "prompt_version": "0.1.1-rc1",
+      "sha256": "003eb155151c07bd2903f4e8fbf7ce574dce7d7d4feb468c774f26f305749f0f"
+    },
+    {
+      "path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/prompts/open_claim_discovery.txt",
+      "placeholders": [
+        "CANONICAL_SECTIONS_JSON",
+        "CONTEXT_SECTION_IDS_JSON",
+        "CORE_SECTION_IDS_JSON",
+        "DOCUMENT_SHA256",
+        "REPORT_ID",
+        "WORK_UNIT_ID"
+      ],
+      "prompt_id": "causal_extraction.open_claim_discovery",
+      "prompt_version": "0.1.1-rc1",
+      "sha256": "b4e11d8dac7ab88c51817da73d724d0f2c758cf6955a50d91bee110628c9817b"
+    }
+  ],
+  "status": "pre_first_terra_run_frozen_candidate",
+  "suite_id": "causal_multiomics_aging.causal_extraction",
+  "suite_version": "0.1.1-rc1"
+}

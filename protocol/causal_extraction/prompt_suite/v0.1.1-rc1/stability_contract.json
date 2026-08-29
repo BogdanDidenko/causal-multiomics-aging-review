@@ -1,0 +1,88 @@
+{
+  "contract_id": "causal_extraction_five_run_stability",
+  "version": "0.1.1-rc1",
+  "unit": "frozen_candidate",
+  "repeat_count": 5,
+  "agreement_rule": "all_five_normalized_payload_hashes_identical",
+  "majority_vote_allowed": false,
+  "normalization": {
+    "unicode": "NFC",
+    "line_endings": "LF",
+    "trim_outer_whitespace": true,
+    "collapse_internal_whitespace_in_free_text": true,
+    "lowercase_closed_enum_values": false,
+    "sort_object_keys": true,
+    "sort_set_like_arrays": [
+      "supporting_designs_or_methods",
+      "validations_proposed_by_report",
+      "duplicate_candidate_refs"
+    ],
+    "preserve_order_arrays": [
+      "variation_sources",
+      "assumption_judgments",
+      "diagnostics",
+      "omics_roles",
+      "validations",
+      "split_proposals"
+    ]
+  },
+  "decision_driving_fields": [
+    "candidate_status",
+    "claim_records[].extraction_mode",
+    "claim_records[].source_adequacy",
+    "claim_records[].normalized_claim",
+    "claim_records[].author_claim_type",
+    "claim_records[].exposure_or_intervention",
+    "claim_records[].exposure_operation",
+    "claim_records[].comparator",
+    "claim_records[].outcome",
+    "claim_records[].population_or_model",
+    "claim_records[].biological_system",
+    "claim_records[].time_horizon",
+    "claim_records[].primary_design_or_method",
+    "claim_records[].supporting_designs_or_methods",
+    "claim_records[].variation_sources",
+    "claim_records[].assignment_mechanism",
+    "claim_records[].method_output_type",
+    "claim_records[].estimand_or_contrast",
+    "claim_records[].contrast_components",
+    "claim_records[].assumption_judgments",
+    "claim_records[].diagnostics",
+    "claim_records[].reviewer_identification_assessment",
+    "claim_records[].result_status",
+    "claim_records[].omics_roles",
+    "claim_records[].validations_proposed_by_report",
+    "claim_records[].validations",
+    "split_proposals",
+    "duplicate_candidate_refs",
+    "manual_review_reason"
+  ],
+  "provenance_fields_checked_separately": [
+    "status_evidence_anchors",
+    "claim_records[].field_anchors",
+    "claim_records[].evidence_anchors"
+  ],
+  "excluded_from_exact_agreement": [
+    "report_id",
+    "candidate_ref",
+    "claim_records[].report_id",
+    "claim_records[].doi",
+    "claim_records[].claim_id",
+    "claim_records[].reviewer_note",
+    "reviewer_note"
+  ],
+  "derived_outputs": [
+    "contrast_completeness",
+    "level4_validation_status",
+    "causal_evidence_level"
+  ],
+  "stable_resolution_requires": {
+    "decision_driving_fields_exact": true,
+    "derived_outputs_exact": true,
+    "all_quotes_grounded": true,
+    "schema_valid": true,
+    "source_adequacy_sufficient": true
+  },
+  "otherwise": "adjudication_or_manual_review"
+}
+

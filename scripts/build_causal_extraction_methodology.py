@@ -16,10 +16,8 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = (
-    REPO_ROOT
-    / "protocol/causal_extraction/prompt_suite/v0.1.0-rc1"
-)
+SUITE_VERSION = "0.1.0-rc1"
+PACKAGE = REPO_ROOT / f"protocol/causal_extraction/prompt_suite/v{SUITE_VERSION}"
 CODEBOOK = REPO_ROOT / "protocol/causal_extraction/v0.2.0/codebook.md"
 CLAIM_SCHEMA = (
     REPO_ROOT / "protocol/causal_extraction/v0.2.0/claim_record.schema.json"
@@ -154,9 +152,9 @@ def candidate_schema() -> dict[str, Any]:
                     "directed_hypothesis",
                     "mediation",
                     "prioritization",
-                    "association_link",
-                    "unclear",
-                ],
+                ]
+                + (["association_link"] if SUITE_VERSION == "0.1.0-rc1" else [])
+                + ["unclear"],
             },
             "result_signal": {
                 "type": "string",
@@ -228,7 +226,7 @@ def evidence_atom_schema() -> dict[str, Any]:
 def discovery_schema(stage: str) -> dict[str, Any]:
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "title": f"{stage} output v0.1.0-rc1",
+        "title": f"{stage} output v{SUITE_VERSION}",
         "type": "object",
         "additionalProperties": False,
         "required": [
@@ -294,7 +292,7 @@ def fixed_classifier_schema() -> dict[str, Any]:
     ]
     schema: dict[str, Any] = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "title": "Fixed candidate classifier output v0.1.0-rc1",
+        "title": f"Fixed candidate classifier output v{SUITE_VERSION}",
         "type": "object",
         "additionalProperties": False,
         "$defs": embedded_claim_defs(),
@@ -453,7 +451,7 @@ def adjudicator_schema() -> dict[str, Any]:
     defs["candidate_disposition"] = candidate_disposition_schema()
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "title": "Final claim adjudicator output v0.1.0-rc1",
+        "title": f"Final claim adjudicator output v{SUITE_VERSION}",
         "type": "object",
         "additionalProperties": False,
         "$defs": defs,
@@ -552,7 +550,7 @@ def build_checkpoint_inventory() -> dict[str, Any]:
             }
         )
     return {
-        "checkpoint_id": "causal_extraction_v0.1.0-rc1_checkpoint_15",
+        "checkpoint_id": f"causal_extraction_v{SUITE_VERSION}_checkpoint_15",
         "purpose": "instrument_development_and_technical_stability_checkpoint",
         "report_count": len(reports),
         "selected_before_suite_terra_outputs": True,
@@ -625,7 +623,7 @@ def build_manifest() -> dict[str, Any]:
 def build_freeze(manifest_hash: str) -> dict[str, Any]:
     return {
         "suite_id": "causal_multiomics_aging.causal_extraction",
-        "suite_version": "0.1.0-rc1",
+        "suite_version": SUITE_VERSION,
         "freeze_date": "2026-08-29",
         "status": "frozen_before_first_terra_checkpoint",
         "parent_git_revision": git_parent(),
@@ -734,11 +732,22 @@ def parse_args() -> argparse.Namespace:
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--write", action="store_true")
     mode.add_argument("--check", action="store_true")
+    parser.add_argument("--suite-version", default="0.1.0-rc1")
     return parser.parse_args()
+
+
+def configure_suite(version: str) -> None:
+    global SUITE_VERSION, PACKAGE, MANIFEST, FREEZE, CHECKPOINT
+    SUITE_VERSION = version.removeprefix("v")
+    PACKAGE = REPO_ROOT / f"protocol/causal_extraction/prompt_suite/v{SUITE_VERSION}"
+    MANIFEST = PACKAGE / "artifact_manifest.json"
+    FREEZE = PACKAGE / "freeze.json"
+    CHECKPOINT = PACKAGE / "checkpoint_inventory.json"
 
 
 def main() -> int:
     args = parse_args()
+    configure_suite(args.suite_version)
     if args.write:
         write_package()
     errors = validate_package()

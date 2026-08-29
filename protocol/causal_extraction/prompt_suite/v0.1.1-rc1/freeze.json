@@ -1,0 +1,13 @@
+{
+  "approval_note": "Instrument-development release candidate approved for the first preselected Terra checkpoint. Any prompt or schema change creates a new version and requires a disjoint checkpoint set.",
+  "artifact_manifest_path": "protocol/causal_extraction/prompt_suite/v0.1.1-rc1/artifact_manifest.json",
+  "artifact_manifest_sha256": "7b7818b193b7640c08b48784c4a1eb1ff1ac3dedcd0d32456bfdd673e7522252",
+  "first_checkpoint_report_count": 15,
+  "freeze_date": "2026-08-29",
+  "freeze_revision": "the Git commit containing this file",
+  "model_calls_before_freeze": 0,
+  "parent_git_revision": "69c8ebc25097640d738073f684c8c98269ccf24d",
+  "status": "frozen_before_first_terra_checkpoint",
+  "suite_id": "causal_multiomics_aging.causal_extraction",
+  "suite_version": "0.1.1-rc1"
+}

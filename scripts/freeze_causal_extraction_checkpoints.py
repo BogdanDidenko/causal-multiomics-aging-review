@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -10,18 +11,15 @@ from pathlib import Path
 from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
-SUITE = REPO / "protocol/causal_extraction/prompt_suite/v0.1.0-rc1"
+SUITE_VERSION = "0.1.0-rc1"
+SUITE = REPO / f"protocol/causal_extraction/prompt_suite/v{SUITE_VERSION}"
 ELIGIBILITY = (
     REPO
     / "analysis/full_text_screening/final_eligibility_v1.5.4"
     / "final_eligibility_ledger_158.csv"
 )
 CORPUS = REPO / "data/full_text_screening/v1.5.3_deterministic_full_text_158/input.jsonl"
-OUTPUT = (
-    REPO
-    / "protocol/causal_extraction/checkpoints/v0.1.0-rc1"
-    / "two_sample_design.json"
-)
+OUTPUT = REPO / f"protocol/causal_extraction/checkpoints/v{SUITE_VERSION}/two_sample_design.json"
 SEED = "20260829"
 
 # These preprints have eligible journal versions in the same corpus. Sampling
@@ -128,12 +126,16 @@ def build_design() -> dict[str, Any]:
         raise ValueError("Checkpoint A and B overlap")
 
     return {
-        "design_id": "causal_extraction_v0.1.0-rc1_two_samples_15_each",
-        "status": "frozen_before_any_two_sample_terra_output",
+        "design_id": f"causal_extraction_v{SUITE_VERSION}_two_samples_15_each",
+        "status": (
+            "frozen_before_any_two_sample_terra_output"
+            if SUITE_VERSION == "0.1.0-rc1"
+            else "frozen_before_any_current_suite_terra_output"
+        ),
         "freeze_date": "2026-08-29",
         "freeze_revision": "the Git commit containing this file",
         "suite": {
-            "version": "0.1.0-rc1",
+            "version": SUITE_VERSION,
             "artifact_manifest_path": str(
                 (SUITE / "artifact_manifest.json").relative_to(REPO)
             ),
@@ -162,6 +164,21 @@ def build_design() -> dict[str, Any]:
             "superseded_report_versions": SUPERSEDED_REPORT_VERSIONS,
             "independent_accuracy_claim_allowed": False,
         },
+        **(
+            {
+                "development_lineage": {
+                "previous_suite": "0.1.0-rc1",
+                "previous_suite_checkpoint_a_smoke_windows": 1,
+                "previous_suite_checkpoint_b_model_calls": 0,
+                "change_basis": (
+                    "candidate-boundary overgeneration and character-inexact "
+                    "quote grounding in the A0 smoke window"
+                ),
+                }
+            }
+            if SUITE_VERSION == "0.1.1-rc1"
+            else {}
+        ),
         "checkpoints": {
             "A": {
                 "purpose": "instrument_development_and_stability",
@@ -178,6 +195,10 @@ def build_design() -> dict[str, Any]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--suite-version", default="0.1.0-rc1")
+    args = parser.parse_args()
+    configure_suite(args.suite_version)
     value = build_design()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(
@@ -188,6 +209,16 @@ def main() -> int:
     return 0
 
 
+def configure_suite(version: str) -> None:
+    global SUITE_VERSION, SUITE, OUTPUT
+    SUITE_VERSION = version.removeprefix("v")
+    SUITE = REPO / f"protocol/causal_extraction/prompt_suite/v{SUITE_VERSION}"
+    OUTPUT = (
+        REPO
+        / f"protocol/causal_extraction/checkpoints/v{SUITE_VERSION}"
+        / "two_sample_design.json"
+    )
+
+
 if __name__ == "__main__":
     raise SystemExit(main())
-

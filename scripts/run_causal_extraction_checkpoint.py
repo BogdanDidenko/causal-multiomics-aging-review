@@ -44,10 +44,10 @@ from scripts.validate_causal_claim_records_v0_2 import (
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_DESIGN = (
     REPO
-    / "protocol/causal_extraction/checkpoints/v0.1.0-rc1"
+    / "protocol/causal_extraction/checkpoints/v0.1.1-rc1"
     / "two_sample_design.json"
 )
-SUITE = REPO / "protocol/causal_extraction/prompt_suite/v0.1.0-rc1"
+DEFAULT_SUITE = REPO / "protocol/causal_extraction/prompt_suite/v0.1.1-rc1"
 CORPUS = REPO / "data/full_text_screening/v1.5.3_deterministic_full_text_158/input.jsonl"
 
 
@@ -117,6 +117,7 @@ class CheckpointRunner:
         design_path: Path,
         checkpoint: str,
         output: Path,
+        suite: Path,
         workers: int,
         resume: bool,
         max_calls: int | None,
@@ -125,11 +126,12 @@ class CheckpointRunner:
         self.design = read_json(self.design_path)
         self.checkpoint = checkpoint
         self.output = output.resolve()
+        self.suite = suite.resolve()
         self.workers = workers
         self.resume = resume
         self.max_calls = max_calls
-        self.runtime = read_json(SUITE / "runtime.json")
-        self.coverage = read_json(SUITE / "coverage_contract.json")
+        self.runtime = read_json(self.suite / "runtime.json")
+        self.coverage = read_json(self.suite / "coverage_contract.json")
         self.codebook = (REPO / self.runtime["codebook"]["path"]).read_text(
             encoding="utf-8"
         )
@@ -157,8 +159,10 @@ class CheckpointRunner:
     def preflight(self) -> None:
         if self.checkpoint not in {"A", "B"}:
             raise ValueError("Checkpoint must be A or B")
+        if self.design["suite"]["version"] != self.runtime["suite_version"]:
+            raise ValueError("Checkpoint design and runtime suite versions differ")
         if self.design["suite"]["artifact_manifest_sha256"] != sha256_file(
-            SUITE / "artifact_manifest.json"
+            self.suite / "artifact_manifest.json"
         ):
             raise ValueError("Suite artifact manifest changed after sample freeze")
         if self.design["source"]["canonical_corpus_sha256"] != sha256_file(CORPUS):
@@ -175,7 +179,9 @@ class CheckpointRunner:
             "checkpoint_design": relative(self.design_path),
             "checkpoint_design_sha256": sha256_file(self.design_path),
             "suite_version": self.runtime["suite_version"],
-            "suite_manifest_sha256": sha256_file(SUITE / "artifact_manifest.json"),
+            "suite_manifest_sha256": sha256_file(
+                self.suite / "artifact_manifest.json"
+            ),
             "git_revision_at_start": git_revision(),
             "git_worktree_dirty_at_start": False,
             "model": self.runtime["model"],
@@ -501,8 +507,8 @@ class CheckpointRunner:
                                 / report["document_id"]
                                 / unit["work_unit_id"]
                             ),
-                            template_path=SUITE / "prompts" / template_name,
-                            schema_path=SUITE / "schemas" / schema_name,
+                            template_path=self.suite / "prompts" / template_name,
+                            schema_path=self.suite / "schemas" / schema_name,
                             substitutions={
                                 "REPORT_ID": report["record_id"],
                                 "DOCUMENT_SHA256": document_sha,
@@ -625,10 +631,12 @@ class CheckpointRunner:
                                 / f"repeat-{repeat:02d}"
                             ),
                             template_path=(
-                                SUITE / "prompts" / "fixed_candidate_classifier.txt"
+                                self.suite
+                                / "prompts"
+                                / "fixed_candidate_classifier.txt"
                             ),
                             schema_path=(
-                                SUITE
+                                self.suite
                                 / "schemas"
                                 / "fixed_candidate_classifier.schema.json"
                             ),
@@ -798,6 +806,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("checkpoint", choices=("A", "B"))
     parser.add_argument("output", type=Path)
     parser.add_argument("--design", type=Path, default=DEFAULT_DESIGN)
+    parser.add_argument("--suite", type=Path, default=DEFAULT_SUITE)
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument(
@@ -819,6 +828,7 @@ def main() -> int:
         design_path=args.design,
         checkpoint=args.checkpoint,
         output=args.output,
+        suite=args.suite,
         workers=args.workers,
         resume=args.resume,
         max_calls=args.max_calls,

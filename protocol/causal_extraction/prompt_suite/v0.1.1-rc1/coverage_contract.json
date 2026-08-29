@@ -1,0 +1,51 @@
+{
+  "contract_id": "causal_extraction_docling_coverage",
+  "version": "0.1.1-rc1",
+  "authoritative_source": "canonical_docling_sections",
+  "required_source_fields": [
+    "report_id",
+    "document_sha256",
+    "section_id",
+    "heading_path",
+    "text",
+    "source_order"
+  ],
+  "global_rules": {
+    "source_order_preserved": true,
+    "tables_and_captions_included": true,
+    "page_limit_allowed": false,
+    "relevance_ranking_allowed": false,
+    "graph_ranking_allowed": false,
+    "section_truncation_allowed": false,
+    "section_omission_allowed": false,
+    "empty_sections_recorded": true
+  },
+  "open_claim_discovery": {
+    "packaging": "contiguous_heading_aware_windows",
+    "max_core_characters": 48000,
+    "max_adjacent_context_characters_per_side": 4000,
+    "each_section_core_occurrences": 1,
+    "context_repetition_allowed": true,
+    "oversized_section_split": "paragraph_then_sentence_boundary",
+    "derived_section_id_format": "{section_id}::part-{part_index:03d}"
+  },
+  "dense_claim_coverage": {
+    "packaging": "structural_chunks_in_source_order",
+    "max_chunk_tokens": 768,
+    "max_batch_tokens": 1536,
+    "tokenizer": "runtime_model_tokenizer_or_pinned_compatible_tokenizer",
+    "each_derived_chunk_core_occurrences": 1,
+    "stage_one_outputs_visible": false
+  },
+  "pre_classification_assertions": {
+    "canonical_section_coverage_ratio": 1.0,
+    "open_core_coverage_ratio": 1.0,
+    "dense_core_coverage_ratio": 1.0,
+    "omitted_nonempty_section_count": 0,
+    "truncated_section_count": 0,
+    "candidate_inventory_frozen": true,
+    "candidate_inventory_sha256_required": true,
+    "evidence_packet_sha256_required": true
+  }
+}
+
