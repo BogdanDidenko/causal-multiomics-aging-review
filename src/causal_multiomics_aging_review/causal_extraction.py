@@ -564,26 +564,31 @@ def build_evidence_packets(
 
 
 def grounding_anchors_from_claim(record: dict[str, Any]) -> list[dict[str, Any]]:
-    anchors = []
-    anchors.extend(record.get("evidence_anchors", []))
-    field_anchors = record.get("field_anchors", {})
-    if isinstance(field_anchors, dict):
-        for value in field_anchors.values():
-            if isinstance(value, list):
-                anchors.extend(value)
-    return anchors
+    return list(record.get("evidence_anchors", []))
 
 
 def validate_classifier_grounding(
     response: dict[str, Any], packet: dict[str, Any]
 ) -> list[dict[str, str]]:
     index = section_text_index(packet["canonical_sections"])
+    failures = []
     anchors = list(response.get("status_evidence_anchors", []))
     for record in response.get("claim_records", []):
         anchors.extend(grounding_anchors_from_claim(record))
+        field_anchors = record.get("field_anchors", {})
+        if isinstance(field_anchors, dict):
+            for field_name, section_ids in field_anchors.items():
+                for section_id in section_ids:
+                    if section_id not in index:
+                        failures.append(
+                            {
+                                "section_id": section_id,
+                                "quote": "",
+                                "reason": f"unknown_field_anchor:{field_name}",
+                            }
+                        )
     for proposal in response.get("split_proposals", []):
         anchors.extend(proposal.get("evidence_anchors", []))
-    failures = []
     for anchor in anchors:
         section_id = str(anchor.get("section_id", ""))
         quote = str(anchor.get("quote", ""))

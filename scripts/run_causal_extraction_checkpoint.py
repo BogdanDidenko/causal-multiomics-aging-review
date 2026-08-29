@@ -337,9 +337,66 @@ class CheckpointRunner:
             return 2
         return 1
 
+    def _recover_interrupted_validation(self, spec: CallSpec) -> dict[str, Any] | None:
+        terminal_path = spec.output_dir / "terminal.json"
+        if not self.resume or not terminal_path.is_file():
+            return None
+        previous = read_json(terminal_path)
+        if previous.get("status") != "runner_exception":
+            return None
+        source_schema = read_json(spec.schema_path)
+        for attempt in (2, 1):
+            attempt_dir = spec.output_dir / f"attempt-{attempt:02d}"
+            response_path = attempt_dir / "parsed_response.json"
+            if not response_path.is_file():
+                continue
+            response = read_json(response_path)
+            schema_errors = validate_schema(response, source_schema)
+            identity_errors = spec.identity_validator(response)
+            grounding_failures = spec.grounding_validator(response)
+            validation = {
+                "schema_valid": not schema_errors,
+                "schema_errors": schema_errors,
+                "identity_valid": not identity_errors,
+                "identity_errors": identity_errors,
+                "grounding_valid": not grounding_failures,
+                "grounding_failures": grounding_failures,
+                "recovered_without_provider_call": True,
+            }
+            write_json(attempt_dir / "validation.json", validation)
+            if schema_errors or identity_errors:
+                return None
+            status = "ok" if not grounding_failures else "grounding_failure"
+            recovered = {
+                "status": status,
+                "stage": spec.stage,
+                "report_id": spec.report_id,
+                "work_id": spec.work_id,
+                "repeat": spec.repeat,
+                "attempts": attempt,
+                "response_path": relative(response_path),
+                "validation_path": relative(attempt_dir / "validation.json"),
+                "prompt_sha256": sha256_file(attempt_dir / "rendered_prompt.txt"),
+                "recovered_without_provider_call": True,
+            }
+            write_json(attempt_dir / "exit_status.json", recovered)
+            write_json(terminal_path, recovered)
+            atomic_append_jsonl(
+                self.call_ledger,
+                {**recovered, "completed_at": now()},
+                self.ledger_lock,
+            )
+            if status == "ok" or attempt == 2:
+                return recovered
+            return None
+        return None
+
     def execute_call(self, spec: CallSpec) -> dict[str, Any]:
         if self.resume and self._attempt_is_reusable(spec.output_dir):
             return read_json(spec.output_dir / "terminal.json")
+        recovered = self._recover_interrupted_validation(spec)
+        if recovered is not None:
+            return recovered
         template = spec.template_path.read_text(encoding="utf-8")
         source_schema = read_json(spec.schema_path)
         runtime_schema = codex_runtime_schema(source_schema)

@@ -13,6 +13,7 @@ from causal_multiomics_aging_review.causal_extraction import (
     select_stability_candidates,
     split_text_at_boundaries,
     token_count,
+    validate_classifier_grounding,
 )
 
 REPO = Path(__file__).resolve().parents[1]
@@ -217,3 +218,27 @@ def test_stability_sample_is_reproducible_and_route_balanced() -> None:
     assert len(first) == 2
     routes = {candidate["discovery_routes"][0] for candidate in first}
     assert routes == {"open_claim_discovery", "dense_claim_coverage"}
+
+
+def test_classifier_field_anchors_are_section_ids() -> None:
+    response = {
+        "status_evidence_anchors": [],
+        "claim_records": [
+            {
+                "field_anchors": {"primary_design_or_method": ["chunk:0001"]},
+                "evidence_anchors": [
+                    {
+                        "section_id": "chunk:0001",
+                        "quote": "randomized intervention",
+                    }
+                ],
+            }
+        ],
+        "split_proposals": [],
+    }
+    packet = {
+        "canonical_sections": [
+            {"section_id": "chunk:0001", "text": "A randomized intervention."}
+        ]
+    }
+    assert validate_classifier_grounding(response, packet) == []
