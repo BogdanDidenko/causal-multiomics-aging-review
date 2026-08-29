@@ -196,6 +196,15 @@ def test_valid_call_is_reusable(tmp_path: Path) -> None:
     assert runner._attempt_is_reusable(tmp_path) is True
 
 
+def test_residual_grounding_failure_after_retry_is_reusable(tmp_path: Path) -> None:
+    (tmp_path / "terminal.json").write_text(
+        json.dumps({"status": "grounding_failure", "attempts": 2})
+    )
+    runner = object.__new__(RUNNER.CheckpointRunner)
+    runner.resume = True
+    assert runner._attempt_is_reusable(tmp_path) is True
+
+
 def test_stability_sample_is_reproducible_and_route_balanced() -> None:
     candidates = [
         {

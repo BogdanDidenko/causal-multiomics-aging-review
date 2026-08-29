@@ -322,7 +322,10 @@ class CheckpointRunner:
         if not terminal.is_file():
             return False
         value = read_json(terminal)
-        return value.get("status") == "ok"
+        return value.get("status") == "ok" or (
+            value.get("status") == "grounding_failure"
+            and value.get("attempts") == 2
+        )
 
     def _first_attempt(self, directory: Path) -> int:
         terminal = directory / "terminal.json"
