@@ -119,6 +119,7 @@ class CheckpointRunner:
         output: Path,
         workers: int,
         resume: bool,
+        max_calls: int | None,
     ) -> None:
         self.design_path = design_path.resolve()
         self.design = read_json(self.design_path)
@@ -126,6 +127,7 @@ class CheckpointRunner:
         self.output = output.resolve()
         self.workers = workers
         self.resume = resume
+        self.max_calls = max_calls
         self.runtime = read_json(SUITE / "runtime.json")
         self.coverage = read_json(SUITE / "coverage_contract.json")
         self.codebook = (REPO / self.runtime["codebook"]["path"]).read_text(
@@ -408,6 +410,8 @@ class CheckpointRunner:
         return last_terminal
 
     def _run_specs(self, specs: list[CallSpec], label: str) -> list[dict[str, Any]]:
+        if self.max_calls is not None:
+            specs = specs[: self.max_calls]
         results = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.workers) as executor:
             futures = {executor.submit(self.execute_call, spec): spec for spec in specs}
@@ -797,6 +801,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument(
+        "--max-calls",
+        type=int,
+        help="technical smoke limit applied after deterministic call ordering",
+    )
+    parser.add_argument(
         "--phase",
         choices=("prepare", "discover", "freeze", "classify", "analyze", "all"),
         default="all",
@@ -812,6 +821,7 @@ def main() -> int:
         output=args.output,
         workers=args.workers,
         resume=args.resume,
+        max_calls=args.max_calls,
     )
     runner.preflight()
     phases = (
