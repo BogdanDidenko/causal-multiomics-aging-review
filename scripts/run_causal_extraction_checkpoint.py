@@ -109,6 +109,10 @@ class CallSpec:
     identity_validator: Callable[[dict[str, Any]], list[str]]
     grounding_validator: Callable[[dict[str, Any]], list[dict[str, str]]]
     repeat: int | None = None
+    response_normalizer: (
+        Callable[[dict[str, Any]], tuple[dict[str, Any], list[dict[str, str]]]]
+        | None
+    ) = None
 
 
 class CheckpointRunner:
@@ -325,6 +329,9 @@ class CheckpointRunner:
         return value.get("status") == "ok" or (
             value.get("status") == "grounding_failure"
             and value.get("attempts") == 2
+        ) or (
+            value.get("status") == "technical_failure"
+            and value.get("attempts") == 2
         )
 
     def _first_attempt(self, directory: Path) -> int:
@@ -345,7 +352,7 @@ class CheckpointRunner:
         if not self.resume or not terminal_path.is_file():
             return None
         previous = read_json(terminal_path)
-        if previous.get("status") != "runner_exception":
+        if previous.get("status") not in {"runner_exception", "technical_failure"}:
             return None
         source_schema = read_json(spec.schema_path)
         for attempt in (2, 1):
@@ -354,6 +361,16 @@ class CheckpointRunner:
             if not response_path.is_file():
                 continue
             response = read_json(response_path)
+            normalization_log: list[dict[str, str]] = []
+            canonical_response_path = response_path
+            if spec.response_normalizer is not None:
+                response, normalization_log = spec.response_normalizer(response)
+                canonical_response_path = attempt_dir / "canonical_response.json"
+                write_json(canonical_response_path, response)
+                write_json(
+                    attempt_dir / "response_normalization.json",
+                    {"changes": normalization_log},
+                )
             schema_errors = validate_schema(response, source_schema)
             identity_errors = spec.identity_validator(response)
             grounding_failures = spec.grounding_validator(response)
@@ -365,6 +382,7 @@ class CheckpointRunner:
                 "grounding_valid": not grounding_failures,
                 "grounding_failures": grounding_failures,
                 "recovered_without_provider_call": True,
+                "administrative_normalizations": normalization_log,
             }
             write_json(attempt_dir / "validation.json", validation)
             if schema_errors or identity_errors:
@@ -377,7 +395,7 @@ class CheckpointRunner:
                 "work_id": spec.work_id,
                 "repeat": spec.repeat,
                 "attempts": attempt,
-                "response_path": relative(response_path),
+                "response_path": relative(canonical_response_path),
                 "validation_path": relative(attempt_dir / "validation.json"),
                 "prompt_sha256": sha256_file(attempt_dir / "rendered_prompt.txt"),
                 "recovered_without_provider_call": True,
@@ -395,11 +413,11 @@ class CheckpointRunner:
         return None
 
     def execute_call(self, spec: CallSpec) -> dict[str, Any]:
-        if self.resume and self._attempt_is_reusable(spec.output_dir):
-            return read_json(spec.output_dir / "terminal.json")
         recovered = self._recover_interrupted_validation(spec)
         if recovered is not None:
             return recovered
+        if self.resume and self._attempt_is_reusable(spec.output_dir):
+            return read_json(spec.output_dir / "terminal.json")
         template = spec.template_path.read_text(encoding="utf-8")
         source_schema = read_json(spec.schema_path)
         runtime_schema = codex_runtime_schema(source_schema)
@@ -485,6 +503,16 @@ class CheckpointRunner:
             write_text(attempt_dir / "raw_stdout.txt", str(raw.get("stdout", "")))
             write_text(attempt_dir / "raw_stderr.txt", str(raw.get("stderr", "")))
             write_json(attempt_dir / "parsed_response.json", response)
+            normalization_log: list[dict[str, str]] = []
+            canonical_response_path = attempt_dir / "parsed_response.json"
+            if spec.response_normalizer is not None:
+                response, normalization_log = spec.response_normalizer(response)
+                canonical_response_path = attempt_dir / "canonical_response.json"
+                write_json(canonical_response_path, response)
+                write_json(
+                    attempt_dir / "response_normalization.json",
+                    {"changes": normalization_log},
+                )
             schema_errors = validate_schema(response, source_schema)
             identity_errors = spec.identity_validator(response)
             grounding_failures = spec.grounding_validator(response)
@@ -495,6 +523,7 @@ class CheckpointRunner:
                 "identity_errors": identity_errors,
                 "grounding_valid": not grounding_failures,
                 "grounding_failures": grounding_failures,
+                "administrative_normalizations": normalization_log,
             }
             write_json(attempt_dir / "validation.json", validation)
             if schema_errors or identity_errors:
@@ -520,7 +549,7 @@ class CheckpointRunner:
                 "work_id": spec.work_id,
                 "repeat": spec.repeat,
                 "attempts": attempt,
-                "response_path": relative(attempt_dir / "parsed_response.json"),
+                "response_path": relative(canonical_response_path),
                 "validation_path": relative(attempt_dir / "validation.json"),
                 "prompt_sha256": sha256_text(rendered),
             }
@@ -763,6 +792,31 @@ class CheckpointRunner:
                                 )
                         return errors
 
+                    def normalize_admin_ids(
+                        response: dict[str, Any],
+                        provisional: str = provisional_claim_id,
+                    ) -> tuple[dict[str, Any], list[dict[str, str]]]:
+                        canonical = json.loads(json.dumps(response))
+                        changes = []
+                        accepted_aliases = {
+                            provisional.replace("::claim", "__claim"),
+                        }
+                        for index, claim in enumerate(
+                            canonical.get("claim_records", [])
+                        ):
+                            observed = claim.get("claim_id")
+                            if observed in accepted_aliases:
+                                claim["claim_id"] = provisional
+                                changes.append(
+                                    {
+                                        "field": f"claim_records[{index}].claim_id",
+                                        "raw_value": observed,
+                                        "canonical_value": provisional,
+                                        "rule": "administrative_separator_alias",
+                                    }
+                                )
+                        return canonical, changes
+
                     specs.append(
                         CallSpec(
                             stage="fixed_candidate_classifier",
@@ -808,6 +862,7 @@ class CheckpointRunner:
                             grounding_validator=lambda response, packet=packet: (
                                 validate_classifier_grounding(response, packet)
                             ),
+                            response_normalizer=normalize_admin_ids,
                         )
                     )
         self._run_specs(specs, "classification")
