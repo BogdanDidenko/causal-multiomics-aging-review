@@ -465,6 +465,42 @@ def freeze_candidates(
     return frozen, evidence_atoms
 
 
+def select_stability_candidates(
+    candidates: list[dict[str, Any]], *, limit: int, seed: str
+) -> list[dict[str, Any]]:
+    """Select a reproducible route-balanced subset without reading claim content."""
+    if limit <= 0 or len(candidates) <= limit:
+        return list(candidates)
+
+    def rank(candidate: dict[str, Any]) -> tuple[str, str]:
+        candidate_ref = str(candidate["candidate_ref"])
+        return sha256_text(f"{seed}|{candidate_ref}"), candidate_ref
+
+    selected: list[dict[str, Any]] = []
+    selected_refs: set[str] = set()
+    for route in ("open_claim_discovery", "dense_claim_coverage"):
+        route_candidates = [
+            candidate
+            for candidate in candidates
+            if route in candidate.get("discovery_routes", [])
+        ]
+        if route_candidates and len(selected) < limit:
+            chosen = min(route_candidates, key=rank)
+            selected.append(chosen)
+            selected_refs.add(chosen["candidate_ref"])
+
+    remaining = sorted(
+        (
+            candidate
+            for candidate in candidates
+            if candidate["candidate_ref"] not in selected_refs
+        ),
+        key=rank,
+    )
+    selected.extend(remaining[: limit - len(selected)])
+    return sorted(selected, key=lambda candidate: candidate["candidate_ref"])
+
+
 def build_evidence_packets(
     report: dict[str, Any],
     candidates: list[dict[str, Any]],

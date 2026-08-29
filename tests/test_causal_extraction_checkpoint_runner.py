@@ -10,6 +10,7 @@ from causal_multiomics_aging_review.causal_extraction import (
     classifier_decision_payload,
     codex_runtime_schema,
     freeze_candidates,
+    select_stability_candidates,
     split_text_at_boundaries,
     token_count,
 )
@@ -192,3 +193,27 @@ def test_valid_call_is_reusable(tmp_path: Path) -> None:
     runner = object.__new__(RUNNER.CheckpointRunner)
     runner.resume = True
     assert runner._attempt_is_reusable(tmp_path) is True
+
+
+def test_stability_sample_is_reproducible_and_route_balanced() -> None:
+    candidates = [
+        {
+            "candidate_ref": f"candidate-{index:03d}",
+            "discovery_routes": [route],
+        }
+        for index, route in enumerate(
+            [
+                "open_claim_discovery",
+                "open_claim_discovery",
+                "dense_claim_coverage",
+                "dense_claim_coverage",
+            ],
+            start=1,
+        )
+    ]
+    first = select_stability_candidates(candidates, limit=2, seed="fixed")
+    second = select_stability_candidates(candidates, limit=2, seed="fixed")
+    assert first == second
+    assert len(first) == 2
+    routes = {candidate["discovery_routes"][0] for candidate in first}
+    assert routes == {"open_claim_discovery", "dense_claim_coverage"}

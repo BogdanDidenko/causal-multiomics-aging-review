@@ -26,6 +26,7 @@ from causal_multiomics_aging_review.causal_extraction import (
     freeze_candidates,
     read_json,
     render_prompt,
+    select_stability_candidates,
     sha256_file,
     sha256_text,
     validate_classifier_grounding,
@@ -123,6 +124,8 @@ class CheckpointRunner:
         max_calls: int | None,
         allow_runtime_revision: bool,
         runtime_revision_note: str | None,
+        classification_candidates_per_report: int | None,
+        classification_sampling_seed: str,
     ) -> None:
         self.design_path = design_path.resolve()
         self.design = read_json(self.design_path)
@@ -134,6 +137,8 @@ class CheckpointRunner:
         self.max_calls = max_calls
         self.allow_runtime_revision = allow_runtime_revision
         self.runtime_revision_note = runtime_revision_note
+        self.classification_candidates_per_report = classification_candidates_per_report
+        self.classification_sampling_seed = classification_sampling_seed
         self.runtime = read_json(self.suite / "runtime.json")
         self.coverage = read_json(self.suite / "coverage_contract.json")
         self.codebook = (REPO / self.runtime["codebook"]["path"]).read_text(
@@ -195,6 +200,11 @@ class CheckpointRunner:
             "reports": len(self.reports),
             "technical_retry_limit": 1,
             "classification_repeats": 5,
+            "classification_sampling": {
+                "candidates_per_report": self.classification_candidates_per_report,
+                "seed": self.classification_sampling_seed,
+                "purpose": "stability_checkpoint_only",
+            },
             "runner": {
                 "path": relative(Path(__file__)),
                 "sha256": sha256_file(Path(__file__)),
@@ -240,6 +250,17 @@ class CheckpointRunner:
                         "reason": self.runtime_revision_note,
                     }
                 )
+            previous_sampling = previous.get("classification_sampling")
+            current_sampling = manifest["classification_sampling"]
+            if previous_sampling is None:
+                if not self.allow_runtime_revision:
+                    raise ValueError(
+                        "Resume adds classification sampling; pass "
+                        "--allow-runtime-revision"
+                    )
+                previous["classification_sampling"] = current_sampling
+            elif previous_sampling != current_sampling:
+                raise ValueError("Resume manifest mismatch: classification_sampling")
             manifest = previous
             manifest["resumed_at"] = now()
             manifest["status"] = "running"
@@ -621,6 +642,29 @@ class CheckpointRunner:
         for report in self.reports:
             root = self.output / "frozen_candidates" / report["document_id"]
             inventory = read_json(root / "candidate_inventory.json")
+            candidates = inventory["candidates"]
+            if self.classification_candidates_per_report is not None:
+                candidates = select_stability_candidates(
+                    candidates,
+                    limit=self.classification_candidates_per_report,
+                    seed=self.classification_sampling_seed,
+                )
+            sample = {
+                "purpose": "stability_checkpoint_only",
+                "report_id": report["record_id"],
+                "inventory_candidate_count": len(inventory["candidates"]),
+                "selected_candidate_count": len(candidates),
+                "candidates_per_report_limit": self.classification_candidates_per_report,
+                "sampling_seed": self.classification_sampling_seed,
+                "route_balancing_order": [
+                    "open_claim_discovery",
+                    "dense_claim_coverage",
+                ],
+                "selected_candidate_refs": [
+                    candidate["candidate_ref"] for candidate in candidates
+                ],
+            }
+            write_json(root / "classification_sample.json", sample)
             packets = {
                 packet["candidate_ref"]: packet
                 for packet in (
@@ -631,7 +675,7 @@ class CheckpointRunner:
                     if line.strip()
                 )
             }
-            for candidate in inventory["candidates"]:
+            for candidate in candidates:
                 candidate_ref = candidate["candidate_ref"]
                 packet = packets[candidate_ref]
                 provisional_claim_id = candidate_ref.replace("candidate", "claim")
@@ -714,9 +758,15 @@ class CheckpointRunner:
         for report in self.reports:
             root = self.output / "frozen_candidates" / report["document_id"]
             inventory = read_json(root / "candidate_inventory.json")
+            sample_path = root / "classification_sample.json"
+            selected_refs = None
+            if sample_path.is_file():
+                selected_refs = set(read_json(sample_path)["selected_candidate_refs"])
             report_candidate_rows = []
             for candidate in inventory["candidates"]:
                 candidate_ref = candidate["candidate_ref"]
+                if selected_refs is not None and candidate_ref not in selected_refs:
+                    continue
                 run_root = (
                     self.output
                     / "fixed_candidate_classifier"
@@ -779,6 +829,7 @@ class CheckpointRunner:
                     "report_id": report["record_id"],
                     "doi": report["doi"],
                     "title": report["title"],
+                    "inventory_candidate_count": inventory["candidate_count"],
                     "candidate_count": len(report_candidate_rows),
                     "grounded_discovery_complete": grounded_discovery_complete,
                     "manual_review_required": not grounded_discovery_complete,
@@ -861,6 +912,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--allow-runtime-revision", action="store_true")
     parser.add_argument("--runtime-revision-note")
+    parser.add_argument("--classification-candidates-per-report", type=int)
+    parser.add_argument(
+        "--classification-sampling-seed",
+        default="20260829-route-balanced-stability",
+    )
     parser.add_argument(
         "--max-calls",
         type=int,
@@ -886,6 +942,10 @@ def main() -> int:
         max_calls=args.max_calls,
         allow_runtime_revision=args.allow_runtime_revision,
         runtime_revision_note=args.runtime_revision_note,
+        classification_candidates_per_report=(
+            args.classification_candidates_per_report
+        ),
+        classification_sampling_seed=args.classification_sampling_seed,
     )
     runner.preflight()
     phases = (
