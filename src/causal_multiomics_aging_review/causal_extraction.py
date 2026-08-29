@@ -53,15 +53,40 @@ def read_json(path: Path) -> dict[str, Any]:
     return value
 
 
-def strip_unique_items(value: Any) -> Any:
+def _json_type(value: Any) -> str | None:
+    if isinstance(value, bool):
+        return "boolean"
+    if isinstance(value, str):
+        return "string"
+    if isinstance(value, int):
+        return "integer"
+    if isinstance(value, float):
+        return "number"
+    if value is None:
+        return "null"
+    return None
+
+
+def codex_runtime_schema(value: Any) -> Any:
+    """Compile the source schema to the strict subset accepted by Codex CLI."""
     if isinstance(value, dict):
-        return {
-            key: strip_unique_items(item)
+        compiled = {
+            key: codex_runtime_schema(item)
             for key, item in value.items()
-            if key != "uniqueItems"
+            if key not in {"uniqueItems", "allOf", "if", "then", "else"}
         }
+        if "const" in compiled and "type" not in compiled:
+            inferred = _json_type(compiled["const"])
+            if inferred:
+                compiled["type"] = inferred
+        if "enum" in compiled and "type" not in compiled:
+            inferred_types = {_json_type(item) for item in compiled["enum"]}
+            inferred_types.discard(None)
+            if len(inferred_types) == 1:
+                compiled["type"] = inferred_types.pop()
+        return compiled
     if isinstance(value, list):
-        return [strip_unique_items(item) for item in value]
+        return [codex_runtime_schema(item) for item in value]
     return value
 
 

@@ -7,6 +7,7 @@ from causal_multiomics_aging_review.causal_extraction import (
     build_dense_batches,
     build_open_windows,
     classifier_decision_payload,
+    codex_runtime_schema,
     freeze_candidates,
     split_text_at_boundaries,
     token_count,
@@ -152,3 +153,16 @@ def test_two_sample_design_is_reproducible_and_disjoint() -> None:
     assert not a & b
     assert expected["sampling"]["independent_accuracy_claim_allowed"] is False
     assert set(expected["sampling"]["superseded_report_versions"]).isdisjoint(b)
+
+
+def test_codex_schema_compilation_adds_const_type_and_removes_conditionals() -> None:
+    source = {
+        "type": "object",
+        "properties": {"stage": {"const": "open"}},
+        "allOf": [{"if": {}, "then": {}}],
+        "uniqueItems": True,
+    }
+    compiled = codex_runtime_schema(source)
+    assert compiled["properties"]["stage"] == {"const": "open", "type": "string"}
+    assert "allOf" not in compiled
+    assert "uniqueItems" not in compiled

@@ -22,12 +22,12 @@ from causal_multiomics_aging_review.causal_extraction import (
     canonical_json,
     canonical_sections,
     classifier_decision_payload,
+    codex_runtime_schema,
     freeze_candidates,
     read_json,
     render_prompt,
     sha256_file,
     sha256_text,
-    strip_unique_items,
     validate_classifier_grounding,
     validate_discovery_grounding,
     validate_schema,
@@ -276,7 +276,7 @@ class CheckpointRunner:
             return read_json(spec.output_dir / "terminal.json")
         template = spec.template_path.read_text(encoding="utf-8")
         source_schema = read_json(spec.schema_path)
-        runtime_schema = strip_unique_items(source_schema)
+        runtime_schema = codex_runtime_schema(source_schema)
         rendered = render_prompt(template, spec.substitutions)
         last_terminal: dict[str, Any] | None = None
         for attempt in (1, 2):
