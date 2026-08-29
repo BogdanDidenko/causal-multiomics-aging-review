@@ -121,6 +121,8 @@ class CheckpointRunner:
         workers: int,
         resume: bool,
         max_calls: int | None,
+        allow_runtime_revision: bool,
+        runtime_revision_note: str | None,
     ) -> None:
         self.design_path = design_path.resolve()
         self.design = read_json(self.design_path)
@@ -130,6 +132,8 @@ class CheckpointRunner:
         self.workers = workers
         self.resume = resume
         self.max_calls = max_calls
+        self.allow_runtime_revision = allow_runtime_revision
+        self.runtime_revision_note = runtime_revision_note
         self.runtime = read_json(self.suite / "runtime.json")
         self.coverage = read_json(self.suite / "coverage_contract.json")
         self.codebook = (REPO / self.runtime["codebook"]["path"]).read_text(
@@ -208,12 +212,34 @@ class CheckpointRunner:
             for key in (
                 "checkpoint_design_sha256",
                 "suite_manifest_sha256",
-                "git_revision_at_start",
                 "model",
                 "reasoning_effort",
             ):
                 if previous.get(key) != manifest.get(key):
                     raise ValueError(f"Resume manifest mismatch: {key}")
+            current_revision = manifest["git_revision_at_start"]
+            authorized_revisions = {
+                previous["git_revision_at_start"],
+                *(
+                    item["git_revision"]
+                    for item in previous.get("runtime_revisions", [])
+                ),
+            }
+            if current_revision not in authorized_revisions:
+                if not self.allow_runtime_revision or not self.runtime_revision_note:
+                    raise ValueError(
+                        "Resume uses a new Git revision; pass "
+                        "--allow-runtime-revision and --runtime-revision-note"
+                    )
+                previous.setdefault("runtime_revisions", []).append(
+                    {
+                        "resumed_at": now(),
+                        "git_revision": current_revision,
+                        "runner_sha256": manifest["runner"]["sha256"],
+                        "library_sha256": manifest["library"]["sha256"],
+                        "reason": self.runtime_revision_note,
+                    }
+                )
             manifest = previous
             manifest["resumed_at"] = now()
             manifest["status"] = "running"
@@ -824,6 +850,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--suite", type=Path, default=DEFAULT_SUITE)
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--allow-runtime-revision", action="store_true")
+    parser.add_argument("--runtime-revision-note")
     parser.add_argument(
         "--max-calls",
         type=int,
@@ -847,6 +875,8 @@ def main() -> int:
         workers=args.workers,
         resume=args.resume,
         max_calls=args.max_calls,
+        allow_runtime_revision=args.allow_runtime_revision,
+        runtime_revision_note=args.runtime_revision_note,
     )
     runner.preflight()
     phases = (
