@@ -1,0 +1,184 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "corpus_id": "eligible_graphs_101_v1_5_4",
+  "corpus_fingerprint": "8b58d00219f9499811d15d5bb471e001d4fdcf89fbac35e543f65c3b14befc3b",
+  "container": "causal-aging-neo4j",
+  "container_image": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+  "container_image_id": "sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+  "fulltext_smoke_test_hits": 450,
+  "checks": [
+    {
+      "name": "artifact_sha256:data/neo4j/retrieval_v0.1.0/import/nodes.csv",
+      "expected": "9571c1002f161d54b3ccf9018f2e6de988e47669aa73cccb65f65ea0677f9414",
+      "observed": "9571c1002f161d54b3ccf9018f2e6de988e47669aa73cccb65f65ea0677f9414",
+      "passed": true
+    },
+    {
+      "name": "artifact_sha256:data/neo4j/retrieval_v0.1.0/import/edges.csv",
+      "expected": "3cf747b8d015f0e830029ad35c9ded6dccb7b5ab8ca6201266dba5bf9211e3bc",
+      "observed": "3cf747b8d015f0e830029ad35c9ded6dccb7b5ab8ca6201266dba5bf9211e3bc",
+      "passed": true
+    },
+    {
+      "name": "artifact_sha256:data/neo4j/retrieval_v0.1.0/import/load.cypher",
+      "expected": "b39a54949b5b5df4ac4e2dc4bc086c2ba1abd794ff596c14b1d7b4f877f02d9e",
+      "observed": "b39a54949b5b5df4ac4e2dc4bc086c2ba1abd794ff596c14b1d7b4f877f02d9e",
+      "passed": true
+    },
+    {
+      "name": "artifact_sha256:data/neo4j/retrieval_v0.1.0/import/reset.cypher",
+      "expected": "39812f611bfd034e13440352e011c8e0ab641d30d34de42a6614b3bfa161f507",
+      "observed": "39812f611bfd034e13440352e011c8e0ab641d30d34de42a6614b3bfa161f507",
+      "passed": true
+    },
+    {
+      "name": "artifact_sha256:infra/neo4j/compose.yml",
+      "expected": "87364b02f484abefe9a83ca1500903d9553c843d20eed6b97137ad75c649279a",
+      "observed": "87364b02f484abefe9a83ca1500903d9553c843d20eed6b97137ad75c649279a",
+      "passed": true
+    },
+    {
+      "name": "artifact_sha256:infra/neo4j/queries.cypher",
+      "expected": "eea222e19caf7b8631cdc224f73d31da302d54ce29ee731da0f1358c66730485",
+      "observed": "eea222e19caf7b8631cdc224f73d31da302d54ce29ee731da0f1358c66730485",
+      "passed": true
+    },
+    {
+      "name": "neo4j_version",
+      "expected": "2026.07.1",
+      "observed": "2026.07.1",
+      "passed": true
+    },
+    {
+      "name": "neo4j_edition",
+      "expected": "community",
+      "observed": "community",
+      "passed": true
+    },
+    {
+      "name": "review_graph_nodes",
+      "expected": 1536,
+      "observed": 1536,
+      "passed": true
+    },
+    {
+      "name": "review_graph_edges",
+      "expected": 1435,
+      "observed": 1435,
+      "passed": true
+    },
+    {
+      "name": "reports",
+      "expected": 101,
+      "observed": 101,
+      "passed": true
+    },
+    {
+      "name": "corpus_report_links",
+      "expected": 101,
+      "observed": 101,
+      "passed": true
+    },
+    {
+      "name": "missing_provenance",
+      "expected": 0,
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "duplicate_namespaced_node_keys",
+      "expected": 0,
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "cross_document_graph_edges",
+      "expected": 0,
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "online_indexes",
+      "expected": [
+        "review_corpus_id",
+        "review_graph_design_family",
+        "review_graph_doi",
+        "review_graph_node_key",
+        "review_graph_omics_layer",
+        "review_graph_text"
+      ],
+      "observed": [
+        "review_corpus_id",
+        "review_graph_design_family",
+        "review_graph_doi",
+        "review_graph_node_key",
+        "review_graph_omics_layer",
+        "review_graph_text"
+      ],
+      "passed": true
+    },
+    {
+      "name": "index_states",
+      "expected": [
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE"
+      ],
+      "observed": [
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE",
+        "ONLINE"
+      ],
+      "passed": true
+    },
+    {
+      "name": "fulltext_retrieval_smoke_test",
+      "expected": ">0",
+      "observed": 450,
+      "passed": true
+    },
+    {
+      "name": "node_label_counts",
+      "expected": {
+        "AgingConstruct": 686,
+        "CausalAnalysis": 312,
+        "CausalMultiomicsAgingPaper": 101,
+        "OmicsLayer": 437
+      },
+      "observed": {
+        "AgingConstruct": 686,
+        "CausalAnalysis": 312,
+        "CausalMultiomicsAgingPaper": 101,
+        "OmicsLayer": 437
+      },
+      "passed": true
+    },
+    {
+      "name": "edge_label_counts",
+      "expected": {
+        "INVESTIGATES_AGING_CONSTRUCT": 686,
+        "REPORTS_CAUSAL_ANALYSIS": 312,
+        "USES_OMICS_LAYER": 437
+      },
+      "observed": {
+        "INVESTIGATES_AGING_CONSTRUCT": 686,
+        "REPORTS_CAUSAL_ANALYSIS": 312,
+        "USES_OMICS_LAYER": 437
+      },
+      "passed": true
+    },
+    {
+      "name": "container_image",
+      "expected": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+      "observed": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+      "passed": true
+    }
+  ]
+}

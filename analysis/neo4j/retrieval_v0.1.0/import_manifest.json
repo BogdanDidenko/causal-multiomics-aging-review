@@ -1,0 +1,885 @@
+{
+  "schema_version": "0.1.0",
+  "status": "import_pack_built",
+  "corpus_id": "eligible_graphs_101_v1_5_4",
+  "corpus_fingerprint": "8b58d00219f9499811d15d5bb471e001d4fdcf89fbac35e543f65c3b14befc3b",
+  "source_manifest": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_manifest_101.csv",
+  "source_manifest_sha256": "9201ec35036c30351034d337d832ec187b9eb51188349bec3f6d67ba9861a97a",
+  "config": "protocol/neo4j/retrieval_v0.1.0.json",
+  "config_sha256": "587f37a734db487ec84cf4fc3556cf92e9c24d942dfe2858d53822328e5c4391",
+  "exporter": "scripts/neo4j/build_import_pack.py",
+  "exporter_sha256": "7f1c35bf45c5da64db0aafa903547ecffbc18eea3b7408605bbec4926a9cf435",
+  "reports": 101,
+  "graph_nodes": 1536,
+  "graph_edges": 1435,
+  "node_label_counts": {
+    "AgingConstruct": 686,
+    "CausalAnalysis": 312,
+    "CausalMultiomicsAgingPaper": 101,
+    "OmicsLayer": 437
+  },
+  "edge_label_counts": {
+    "INVESTIGATES_AGING_CONSTRUCT": 686,
+    "REPORTS_CAUSAL_ANALYSIS": 312,
+    "USES_OMICS_LAYER": 437
+  },
+  "native_node_id_collision_groups_across_reports": 57,
+  "maximum_native_node_id_multiplicity": 39,
+  "namespaced_node_key_collisions": 0,
+  "neo4j": {
+    "image": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+    "version": "2026.07.1",
+    "edition": "community",
+    "container_name": "causal-aging-neo4j",
+    "browser_url": "http://127.0.0.1:7475/browser/",
+    "bolt_url": "neo4j://127.0.0.1:7688",
+    "authentication": "disabled_localhost_only",
+    "data_volume": "causal_aging_neo4j_data_v0_1_0",
+    "logs_volume": "causal_aging_neo4j_logs_v0_1_0"
+  },
+  "files": {
+    "nodes_csv": {
+      "path": "data/neo4j/retrieval_v0.1.0/import/nodes.csv",
+      "sha256": "9571c1002f161d54b3ccf9018f2e6de988e47669aa73cccb65f65ea0677f9414",
+      "rows": 1536
+    },
+    "edges_csv": {
+      "path": "data/neo4j/retrieval_v0.1.0/import/edges.csv",
+      "sha256": "3cf747b8d015f0e830029ad35c9ded6dccb7b5ab8ca6201266dba5bf9211e3bc",
+      "rows": 1435
+    },
+    "load_cypher": {
+      "path": "data/neo4j/retrieval_v0.1.0/import/load.cypher",
+      "sha256": "b39a54949b5b5df4ac4e2dc4bc086c2ba1abd794ff596c14b1d7b4f877f02d9e"
+    },
+    "reset_cypher": {
+      "path": "data/neo4j/retrieval_v0.1.0/import/reset.cypher",
+      "sha256": "39812f611bfd034e13440352e011c8e0ab641d30d34de42a6614b3bfa161f507"
+    },
+    "docker_compose": {
+      "path": "infra/neo4j/compose.yml",
+      "sha256": "87364b02f484abefe9a83ca1500903d9553c843d20eed6b97137ad75c649279a"
+    },
+    "example_queries": {
+      "path": "infra/neo4j/queries.cypher",
+      "sha256": "eea222e19caf7b8631cdc224f73d31da302d54ce29ee731da0f1358c66730485"
+    }
+  },
+  "source_graph_inventory": [
+    {
+      "record_id": "doi:10.1001/jamapsychiatry.2024.1429",
+      "doi": "10.1001/jamapsychiatry.2024.1429",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_def153153292e09c/def153153292e09c_xml_20260809_023916/docling_graph/graph.json",
+      "graph_sha256": "67e5c8884c655098157286f55da62bc89aa1f89c6e3a7f4736879ddccb4d0c2a",
+      "nodes": 21,
+      "edges": 20
+    },
+    {
+      "record_id": "doi:10.1002/advs.202502249",
+      "doi": "10.1002/advs.202502249",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_26612e7f7d589ab5/26612e7f7d589ab5_pdf_20260809_024146/docling_graph/graph.json",
+      "graph_sha256": "55c2c933f86e7ba18f0cf581fa7f7fe7375cb997791a294da24b8adf9add66b4",
+      "nodes": 24,
+      "edges": 23
+    },
+    {
+      "record_id": "doi:10.1002/advs.202514269",
+      "doi": "10.1002/advs.202514269",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_5704cf32dffbadcf/doi_5704cf32dffbadcf_docling_json_20260809_030057/docling_graph/graph.json",
+      "graph_sha256": "14ccb13ba5bac826551e0932680b60f18764e238e9c575674474c9e605225a58",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1002/advs.202515370",
+      "doi": "10.1002/advs.202515370",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3f3aeee2c0542606/doi_3f3aeee2c0542606_docling_json_20260809_030149/docling_graph/graph.json",
+      "graph_sha256": "711c3c5a9e100ee99cf2e65a45cc2cbe95cbb2625eb6c98631509b6879f35a37",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1002/advs.202521633",
+      "doi": "10.1002/advs.202521633",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_e58973540cb0858a/doi_e58973540cb0858a_docling_json_20260809_030258/docling_graph/graph.json",
+      "graph_sha256": "5720edccd2b24b6ebe9354610dd1b2c4fe729e0072370179f035d41c79ab1e55",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.1002/ctm2.317",
+      "doi": "10.1002/ctm2.317",
+      "graph_path": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/artifacts/record_2c267368c3e80777/record_2c267368c3e80777_docling_json_20260811_174016/docling_graph/graph.json",
+      "graph_sha256": "d2d19fc5b840631cf98f17093c20c482d9fac9596024aa48f8c56589b0b92c14",
+      "nodes": 9,
+      "edges": 8
+    },
+    {
+      "record_id": "doi:10.1002/ctm2.70527",
+      "doi": "10.1002/ctm2.70527",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_64f83a5a55d8c29d/doi_64f83a5a55d8c29d_docling_json_20260809_030454/docling_graph/graph.json",
+      "graph_sha256": "2ff9862ee8924c6e4fd551956db3c3fde413c9f95d2596ab2ca66bcc16e33de4",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1002/fsn3.71826",
+      "doi": "10.1002/fsn3.71826",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_0fdf1fe178e02028/doi_0fdf1fe178e02028_docling_json_20260809_030535/docling_graph/graph.json",
+      "graph_sha256": "0309aeb96a4c6ed969bef73ef087577046c7ff51c149b30443fc384b419cca47",
+      "nodes": 8,
+      "edges": 7
+    },
+    {
+      "record_id": "doi:10.1002/imo2.70128",
+      "doi": "10.1002/imo2.70128",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_df9c04fe3eee2ae2/df9c04fe3eee2ae2_html_20260809_024601/docling_graph/graph.json",
+      "graph_sha256": "4b40a7a210a9c5e39637172b57de268033697f842f271d4f1b0f605ec359a6c0",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.1002/imt2.70150",
+      "doi": "10.1002/imt2.70150",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_532149ab73857cb9/doi_532149ab73857cb9_docling_json_20260809_030615/docling_graph/graph.json",
+      "graph_sha256": "60ee6f83d161c125db1c6f3cca06de67b69af28d8b4bf12845df96f03837826f",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1007/s10753-026-02526-2",
+      "doi": "10.1007/s10753-026-02526-2",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_aa95b1781951b0d0/doi_aa95b1781951b0d0_docling_json_20260809_030717/docling_graph/graph.json",
+      "graph_sha256": "1033f9f41779170f4b8bee533fec12c59f4885e0c4c546cbc91274e1c26c9f22",
+      "nodes": 8,
+      "edges": 7
+    },
+    {
+      "record_id": "doi:10.1007/s11306-023-02022-w",
+      "doi": "10.1007/s11306-023-02022-w",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_1567b42f384d1b6b/doi_1567b42f384d1b6b_docling_json_20260809_030756/docling_graph/graph.json",
+      "graph_sha256": "dd2dd8df1e9ede939fc62e02b752863a6118b00ad5a4ea582038973cbd930109",
+      "nodes": 9,
+      "edges": 8
+    },
+    {
+      "record_id": "doi:10.1007/s13238-021-00894-z",
+      "doi": "10.1007/s13238-021-00894-z",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_24094b90a58a9e3c/doi_24094b90a58a9e3c_docling_json_20260809_030923/docling_graph/graph.json",
+      "graph_sha256": "4f1795beda50fd3905735e336974b4b6234c930fc528fb2acd10e388fca0109d",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1016/j.ccell.2024.09.002",
+      "doi": "10.1016/j.ccell.2024.09.002",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_d6b8a2976255b1df/doi_d6b8a2976255b1df_docling_json_20260809_030916/docling_graph/graph.json",
+      "graph_sha256": "c5910bb15056fde3fece74e2bd0662731267a81558195f00539608255ba29887",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1016/j.celrep.2024.115099",
+      "doi": "10.1016/j.celrep.2024.115099",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_32772415017189df/doi_32772415017189df_docling_json_20260809_031026/docling_graph/graph.json",
+      "graph_sha256": "04da3e786cafe36996e559a47ef90c37844ea691b33a3d2b50c54d347d478d59",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1016/j.celrep.2025.116795",
+      "doi": "10.1016/j.celrep.2025.116795",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_d31ae414f9d4401c/doi_d31ae414f9d4401c_docling_json_20260809_030913/docling_graph/graph.json",
+      "graph_sha256": "4692172a8e84d97d3269378cae85ea370bad5809ff7302d7b93c63576dc93840",
+      "nodes": 18,
+      "edges": 17
+    },
+    {
+      "record_id": "doi:10.1016/j.cels.2021.09.005",
+      "doi": "10.1016/j.cels.2021.09.005",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_d83dc5cb41628ad5/doi_d83dc5cb41628ad5_docling_json_20260809_031025/docling_graph/graph.json",
+      "graph_sha256": "063569bbff2acb6da472314e23837225a66df372dda1311443160b713746112e",
+      "nodes": 21,
+      "edges": 20
+    },
+    {
+      "record_id": "doi:10.1016/j.devcel.2023.05.015",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_07a342ceebdda1f4/doi_07a342ceebdda1f4_docling_json_20260809_031150/docling_graph/graph.json",
+      "graph_sha256": "c493f0b402879130544694bdeef6426aa94e22a337c5e8a1e3fb1d088c212473",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1016/j.exger.2025.112815",
+      "doi": "10.1016/j.exger.2025.112815",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_7dc2770675d5f172/doi_7dc2770675d5f172_docling_json_20260809_031306/docling_graph/graph.json",
+      "graph_sha256": "465a9e17793df51e41769bfb63ecd60936d2fa30707bb4e7175c9c38e1e0caac",
+      "nodes": 8,
+      "edges": 7
+    },
+    {
+      "record_id": "doi:10.1016/j.jare.2026.07.047",
+      "doi": "10.1016/j.jare.2026.07.047",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_edc5e71c0bdda748/doi_edc5e71c0bdda748_docling_json_20260809_031116/docling_graph/graph.json",
+      "graph_sha256": "488e22e206708502d5b35161035e74c0c8c5e07eda7f7eacda869597c079273d",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1016/j.jhazmat.2026.142949",
+      "doi": "10.1016/j.jhazmat.2026.142949",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_882aca60005956c9/doi_882aca60005956c9_docling_json_20260809_031220/docling_graph/graph.json",
+      "graph_sha256": "580283a6f908edf7650b28f52ad92ff0e60f5f0bee229b7edc9a17ba6e5c7baf",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.1016/j.jnutbio.2023.109498",
+      "doi": "10.1016/j.jnutbio.2023.109498",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_274d16bcef60fa06/doi_274d16bcef60fa06_docling_json_20260809_031024/docling_graph/graph.json",
+      "graph_sha256": "8b62be089f1430f1edb1d96a2b5c9c322a577b2eb8fab2b0be7634b7860909d9",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.1016/j.jot.2025.05.010",
+      "doi": "10.1016/j.jot.2025.05.010",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_884c15a783634c31/doi_884c15a783634c31_docling_json_20260809_031122/docling_graph/graph.json",
+      "graph_sha256": "e8982716b40e720f927e8739167e14b9a2ca8e2e0f9cdac6bb42b96419d6aaeb",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.1016/j.mcpro.2024.100882",
+      "doi": "10.1016/j.mcpro.2024.100882",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_fbbf04a8a499f7a7/doi_fbbf04a8a499f7a7_docling_json_20260809_031340/docling_graph/graph.json",
+      "graph_sha256": "c3c9a85d3d54b33838758172a46ec90c53c5c6f1b3aaa2bef7e76587d4b838af",
+      "nodes": 10,
+      "edges": 9
+    },
+    {
+      "record_id": "doi:10.1016/j.phymed.2025.156697",
+      "doi": "10.1016/j.phymed.2025.156697",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_7624588d3676bfc5/doi_7624588d3676bfc5_docling_json_20260809_031427/docling_graph/graph.json",
+      "graph_sha256": "3a802ef8f76807143a7efe7060cdfbd3bf28508047b8f6cf4ff5f5ff4196dd75",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1016/j.psj.2026.107043",
+      "doi": "10.1016/j.psj.2026.107043",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_2269b478af24b875/doi_2269b478af24b875_docling_json_20260809_031312/docling_graph/graph.json",
+      "graph_sha256": "554da9e1258023a584ce08a4d3278f5d738ea009cfcf60d604a364e8a48e08f3",
+      "nodes": 9,
+      "edges": 8
+    },
+    {
+      "record_id": "doi:10.1016/j.ymthe.2025.12.035",
+      "doi": "10.1016/j.ymthe.2025.12.035",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_a5ca885d7050ff94/doi_a5ca885d7050ff94_docling_json_20260809_031347/docling_graph/graph.json",
+      "graph_sha256": "0787311e6978bcc119b4aed0550275e769a15a592978889dc0ec0d6cb994b5cf",
+      "nodes": 23,
+      "edges": 22
+    },
+    {
+      "record_id": "doi:10.1038/s41392-026-02799-x",
+      "doi": "10.1038/s41392-026-02799-x",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_a4bbea2e07b0c1db/doi_a4bbea2e07b0c1db_docling_json_20260809_031217/docling_graph/graph.json",
+      "graph_sha256": "ef99ac9fd6345e2f1f4201dbec02e7e200a961d5d7297a3f3181f11f4c6aa122",
+      "nodes": 21,
+      "edges": 20
+    },
+    {
+      "record_id": "doi:10.1038/s41413-025-00422-3",
+      "doi": "10.1038/s41413-025-00422-3",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_af10f681ac31970c/doi_af10f681ac31970c_docling_json_20260809_031312/docling_graph/graph.json",
+      "graph_sha256": "36cbfa3c668930d9b7b45e77617d17c63dd19c15af1084e0c47ec77b8b309e0f",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.1038/s41421-025-00860-7",
+      "doi": "10.1038/s41421-025-00860-7",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c3af69f51ad80964/doi_c3af69f51ad80964_docling_json_20260809_031627/docling_graph/graph.json",
+      "graph_sha256": "690b2e3d7f1d60d8222b4439f9cd356b88b2f50ae4dfce52ee90ebddf5aea5ca",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1038/s41438-020-00420-y",
+      "doi": "10.1038/s41438-020-00420-y",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_6b523b6e6aa043ca/doi_6b523b6e6aa043ca_docling_json_20260809_031358/docling_graph/graph.json",
+      "graph_sha256": "8d2c74a97741ba0be9164c78d33a09caeb9da71bea28ef697af5bf5f1bf33b2d",
+      "nodes": 9,
+      "edges": 8
+    },
+    {
+      "record_id": "doi:10.1038/s41467-021-23545-7",
+      "doi": "10.1038/s41467-021-23545-7",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_52429b4b853a6782/doi_52429b4b853a6782_docling_json_20260809_031631/docling_graph/graph.json",
+      "graph_sha256": "a9072f3eb1d2b45a00f91f2fb62b2ebe2aacad55f5e00c18ed8a835276df3e55",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1038/s41467-023-37729-w",
+      "doi": "10.1038/s41467-023-37729-w",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c1b7e582e69cfca7/doi_c1b7e582e69cfca7_docling_json_20260809_031627/docling_graph/graph.json",
+      "graph_sha256": "ff01bfba69f19a10b6919c82dd84032a705c7974e3f3ae40e038f1eece28c6f1",
+      "nodes": 22,
+      "edges": 21
+    },
+    {
+      "record_id": "doi:10.1038/s41467-024-46037-w",
+      "doi": "10.1038/s41467-024-46037-w",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_5b5f58258cf21217/doi_5b5f58258cf21217_docling_json_20260809_031439/docling_graph/graph.json",
+      "graph_sha256": "664bc8f57a3a3b067162985b119ac7c0814f9d8f72733da2382acf4a69d7a5d4",
+      "nodes": 24,
+      "edges": 23
+    },
+    {
+      "record_id": "doi:10.1038/s41467-024-52967-2",
+      "doi": "10.1038/s41467-024-52967-2",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_cb894aff77cd5c89/doi_cb894aff77cd5c89_docling_json_20260809_031750/docling_graph/graph.json",
+      "graph_sha256": "bdb4740cdf5a08f745fa9312e004ea992260bd6dcc88fffb2384db2d558cc057",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1038/s41467-025-59964-z",
+      "doi": "10.1038/s41467-025-59964-z",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_011661015dd72124/doi_011661015dd72124_docling_json_20260809_031800/docling_graph/graph.json",
+      "graph_sha256": "f3be6d5f0f8462f15624f0510642754854977e2ad8dc8a6a177abac4f657bb11",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.1038/s41467-025-61433-6",
+      "doi": "10.1038/s41467-025-61433-6",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4bb8968ff82f5bea/doi_4bb8968ff82f5bea_docling_json_20260809_031628/docling_graph/graph.json",
+      "graph_sha256": "6ab01faa942c531b1d7122c5ecc88718ce205f38ea2d18b874068bf426bcd461",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1038/s41467-026-69424-x",
+      "doi": "10.1038/s41467-026-69424-x",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_82ae64a35463b16f/doi_82ae64a35463b16f_docling_json_20260809_031630/docling_graph/graph.json",
+      "graph_sha256": "41dc209b90e9a1afea28379f95fd4fa6174dd8c6fa271cd5060bfb845b0b80fc",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1038/s41536-026-00490-x",
+      "doi": "10.1038/s41536-026-00490-x",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_8ba1a47eb43c7c7a/doi_8ba1a47eb43c7c7a_docling_json_20260809_031751/docling_graph/graph.json",
+      "graph_sha256": "a19ee4d1a3d7a5386c3266c1586a4765baf15bb093a76dc18459236169f6d9ba",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.1038/s41586-025-09873-4",
+      "doi": "10.1038/s41586-025-09873-4",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_1acf58ac7ae612c6/doi_1acf58ac7ae612c6_docling_json_20260809_031827/docling_graph/graph.json",
+      "graph_sha256": "9dd96c9c595404d33f6806ce5d607d45f8d292001e775d440fa8dd269fb78baa",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.1038/s41586-026-10524-5",
+      "doi": "10.1038/s41586-026-10524-5",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_24417aa331840447/doi_24417aa331840447_docling_json_20260809_031719/docling_graph/graph.json",
+      "graph_sha256": "c1f754eb06cb4ef847a981cdccdd3e79eb3eb3b22c159f14b9bed06224b809d6",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1038/s41598-025-17390-7",
+      "doi": "10.1038/s41598-025-17390-7",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3e243ea8ca375133/doi_3e243ea8ca375133_docling_json_20260809_031816/docling_graph/graph.json",
+      "graph_sha256": "d17dcd3aac4b94d01a38d112c0a4c59b6b05bf0c442ffc0c8badb8c7b7b9ece4",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1038/s42003-025-08296-1",
+      "doi": "10.1038/s42003-025-08296-1",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_e0a51b9445e1bff7/doi_e0a51b9445e1bff7_docling_json_20260809_031854/docling_graph/graph.json",
+      "graph_sha256": "4c5533e44f95b86cacdda14ece67ca8354638f72291177581fbcade3bc8253dd",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.1038/s42255-020-0200-2",
+      "doi": "10.1038/s42255-020-0200-2",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_02c224052043b27f/doi_02c224052043b27f_docling_json_20260809_031632/docling_graph/graph.json",
+      "graph_sha256": "d2b8f739f624beddd2ce582b8cabc0e2f4cd2eabc02f1a820b3b1e7a5ce60de1",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.1038/s42255-026-01515-x",
+      "doi": "10.1038/s42255-026-01515-x",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_8b762107e7ec22eb/doi_8b762107e7ec22eb_docling_json_20260809_031836/docling_graph/graph.json",
+      "graph_sha256": "9f746d5fc5137855d5ee3e830e98829427cde15d9b28a60223bd04a5b0bdf160",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1038/s43587-023-00451-9",
+      "doi": "10.1038/s43587-023-00451-9",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_48e3a065d7269ec5/doi_48e3a065d7269ec5_docling_json_20260809_031945/docling_graph/graph.json",
+      "graph_sha256": "0e7b2d23ff1357122d65e8611b08d9b916fda816cd738812d54283f2ff0c54eb",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1038/s43587-023-00460-8",
+      "doi": "10.1038/s43587-023-00460-8",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_f488107ae51ecd57/doi_f488107ae51ecd57_docling_json_20260809_032034/docling_graph/graph.json",
+      "graph_sha256": "575a4286bb2acba473d56f29d6db0d2cbc77aefdcb4a436daee0e651d4b0d1d2",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1038/s43587-026-01100-7",
+      "doi": "10.1038/s43587-026-01100-7",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_ed7083b490beff1d/doi_ed7083b490beff1d_docling_json_20260809_031952/docling_graph/graph.json",
+      "graph_sha256": "9d6071dc3e91dbe1afb73e07688042ed2021ad74c1bb7c4be969660b477cfe77",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1080/15548627.2025.2561073",
+      "doi": "10.1080/15548627.2025.2561073",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_9bd21f903f00005b/doi_9bd21f903f00005b_docling_json_20260809_032147/docling_graph/graph.json",
+      "graph_sha256": "ad4ae054e101c5a72e12a65b870fe040e9bf55d3403f437de3b8fdd0490d33f6",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1093/bib/bbag271",
+      "doi": "10.1093/bib/bbag271",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3095090048b86d78/doi_3095090048b86d78_docling_json_20260809_031725/docling_graph/graph.json",
+      "graph_sha256": "369071f9daf145e2e8cfee15c0a35776ffe7f324c02fea16fb3a26e687ea8755",
+      "nodes": 10,
+      "edges": 9
+    },
+    {
+      "record_id": "doi:10.1093/brain/awaf282",
+      "doi": "10.1093/brain/awaf282",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_90f90bb445a6eae7/doi_90f90bb445a6eae7_docling_json_20260809_032104/docling_graph/graph.json",
+      "graph_sha256": "2771d9a6337341f17681170bb3aa08eebe1e1dc6b8cd93fba821888b50e91e59",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1093/eurheartj/ehad361",
+      "doi": "10.1093/eurheartj/ehad361",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4d8760b707f819ef/doi_4d8760b707f819ef_docling_json_20260809_031732/docling_graph/graph.json",
+      "graph_sha256": "55f5db1c650de2424c3f6e209ac2164cc518036f7f59a117d2780b0c78c1c826",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1093/geroni/igaa057.414",
+      "doi": "10.1093/geroni/igaa057.414",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_f3d339a73c7aa4dd/doi_f3d339a73c7aa4dd_docling_json_20260809_032204/docling_graph/graph.json",
+      "graph_sha256": "5ba12b1995378aa7310ee419f6561afc2a012534d00974c9b069b8af7608f8f7",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1093/geroni/igac059.2661",
+      "doi": "10.1093/geroni/igac059.2661",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_ce9a3dd301976d15/doi_ce9a3dd301976d15_docling_json_20260809_031818/docling_graph/graph.json",
+      "graph_sha256": "5afc8fbf01a5db34124a47e6f97503a836be292211b56928880cdd2f9e49e5b1",
+      "nodes": 21,
+      "edges": 20
+    },
+    {
+      "record_id": "doi:10.1093/geroni/igad104.1942",
+      "doi": "10.1093/geroni/igad104.1942",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_31256d2cb54f929e/doi_31256d2cb54f929e_docling_json_20260809_031934/docling_graph/graph.json",
+      "graph_sha256": "cf39330d24ef2103a9fb85b74b1153ed79bad73296606a8a4754f0d39e0d77d6",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.1093/geroni/igae098.2630",
+      "doi": "10.1093/geroni/igae098.2630",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_5cbb907c49d1a9a4/doi_5cbb907c49d1a9a4_docling_json_20260809_031800/docling_graph/graph.json",
+      "graph_sha256": "dc145643e004caa980985f1c75867b52866ff853f87e5d95c5ca385eb5f41b0b",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1093/geroni/igaf122.3850",
+      "doi": "10.1093/geroni/igaf122.3850",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4a012b9c4a8fd193/doi_4a012b9c4a8fd193_docling_json_20260809_032303/docling_graph/graph.json",
+      "graph_sha256": "aa88a6719016588c99677a5603b61d17b97ddb38606af1ce34739e9711e70934",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1093/plphys/kiaa034",
+      "doi": "10.1093/plphys/kiaa034",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_02d3a54d640a3ffc/doi_02d3a54d640a3ffc_docling_json_20260809_031839/docling_graph/graph.json",
+      "graph_sha256": "420d45f742e03ae7feb69714118fc52d4f05843e6a741fd2fae1096c3e61c93d",
+      "nodes": 9,
+      "edges": 8
+    },
+    {
+      "record_id": "doi:10.1097/md.0000000000047376",
+      "doi": "10.1097/md.0000000000047376",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_7aff681a45fab3b3/doi_7aff681a45fab3b3_docling_json_20260809_031923/docling_graph/graph.json",
+      "graph_sha256": "89a0e0fc1a6278699086e75c0618d56059445cebcd418b2a2c1bbf6ffb8f5a14",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.1101/2025.06.19.660635",
+      "doi": "10.1101/2025.06.19.660635",
+      "graph_path": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/artifacts/record_7213871ffa36bd89/record_7213871ffa36bd89_docling_json_20260811_174559/docling_graph/graph.json",
+      "graph_sha256": "20458f3c85d73796a428c401fd8b70b317cb2f0a489e5b5a1e64300908d05b9f",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.1101/2025.10.29.685384",
+      "doi": "10.1101/2025.10.29.685384",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_dbb18a29ffa90eda/doi_dbb18a29ffa90eda_docling_json_20260809_031922/docling_graph/graph.json",
+      "graph_sha256": "9a52447f837468e6f5c80fbfbd1849783d123c233b37867a35db96ed4558c9c4",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1111/acel.13497",
+      "doi": "10.1111/acel.13497",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3235f5ac26693f37/doi_3235f5ac26693f37_docling_json_20260809_032335/docling_graph/graph.json",
+      "graph_sha256": "f97b72cb63600950360b57be8dde3b071764fc5ae4a4c383cf58677e3964491d",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1111/acel.13852",
+      "doi": "10.1111/acel.13852",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_f0e85b815134bf55/doi_f0e85b815134bf55_docling_json_20260809_032257/docling_graph/graph.json",
+      "graph_sha256": "bf93f909f69b49e3ff9625ede576aec733974d116e98e2f84786144bfe27a605",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.1111/acel.70064",
+      "doi": "10.1111/acel.70064",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_682a64714ac9f395/doi_682a64714ac9f395_docling_json_20260809_032356/docling_graph/graph.json",
+      "graph_sha256": "ec17e123342b1ea8511877f2dc4e64a766edf3b8b69072131d5796ecd797e9b9",
+      "nodes": 18,
+      "edges": 17
+    },
+    {
+      "record_id": "doi:10.1111/acel.70103",
+      "doi": "10.1111/acel.70103",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_23b791406911bbd7/doi_23b791406911bbd7_docling_json_20260809_032451/docling_graph/graph.json",
+      "graph_sha256": "fb4c6417be27c801a2687a7f68118ddab9719fec248581bbf3258e177887ca00",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.1111/acel.70328",
+      "doi": "10.1111/acel.70328",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_6a6e108f4e0bb76a/doi_6a6e108f4e0bb76a_docling_json_20260809_031837/docling_graph/graph.json",
+      "graph_sha256": "7d05c1ce20ded4aef31ceca39e46e87e7d3049aabfd3edf0e43f70e6261aeb3a",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1111/acel.70498",
+      "doi": "10.1111/acel.70498",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c94b578c4f19a44d/doi_c94b578c4f19a44d_docling_json_20260809_032016/docling_graph/graph.json",
+      "graph_sha256": "15bd1db1f7b6002ea1bc431464a60bafbe334c95d6b88d832b9a02d252eab9ee",
+      "nodes": 18,
+      "edges": 17
+    },
+    {
+      "record_id": "doi:10.1111/acel.70564",
+      "doi": "10.1111/acel.70564",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_7dcaf0c9d1fcc1f3/doi_7dcaf0c9d1fcc1f3_docling_json_20260809_032535/docling_graph/graph.json",
+      "graph_sha256": "be64050570679e2baef2cc32de59278bfd8f08398c030151e27daf909f9fbafa",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1126/sciadv.adu2294",
+      "doi": "10.1126/sciadv.adu2294",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_3a71e49045b4f0b5/doi_3a71e49045b4f0b5_docling_json_20260809_032502/docling_graph/graph.json",
+      "graph_sha256": "9e9910d9aa065d8504ab016326d51ebf30dfb6414670107aa7e9b3d9a8529ebb",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1128/msystems.01665-24",
+      "doi": "10.1128/msystems.01665-24",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c3e25e42195e076b/doi_c3e25e42195e076b_docling_json_20260809_032602/docling_graph/graph.json",
+      "graph_sha256": "22cfeb19d9e8686b939b3b7da5d6a201601738f2947540f9713f92fef8d88e10",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1161/circresaha.125.327427",
+      "doi": "10.1161/circresaha.125.327427",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_bdba62868d595869/doi_bdba62868d595869_docling_json_20260809_032706/docling_graph/graph.json",
+      "graph_sha256": "2acb4b0aebd5ff93825a15962b01e022e3751b4eb70a501fdd4af75bd3e12415",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.1172/jci.insight.154089",
+      "doi": "10.1172/jci.insight.154089",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_069d73da3ebb5c9d/doi_069d73da3ebb5c9d_docling_json_20260809_032833/docling_graph/graph.json",
+      "graph_sha256": "e046096482b9fb0fe189a6d9f0bb10ad7fde319e2f41e7574bb14c06a3fb714b",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1172/jci.insight.174007",
+      "doi": "10.1172/jci.insight.174007",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_e3200f6401ab8c4f/doi_e3200f6401ab8c4f_docling_json_20260809_032636/docling_graph/graph.json",
+      "graph_sha256": "cc2628b5856982810cbbd5b2576c1320a181aeaa76fba37dc667c611490fee7b",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.1186/s11658-026-00879-y",
+      "doi": "10.1186/s11658-026-00879-y",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_b45af27c360b7634/doi_b45af27c360b7634_docling_json_20260809_032012/docling_graph/graph.json",
+      "graph_sha256": "a9314979c15bba11b7be5340a81119ae253298ef7fa8a2047a6f2a414e4163db",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.1186/s12964-026-02985-y",
+      "doi": "10.1186/s12964-026-02985-y",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_9eec505bb5091c11/doi_9eec505bb5091c11_docling_json_20260809_032111/docling_graph/graph.json",
+      "graph_sha256": "f87bd24745d490cfa77e3926665ea188eaa69105e982c52a36290926345b3bfc",
+      "nodes": 19,
+      "edges": 18
+    },
+    {
+      "record_id": "doi:10.1186/s12967-026-07766-2",
+      "doi": "10.1186/s12967-026-07766-2",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_b9624237438f1188/doi_b9624237438f1188_docling_json_20260809_032022/docling_graph/graph.json",
+      "graph_sha256": "e419e79dcc0717720a1fb9f5043f056a7bcd0d8223e26a8fe6215fd270dc4f27",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.1186/s12974-025-03588-z",
+      "doi": "10.1186/s12974-025-03588-z",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_cb984c038f0b425c/doi_cb984c038f0b425c_docling_json_20260809_032115/docling_graph/graph.json",
+      "graph_sha256": "0f10251fcf778ed90f38950a6b7b4a7d26049f30d01e83c0c3caeb8d10ec5da0",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.1186/s13020-025-01154-6",
+      "doi": "10.1186/s13020-025-01154-6",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_25a9e2e17257fa49/doi_25a9e2e17257fa49_docling_json_20260809_032226/docling_graph/graph.json",
+      "graph_sha256": "cba4050ae0c407ce8184f093278351d808767440d438d82b7b9c338b57635190",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.1186/s13287-023-03415-3",
+      "doi": "10.1186/s13287-023-03415-3",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_48521c8851664232/doi_48521c8851664232_docling_json_20260809_032206/docling_graph/graph.json",
+      "graph_sha256": "46323e4bb8229f46e73370360de290ae2f3ad8b21d28e15122e0e7fdbf4a3be3",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.1186/s40364-023-00458-9",
+      "doi": "10.1186/s40364-023-00458-9",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_bb39cc140aecb9bc/doi_bb39cc140aecb9bc_docling_json_20260809_032123/docling_graph/graph.json",
+      "graph_sha256": "dc424009743be88034f2a61b817e9a9f4981a54e357970e3824b7a50e317fab2",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.14336/ad.2026.0356",
+      "doi": "10.14336/ad.2026.0356",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_607fb11b82e9523c/doi_607fb11b82e9523c_docling_json_20260809_032246/docling_graph/graph.json",
+      "graph_sha256": "3ad0a5b148515917b26f4d23e9828a5493779cb3e3e5fce431005eedd93607df",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.20892/j.issn.2095-3941.2025.0691",
+      "doi": "10.20892/j.issn.2095-3941.2025.0691",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_472fd51f97cc3e5f/doi_472fd51f97cc3e5f_docling_json_20260809_032926/docling_graph/graph.json",
+      "graph_sha256": "cef32f2fe450bcb46b29000f9ba14c9eed191f10ae5682d520e53db343630b58",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.21037/tcr-2026-1-0264",
+      "doi": "10.21037/tcr-2026-1-0264",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_2b6595596a732fb9/doi_2b6595596a732fb9_docling_json_20260809_033029/docling_graph/graph.json",
+      "graph_sha256": "e2687428d5f73daed43ca4419a6bdbb04cb74cbaa9f3b2689a8fc0004f31a9dc",
+      "nodes": 3,
+      "edges": 2
+    },
+    {
+      "record_id": "doi:10.21203/rs.3.rs-1264931/v1",
+      "doi": "10.21203/rs.3.rs-1264931/v1",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_b40c5876af3cc4a0/doi_b40c5876af3cc4a0_docling_json_20260809_032343/docling_graph/graph.json",
+      "graph_sha256": "7ad3e7ee2c989325370a06b003d338f8622b66444cf87c30c0ec000344c4a466",
+      "nodes": 17,
+      "edges": 16
+    },
+    {
+      "record_id": "doi:10.2147/jir.s525168",
+      "doi": "10.2147/jir.s525168",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_6f49e1073cfbdc76/doi_6f49e1073cfbdc76_docling_json_20260809_031930/docling_graph/graph.json",
+      "graph_sha256": "f06565995db36615ba6272e87a139e24f85972965cc892d1f7a578c228796a4d",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.2147/jir.s545622",
+      "doi": "10.2147/jir.s545622",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_a8004e4211e0472d/doi_a8004e4211e0472d_docling_json_20260809_032719/docling_graph/graph.json",
+      "graph_sha256": "023b916592b5f889ae2d15c1023cef37c601e9e4bc99528788194078b9777e19",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.26508/lsa.202201492",
+      "doi": "10.26508/lsa.202201492",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_e8e389549079ffc8/doi_e8e389549079ffc8_docling_json_20260809_032446/docling_graph/graph.json",
+      "graph_sha256": "231e5d87086fec9e26aa17031709091501aa63ef99d93bb25be51a198a32b5dd",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.26599/fshw.2026.9251125",
+      "doi": "10.26599/fshw.2026.9251125",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_c9d1be7c453392ef/doi_c9d1be7c453392ef_docling_json_20260809_032314/docling_graph/graph.json",
+      "graph_sha256": "26ce10cf9010500f88be733e7a7c54f46ff9e99b47a3ad2c879202dfba0b6772",
+      "nodes": 18,
+      "edges": 17
+    },
+    {
+      "record_id": "doi:10.3389/fendo.2025.1661666",
+      "doi": "10.3389/fendo.2025.1661666",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_98d4e104894e0025/doi_98d4e104894e0025_docling_json_20260809_032425/docling_graph/graph.json",
+      "graph_sha256": "6404f0eb57de19d29e50e6accc6c0d63583b3a26bb48cd9e7b9c32cd674ede39",
+      "nodes": 14,
+      "edges": 13
+    },
+    {
+      "record_id": "doi:10.3389/fimmu.2026.1718849",
+      "doi": "10.3389/fimmu.2026.1718849",
+      "graph_path": "data/full_text_graph/v1.1.0_oversized_20k_seek65_luna_light/artifacts/record_49bbe4640759f77e/record_49bbe4640759f77e_docling_json_20260811_175343/docling_graph/graph.json",
+      "graph_sha256": "11d68eca528f849112d1c034efc26005200c8caab53f17360c0d793c3369ef27",
+      "nodes": 10,
+      "edges": 9
+    },
+    {
+      "record_id": "doi:10.3389/fimmu.2026.1762222",
+      "doi": "10.3389/fimmu.2026.1762222",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_ba340ab24c1f20e5/doi_ba340ab24c1f20e5_docling_json_20260809_032540/docling_graph/graph.json",
+      "graph_sha256": "a70024a07ed0ccb9f6f31f4456108b4a7124412530efe5f487a32cdb0766a01a",
+      "nodes": 11,
+      "edges": 10
+    },
+    {
+      "record_id": "doi:10.3389/fnmol.2026.1834102",
+      "doi": "10.3389/fnmol.2026.1834102",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_99431ac6d84b8e2f/doi_99431ac6d84b8e2f_docling_json_20260809_032802/docling_graph/graph.json",
+      "graph_sha256": "bece646444537912a7c31b8fe5c59720bd178412f54cd00cb11ec6d472665eb5",
+      "nodes": 20,
+      "edges": 19
+    },
+    {
+      "record_id": "doi:10.3389/fphar.2024.1446300",
+      "doi": "10.3389/fphar.2024.1446300",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_e9118cbd1cca5f11/doi_e9118cbd1cca5f11_docling_json_20260809_032913/docling_graph/graph.json",
+      "graph_sha256": "9e165179ecea7431a5ad55936bfb91397888a46ff372d468ea59c2ac4e572468",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.3390/microorganisms13061379",
+      "doi": "10.3390/microorganisms13061379",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4b54110a1a6ace81/doi_4b54110a1a6ace81_docling_json_20260809_032617/docling_graph/graph.json",
+      "graph_sha256": "6a3ac8095ff5376cb8e9eea46eb8d51e3484d533251634809492b4bbb7c92042",
+      "nodes": 13,
+      "edges": 12
+    },
+    {
+      "record_id": "doi:10.3390/plants14152388",
+      "doi": "10.3390/plants14152388",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_fc55eaf97b778a04/doi_fc55eaf97b778a04_docling_json_20260809_032219/docling_graph/graph.json",
+      "graph_sha256": "839dc3bb11695ca7ac5364c72002a129b639c47c73fab72e08aa27439cd5813f",
+      "nodes": 8,
+      "edges": 7
+    },
+    {
+      "record_id": "doi:10.3892/or.2026.9080",
+      "doi": "10.3892/or.2026.9080",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_4ef750481fadda92/doi_4ef750481fadda92_docling_json_20260809_032249/docling_graph/graph.json",
+      "graph_sha256": "a083c945e6d430f22a340d2dbc8c8d91a57e7667221ede05148f65077098a609",
+      "nodes": 12,
+      "edges": 11
+    },
+    {
+      "record_id": "doi:10.4081/ejtm.2026.14960",
+      "doi": "10.4081/ejtm.2026.14960",
+      "graph_path": "data/full_text_graph/v1.2.0_agent_recovery17_luna_light/artifacts/record_1b6534b19f85ff5a/record_1b6534b19f85ff5a_docling_json_20260811_234335/docling_graph/graph.json",
+      "graph_sha256": "71a85d1dfa5cbc43094ccad04aa9aceaf2086562730ce225db3dc73d47b9ceba",
+      "nodes": 33,
+      "edges": 32
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.09.736798",
+      "doi": "10.64898/2026.07.09.736798",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_58d62f64f1cfe345/doi_58d62f64f1cfe345_docling_json_20260809_032653/docling_graph/graph.json",
+      "graph_sha256": "37c4597814b8e514892b534df25f57a5147842cf83bda37fee5f3b0f468cc32c",
+      "nodes": 18,
+      "edges": 17
+    },
+    {
+      "record_id": "doi:10.7150/ijbs.129636",
+      "doi": "10.7150/ijbs.129636",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_ff403c494fa1c37f/doi_ff403c494fa1c37f_docling_json_20260809_033028/docling_graph/graph.json",
+      "graph_sha256": "b386f8758161ac1755c8b0bdba8537d2d6987cf61f04df2e3bd750e2005ab0b9",
+      "nodes": 16,
+      "edges": 15
+    },
+    {
+      "record_id": "doi:10.7554/elife.71624",
+      "doi": "10.7554/elife.71624",
+      "graph_path": "data/full_text_graph/v1.0.0_luna_light/artifacts/doi_962fd5242e56b114/doi_962fd5242e56b114_docling_json_20260809_032336/docling_graph/graph.json",
+      "graph_sha256": "9b4dcda3e35983575abe7ccdfbd22b2c4d59735fe22eff3203837bc984a75987",
+      "nodes": 15,
+      "edges": 14
+    },
+    {
+      "record_id": "doi:10.7936/zw5q-8j61",
+      "doi": "10.7936/zw5q-8j61",
+      "graph_path": "data/full_text_graph/v1.2.0_agent_recovery17_luna_light/artifacts/record_e4b0b5520a4d2e2c/record_e4b0b5520a4d2e2c_docling_json_20260811_234542/docling_graph/graph.json",
+      "graph_sha256": "2ebde937a1fb8387ddebad513999859cad1bcd064a9658385bdd6f150a2e61c6",
+      "nodes": 10,
+      "edges": 9
+    }
+  ],
+  "methodological_boundary": {
+    "purpose": "relationship-aware candidate retrieval and corpus exploration",
+    "graph_absence_can_exclude": false,
+    "graph_output_is_scientific_gold": false,
+    "current_v1_relationship_scope": "report-level co-occurrence",
+    "decisive_citations": "must resolve to frozen deterministic evidence_atom_id values"
+  }
+}

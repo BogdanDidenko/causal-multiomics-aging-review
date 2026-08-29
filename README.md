@@ -63,6 +63,13 @@ See
 [`execution_report_v1.0.0.md`](analysis/docling_graph/execution_report_v1.0.0.md)
 and the machine-readable
 [`prisma_full_text_processing.json`](data/full_text_graph/v1.0.0_luna_light/prisma_full_text_processing.json).
+
+The 101 canonical eligible graphs can now be loaded into an isolated, pinned
+Neo4j Community runtime for relationship-aware Cypher retrieval. Runtime,
+identity, import, provenance, and interpretation contracts are documented in
+[`infra/neo4j/README.md`](infra/neo4j/README.md). Graph hits are retrieval
+candidates; graph misses do not support exclusion.
+
 The full-text stability result is documented in
 [`execution_report_v1.0.2.md`](analysis/full_text_screening/execution_report_v1.0.2.md).
 Those graph-prioritized full-text runs are now classified as superseded

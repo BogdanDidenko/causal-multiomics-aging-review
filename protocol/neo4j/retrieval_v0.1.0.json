@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "protocol_date": "2026-08-30",
+  "status": "development_retrieval_layer",
+  "corpus_id": "eligible_graphs_101_v1_5_4",
+  "source_manifest": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_manifest_101.csv",
+  "expected": {
+    "reports": 101,
+    "graph_nodes": 1536,
+    "graph_edges": 1435
+  },
+  "allowed_node_labels": [
+    "CausalMultiomicsAgingPaper",
+    "AgingConstruct",
+    "OmicsLayer",
+    "CausalAnalysis"
+  ],
+  "allowed_edge_labels": [
+    "INVESTIGATES_AGING_CONSTRUCT",
+    "USES_OMICS_LAYER",
+    "REPORTS_CAUSAL_ANALYSIS"
+  ],
+  "identity": {
+    "node_key": "record_id + '|' + native_docling_graph_node_id",
+    "cross_document_node_merging": false,
+    "reason": "Docling Graph native IDs recur across reports; occurrence nodes must remain document-scoped."
+  },
+  "neo4j": {
+    "image": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+    "version": "2026.07.1",
+    "edition": "community",
+    "container_name": "causal-aging-neo4j",
+    "browser_url": "http://127.0.0.1:7475/browser/",
+    "bolt_url": "neo4j://127.0.0.1:7688",
+    "authentication": "disabled_localhost_only",
+    "data_volume": "causal_aging_neo4j_data_v0_1_0",
+    "logs_volume": "causal_aging_neo4j_logs_v0_1_0"
+  },
+  "outputs": {
+    "import_root": "data/neo4j/retrieval_v0.1.0/import",
+    "compact_manifest": "analysis/neo4j/retrieval_v0.1.0/import_manifest.json",
+    "compact_report": "analysis/neo4j/retrieval_v0.1.0/import_report.md",
+    "validation_json": "analysis/neo4j/retrieval_v0.1.0/validation.json",
+    "validation_report": "analysis/neo4j/retrieval_v0.1.0/validation_report.md"
+  },
+  "methodological_boundary": {
+    "purpose": "relationship-aware candidate retrieval and corpus exploration",
+    "graph_absence_can_exclude": false,
+    "graph_output_is_scientific_gold": false,
+    "current_v1_relationship_scope": "report-level co-occurrence",
+    "decisive_citations": "must resolve to frozen deterministic evidence_atom_id values"
+  }
+}

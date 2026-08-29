@@ -36,6 +36,10 @@ data/full_text_graph/**/artifacts/
 data/full_text_graph/**/audit/
 data/full_text_graph/**/codex_adapter.log
 
+# Neo4j import packs contain graph-extracted article text. Version only their
+# compact hashes, counts, Cypher contracts, and validation reports.
+data/neo4j/
+
 # Full-text screening packets contain article text. Version their hashes and
 # compact ledgers, not the packets or raw model responses.
 data/full_text_screening/**/input.jsonl
