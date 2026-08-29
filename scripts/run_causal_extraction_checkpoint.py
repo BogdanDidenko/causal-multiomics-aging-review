@@ -767,7 +767,9 @@ class CheckpointRunner:
             for candidate in candidates:
                 candidate_ref = candidate["candidate_ref"]
                 packet = packets[candidate_ref]
-                provisional_claim_id = candidate_ref.replace("candidate", "claim")
+                provisional_claim_id = candidate_ref.replace(
+                    "::candidate-", "__claim-"
+                )
                 for repeat in range(1, 6):
                     expected = {
                         "report_id": report["record_id"],
