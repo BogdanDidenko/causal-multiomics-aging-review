@@ -1,0 +1,129 @@
+{
+  "by_arm": {
+    "evidence_atom_id": {
+      "all_field_exact_repeat_pairs": 15,
+      "analyses_returned": 152,
+      "complete_repeat_pairs": 33,
+      "decision_and_grounding_exact_repeat_pairs": 15,
+      "first_attempt_valid_calls": 66,
+      "first_attempt_valid_wilson_95": {
+        "estimate": 1.0,
+        "high": 0.9999999999999998,
+        "low": 0.9449974429864585,
+        "successes": 66,
+        "total": 66
+      },
+      "ok_calls": 66,
+      "resolution_wilson_95": {
+        "estimate": 1.0,
+        "high": 1.0000000000000002,
+        "low": 0.9940520095632934,
+        "successes": 642,
+        "total": 642
+      },
+      "resolved_evidence_references": 642,
+      "retry_calls": 0,
+      "returned_evidence_references": 642,
+      "terminal_calls": 66,
+      "terminal_valid_wilson_95": {
+        "estimate": 1.0,
+        "high": 0.9999999999999998,
+        "low": 0.9449974429864585,
+        "successes": 66,
+        "total": 66
+      }
+    },
+    "verbatim_quote": {
+      "all_field_exact_repeat_pairs": 15,
+      "analyses_returned": 144,
+      "complete_repeat_pairs": 33,
+      "decision_and_grounding_exact_repeat_pairs": 17,
+      "first_attempt_valid_calls": 62,
+      "first_attempt_valid_wilson_95": {
+        "estimate": 0.9393939393939394,
+        "high": 0.9761813851676816,
+        "low": 0.8542709132143579,
+        "successes": 62,
+        "total": 66
+      },
+      "ok_calls": 66,
+      "resolution_wilson_95": {
+        "estimate": 1.0,
+        "high": 1.0000000000000002,
+        "low": 0.9903199155851562,
+        "successes": 393,
+        "total": 393
+      },
+      "resolved_evidence_references": 393,
+      "retry_calls": 4,
+      "returned_evidence_references": 393,
+      "terminal_calls": 66,
+      "terminal_valid_wilson_95": {
+        "estimate": 1.0,
+        "high": 0.9999999999999998,
+        "low": 0.9449974429864585,
+        "successes": 66,
+        "total": 66
+      }
+    }
+  },
+  "coverage_complete_reports": 6,
+  "coverage_reports": 6,
+  "cross_arm": {
+    "all_field_exact_pairs": 30,
+    "complete_arm_pairs": 66,
+    "decision_and_grounding_exact_pairs": 31
+  },
+  "development_only": true,
+  "experiment_id": "causal_extraction_e0_grounding",
+  "failure_reasons": {},
+  "git_revision_at_run_start": "328abcf839e4cfd270fa3980f798238d11b8f37d",
+  "human_semantic_audit": {
+    "adjudication_path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/semantic_anchor_adjudication.csv",
+    "adjudication_sha256": "ca7973cd13d985e442957c16f6c6ccdcf053a7b68d3b345f5665b6aea2443a22",
+    "analysis_inventory_templates": [
+      {
+        "path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/analysis_inventory_reviewer_1.csv",
+        "reviewer": 1,
+        "sha256": "27aae474258b7f915cfb370028a47547a2293cd3e2461afe83eb7566a0fb388c"
+      },
+      {
+        "path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/analysis_inventory_reviewer_2.csv",
+        "reviewer": 2,
+        "sha256": "82b1c69be7b0470a3a576cef0ea3a61e3aa614399d4fb980e767b7bc063fd890"
+      }
+    ],
+    "key_path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/semantic_anchor_audit_key.csv",
+    "key_sha256": "a819a6ef34e809b34f842f9bbc9f66396a358a7b3bb19d731c289ad5cbc23b72",
+    "reviewer_forms": [
+      {
+        "path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/semantic_anchor_audit_reviewer_1.csv",
+        "reviewer": 1,
+        "sha256": "529c63929d4f9a85356c0b10d5606d1ff0a052284b8e9c74a9736ca6eb0ef7d7"
+      },
+      {
+        "path": "data/causal_extraction/e0_grounding/v0.1.0_run1/human_audit/semantic_anchor_audit_reviewer_2.csv",
+        "reviewer": 2,
+        "sha256": "529c63929d4f9a85356c0b10d5606d1ff0a052284b8e9c74a9736ca6eb0ef7d7"
+      }
+    ],
+    "selected": 60,
+    "selection_seed": "20260829-e0-semantic-anchor-audit-v1",
+    "status": "pending_two_human_reviewers",
+    "target": 60
+  },
+  "model": "gpt-5.6-terra",
+  "planned_calls": 132,
+  "reasoning_effort": "medium",
+  "run_manifest_sha256": "eebb28bd431c371cb397b5f9efee8e4b183d71045665087619f671e82b827b26",
+  "sample_reports": 6,
+  "scientific_accuracy_claim_allowed": false,
+  "suite_manifest_sha256": "ff4dcd7bad0178bb981876c28ecd3614032c0597bcfc01fb1669f163744bb454",
+  "terminal_calls": 132,
+  "terminal_status_counts": {
+    "ok": 132
+  },
+  "verdict": "technical_pass_pending_human_semantic_audit",
+  "verdict_limit": "Semantic support and analysis-boundary recall require two-human gold adjudication; technical grounding alone cannot approve the instrument.",
+  "version": "0.1.0"
+}

@@ -1,0 +1,467 @@
+{
+  "analysis_id": "causal_extraction_e0_posthoc_disagreement_v1",
+  "cross_arm_agreement": {
+    "all_pairs": {
+      "all_fields_plus_grounding_exact": 30,
+      "analysis_count_exact": 44,
+      "both_empty": 30,
+      "closed_field_multiset_exact": 40,
+      "closed_plus_grounding_exact": 31,
+      "evidence_atom_union_exact": 32,
+      "mean_evidence_atom_jaccard": 0.7698125379709018,
+      "median_evidence_atom_jaccard": 0.9087301587301587,
+      "pairs": 66,
+      "scientific_field_multiset_exact": 30
+    },
+    "nonempty_pairs": {
+      "all_fields_plus_grounding_exact": 0,
+      "analysis_count_exact": 14,
+      "both_empty": 0,
+      "closed_field_multiset_exact": 10,
+      "closed_plus_grounding_exact": 1,
+      "evidence_atom_union_exact": 2,
+      "mean_evidence_atom_jaccard": 0.5779896529466533,
+      "median_evidence_atom_jaccard": 0.5374331550802138,
+      "pairs": 36,
+      "scientific_field_multiset_exact": 0
+    }
+  },
+  "development_only": true,
+  "registered_interpretation": {
+    "evidence_id_grounding_technical_result": "The evidence-ID arm eliminated first-attempt grounding failures and resolved every returned ID.",
+    "instrument_decision": "Retain evidence_atom_id as the grounding interface for the next development instrument; reject open window-level causal-analysis inventory as a stable extraction method.",
+    "inventory_stability_result": "All exact all-field repeat pairs were empty windows. No nonempty work unit reproduced the full scientific inventory exactly."
+  },
+  "repeat_agreement_by_arm": {
+    "evidence_atom_id": {
+      "all_pairs": {
+        "all_fields_plus_grounding_exact": 15,
+        "analysis_count_exact": 22,
+        "both_empty": 15,
+        "closed_field_multiset_exact": 19,
+        "closed_plus_grounding_exact": 15,
+        "evidence_atom_union_exact": 16,
+        "mean_evidence_atom_jaccard": 0.8234627844921962,
+        "median_evidence_atom_jaccard": 0.9411764705882353,
+        "pairs": 33,
+        "scientific_field_multiset_exact": 15
+      },
+      "nonempty_pairs": {
+        "all_fields_plus_grounding_exact": 0,
+        "analysis_count_exact": 7,
+        "both_empty": 0,
+        "closed_field_multiset_exact": 4,
+        "closed_plus_grounding_exact": 0,
+        "evidence_atom_union_exact": 1,
+        "mean_evidence_atom_jaccard": 0.6763484382356931,
+        "median_evidence_atom_jaccard": 0.6666666666666666,
+        "pairs": 18,
+        "scientific_field_multiset_exact": 0
+      }
+    },
+    "verbatim_quote": {
+      "all_pairs": {
+        "all_fields_plus_grounding_exact": 15,
+        "analysis_count_exact": 21,
+        "both_empty": 15,
+        "closed_field_multiset_exact": 18,
+        "closed_plus_grounding_exact": 17,
+        "evidence_atom_union_exact": 18,
+        "mean_evidence_atom_jaccard": 0.8256774518806604,
+        "median_evidence_atom_jaccard": 1.0,
+        "pairs": 33,
+        "scientific_field_multiset_exact": 15
+      },
+      "nonempty_pairs": {
+        "all_fields_plus_grounding_exact": 0,
+        "analysis_count_exact": 6,
+        "both_empty": 0,
+        "closed_field_multiset_exact": 3,
+        "closed_plus_grounding_exact": 2,
+        "evidence_atom_union_exact": 3,
+        "mean_evidence_atom_jaccard": 0.6804086617812107,
+        "median_evidence_atom_jaccard": 0.7100840336134454,
+        "pairs": 18,
+        "scientific_field_multiset_exact": 0
+      }
+    }
+  },
+  "repeat_agreement_by_report": {
+    "doi:10.1007/s11306-023-02022-w": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 3,
+          "analysis_count_exact": 4,
+          "both_empty": 3,
+          "closed_field_multiset_exact": 4,
+          "closed_plus_grounding_exact": 3,
+          "evidence_atom_union_exact": 3,
+          "mean_evidence_atom_jaccard": 0.9305555555555556,
+          "median_evidence_atom_jaccard": 1.0,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 3
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.7222222222222222,
+          "median_evidence_atom_jaccard": 0.7222222222222222,
+          "pairs": 1,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 3,
+          "analysis_count_exact": 3,
+          "both_empty": 3,
+          "closed_field_multiset_exact": 3,
+          "closed_plus_grounding_exact": 3,
+          "evidence_atom_union_exact": 3,
+          "mean_evidence_atom_jaccard": 0.8269230769230769,
+          "median_evidence_atom_jaccard": 1.0,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 3
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 0,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 0,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.3076923076923077,
+          "median_evidence_atom_jaccard": 0.3076923076923077,
+          "pairs": 1,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    },
+    "doi:10.1016/j.ccell.2024.09.002": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 2,
+          "analysis_count_exact": 3,
+          "both_empty": 2,
+          "closed_field_multiset_exact": 2,
+          "closed_plus_grounding_exact": 2,
+          "evidence_atom_union_exact": 2,
+          "mean_evidence_atom_jaccard": 0.7771640124581302,
+          "median_evidence_atom_jaccard": 0.8636363636363636,
+          "pairs": 7,
+          "scientific_field_multiset_exact": 2
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 0,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.6880296174413821,
+          "median_evidence_atom_jaccard": 0.7058823529411765,
+          "pairs": 5,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 2,
+          "analysis_count_exact": 3,
+          "both_empty": 2,
+          "closed_field_multiset_exact": 3,
+          "closed_plus_grounding_exact": 3,
+          "evidence_atom_union_exact": 3,
+          "mean_evidence_atom_jaccard": 0.804421768707483,
+          "median_evidence_atom_jaccard": 0.75,
+          "pairs": 7,
+          "scientific_field_multiset_exact": 2
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.7261904761904762,
+          "median_evidence_atom_jaccard": 0.7142857142857143,
+          "pairs": 5,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    },
+    "doi:10.1038/s41413-025-00422-3": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 2,
+          "analysis_count_exact": 3,
+          "both_empty": 2,
+          "closed_field_multiset_exact": 3,
+          "closed_plus_grounding_exact": 2,
+          "evidence_atom_union_exact": 2,
+          "mean_evidence_atom_jaccard": 0.6984307359307359,
+          "median_evidence_atom_jaccard": 0.7272727272727273,
+          "pairs": 5,
+          "scientific_field_multiset_exact": 2
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.4973845598845599,
+          "median_evidence_atom_jaccard": 0.4791666666666667,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 2,
+          "analysis_count_exact": 2,
+          "both_empty": 2,
+          "closed_field_multiset_exact": 2,
+          "closed_plus_grounding_exact": 2,
+          "evidence_atom_union_exact": 2,
+          "mean_evidence_atom_jaccard": 0.7783380018674136,
+          "median_evidence_atom_jaccard": 0.7647058823529411,
+          "pairs": 5,
+          "scientific_field_multiset_exact": 2
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 0,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 0,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.6305633364456894,
+          "median_evidence_atom_jaccard": 0.5714285714285714,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    },
+    "doi:10.1126/sciadv.adu2294": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 6,
+          "analysis_count_exact": 7,
+          "both_empty": 6,
+          "closed_field_multiset_exact": 7,
+          "closed_plus_grounding_exact": 6,
+          "evidence_atom_union_exact": 7,
+          "mean_evidence_atom_jaccard": 0.9037037037037037,
+          "median_evidence_atom_jaccard": 1.0,
+          "pairs": 9,
+          "scientific_field_multiset_exact": 6
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.7111111111111111,
+          "median_evidence_atom_jaccard": 0.6,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 6,
+          "analysis_count_exact": 8,
+          "both_empty": 6,
+          "closed_field_multiset_exact": 7,
+          "closed_plus_grounding_exact": 7,
+          "evidence_atom_union_exact": 8,
+          "mean_evidence_atom_jaccard": 0.9393939393939394,
+          "median_evidence_atom_jaccard": 1.0,
+          "pairs": 9,
+          "scientific_field_multiset_exact": 6
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 2,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 2,
+          "mean_evidence_atom_jaccard": 0.8181818181818182,
+          "median_evidence_atom_jaccard": 1.0,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    },
+    "doi:10.1186/s12967-026-07766-2": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 1,
+          "analysis_count_exact": 2,
+          "both_empty": 1,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.8154761904761905,
+          "median_evidence_atom_jaccard": 0.7976190476190477,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 1
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 0,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.753968253968254,
+          "median_evidence_atom_jaccard": 0.6666666666666666,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 1,
+          "analysis_count_exact": 2,
+          "both_empty": 1,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.6855769230769231,
+          "median_evidence_atom_jaccard": 0.7211538461538461,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 1
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 1,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 0,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.5807692307692308,
+          "median_evidence_atom_jaccard": 0.6923076923076923,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    },
+    "doi:10.2147/jir.s545622": {
+      "evidence_atom_id": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 1,
+          "analysis_count_exact": 3,
+          "both_empty": 1,
+          "closed_field_multiset_exact": 2,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.7811274509803922,
+          "median_evidence_atom_jaccard": 0.7705882352941176,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 1
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 2,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.7081699346405229,
+          "median_evidence_atom_jaccard": 0.6,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      },
+      "verbatim_quote": {
+        "all_pairs": {
+          "all_fields_plus_grounding_exact": 1,
+          "analysis_count_exact": 3,
+          "both_empty": 1,
+          "closed_field_multiset_exact": 2,
+          "closed_plus_grounding_exact": 1,
+          "evidence_atom_union_exact": 1,
+          "mean_evidence_atom_jaccard": 0.8050420168067227,
+          "median_evidence_atom_jaccard": 0.7571428571428571,
+          "pairs": 4,
+          "scientific_field_multiset_exact": 1
+        },
+        "nonempty_pairs": {
+          "all_fields_plus_grounding_exact": 0,
+          "analysis_count_exact": 2,
+          "both_empty": 0,
+          "closed_field_multiset_exact": 1,
+          "closed_plus_grounding_exact": 0,
+          "evidence_atom_union_exact": 0,
+          "mean_evidence_atom_jaccard": 0.7400560224089636,
+          "median_evidence_atom_jaccard": 0.7142857142857143,
+          "pairs": 3,
+          "scientific_field_multiset_exact": 0
+        }
+      }
+    }
+  },
+  "retry_analysis": {
+    "reasons": {
+      "quote_not_substring_of_supplied_atom": 4
+    },
+    "retry_calls": 4,
+    "rows": [
+      {
+        "arm": "verbatim_quote",
+        "attempts": 2,
+        "first_attempt_failure_reasons": "quote_not_substring_of_supplied_atom",
+        "first_attempt_grounding_valid": false,
+        "first_attempt_schema_valid": true,
+        "repeat": 1,
+        "report_id": "doi:10.1126/sciadv.adu2294",
+        "work_unit_id": "analysis-window-003"
+      },
+      {
+        "arm": "verbatim_quote",
+        "attempts": 2,
+        "first_attempt_failure_reasons": "quote_not_substring_of_supplied_atom",
+        "first_attempt_grounding_valid": false,
+        "first_attempt_schema_valid": true,
+        "repeat": 2,
+        "report_id": "doi:10.1126/sciadv.adu2294",
+        "work_unit_id": "analysis-window-003"
+      },
+      {
+        "arm": "verbatim_quote",
+        "attempts": 2,
+        "first_attempt_failure_reasons": "quote_not_substring_of_supplied_atom",
+        "first_attempt_grounding_valid": false,
+        "first_attempt_schema_valid": true,
+        "repeat": 1,
+        "report_id": "doi:10.1186/s12967-026-07766-2",
+        "work_unit_id": "analysis-window-001"
+      },
+      {
+        "arm": "verbatim_quote",
+        "attempts": 2,
+        "first_attempt_failure_reasons": "quote_not_substring_of_supplied_atom",
+        "first_attempt_grounding_valid": false,
+        "first_attempt_schema_valid": true,
+        "repeat": 2,
+        "report_id": "doi:10.1186/s12967-026-07766-2",
+        "work_unit_id": "analysis-window-002"
+      }
+    ]
+  },
+  "source_raw_tree_sha256": "86545644a4a4a3759406008d100b6857af21ed767e1f39851b68f758d04d9ff9",
+  "source_run_verdict": "technical_pass_pending_human_semantic_audit",
+  "source_summary_sha256": "d66ae4b32f82b7af6515a8897bf77d1a9d12e4df39eafd669a96fb2f39082ca2",
+  "status": "exploratory_posthoc_not_prefrozen"
+}

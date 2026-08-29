@@ -1,0 +1,46 @@
+{
+  "consultation_id": "2026-08-29-opus-e0-methods-audit",
+  "date": "2026-08-29",
+  "status": "completed_read_only_posthoc_consultation",
+  "model": "claude-opus-4-8",
+  "invocation": "local op wrapper; print mode; permission mode plan; effort high; no session persistence",
+  "claude_code_version": "2.1.223",
+  "files_edited_by_consultant": 0,
+  "scientific_gold_role": false,
+  "preregistered_role": false,
+  "report": {
+    "path": "analysis/causal_extraction/consultations/2026-08-29-opus-e0-audit/report.md",
+    "sha256": "a9598a1532dc779fb67b6e69b9d3231c55db9b8b4bb08edaaa592a01d215fcfe"
+  },
+  "inputs": [
+    {
+      "path": "protocol/causal_extraction/e0_grounding/v0.1.0/protocol.md",
+      "sha256": "9e628a258c6de5340c174a81109182cd7cf2f7cd2f428eb7a42703545c6f31f3"
+    },
+    {
+      "path": "protocol/causal_extraction/e0_grounding/v0.1.0/prompts/inventory_template.txt",
+      "sha256": "43434ff8a52480c4fa616367169e1d27395e014b09ec23dc2e7a3c78dccff27c"
+    },
+    {
+      "path": "protocol/causal_extraction/e0_grounding/v0.1.0/semantic_audit_codebook.md",
+      "sha256": "42656c7eb4462944e0e3069b713098908eff696f09d383f076d1a6460cc2e020"
+    },
+    {
+      "path": "analysis/causal_extraction/e0_grounding/v0.1.0_run1/summary.json",
+      "sha256": "d66ae4b32f82b7af6515a8897bf77d1a9d12e4df39eafd669a96fb2f39082ca2"
+    },
+    {
+      "path": "analysis/causal_extraction/e0_grounding/v0.1.0_run1/disagreement_analysis.json",
+      "sha256": "a132b04c52e358b106a8d49d1cbd554e8c0d870000d0895e744d3e877bd8a985"
+    },
+    {
+      "path": "analysis/causal_extraction/e0_grounding/v0.1.0_run1/disagreement_report.md",
+      "sha256": "a199485e2d019f71e910a48375938dc3b1920685b3de41eb40a99dd44c20deee"
+    },
+    {
+      "path": "protocol/causal_extraction/design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md",
+      "sha256": "928e9733fbd8ad4be7abab9ef073f6519ea607086e2e1bc7bdb71512976441f6"
+    }
+  ],
+  "interpretation_boundary": "The audit is independent methodological criticism of compact E0 artifacts. It is not a human gold annotation, a preregistered analysis, or evidence of scientific accuracy."
+}
