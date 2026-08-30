@@ -1,0 +1,86 @@
+{
+  "analysis_id": "neo4j_retrieval_comparison_v0.1.0",
+  "executed_at": "2026-08-30T01:00:54.735587+00:00",
+  "git_revision": "2ff899c98ddcbdebfcc8613e6bc2b71497f1c38c",
+  "neo4j_container": "causal-aging-neo4j",
+  "neo4j_image": "neo4j:2026.07.1-community@sha256:dbc377fb9cd8fe8dabc19d3041b197d5ca0ef8bae514cea175b8df265e5b7a76",
+  "input_hashes": {
+    "protocol/neo4j/retrieval_comparison_v0.1.0.json": "844fd2a73598c5116e75c70ffdd79319602ae4842c5a8399f15e383ac9cd5cd5",
+    "protocol/neo4j/retrieval_v0.1.0.json": "587f37a734db487ec84cf4fc3556cf92e9c24d942dfe2858d53822328e5c4391",
+    "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_profiles_101.jsonl": "4cccd12016d5aadce4adf369626c35cc10aa569ce160aaa3bcb67bd56ee835f6",
+    "data/full_text_screening/v1.5.3_deterministic_full_text_158/input.jsonl": "2894e86904cf9cb372b303bacabb06be20616d9dac8d55cae985bd08a5e19445",
+    "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_manifest_101.csv": "9201ec35036c30351034d337d832ec187b9eb51188349bec3f6d67ba9861a97a"
+  },
+  "queries": [
+    {
+      "information_need": "genetic_instrument",
+      "method": "neo4j_structured",
+      "cypher": "MATCH (report:CausalMultiomicsAgingPaper)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WHERE report.corpus_id = 'eligible_graphs_101_v1_5_4' WITH DISTINCT report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 MATCH (report)-[:REPORTS_CAUSAL_ANALYSIS]->(analysis:CausalAnalysis) WHERE analysis.design_family IN ['genetic_instrument'] RETURN report.doi AS doi, report.title AS title, analysis.node_key AS source_id, analysis.design_family AS design_family, CASE WHEN analysis.provenance_json IS NULL OR analysis.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "bad3368e4fc57ee03d12f0a6c337abaa81ffd2aa604ffb7ee3e64afa30323f72",
+      "returned_rows": 33
+    },
+    {
+      "information_need": "genetic_instrument",
+      "method": "neo4j_graph_text",
+      "cypher": "CALL db.index.fulltext.queryNodes('review_graph_text', '\"mendelian randomization\" OR \"mendelian randomisation\" OR \"instrumental variable\" OR \"genetic instrument\" OR \"cis instrument\" OR \"two sample mr\" OR \"2 sample mr\"') YIELD node, score WHERE node.corpus_id = 'eligible_graphs_101_v1_5_4' MATCH (report:CausalMultiomicsAgingPaper) WHERE report.corpus_id = node.corpus_id AND report.doi = node.doi MATCH (report)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WITH DISTINCT node, score, report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH node, score, report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 RETURN report.doi AS doi, report.title AS title, node.node_key AS source_id, node.node_label AS node_label, score, CASE WHEN node.provenance_json IS NULL OR node.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "fa8cb5e8fbef75e7091a7f54ae33005363a85b7736e2e0984c6a750e4216fac6",
+      "returned_rows": 75
+    },
+    {
+      "information_need": "assigned_intervention",
+      "method": "neo4j_structured",
+      "cypher": "MATCH (report:CausalMultiomicsAgingPaper)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WHERE report.corpus_id = 'eligible_graphs_101_v1_5_4' WITH DISTINCT report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 MATCH (report)-[:REPORTS_CAUSAL_ANALYSIS]->(analysis:CausalAnalysis) WHERE analysis.design_family IN ['randomized_intervention', 'nonrandomized_intervention'] RETURN report.doi AS doi, report.title AS title, analysis.node_key AS source_id, analysis.design_family AS design_family, CASE WHEN analysis.provenance_json IS NULL OR analysis.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "005a4da384ba734e48cdc66b9b6a7bfbf6f9d164a155831c8a8c479a8dbfdaf6",
+      "returned_rows": 79
+    },
+    {
+      "information_need": "assigned_intervention",
+      "method": "neo4j_graph_text",
+      "cypher": "CALL db.index.fulltext.queryNodes('review_graph_text', 'randomized OR randomised OR \"assigned to\" OR \"intervention group\" OR \"treatment group\" OR \"control group\" OR \"treated with\" OR administered') YIELD node, score WHERE node.corpus_id = 'eligible_graphs_101_v1_5_4' MATCH (report:CausalMultiomicsAgingPaper) WHERE report.corpus_id = node.corpus_id AND report.doi = node.doi MATCH (report)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WITH DISTINCT node, score, report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH node, score, report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 RETURN report.doi AS doi, report.title AS title, node.node_key AS source_id, node.node_label AS node_label, score, CASE WHEN node.provenance_json IS NULL OR node.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "1ee5759e7ecd7bddadf9b6b2f8a75675d400a0aaa2b78af82d9b977ee3859e55",
+      "returned_rows": 73
+    },
+    {
+      "information_need": "targeted_perturbation",
+      "method": "neo4j_structured",
+      "cypher": "MATCH (report:CausalMultiomicsAgingPaper)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WHERE report.corpus_id = 'eligible_graphs_101_v1_5_4' WITH DISTINCT report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 MATCH (report)-[:REPORTS_CAUSAL_ANALYSIS]->(analysis:CausalAnalysis) WHERE analysis.design_family IN ['direct_perturbation'] RETURN report.doi AS doi, report.title AS title, analysis.node_key AS source_id, analysis.design_family AS design_family, CASE WHEN analysis.provenance_json IS NULL OR analysis.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "bdea9f04eb7cdaa5d66d856817e356a214273f5371e5685f5a48ae67f20bd316",
+      "returned_rows": 162
+    },
+    {
+      "information_need": "targeted_perturbation",
+      "method": "neo4j_graph_text",
+      "cypher": "CALL db.index.fulltext.queryNodes('review_graph_text', 'CRISPR OR knockout OR knockdown OR overexpression OR silencing OR siRNA OR shRNA OR depletion OR \"targeted inhibition\" OR \"selective inhibitor\" OR rescue') YIELD node, score WHERE node.corpus_id = 'eligible_graphs_101_v1_5_4' MATCH (report:CausalMultiomicsAgingPaper) WHERE report.corpus_id = node.corpus_id AND report.doi = node.doi MATCH (report)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WITH DISTINCT node, score, report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH node, score, report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 RETURN report.doi AS doi, report.title AS title, node.node_key AS source_id, node.node_label AS node_label, score, CASE WHEN node.provenance_json IS NULL OR node.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "c6f1ab17442cb91b4ffdadffbab58ee97e4b4d949689f98765f81104b740c731",
+      "returned_rows": 195
+    },
+    {
+      "information_need": "formal_mediation",
+      "method": "neo4j_structured",
+      "cypher": "MATCH (report:CausalMultiomicsAgingPaper)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WHERE report.corpus_id = 'eligible_graphs_101_v1_5_4' WITH DISTINCT report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 MATCH (report)-[:REPORTS_CAUSAL_ANALYSIS]->(analysis:CausalAnalysis) WHERE analysis.design_family IN ['formal_mediation'] RETURN report.doi AS doi, report.title AS title, analysis.node_key AS source_id, analysis.design_family AS design_family, CASE WHEN analysis.provenance_json IS NULL OR analysis.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "d6f476c395c7758404d984e83887c39a16cbbf0b649e98044b3a1049a9ac02ad",
+      "returned_rows": 6
+    },
+    {
+      "information_need": "formal_mediation",
+      "method": "neo4j_graph_text",
+      "cypher": "CALL db.index.fulltext.queryNodes('review_graph_text', '\"causal mediation\" OR \"mediation analysis\" OR mediator OR \"mediated effect\" OR \"indirect effect\" OR \"natural indirect effect\" OR \"mediated by\"') YIELD node, score WHERE node.corpus_id = 'eligible_graphs_101_v1_5_4' MATCH (report:CausalMultiomicsAgingPaper) WHERE report.corpus_id = node.corpus_id AND report.doi = node.doi MATCH (report)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WITH DISTINCT node, score, report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH node, score, report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 RETURN report.doi AS doi, report.title AS title, node.node_key AS source_id, node.node_label AS node_label, score, CASE WHEN node.provenance_json IS NULL OR node.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "660a00eb941f3f0342b5a5cc1424415b898dca43b645a9fecbae77aabcb234cb",
+      "returned_rows": 37
+    },
+    {
+      "information_need": "directed_or_temporal_model",
+      "method": "neo4j_structured",
+      "cypher": "MATCH (report:CausalMultiomicsAgingPaper)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WHERE report.corpus_id = 'eligible_graphs_101_v1_5_4' WITH DISTINCT report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 MATCH (report)-[:REPORTS_CAUSAL_ANALYSIS]->(analysis:CausalAnalysis) WHERE analysis.design_family IN ['temporal_identification', 'dag_scm', 'other_formal_causal_design'] RETURN report.doi AS doi, report.title AS title, analysis.node_key AS source_id, analysis.design_family AS design_family, CASE WHEN analysis.provenance_json IS NULL OR analysis.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "aec7b4428867eb7a19b564dad44c0d6bf27cd22b95d49b9f685adf5b13897638",
+      "returned_rows": 9
+    },
+    {
+      "information_need": "directed_or_temporal_model",
+      "method": "neo4j_graph_text",
+      "cypher": "CALL db.index.fulltext.queryNodes('review_graph_text', '\"causal discovery\" OR \"directed acyclic graph\" OR \"structural causal model\" OR \"bayesian network\" OR \"granger causality\" OR \"cross lagged\" OR \"difference in differences\" OR \"regression discontinuity\" OR \"interrupted time series\" OR \"target trial\" OR \"structural equation model\"') YIELD node, score WHERE node.corpus_id = 'eligible_graphs_101_v1_5_4' MATCH (report:CausalMultiomicsAgingPaper) WHERE report.corpus_id = node.corpus_id AND report.doi = node.doi MATCH (report)-[:INVESTIGATES_AGING_CONSTRUCT]->(:AgingConstruct) WITH DISTINCT node, score, report MATCH (report)-[:USES_OMICS_LAYER]->(omics:OmicsLayer) WITH node, score, report, count(DISTINCT omics.normalized_layer) AS layer_count WHERE layer_count >= 2 RETURN report.doi AS doi, report.title AS title, node.node_key AS source_id, node.node_label AS node_label, score, CASE WHEN node.provenance_json IS NULL OR node.provenance_json = '' THEN 'no' ELSE 'yes' END AS provenance_complete ORDER BY doi, source_id;",
+      "cypher_sha256": "6926e45b30d50efd05cdf1285e35d4207bd24a7a92bfd4b1db92828ed889150f",
+      "returned_rows": 0
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1.0",
+  "status": "pass",
+  "consecutive_executions": 2,
+  "comparison": "byte-exact for CSV and Markdown outputs; canonical-JSON exact after removing executed_at for runtime JSON outputs",
+  "ignored_runtime_fields": [
+    "summary.json:executed_at",
+    "query_log.json:executed_at"
+  ],
+  "stable_sha256": {
+    "retrieval_rows.csv": "6908195a34c28fde50b771a221df6573129561cf209869718fb24762d2979b7d",
+    "pairwise.csv": "9f2fa341ee9690d61d8d05f1af2f23b9b8d8cb1a5664e57007145edcbcbbadce",
+    "method_unique_hits.csv": "5ebeed34ee268ad0931ef8f7ece8ed32a9ded8eba42dcb613cef2afb1daaf142",
+    "historical_candidate_burden.csv": "69c5657c5357f129685ed8ae1e3b2ec8f9ceacf152c2bdb65801e0767d1881e7",
+    "report.md": "16585ff975d992376d586e3d5591d3d49008c87f150e96d2bd31a8752f08847f",
+    "summary.normalized_json": "689e4489cc51c2be7b48bc4b1fac46dc9f0943f82b1fb548abb2b150b994e4f3",
+    "query_log.normalized_json": "b059adfa4d19eb9f2fd31c68db47b94c079e32e488ff8c5f3e96c32993058577"
+  },
+  "interpretation": "This establishes deterministic execution for the frozen local inputs and Neo4j runtime. It does not establish scientific validity."
+}
