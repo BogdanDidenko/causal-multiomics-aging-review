@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.1.0",
+  "protocol_date": "2026-08-30",
+  "status": "frozen_exploratory_protocol_before_execution",
+  "analysis_id": "neo4j_retrieval_comparison_v0.1.0",
+  "freeze_revision": "the Git commit containing this protocol",
+  "corpus": {
+    "corpus_id": "eligible_graphs_101_v1_5_4",
+    "expected_reports": 101,
+    "fingerprint": "8b58d00219f9499811d15d5bb471e001d4fdcf89fbac35e543f65c3b14befc3b",
+    "graph_profiles": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_profiles_101.jsonl",
+    "graph_manifest": "analysis/article_design/corpus_grounding_v1.0.0/eligible_graph_manifest_101.csv",
+    "deterministic_full_text": "data/full_text_screening/v1.5.3_deterministic_full_text_158/input.jsonl",
+    "legacy_checkpoint_design": "protocol/causal_extraction/checkpoints/v0.1.1-rc1/two_sample_design.json",
+    "legacy_candidate_roots": [
+      "data/causal_extraction/v0.1.1-rc1/checkpoint_A_15_run1/frozen_candidates",
+      "data/causal_extraction/v0.1.1-rc1/checkpoint_B_15_run1/frozen_candidates"
+    ]
+  },
+  "unit_of_comparison": "unique_report_doi",
+  "methods": {
+    "neo4j_structured": "Cypher over typed report-to-aging, report-to-omics, and report-to-causal-analysis relationships; requires at least two distinct normalized omics-layer labels.",
+    "frozen_profile_structured": "Direct deterministic filtering of the pre-Neo4j frozen graph-profile JSONL with the same design-family and omics-layer rules.",
+    "neo4j_graph_text": "Neo4j full-text index over text stored in extracted graph nodes, using the prespecified concept query.",
+    "deterministic_docling_lexical": "Case-insensitive prespecified regex retrieval over frozen deterministic Docling sections, excluding sections headed References or Bibliography.",
+    "legacy_llm_candidate_text": "Post-hoc application of the same regex anchors to frozen v0.1.1-rc1 LLM candidates in the shared 30-report historical subset. The underlying instrument is rejected and this method is descriptive only."
+  },
+  "information_needs": [
+    {
+      "id": "genetic_instrument",
+      "description": "Reports with Mendelian-randomization or another genetic-instrument analysis.",
+      "graph_design_families": [
+        "genetic_instrument"
+      ],
+      "lucene_query": "\"mendelian randomization\" OR \"mendelian randomisation\" OR \"instrumental variable\" OR \"genetic instrument\" OR \"cis instrument\" OR \"two sample mr\" OR \"2 sample mr\"",
+      "lexical_anchors": [
+        {"id": "mendelian_randomization", "regex": "\\bmendelian randomi[sz]ation\\b"},
+        {"id": "instrumental_variable", "regex": "\\binstrumental variable(?:s)?\\b"},
+        {"id": "genetic_instrument", "regex": "\\bgenetic instrument(?:s|ation)?\\b"},
+        {"id": "cis_instrument", "regex": "\\bcis[- ]instrument(?:ed|s)?\\b"},
+        {"id": "two_sample_mr", "regex": "\\b(?:two|2)[- ]sample mr\\b"}
+      ]
+    },
+    {
+      "id": "assigned_intervention",
+      "description": "Reports with randomized or nonrandomized assigned interventions.",
+      "graph_design_families": [
+        "randomized_intervention",
+        "nonrandomized_intervention"
+      ],
+      "lucene_query": "randomized OR randomised OR \"assigned to\" OR \"intervention group\" OR \"treatment group\" OR \"control group\" OR \"treated with\" OR administered",
+      "lexical_anchors": [
+        {"id": "random_assignment", "regex": "\\brandomi[sz](?:ed|ation)\\b"},
+        {"id": "assigned_to", "regex": "\\bassigned to\\b"},
+        {"id": "intervention_group", "regex": "\\bintervention group\\b"},
+        {"id": "treatment_group", "regex": "\\btreatment group\\b"},
+        {"id": "control_group", "regex": "\\bcontrol group\\b"},
+        {"id": "treated_with", "regex": "\\btreated with\\b"},
+        {"id": "administered", "regex": "\\badministered\\b"}
+      ]
+    },
+    {
+      "id": "targeted_perturbation",
+      "description": "Reports with a targeted genetic or pharmacologic perturbation candidate.",
+      "graph_design_families": [
+        "direct_perturbation"
+      ],
+      "lucene_query": "CRISPR OR knockout OR knockdown OR overexpression OR silencing OR siRNA OR shRNA OR depletion OR \"targeted inhibition\" OR \"selective inhibitor\" OR rescue",
+      "lexical_anchors": [
+        {"id": "crispr", "regex": "\\bCRISPR(?:[- /]Cas9)?\\b"},
+        {"id": "knockout", "regex": "\\bknock[- ]?out\\b"},
+        {"id": "knockdown", "regex": "\\bknock[- ]?down\\b"},
+        {"id": "overexpression", "regex": "\\boverexpress(?:ion|ed|ing)?\\b"},
+        {"id": "silencing", "regex": "\\b(?:gene )?silenc(?:e|ed|ing)\\b"},
+        {"id": "rna_interference", "regex": "\\b(?:siRNA|shRNA|RNA interference)\\b"},
+        {"id": "depletion", "regex": "\\bdeplet(?:ion|ed|ing)\\b"},
+        {"id": "targeted_inhibition", "regex": "\\b(?:targeted inhibition|selective inhibitor)\\b"},
+        {"id": "rescue", "regex": "\\brescue(?:d|s| experiment)?\\b"}
+      ]
+    },
+    {
+      "id": "formal_mediation",
+      "description": "Reports with a formal mediation-analysis candidate; broad mechanistic wording remains a known lexical false-positive source.",
+      "graph_design_families": [
+        "formal_mediation"
+      ],
+      "lucene_query": "\"causal mediation\" OR \"mediation analysis\" OR mediator OR \"mediated effect\" OR \"indirect effect\" OR \"natural indirect effect\" OR \"mediated by\"",
+      "lexical_anchors": [
+        {"id": "causal_mediation", "regex": "\\bcausal mediation\\b"},
+        {"id": "mediation_analysis", "regex": "\\bmediation analys(?:is|es)\\b"},
+        {"id": "mediator", "regex": "\\bmediator(?:s)?\\b"},
+        {"id": "mediated_effect", "regex": "\\bmediated effect\\b"},
+        {"id": "indirect_effect", "regex": "\\b(?:natural )?indirect effect\\b"},
+        {"id": "mediated_by", "regex": "\\bmediated by\\b"}
+      ]
+    },
+    {
+      "id": "directed_or_temporal_model",
+      "description": "Reports with a formal directed, structural, quasi-experimental, or temporal-identification candidate.",
+      "graph_design_families": [
+        "temporal_identification",
+        "dag_scm",
+        "other_formal_causal_design"
+      ],
+      "lucene_query": "\"causal discovery\" OR \"directed acyclic graph\" OR \"structural causal model\" OR \"bayesian network\" OR \"granger causality\" OR \"cross lagged\" OR \"difference in differences\" OR \"regression discontinuity\" OR \"interrupted time series\" OR \"target trial\" OR \"structural equation model\"",
+      "lexical_anchors": [
+        {"id": "causal_discovery", "regex": "\\bcausal discovery\\b"},
+        {"id": "directed_acyclic_graph", "regex": "\\bdirected acyclic graph\\b"},
+        {"id": "structural_causal_model", "regex": "\\bstructural causal model\\b"},
+        {"id": "bayesian_network", "regex": "\\bbayesian network\\b"},
+        {"id": "granger_causality", "regex": "\\bgranger causality\\b"},
+        {"id": "cross_lagged", "regex": "\\bcross[- ]lagged\\b"},
+        {"id": "difference_in_differences", "regex": "\\bdifference[- ]in[- ]differences\\b"},
+        {"id": "regression_discontinuity", "regex": "\\bregression discontinuity\\b"},
+        {"id": "interrupted_time_series", "regex": "\\binterrupted time series\\b"},
+        {"id": "target_trial", "regex": "\\btarget trial\\b"},
+        {"id": "structural_equation_model", "regex": "\\bstructural equation model(?:ing|ling)?\\b"}
+      ]
+    }
+  ],
+  "metrics": [
+    "retrieved_unique_reports",
+    "method_pair_intersection",
+    "method_pair_union",
+    "method_pair_jaccard",
+    "method_unique_reports",
+    "candidate_or_hit_burden_reported_separately_by_method",
+    "exact_set_equivalence_of_neo4j_and_frozen_profile_structured_filters"
+  ],
+  "historical_comparison": {
+    "scope": "the disjoint checkpoint A and B reports, 30 reports total",
+    "legacy_frozen_candidates": 2829,
+    "legacy_status": "rejected_instrument_development_history",
+    "candidate_units_are_directly_comparable": false
+  },
+  "reference_control": {
+    "doi": "10.1038/s41467-023-37729-w",
+    "purpose": "report whether each method retrieves the motivating paper for each applicable information need; it is not a complete gold standard"
+  },
+  "outputs": {
+    "root": "analysis/neo4j/retrieval_comparison_v0.1.0",
+    "summary": "analysis/neo4j/retrieval_comparison_v0.1.0/summary.json",
+    "report": "analysis/neo4j/retrieval_comparison_v0.1.0/report.md",
+    "retrieval_rows": "analysis/neo4j/retrieval_comparison_v0.1.0/retrieval_rows.csv",
+    "pairwise": "analysis/neo4j/retrieval_comparison_v0.1.0/pairwise.csv",
+    "method_unique_hits": "analysis/neo4j/retrieval_comparison_v0.1.0/method_unique_hits.csv",
+    "historical_burden": "analysis/neo4j/retrieval_comparison_v0.1.0/historical_candidate_burden.csv",
+    "query_log": "analysis/neo4j/retrieval_comparison_v0.1.0/query_log.json"
+  },
+  "interpretive_limits": {
+    "expert_gold_labels_available": false,
+    "precision_or_recall_claims_allowed": false,
+    "retrieval_absence_can_exclude": false,
+    "graph_is_model_generated_candidate_index": true,
+    "neo4j_and_frozen_profile_share_underlying_graph_data": true,
+    "allowed_claim": "deterministic report-level overlap, candidate burden, provenance availability, and retrieval complementarity only"
+  }
+}
