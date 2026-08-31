@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "causal_extraction_codebook_v0.2.0",
+  "lifecycle_status": "legacy_rejected",
+  "active": false,
+  "production_approved": false,
+  "semantic_content_frozen": true,
+  "origin_commit": "0b4dca01935c017dd4da6ee5fec3ade713b6787e",
+  "permitted_uses": [
+    "instrument_development_history",
+    "methodological_postmortem"
+  ],
+  "prohibited_uses": [
+    "production_causal_extraction",
+    "docling_graph_template_source",
+    "scientific_synthesis",
+    "causal_level_assignment",
+    "gold_standard_annotation"
+  ],
+  "replacement": {
+    "planned_version": "v0.3.0",
+    "status": "not_created_not_active"
+  },
+  "original_sha256": {
+    "codebook.md": "32dea02967c7b95df117aa5c89897acfd4c3678f6184be3126de402a6df932b0",
+    "claim_record.schema.json": "d3fe4e82e700e8d174686cd29039870a797240e3f3016ca8bd5d7e452f898c78",
+    "CHANGELOG.md": "ca851c19114b111dd65bdb4ee2ffe577b6a96f7084cc0f29fc8c9f4f70da6848"
+  },
+  "authoritative_status_path": "protocol/causal_extraction/STATUS.md",
+  "decision_path": "protocol/causal_extraction/design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md"
+}

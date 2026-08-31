@@ -1,6 +1,10 @@
 # Causal extraction status
 
-Last updated: 2026-08-29 after E0 run 1.
+Last updated: 2026-08-31; lifecycle clarification after E0 run 1.
+
+> **Current entry point:** `README.md`. There is no active causal-extraction
+> codebook. Version `v0.2.0` is explicitly marked `legacy_rejected` in
+> `v0.2.0/lifecycle.json`; opening that directory does not imply approval.
 
 ## Production status
 
