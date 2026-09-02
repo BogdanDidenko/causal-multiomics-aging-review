@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "causal_extraction_v0.3.2",
+  "lifecycle_status": "frozen_before_first_v0_3_2_terra_output",
+  "active": false,
+  "production_approved": false,
+  "sample_inherited_from_v0.3.1": true,
+  "candidate_scaffold_inherited_from_v0.3.1": true,
+  "role_suite_pending_freeze": false,
+  "model_runs_allowed": true,
+  "permitted_uses": [
+    "pre_model_artifact_preparation",
+    "development_role_contract_stability_evaluation"
+  ],
+  "prohibited_uses": [
+    "production_causal_extraction",
+    "automated_candidate_discovery_claim",
+    "scientific_synthesis",
+    "expert_gold_accuracy_claim"
+  ]
+}

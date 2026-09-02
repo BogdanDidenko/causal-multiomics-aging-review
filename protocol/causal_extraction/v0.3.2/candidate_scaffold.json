@@ -1,0 +1,610 @@
+{
+  "expert_gold_standard": false,
+  "prompt_visible_fields": [
+    "candidate_id",
+    "candidate_label",
+    "candidate_evidence_atom_ids"
+  ],
+  "reports": [
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c",
+            "ea_27ac10c3bf41f56272d6169f",
+            "ea_8c8795c0ffc3123114c47329",
+            "ea_f6e43674bd2fe44c21608d27"
+          ],
+          "candidate_id": "cc_v031_001_01",
+          "candidate_label": "Blood eQTL SMR screen of senescence-related gene expression on preeclampsia"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c",
+            "ea_3a2b95393452092b4e151524",
+            "ea_2f76a7613150f77bd01012e9"
+          ],
+          "candidate_id": "cc_v031_001_02",
+          "candidate_label": "Blood mQTL SMR screen of methylation on preeclampsia"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c",
+            "ea_81c5f92b077986755fe5f0b8",
+            "ea_2b216a954ba4c1ef7eed0f09",
+            "ea_effbfb21aef6b2a1a74d3885"
+          ],
+          "candidate_id": "cc_v031_001_03",
+          "candidate_label": "Blood pQTL SMR screen of protein abundance on preeclampsia"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_d09961286daa3775869b141d",
+            "ea_427598e2d95ce7effa92c35f"
+          ],
+          "candidate_id": "cc_v031_001_04",
+          "candidate_label": "Blood mQTL-to-eQTL SMR regulatory screen"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_ea754b2ea145b38d6c7348b9"
+          ],
+          "candidate_id": "cc_v031_001_05",
+          "candidate_label": "eQTL-to-pQTL SMR step"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_578abfe1b5e9a17040275d47",
+            "ea_7390c0baf90ced70efb7c91c",
+            "ea_dfc82156c1e2caf0a3cba8c0",
+            "ea_ae39f612505d9e03cd01125a",
+            "ea_5d12045b9a1efa5d9b0f53dd",
+            "ea_09aa7927245a2efc2eb1ef7f",
+            "ea_0d0ea45631169792ac0b6cfa",
+            "ea_9d53349d0d627030c4f38814",
+            "ea_853f0a714e39ffe92725b2c9",
+            "ea_39582df4f67295b52b6bd37f"
+          ],
+          "candidate_id": "cc_v031_001_06",
+          "candidate_label": "Two-sample Mendelian randomization of candidate senescence genes on preeclampsia"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_2b216a954ba4c1ef7eed0f09"
+          ],
+          "candidate_id": "cc_v031_001_07",
+          "candidate_label": "Colocalization analysis"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_fbc7fbc73f2c0f5043473406",
+            "ea_2be63dc10fdacd202652dec2"
+          ],
+          "candidate_id": "cc_v031_001_08",
+          "candidate_label": "Uterine eQTL SMR screen of gene expression on preeclampsia"
+        }
+      ],
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "sample_order": 1
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_6df557abb98113a46ae33e0d",
+            "ea_4756603b8314cfa3b3365373",
+            "ea_155a2ceb58cd03ad69375010",
+            "ea_78835edd6d97160717bfd446",
+            "ea_5c25d52e3e4ef411cf37e6ed",
+            "ea_93484e372d858d27cbc7e6e4",
+            "ea_b97907c47956829b59bfc494",
+            "ea_20cd345f8461ba2122f60f08"
+          ],
+          "candidate_id": "cc_v031_002_01",
+          "candidate_label": "Metabolomic biological age acceleration to disease two-sample MR screen"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_1e32ff218cff39d7ed0acc11",
+            "ea_970df2b6fb4c812ee6008431",
+            "ea_34f2cd4d3fa1cef7eb1a0c8b",
+            "ea_78835edd6d97160717bfd446",
+            "ea_5c25d52e3e4ef411cf37e6ed",
+            "ea_93484e372d858d27cbc7e6e4",
+            "ea_b97907c47956829b59bfc494",
+            "ea_20cd345f8461ba2122f60f08"
+          ],
+          "candidate_id": "cc_v031_002_02",
+          "candidate_label": "Disease liability to metabolomic biological age acceleration reverse MR screen"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_2e8d1332bc52b21ebceaf70f",
+            "ea_5631816004be62a4662764eb"
+          ],
+          "candidate_id": "cc_v031_002_03",
+          "candidate_label": "Observational MetBAG associations and mortality prediction"
+        }
+      ],
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "sample_order": 2
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_bbcab105163b31eb6888976a",
+            "ea_cdcea47c9f11d15db9fa8b96",
+            "ea_385bf91174e35a7be6e8c0f0",
+            "ea_0f21e960e326f0c3c0307ac4",
+            "ea_ec8486c0433ba72a166ae311",
+            "ea_f7d75b7a01cec341282eeebc"
+          ],
+          "candidate_id": "cc_v031_003_01",
+          "candidate_label": "Treadmill exercise intervention in aged mice"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_33ed4443922796734b939ad8",
+            "ea_1aedff826a8fbe42544a4842",
+            "ea_e0b51ef51a0a64beaa4e2c13",
+            "ea_7730f6bed45cf703f81a7b22"
+          ],
+          "candidate_id": "cc_v031_003_02",
+          "candidate_label": "Akkermansia-eicosanoid-senescence axis"
+        }
+      ],
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "sample_order": 3
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_24ae4c5da20eb434725a6368",
+            "ea_8d97f85a03975637320ee837",
+            "ea_33399af4b0941f676bce296a",
+            "ea_cbb866ffd4db32b322d54652",
+            "ea_a8a7e41c3faeb3fdbde21979",
+            "ea_812c56ddab77a4e5005de5b6",
+            "ea_748082332c57eb91f21211fe"
+          ],
+          "candidate_id": "cc_v031_004_01",
+          "candidate_label": "Young-donor versus aged-donor fecal microbiota transplantation"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_5ba3d1712e5591a9c38093ac",
+            "ea_46f8a902776dce2a82b9284d",
+            "ea_f1d2f78f611099569f395ca6",
+            "ea_c32097fa1653549198ec5123",
+            "ea_f5be2f96cf1d5363af93e664"
+          ],
+          "candidate_id": "cc_v031_004_02",
+          "candidate_label": "Complete microbiota-to-5-HTP-to-cochlea mediation chain"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_1608444e24475b9b3dda8f43",
+            "ea_f0938bd8e38de8c9730fd5cc",
+            "ea_5743cdf7998de0947235f5b5",
+            "ea_df0010bf5bdf7342b9d7d491",
+            "ea_5747441e82835f7a5a8e16b7"
+          ],
+          "candidate_id": "cc_v031_004_03",
+          "candidate_label": "5-hydroxytryptophan intervention in an auditory-cell senescence model"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_c47e9c9841cbbb1710a5d3b6"
+          ],
+          "candidate_id": "cc_v031_004_04",
+          "candidate_label": "Microbiome-metabolome-proteome correlation network"
+        }
+      ],
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "report_id": "doi:10.1002/advs.202514269",
+      "sample_order": 4
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_e2c7d3d4e616b2eaa2a31f2a",
+            "ea_551b7fc0bd0912da1d7db6f4",
+            "ea_e7c5284c77b42b334efee891",
+            "ea_e11742c4c6aaf411bf68e916",
+            "ea_3bd34e603e74b738ad76ef22",
+            "ea_6147698b255bf5de1b5c0610",
+            "ea_55ee6cf0ef405336292eb97e",
+            "ea_77e7cd184653ab209691c396",
+            "ea_8dbd8c55bb3de9e346478672",
+            "ea_8b9a38e60748b37404c2118a"
+          ],
+          "candidate_id": "cc_v031_005_01",
+          "candidate_label": "Ammonium-acetate exposure and withdrawal in differentiated myotubes"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_97f18ed337e6dc150fa0bce2"
+          ],
+          "candidate_id": "cc_v031_005_02",
+          "candidate_label": "Omics pathway enrichment during hyperammonemia"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_64e1211a6600873c17c45c25",
+            "ea_585c2b87eeb6262135aa0977",
+            "ea_e11742c4c6aaf411bf68e916",
+            "ea_3bd34e603e74b738ad76ef22",
+            "ea_b778a5826a9dc29217522044"
+          ],
+          "candidate_id": "cc_v031_005_03",
+          "candidate_label": "Ammonia-lowering therapy in hyperammonemic rats"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_64e1211a6600873c17c45c25",
+            "ea_cf6d611fb9a6e6c0913b814a",
+            "ea_d77f627085b3e3db22ff130a",
+            "ea_565443469a98640d538cf345",
+            "ea_f0d78a4fa1c0f1de95566d6f",
+            "ea_5ab9a4be8648be4472e39dcf",
+            "ea_daebc80d18253f3df0d22ccd",
+            "ea_7fddb604e72fc934f5e7c9d1",
+            "ea_50a66dbbfab7d7e07dd80411"
+          ],
+          "candidate_id": "cc_v031_005_04",
+          "candidate_label": "Portacaval-anastomosis hyperammonemia model versus sham surgery"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_dae6c90968a5bc4046c5e8b9",
+            "ea_10f8ae9dc6729616c4214501",
+            "ea_cf599d15843eb6ee2ed7f8f0",
+            "ea_56efea349d04a6de15ca518f",
+            "ea_7b54cec849d0748c603286b1"
+          ],
+          "candidate_id": "cc_v031_005_05",
+          "candidate_label": "Ammonia rechallenge after exposure and withdrawal"
+        }
+      ],
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "sample_order": 5
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_15e75a46e267d1efd0362d00",
+            "ea_ace9672cd7f1f08c77c2aca3",
+            "ea_f730c6d0b2da995d59a2f404",
+            "ea_6a700ef80b6351ea65a78f38",
+            "ea_65b5683fde3e4297544671db",
+            "ea_68451e050450f2a0a2ef4538",
+            "ea_d4c53ec2e7ffe8dfc19a4b12",
+            "ea_5f25ede90b461367cfa800fe"
+          ],
+          "candidate_id": "cc_v031_006_01",
+          "candidate_label": "Bidirectional E2F4 perturbation in replicative senescence"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_fab27434b86a45c0c143940f",
+            "ea_991723fc3567b1c88e0fdd76",
+            "ea_5355af7165d450f13c4d8d80",
+            "ea_8d96fbffcd0708ac5f08c7a4"
+          ],
+          "candidate_id": "cc_v031_006_02",
+          "candidate_label": "TEAD1 knockdown in replicative senescence"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_ee9fe86a4ae7d1e715f7aa75",
+            "ea_8c073889624ea96b5fcb4e08",
+            "ea_a391b725385a5094884fe138",
+            "ea_1942db3db755f43b042980c3",
+            "ea_c53af5a051f73bbd6859d02a"
+          ],
+          "candidate_id": "cc_v031_006_03",
+          "candidate_label": "ATF3 knockdown in replicative senescence"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_508fff8eb4feacfdb7da9950"
+          ],
+          "candidate_id": "cc_v031_006_04",
+          "candidate_label": "Integrated transcription-factor regulatory network"
+        }
+      ],
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "sample_order": 6
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_81476d18162f9acadceef860",
+            "ea_ff9e022f13c5ea2b31069a99",
+            "ea_834fbfbcd0e15704c1e4980e",
+            "ea_99565c5631e775617c486cc4",
+            "ea_a3cb9cc76bbc7e587a3a8f09",
+            "ea_6aee9b38f5efb91681a71a3f",
+            "ea_309b6c53709fd067f5f5e97b",
+            "ea_546ad66d42b89a3b0d7f73d8",
+            "ea_5abe256e1371db9b99f012d9",
+            "ea_68a554ae20ed6dcad90bdf77",
+            "ea_c1648863f437498c0b667443",
+            "ea_0dfd81dc0473800e499d6ab3",
+            "ea_770224af496871ba4341820c",
+            "ea_831679590cdbb68e90d29030",
+            "ea_de8c67e3c72ec7fa3b773db7",
+            "ea_ddee36c390cc322e7d87ca1b"
+          ],
+          "candidate_id": "cc_v031_007_01",
+          "candidate_label": "Maturation-phase transient reprogramming in middle-aged human fibroblasts"
+        }
+      ],
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "report_id": "doi:10.7554/elife.71624",
+      "sample_order": 7
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_a4b35d5af4bb3ce970a693cb",
+            "ea_aaf83fd94ad81ad9e1e0b4ae",
+            "ea_9be033c2430adc420017bd54",
+            "ea_58a05aa8df7c88cd239ed137",
+            "ea_77c862a492b4e2bca72da767",
+            "ea_35b9dfddd760f0094607e496",
+            "ea_279265ba7e762db0877082c2",
+            "ea_90a6642d33896c9eeacd718b",
+            "ea_370b84c3bdf916dda48cead0",
+            "ea_3caf750fb1371e40ee71e934",
+            "ea_aa5c3bc2a906286c00fdf1fa",
+            "ea_c6fa2e2b69c4ccb6660c7507",
+            "ea_2973c4a5b7aaa54ff9d1a47c",
+            "ea_1ebb9e80badeefc89782c1b9"
+          ],
+          "candidate_id": "cc_v031_008_01",
+          "candidate_label": "KLU loss- and gain-of-function effects on leaf longevity"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_7e9578e22d9ebec2779f411b"
+          ],
+          "candidate_id": "cc_v031_008_02",
+          "candidate_label": "Complete KLU-cytokinin-metabolism mechanism"
+        }
+      ],
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "sample_order": 8
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_33437cc037689656569f0cc4",
+            "ea_2535d43f7fc71a225fe9f2ad",
+            "ea_2ad6d49fa2d9039edb5bf40a",
+            "ea_8194825259ac5b299c09a035",
+            "ea_1ea3618e3699811ffb8dc411",
+            "ea_2494c8b96eff02550cab17e1",
+            "ea_3dd67a1b2e3e40ad8b02ab27",
+            "ea_b6df4ef18c5b880c83265118",
+            "ea_af7701854217e1bed7ccb38a",
+            "ea_80d56f3c4560935b6883c0af"
+          ],
+          "candidate_id": "cc_v031_009_01",
+          "candidate_label": "APRT loss-of-function effects on vertebrate lifespan and metabolic aging"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_4416f989e67190498c1f54ce",
+            "ea_c74a99bc453dc2f650139707"
+          ],
+          "candidate_id": "cc_v031_009_02",
+          "candidate_label": "Short estradiol exposure and high-fat-diet resistance experiments"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_b5c23b2b5cb1f149387f6c43",
+            "ea_8183a89850b434c0f8e8ab48",
+            "ea_ae896f383f860b0a43f82cdd",
+            "ea_931e51c014313383075a444e",
+            "ea_dd72fbde48aca1471f0147e2",
+            "ea_49d0a96fb137287def01fa9f"
+          ],
+          "candidate_id": "cc_v031_009_03",
+          "candidate_label": "Lifelong intermittent fasting by APRT genotype interaction on lifespan"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_73b32e590a84f27918da5216",
+            "ea_f79ddba8f7c493d61c541742"
+          ],
+          "candidate_id": "cc_v031_009_04",
+          "candidate_label": "Fasting-like transcriptomic signature and inferred AMP/AMPK mechanism"
+        }
+      ],
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "sample_order": 9
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_8d434cabce933c2883c64080",
+            "ea_df2dd1f3b03c8b8ed5a85370",
+            "ea_ca76e7f5f9692e8e10af1bbf",
+            "ea_d20ccae2effa2bb0601b07f5",
+            "ea_9f1d5161617fec204371599f",
+            "ea_5e7192f186e6670e343e3560"
+          ],
+          "candidate_id": "cc_v031_010_01",
+          "candidate_label": "FXR knockout effects across diet and age strata"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_df2dd1f3b03c8b8ed5a85370",
+            "ea_02807a397cdd309db1e46674",
+            "ea_b8a36f4d64eb292df5dc36f5",
+            "ea_b6182171ded198619044f0e4",
+            "ea_19f136ad4666d40c98c36985",
+            "ea_06e0b4d4a17bfba52e18542f",
+            "ea_7768ab48b26a924234461bce"
+          ],
+          "candidate_id": "cc_v031_010_02",
+          "candidate_label": "Western-diet effects across FXR genotype and age strata"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_ed2c5df662e0241a8682d7c8",
+            "ea_94697999b6bcade257da2460"
+          ],
+          "candidate_id": "cc_v031_010_03",
+          "candidate_label": "Cross-omics Spearman network"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_d63eda88cb3369b8889aae27",
+            "ea_d41f812f1c72356851db50b3"
+          ],
+          "candidate_id": "cc_v031_010_04",
+          "candidate_label": "Cross-sectional 15-month versus 5-month contrasts"
+        }
+      ],
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "sample_order": 10
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_b7211229c7f7b33665bf6eff",
+            "ea_b3bea044335bfd211d278711",
+            "ea_2a84463abf90a15c16bedab9",
+            "ea_d0b210f7a893fc04c3edba86",
+            "ea_c0083859cb93b3af8db28231",
+            "ea_bb69f74dc8962abe1fdf9464"
+          ],
+          "candidate_id": "cc_v031_011_01",
+          "candidate_label": "Oxaliplatin induction of gastric-cancer-cell senescence"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_088d933170492dd766c371c9",
+            "ea_ce6584caaf78e00aab03e0b7",
+            "ea_9655830c351215ffc87741cf",
+            "ea_6648f86e6c4dd2de93f999dc",
+            "ea_01ee836e58bfe7eed9f08537",
+            "ea_407680cf65b9dee69030bd9b",
+            "ea_1270f761dbb44866c3390dbd",
+            "ea_115a5defe4fca97f28fe4ef6",
+            "ea_ce6f13d307429e23f7631364"
+          ],
+          "candidate_id": "cc_v031_011_02",
+          "candidate_label": "NR4A1 knockdown during oxaliplatin-induced senescence"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_bfb95fbc4e6a0692bcd07d5c"
+          ],
+          "candidate_id": "cc_v031_011_03",
+          "candidate_label": "NR4A1 survival association in TCGA"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_2f956011bfc2bee43e048477",
+            "ea_f7f30f8dea874aa508a80069"
+          ],
+          "candidate_id": "cc_v031_011_04",
+          "candidate_label": "NR4A1-to-PI3K/AKT-to-metabolic-reprogramming mediation chain"
+        }
+      ],
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "report_id": "doi:10.3892/or.2026.9080",
+      "sample_order": 11
+    },
+    {
+      "candidates": [
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_3023422ca94c60af9ca6fcb0",
+            "ea_f2dbe044e5f02263cd003e23",
+            "ea_2326bdfaeaf908298d03acaa",
+            "ea_9bce6ff9d8f97c983dd7f4a0",
+            "ea_91ada771bd358aed5e1d4849",
+            "ea_c3aee4559da1faab6ca8e299",
+            "ea_a56639d04fe508e5d26d4ccc",
+            "ea_f982c0537d7783b17cbfe2da",
+            "ea_666edffd5d52da2ca0834fe4",
+            "ea_6b660e61bb5210e887d61556",
+            "ea_17891e83549a45722aa9573a"
+          ],
+          "candidate_id": "cc_v031_012_01",
+          "candidate_label": "Acupuncture treatment of cyclophosphamide-induced ovarian failure"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_f2dbe044e5f02263cd003e23",
+            "ea_f77a6fd2520096843170a8f7",
+            "ea_03d9374134a10e1692a74584",
+            "ea_88d9caf0c7ea363493f479e1",
+            "ea_704f043cf8fb71e49400448a",
+            "ea_8eb2e99db2751c303fbb85f6",
+            "ea_43c3e2d6b76075fcdc302d03"
+          ],
+          "candidate_id": "cc_v031_012_02",
+          "candidate_label": "Cyclophosphamide induction of premature ovarian failure"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_2326bdfaeaf908298d03acaa"
+          ],
+          "candidate_id": "cc_v031_012_03",
+          "candidate_label": "Progynova positive-control arm"
+        },
+        {
+          "candidate_evidence_atom_ids": [
+            "ea_56fd01badd7355b57ff0d0ce",
+            "ea_80c0105ebfd90b5f7d21a495",
+            "ea_834edd0e2ca4f01ea4939cba"
+          ],
+          "candidate_id": "cc_v031_012_04",
+          "candidate_label": "PPAR-protein-metabolite-hormone mechanism"
+        }
+      ],
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "sample_order": 12
+    }
+  ],
+  "scaffold_version": "fixed_candidate_scaffold_v1",
+  "status": "neutral_prompt_input"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/eligibility-role-v0.3.2.schema.json",
+  "title": "Causal candidate eligibility role v0.3.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "candidates"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "current_report_attribution",
+          "empirical_result",
+          "aging_relevance",
+          "named_causal_basis",
+          "multiomics_workflow",
+          "distinct_design_unit"
+        ],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^cc_v031_[0-9]{3}_[0-9]{2}$"},
+          "current_report_attribution": {"type": "string", "enum": ["yes", "no", "unclear"]},
+          "empirical_result": {"type": "string", "enum": ["yes", "no", "unclear"]},
+          "aging_relevance": {"type": "string", "enum": ["yes", "no", "unclear"]},
+          "named_causal_basis": {"type": "string", "enum": ["yes", "no", "unclear"]},
+          "multiomics_workflow": {"type": "string", "enum": ["yes", "no", "unclear"]},
+          "distinct_design_unit": {"type": "string", "enum": ["yes", "no", "unclear"]}
+        }
+      }
+    }
+  }
+}

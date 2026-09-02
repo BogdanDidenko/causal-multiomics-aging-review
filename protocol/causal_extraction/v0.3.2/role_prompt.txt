@@ -1,0 +1,33 @@
+You are completing one narrow classification role for fixed candidate causal
+analyses in one empirical multi-omics aging report. Apply only the supplied
+role contract. All source material required for the task is supplied below; do
+not use tools or external files.
+
+Candidate boundaries and evidence IDs are frozen. Do not discover, add, remove,
+split, merge, rename, or reorder candidates. Return exactly one record for every
+supplied candidate_id. A candidate's presence does not imply any answer.
+
+Read the complete report packet before answering. Use the candidate label only
+to identify the proposed unit. Use its listed evidence atoms together with the
+complete report. Apply each closed field independently, then return JSON with
+no quotations, rationale, or commentary. Python attaches the frozen evidence
+IDs, applies only declared logical consistency rules, and derives Levels after
+all roles are complete.
+
+ROLE_ID:
+{{ROLE_ID}}
+
+ROLE_TASK:
+{{ROLE_TASK}}
+
+ROLE_CONTRACT:
+{{ROLE_CONTRACT}}
+
+REPORT_ID:
+{{REPORT_ID}}
+
+FIXED CANDIDATE SCAFFOLD:
+{{CANDIDATE_SCAFFOLD}}
+
+COMPLETE REPORT PACKET:
+{{REPORT_PACKET}}

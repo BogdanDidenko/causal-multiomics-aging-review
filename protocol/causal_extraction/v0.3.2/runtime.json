@@ -1,0 +1,91 @@
+{
+  "experiment_id": "causal_extraction_v0.3.2_role_contract_ablation",
+  "suite_version": "0.3.2",
+  "status": "pre_first_terra_run_candidate",
+  "provider": "codex_cli",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "codex_cli_version": "codex-cli 0.145.0",
+  "context_window": 131072,
+  "max_rendered_prompt_tokens": 110000,
+  "repeats": 5,
+  "analysis_views": [3, 5],
+  "workers": 4,
+  "timeout_seconds": 1200,
+  "technical_retry_limit": 1,
+  "prompt": "role_prompt.txt",
+  "candidate_scaffold": "candidate_scaffold.json",
+  "eligible_candidate_set": "eligible_candidate_set.json",
+  "roles": [
+    {
+      "role_id": "eligibility",
+      "task": "Classify six atomic eligibility criteria; Python derives qualification and first failed criterion.",
+      "candidate_scope": "all_fixed_candidates",
+      "contract": "eligibility_contract.md",
+      "schema": "eligibility.schema.json"
+    },
+    {
+      "role_id": "design_identity",
+      "task": "Classify causal basis, design family, and source of identifying variation.",
+      "candidate_scope": "v0.3.1_unanimous_includes",
+      "contract": "design_identity_contract.md",
+      "schema": "design_identity.schema.json"
+    },
+    {
+      "role_id": "review_context",
+      "task": "Classify the candidate's aging role and multi-omics workflow role.",
+      "candidate_scope": "v0.3.1_unanimous_includes",
+      "contract": "review_context_contract.md",
+      "schema": "review_context.schema.json"
+    },
+    {
+      "role_id": "effect_appraisal",
+      "task": "Classify contrast status, assumptions reviewability, and candidate-level result status.",
+      "candidate_scope": "v0.3.1_unanimous_includes",
+      "contract": "effect_appraisal_contract.md",
+      "schema": "effect_appraisal.schema.json"
+    },
+    {
+      "role_id": "validation",
+      "task": "Classify the strongest validation reported for the same causal link.",
+      "candidate_scope": "v0.3.1_unanimous_includes",
+      "contract": "validation_contract.md",
+      "schema": "validation.schema.json"
+    }
+  ],
+  "packaging": {
+    "report_representation": "all_evidence_atoms_compact_v1",
+    "candidate_representation": "fixed_candidate_scaffold_v1",
+    "include_every_report_atom": true,
+    "preserve_document_order": true,
+    "model_based_source_selection": false,
+    "graph_based_source_selection": false
+  },
+  "ablation": {
+    "parent": "causal_extraction_v0.3.1_fixed_candidate_ablation",
+    "changed_factor": "one compound classification response split into five narrow role contracts",
+    "unchanged": [
+      "12 source reports",
+      "complete deterministic report packets",
+      "fixed candidate boundaries and evidence IDs",
+      "v0.3 field definitions",
+      "model and reasoning effort",
+      "five-repeat schedule"
+    ]
+  },
+  "decision_policy": {
+    "target_exact_agreement": 1.0,
+    "majority_vote_allowed": false,
+    "python_derives_eligibility_route": true,
+    "python_assigns_level": true,
+    "python_interprets_scientific_text": false,
+    "production_authorized_by_this_ablation_alone": false
+  },
+  "session_policy": {
+    "isolated_session_per_call": true,
+    "ephemeral_codex_home": true,
+    "plugins_enabled": false,
+    "ignore_user_config": true,
+    "ignore_repository_instructions": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/effect-role-v0.3.2.schema.json",
+  "title": "Causal candidate effect appraisal role v0.3.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "candidates"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "contrast_status", "assumptions_reviewability", "result_status"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^cc_v031_[0-9]{3}_[0-9]{2}$"},
+          "contrast_status": {"type": "string", "enum": ["explicit", "implicit", "unclear"]},
+          "assumptions_reviewability": {"type": "string", "enum": ["reviewable", "partly_reviewable", "not_reviewable"]},
+          "result_status": {"type": "string", "enum": ["positive", "null", "mixed"]}
+        }
+      }
+    }
+  }
+}

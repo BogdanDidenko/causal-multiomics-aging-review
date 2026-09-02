@@ -1,0 +1,555 @@
+{
+  "context_window": 131072,
+  "coverage_complete": true,
+  "graph_selected_content": false,
+  "max_rendered_prompt_tokens": 110000,
+  "model_selected_content": false,
+  "observed_max_rendered_prompt_tokens": 95442,
+  "omitted_report_atom_count": 0,
+  "packaging_version": "fixed_candidate_role_contracts_v1_plus_all_evidence_atoms_compact_v1",
+  "report_count": 12,
+  "report_role_packet_count": 60,
+  "reports": [
+    {
+      "atom_count": 784,
+      "atom_order_exact": true,
+      "document_id": "doi_98d4e104894e0025",
+      "packet_sha256": "940bf2b64f9861267d679b4ff4588aa34ef3576aa5d548717f5ad586fc500d5f",
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "roles": [
+        {
+          "candidate_count": 8,
+          "candidate_scaffold_sha256": "a28978ac7bcf63e7d47f8eb4f95b7cf59252e8080485e4f7f30b55a2ed48d377",
+          "rendered_prompt_sha256": "205a93076743c4c9db50b87dcf15f14debe70821bf3905a169098fb10b3749a1",
+          "rendered_prompt_tokens": 38179,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 6,
+          "candidate_scaffold_sha256": "fec1ec8a599ea5aa974f435040fa1b216e6eda266ee7efd28a890f9bf95b462c",
+          "rendered_prompt_sha256": "5a4cc6b6e14fcda3e783e178a8024e66f6da439ec4d0cae2d4bf4b1fa3e180c3",
+          "rendered_prompt_tokens": 37884,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 6,
+          "candidate_scaffold_sha256": "fec1ec8a599ea5aa974f435040fa1b216e6eda266ee7efd28a890f9bf95b462c",
+          "rendered_prompt_sha256": "b4a47a5771def52aca8b37d4d4992bb69de6d26ee5904ecbfb41de1db5577a88",
+          "rendered_prompt_tokens": 37796,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 6,
+          "candidate_scaffold_sha256": "fec1ec8a599ea5aa974f435040fa1b216e6eda266ee7efd28a890f9bf95b462c",
+          "rendered_prompt_sha256": "aebf8059568a20c2dcbce6d55f157365cf9722cca077a580ebbdc21a7b1259cc",
+          "rendered_prompt_tokens": 37812,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 6,
+          "candidate_scaffold_sha256": "fec1ec8a599ea5aa974f435040fa1b216e6eda266ee7efd28a890f9bf95b462c",
+          "rendered_prompt_sha256": "df129749e4b8aa68ea8a17ebbb42c21a8642aab09c2d1f94f7fa6cd89ac1a3a9",
+          "rendered_prompt_tokens": 37736,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 1
+    },
+    {
+      "atom_count": 1063,
+      "atom_order_exact": true,
+      "document_id": "doi_011661015dd72124",
+      "packet_sha256": "338fa0fd931dda9dd88a8d0febfbdcf9e70fc094fd0dd5de77874b04268fedd7",
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "roles": [
+        {
+          "candidate_count": 3,
+          "candidate_scaffold_sha256": "07e98b5c68d11786a684dd109f535b8a48042231cf3ac57b545edad233aa78ba",
+          "rendered_prompt_sha256": "942620de36edeb756735521c0f1e55c6732ef27edced3e6cebf1a1e963b17751",
+          "rendered_prompt_tokens": 43166,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "f8fcf695b82ad91bf058793d89a7921484d22393ec3b643595933e8613a30313",
+          "rendered_prompt_sha256": "9b662fdf21ccbac532e057fe9a73cfd4f4dbd51ba77f5081898444aab25d028b",
+          "rendered_prompt_tokens": 42893,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "f8fcf695b82ad91bf058793d89a7921484d22393ec3b643595933e8613a30313",
+          "rendered_prompt_sha256": "da97ab847c01ffceb0d164a80327ade8573816a81c8a68d40effecc9a51566d5",
+          "rendered_prompt_tokens": 42805,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "f8fcf695b82ad91bf058793d89a7921484d22393ec3b643595933e8613a30313",
+          "rendered_prompt_sha256": "b245199a2cb37d6bca172ad82f5981a0a04b05aebb5c5868751880c82ad0b9cd",
+          "rendered_prompt_tokens": 42821,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "f8fcf695b82ad91bf058793d89a7921484d22393ec3b643595933e8613a30313",
+          "rendered_prompt_sha256": "6c0bc09655d5770f2ae37d356773330652dc6c48c6a02135df71fe53079945f3",
+          "rendered_prompt_tokens": 42745,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 2
+    },
+    {
+      "atom_count": 542,
+      "atom_order_exact": true,
+      "document_id": "doi_4b54110a1a6ace81",
+      "packet_sha256": "4bffc2967b1e1f0eb0e4e5ba83eaac5484a7fcb49794f1592d7b4f0e7387e001",
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "roles": [
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "f374c231f5808663767776bd2ccb10d204cca4c7c92915efcdc99a9554d9dc0d",
+          "rendered_prompt_sha256": "a649976639f6794353d7a0b969f041e68b5f33b6bb8a6eb627012a6127e2e9b7",
+          "rendered_prompt_tokens": 23059,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "9d318f8bc15ddbc3be98c3daecd055c6b6c1e64d80e71c182043842ff4556f74",
+          "rendered_prompt_sha256": "ec09699bafc277ee24055e91884363939f8f06ac5147fd1e99b05608c043d7ab",
+          "rendered_prompt_tokens": 22750,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "9d318f8bc15ddbc3be98c3daecd055c6b6c1e64d80e71c182043842ff4556f74",
+          "rendered_prompt_sha256": "8b67f00a95df9b5b3ad2640a2fee96d35f6c247249c3436f9e0e1a58aa105da9",
+          "rendered_prompt_tokens": 22662,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "9d318f8bc15ddbc3be98c3daecd055c6b6c1e64d80e71c182043842ff4556f74",
+          "rendered_prompt_sha256": "5bfb5ed5f0334e51ed4b964010c2b2efa6efcc562822201c253dcad327aa8802",
+          "rendered_prompt_tokens": 22678,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "9d318f8bc15ddbc3be98c3daecd055c6b6c1e64d80e71c182043842ff4556f74",
+          "rendered_prompt_sha256": "b3bbb099594f6852ab9d9316fda1f667b10a7924b87bfa86441d4eeaa2273486",
+          "rendered_prompt_tokens": 22602,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 3
+    },
+    {
+      "atom_count": 1136,
+      "atom_order_exact": true,
+      "document_id": "doi_5704cf32dffbadcf",
+      "packet_sha256": "000ee812efe204c846db93b3aab86bf778130a194fe2f51455c1e69bd3a3209e",
+      "report_id": "doi:10.1002/advs.202514269",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "062ed7ae312e115990ac3828a65ac94930c6e82a15c04f6b6773d27cdd758ab3",
+          "rendered_prompt_sha256": "dc7b62fe3141d973361aa1c43a61d2bc7621fb40d3ba06e0e493be93190a08cc",
+          "rendered_prompt_tokens": 50392,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "b20900c95dcc514c11a059ab01ecfdd27bae3d094b20d481385752d5645c68ee",
+          "rendered_prompt_sha256": "1b29b86e0c453e3def246ff15ceed3b54fe801630f03d23de45d36faf895f281",
+          "rendered_prompt_tokens": 50020,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "b20900c95dcc514c11a059ab01ecfdd27bae3d094b20d481385752d5645c68ee",
+          "rendered_prompt_sha256": "a4e64775aeecc0e3c17b5d744aa7d9751c82b3a6afff19383366fdf1da6b089a",
+          "rendered_prompt_tokens": 49932,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "b20900c95dcc514c11a059ab01ecfdd27bae3d094b20d481385752d5645c68ee",
+          "rendered_prompt_sha256": "eb54d529477e114d0b0543c3e49786db206ee0f10dac2ac054201d66d986b7da",
+          "rendered_prompt_tokens": 49948,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "b20900c95dcc514c11a059ab01ecfdd27bae3d094b20d481385752d5645c68ee",
+          "rendered_prompt_sha256": "904a61edbfdadc6af0e170f7e886b6b4e3e003298e5f1d7c59c9d590154dbd21",
+          "rendered_prompt_tokens": 49872,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 4
+    },
+    {
+      "atom_count": 794,
+      "atom_order_exact": true,
+      "document_id": "doi_069d73da3ebb5c9d",
+      "packet_sha256": "839eae4cb94cf4b66dde87361ecc09bbdfadc3de93ec7bc5a31d02bd02d6a996",
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "roles": [
+        {
+          "candidate_count": 5,
+          "candidate_scaffold_sha256": "59fb08139d26eab5bf07b0b7a0a2bd34f8de6f6c7f296847c56b1d02f6cc6f58",
+          "rendered_prompt_sha256": "84a0be2af5a32942045955d40a821307c87c072d8a5940f7b822455c62f0ebd2",
+          "rendered_prompt_tokens": 39581,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "3039ec4d596480a76564a5ab5add57409eab1ad2d527d54b70b012cb8f188ee4",
+          "rendered_prompt_sha256": "8fb472cd204c048317266dbdb7f5dada6c980cfd5e3d5bfd65de25a182afd0bb",
+          "rendered_prompt_tokens": 39323,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "3039ec4d596480a76564a5ab5add57409eab1ad2d527d54b70b012cb8f188ee4",
+          "rendered_prompt_sha256": "c6e8e3363d8206adaf7a9b15c50a471952feda890f35986b32d74287b74615e8",
+          "rendered_prompt_tokens": 39235,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "3039ec4d596480a76564a5ab5add57409eab1ad2d527d54b70b012cb8f188ee4",
+          "rendered_prompt_sha256": "71edc5e9b60e2f9c30f54f33708abd6cbf003cd8e53117485b2994b2da134b30",
+          "rendered_prompt_tokens": 39251,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "3039ec4d596480a76564a5ab5add57409eab1ad2d527d54b70b012cb8f188ee4",
+          "rendered_prompt_sha256": "41031d0277a6603d69ca1e0877ac5fb9a199690f7c345d8cedd73f0cebf68ed9",
+          "rendered_prompt_tokens": 39175,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 5
+    },
+    {
+      "atom_count": 784,
+      "atom_order_exact": true,
+      "document_id": "doi_24094b90a58a9e3c",
+      "packet_sha256": "43d97fd7ddc0f207739a99624bdac00e2fe2a7dd474c2305c42b97a4e07ddb6b",
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "a973450011f4446e2bdc698d2c4a2947df88083a729b91192fd2f4f1b0518b48",
+          "rendered_prompt_sha256": "be4d875d564a5068d799f4cc579bf9801bd03a3eb3dc91e6d7b40813cac2c078",
+          "rendered_prompt_tokens": 37891,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 3,
+          "candidate_scaffold_sha256": "6fd41b46e45f54e44e59b9a6ff24f740086c0b810b03932fb4a97ad01fe85e6c",
+          "rendered_prompt_sha256": "8c922006e7c91f35e58ac5d1c13153c3ba938c891874630f37fc1da5bdd53f59",
+          "rendered_prompt_tokens": 37639,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 3,
+          "candidate_scaffold_sha256": "6fd41b46e45f54e44e59b9a6ff24f740086c0b810b03932fb4a97ad01fe85e6c",
+          "rendered_prompt_sha256": "0065e01491402c5fe7b0ba58d6791e988154f5185eddc503f42b7c2147ef3984",
+          "rendered_prompt_tokens": 37551,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 3,
+          "candidate_scaffold_sha256": "6fd41b46e45f54e44e59b9a6ff24f740086c0b810b03932fb4a97ad01fe85e6c",
+          "rendered_prompt_sha256": "72aa026b4ac2cf59e9a409a5ed1d626e7d09a1d4b63db8f54256ecec6320972a",
+          "rendered_prompt_tokens": 37567,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 3,
+          "candidate_scaffold_sha256": "6fd41b46e45f54e44e59b9a6ff24f740086c0b810b03932fb4a97ad01fe85e6c",
+          "rendered_prompt_sha256": "fe6495717fe00d2376c812db8ffb4c04304f46c09dcdae189cd8545213260c06",
+          "rendered_prompt_tokens": 37491,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 6
+    },
+    {
+      "atom_count": 1123,
+      "atom_order_exact": true,
+      "document_id": "doi_962fd5242e56b114",
+      "packet_sha256": "fea15915b6a86067cf30eb96659adc22c3df29ff417842de67003c22fe69af98",
+      "report_id": "doi:10.7554/elife.71624",
+      "roles": [
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "aad78e105f9ab784b9310ff76db442abe0856a295b336e1fc0df135ccbd5f99e",
+          "rendered_prompt_sha256": "f4d386c6eaed91621b4f78623654ab814446b8ee3bc61a571acafabef04d2ec4",
+          "rendered_prompt_tokens": 53101,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "aad78e105f9ab784b9310ff76db442abe0856a295b336e1fc0df135ccbd5f99e",
+          "rendered_prompt_sha256": "982617445b138e7a7c78528023e1d558cc51cd83b7619f7dedeb486cb0cfafe3",
+          "rendered_prompt_tokens": 52882,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "aad78e105f9ab784b9310ff76db442abe0856a295b336e1fc0df135ccbd5f99e",
+          "rendered_prompt_sha256": "64ae8ef6661b01d04f1e08d50c121294c4ab3bf9b8a0386408ce05156b20644e",
+          "rendered_prompt_tokens": 52794,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "aad78e105f9ab784b9310ff76db442abe0856a295b336e1fc0df135ccbd5f99e",
+          "rendered_prompt_sha256": "5d3b42873c873303b44cb94f2fb158597d5a364ef0d7d7d26d53f3e07cfb7d7c",
+          "rendered_prompt_tokens": 52810,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "aad78e105f9ab784b9310ff76db442abe0856a295b336e1fc0df135ccbd5f99e",
+          "rendered_prompt_sha256": "7568d99df4750f0cba295ca297363751e271f198264423cc561988097aa835af",
+          "rendered_prompt_tokens": 52734,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 7
+    },
+    {
+      "atom_count": 776,
+      "atom_order_exact": true,
+      "document_id": "doi_02d3a54d640a3ffc",
+      "packet_sha256": "c7be60d9f16a2a136aae660430bf3d6d10188d9da471ed237ab9c2e12d9a9b71",
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "roles": [
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "b5da76c5962bad2a943b559f91cee46313c39d6e6f4ae95297224b9c3f7ad033",
+          "rendered_prompt_sha256": "4961c3c7829a8526952675ee654b70c2265a6c576483770288e13c3a764b1da9",
+          "rendered_prompt_tokens": 40255,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "08f98c3d944196a792fea8cd0290f8a5f07e9bee0463f3b296425c914071fa81",
+          "rendered_prompt_sha256": "47cf701006cbf099bd326611014a5dc8961099d00a659ed26e12a7feb21f5ba1",
+          "rendered_prompt_tokens": 39995,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "08f98c3d944196a792fea8cd0290f8a5f07e9bee0463f3b296425c914071fa81",
+          "rendered_prompt_sha256": "b81331fb79216187d214cb4e42b2d8c9777c334e700aef2a5146f8a3cd549850",
+          "rendered_prompt_tokens": 39907,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "08f98c3d944196a792fea8cd0290f8a5f07e9bee0463f3b296425c914071fa81",
+          "rendered_prompt_sha256": "944cd9334aecd9e0b09e10c6c0a2e6f2cff6fa76058a8ae631f8b5b86a7c5b1f",
+          "rendered_prompt_tokens": 39923,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 1,
+          "candidate_scaffold_sha256": "08f98c3d944196a792fea8cd0290f8a5f07e9bee0463f3b296425c914071fa81",
+          "rendered_prompt_sha256": "9bcb9d8e017d128046c9ba9c7d90f3c509708e1e74f2e1a87106dd3207e00fa3",
+          "rendered_prompt_tokens": 39847,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 8
+    },
+    {
+      "atom_count": 2214,
+      "atom_order_exact": true,
+      "document_id": "doi_07a342ceebdda1f4",
+      "packet_sha256": "bd7c8b60b977b1a02ce010746afddd413368ff531c66964c460aeafa9faf0c7e",
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "5c08766b4c6bb8914a58ea4513bdb1ef7fd4faee476178c618cdf9ee9f9ad717",
+          "rendered_prompt_sha256": "cc9a0e07b9dae9e03ec126d05b574575533dfe82eda97b971af611a255bdd7e8",
+          "rendered_prompt_tokens": 95442,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "1bf58d6478144e520f9cdf7851255b326a3232eabada3a3738e4d9783d096a02",
+          "rendered_prompt_sha256": "70923ede68cf946a725282a71317dc4963a5c2572ab6afee0ece7948dec2d26b",
+          "rendered_prompt_tokens": 95110,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "1bf58d6478144e520f9cdf7851255b326a3232eabada3a3738e4d9783d096a02",
+          "rendered_prompt_sha256": "10c0b6678fd08d1b9aad3dc2acf0b1287bba7b8b6cbed60da164479f24cb4db2",
+          "rendered_prompt_tokens": 95022,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "1bf58d6478144e520f9cdf7851255b326a3232eabada3a3738e4d9783d096a02",
+          "rendered_prompt_sha256": "bd484aa63155324072a60c00f45e245cc0d34cafe7fd6558d4d3141a47ddadc3",
+          "rendered_prompt_tokens": 95038,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "1bf58d6478144e520f9cdf7851255b326a3232eabada3a3738e4d9783d096a02",
+          "rendered_prompt_sha256": "377979ea93a0e10884a9cfe2f440e2c635c761fbc07dec159207f7b774efd584",
+          "rendered_prompt_tokens": 94962,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 9
+    },
+    {
+      "atom_count": 1228,
+      "atom_order_exact": true,
+      "document_id": "doi_bb39cc140aecb9bc",
+      "packet_sha256": "6430e9417bf414557fbdc49a6961375205e6cda433283cdd5a3bf6540688fabf",
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "326192aa9b7e8b86ef1279c5159c32184642caf52a29daac3596ad5f359dd4eb",
+          "rendered_prompt_sha256": "596aa9f4b4bca2c639ce39a9bb5e039099d163ef8dddf1d9f392b98bfeeb40ef",
+          "rendered_prompt_tokens": 50989,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "2963495a97fa7d1aa4d80d58e4bf05b1ef99e1fcac18eb50e4852ca5b45bee21",
+          "rendered_prompt_sha256": "21551b38919da379c21bd31a257a6ec67444b299ac37776029c8edfdf952c3f8",
+          "rendered_prompt_tokens": 50666,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "2963495a97fa7d1aa4d80d58e4bf05b1ef99e1fcac18eb50e4852ca5b45bee21",
+          "rendered_prompt_sha256": "fcffc4c976036634eb7a32572c65a5e820cde07241ce04fb675100b0de3a6c9e",
+          "rendered_prompt_tokens": 50578,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "2963495a97fa7d1aa4d80d58e4bf05b1ef99e1fcac18eb50e4852ca5b45bee21",
+          "rendered_prompt_sha256": "edc4e3c2a83ed521eb5faa2f9d1ab79a761090268460c746a4359b1ae58f6c13",
+          "rendered_prompt_tokens": 50594,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "2963495a97fa7d1aa4d80d58e4bf05b1ef99e1fcac18eb50e4852ca5b45bee21",
+          "rendered_prompt_sha256": "6469be284073440e108f1b101bdff65273c252949d39002cfbc18b42d8edc004",
+          "rendered_prompt_tokens": 50518,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 10
+    },
+    {
+      "atom_count": 477,
+      "atom_order_exact": true,
+      "document_id": "doi_4ef750481fadda92",
+      "packet_sha256": "64488601db63b2592d41d18cafb3e6a28e289cba4fa35182987c8d6ba8eb032f",
+      "report_id": "doi:10.3892/or.2026.9080",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "68e6edf1650b5517f5b5918e85b9fc796425c89d9d10235529992153e05c978d",
+          "rendered_prompt_sha256": "f7071ae4df59f56914d3390c5fd3e723fcbeef3f18b3c3251df0bc0e7aee1b93",
+          "rendered_prompt_tokens": 24729,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "0cf508ba525d12d3b24e20c99de342f88f574b17e79ad12231ed158d4e90579b",
+          "rendered_prompt_sha256": "be89487a716ba7dc02f7df376d6a9ba58ecfe0c54cec13312a29519472f4a969",
+          "rendered_prompt_tokens": 24406,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "0cf508ba525d12d3b24e20c99de342f88f574b17e79ad12231ed158d4e90579b",
+          "rendered_prompt_sha256": "d548fd4fecfb71bc86e9186be66217dec7d8473f6ce827aab777901f380db506",
+          "rendered_prompt_tokens": 24318,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "0cf508ba525d12d3b24e20c99de342f88f574b17e79ad12231ed158d4e90579b",
+          "rendered_prompt_sha256": "be7138af73f9325da056ef6aa67fe40e7621c7686722eee758f5488adb3189fa",
+          "rendered_prompt_tokens": 24334,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "0cf508ba525d12d3b24e20c99de342f88f574b17e79ad12231ed158d4e90579b",
+          "rendered_prompt_sha256": "0a88e7ece5698bb78a2aaee20a16809aa995ca855cd08b116ce66675bcaeb53f",
+          "rendered_prompt_tokens": 24258,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 11
+    },
+    {
+      "atom_count": 1074,
+      "atom_order_exact": true,
+      "document_id": "doi_7dc2770675d5f172",
+      "packet_sha256": "697c6d0ad4a21199a957e2e5270436d49221481e35bd5e9a91e07b524e4ac068",
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "roles": [
+        {
+          "candidate_count": 4,
+          "candidate_scaffold_sha256": "0a56670025fb68784e46a3336b8cb8e0633cdc1db1d3bae3b650d0b52bcb9b4f",
+          "rendered_prompt_sha256": "fb6654be28b056fcf6325c8d7118c181a772e9c8d2b000384659dc682465b023",
+          "rendered_prompt_tokens": 50098,
+          "role_id": "eligibility"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "d9a881f076915bf57cf5cfc976f207a3adaf8f46ef9fd0bc3d024417c6305413",
+          "rendered_prompt_sha256": "dc731fd7c86cb311a59053a7c635f8f156f0085a6903bb6c1e0ab50fa46a84ec",
+          "rendered_prompt_tokens": 49769,
+          "role_id": "design_identity"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "d9a881f076915bf57cf5cfc976f207a3adaf8f46ef9fd0bc3d024417c6305413",
+          "rendered_prompt_sha256": "f3cb7f31d270dc34d2f30808d272502208195c3f2452a8a84957b7a7fc13fab1",
+          "rendered_prompt_tokens": 49681,
+          "role_id": "review_context"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "d9a881f076915bf57cf5cfc976f207a3adaf8f46ef9fd0bc3d024417c6305413",
+          "rendered_prompt_sha256": "ff11d928ac9e58c26e92b5b1348c500b0ac7404713007c05805b3df1f8836ccb",
+          "rendered_prompt_tokens": 49697,
+          "role_id": "effect_appraisal"
+        },
+        {
+          "candidate_count": 2,
+          "candidate_scaffold_sha256": "d9a881f076915bf57cf5cfc976f207a3adaf8f46ef9fd0bc3d024417c6305413",
+          "rendered_prompt_sha256": "58f7f9cfcd74ceabc9290f4a114492b475b56e72213e6977cd47c281c0087b32",
+          "rendered_prompt_tokens": 49621,
+          "role_id": "validation"
+        }
+      ],
+      "sample_order": 12
+    }
+  ],
+  "role_count": 5
+}

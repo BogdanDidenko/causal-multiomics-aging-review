@@ -1,0 +1,37 @@
+{
+  "contract_version": "0.3.2",
+  "unit": "fixed_candidate_role_classification",
+  "repeat_prefixes": {
+    "three_repeat": [1, 2, 3],
+    "five_repeat": [1, 2, 3, 4, 5]
+  },
+  "acceptance": {
+    "schema_valid_after_one_retry": 1.0,
+    "candidate_coverage": 1.0,
+    "each_role_candidate_all_field_agreement_three_repeat": 1.0,
+    "each_role_candidate_all_field_agreement_five_repeat": 1.0,
+    "composite_candidate_all_field_agreement_three_repeat": 1.0,
+    "composite_candidate_all_field_agreement_five_repeat": 1.0,
+    "python_qualification_agreement_five_repeat": 1.0,
+    "python_level_agreement_five_repeat": 1.0
+  },
+  "normalization": {
+    "sort_candidates": "frozen_scaffold_order",
+    "attach_evidence_atom_ids": "frozen_scaffold",
+    "free_text_fields": []
+  },
+  "eligibility_rule": {
+    "criterion_order": [
+      "current_report_attribution",
+      "empirical_result",
+      "aging_relevance",
+      "named_causal_basis",
+      "multiomics_workflow",
+      "distinct_design_unit"
+    ],
+    "any_no": "exclude_at_first_no",
+    "no_no_and_any_unclear": "unclear",
+    "all_yes": "include"
+  },
+  "interpretation": "This development ablation measures role-specific stability conditional on fixed candidates. It does not measure automated candidate-discovery recall or expert-gold accuracy."
+}

@@ -1,0 +1,219 @@
+{
+  "eligible_candidate_count": 28,
+  "majority_vote_used": false,
+  "report_count": 12,
+  "reports": [
+    {
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "eligible_candidate_ids": [
+        "cc_v031_001_01",
+        "cc_v031_001_02",
+        "cc_v031_001_03",
+        "cc_v031_001_04",
+        "cc_v031_001_06",
+        "cc_v031_001_08"
+      ],
+      "parent_normalized_sha256": [
+        "9f9368aa5d629baaab38d337f998d0d31cc736e4627ccd40a690d5ef09075a58",
+        "6b8937023216405490f92f5d7742e77b1dafde5de1966606525ca2ae5249ee34",
+        "422635d4b5e8d4e68e2689c26e0403d0026b993c73ec0c023ce60fdd76aab5c3",
+        "4ec0a441cfde272c118f245f45d31dc301aa6074f56fafb1a1923c8d13a89a84",
+        "db412ce44065e414f8ff386057af4a6addd33ac54422b39285f57f7001afbbbc"
+      ],
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "sample_order": 1
+    },
+    {
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "eligible_candidate_ids": [
+        "cc_v031_002_01",
+        "cc_v031_002_02"
+      ],
+      "parent_normalized_sha256": [
+        "4fb6f9ee9011ee254f4f76143b53912ba68e89fa628648f1f6a09a139d21df75",
+        "ce70fc29bb4dd8e52ca4aa5479a6fddaec9db35ed2a34f1af3517176c2ee8f06",
+        "4fb6f9ee9011ee254f4f76143b53912ba68e89fa628648f1f6a09a139d21df75",
+        "ce70fc29bb4dd8e52ca4aa5479a6fddaec9db35ed2a34f1af3517176c2ee8f06",
+        "6fea33fb18b1e5ea3b48389513de9e08cf2a850f95bb3fb2df063dcdd36cad5f"
+      ],
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "sample_order": 2
+    },
+    {
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "eligible_candidate_ids": [
+        "cc_v031_003_01"
+      ],
+      "parent_normalized_sha256": [
+        "40b9503f414b0d013450d16b23ecab4b8bfb130cd65e66e89b29c3dddb6c75c5",
+        "40b9503f414b0d013450d16b23ecab4b8bfb130cd65e66e89b29c3dddb6c75c5",
+        "40b9503f414b0d013450d16b23ecab4b8bfb130cd65e66e89b29c3dddb6c75c5",
+        "40b9503f414b0d013450d16b23ecab4b8bfb130cd65e66e89b29c3dddb6c75c5",
+        "40b9503f414b0d013450d16b23ecab4b8bfb130cd65e66e89b29c3dddb6c75c5"
+      ],
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "sample_order": 3
+    },
+    {
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "eligible_candidate_ids": [
+        "cc_v031_004_01",
+        "cc_v031_004_03"
+      ],
+      "parent_normalized_sha256": [
+        "c0068b047f37817919f396b9f8d3efce99a6972e75fad3817b9fff401e68d905",
+        "785368e5c81875b5f489e48f804634426079fc3353b4501564fbd4eeb175957a",
+        "d03c2c63b666d4eff3f0c68a1382dcb29bf64818422df344b53a22f133da8e85",
+        "785368e5c81875b5f489e48f804634426079fc3353b4501564fbd4eeb175957a",
+        "d03c2c63b666d4eff3f0c68a1382dcb29bf64818422df344b53a22f133da8e85"
+      ],
+      "report_id": "doi:10.1002/advs.202514269",
+      "sample_order": 4
+    },
+    {
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "eligible_candidate_ids": [
+        "cc_v031_005_01",
+        "cc_v031_005_03",
+        "cc_v031_005_04",
+        "cc_v031_005_05"
+      ],
+      "parent_normalized_sha256": [
+        "75e5150e789256086590cd23d4cdc195e3ab89b0c3aa95c3e106cd6421b020cf",
+        "3c1ef37982654a7e4c88aacb83e3b3dd6b28049a2121f9ac7528b2980f5e8f80",
+        "722a31fb181b9c9cbe0e300e73a1fecdc78f5a53ce5ed201da26c155ed3add5a",
+        "b90083efbf48048fc08c56f16c48c57ca940c56dd89d0e292ebc204892373605",
+        "d85c96527d12fa2cc21b848bdfeb08276718e64cddc70ae7daa16bb092105746"
+      ],
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "sample_order": 5
+    },
+    {
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "eligible_candidate_ids": [
+        "cc_v031_006_01",
+        "cc_v031_006_02",
+        "cc_v031_006_03"
+      ],
+      "parent_normalized_sha256": [
+        "5b06c97cbc0f44c50399eba973f36c570b6523f211aac949a4330b7f25cb0f29",
+        "6b7aba242980a4b7d4f229f03e96a00b231a87eb8b5a2d8908a09b1c17715fe9",
+        "62e18eb56d6ae08c772e896787147766e0215e2e93fbbcb9e834ca423ddf6671",
+        "b5521ac81c438c8e1d5c112b5122b234d70d46d1fa849a238953d5671c1db7a6",
+        "3dea94b8460ac8c21ccb4873d52e2fa79421c5b3ec9299d092e03a80c85b2f2f"
+      ],
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "sample_order": 6
+    },
+    {
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "eligible_candidate_ids": [
+        "cc_v031_007_01"
+      ],
+      "parent_normalized_sha256": [
+        "c66cf0be85371462adfc78ffd1e32fca4baf2dd694f035dd83e907a2f4883243",
+        "03dda0bc489c48daf2aef5380c5b415ba29516b2617beab34e6a54fab3359636",
+        "04300c305ff2f2db5e18596f30aece7153cd6de59d6a423813c28cf001a11461",
+        "1e0db1ee9ae749c1a5ead3f1375a641af085846f7537b6386b57e9f3de18d93d",
+        "16c3f9be6c0f6f6b3fe0372ed246132c50def23ce8250102e2c60788d5b3f24f"
+      ],
+      "report_id": "doi:10.7554/elife.71624",
+      "sample_order": 7
+    },
+    {
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "eligible_candidate_ids": [
+        "cc_v031_008_01"
+      ],
+      "parent_normalized_sha256": [
+        "0776d9e13f998d1f8a5a3520df09849b2c88cddbc61a5046f8c24fe430cffcd4",
+        "f8f31d32a6bea990d48ad1ea8ba6a7dbf4e80a80bfc60396dc10404f0de0fc5c",
+        "a13dda27e1576fd5c8e6f533a1bb83d7dd7f62a96c4153a5037e4969ab423dac",
+        "840e2402cf3b6e1f4368fbedf05a91cfd948fafb028b8ea5149e1bc3abe062d0",
+        "840e2402cf3b6e1f4368fbedf05a91cfd948fafb028b8ea5149e1bc3abe062d0"
+      ],
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "sample_order": 8
+    },
+    {
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "eligible_candidate_ids": [
+        "cc_v031_009_01",
+        "cc_v031_009_03"
+      ],
+      "parent_normalized_sha256": [
+        "f9745bfc3c8109bb46e5b4a12d146c818ed33677c7156978525666f9653853a9",
+        "0d9ba7b2292a0b2753b0aa8ba1e1f1815ba4fc98dd9ac5953595f656becb46cf",
+        "94cb3970c13c7dcf6839d294a3de96c5eb11d5a3da9dfe67d170dd7e263e399e",
+        "067c0aede587cd22bd54e5fdb3515a7b2fe0772dd3cbbacbfc4decdb389c7b85",
+        "396fbe0d585392b508a2f085f783dee7c6ceb8d28f83143931e768f1efe957dc"
+      ],
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "sample_order": 9
+    },
+    {
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "eligible_candidate_ids": [
+        "cc_v031_010_01",
+        "cc_v031_010_02"
+      ],
+      "parent_normalized_sha256": [
+        "b50c7a46e65fe4bc8a93a6058fa2c3dcab820f2ea45e7531a0192c62f6bdbe9b",
+        "b50c7a46e65fe4bc8a93a6058fa2c3dcab820f2ea45e7531a0192c62f6bdbe9b",
+        "b50c7a46e65fe4bc8a93a6058fa2c3dcab820f2ea45e7531a0192c62f6bdbe9b",
+        "e795312c5ae8a5d17849fd60b2e86f51d8a1675e153a9c9538ac182d211f6989",
+        "e795312c5ae8a5d17849fd60b2e86f51d8a1675e153a9c9538ac182d211f6989"
+      ],
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "sample_order": 10
+    },
+    {
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "eligible_candidate_ids": [
+        "cc_v031_011_01",
+        "cc_v031_011_02"
+      ],
+      "parent_normalized_sha256": [
+        "0fce9e971127c0a044302936b95b82fc4b0366abcff1684a785119fc20a577c1",
+        "f00cc0779e338a4baf0e010113a9392659ec305f39b14e2ff19193eb2fee8168",
+        "d5854a45d7611a317d74dec079c260f7dd50cfc3aa8528e6f89be7f9a71c8dc9",
+        "0fce9e971127c0a044302936b95b82fc4b0366abcff1684a785119fc20a577c1",
+        "0fce9e971127c0a044302936b95b82fc4b0366abcff1684a785119fc20a577c1"
+      ],
+      "report_id": "doi:10.3892/or.2026.9080",
+      "sample_order": 11
+    },
+    {
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "eligible_candidate_ids": [
+        "cc_v031_012_01",
+        "cc_v031_012_02"
+      ],
+      "parent_normalized_sha256": [
+        "c98de6455dafdfeea1eb535ec5e223efced28398a92266b11512f26fb376ae7b",
+        "2ba90e12dbaf9ff7709ef57d962ca0cea6ebd95f480071f968c5c05058d5a93b",
+        "1c2799af4508a0c359a4278d2e6ca733eef8c82307bf1212b48a3772f66efc8b",
+        "dec880d8d87f2f82bed0c36dd60e4806159ad2eb306de7394878038b68e414af",
+        "c3db6a17ca5f8b6c4dda97e1a81f5dbc8236176a981e125bd79570b859ebd6df"
+      ],
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "sample_order": 12
+    }
+  ],
+  "selection_rule": "include only when all five v0.3.1 runs returned include",
+  "set_version": "0.3.2",
+  "source": "v0.3.1 five_repeat_unanimous_qualification",
+  "status": "frozen_input_pending_suite_freeze"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/validation-role-v0.3.2.schema.json",
+  "title": "Causal candidate validation role v0.3.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "candidates"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "validation_strength"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^cc_v031_[0-9]{3}_[0-9]{2}$"},
+          "validation_strength": {"type": "string", "enum": ["none", "supportive_same_experiment", "link_specific_colocalization", "orthogonal_same_link", "independent_replication", "unclear"]}
+        }
+      }
+    }
+  }
+}

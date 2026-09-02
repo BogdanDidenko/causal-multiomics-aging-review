@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/design-role-v0.3.2.schema.json",
+  "title": "Causal candidate design identity role v0.3.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "candidates"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "causal_basis", "design_family", "variation_source"],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^cc_v031_[0-9]{3}_[0-9]{2}$"},
+          "causal_basis": {"type": "string", "enum": ["effect_identification_design", "formal_directed_hypothesis"]},
+          "design_family": {"type": "string", "enum": ["genetic_instrument", "randomized_intervention", "nonrandomized_controlled_intervention", "targeted_perturbation", "mediation", "temporal_design", "graphical_or_structural_model", "causal_discovery_algorithm", "other_named_design"]},
+          "variation_source": {"type": "string", "enum": ["randomized_assignment", "genetic_instrument", "genetic_perturbation", "molecular_perturbation", "pharmacologic_intervention", "behavioral_or_environmental_intervention", "surgical_or_model_induction", "temporal_ordering", "modeled_directionality", "other_named_source"]}
+        }
+      }
+    }
+  }
+}
