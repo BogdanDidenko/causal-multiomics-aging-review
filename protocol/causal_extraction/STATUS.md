@@ -65,11 +65,16 @@ stability estimate.
 
 ## Current gate
 
-The next prospective experiment is a role-contract ablation defined in
-`design_decisions/2026-09-02-v0.3.1-fixed-candidate-result.md`. Candidate
-qualification remains a separate passed endpoint. Detailed fields are split
-into short independent contracts so their residual uncertainty is measured
-without contaminating eligibility routing.
+The frozen `v0.3.2` role-contract ablation completed 300/300 valid calls but
+failed. Five-repeat qualification agreement decreased to 40/45 (88.9%), Level
+agreement was 22/28 (78.6%), and complete candidate agreement was 14/45
+(31.1%). Splitting the compound response without changing field definitions
+did not stabilize detailed extraction and destabilized the design-unit gate.
+
+The best observed conditional routing configuration remains `v0.3.1`, with
+45/45 exact candidate qualifications. Its next use must be an independent
+validation experiment. Detailed evidence fields require a separately designed
+operational codebook and cannot be mixed into the routing claim.
 
 Processing the remaining 89 eligible reports remains blocked until:
 

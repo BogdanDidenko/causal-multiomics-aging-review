@@ -1,0 +1,3964 @@
+{
+  "complete_reports": 12,
+  "composite": {
+    "five_repeat": {
+      "candidate_exact_count": 14,
+      "candidate_exact_rate": 0.3111111111111111,
+      "candidate_total": 45,
+      "level_exact_count": 22,
+      "level_exact_rate": 0.7857142857142857,
+      "level_total": 28,
+      "passes_prespecified_gate": false,
+      "qualification_exact_count": 40,
+      "qualification_exact_rate": 0.8888888888888888,
+      "report_exact_count": 0,
+      "report_exact_rate": 0.0,
+      "report_exact_wilson_95": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "report_total": 12
+    },
+    "three_repeat": {
+      "candidate_exact_count": 17,
+      "candidate_exact_rate": 0.37777777777777777,
+      "candidate_total": 45,
+      "level_exact_count": 23,
+      "level_exact_rate": 0.8214285714285714,
+      "level_total": 28,
+      "passes_prespecified_gate": false,
+      "qualification_exact_count": 41,
+      "qualification_exact_rate": 0.9111111111111111,
+      "report_exact_count": 0,
+      "report_exact_rate": 0.0,
+      "report_exact_wilson_95": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "report_total": 12
+    }
+  },
+  "conditional_on_fixed_candidate_scaffold": true,
+  "development_only": true,
+  "experiment_id": "causal_extraction_v0.3.2_role_contract_ablation",
+  "expert_gold_standard": false,
+  "planned_calls": 300,
+  "planned_reports": 12,
+  "reference_alignment": {
+    "confusion": {
+      "reference_exclude": {
+        "exclude": 83,
+        "include": 2,
+        "unclear": 0
+      },
+      "reference_include": {
+        "exclude": 7,
+        "include": 133,
+        "unclear": 0
+      }
+    },
+    "exclude_specificity": 0.9764705882352941,
+    "include_sensitivity": 0.95,
+    "interpretation": "Development alignment only; this is not expert-gold accuracy."
+  },
+  "reference_status": "ai_assisted_analyst_draft_pending_human_verification",
+  "reports": [
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.25,
+          "candidate_total": 8,
+          "distinct_normalized_outputs": 5,
+          "level_eligible_candidate_count": 6,
+          "level_exact_count": 4,
+          "level_exact_rate": 0.6666666666666666,
+          "qualification_exact_count": 6,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.25,
+          "candidate_total": 8,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 6,
+          "level_exact_count": 4,
+          "level_exact_rate": 0.6666666666666666,
+          "qualification_exact_count": 6,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "missing_repeats": {},
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "design_family": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "variation_source": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "design_family": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "variation_source": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 4,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "contrast_status": {
+                "candidate_total": 6,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "result_status": {
+                "candidate_total": 6,
+                "rate": 0.3333333333333333,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.3333333333333333,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "contrast_status": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "result_status": {
+                "candidate_total": 6,
+                "rate": 0.3333333333333333,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 8,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "current_report_attribution": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "distinct_design_unit": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              },
+              "empirical_result": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "multiomics_workflow": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "named_causal_basis": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              },
+              "python_qualification": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 8,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "current_report_attribution": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "distinct_design_unit": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              },
+              "empirical_result": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "multiomics_workflow": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "named_causal_basis": {
+                "candidate_total": 8,
+                "rate": 1.0,
+                "unanimous_candidates": 8
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              },
+              "python_qualification": {
+                "candidate_total": 8,
+                "rate": 0.75,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "multiomics_role": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 6,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              },
+              "multiomics_role": {
+                "candidate_total": 6,
+                "rate": 1.0,
+                "unanimous_candidates": 6
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.16666666666666666,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 4,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 6,
+                "rate": 0.16666666666666666,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 0.6666666666666666,
+            "candidate_total": 6,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 6,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        }
+      },
+      "sample_order": 1
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 1,
+          "all_field_exact_candidate_rate": 0.3333333333333333,
+          "candidate_total": 3,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 1,
+          "all_field_exact_candidate_rate": 0.3333333333333333,
+          "candidate_total": 3,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "missing_repeats": {},
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "current_report_attribution": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "distinct_design_unit": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "multiomics_workflow": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "named_causal_basis": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "current_report_attribution": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "distinct_design_unit": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "multiomics_workflow": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "named_causal_basis": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 2
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 2,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 2,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 2,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 2,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "missing_repeats": {},
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "current_report_attribution": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "distinct_design_unit": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "empirical_result": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_workflow": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "named_causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "python_qualification": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "current_report_attribution": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "distinct_design_unit": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "empirical_result": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_workflow": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "named_causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "python_qualification": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        }
+      },
+      "sample_order": 3
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 1,
+          "level_exact_rate": 0.5,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "missing_repeats": {},
+      "report_id": "doi:10.1002/advs.202514269",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 4
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 1,
+          "all_field_exact_candidate_rate": 0.2,
+          "candidate_total": 5,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 4,
+          "level_exact_count": 4,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 5,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.4,
+          "candidate_total": 5,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 4,
+          "level_exact_count": 4,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 5,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "missing_repeats": {},
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "design_family": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "variation_source": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "design_family": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "variation_source": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "contrast_status": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "result_status": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "contrast_status": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "result_status": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 5,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 5,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "current_report_attribution": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "distinct_design_unit": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "empirical_result": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "multiomics_workflow": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "named_causal_basis": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "python_qualification": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 5,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 5,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "current_report_attribution": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "distinct_design_unit": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "empirical_result": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "multiomics_workflow": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "named_causal_basis": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              },
+              "python_qualification": {
+                "candidate_total": 5,
+                "rate": 1.0,
+                "unanimous_candidates": 5
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_role": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_role": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 4,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.25,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 4,
+                "rate": 0.25,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        }
+      },
+      "sample_order": 5
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 3,
+          "level_exact_count": 2,
+          "level_exact_rate": 0.6666666666666666,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 3,
+          "level_exact_count": 2,
+          "level_exact_rate": 0.6666666666666666,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "missing_repeats": {},
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "design_family": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "variation_source": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "design_family": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "variation_source": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.6666666666666666,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "contrast_status": {
+                "candidate_total": 3,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 3,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.6666666666666666,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "contrast_status": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "result_status": {
+                "candidate_total": 3,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "multiomics_role": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              },
+              "multiomics_role": {
+                "candidate_total": 3,
+                "rate": 1.0,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.6666666666666666,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 3,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.6666666666666666,
+            "candidate_total": 3,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 3,
+                "rate": 0.6666666666666666,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        }
+      },
+      "sample_order": 6
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 1,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 1,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 1,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 1,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "missing_repeats": {},
+      "report_id": "doi:10.7554/elife.71624",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "current_report_attribution": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "distinct_design_unit": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "empirical_result": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_workflow": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "named_causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "python_qualification": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "current_report_attribution": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "distinct_design_unit": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "empirical_result": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_workflow": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "named_causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "python_qualification": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 7
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 2,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 2,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 0,
+          "all_field_exact_candidate_rate": 0.0,
+          "candidate_total": 2,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 1,
+          "level_exact_count": 1,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 2,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "missing_repeats": {},
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "design_family": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "contrast_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              },
+              "result_status": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "current_report_attribution": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "distinct_design_unit": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "empirical_result": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_workflow": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "named_causal_basis": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "python_qualification": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "current_report_attribution": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "distinct_design_unit": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "empirical_result": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_workflow": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "named_causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "python_qualification": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "multiomics_role": {
+                "candidate_total": 1,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 1,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 1,
+                "rate": 1.0,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 8
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 5,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 0,
+          "level_exact_rate": 0.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 0,
+          "level_exact_rate": 0.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "missing_repeats": {},
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 4,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        }
+      },
+      "sample_order": 9
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 5,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "missing_repeats": {},
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 4,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 0,
+            "all_field_exact_candidate_rate": 0.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 0.0,
+                "unanimous_candidates": 0
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 10
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 1,
+          "all_field_exact_candidate_rate": 0.25,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 4,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 2,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 3,
+          "qualification_exact_rate": 0.75,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "missing_repeats": {},
+      "report_id": "doi:10.3892/or.2026.9080",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 4,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.5,
+                "unanimous_candidates": 2
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.5,
+                "unanimous_candidates": 2
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 11
+    },
+    {
+      "composite": {
+        "five_repeat": {
+          "all_field_exact_candidate_count": 1,
+          "all_field_exact_candidate_rate": 0.25,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 5,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 5,
+          "report_exact_agreement": false
+        },
+        "three_repeat": {
+          "all_field_exact_candidate_count": 2,
+          "all_field_exact_candidate_rate": 0.5,
+          "candidate_total": 4,
+          "distinct_normalized_outputs": 3,
+          "level_eligible_candidate_count": 2,
+          "level_exact_count": 2,
+          "level_exact_rate": 1.0,
+          "qualification_exact_count": 4,
+          "qualification_exact_rate": 1.0,
+          "repeat_count": 3,
+          "report_exact_agreement": false
+        }
+      },
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "missing_repeats": {},
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "roles": {
+        "design_identity": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "causal_basis": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "design_family": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "variation_source": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "effect_appraisal": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "assumptions_reviewability": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "contrast_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              },
+              "result_status": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "eligibility": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 3,
+            "all_field_exact_candidate_rate": 0.75,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 2,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 0.75,
+                "unanimous_candidates": 3
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 4,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 4,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "aging_relevance": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "current_report_attribution": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "distinct_design_unit": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "empirical_result": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "multiomics_workflow": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "named_causal_basis": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_first_failed_condition": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              },
+              "python_qualification": {
+                "candidate_total": 4,
+                "rate": 1.0,
+                "unanimous_candidates": 4
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        },
+        "review_context": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": false
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 1,
+            "all_field_exact_candidate_rate": 0.5,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 3,
+            "field_agreement": {
+              "aging_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              },
+              "multiomics_role": {
+                "candidate_total": 2,
+                "rate": 0.5,
+                "unanimous_candidates": 1
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": false
+          }
+        },
+        "validation": {
+          "five_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 5,
+            "report_exact_agreement": true
+          },
+          "three_repeat": {
+            "all_field_exact_candidate_count": 2,
+            "all_field_exact_candidate_rate": 1.0,
+            "candidate_total": 2,
+            "distinct_normalized_outputs": 1,
+            "field_agreement": {
+              "validation_strength": {
+                "candidate_total": 2,
+                "rate": 1.0,
+                "unanimous_candidates": 2
+              }
+            },
+            "repeat_count": 3,
+            "report_exact_agreement": true
+          }
+        }
+      },
+      "sample_order": 12
+    }
+  ],
+  "roles": {
+    "design_identity": {
+      "five_repeat": {
+        "candidate_exact_count": 24,
+        "candidate_exact_rate": 0.8571428571428571,
+        "candidate_total": 28,
+        "report_exact_count": 8,
+        "report_exact_rate": 0.6666666666666666,
+        "report_total": 12
+      },
+      "three_repeat": {
+        "candidate_exact_count": 25,
+        "candidate_exact_rate": 0.8928571428571429,
+        "candidate_total": 28,
+        "report_exact_count": 9,
+        "report_exact_rate": 0.75,
+        "report_total": 12
+      }
+    },
+    "effect_appraisal": {
+      "five_repeat": {
+        "candidate_exact_count": 12,
+        "candidate_exact_rate": 0.42857142857142855,
+        "candidate_total": 28,
+        "report_exact_count": 4,
+        "report_exact_rate": 0.3333333333333333,
+        "report_total": 12
+      },
+      "three_repeat": {
+        "candidate_exact_count": 18,
+        "candidate_exact_rate": 0.6428571428571429,
+        "candidate_total": 28,
+        "report_exact_count": 7,
+        "report_exact_rate": 0.5833333333333334,
+        "report_total": 12
+      }
+    },
+    "eligibility": {
+      "five_repeat": {
+        "candidate_exact_count": 36,
+        "candidate_exact_rate": 0.8,
+        "candidate_total": 45,
+        "report_exact_count": 5,
+        "report_exact_rate": 0.4166666666666667,
+        "report_total": 12
+      },
+      "three_repeat": {
+        "candidate_exact_count": 38,
+        "candidate_exact_rate": 0.8444444444444444,
+        "candidate_total": 45,
+        "report_exact_count": 7,
+        "report_exact_rate": 0.5833333333333334,
+        "report_total": 12
+      }
+    },
+    "review_context": {
+      "five_repeat": {
+        "candidate_exact_count": 22,
+        "candidate_exact_rate": 0.7857142857142857,
+        "candidate_total": 28,
+        "report_exact_count": 7,
+        "report_exact_rate": 0.5833333333333334,
+        "report_total": 12
+      },
+      "three_repeat": {
+        "candidate_exact_count": 23,
+        "candidate_exact_rate": 0.8214285714285714,
+        "candidate_total": 28,
+        "report_exact_count": 8,
+        "report_exact_rate": 0.6666666666666666,
+        "report_total": 12
+      }
+    },
+    "validation": {
+      "five_repeat": {
+        "candidate_exact_count": 15,
+        "candidate_exact_rate": 0.5357142857142857,
+        "candidate_total": 28,
+        "report_exact_count": 7,
+        "report_exact_rate": 0.5833333333333334,
+        "report_total": 12
+      },
+      "three_repeat": {
+        "candidate_exact_count": 20,
+        "candidate_exact_rate": 0.7142857142857143,
+        "candidate_total": 28,
+        "report_exact_count": 7,
+        "report_exact_rate": 0.5833333333333334,
+        "report_total": 12
+      }
+    }
+  },
+  "valid_calls": 300
+}
