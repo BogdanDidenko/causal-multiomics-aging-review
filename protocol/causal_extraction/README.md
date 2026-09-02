@@ -2,7 +2,7 @@
 
 ## Current status
 
-There is no active or production-approved causal-extraction codebook.
+There is no active or production-approved causal-extraction instrument.
 
 The `v0.1.0` and `v0.2.0` directories are historical instrument-development
 artifacts. In particular, `v0.2.0` is a frozen, rejected pilot and must not be
@@ -17,8 +17,9 @@ It may be used only to document instrument development and the methodological
 postmortem. Its lifecycle marker is in `v0.2.0/lifecycle.json`.
 
 The authoritative project state is recorded in `STATUS.md`. Version `v0.3.0`
-now contains a frozen 12-report development sample. Its reference inventory and
-codebook are still pending, so it is not active and model runs are not allowed.
+is a frozen 12-report free-enumeration baseline. Its 60 Terra Medium calls were
+valid, but only 1/12 reports reached exact agreement across five repeats. It is
+therefore a failed development instrument and is not active for production.
 
 ## Historical lineage
 
@@ -26,7 +27,9 @@ codebook are still pending, so it is not active and model runs are not allowed.
 |---|---|---|
 | `v0.1.0` | historical pilot | instrument-development history only |
 | `v0.2.0` | legacy, rejected, frozen | instrument-development history and methodological postmortem only |
-| `v0.3.0` | development sample frozen; codebook absent | reference-inventory development only |
+| `v0.3.0` | frozen failed development baseline | free-enumeration stability analysis and methodological postmortem only |
 
 The decision to reject `v0.2.0` and redesign the unit of analysis is documented
-in `design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md`.
+in `design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md`. The `v0.3.0`
+result and next one-factor ablation are documented in
+`design_decisions/2026-09-02-v0.3.0-free-enumeration-failure.md`.

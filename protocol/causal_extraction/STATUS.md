@@ -1,14 +1,28 @@
 # Causal extraction status
 
-Last updated: 2026-08-31; lifecycle clarification after E0 run 1.
+Last updated: 2026-09-02; v0.3.0 development stability result.
 
 > **Current entry point:** `README.md`. There is no active causal-extraction
-> codebook. Version `v0.2.0` is explicitly marked `legacy_rejected` in
-> `v0.2.0/lifecycle.json`; opening that directory does not imply approval.
+> instrument. Version `v0.3.0` is a frozen failed development baseline;
+> opening that directory does not imply production approval.
 
 ## Production status
 
 There is currently no approved production causal-extraction instrument.
+
+The frozen `v0.3.0` free-enumeration experiment completed 60/60 valid calls
+(12 reports, five repeats). Exact report agreement was 1/12 (8.3%) for both
+the three-repeat and five-repeat views. Five-repeat exact agreement for the
+analysis-anchor set was also 1/12. The instrument therefore failed its
+prespecified 100% stability gate and must not be used on the remaining 89
+reports.
+
+The failure localizes the main instability: source sufficiency was stable in
+12/12 reports, analysis count was stable in 7/12, and the conceptual reference
+analysis set was stable in 8/12, while equivalent evidence-anchor selection,
+validation classification, and analysis-unit boundaries varied. The next
+prospective experiment must separate candidate discovery from candidate
+classification and preserve `v0.3.0` unchanged as its baseline.
 
 Prompt suite `v0.1.1-rc1` and codebook `v0.2.0` are frozen rejected lineage.
 They may be cited for instrument-development and methodological postmortem
@@ -39,12 +53,12 @@ stability estimate.
 
 ## Current gate
 
-The next prospective experiment is E1, defined in
-`design_decisions/2026-08-29-e0-result-and-e1-gate.md`. E1 must freeze a new,
-disjoint development sample, two-human boundary gold, one-factor unit ablation,
-schemas, runtime, and acceptance metrics before model calls.
+The immediate next experiment is the candidate-boundary ablation defined in
+`design_decisions/2026-09-02-v0.3.0-free-enumeration-failure.md`. It reuses the
+same frozen 12-report development set and changes one factor: candidate units
+and canonical evidence anchors are fixed before repeated classification.
 
-Processing all 101 eligible reports remains blocked until:
+Processing the remaining 89 eligible reports remains blocked until:
 
 1. E0 semantic-support and analysis-boundary gold are adjudicated;
 2. E1 and subsequent development ablations are completed against expert gold;
