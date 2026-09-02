@@ -87,9 +87,9 @@ SAMPLE_SPEC = [
         "anticipated_boundary": "whole-organism genetic perturbation and lifespan",
     },
     {
-        "doi": "10.21037/tcr-2026-1-0264",
-        "diversity_role": "prediction_only_boundary",
-        "anticipated_boundary": "machine-learning association without identification",
+        "doi": "10.1186/s40364-023-00458-9",
+        "diversity_role": "factorial_genotype_diet_age",
+        "anticipated_boundary": "factorial perturbations plus associational cross-omics network",
     },
     {
         "doi": "10.3892/or.2026.9080",

@@ -43,3 +43,15 @@ full-text evidence packets with:
 ```bash
 .venv/bin/python scripts/freeze_causal_extraction_v0_3_sample.py --check
 ```
+
+## Pre-model sample correction
+
+The initial freeze included DOI `10.21037/tcr-2026-1-0264` as a
+prediction-only boundary. During reference-inventory preparation, its local
+source was found to contain only a four-page supplementary file (3,137
+canonical characters), rather than the article body. Before any v0.3 model
+output was generated, it was replaced with DOI
+`10.1186/s40364-023-00458-9`, which has a complete article body and adds a
+factorial genotype-by-diet-by-age design with an associational cross-omics
+network boundary. The superseded packet is barred from v0.3 evaluation. This
+correction and the new hashes are committed before codebook or prompt freeze.

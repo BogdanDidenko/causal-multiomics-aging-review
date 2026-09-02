@@ -151,20 +151,20 @@
       "title": "Genetic perturbation of AMP biosynthesis extends lifespan and restores metabolic health in a naturally short-lived vertebrate."
     },
     {
-      "anticipated_boundary": "machine-learning association without identification",
-      "canonical_character_count": 3137,
-      "canonical_section_count": 1,
-      "canonical_sections_sha256": "dfcee8a88ebb713f965254c8a0a621a39ff6ffab04510df4d82896f44f7f6bfb",
-      "diversity_role": "prediction_only_boundary",
-      "document_id": "doi_2b6595596a732fb9",
-      "doi": "10.21037/tcr-2026-1-0264",
+      "anticipated_boundary": "factorial perturbations plus associational cross-omics network",
+      "canonical_character_count": 78145,
+      "canonical_section_count": 45,
+      "canonical_sections_sha256": "795448241c88309e35ea6c43501a7ade6d5f203a5a22824e8f3c652986a28e2a",
+      "diversity_role": "factorial_genotype_diet_age",
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
       "evaluation_role": "development_only",
-      "evidence_atom_count": 32,
-      "evidence_atom_index_sha256": "7332869b23cfe6ff952380be5d476b9cf75aea7794822fb433924a5f70b1c9b6",
+      "evidence_atom_count": 1228,
+      "evidence_atom_index_sha256": "dc572106d751a733a346835fb0db620fbf62ceb5d2e6a0fdf304faf2822264e7",
       "prior_e0_or_checkpoint_membership": "none",
-      "report_id": "doi:10.21037/tcr-2026-1-0264",
+      "report_id": "doi:10.1186/s40364-023-00458-9",
       "sample_order": 10,
-      "title": "A senescence-based machine learning model prognosticates and personalizes therapy in cervical cancer"
+      "title": "The essential roles of FXR in diet and age influenced metabolic changes and liver disease development: a multi-omics study"
     },
     {
       "anticipated_boundary": "pharmacologic and genetic perturbation with mediation wording",
