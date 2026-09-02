@@ -68,13 +68,33 @@ def test_validation_packaging_is_complete_and_within_context() -> None:
     )
 
 
-def test_validation_freeze_hashes_all_artifacts() -> None:
+def test_original_validation_freeze_preserves_scientific_artifacts() -> None:
     manifest_path = SUITE / "phase1_artifact_manifest.json"
     manifest = read_json(manifest_path)
     freeze = read_json(SUITE / "phase1_freeze.json")
+    technical_revision_paths = {
+        "scripts/run_independent_causal_inventory.py",
+        "tests/test_causal_extraction_v0_3_1_validation_sample.py",
+    }
 
     assert freeze["artifact_manifest_sha256"] == sha256_file(manifest_path)
     assert freeze["inherits_v0_3_1_without_modification"] is True
+    for group in ("protocol_artifacts", "source_artifacts", "evidence_atom_indices"):
+        for artifact in manifest[group]:
+            if artifact["path"] in technical_revision_paths:
+                continue
+            path = REPO / artifact["path"]
+            assert path.is_file()
+            assert sha256_file(path) == artifact["sha256"]
+
+
+def test_phase1b_freeze_hashes_schema_adapter_revision() -> None:
+    manifest_path = SUITE / "phase1b_artifact_manifest.json"
+    manifest = read_json(manifest_path)
+    freeze = read_json(SUITE / "phase1b_freeze.json")
+
+    assert freeze["artifact_manifest_sha256"] == sha256_file(manifest_path)
+    assert freeze["scientific_contract_changed"] is False
     for group in ("protocol_artifacts", "source_artifacts", "evidence_atom_indices"):
         for artifact in manifest[group]:
             path = REPO / artifact["path"]

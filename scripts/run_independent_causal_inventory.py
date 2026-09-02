@@ -36,6 +36,7 @@ from causal_multiomics_aging_review.causal_extraction import (
     write_text,
 )
 from causal_multiomics_aging_review.llm import CodexCliProvider, ProviderError
+from causal_multiomics_aging_review.runtime_schema import inline_local_json_schema
 
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_SUITE = REPO / "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0"
@@ -155,7 +156,21 @@ def complete_claude_json(
                 timeout=int(config["timeout_seconds"]),
                 check=False,
             )
-        except (OSError, subprocess.TimeoutExpired) as error:
+        except subprocess.TimeoutExpired as error:
+            raw = {
+                "transport": "claude_code_cli",
+                "stdout": error.stdout.decode(errors="replace")
+                if isinstance(error.stdout, bytes)
+                else error.stdout,
+                "stderr": error.stderr.decode(errors="replace")
+                if isinstance(error.stderr, bytes)
+                else error.stderr,
+            }
+            raise ProviderError(
+                f"Claude CLI timed out after {config['timeout_seconds']} seconds",
+                raw_response=raw,
+            ) from error
+        except OSError as error:
             raise ProviderError(f"Claude CLI execution failed: {error}") from error
     raw = {
         "transport": "claude_code_cli",
@@ -218,7 +233,8 @@ class IndependentInventoryRunner:
         self.output = self.output_root / reviewer_id
         self.sample = read_json(self.suite / str(self.runtime["sample"]))
         self.source_schema = read_json(self.suite / str(self.runtime["schema"]))
-        self.codex_schema = codex_runtime_schema(self.source_schema)
+        self.cli_schema = inline_local_json_schema(self.source_schema)
+        self.codex_schema = codex_runtime_schema(self.cli_schema)
         self.task = (self.suite / str(self.runtime["task"])).read_text(encoding="utf-8")
         self.manual = (self.suite / str(self.runtime["annotation_manual"])).read_text(
             encoding="utf-8"
@@ -234,12 +250,12 @@ class IndependentInventoryRunner:
         self.codex_provider: CodexCliProvider | None = None
 
     def verify_freeze(self) -> None:
-        manifest_path = self.suite / "phase1_artifact_manifest.json"
-        freeze = read_json(self.suite / "phase1_freeze.json")
+        manifest_path = self.suite / "phase1b_artifact_manifest.json"
+        freeze = read_json(self.suite / "phase1b_freeze.json")
         manifest = read_json(manifest_path)
         if freeze["artifact_manifest_sha256"] != sha256_file(manifest_path):
-            raise ValueError("Independent-inventory phase-1 manifest changed after freeze")
-        if freeze["status"] != "frozen_before_independent_inventory_outputs":
+            raise ValueError("Independent-inventory phase-1b manifest changed after freeze")
+        if freeze["status"] != "frozen_after_schema_fix_before_valid_outputs":
             raise ValueError("Independent-inventory suite is not in its frozen phase")
         for group in ("protocol_artifacts", "source_artifacts", "evidence_atom_indices"):
             for item in manifest[group]:
@@ -287,7 +303,7 @@ class IndependentInventoryRunner:
             if previous["git_revision_at_start"] != revision:
                 raise ValueError("Resume revision differs from the original run revision")
             if previous["suite_manifest_sha256"] != sha256_file(
-                self.suite / "phase1_artifact_manifest.json"
+                self.suite / "phase1b_artifact_manifest.json"
             ):
                 raise ValueError("Resume suite manifest mismatch")
             previous["status"] = "running"
@@ -311,7 +327,7 @@ class IndependentInventoryRunner:
                 "workers": self.workers,
                 "git_revision_at_start": revision,
                 "git_worktree_dirty_at_start": False,
-                "suite_manifest_sha256": sha256_file(self.suite / "phase1_artifact_manifest.json"),
+                "suite_manifest_sha256": sha256_file(self.suite / "phase1b_artifact_manifest.json"),
                 "runner_path": relative(Path(__file__)),
                 "runner_sha256": sha256_file(Path(__file__)),
                 "environment": {
@@ -400,7 +416,7 @@ class IndependentInventoryRunner:
         if self.config["provider"] == "claude_code_cli":
             return complete_claude_json(
                 prompt=prompt,
-                schema=self.source_schema,
+                schema=self.cli_schema,
                 config=self.config,
             )
         raise ValueError(f"Unsupported provider: {self.config['provider']}")

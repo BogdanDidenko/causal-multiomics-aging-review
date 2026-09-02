@@ -1,0 +1,8 @@
+{
+  "artifact_manifest_sha256": "f2a1bff636b3b08218a1d67fa717bd571e418f6dd75647abf40676b46cd1882b",
+  "freeze_version": "1.0.1-technical-revision-1",
+  "frozen_at": "2026-09-02T21:52:48.862622+00:00",
+  "scientific_contract_changed": false,
+  "status": "frozen_after_schema_fix_before_valid_outputs",
+  "valid_output_count_at_freeze": 0
+}

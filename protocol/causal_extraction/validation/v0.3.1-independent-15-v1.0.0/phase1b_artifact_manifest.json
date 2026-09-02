@@ -1,0 +1,227 @@
+{
+  "evidence_atom_indices": [
+    {
+      "bytes": 633142,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_607fb11b82e9523c/evidence_atom_index.json",
+      "sha256": "10412b3a4080cbc2b15736348920f4aab13fa58c3ff398f9667e79ed7e60c5bd"
+    },
+    {
+      "bytes": 469005,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_7aff681a45fab3b3/evidence_atom_index.json",
+      "sha256": "c92cccb6f701564572e5170b823901246bab9cd5886a0458fca6ecd691b8ea63"
+    },
+    {
+      "bytes": 699071,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_cb894aff77cd5c89/evidence_atom_index.json",
+      "sha256": "8be027f2b4dd21072e7632ff90c2cda3da1765800739813463d6093e13c0baeb"
+    },
+    {
+      "bytes": 846488,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_26612e7f7d589ab5/evidence_atom_index.json",
+      "sha256": "772d88cc4a41e0fb468e83ae1b0855e2595034e514eba8eab152cf9537f63c8d"
+    },
+    {
+      "bytes": 1429655,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_1acf58ac7ae612c6/evidence_atom_index.json",
+      "sha256": "6c6ce7bb89486190375389816865e3d3038be9d7bef1e2d6b6714ec02a5c2b4d"
+    },
+    {
+      "bytes": 694915,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_e3200f6401ab8c4f/evidence_atom_index.json",
+      "sha256": "6d2eaa9c6f2e4bd7b3e7e3d4686fa64bfc161c40b7dcd5b25f0c534aeaba213a"
+    },
+    {
+      "bytes": 1421145,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_8b762107e7ec22eb/evidence_atom_index.json",
+      "sha256": "b84caa2144bb016707bdcca04c5812a555c86743a9e2f5cff9b10fa04bb02d13"
+    },
+    {
+      "bytes": 1032574,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_9bd21f903f00005b/evidence_atom_index.json",
+      "sha256": "460d338fb153fa710c24270d37b2da56589bc9052cccc9e329078846f34ccb66"
+    },
+    {
+      "bytes": 794894,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_fc55eaf97b778a04/evidence_atom_index.json",
+      "sha256": "e9ad64e361e1b284457296248e27be94d4d323bfcac61ca9fb337a13598a708f"
+    },
+    {
+      "bytes": 796542,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_6b523b6e6aa043ca/evidence_atom_index.json",
+      "sha256": "6fe0bff1d252045546a05476efedeed7b377e6186ad240fe3489e5eee8d48f32"
+    },
+    {
+      "bytes": 24047,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_2b6595596a732fb9/evidence_atom_index.json",
+      "sha256": "2baab3725672fd9cbadf21b35be6f80d0fee0122be9427915bce86d8bea7eb91"
+    },
+    {
+      "bytes": 13890,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_4a012b9c4a8fd193/evidence_atom_index.json",
+      "sha256": "d10596f7847c7a7128abef1dfc908f0422788d57794d45c91be8ac3ab8f1b05d"
+    },
+    {
+      "bytes": 482993,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_ef6b9bff3b03d476/evidence_atom_index.json",
+      "sha256": "c67befe44804b6473cd820f52f0d49ed9fbb9c3a5ef02db2a5f441972c1a31fd"
+    },
+    {
+      "bytes": 472495,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_ec4e8c88344d7790/evidence_atom_index.json",
+      "sha256": "7b360ef1831309ce35aedbf4b19ff0bf208a70829dc7e3a5eda32ae1176a51a7"
+    },
+    {
+      "bytes": 9401,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/doi_9575eb110c43e1be/evidence_atom_index.json",
+      "sha256": "d14cb53874b7cbb0a2f98fc49edc9e4da38b9653467b2b2782889c678133663b"
+    }
+  ],
+  "manifest_version": "1.0.1-technical-revision-1",
+  "protocol_artifacts": [
+    {
+      "bytes": 2548,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/sampling_protocol.md",
+      "sha256": "6cce8c51e6939b25efd529ca5e24336088faf6cbe2be1c9189e373fbbb033de5"
+    },
+    {
+      "bytes": 2557,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/annotation_manual.md",
+      "sha256": "02feb3b795aa0329cd7306164bc389293ecde322d217ec5705b8a2f9340ca2eb"
+    },
+    {
+      "bytes": 786,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/annotation_task.txt",
+      "sha256": "714a193356be0a0b64139d57d74ed0ea72a6f877f4356babbc345eb29d8d0b1a"
+    },
+    {
+      "bytes": 4488,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/reference_inventory.schema.json",
+      "sha256": "2b3f81ff07287a45704001b56b47135e71ca55e8ee58c8164252fcf840d41615"
+    },
+    {
+      "bytes": 2208,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/runtime.json",
+      "sha256": "917c136d2950de6fc4b10810de90d48631708e6d65b5bbd7e25919e08b1408ba"
+    },
+    {
+      "bytes": 14829,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/sample.json",
+      "sha256": "10a753a7c385456bf16042d769cf3916794206c2ade1d1b5566a6d88a2117475"
+    },
+    {
+      "bytes": 7271,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/phase1_packaging_audit.json",
+      "sha256": "bd56a57745eebcdf08af9d0560b0cb9e9e4801c661ea04ba64d0a07928ed137a"
+    },
+    {
+      "bytes": 6407,
+      "path": "protocol/causal_extraction/v0.3.1/codebook.md",
+      "sha256": "1532dd6b1d196c4f1df6574692c225eda1ded74557afc49724dbc99cbd93c5bc"
+    },
+    {
+      "bytes": 2452,
+      "path": "protocol/causal_extraction/v0.3.1/prompt.txt",
+      "sha256": "da7cd83922ebfe29f2a5c423d473d09be9c7e250096e2993df918b4ab29a642f"
+    },
+    {
+      "bytes": 4719,
+      "path": "protocol/causal_extraction/v0.3.1/candidate_classification.schema.json",
+      "sha256": "57c37d7837b607344231097cb8915e878ee06bd7a6509ace2e88ae6ff1715717"
+    },
+    {
+      "bytes": 1830,
+      "path": "protocol/causal_extraction/v0.3.1/runtime.json",
+      "sha256": "3fbd617989dc29ce3fc37937abcefcca4467e2fe427009e56eb1ff1571e77700"
+    },
+    {
+      "bytes": 21749,
+      "path": "scripts/freeze_causal_extraction_v0_3_1_validation_sample.py",
+      "sha256": "a5751b15c996275ffa02f0b76b8060a9d07c7edabf604a17fc46574d78cb322a"
+    },
+    {
+      "bytes": 7557,
+      "path": "scripts/prepare_causal_validation_external_reports.py",
+      "sha256": "97da8f1a8250e6b12d8c813c30bd78ac883f37f5c980a2516636330c7b6baa6c"
+    },
+    {
+      "bytes": 9563,
+      "path": "src/causal_multiomics_aging_review/causal_analysis_inventory.py",
+      "sha256": "cc2bae3e505a2bd2c8e920782a9c5c39abb82d6b8274454a14870bd39aec5d6c"
+    },
+    {
+      "bytes": 3432,
+      "path": "tests/test_independent_causal_inventory.py",
+      "sha256": "985faccb2e698ed73329ba966eb10dab5bf646cbacd5e7e4e50b6ce83bb8c3d8"
+    },
+    {
+      "bytes": 1516,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/technical_failure_001.md",
+      "sha256": "9a68736c02c328095a8b3287f17a9dcd090fa8a84365437531261e2a73324195"
+    },
+    {
+      "bytes": 42280,
+      "path": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/technical_failure_001.json",
+      "sha256": "823c353937d63eeb9429d41df83acba1213fb17b36064e5376c11c38f0d51f4e"
+    },
+    {
+      "bytes": 23604,
+      "path": "scripts/run_independent_causal_inventory.py",
+      "sha256": "489ef80bc7890435f01dd8dfaa6441300ad59cb77c6d9b1ff3106bbaab19714b"
+    },
+    {
+      "bytes": 8054,
+      "path": "scripts/freeze_independent_inventory_technical_revision_1.py",
+      "sha256": "9c7538ac96c42566205f476cf55682248350b280b0db0cbfb3b5d80e9116a0a5"
+    },
+    {
+      "bytes": 2265,
+      "path": "src/causal_multiomics_aging_review/runtime_schema.py",
+      "sha256": "99a46f00756fc2f439282bc4e494cae2f3a120013be484c998e3531928270ffe"
+    },
+    {
+      "bytes": 1744,
+      "path": "tests/test_runtime_schema.py",
+      "sha256": "422f1b215665b00e6490efa6afd712c90bfc255df479369169de0dd0e0c976ab"
+    },
+    {
+      "bytes": 3998,
+      "path": "tests/test_causal_extraction_v0_3_1_validation_sample.py",
+      "sha256": "fcb28334fabc208fce6e368189e6452e41a81533f095da286a53ccaf48e079da"
+    }
+  ],
+  "scientific_contract_sha256": "17d20eaed7b3030df1086d170c93efcb7a273066668f0ab81a4f7cef3a0c92c3",
+  "source_artifacts": [
+    {
+      "bytes": 14411490,
+      "path": "data/full_text_screening/v1.5.3_deterministic_full_text_158/input.jsonl",
+      "sha256": "2894e86904cf9cb372b303bacabb06be20616d9dac8d55cae985bd08a5e19445"
+    },
+    {
+      "bytes": 61703,
+      "path": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+      "sha256": "17bd41303372a4f7cbd9c1697c7e6a93874348b3d61bfd60d033b3e06ba1bae7"
+    },
+    {
+      "bytes": 16502814,
+      "path": "data/screening/v1.1.2_full_corpus/input.csv",
+      "sha256": "4749750acd7e833c0b29d44af02104570351c7676bd4d50f081bf94cb7fcd5d2"
+    },
+    {
+      "bytes": 134718,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/external/external_records.jsonl",
+      "sha256": "83dbf8cbea3902d17d3689398045111963710f105f8ef4d090ed3530cc8c61bc"
+    },
+    {
+      "bytes": 6073,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/external/manifest.json",
+      "sha256": "667083ca636da69bdd57e1ee8921b2a994d3fcecc764cd740e228b95038f7ace"
+    },
+    {
+      "bytes": 6377,
+      "path": "data/causal_extraction/v0.3.1_independent_validation/inputs/source_inventory.json",
+      "sha256": "1edee7247612d70dc9f085b2996480c576bf8c9fbb9905cdd4201c909afcab83"
+    }
+  ],
+  "source_phase1_freeze_sha256": "f18aec9516e66efb84b43258791e5e8b792e5ebafd9997789cd0f0694dfc3391",
+  "source_phase1_manifest_sha256": "30217adaae4b42c8bc69c706604e81bb6c27fba06fe9530c744de6a9f7991585"
+}
