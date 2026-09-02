@@ -1,0 +1,2416 @@
+{
+  "complete_reports": 12,
+  "conditional_on_fixed_candidate_scaffold": true,
+  "development_only": true,
+  "experiment_id": "causal_extraction_v0.3.1_fixed_candidate_ablation",
+  "expert_gold_standard": false,
+  "five_repeat": {
+    "all_fields_exact_count": 17,
+    "all_fields_exact_rate": 0.37777777777777777,
+    "candidate_total": 45,
+    "decision_path_exact_count": 34,
+    "decision_path_exact_rate": 0.7555555555555555,
+    "passes_prespecified_exact_agreement_gate": false,
+    "qualification_exact_count": 45,
+    "qualification_exact_rate": 1.0,
+    "report_exact_agreement_count": 1,
+    "report_exact_agreement_rate": 0.08333333333333333,
+    "report_exact_agreement_wilson_95": [
+      0.014865094404917095,
+      0.35387991114111694
+    ],
+    "reports": 12
+  },
+  "planned_calls": 60,
+  "planned_reports": 12,
+  "reference_alignment": {
+    "confusion": {
+      "reference_exclude": {
+        "exclude": 85,
+        "include": 0,
+        "unclear": 0
+      },
+      "reference_include": {
+        "exclude": 0,
+        "include": 140,
+        "unclear": 0
+      }
+    },
+    "exclude_specificity": 1.0,
+    "include_sensitivity": 1.0,
+    "interpretation": "Development alignment only; this is not expert-gold accuracy."
+  },
+  "reference_status": "ai_assisted_analyst_draft_pending_human_verification",
+  "reports": [
+    {
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "five_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 8,
+        "decision_path_exact_count": 7,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "causal_basis": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "contrast_status": {
+            "candidate_total": 8,
+            "rate": 0.25,
+            "unanimous_candidates": 2
+          },
+          "design_family": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "first_failed_condition": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "multiomics_role": {
+            "candidate_total": 8,
+            "rate": 0.875,
+            "unanimous_candidates": 7
+          },
+          "python_derived_level": {
+            "candidate_total": 8,
+            "rate": 0.875,
+            "unanimous_candidates": 7
+          },
+          "qualification": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "result_status": {
+            "candidate_total": 8,
+            "rate": 0.625,
+            "unanimous_candidates": 5
+          },
+          "validation_strength": {
+            "candidate_total": 8,
+            "rate": 0.375,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          }
+        },
+        "included_counts": [
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "qualification_exact_count": 8,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 8,
+          "matching_qualifications": 8,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 8,
+          "matching_qualifications": 8,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 8,
+          "matching_qualifications": 8,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 8,
+          "matching_qualifications": 8,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 8,
+          "matching_qualifications": 8,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "sample_order": 1,
+      "three_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 8,
+        "decision_path_exact_count": 8,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "causal_basis": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "contrast_status": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "design_family": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "first_failed_condition": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "multiomics_role": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "python_derived_level": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "qualification": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          },
+          "result_status": {
+            "candidate_total": 8,
+            "rate": 0.625,
+            "unanimous_candidates": 5
+          },
+          "validation_strength": {
+            "candidate_total": 8,
+            "rate": 0.625,
+            "unanimous_candidates": 5
+          },
+          "variation_source": {
+            "candidate_total": 8,
+            "rate": 1.0,
+            "unanimous_candidates": 8
+          }
+        },
+        "included_counts": [
+          6,
+          6,
+          6
+        ],
+        "qualification_exact_count": 8,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "five_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 3,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 3,
+            "rate": 0.6666666666666666,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "contrast_status": {
+            "candidate_total": 3,
+            "rate": 0.3333333333333333,
+            "unanimous_candidates": 1
+          },
+          "design_family": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "first_failed_condition": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "python_derived_level": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "result_status": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 3,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 3,
+          "matching_qualifications": 3,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 3,
+          "matching_qualifications": 3,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 3,
+          "matching_qualifications": 3,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 3,
+          "matching_qualifications": 3,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 3,
+          "matching_qualifications": 3,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "sample_order": 2,
+      "three_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 3,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 2,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 3,
+            "rate": 0.6666666666666666,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "contrast_status": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "design_family": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "first_failed_condition": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "python_derived_level": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "result_status": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 3,
+            "rate": 1.0,
+            "unanimous_candidates": 3
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 3,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "five_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 2,
+        "decision_path_exact_count": 2,
+        "distinct_normalized_outputs": 1,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "causal_basis": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "contrast_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "design_family": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "first_failed_condition": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "multiomics_role": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "python_derived_level": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "qualification": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "result_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "validation_strength": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 2,
+        "repeat_count": 5,
+        "report_exact_agreement": true,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "sample_order": 3,
+      "three_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 2,
+        "decision_path_exact_count": 2,
+        "distinct_normalized_outputs": 1,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "causal_basis": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "contrast_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "design_family": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "first_failed_condition": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "multiomics_role": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "python_derived_level": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "qualification": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "result_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "validation_strength": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 2,
+        "repeat_count": 3,
+        "report_exact_agreement": true,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "five_repeat": {
+        "all_fields_exact_count": 3,
+        "candidate_total": 4,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1002/advs.202514269",
+      "sample_order": 4,
+      "three_repeat": {
+        "all_fields_exact_count": 3,
+        "candidate_total": 4,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "five_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 5,
+        "decision_path_exact_count": 5,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 5,
+            "rate": 0.4,
+            "unanimous_candidates": 2
+          },
+          "causal_basis": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "contrast_status": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "design_family": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "first_failed_condition": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "multiomics_role": {
+            "candidate_total": 5,
+            "rate": 0.4,
+            "unanimous_candidates": 2
+          },
+          "python_derived_level": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "qualification": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "result_status": {
+            "candidate_total": 5,
+            "rate": 0.6,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 5,
+            "rate": 0.8,
+            "unanimous_candidates": 4
+          },
+          "variation_source": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          }
+        },
+        "included_counts": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "qualification_exact_count": 5,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 5,
+          "matching_qualifications": 5,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 5,
+          "matching_qualifications": 5,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 5,
+          "matching_qualifications": 5,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 5,
+          "matching_qualifications": 5,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 5,
+          "matching_qualifications": 5,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "sample_order": 5,
+      "three_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 5,
+        "decision_path_exact_count": 5,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 5,
+            "rate": 0.6,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "contrast_status": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "design_family": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "first_failed_condition": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "multiomics_role": {
+            "candidate_total": 5,
+            "rate": 0.6,
+            "unanimous_candidates": 3
+          },
+          "python_derived_level": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "qualification": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          },
+          "result_status": {
+            "candidate_total": 5,
+            "rate": 0.8,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 5,
+            "rate": 0.8,
+            "unanimous_candidates": 4
+          },
+          "variation_source": {
+            "candidate_total": 5,
+            "rate": 1.0,
+            "unanimous_candidates": 5
+          }
+        },
+        "included_counts": [
+          4,
+          4,
+          4
+        ],
+        "qualification_exact_count": 5,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "five_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 4,
+        "decision_path_exact_count": 4,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 0.25,
+            "unanimous_candidates": 1
+          }
+        },
+        "included_counts": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "sample_order": 6,
+      "three_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 4,
+        "decision_path_exact_count": 4,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 0.25,
+            "unanimous_candidates": 1
+          }
+        },
+        "included_counts": [
+          3,
+          3,
+          3
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "five_repeat": {
+        "all_fields_exact_count": 0,
+        "candidate_total": 1,
+        "decision_path_exact_count": 0,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "causal_basis": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "contrast_status": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "design_family": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "first_failed_condition": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "multiomics_role": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "python_derived_level": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "qualification": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "result_status": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "validation_strength": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "variation_source": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 1,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 1,
+          "matching_qualifications": 1,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 1,
+          "matching_qualifications": 1,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 1,
+          "matching_qualifications": 1,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 1,
+          "matching_qualifications": 1,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 1,
+          "matching_qualifications": 1,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.7554/elife.71624",
+      "sample_order": 7,
+      "three_repeat": {
+        "all_fields_exact_count": 0,
+        "candidate_total": 1,
+        "decision_path_exact_count": 0,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "causal_basis": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "contrast_status": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "design_family": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "first_failed_condition": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "multiomics_role": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "python_derived_level": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "qualification": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "result_status": {
+            "candidate_total": 1,
+            "rate": 1.0,
+            "unanimous_candidates": 1
+          },
+          "validation_strength": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          },
+          "variation_source": {
+            "candidate_total": 1,
+            "rate": 0.0,
+            "unanimous_candidates": 0
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 1,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "five_repeat": {
+        "all_fields_exact_count": 0,
+        "candidate_total": 2,
+        "decision_path_exact_count": 0,
+        "distinct_normalized_outputs": 4,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "causal_basis": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "contrast_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "design_family": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "first_failed_condition": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "multiomics_role": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "python_derived_level": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "qualification": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "result_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "validation_strength": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "variation_source": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 2,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 2,
+          "matching_qualifications": 2,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "sample_order": 8,
+      "three_repeat": {
+        "all_fields_exact_count": 0,
+        "candidate_total": 2,
+        "decision_path_exact_count": 0,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "causal_basis": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "contrast_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "design_family": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "first_failed_condition": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "multiomics_role": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "python_derived_level": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "qualification": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "result_status": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          },
+          "validation_strength": {
+            "candidate_total": 2,
+            "rate": 0.5,
+            "unanimous_candidates": 1
+          },
+          "variation_source": {
+            "candidate_total": 2,
+            "rate": 1.0,
+            "unanimous_candidates": 2
+          }
+        },
+        "included_counts": [
+          1,
+          1,
+          1
+        ],
+        "qualification_exact_count": 2,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "five_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 4,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "sample_order": 9,
+      "three_repeat": {
+        "all_fields_exact_count": 3,
+        "candidate_total": 4,
+        "decision_path_exact_count": 4,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "five_repeat": {
+        "all_fields_exact_count": 3,
+        "candidate_total": 4,
+        "decision_path_exact_count": 4,
+        "distinct_normalized_outputs": 2,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "sample_order": 10,
+      "three_repeat": {
+        "all_fields_exact_count": 4,
+        "candidate_total": 4,
+        "decision_path_exact_count": 4,
+        "distinct_normalized_outputs": 1,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": true,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "five_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 4,
+        "decision_path_exact_count": 1,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.3892/or.2026.9080",
+      "sample_order": 11,
+      "three_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 4,
+        "decision_path_exact_count": 1,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    },
+    {
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "five_repeat": {
+        "all_fields_exact_count": 1,
+        "candidate_total": 4,
+        "decision_path_exact_count": 2,
+        "distinct_normalized_outputs": 5,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 5,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "missing_repeats": [],
+      "reference_alignment_by_repeat": [
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 1
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 2
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 3
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 4
+        },
+        {
+          "candidate_total": 4,
+          "matching_qualifications": 4,
+          "rate": 1.0,
+          "repeat": 5
+        }
+      ],
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "sample_order": 12,
+      "three_repeat": {
+        "all_fields_exact_count": 2,
+        "candidate_total": 4,
+        "decision_path_exact_count": 3,
+        "distinct_normalized_outputs": 3,
+        "field_agreement": {
+          "aging_role": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "assumptions_reviewability": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "causal_basis": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "contrast_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "design_family": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "first_failed_condition": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "multiomics_role": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "python_derived_level": {
+            "candidate_total": 4,
+            "rate": 0.75,
+            "unanimous_candidates": 3
+          },
+          "qualification": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "result_status": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          },
+          "validation_strength": {
+            "candidate_total": 4,
+            "rate": 0.5,
+            "unanimous_candidates": 2
+          },
+          "variation_source": {
+            "candidate_total": 4,
+            "rate": 1.0,
+            "unanimous_candidates": 4
+          }
+        },
+        "included_counts": [
+          2,
+          2,
+          2
+        ],
+        "qualification_exact_count": 4,
+        "repeat_count": 3,
+        "report_exact_agreement": false,
+        "source_status_exact_agreement": true
+      },
+      "valid_repeat_count": 5
+    }
+  ],
+  "three_repeat": {
+    "all_fields_exact_count": 22,
+    "all_fields_exact_rate": 0.4888888888888889,
+    "candidate_total": 45,
+    "decision_path_exact_count": 37,
+    "decision_path_exact_rate": 0.8222222222222222,
+    "passes_prespecified_exact_agreement_gate": false,
+    "qualification_exact_count": 45,
+    "qualification_exact_rate": 1.0,
+    "report_exact_agreement_count": 2,
+    "report_exact_agreement_rate": 0.16666666666666666,
+    "report_exact_agreement_wilson_95": [
+      0.04696514218385378,
+      0.4480308622529734
+    ],
+    "reports": 12
+  },
+  "valid_calls": 60
+}

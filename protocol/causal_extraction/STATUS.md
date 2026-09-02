@@ -24,6 +24,18 @@ validation classification, and analysis-unit boundaries varied. The next
 prospective experiment must separate candidate discovery from candidate
 classification and preserve `v0.3.0` unchanged as its baseline.
 
+The frozen `v0.3.1` fixed-candidate ablation also completed 60/60 valid calls.
+Candidate qualification was exact for 45/45 candidates across both three and
+five repeats. Across all 225 model decisions, include sensitivity and exclude
+specificity against the analyst draft were both 100%. These are conditional
+development results, not expert-gold accuracy estimates.
+
+The full classification record still failed: only 17/45 candidates (37.8%)
+had five-repeat agreement across every descriptive field, and only 1/12 reports
+had an identical complete output. Fixed candidate boundaries therefore solve
+the inclusion decision on this sample but do not stabilize detailed causal
+evidence characterization.
+
 Prompt suite `v0.1.1-rc1` and codebook `v0.2.0` are frozen rejected lineage.
 They may be cited for instrument-development and methodological postmortem
 only. Their candidate records, candidate counts as causal-claim counts, and
@@ -53,10 +65,11 @@ stability estimate.
 
 ## Current gate
 
-The immediate next experiment is the candidate-boundary ablation defined in
-`design_decisions/2026-09-02-v0.3.0-free-enumeration-failure.md`. It reuses the
-same frozen 12-report development set and changes one factor: candidate units
-and canonical evidence anchors are fixed before repeated classification.
+The next prospective experiment is a role-contract ablation defined in
+`design_decisions/2026-09-02-v0.3.1-fixed-candidate-result.md`. Candidate
+qualification remains a separate passed endpoint. Detailed fields are split
+into short independent contracts so their residual uncertainty is measured
+without contaminating eligibility routing.
 
 Processing the remaining 89 eligible reports remains blocked until:
 
