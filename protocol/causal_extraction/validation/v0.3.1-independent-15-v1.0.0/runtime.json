@@ -1,0 +1,68 @@
+{
+  "experiment_id": "causal_extraction_v0.3.1_independent_inventory_15_v1.0.0",
+  "status": "pre_first_independent_inventory_output",
+  "sample": "sample.json",
+  "annotation_manual": "annotation_manual.md",
+  "task": "annotation_task.txt",
+  "schema": "reference_inventory.schema.json",
+  "inherited_codebook": "../../v0.3.1/codebook.md",
+  "packaging": {
+    "representation": "all_evidence_atoms_compact_v1",
+    "include_every_report_atom": true,
+    "preserve_document_order": true,
+    "model_based_source_selection": false,
+    "graph_based_source_selection": false,
+    "max_rendered_prompt_tokens": 110000
+  },
+  "technical_retry_limit": 1,
+  "reviewers": {
+    "codex": {
+      "provider": "codex_cli",
+      "executable": "codex",
+      "model": "gpt-5.6-terra",
+      "reasoning_effort": "medium",
+      "required_cli_version": "codex-cli 0.145.0",
+      "context_window": 131072,
+      "timeout_seconds": 1800,
+      "workers": 2,
+      "session_policy": {
+        "ephemeral": true,
+        "isolated_home": true,
+        "ignore_user_config": true,
+        "ignore_repository_instructions": true,
+        "plugins_enabled": false,
+        "sandbox": "read-only"
+      }
+    },
+    "claude_opus_4_8": {
+      "provider": "claude_code_cli",
+      "executable": "op",
+      "model": "claude-opus-4-8",
+      "effort": "high",
+      "required_cli_version": "2.1.223 (Claude Code)",
+      "timeout_seconds": 3600,
+      "workers": 2,
+      "session_policy": {
+        "safe_mode": true,
+        "tools_enabled": false,
+        "session_persistence": false,
+        "permission_mode": "dontAsk",
+        "chrome_enabled": false
+      }
+    }
+  },
+  "independence_policy": {
+    "one_fresh_session_per_report_and_reviewer": true,
+    "reviewer_outputs_physically_separated": true,
+    "cross_reviewer_outputs_in_prompt": false,
+    "prior_causal_extraction_outputs_in_prompt": false,
+    "expected_labels_in_prompt": false,
+    "expert_gold_standard": false
+  },
+  "decision_policy": {
+    "model_outputs_are_independent_analyst_drafts": true,
+    "reconciliation_begins_after_all_outputs_are_frozen": true,
+    "automatic_majority_vote": false,
+    "python_interprets_scientific_text": false
+  }
+}

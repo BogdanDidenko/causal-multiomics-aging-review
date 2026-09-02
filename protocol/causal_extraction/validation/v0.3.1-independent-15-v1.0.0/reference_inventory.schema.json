@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/independent-inventory-v1.0.0.schema.json",
+  "title": "Independent causal-analysis inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reviewer_id",
+    "report_id",
+    "source_status",
+    "qualifying_analyses",
+    "excluded_boundary_candidates",
+    "coverage_note"
+  ],
+  "properties": {
+    "reviewer_id": {"type": "string", "enum": ["codex", "claude_opus_4_8"]},
+    "report_id": {"type": "string", "minLength": 1},
+    "source_status": {
+      "type": "string",
+      "enum": ["sufficient", "insufficient_or_corrupt"]
+    },
+    "qualifying_analyses": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/qualifying_analysis"}
+    },
+    "excluded_boundary_candidates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/boundary_candidate"}
+    },
+    "coverage_note": {"type": "string", "maxLength": 500}
+  },
+  "$defs": {
+    "nonempty_string_array": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "evidence_id_array": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^ea_[0-9a-f]{24}$"}
+    },
+    "qualifying_analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_candidate_id",
+        "analysis_label",
+        "identifying_variation_or_assignment",
+        "exposure_or_intervention_construct",
+        "comparator",
+        "biological_system",
+        "outcome_constructs",
+        "causal_basis",
+        "design_family",
+        "method_evidence_atom_ids",
+        "result_evidence_atom_ids",
+        "validation_evidence_atom_ids",
+        "boundary_note"
+      ],
+      "properties": {
+        "reviewer_candidate_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "analysis_label": {"type": "string", "minLength": 1, "maxLength": 240},
+        "identifying_variation_or_assignment": {"type": "string", "minLength": 1, "maxLength": 300},
+        "exposure_or_intervention_construct": {"type": "string", "minLength": 1, "maxLength": 300},
+        "comparator": {"type": "string", "minLength": 1, "maxLength": 300},
+        "biological_system": {"type": "string", "minLength": 1, "maxLength": 300},
+        "outcome_constructs": {"$ref": "#/$defs/nonempty_string_array"},
+        "causal_basis": {
+          "type": "string",
+          "enum": ["effect_identification_design", "formal_directed_hypothesis"]
+        },
+        "design_family": {
+          "type": "string",
+          "enum": [
+            "genetic_instrument",
+            "randomized_intervention",
+            "nonrandomized_controlled_intervention",
+            "targeted_perturbation",
+            "mediation",
+            "temporal_design",
+            "graphical_or_structural_model",
+            "causal_discovery_algorithm",
+            "other_named_design"
+          ]
+        },
+        "method_evidence_atom_ids": {
+          "allOf": [{"$ref": "#/$defs/evidence_id_array"}, {"minItems": 1}]
+        },
+        "result_evidence_atom_ids": {
+          "allOf": [{"$ref": "#/$defs/evidence_id_array"}, {"minItems": 1}]
+        },
+        "validation_evidence_atom_ids": {"$ref": "#/$defs/evidence_id_array"},
+        "boundary_note": {"type": "string", "minLength": 1, "maxLength": 500}
+      }
+    },
+    "boundary_candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_candidate_id",
+        "candidate_label",
+        "first_failed_condition",
+        "evidence_atom_ids",
+        "boundary_note"
+      ],
+      "properties": {
+        "reviewer_candidate_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "candidate_label": {"type": "string", "minLength": 1, "maxLength": 240},
+        "first_failed_condition": {
+          "type": "string",
+          "enum": [
+            "not_current_report",
+            "no_empirical_result",
+            "no_aging_relevance",
+            "no_named_causal_basis",
+            "not_multiomics_workflow",
+            "not_distinct_design_unit",
+            "insufficient_evidence"
+          ]
+        },
+        "evidence_atom_ids": {
+          "allOf": [{"$ref": "#/$defs/evidence_id_array"}, {"minItems": 1}]
+        },
+        "boundary_note": {"type": "string", "minLength": 1, "maxLength": 500}
+      }
+    }
+  }
+}

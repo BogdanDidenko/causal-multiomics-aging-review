@@ -1,0 +1,9 @@
+{
+  "artifact_manifest_sha256": "30217adaae4b42c8bc69c706604e81bb6c27fba06fe9530c744de6a9f7991585",
+  "expert_gold_standard": false,
+  "freeze_version": "1.0.0",
+  "frozen_at": "2026-09-02T21:46:23.853086+00:00",
+  "independent_output_count_at_freeze": 0,
+  "inherits_v0_3_1_without_modification": true,
+  "status": "frozen_before_independent_inventory_outputs"
+}

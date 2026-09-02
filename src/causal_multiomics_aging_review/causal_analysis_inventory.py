@@ -36,12 +36,7 @@ def build_compact_report_packet(atom_index: dict[str, Any]) -> str:
     for atom in atom_index["atoms"]:
         section_id = str(atom["section_id"])
         if section_id != current_section:
-            lines.append(
-                "S\t"
-                + section_id
-                + "\t"
-                + _json_string(str(atom.get("heading", "")))
-            )
+            lines.append("S\t" + section_id + "\t" + _json_string(str(atom.get("heading", ""))))
             current_section = section_id
         lines.append(
             "A\t"
@@ -120,9 +115,7 @@ def validate_inventory_semantics(
     return errors
 
 
-def normalize_inventory(
-    response: dict[str, Any], atom_index: dict[str, Any]
-) -> dict[str, Any]:
+def normalize_inventory(response: dict[str, Any], atom_index: dict[str, Any]) -> dict[str, Any]:
     value = copy.deepcopy(response)
     atoms = atom_map(atom_index)
     for analysis in value["analyses"]:
@@ -133,6 +126,121 @@ def normalize_inventory(
             atoms[analysis["method_atom_id"]]["document_atom_order"],
             atoms[analysis["result_atom_id"]]["document_atom_order"],
             canonical_json(analysis),
+        )
+    )
+    return value
+
+
+def validate_reference_inventory_semantics(
+    response: dict[str, Any],
+    *,
+    expected_reviewer_id: str,
+    expected_report_id: str,
+    atom_index: dict[str, Any],
+) -> list[str]:
+    """Validate identifiers and evidence grounding without interpreting prose."""
+    errors: list[str] = []
+    if response.get("reviewer_id") != expected_reviewer_id:
+        errors.append("reviewer_id does not match the assigned reviewer")
+    if response.get("report_id") != expected_report_id:
+        errors.append("report_id does not match the supplied report")
+
+    qualifying = response.get("qualifying_analyses", [])
+    boundaries = response.get("excluded_boundary_candidates", [])
+    if response.get("source_status") == "insufficient_or_corrupt" and (qualifying or boundaries):
+        errors.append("insufficient_or_corrupt source must have empty candidate inventories")
+
+    atoms = atom_map(atom_index)
+    seen_candidate_ids: set[str] = set()
+    seen_qualifying: set[str] = set()
+    for index, analysis in enumerate(qualifying):
+        prefix = f"qualifying_analyses[{index}]"
+        candidate_id = str(analysis.get("reviewer_candidate_id", ""))
+        if candidate_id in seen_candidate_ids:
+            errors.append(f"{prefix}: duplicate reviewer_candidate_id {candidate_id}")
+        seen_candidate_ids.add(candidate_id)
+
+        evidence_ids = (
+            list(analysis.get("method_evidence_atom_ids", []))
+            + list(analysis.get("result_evidence_atom_ids", []))
+            + list(analysis.get("validation_evidence_atom_ids", []))
+        )
+        for atom_id in evidence_ids:
+            if atom_id not in atoms:
+                errors.append(f"{prefix}: unknown evidence atom {atom_id}")
+
+        identity = canonical_json(
+            {
+                key: value
+                for key, value in analysis.items()
+                if key not in {"reviewer_candidate_id", "analysis_label", "boundary_note"}
+            }
+        )
+        if identity in seen_qualifying:
+            errors.append(f"{prefix}: duplicate qualifying analysis")
+        seen_qualifying.add(identity)
+
+    seen_boundaries: set[str] = set()
+    for index, boundary in enumerate(boundaries):
+        prefix = f"excluded_boundary_candidates[{index}]"
+        candidate_id = str(boundary.get("reviewer_candidate_id", ""))
+        if candidate_id in seen_candidate_ids:
+            errors.append(f"{prefix}: duplicate reviewer_candidate_id {candidate_id}")
+        seen_candidate_ids.add(candidate_id)
+
+        for atom_id in boundary.get("evidence_atom_ids", []):
+            if atom_id not in atoms:
+                errors.append(f"{prefix}: unknown evidence atom {atom_id}")
+
+        identity = canonical_json(
+            {
+                key: value
+                for key, value in boundary.items()
+                if key not in {"reviewer_candidate_id", "candidate_label", "boundary_note"}
+            }
+        )
+        if identity in seen_boundaries:
+            errors.append(f"{prefix}: duplicate boundary candidate")
+        seen_boundaries.add(identity)
+    return errors
+
+
+def normalize_reference_inventory(
+    response: dict[str, Any], atom_index: dict[str, Any]
+) -> dict[str, Any]:
+    """Canonicalize collection order while preserving every reviewer field."""
+    value = copy.deepcopy(response)
+    atoms = atom_map(atom_index)
+
+    def evidence_order(atom_id: str) -> tuple[int, str]:
+        atom = atoms[atom_id]
+        return int(atom["document_atom_order"]), atom_id
+
+    for analysis in value["qualifying_analyses"]:
+        for field in (
+            "method_evidence_atom_ids",
+            "result_evidence_atom_ids",
+            "validation_evidence_atom_ids",
+        ):
+            analysis[field] = sorted(analysis[field], key=evidence_order)
+        analysis["outcome_constructs"] = sorted(analysis["outcome_constructs"])
+
+    for boundary in value["excluded_boundary_candidates"]:
+        boundary["evidence_atom_ids"] = sorted(boundary["evidence_atom_ids"], key=evidence_order)
+
+    def earliest(ids: list[str]) -> int:
+        return min(int(atoms[atom_id]["document_atom_order"]) for atom_id in ids)
+
+    value["qualifying_analyses"].sort(
+        key=lambda analysis: (
+            earliest(analysis["method_evidence_atom_ids"] + analysis["result_evidence_atom_ids"]),
+            analysis["reviewer_candidate_id"],
+        )
+    )
+    value["excluded_boundary_candidates"].sort(
+        key=lambda boundary: (
+            earliest(boundary["evidence_atom_ids"]),
+            boundary["reviewer_candidate_id"],
         )
     )
     return value

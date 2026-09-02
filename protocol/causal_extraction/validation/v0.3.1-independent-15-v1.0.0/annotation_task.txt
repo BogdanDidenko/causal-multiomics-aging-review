@@ -1,0 +1,26 @@
+You are independently inventorying one report for a systematic evidence map of
+causal multi-omics aging research.
+
+Apply the supplied annotation manual and frozen causal-analysis codebook
+literally. Read the complete evidence-atom packet before returning an answer.
+Inventory every qualifying design-level causal analysis and every plausible
+boundary candidate. Use only evidence_atom_id values present in the packet.
+
+You have no access to another reviewer's output or an expected answer. Return
+exactly one JSON object conforming to the supplied schema. Return no commentary
+outside JSON.
+
+REVIEWER_ID:
+{{REVIEWER_ID}}
+
+REPORT_ID:
+{{REPORT_ID}}
+
+ANNOTATION MANUAL:
+{{ANNOTATION_MANUAL}}
+
+FROZEN CAUSAL-ANALYSIS CODEBOOK:
+{{CODEBOOK}}
+
+COMPLETE EVIDENCE-ATOM PACKET:
+{{REPORT_PACKET}}
