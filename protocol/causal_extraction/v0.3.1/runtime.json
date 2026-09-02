@@ -1,0 +1,55 @@
+{
+  "experiment_id": "causal_extraction_v0.3.1_fixed_candidate_ablation",
+  "suite_version": "0.3.1",
+  "status": "pre_first_terra_run_candidate",
+  "provider": "codex_cli",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "codex_cli_version": "codex-cli 0.145.0",
+  "context_window": 131072,
+  "max_rendered_prompt_tokens": 110000,
+  "repeats": 5,
+  "analysis_views": [3, 5],
+  "workers": 4,
+  "timeout_seconds": 1200,
+  "technical_retry_limit": 1,
+  "prompt": "prompt.txt",
+  "schema": "candidate_classification.schema.json",
+  "codebook": "codebook.md",
+  "candidate_scaffold": "candidate_scaffold.json",
+  "packaging": {
+    "report_representation": "all_evidence_atoms_compact_v1",
+    "candidate_representation": "fixed_candidate_scaffold_v1",
+    "include_every_report_atom": true,
+    "preserve_document_order": true,
+    "model_based_source_selection": false,
+    "graph_based_source_selection": false
+  },
+  "ablation": {
+    "parent": "causal_extraction_v0.3.0_development",
+    "changed_factor": "candidate boundaries and evidence anchors fixed before classification",
+    "unchanged": [
+      "12 source reports",
+      "complete deterministic report packets",
+      "causal-analysis codebook definitions",
+      "model and reasoning effort",
+      "five-repeat schedule",
+      "scientific classification fields"
+    ]
+  },
+  "decision_policy": {
+    "target_exact_agreement": 1.0,
+    "majority_vote_allowed": false,
+    "python_attaches_candidate_evidence": true,
+    "python_assigns_level": true,
+    "model_assigns_level": false,
+    "production_authorized_by_this_ablation_alone": false
+  },
+  "session_policy": {
+    "isolated_session_per_call": true,
+    "ephemeral_codex_home": true,
+    "plugins_enabled": false,
+    "ignore_user_config": true,
+    "ignore_repository_instructions": true
+  }
+}

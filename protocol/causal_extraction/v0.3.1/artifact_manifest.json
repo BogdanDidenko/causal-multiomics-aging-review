@@ -1,0 +1,168 @@
+{
+  "artifacts": [
+    {
+      "bytes": 370,
+      "path": "protocol/causal_extraction/v0.3.1/CHANGELOG.md",
+      "sha256": "4a166d41e782cd5fe68cab6daedca36441334ad8ea77ad35f9029fdf7730ac06"
+    },
+    {
+      "bytes": 4719,
+      "path": "protocol/causal_extraction/v0.3.1/candidate_classification.schema.json",
+      "sha256": "57c37d7837b607344231097cb8915e878ee06bd7a6509ace2e88ae6ff1715717"
+    },
+    {
+      "bytes": 21954,
+      "path": "protocol/causal_extraction/v0.3.1/candidate_scaffold.json",
+      "sha256": "453c7b7d57341a0a223894ff0daee32561e87549763445b2c7908a8ce946b204"
+    },
+    {
+      "bytes": 6407,
+      "path": "protocol/causal_extraction/v0.3.1/codebook.md",
+      "sha256": "1532dd6b1d196c4f1df6574692c225eda1ded74557afc49724dbc99cbd93c5bc"
+    },
+    {
+      "bytes": 597,
+      "path": "protocol/causal_extraction/v0.3.1/lifecycle.json",
+      "sha256": "5458f041c7dbd151c577fff53703435a33b14b90ec96d1965b555aa03cd5e7bf"
+    },
+    {
+      "bytes": 2073,
+      "path": "protocol/causal_extraction/v0.3.1/methodology.md",
+      "sha256": "69a38586d56720d40c2a42089565e17db2f74af236ea2165d68a09a14a44b71f"
+    },
+    {
+      "bytes": 7476,
+      "path": "protocol/causal_extraction/v0.3.1/packaging_audit.json",
+      "sha256": "5c4be91a641c64ce2b86d5a3877905ad195cdf66f90748b0caa310a06f1ebb26"
+    },
+    {
+      "bytes": 2452,
+      "path": "protocol/causal_extraction/v0.3.1/prompt.txt",
+      "sha256": "da7cd83922ebfe29f2a5c423d473d09be9c7e250096e2993df918b4ab29a642f"
+    },
+    {
+      "bytes": 1830,
+      "path": "protocol/causal_extraction/v0.3.1/runtime.json",
+      "sha256": "3fbd617989dc29ce3fc37937abcefcca4467e2fe427009e56eb1ff1571e77700"
+    },
+    {
+      "bytes": 12262,
+      "path": "protocol/causal_extraction/v0.3.1/sample.json",
+      "sha256": "581fddc70a724fa883dc027d67823c7682b99744333d6e8cb3acd8937d9c50dd"
+    },
+    {
+      "bytes": 1163,
+      "path": "protocol/causal_extraction/v0.3.1/stability_contract.json",
+      "sha256": "86eaa498eb2b4bf95dcc80c305c350a7f6080ab20dfe643c8ea2f14a7f8b8588"
+    },
+    {
+      "bytes": 12547,
+      "path": "analysis/causal_extraction/v0.3.1_development/candidate_reference_key.json",
+      "sha256": "ab7aa9fe68b16b280096ecd986cb698eeb7ada7c522b8619066e7fc6dc78c6f7"
+    },
+    {
+      "bytes": 8532,
+      "path": "scripts/freeze_causal_extraction_v0_3_1.py",
+      "sha256": "79d0fe8e719caa944e741b1053b228a036fe2ab5db420c521a81210e39e6616a"
+    },
+    {
+      "bytes": 6425,
+      "path": "scripts/prepare_causal_extraction_v0_3_1.py",
+      "sha256": "ac35fd5e499cba16cd18824e0cce3513db86646640239ab3df6be73a76bd5e48"
+    },
+    {
+      "bytes": 18765,
+      "path": "scripts/run_causal_extraction_v0_3_1.py",
+      "sha256": "891c82ae47d1e30a7ae9be90237f7a786919ac4926329d770383b1925d4ef348"
+    },
+    {
+      "bytes": 12934,
+      "path": "scripts/summarize_causal_extraction_v0_3_1.py",
+      "sha256": "27165e0a0f2a7e490aeb86e21aeb2d77f225c7283ee25bd5c9ed36f6f8e6cb0c"
+    },
+    {
+      "bytes": 5729,
+      "path": "src/causal_multiomics_aging_review/causal_candidate_classification.py",
+      "sha256": "f4f9077954f97753630b713866497d1b07393f1a9ca0030f37c508a287d8c02a"
+    },
+    {
+      "bytes": 3522,
+      "path": "tests/test_causal_candidate_classification.py",
+      "sha256": "4baab602a02c99222b97264d2f6926ac11e0a630ea709ba77c55e348a72e3acb"
+    },
+    {
+      "bytes": 1883,
+      "path": "tests/test_causal_extraction_v0_3_1_sample.py",
+      "sha256": "afd4c1fce7ab40dbc843c1bfffc9f8556a2828687236241f1a0fd5b467be142b"
+    },
+    {
+      "bytes": 2351,
+      "path": "tests/test_causal_extraction_v0_3_1_summary.py",
+      "sha256": "a44533abfa1eacadb949869ee2662bb03b4cb070956a3d8e30687bf6aed53204"
+    }
+  ],
+  "manifest_version": "0.3.1",
+  "source_data": [
+    {
+      "bytes": 711496,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_98d4e104894e0025/evidence_atom_index.json",
+      "sha256": "857c5060210dad57c237d8536aa47fcd85c7966b2c2a77cf03f769c50efef83c"
+    },
+    {
+      "bytes": 846047,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_011661015dd72124/evidence_atom_index.json",
+      "sha256": "c8b20ac32f9fd5831d99e889f94defa97146fc7acc8c7830c6304acae2f499d6"
+    },
+    {
+      "bytes": 385948,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_4b54110a1a6ace81/evidence_atom_index.json",
+      "sha256": "657338752c805cfe672381b1a6a5aced7a6a47b3b6664ef4aa594aafc3e2bd28"
+    },
+    {
+      "bytes": 884301,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_5704cf32dffbadcf/evidence_atom_index.json",
+      "sha256": "a3cfb77a40ffcdc95108ae6f459751a31ab38c4f4900a70a768a3ad881a2d612"
+    },
+    {
+      "bytes": 675591,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_069d73da3ebb5c9d/evidence_atom_index.json",
+      "sha256": "9ddaeb487ca44aa9558f6c2b653ba64ff47d4f66813358b8eea760d5078b921c"
+    },
+    {
+      "bytes": 596030,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_24094b90a58a9e3c/evidence_atom_index.json",
+      "sha256": "f63dbe0e5d5392d5e998a4de61952eda3d10c051a53fd2dd5f12324ad883474a"
+    },
+    {
+      "bytes": 940600,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_962fd5242e56b114/evidence_atom_index.json",
+      "sha256": "c766f3b2cd865dfc6b7a14ecbeb94a4bc53cb8dd5e3a8287762b1bda7761bade"
+    },
+    {
+      "bytes": 648267,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_02d3a54d640a3ffc/evidence_atom_index.json",
+      "sha256": "528ed9829eef24883ba083b9b0ac82840173c0d5ce5cda152ad0032c4fda690e"
+    },
+    {
+      "bytes": 1878039,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_07a342ceebdda1f4/evidence_atom_index.json",
+      "sha256": "61168109fe177bb017cd903a7bf9456e22a15092b881da145c84e393e4f81af0"
+    },
+    {
+      "bytes": 1032873,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_bb39cc140aecb9bc/evidence_atom_index.json",
+      "sha256": "c0319ecf2fa5ae2a96da749799c01dec99a23ac209e33aaa102f99324a1fe546"
+    },
+    {
+      "bytes": 389627,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_4ef750481fadda92/evidence_atom_index.json",
+      "sha256": "a0c1260bfac2163c3e157902e207f214a42ba1056dad579a9c2c9554180f84ac"
+    },
+    {
+      "bytes": 937600,
+      "path": "data/causal_extraction/v0.3.0_development/inputs/doi_7dc2770675d5f172/evidence_atom_index.json",
+      "sha256": "b01785a9b018a12429ea77552d78f0b9a679d0d44c75b8f8ea01907fcae565a6"
+    }
+  ],
+  "suite_id": "causal_extraction_v0.3.1_fixed_candidate_ablation"
+}

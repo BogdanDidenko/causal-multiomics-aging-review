@@ -1,0 +1,374 @@
+{
+  "expert_gold_standard": false,
+  "model_prompt_input": false,
+  "reference_key_version": "0.3.1",
+  "reports": [
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_001_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_01"
+        },
+        {
+          "candidate_id": "cc_v031_001_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_02"
+        },
+        {
+          "candidate_id": "cc_v031_001_03",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_03"
+        },
+        {
+          "candidate_id": "cc_v031_001_04",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_04"
+        },
+        {
+          "candidate_id": "cc_v031_001_05",
+          "expected_qualification": "exclude",
+          "source_reason_code": "method_described_without_reported_current_result",
+          "source_reference_id": "excluded_001_01"
+        },
+        {
+          "candidate_id": "cc_v031_001_06",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_06"
+        },
+        {
+          "candidate_id": "cc_v031_001_07",
+          "expected_qualification": "exclude",
+          "source_reason_code": "validation_not_standalone_identification",
+          "source_reference_id": "excluded_001_02"
+        },
+        {
+          "candidate_id": "cc_v031_001_08",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_001_05"
+        }
+      ],
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "report_id": "doi:10.3389/fendo.2025.1661666",
+      "sample_order": 1
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_002_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_002_01"
+        },
+        {
+          "candidate_id": "cc_v031_002_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_002_02"
+        },
+        {
+          "candidate_id": "cc_v031_002_03",
+          "expected_qualification": "exclude",
+          "source_reason_code": "association_or_prediction_not_causal_analysis",
+          "source_reference_id": "excluded_002_01"
+        }
+      ],
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "report_id": "doi:10.1038/s41467-025-59964-z",
+      "sample_order": 2
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_003_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_003_01"
+        },
+        {
+          "candidate_id": "cc_v031_003_02",
+          "expected_qualification": "exclude",
+          "source_reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "source_reference_id": "excluded_003_01"
+        }
+      ],
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "report_id": "doi:10.3390/microorganisms13061379",
+      "sample_order": 3
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_004_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_004_01"
+        },
+        {
+          "candidate_id": "cc_v031_004_02",
+          "expected_qualification": "exclude",
+          "source_reason_code": "mechanistic_chain_exceeds_identified_contrasts",
+          "source_reference_id": "excluded_004_02"
+        },
+        {
+          "candidate_id": "cc_v031_004_03",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_004_02"
+        },
+        {
+          "candidate_id": "cc_v031_004_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "source_reference_id": "excluded_004_01"
+        }
+      ],
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "report_id": "doi:10.1002/advs.202514269",
+      "sample_order": 4
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_005_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_005_01"
+        },
+        {
+          "candidate_id": "cc_v031_005_02",
+          "expected_qualification": "exclude",
+          "source_reason_code": "pathway_enrichment_is_an_outcome_not_identification",
+          "source_reference_id": "excluded_005_01"
+        },
+        {
+          "candidate_id": "cc_v031_005_03",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_005_03"
+        },
+        {
+          "candidate_id": "cc_v031_005_04",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_005_02"
+        },
+        {
+          "candidate_id": "cc_v031_005_05",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_005_04"
+        }
+      ],
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "report_id": "doi:10.1172/jci.insight.154089",
+      "sample_order": 5
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_006_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_006_01"
+        },
+        {
+          "candidate_id": "cc_v031_006_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_006_02"
+        },
+        {
+          "candidate_id": "cc_v031_006_03",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_006_03"
+        },
+        {
+          "candidate_id": "cc_v031_006_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "candidate_generation_not_standalone_identification",
+          "source_reference_id": "excluded_006_01"
+        }
+      ],
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "report_id": "doi:10.1007/s13238-021-00894-z",
+      "sample_order": 6
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_007_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_007_01"
+        }
+      ],
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "report_id": "doi:10.7554/elife.71624",
+      "sample_order": 7
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_008_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_008_01"
+        },
+        {
+          "candidate_id": "cc_v031_008_02",
+          "expected_qualification": "exclude",
+          "source_reason_code": "mechanistic_chain_exceeds_identified_contrasts",
+          "source_reference_id": "excluded_008_01"
+        }
+      ],
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "report_id": "doi:10.1093/plphys/kiaa034",
+      "sample_order": 8
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_009_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_009_01"
+        },
+        {
+          "candidate_id": "cc_v031_009_02",
+          "expected_qualification": "exclude",
+          "source_reason_code": "supporting_perturbations_without_direct_aging_endpoint",
+          "source_reference_id": "excluded_009_02"
+        },
+        {
+          "candidate_id": "cc_v031_009_03",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_009_02"
+        },
+        {
+          "candidate_id": "cc_v031_009_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "omics_signature_and_mechanistic_inference_not_standalone_identification",
+          "source_reference_id": "excluded_009_01"
+        }
+      ],
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "report_id": "doi:10.1016/j.devcel.2023.05.015",
+      "sample_order": 9
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_010_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_010_01"
+        },
+        {
+          "candidate_id": "cc_v031_010_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_010_02"
+        },
+        {
+          "candidate_id": "cc_v031_010_03",
+          "expected_qualification": "exclude",
+          "source_reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "source_reference_id": "excluded_010_02"
+        },
+        {
+          "candidate_id": "cc_v031_010_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "age_contrast_without_separate_identification_strategy",
+          "source_reference_id": "excluded_010_01"
+        }
+      ],
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "report_id": "doi:10.1186/s40364-023-00458-9",
+      "sample_order": 10
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_011_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_011_01"
+        },
+        {
+          "candidate_id": "cc_v031_011_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_011_02"
+        },
+        {
+          "candidate_id": "cc_v031_011_03",
+          "expected_qualification": "exclude",
+          "source_reason_code": "association_or_prediction_not_causal_analysis",
+          "source_reference_id": "excluded_011_02"
+        },
+        {
+          "candidate_id": "cc_v031_011_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "mediator_measured_without_link_specific_intervention_or_identification",
+          "source_reference_id": "excluded_011_01"
+        }
+      ],
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "report_id": "doi:10.3892/or.2026.9080",
+      "sample_order": 11
+    },
+    {
+      "candidates": [
+        {
+          "candidate_id": "cc_v031_012_01",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_012_02"
+        },
+        {
+          "candidate_id": "cc_v031_012_02",
+          "expected_qualification": "include",
+          "source_reason_code": null,
+          "source_reference_id": "ca_v030_012_01"
+        },
+        {
+          "candidate_id": "cc_v031_012_03",
+          "expected_qualification": "exclude",
+          "source_reason_code": "assigned_arm_without_reported_current_result",
+          "source_reference_id": "excluded_012_01"
+        },
+        {
+          "candidate_id": "cc_v031_012_04",
+          "expected_qualification": "exclude",
+          "source_reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "source_reference_id": "excluded_012_02"
+        }
+      ],
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "report_id": "doi:10.1016/j.exger.2025.112815",
+      "sample_order": 12
+    }
+  ],
+  "status": "ai_assisted_analyst_draft_pending_human_verification"
+}

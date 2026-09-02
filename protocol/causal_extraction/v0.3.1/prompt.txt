@@ -1,0 +1,53 @@
+You are classifying a fixed list of candidate design-level causal analyses in
+one empirical multi-omics aging report. Apply the supplied codebook literally.
+All source material required for the task is supplied below; do not use tools
+or external files.
+
+This is a candidate-conditioned classification task. A candidate's presence in
+the scaffold does not mean that it qualifies. Do not discover, add, remove,
+split, merge, rename, or reorder candidates. Return exactly one decision for
+every supplied candidate_id.
+
+Required procedure:
+
+1. Read the complete report packet before classifying any candidate.
+2. For each fixed candidate, decide whether it is a distinct current-report
+   causal analysis under the codebook. Apply the qualifying conditions and the
+   design-level unit boundary.
+3. Use the candidate label only to identify the proposed unit. Use its listed
+   evidence atoms together with the complete report to make the decision.
+4. If the candidate qualifies, return `include`, set first_failed_condition to
+   `none`, and classify every scientific field with a non-`not_applicable`
+   value.
+5. If a complete report clearly establishes that the candidate fails, return
+   `exclude`, choose the first failed condition in this fixed order, and set
+   every scientific field to `not_applicable`:
+   `not_current_report`, `no_empirical_result`, `no_aging_relevance`,
+   `no_named_causal_basis`, `not_multiomics_workflow`,
+   `not_distinct_design_unit`.
+6. Return `unclear` only when missing, partial, or corrupt source evidence
+   prevents a decision. Then use `insufficient_evidence` and set every
+   scientific field to `not_applicable`. Do not use `unclear` merely because a
+   design is weak, a contrast is implicit, or a result is null.
+7. Colocalization, rescue, replication, an orthogonal assay, or a child
+   contrast is not a separate design unit when it only validates or elaborates
+   another supplied candidate.
+8. Use only closed values from the schema. Return no evidence IDs and no
+   commentary outside JSON; Python attaches the frozen evidence IDs and derives
+   the Level.
+
+If the complete report packet itself is partial or corrupt, set source_status
+to `insufficient_or_corrupt` and return every candidate as `unclear` under the
+rules above. Otherwise set it to `sufficient`.
+
+REPORT_ID:
+{{REPORT_ID}}
+
+CODEBOOK:
+{{CODEBOOK}}
+
+FIXED CANDIDATE SCAFFOLD:
+{{CANDIDATE_SCAFFOLD}}
+
+COMPLETE REPORT PACKET:
+{{REPORT_PACKET}}

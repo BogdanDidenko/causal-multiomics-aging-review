@@ -1,0 +1,10 @@
+{
+  "artifact_manifest_sha256": "6f62b9670f2e2f197de21b9670dd68888077ac985f5ba1de6b62faa1e0d6fcec",
+  "conditional_on_fixed_candidate_scaffold": true,
+  "development_only": true,
+  "expert_gold_standard": false,
+  "freeze_version": "0.3.1",
+  "frozen_at": "2026-09-02T17:07:30.623713+00:00",
+  "model_output_count_at_freeze": 0,
+  "status": "frozen_before_first_v0_3_1_terra_output"
+}
