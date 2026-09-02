@@ -1,16 +1,17 @@
 {
   "schema_version": "1.0.0",
   "artifact_id": "causal_extraction_v0.3.0",
-  "lifecycle_status": "reference_inventory_draft_complete_pending_codebook_freeze",
+  "lifecycle_status": "frozen_before_first_v0_3_terra_output",
   "active": false,
   "production_approved": false,
   "sample_frozen": true,
-  "codebook_frozen": false,
-  "model_runs_allowed": false,
+  "codebook_frozen": true,
+  "model_runs_allowed": true,
   "permitted_uses": [
     "development_sample_preparation",
     "manual_reference_inventory_development",
-    "v0.3_codebook_development"
+    "v0.3_codebook_development",
+    "development_terra_stability_evaluation"
   ],
   "prohibited_uses": [
     "production_causal_extraction",

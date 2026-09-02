@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/causal-multiomics-aging/analysis-inventory-v0.3.0.schema.json",
+  "title": "Causal analysis inventory v0.3.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "source_status", "analyses"],
+  "properties": {
+    "report_id": {"type": "string", "minLength": 1},
+    "source_status": {
+      "type": "string",
+      "enum": ["sufficient", "insufficient_or_corrupt"]
+    },
+    "analyses": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "method_atom_id",
+          "result_atom_id",
+          "validation_atom_ids",
+          "causal_basis",
+          "design_family",
+          "variation_source",
+          "aging_role",
+          "multiomics_role",
+          "contrast_status",
+          "assumptions_reviewability",
+          "result_status",
+          "validation_strength"
+        ],
+        "properties": {
+          "method_atom_id": {
+            "type": "string",
+            "pattern": "^ea_[0-9a-f]{24}$"
+          },
+          "result_atom_id": {
+            "type": "string",
+            "pattern": "^ea_[0-9a-f]{24}$"
+          },
+          "validation_atom_ids": {
+            "type": "array",
+            "maxItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^ea_[0-9a-f]{24}$"
+            }
+          },
+          "causal_basis": {
+            "type": "string",
+            "enum": [
+              "effect_identification_design",
+              "formal_directed_hypothesis"
+            ]
+          },
+          "design_family": {
+            "type": "string",
+            "enum": [
+              "genetic_instrument",
+              "randomized_intervention",
+              "nonrandomized_controlled_intervention",
+              "targeted_perturbation",
+              "mediation",
+              "temporal_design",
+              "graphical_or_structural_model",
+              "causal_discovery_algorithm",
+              "other_named_design"
+            ]
+          },
+          "variation_source": {
+            "type": "string",
+            "enum": [
+              "randomized_assignment",
+              "genetic_instrument",
+              "genetic_perturbation",
+              "molecular_perturbation",
+              "pharmacologic_intervention",
+              "behavioral_or_environmental_intervention",
+              "surgical_or_model_induction",
+              "temporal_ordering",
+              "modeled_directionality",
+              "other_named_source"
+            ]
+          },
+          "aging_role": {
+            "type": "string",
+            "enum": [
+              "lifespan_or_longevity_outcome",
+              "biological_or_chronological_aging_outcome",
+              "cellular_senescence_outcome",
+              "age_related_disease_or_decline_outcome",
+              "mechanistic_support_for_aging_link"
+            ]
+          },
+          "multiomics_role": {
+            "type": "string",
+            "enum": [
+              "omics_exposure_in_causal_design",
+              "multiomics_outcomes_under_causal_design",
+              "omics_candidate_followed_by_perturbation",
+              "formal_cross_omics_directed_model",
+              "report_level_multiomics_support"
+            ]
+          },
+          "contrast_status": {
+            "type": "string",
+            "enum": ["explicit", "implicit", "unclear"]
+          },
+          "assumptions_reviewability": {
+            "type": "string",
+            "enum": ["reviewable", "partly_reviewable", "not_reviewable"]
+          },
+          "result_status": {
+            "type": "string",
+            "enum": ["positive", "null", "mixed"]
+          },
+          "validation_strength": {
+            "type": "string",
+            "enum": [
+              "none",
+              "supportive_same_experiment",
+              "link_specific_colocalization",
+              "orthogonal_same_link",
+              "independent_replication",
+              "unclear"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

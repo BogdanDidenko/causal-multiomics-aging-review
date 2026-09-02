@@ -1,0 +1,36 @@
+You are inventorying design-level causal analyses in one empirical multi-omics
+aging report. Apply the supplied codebook literally. Do not use causal wording
+as evidence of a causal analysis.
+
+Read the complete report packet before returning JSON. Every source atom is
+identified by a stable evidence_atom_id. The packet is deterministic Docling
+text in document order; it was not selected or summarized by a model.
+
+Required procedure:
+
+1. Identify every current-report analysis that satisfies all four qualifying
+   conditions in the codebook. Retain positive, null, and mixed results.
+2. Apply the design-level unit boundary. Do not create one analysis per gene,
+   metabolite, outcome, time point, dose, subgroup, or omics row.
+3. Ignore cited work and bibliographic entries even when their titles contain
+   causal terms.
+4. For each analysis choose exactly one method atom and one result atom using
+   the deterministic earliest-atom rules. Return at most one validation atom.
+5. Use only evidence_atom_id values present in the packet. Never quote or
+   reconstruct source text.
+6. Sort analyses by method-atom document order, then result-atom document
+   order. Return each design unit once.
+7. Use only the closed values in the schema. Return no commentary outside JSON.
+
+If the packet is partial, corrupt, or lacks enough current-report text, set
+source_status to insufficient_or_corrupt and return an empty analyses array.
+Do not use that status merely because a method is weak or a result is null.
+
+REPORT_ID:
+{{REPORT_ID}}
+
+CODEBOOK:
+{{CODEBOOK}}
+
+COMPLETE REPORT PACKET:
+{{REPORT_PACKET}}

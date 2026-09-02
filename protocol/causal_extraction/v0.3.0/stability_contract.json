@@ -1,0 +1,36 @@
+{
+  "contract_version": "0.3.0",
+  "unit": "report_level_causal_analysis_inventory",
+  "repeat_prefixes": {
+    "three_repeat": [1, 2, 3],
+    "five_repeat": [1, 2, 3, 4, 5]
+  },
+  "all_tracked_fields": [
+    "source_status",
+    "method_atom_id",
+    "result_atom_id",
+    "validation_atom_ids",
+    "causal_basis",
+    "design_family",
+    "variation_source",
+    "aging_role",
+    "multiomics_role",
+    "contrast_status",
+    "assumptions_reviewability",
+    "result_status",
+    "validation_strength",
+    "python_derived_level"
+  ],
+  "normalization": {
+    "sort_analyses": ["method_atom_document_order", "result_atom_document_order"],
+    "sort_validation_atom_ids": true,
+    "free_text_fields": []
+  },
+  "acceptance": {
+    "schema_valid_after_one_retry": 1.0,
+    "atom_ids_resolve": 1.0,
+    "report_exact_agreement_three_repeat": 1.0,
+    "report_exact_agreement_five_repeat": 1.0
+  },
+  "interpretation": "Repeated agreement measures reproducibility. Alignment with the analyst draft is reported separately and is not expert-gold accuracy."
+}

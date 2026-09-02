@@ -25,15 +25,15 @@ def test_frozen_sample_is_reproducible_and_disjoint() -> None:
     assert len({item["diversity_role"] for item in frozen["reports"]}) == 12
 
 
-def test_v0_3_remains_inactive_before_codebook_freeze() -> None:
+def test_v0_3_is_frozen_for_development_runs_only() -> None:
     lifecycle = json.loads((SUITE / "lifecycle.json").read_text(encoding="utf-8"))
 
     assert (
         lifecycle["lifecycle_status"]
-        == "reference_inventory_draft_complete_pending_codebook_freeze"
+        == "frozen_before_first_v0_3_terra_output"
     )
     assert lifecycle["active"] is False
     assert lifecycle["production_approved"] is False
     assert lifecycle["sample_frozen"] is True
-    assert lifecycle["codebook_frozen"] is False
-    assert lifecycle["model_runs_allowed"] is False
+    assert lifecycle["codebook_frozen"] is True
+    assert lifecycle["model_runs_allowed"] is True
