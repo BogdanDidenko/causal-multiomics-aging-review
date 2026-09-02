@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "causal_extraction_v0.3.0",
+  "lifecycle_status": "development_sample_pending_reference_inventory",
+  "active": false,
+  "production_approved": false,
+  "sample_frozen": true,
+  "codebook_frozen": false,
+  "model_runs_allowed": false,
+  "permitted_uses": [
+    "development_sample_preparation",
+    "manual_reference_inventory_development"
+  ],
+  "prohibited_uses": [
+    "production_causal_extraction",
+    "scientific_synthesis",
+    "sealed_accuracy_claim"
+  ]
+}

@@ -16,9 +16,9 @@ used for:
 It may be used only to document instrument development and the methodological
 postmortem. Its lifecycle marker is in `v0.2.0/lifecycle.json`.
 
-The authoritative project state is recorded in `STATUS.md`. A replacement
-hierarchical codebook is planned as `v0.3.0`, but it does not yet exist and is
-not active.
+The authoritative project state is recorded in `STATUS.md`. Version `v0.3.0`
+now contains a frozen 12-report development sample. Its reference inventory and
+codebook are still pending, so it is not active and model runs are not allowed.
 
 ## Historical lineage
 
@@ -26,7 +26,7 @@ not active.
 |---|---|---|
 | `v0.1.0` | historical pilot | instrument-development history only |
 | `v0.2.0` | legacy, rejected, frozen | instrument-development history and methodological postmortem only |
-| `v0.3.0` | planned, absent | none |
+| `v0.3.0` | development sample frozen; codebook absent | reference-inventory development only |
 
 The decision to reject `v0.2.0` and redesign the unit of analysis is documented
 in `design_decisions/2026-08-29-v0.1.1-failure-and-redesign.md`.
