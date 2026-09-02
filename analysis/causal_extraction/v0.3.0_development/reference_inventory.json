@@ -1,0 +1,1000 @@
+{
+  "inventory_id": "causal-extraction-v0.3.0-development-reference",
+  "inventory_version": "0.3.0-draft.1",
+  "status": "ai_assisted_analyst_draft_pending_human_verification",
+  "provenance": {
+    "prepared_from": "Frozen canonical Docling Markdown and deterministic evidence-atom indexes",
+    "prepared_on": "2026-09-02",
+    "prepared_by": "Codex analyst under the user-supervised protocol",
+    "v0_3_model_outputs_seen": false,
+    "gold_standard_claim": false
+  },
+  "analysis_unit_rule": {
+    "primary_key": [
+      "identifying_variation_or_assignment",
+      "exposure_or_intervention_construct",
+      "biological_system"
+    ],
+    "child_contrasts": "Outcomes, readouts, time points, doses, and strata remain child contrasts when the primary key is unchanged.",
+    "validation_rule": "Rescue, reverse perturbation, epistasis, replication, and colocalization remain validation of the same link unless the report poses and estimates a distinct intervention question."
+  },
+  "reports": [
+    {
+      "sample_order": 1,
+      "document_id": "doi_98d4e104894e0025",
+      "doi": "10.3389/fendo.2025.1661666",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_001_01",
+          "analysis_label": "Blood eQTL SMR screen of senescence-related gene expression on preeclampsia",
+          "identifying_variation_or_assignment": "cis-eQTL instruments in blood",
+          "exposure_or_intervention_construct": "genetically proxied expression of senescence-related genes",
+          "comparator": "per genetically predicted expression contrast",
+          "biological_system": "human blood eQTL and preeclampsia GWAS summary data",
+          "outcome_constructs": ["preeclampsia risk"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c",
+            "ea_27ac10c3bf41f56272d6169f"
+          ],
+          "result_evidence_atom_ids": ["ea_8c8795c0ffc3123114c47329"],
+          "validation_evidence_atom_ids": ["ea_f6e43674bd2fe44c21608d27"],
+          "analyst_boundary_note": "SMR/HEIDI is a named instrument-based analysis; failure to survive FDR is a result property, not a reason to erase the analysis."
+        },
+        {
+          "analysis_id": "ca_v030_001_02",
+          "analysis_label": "Blood mQTL SMR screen of methylation on preeclampsia",
+          "identifying_variation_or_assignment": "cis-mQTL instruments in blood",
+          "exposure_or_intervention_construct": "genetically proxied DNA methylation at senescence-related loci",
+          "comparator": "per genetically predicted methylation contrast",
+          "biological_system": "human blood mQTL and preeclampsia GWAS summary data",
+          "outcome_constructs": ["preeclampsia risk"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c"
+          ],
+          "result_evidence_atom_ids": ["ea_3a2b95393452092b4e151524"],
+          "validation_evidence_atom_ids": ["ea_2f76a7613150f77bd01012e9"],
+          "analyst_boundary_note": "The analysis is retained even though no association survived the report's multiple-testing threshold."
+        },
+        {
+          "analysis_id": "ca_v030_001_03",
+          "analysis_label": "Blood pQTL SMR screen of protein abundance on preeclampsia",
+          "identifying_variation_or_assignment": "cis-pQTL instruments in blood",
+          "exposure_or_intervention_construct": "genetically proxied abundance of senescence-related proteins",
+          "comparator": "per genetically predicted protein-abundance contrast",
+          "biological_system": "human blood pQTL and preeclampsia GWAS summary data",
+          "outcome_constructs": ["preeclampsia risk"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_578fe554d25abf864c0b1e07",
+            "ea_a498ac344519748fad15923c"
+          ],
+          "result_evidence_atom_ids": ["ea_81c5f92b077986755fe5f0b8"],
+          "validation_evidence_atom_ids": [
+            "ea_2b216a954ba4c1ef7eed0f09",
+            "ea_effbfb21aef6b2a1a74d3885"
+          ],
+          "analyst_boundary_note": "Colocalization is support for this instrument analysis and is not a separate causal analysis."
+        },
+        {
+          "analysis_id": "ca_v030_001_04",
+          "analysis_label": "Blood mQTL-to-eQTL SMR regulatory screen",
+          "identifying_variation_or_assignment": "cis-mQTL instruments",
+          "exposure_or_intervention_construct": "genetically proxied methylation at candidate loci",
+          "comparator": "per genetically predicted methylation contrast",
+          "biological_system": "human blood mQTL and eQTL summary data",
+          "outcome_constructs": ["candidate-gene expression"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": ["ea_d09961286daa3775869b141d"],
+          "result_evidence_atom_ids": ["ea_427598e2d95ce7effa92c35f"],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "This is a distinct molecular outcome and therefore a distinct analysis from QTL-to-preeclampsia screens."
+        },
+        {
+          "analysis_id": "ca_v030_001_05",
+          "analysis_label": "Uterine eQTL SMR screen of gene expression on preeclampsia",
+          "identifying_variation_or_assignment": "uterine cis-eQTL instruments",
+          "exposure_or_intervention_construct": "genetically proxied uterine expression of senescence-related genes",
+          "comparator": "per genetically predicted expression contrast",
+          "biological_system": "human uterine eQTL and preeclampsia GWAS summary data",
+          "outcome_constructs": ["preeclampsia risk"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": ["ea_fbc7fbc73f2c0f5043473406"],
+          "result_evidence_atom_ids": ["ea_2be63dc10fdacd202652dec2"],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The tissue-specific instrument source creates a separate analysis from the blood eQTL screen."
+        },
+        {
+          "analysis_id": "ca_v030_001_06",
+          "analysis_label": "Two-sample Mendelian randomization of candidate senescence genes on preeclampsia",
+          "identifying_variation_or_assignment": "multiple independent genetic instruments",
+          "exposure_or_intervention_construct": "genetically proxied candidate senescence-gene expression",
+          "comparator": "per genetically predicted expression contrast",
+          "biological_system": "human molecular-QTL exposure data and preeclampsia GWAS outcome data",
+          "outcome_constructs": ["preeclampsia risk"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_578abfe1b5e9a17040275d47",
+            "ea_7390c0baf90ced70efb7c91c"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_ae39f612505d9e03cd01125a",
+            "ea_5d12045b9a1efa5d9b0f53dd"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_09aa7927245a2efc2eb1ef7f",
+            "ea_0d0ea45631169792ac0b6cfa",
+            "ea_9d53349d0d627030c4f38814",
+            "ea_853f0a714e39ffe92725b2c9",
+            "ea_39582df4f67295b52b6bd37f",
+            "ea_dfc82156c1e2caf0a3cba8c0"
+          ],
+          "analyst_boundary_note": "Sensitivity diagnostics and the unsuccessful independent-outcome replication are attached to the same MR analysis."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "eQTL-to-pQTL SMR step",
+          "reason_code": "method_described_without_reported_current_result",
+          "evidence_atom_ids": ["ea_ea754b2ea145b38d6c7348b9"]
+        },
+        {
+          "candidate_label": "Colocalization analysis",
+          "reason_code": "validation_not_standalone_identification",
+          "evidence_atom_ids": ["ea_2b216a954ba4c1ef7eed0f09"]
+        }
+      ]
+    },
+    {
+      "sample_order": 2,
+      "document_id": "doi_011661015dd72124",
+      "doi": "10.1038/s41467-025-59964-z",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_002_01",
+          "analysis_label": "Metabolomic biological age acceleration to disease two-sample MR screen",
+          "identifying_variation_or_assignment": "genetic instruments for organ-specific MetBAG measures",
+          "exposure_or_intervention_construct": "genetically proxied metabolomic biological age acceleration",
+          "comparator": "per genetically predicted MetBAG contrast",
+          "biological_system": "UK Biobank metabolomics GWAS and external disease GWAS summary data",
+          "outcome_constructs": ["cardiometabolic disease endpoints"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_78835edd6d97160717bfd446",
+            "ea_5c25d52e3e4ef411cf37e6ed",
+            "ea_93484e372d858d27cbc7e6e4"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_6df557abb98113a46ae33e0d",
+            "ea_4756603b8314cfa3b3365373",
+            "ea_155a2ceb58cd03ad69375010"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_b97907c47956829b59bfc494",
+            "ea_20cd345f8461ba2122f60f08"
+          ],
+          "analyst_boundary_note": "Many exposure-outcome pairs are child contrasts within one preregistered MR screen."
+        },
+        {
+          "analysis_id": "ca_v030_002_02",
+          "analysis_label": "Disease liability to metabolomic biological age acceleration reverse MR screen",
+          "identifying_variation_or_assignment": "genetic instruments for disease liabilities",
+          "exposure_or_intervention_construct": "genetically proxied cardiometabolic disease liability",
+          "comparator": "per genetically predicted disease-liability contrast",
+          "biological_system": "external disease GWAS and UK Biobank metabolomics GWAS summary data",
+          "outcome_constructs": ["organ-specific MetBAG measures"],
+          "design_family": "genetic_instrument",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_78835edd6d97160717bfd446",
+            "ea_5c25d52e3e4ef411cf37e6ed",
+            "ea_93484e372d858d27cbc7e6e4"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_1e32ff218cff39d7ed0acc11",
+            "ea_970df2b6fb4c812ee6008431",
+            "ea_34f2cd4d3fa1cef7eb1a0c8b"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_b97907c47956829b59bfc494",
+            "ea_20cd345f8461ba2122f60f08"
+          ],
+          "analyst_boundary_note": "Reverse direction changes both instrument source and outcome construct, so it is a separate analysis."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Observational MetBAG associations and mortality prediction",
+          "reason_code": "association_or_prediction_not_causal_analysis",
+          "evidence_atom_ids": [
+            "ea_2e8d1332bc52b21ebceaf70f",
+            "ea_5631816004be62a4662764eb"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_order": 3,
+      "document_id": "doi_4b54110a1a6ace81",
+      "doi": "10.3390/microorganisms13061379",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_003_01",
+          "analysis_label": "Treadmill exercise intervention in aged mice",
+          "identifying_variation_or_assignment": "experimental assignment to treadmill exercise or sedentary handling",
+          "exposure_or_intervention_construct": "eight-week treadmill exercise",
+          "comparator": "age-matched sedentary mice",
+          "biological_system": "aged mouse intestine and fecal microbiome",
+          "outcome_constructs": [
+            "intestinal senescence markers",
+            "gut microbial composition",
+            "fecal eicosanoid metabolome"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_bbcab105163b31eb6888976a",
+            "ea_cdcea47c9f11d15db9fa8b96"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_385bf91174e35a7be6e8c0f0",
+            "ea_0f21e960e326f0c3c0307ac4",
+            "ea_ec8486c0433ba72a166ae311",
+            "ea_f7d75b7a01cec341282eeebc"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "Microbial and metabolite readouts are outcomes of the same assigned exercise intervention."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Akkermansia-eicosanoid-senescence axis",
+          "reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "evidence_atom_ids": [
+            "ea_33ed4443922796734b939ad8",
+            "ea_1aedff826a8fbe42544a4842",
+            "ea_e0b51ef51a0a64beaa4e2c13",
+            "ea_7730f6bed45cf703f81a7b22"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_order": 4,
+      "document_id": "doi_5704cf32dffbadcf",
+      "doi": "10.1002/advs.202514269",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_004_01",
+          "analysis_label": "Young-donor versus aged-donor fecal microbiota transplantation",
+          "identifying_variation_or_assignment": "germ-free mice assigned fecal microbiota from young or aged donors",
+          "exposure_or_intervention_construct": "donor-age-specific fecal microbiota transplantation",
+          "comparator": "aged-donor microbiota transplantation",
+          "biological_system": "germ-free mouse auditory system",
+          "outcome_constructs": [
+            "hearing function",
+            "cochlear senescence and degeneration",
+            "gut microbiome",
+            "circulating metabolome",
+            "cochlear proteome"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_24ae4c5da20eb434725a6368",
+            "ea_812c56ddab77a4e5005de5b6",
+            "ea_748082332c57eb91f21211fe"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_8d97f85a03975637320ee837",
+            "ea_33399af4b0941f676bce296a",
+            "ea_cbb866ffd4db32b322d54652",
+            "ea_a8a7e41c3faeb3fdbde21979"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The transplantation manipulates the microbiota package; it does not identify every correlated taxon or metabolite as a mediator."
+        },
+        {
+          "analysis_id": "ca_v030_004_02",
+          "analysis_label": "5-hydroxytryptophan intervention in an auditory-cell senescence model",
+          "identifying_variation_or_assignment": "experimental 5-HTP treatment",
+          "exposure_or_intervention_construct": "5-hydroxytryptophan supplementation",
+          "comparator": "vehicle-treated senescence-model cells",
+          "biological_system": "auditory-cell oxidative-stress/senescence model",
+          "outcome_constructs": [
+            "oxidative stress",
+            "apoptosis",
+            "senescence-related signaling"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": ["ea_5747441e82835f7a5a8e16b7"],
+          "result_evidence_atom_ids": [
+            "ea_1608444e24475b9b3dda8f43",
+            "ea_f0938bd8e38de8c9730fd5cc",
+            "ea_5743cdf7998de0947235f5b5",
+            "ea_df0010bf5bdf7342b9d7d491"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "This intervention supports a 5-HTP effect in the tested cell model, not population-level mediation of the FMT effect."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Microbiome-metabolome-proteome correlation network",
+          "reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "evidence_atom_ids": ["ea_c47e9c9841cbbb1710a5d3b6"]
+        },
+        {
+          "candidate_label": "Complete microbiota-to-5-HTP-to-cochlea mediation chain",
+          "reason_code": "mechanistic_chain_exceeds_identified_contrasts",
+          "evidence_atom_ids": [
+            "ea_5ba3d1712e5591a9c38093ac",
+            "ea_46f8a902776dce2a82b9284d",
+            "ea_f1d2f78f611099569f395ca6",
+            "ea_c32097fa1653549198ec5123",
+            "ea_f5be2f96cf1d5363af93e664"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_order": 5,
+      "document_id": "doi_069d73da3ebb5c9d",
+      "doi": "10.1172/jci.insight.154089",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_005_01",
+          "analysis_label": "Ammonium-acetate exposure and withdrawal in differentiated myotubes",
+          "identifying_variation_or_assignment": "controlled ammonium-acetate exposure followed by medium replacement",
+          "exposure_or_intervention_construct": "24-hour hyperammonemia exposure with withdrawal",
+          "comparator": "untreated myotubes and pre-withdrawal exposed myotubes",
+          "biological_system": "differentiated murine C2C12 myotubes",
+          "outcome_constructs": [
+            "senescence-associated phenotype",
+            "mitochondrial oxidative function",
+            "transcriptome",
+            "whole-cell and mitochondrial proteome",
+            "TCA-cycle metabolites"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_55ee6cf0ef405336292eb97e",
+            "ea_77e7cd184653ab209691c396",
+            "ea_8dbd8c55bb3de9e346478672",
+            "ea_8b9a38e60748b37404c2118a"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_e2c7d3d4e616b2eaa2a31f2a",
+            "ea_551b7fc0bd0912da1d7db6f4",
+            "ea_e7c5284c77b42b334efee891",
+            "ea_e11742c4c6aaf411bf68e916"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_3bd34e603e74b738ad76ef22",
+            "ea_6147698b255bf5de1b5c0610"
+          ],
+          "analyst_boundary_note": "Withdrawal is a reversal contrast within the same exposure regimen and is retained as validation of the ammonia effect."
+        },
+        {
+          "analysis_id": "ca_v030_005_02",
+          "analysis_label": "Portacaval-anastomosis hyperammonemia model versus sham surgery",
+          "identifying_variation_or_assignment": "portacaval anastomosis versus sham surgery with pair feeding",
+          "exposure_or_intervention_construct": "surgically induced chronic hyperammonemia",
+          "comparator": "pair-fed sham-operated rats",
+          "biological_system": "adult rat gastrocnemius skeletal muscle",
+          "outcome_constructs": [
+            "senescence-associated phenotype",
+            "mitochondrial oxidative function",
+            "skeletal-muscle proteome",
+            "TCA-cycle metabolites"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_daebc80d18253f3df0d22ccd",
+            "ea_7fddb604e72fc934f5e7c9d1",
+            "ea_50a66dbbfab7d7e07dd80411"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_64e1211a6600873c17c45c25",
+            "ea_cf6d611fb9a6e6c0913b814a",
+            "ea_d77f627085b3e3db22ff130a",
+            "ea_565443469a98640d538cf345",
+            "ea_f0d78a4fa1c0f1de95566d6f",
+            "ea_5ab9a4be8648be4472e39dcf"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The surgical model establishes the in-vivo exposure contrast; pathway enrichment alone is not treated as identification."
+        },
+        {
+          "analysis_id": "ca_v030_005_03",
+          "analysis_label": "Ammonia-lowering therapy in hyperammonemic rats",
+          "identifying_variation_or_assignment": "LOLA plus rifaximin treatment within the PCA model",
+          "exposure_or_intervention_construct": "pharmacologic ammonia lowering",
+          "comparator": "untreated hyperammonemic PCA rats",
+          "biological_system": "adult rat gastrocnemius skeletal muscle",
+          "outcome_constructs": [
+            "senescence-associated phenotype",
+            "mitochondrial oxidative function",
+            "skeletal-muscle proteome",
+            "TCA-cycle metabolites"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": ["ea_b778a5826a9dc29217522044"],
+          "result_evidence_atom_ids": [
+            "ea_64e1211a6600873c17c45c25",
+            "ea_585c2b87eeb6262135aa0977",
+            "ea_e11742c4c6aaf411bf68e916"
+          ],
+          "validation_evidence_atom_ids": ["ea_3bd34e603e74b738ad76ef22"],
+          "analyst_boundary_note": "The ammonia-lowering treatment asks a distinct intervention question and therefore remains a separate analysis."
+        },
+        {
+          "analysis_id": "ca_v030_005_04",
+          "analysis_label": "Ammonia rechallenge after exposure and withdrawal",
+          "identifying_variation_or_assignment": "second controlled ammonium-acetate challenge after a fixed withdrawal period",
+          "exposure_or_intervention_construct": "recurrent hyperammonemia",
+          "comparator": "first ammonia exposure in naive myotubes",
+          "biological_system": "differentiated murine C2C12 myotubes",
+          "outcome_constructs": [
+            "senescence markers",
+            "mitochondrial oxidative function",
+            "ATP and oxidative damage",
+            "myotube diameter"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_56efea349d04a6de15ca518f",
+            "ea_7b54cec849d0748c603286b1"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_dae6c90968a5bc4046c5e8b9",
+            "ea_10f8ae9dc6729616c4214501",
+            "ea_cf599d15843eb6ee2ed7f8f0"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The second challenge has a distinct assignment history and explicit comparison with naive exposure."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Omics pathway enrichment during hyperammonemia",
+          "reason_code": "pathway_enrichment_is_an_outcome_not_identification",
+          "evidence_atom_ids": ["ea_97f18ed337e6dc150fa0bce2"]
+        }
+      ]
+    },
+    {
+      "sample_order": 6,
+      "document_id": "doi_24094b90a58a9e3c",
+      "doi": "10.1007/s13238-021-00894-z",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_006_01",
+          "analysis_label": "Bidirectional E2F4 perturbation in replicative senescence",
+          "identifying_variation_or_assignment": "E2F4 overexpression and shRNA knockdown",
+          "exposure_or_intervention_construct": "E2F4 abundance",
+          "comparator": "matched empty-vector or non-targeting controls",
+          "biological_system": "human fibroblast replicative-senescence model",
+          "outcome_constructs": [
+            "senescence phenotype",
+            "DNA methylation",
+            "transcriptional program"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_15e75a46e267d1efd0362d00",
+            "ea_65b5683fde3e4297544671db",
+            "ea_5f25ede90b461367cfa800fe"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_ace9672cd7f1f08c77c2aca3",
+            "ea_f730c6d0b2da995d59a2f404",
+            "ea_6a700ef80b6351ea65a78f38",
+            "ea_68451e050450f2a0a2ef4538",
+            "ea_d4c53ec2e7ffe8dfc19a4b12"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "Opposite perturbation directions validate the same E2F4 link and remain one analysis."
+        },
+        {
+          "analysis_id": "ca_v030_006_02",
+          "analysis_label": "TEAD1 knockdown in replicative senescence",
+          "identifying_variation_or_assignment": "TEAD1-targeting shRNA",
+          "exposure_or_intervention_construct": "reduced TEAD1 expression",
+          "comparator": "non-targeting shRNA control",
+          "biological_system": "human fibroblast replicative-senescence model",
+          "outcome_constructs": ["senescence phenotype", "senescence-associated transcription"],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_fab27434b86a45c0c143940f",
+            "ea_991723fc3567b1c88e0fdd76"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_5355af7165d450f13c4d8d80",
+            "ea_8d96fbffcd0708ac5f08c7a4"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "Candidate selection from an integrated regulatory network is supporting context; the shRNA experiment supplies the identifying variation."
+        },
+        {
+          "analysis_id": "ca_v030_006_03",
+          "analysis_label": "ATF3 knockdown in replicative senescence",
+          "identifying_variation_or_assignment": "ATF3-targeting shRNA",
+          "exposure_or_intervention_construct": "reduced ATF3 expression",
+          "comparator": "non-targeting shRNA control",
+          "biological_system": "human fibroblast replicative-senescence model",
+          "outcome_constructs": ["senescence phenotype", "senescence-associated transcription"],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_ee9fe86a4ae7d1e715f7aa75",
+            "ea_8c073889624ea96b5fcb4e08"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_a391b725385a5094884fe138",
+            "ea_1942db3db755f43b042980c3",
+            "ea_c53af5a051f73bbd6859d02a"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "ATF3 is a distinct perturbed exposure and therefore a separate analysis."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Integrated transcription-factor regulatory network",
+          "reason_code": "candidate_generation_not_standalone_identification",
+          "evidence_atom_ids": ["ea_508fff8eb4feacfdb7da9950"]
+        }
+      ]
+    },
+    {
+      "sample_order": 7,
+      "document_id": "doi_962fd5242e56b114",
+      "doi": "10.7554/elife.71624",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_007_01",
+          "analysis_label": "Maturation-phase transient reprogramming in middle-aged human fibroblasts",
+          "identifying_variation_or_assignment": "inducible hOKMS expression followed by transgene withdrawal",
+          "exposure_or_intervention_construct": "maturation-phase transient reprogramming",
+          "comparator": "mock-transduced cells and failed-reprogramming controls",
+          "biological_system": "middle-aged human dermal fibroblasts",
+          "outcome_constructs": [
+            "transcriptomic age",
+            "DNA-methylation age",
+            "fibroblast identity",
+            "collagen expression",
+            "cell migration",
+            "telomere length"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_81476d18162f9acadceef860",
+            "ea_ff9e022f13c5ea2b31069a99",
+            "ea_834fbfbcd0e15704c1e4980e",
+            "ea_99565c5631e775617c486cc4",
+            "ea_a3cb9cc76bbc7e587a3a8f09",
+            "ea_6aee9b38f5efb91681a71a3f"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_68a554ae20ed6dcad90bdf77",
+            "ea_c1648863f437498c0b667443",
+            "ea_0dfd81dc0473800e499d6ab3",
+            "ea_770224af496871ba4341820c",
+            "ea_831679590cdbb68e90d29030",
+            "ea_de8c67e3c72ec7fa3b773db7",
+            "ea_ddee36c390cc322e7d87ca1b"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_309b6c53709fd067f5f5e97b",
+            "ea_546ad66d42b89a3b0d7f73d8",
+            "ea_5abe256e1371db9b99f012d9"
+          ],
+          "analyst_boundary_note": "Different reprogramming durations and molecular/functional outcomes are child contrasts within one inducible intervention."
+        }
+      ],
+      "excluded_candidates": []
+    },
+    {
+      "sample_order": 8,
+      "document_id": "doi_02d3a54d640a3ffc",
+      "doi": "10.1093/plphys/kiaa034",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_008_01",
+          "analysis_label": "KLU loss- and gain-of-function effects on leaf longevity",
+          "identifying_variation_or_assignment": "KLU mutant and overexpression genotypes",
+          "exposure_or_intervention_construct": "KLU activity",
+          "comparator": "wild-type Arabidopsis",
+          "biological_system": "Arabidopsis leaves under developmental and dark-induced senescence",
+          "outcome_constructs": [
+            "leaf longevity",
+            "age-dependent and dark-induced senescence",
+            "transcriptome",
+            "metabolome",
+            "cytokinin-related readouts"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_2973c4a5b7aaa54ff9d1a47c",
+            "ea_1ebb9e80badeefc89782c1b9",
+            "ea_a4b35d5af4bb3ce970a693cb"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_77c862a492b4e2bca72da767",
+            "ea_35b9dfddd760f0094607e496",
+            "ea_279265ba7e762db0877082c2",
+            "ea_90a6642d33896c9eeacd718b",
+            "ea_370b84c3bdf916dda48cead0",
+            "ea_c6fa2e2b69c4ccb6660c7507"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_aaf83fd94ad81ad9e1e0b4ae",
+            "ea_9be033c2430adc420017bd54",
+            "ea_58a05aa8df7c88cd239ed137",
+            "ea_3caf750fb1371e40ee71e934",
+            "ea_aa5c3bc2a906286c00fdf1fa"
+          ],
+          "analyst_boundary_note": "The genotype perturbation identifies a KLU effect; the proposed downstream cytokinin mechanism remains weaker than the genotype contrast."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Complete KLU-cytokinin-metabolism mechanism",
+          "reason_code": "mechanistic_chain_exceeds_identified_contrasts",
+          "evidence_atom_ids": ["ea_7e9578e22d9ebec2779f411b"]
+        }
+      ]
+    },
+    {
+      "sample_order": 9,
+      "document_id": "doi_07a342ceebdda1f4",
+      "doi": "10.1016/j.devcel.2023.05.015",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_009_01",
+          "analysis_label": "APRT loss-of-function effects on vertebrate lifespan and metabolic aging",
+          "identifying_variation_or_assignment": "CRISPR-generated APRT D8 heterozygous genotype",
+          "exposure_or_intervention_construct": "partial loss of APRT function",
+          "comparator": "wild-type turquoise killifish",
+          "biological_system": "male and female turquoise killifish and genotype-derived primary cells",
+          "outcome_constructs": [
+            "median and maximal lifespan",
+            "age-dependent metabolic plasticity",
+            "liver and muscle transcriptome",
+            "metabolome and lipidome",
+            "mitochondrial function and AMPK state"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_2ad6d49fa2d9039edb5bf40a",
+            "ea_8194825259ac5b299c09a035"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_1ea3618e3699811ffb8dc411",
+            "ea_2494c8b96eff02550cab17e1",
+            "ea_33437cc037689656569f0cc4",
+            "ea_2535d43f7fc71a225fe9f2ad"
+          ],
+          "validation_evidence_atom_ids": [
+            "ea_3dd67a1b2e3e40ad8b02ab27",
+            "ea_b6df4ef18c5b880c83265118",
+            "ea_af7701854217e1bed7ccb38a",
+            "ea_80d56f3c4560935b6883c0af"
+          ],
+          "analyst_boundary_note": "Adenine rescue supports the APRT metabolic link; it is not counted as a second aging analysis because its direct endpoint is cellular respiration."
+        },
+        {
+          "analysis_id": "ca_v030_009_02",
+          "analysis_label": "Lifelong intermittent fasting by APRT genotype interaction on lifespan",
+          "identifying_variation_or_assignment": "lifelong intermittent-fasting regimen evaluated across APRT genotypes",
+          "exposure_or_intervention_construct": "intermittent fasting and its interaction with APRT loss of function",
+          "comparator": "standard feeding within wild-type and APRT D8 heterozygous fish",
+          "biological_system": "male and female turquoise killifish",
+          "outcome_constructs": ["lifespan", "incremental longevity benefit by genotype"],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_49d0a96fb137287def01fa9f",
+            "ea_b5c23b2b5cb1f149387f6c43"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_8183a89850b434c0f8e8ab48",
+            "ea_ae896f383f860b0a43f82cdd",
+            "ea_931e51c014313383075a444e",
+            "ea_dd72fbde48aca1471f0147e2"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "This is retained separately because fasting is a distinct assigned intervention and the report tests effect modification of the lifespan result."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Fasting-like transcriptomic signature and inferred AMP/AMPK mechanism",
+          "reason_code": "omics_signature_and_mechanistic_inference_not_standalone_identification",
+          "evidence_atom_ids": [
+            "ea_73b32e590a84f27918da5216",
+            "ea_f79ddba8f7c493d61c541742"
+          ]
+        },
+        {
+          "candidate_label": "Short estradiol exposure and high-fat-diet resistance experiments",
+          "reason_code": "supporting_perturbations_without_direct_aging_endpoint",
+          "evidence_atom_ids": [
+            "ea_c74a99bc453dc2f650139707",
+            "ea_4416f989e67190498c1f54ce"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_order": 10,
+      "document_id": "doi_bb39cc140aecb9bc",
+      "doi": "10.1186/s40364-023-00458-9",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_010_01",
+          "analysis_label": "FXR knockout effects across diet and age strata",
+          "identifying_variation_or_assignment": "germline FXR knockout genotype",
+          "exposure_or_intervention_construct": "loss of FXR function",
+          "comparator": "wild-type mice within matched diet and age strata",
+          "biological_system": "male C57BL/6N mice sampled at 5, 10, and 15 months",
+          "outcome_constructs": [
+            "liver disease phenotype",
+            "hepatic transcriptome",
+            "hepatic, serum, and urine metabolome",
+            "bile-acid profile",
+            "cecal microbiome"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_8d434cabce933c2883c64080",
+            "ea_df2dd1f3b03c8b8ed5a85370"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_ca76e7f5f9692e8e10af1bbf",
+            "ea_d20ccae2effa2bb0601b07f5",
+            "ea_9f1d5161617fec204371599f",
+            "ea_5e7192f186e6670e343e3560"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "Genotype is the identifying perturbation; age and diet define planned strata and interaction context."
+        },
+        {
+          "analysis_id": "ca_v030_010_02",
+          "analysis_label": "Western-diet effects across FXR genotype and age strata",
+          "identifying_variation_or_assignment": "feeding from weaning with Western or healthy control diet",
+          "exposure_or_intervention_construct": "Western diet",
+          "comparator": "healthy control diet within matched genotype and age strata",
+          "biological_system": "male C57BL/6N wild-type and FXR-knockout mice",
+          "outcome_constructs": [
+            "hepatic aging and liver pathology",
+            "hepatic transcriptome",
+            "hepatic, serum, and urine metabolome",
+            "cecal microbiome"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": ["ea_df2dd1f3b03c8b8ed5a85370"],
+          "result_evidence_atom_ids": [
+            "ea_02807a397cdd309db1e46674",
+            "ea_b8a36f4d64eb292df5dc36f5",
+            "ea_7768ab48b26a924234461bce",
+            "ea_b6182171ded198619044f0e4",
+            "ea_19f136ad4666d40c98c36985",
+            "ea_06e0b4d4a17bfba52e18542f"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The controlled diet contrast is distinct from the genotype perturbation; no separate interaction analysis is claimed without a formal interaction estimate."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Cross-sectional 15-month versus 5-month contrasts",
+          "reason_code": "age_contrast_without_separate_identification_strategy",
+          "evidence_atom_ids": [
+            "ea_d63eda88cb3369b8889aae27",
+            "ea_d41f812f1c72356851db50b3"
+          ]
+        },
+        {
+          "candidate_label": "Cross-omics Spearman network",
+          "reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "evidence_atom_ids": [
+            "ea_ed2c5df662e0241a8682d7c8",
+            "ea_94697999b6bcade257da2460"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_order": 11,
+      "document_id": "doi_4ef750481fadda92",
+      "doi": "10.3892/or.2026.9080",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_011_01",
+          "analysis_label": "Oxaliplatin induction of gastric-cancer-cell senescence",
+          "identifying_variation_or_assignment": "controlled oxaliplatin exposure",
+          "exposure_or_intervention_construct": "48-hour oxaliplatin treatment",
+          "comparator": "untreated gastric cancer cells",
+          "biological_system": "AGS and MKN45 human gastric cancer cell lines",
+          "outcome_constructs": [
+            "cellular senescence phenotype",
+            "transcriptome",
+            "proteome",
+            "metabolome",
+            "PI3K/AKT pathway activity"
+          ],
+          "design_family": "controlled_intervention",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_b7211229c7f7b33665bf6eff",
+            "ea_b3bea044335bfd211d278711",
+            "ea_2a84463abf90a15c16bedab9"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_d0b210f7a893fc04c3edba86",
+            "ea_c0083859cb93b3af8db28231",
+            "ea_bb69f74dc8962abe1fdf9464"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The omics comparison nominates NR4A1 and PI3K/AKT but does not itself identify that molecular mediation chain."
+        },
+        {
+          "analysis_id": "ca_v030_011_02",
+          "analysis_label": "NR4A1 knockdown during oxaliplatin-induced senescence",
+          "identifying_variation_or_assignment": "NR4A1-targeting shRNA with a non-targeting control under oxaliplatin exposure",
+          "exposure_or_intervention_construct": "reduced NR4A1 expression",
+          "comparator": "sh-NC plus oxaliplatin",
+          "biological_system": "AGS and MKN45 human gastric cancer cell lines",
+          "outcome_constructs": [
+            "senescence markers and SASP",
+            "PI3K/AKT pathway activity",
+            "glycolytic gene expression",
+            "lactate and ATP"
+          ],
+          "design_family": "targeted_perturbation",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_088d933170492dd766c371c9",
+            "ea_ce6584caaf78e00aab03e0b7",
+            "ea_9655830c351215ffc87741cf"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_6648f86e6c4dd2de93f999dc",
+            "ea_01ee836e58bfe7eed9f08537",
+            "ea_407680cf65b9dee69030bd9b",
+            "ea_1270f761dbb44866c3390dbd",
+            "ea_115a5defe4fca97f28fe4ef6",
+            "ea_ce6f13d307429e23f7631364"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "NR4A1 is directly perturbed. PI3K/AKT is measured downstream and is not separately perturbed."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "NR4A1-to-PI3K/AKT-to-metabolic-reprogramming mediation chain",
+          "reason_code": "mediator_measured_without_link_specific_intervention_or_identification",
+          "evidence_atom_ids": [
+            "ea_2f956011bfc2bee43e048477",
+            "ea_f7f30f8dea874aa508a80069"
+          ]
+        },
+        {
+          "candidate_label": "NR4A1 survival association in TCGA",
+          "reason_code": "association_or_prediction_not_causal_analysis",
+          "evidence_atom_ids": ["ea_bfb95fbc4e6a0692bcd07d5c"]
+        }
+      ]
+    },
+    {
+      "sample_order": 12,
+      "document_id": "doi_7dc2770675d5f172",
+      "doi": "10.1016/j.exger.2025.112815",
+      "causal_analyses": [
+        {
+          "analysis_id": "ca_v030_012_01",
+          "analysis_label": "Cyclophosphamide induction of premature ovarian failure",
+          "identifying_variation_or_assignment": "random allocation to cyclophosphamide or saline control",
+          "exposure_or_intervention_construct": "14-day cyclophosphamide POF induction regimen",
+          "comparator": "physiological-saline normal control",
+          "biological_system": "female Sprague-Dawley rats",
+          "outcome_constructs": [
+            "ovarian failure phenotype",
+            "granulosa-cell apoptosis",
+            "sex hormones and oxidative stress",
+            "ovarian metabolome",
+            "ovarian proteome"
+          ],
+          "design_family": "randomized_assignment",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_f2dbe044e5f02263cd003e23",
+            "ea_f77a6fd2520096843170a8f7"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_03d9374134a10e1692a74584",
+            "ea_88d9caf0c7ea363493f479e1",
+            "ea_704f043cf8fb71e49400448a",
+            "ea_8eb2e99db2751c303fbb85f6",
+            "ea_43c3e2d6b76075fcdc302d03"
+          ],
+          "validation_evidence_atom_ids": [],
+          "analyst_boundary_note": "The disease-model induction is a distinct randomized exposure contrast."
+        },
+        {
+          "analysis_id": "ca_v030_012_02",
+          "analysis_label": "Acupuncture treatment of cyclophosphamide-induced ovarian failure",
+          "identifying_variation_or_assignment": "random allocation to acupuncture or untreated POF-model group",
+          "exposure_or_intervention_construct": "28-day standardized acupuncture regimen",
+          "comparator": "handled but untreated POF-model rats",
+          "biological_system": "cyclophosphamide-induced POF in female Sprague-Dawley rats",
+          "outcome_constructs": [
+            "ovarian morphology and mass",
+            "granulosa-cell apoptosis",
+            "sex hormones and oxidative stress",
+            "ovarian metabolome",
+            "ovarian proteome"
+          ],
+          "design_family": "randomized_assignment",
+          "causal_basis": "effect_identification_design",
+          "method_evidence_atom_ids": [
+            "ea_f2dbe044e5f02263cd003e23",
+            "ea_3023422ca94c60af9ca6fcb0",
+            "ea_2326bdfaeaf908298d03acaa"
+          ],
+          "result_evidence_atom_ids": [
+            "ea_9bce6ff9d8f97c983dd7f4a0",
+            "ea_91ada771bd358aed5e1d4849",
+            "ea_c3aee4559da1faab6ca8e299",
+            "ea_a56639d04fe508e5d26d4ccc",
+            "ea_f982c0537d7783b17cbfe2da",
+            "ea_666edffd5d52da2ca0834fe4",
+            "ea_6b660e61bb5210e887d61556"
+          ],
+          "validation_evidence_atom_ids": ["ea_17891e83549a45722aa9573a"],
+          "analyst_boundary_note": "The assigned treatment identifies an acupuncture-package effect; downstream metabolite-protein correlations do not identify individual mediators."
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "candidate_label": "Progynova positive-control arm",
+          "reason_code": "assigned_arm_without_reported_current_result",
+          "evidence_atom_ids": ["ea_2326bdfaeaf908298d03acaa"]
+        },
+        {
+          "candidate_label": "PPAR-protein-metabolite-hormone mechanism",
+          "reason_code": "cross_omics_correlation_without_link_specific_identification",
+          "evidence_atom_ids": [
+            "ea_56fd01badd7355b57ff0d0ce",
+            "ea_80c0105ebfd90b5f7d21a495",
+            "ea_834edd0e2ca4f01ea4939cba"
+          ]
+        }
+      ]
+    }
+  ]
+}

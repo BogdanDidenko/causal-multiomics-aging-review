@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "artifact_id": "causal_extraction_v0.3.0",
-  "lifecycle_status": "development_sample_pending_reference_inventory",
+  "lifecycle_status": "reference_inventory_draft_complete_pending_codebook_freeze",
   "active": false,
   "production_approved": false,
   "sample_frozen": true,
@@ -9,7 +9,8 @@
   "model_runs_allowed": false,
   "permitted_uses": [
     "development_sample_preparation",
-    "manual_reference_inventory_development"
+    "manual_reference_inventory_development",
+    "v0.3_codebook_development"
   ],
   "prohibited_uses": [
     "production_causal_extraction",

@@ -1,7 +1,7 @@
 # Causal extraction v0.3 development sample
 
-Status: sample frozen before reference inventory, codebook finalization, and any
-v0.3 Terra output.
+Status: sample and analyst reference-inventory draft frozen before codebook
+finalization and any v0.3 Terra output.
 
 ## Purpose
 
@@ -42,6 +42,15 @@ full-text evidence packets with:
 
 ```bash
 .venv/bin/python scripts/freeze_causal_extraction_v0_3_sample.py --check
+```
+
+The reference inventory is an AI-assisted analyst draft, not an expert gold
+standard. It contains 28 design-level causal analyses and 17 rejected boundary
+candidates across all 12 reports. Its 232 evidence references can be checked
+and resolved to exact canonical text with:
+
+```bash
+.venv/bin/python scripts/validate_causal_extraction_v0_3_inventory.py
 ```
 
 ## Pre-model sample correction
