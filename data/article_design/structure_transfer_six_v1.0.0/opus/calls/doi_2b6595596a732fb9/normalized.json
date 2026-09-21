@@ -1,0 +1,62 @@
+{
+  "coverage_note": "Packet contains only supplementary figure captions (S1-S4) for a prognostic senescence-related signature ML model in cervical cancer. All analyses are prediction, survival modeling, association, correlation, differential abundance, or enrichment. No design-level causal analysis (no named identifying variation, no formal directed-hypothesis method) is present, so no qualifying units; the five prognostic/association candidates are recorded as boundary items failing the causal-basis condition.",
+  "excluded_boundary_candidates": [
+    {
+      "boundary_note": "Prognostic survival prediction of OS by the senescence signature in training and validation sets. This is prediction/survival modeling with no named identifying variation or formal directed-hypothesis method, so it fails the causal-basis condition.",
+      "candidate_label": "SRS risk score predicting overall survival (ROC/Kaplan-Meier prognostic model)",
+      "evidence_atom_ids": [
+        "ea_f87c5c39720ceb0ca95d9a3c",
+        "ea_eb276b7d61d9df4748954612",
+        "ea_050f242f9f29825a72f1d5a2"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "srs_os_prediction"
+    },
+    {
+      "boundary_note": "ROC-based prediction of metastasis by the risk signature. Classification/prediction with no named identifying variation or formal directed-hypothesis method.",
+      "candidate_label": "SRS predicting metastasis in cervical cancer",
+      "evidence_atom_ids": [
+        "ea_b3aef41601c0ad944aea5d62"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "srs_metastasis_prediction"
+    },
+    {
+      "boundary_note": "Univariate/multivariate regression and nomogram construction for OS prediction. Regression/survival modeling of prognostic associations, no named causal design or formal directed method.",
+      "candidate_label": "Univariate/multivariate analysis and nomogram of SRS with clinical characteristics",
+      "evidence_atom_ids": [
+        "ea_4feb7463aa456902ce9905ce",
+        "ea_a3d9e92af91dc036295dc320",
+        "ea_e83fb9a6cfeb6d5468e88f3d"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "srs_nomogram_multivariate"
+    },
+    {
+      "boundary_note": "Differential-abundance, correlation, and survival intersection of immune cell types across risk groups. Association/differential analysis only, with no identifying variation or formal directed-hypothesis method.",
+      "candidate_label": "Immune microenvironment associated with SRS risk groups",
+      "evidence_atom_ids": [
+        "ea_16207403a32fa08ae6902975",
+        "ea_c3cec2b1262d1fbf34bbd298",
+        "ea_d884d6105d559f7bb726dbd9"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "srs_immune_association"
+    },
+    {
+      "boundary_note": "Comparison and correlation of predicted IC50 drug sensitivity with SRS risk scores. Correlation/prediction against imputed sensitivity, no controlled intervention or formal directed method; fails causal-basis condition.",
+      "candidate_label": "Correlation between SRS and small-molecule drug sensitivity",
+      "evidence_atom_ids": [
+        "ea_d3e7543f49fc8eb193857d6c",
+        "ea_bfaa771e59c3cd9d3623e16c",
+        "ea_5f16530e11bc656ca29c173a"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "srs_drug_sensitivity"
+    }
+  ],
+  "qualifying_analyses": [],
+  "report_id": "doi:10.21037/tcr-2026-1-0264",
+  "reviewer_id": "claude_opus_4_8",
+  "source_status": "sufficient"
+}

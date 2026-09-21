@@ -1,0 +1,14 @@
+{
+  "document_id": "doi_6b523b6e6aa043ca",
+  "doi": "10.1038/s41438-020-00420-y",
+  "effort": "high",
+  "input_size_modifications": false,
+  "model": "claude-opus-4-8",
+  "procedure": "exact_frozen_prompt_retry_after_historical_429",
+  "prompt_sha256": "401aca0b53800ffde46c77df6c3b7964de7400e55d95f1fdecc838d37fdef16a",
+  "prompt_source": "data/causal_extraction/v0.3.1_independent_validation/independent_inventories/claude_opus_4_8/calls/doi_6b523b6e6aa043ca/rendered_prompt.txt",
+  "report_id": "doi:10.1038/s41438-020-00420-y",
+  "reviewer_id": "claude_opus_4_8",
+  "source_atom_count": 944,
+  "source_atom_index_sha256": "6c52304acc26583935d930b976b7ec3c910caa8f38cb1c6879e15a1e81572e3f"
+}

@@ -1,0 +1,431 @@
+{
+  "coverage_note": "Covers the UA intervention (also omics exposure), calcium chelation, and targeted genetic/pharmacologic perturbations validating omics-nominated nodes in C. elegans and mammalian cells. RNAi and mutant of one gene, epistatic combinations, and multiple readouts are child contrasts. Descriptive omics, external and future-work items are boundaries.",
+  "excluded_boundary_candidates": [
+    {
+      "boundary_note": "A genetic perturbation with aging-relevant organelle outcome, but it is a premise experiment that neither uses nor validates an omics-generated candidate, so it sits outside the integrated multi-omics workflow. A stricter reviewer might admit it under mechanistic support.",
+      "candidate_label": "RNAi of pink-1/pdr-1/dct-1 phenocopying age-related organelle defects",
+      "evidence_atom_ids": [
+        "ea_64d9383641c4b55ef3745d4b",
+        "ea_6d1526fa80cf937214bcd17f"
+      ],
+      "first_failed_condition": "not_multiomics_workflow",
+      "reviewer_candidate_id": "mitophagy_gene_rnai_phenocopy"
+    },
+    {
+      "boundary_note": "PQ (toxicant positive control) and NMN (distinct-pathway comparator) are interventions but are used only to contrast UA's mechanism, not to validate the report's UA aging link.",
+      "candidate_label": "Paraquat and NMN comparator treatments for calcium/mitophagy specificity",
+      "evidence_atom_ids": [
+        "ea_a35f6691252228f400e67b3a",
+        "ea_46078499ac5781091b75ddc2",
+        "ea_27ef96d63c803add4e6f2fd5"
+      ],
+      "first_failed_condition": "no_aging_relevance",
+      "reviewer_candidate_id": "pq_nmn_comparators"
+    },
+    {
+      "boundary_note": "Differential expression and enrichment discovery layer. It generates candidates but is descriptive (no effect-identification design of its own); the causal contrasts are the downstream perturbations.",
+      "candidate_label": "UA-versus-control worm transcriptomic/proteomic DEG, GO and GSVA analysis",
+      "evidence_atom_ids": [
+        "ea_7056c2f8b8a45d035568f5cb",
+        "ea_0f086d31bcbe3413c86fda5c",
+        "ea_3acc5e98dc6e9292e81a1d37"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "worm_omics_dge_enrichment"
+    },
+    {
+      "boundary_note": "Undirected functional-interconnectivity network with no directed causal method; excluded per the network-centrality exclusion.",
+      "candidate_label": "Proteomic network analysis of UA-altered proteins",
+      "evidence_atom_ids": [
+        "ea_78a6fd0e00024e88e17530d1",
+        "ea_bfb93d1343d2e92c29f844e8"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "proteomic_network"
+    },
+    {
+      "boundary_note": "A null differential-modification readout of DRP-1 under the UA intervention; it is a molecular readout within the UA worm design rather than a separate causal analysis.",
+      "candidate_label": "DRP-1::GFP immunoprecipitation mass spectrometry for UA-induced PTMs (null)",
+      "evidence_atom_ids": [
+        "ea_053aff0f6add6aac69041999",
+        "ea_14e810b8e274d39647777cd6"
+      ],
+      "first_failed_condition": "not_distinct_design_unit",
+      "reviewer_candidate_id": "drp1_ipms_ptm"
+    },
+    {
+      "boundary_note": "Differential gene expression and GO enrichment on a re-analyzed external dataset, used to argue conservation; descriptive rather than an effect-identification design.",
+      "candidate_label": "Re-analysis of public HT29 UA transcriptome (DEG/GO)",
+      "evidence_atom_ids": [
+        "ea_7a6de58a3901574d2716887f",
+        "ea_4c95645c5ba930586d3231be",
+        "ea_1fdbf21c0999a2c1b3b3c532"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "ht29_transcriptomics"
+    },
+    {
+      "boundary_note": "Stated in the discussion citing prior work (ref 19); no current-report empirical result for this contrast.",
+      "candidate_label": "PINK-1 requirement for UA lifespan extension",
+      "evidence_atom_ids": [
+        "ea_4d275c86249872e44ce796a6"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "pink1_ua_lifespan_cited"
+    },
+    {
+      "boundary_note": "Cited external finding discussed for context; the report explicitly states whether it acts like UA needs to be examined, so no current-report result.",
+      "candidate_label": "Kaempferol modulation of MCU calcium uptake",
+      "evidence_atom_ids": [
+        "ea_23ea463901d91c684472f82c",
+        "ea_8184509f6459e4379695afbb"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "kaempferol_mcu_external"
+    },
+    {
+      "boundary_note": "Explicitly proposed future work with no current-report result.",
+      "candidate_label": "Proposed future studies on calcium signaling, organelle contacts and mitophagy enhancers",
+      "evidence_atom_ids": [
+        "ea_0292ddef01bcb4c4c73dffaf"
+      ],
+      "first_failed_condition": "no_empirical_result",
+      "reviewer_candidate_id": "future_calcium_studies"
+    }
+  ],
+  "qualifying_analyses": [
+    {
+      "analysis_label": "Urolithin A supplementation in C. elegans (omics exposure and geroprotection)",
+      "biological_system": "Caenorhabditis elegans whole organism, with intestinal, body-wall muscle and neuronal organelle/calcium/mitophagy reporters",
+      "boundary_note": "Central controlled intervention and the exposure arm of the multi-omics comparison. Many molecular readouts (MAMs, membrane potential, DRP-1 imaging) are child contrasts of this one UA-versus-control design and are not split out.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Untreated/vehicle-fed wild-type (N2) nematodes",
+      "design_family": "nonrandomized_controlled_intervention",
+      "exposure_or_intervention_construct": "Urolithin A treatment",
+      "identifying_variation_or_assignment": "Controlled dietary supplementation of urolithin A (50 uM on NGM) versus untreated/vehicle plates; UA is also the exposure arm of the paired transcriptome and proteome comparison",
+      "method_evidence_atom_ids": [
+        "ea_3fb31423c5ea814a2899246d",
+        "ea_e58aebf05c05900d80508774",
+        "ea_fa243134b9f67e33e051487e"
+      ],
+      "outcome_constructs": [
+        "ER-mitochondria contacts (MAMs)",
+        "cytosolic and mitochondrial calcium",
+        "lifespan",
+        "mitochondrial membrane potential",
+        "muscle function/locomotion",
+        "organelle morphology restoration"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_8a98cc2764e7edb66dec9f4b",
+        "ea_5fc2e07702f5a25746be7963",
+        "ea_398b685a43f4e927df1aa488",
+        "ea_5c11d28582565c859d6d7a7c"
+      ],
+      "reviewer_candidate_id": "ua_celegans",
+      "validation_evidence_atom_ids": [
+        "ea_45876eadd25651fb6edcbd41"
+      ]
+    },
+    {
+      "analysis_label": "EGTA calcium chelation necessity test for UA effects in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism, muscle and neuronal reporters",
+      "boundary_note": "Distinct perturbed target (calcium) from the UA intervention, testing necessity of calcium for the omics-highlighted mechanism. Kept separate from UA because the exposure and comparator change.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "UA-treated worms without EGTA (and untreated controls)",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Intracellular calcium chelation/depletion",
+      "identifying_variation_or_assignment": "Pharmacologic calcium chelation with EGTA (10 mM) co-administered with UA, versus UA alone",
+      "method_evidence_atom_ids": [
+        "ea_69eb5c20f37831111e320cb3",
+        "ea_e58aebf05c05900d80508774"
+      ],
+      "outcome_constructs": [
+        "UA-extended lifespan",
+        "UA-induced mitophagy",
+        "aged locomotion",
+        "calcium elevation",
+        "myofilament organization"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_cd60d7b045563f3c185bc95c",
+        "ea_27ef96d63c803add4e6f2fd5",
+        "ea_b9fa141b42f7048b6ded7681",
+        "ea_66eec072a47875c73e41fb3f"
+      ],
+      "reviewer_candidate_id": "egta_calcium_celegans",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "ITR-1/ITPR/InsP3R loss of function (omics candidate) in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism, muscle reporters",
+      "boundary_note": "Clear omics-candidate-followed-by-perturbation: itr-1 was a transcriptomic hit confirmed by qRT-PCR, then genetically depleted. RNAi and mutant of the same target counted as one analysis.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of ITR-1/ITPR/InsP3R ER calcium-release channel",
+      "identifying_variation_or_assignment": "RNAi knockdown and itr-1(sa73) loss-of-function mutant of an omics-nominated transcript (itr-1 upregulated and qRT-PCR validated), tested with UA",
+      "method_evidence_atom_ids": [
+        "ea_b9a2eef0743859c532f19681",
+        "ea_9602310f7146fee219401053"
+      ],
+      "outcome_constructs": [
+        "cytosolic calcium elevation",
+        "lifespan",
+        "mitophagy",
+        "myofilament structure"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_172070c90d79fa516c744d23",
+        "ea_7d8102955e03e00b7b36ac8e"
+      ],
+      "reviewer_candidate_id": "itr1_perturbation",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "TMCO-1 and EMC-3 ER calcium-release channel depletion (proteomic candidates) in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism",
+      "boundary_note": "Two proteome-nominated ER channel genes tested jointly with identical outcomes and no separate contrast detail, so grouped as one design unit representing the ER calcium-release machinery.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of TMCO-1/EMC-3 ER calcium-release machinery",
+      "identifying_variation_or_assignment": "RNAi knockdown of tmco-1 and emc-3, ER-morphology proteins elevated in the UA proteome, tested with UA",
+      "method_evidence_atom_ids": [
+        "ea_f1d3bab1d33dbe83090dfdad",
+        "ea_c4acd9a5038bd9f36703e709",
+        "ea_44d0a8e1f723f4bdf78e7dd8"
+      ],
+      "outcome_constructs": [
+        "UA-dependent lifespan extension",
+        "muscle function preservation"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_42663e74e37faaa93bfa3752",
+        "ea_adc9c534865554fdc7d58cf5"
+      ],
+      "reviewer_candidate_id": "tmco1_emc3_perturbation",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "MCU-1/MCU loss of function in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism, muscle reporters",
+      "boundary_note": "Validates the omics-nominated calcium-transport mechanism (pathway-level candidate). Distinct perturbed target from itr-1, so a separate unit; epistatic double perturbations are treated as child contrasts.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of MCU-1/MCU mitochondrial calcium uniporter",
+      "identifying_variation_or_assignment": "RNAi knockdown and mcu-1(ju1154) mutant of the mitochondrial calcium uniporter, tested with UA",
+      "method_evidence_atom_ids": [
+        "ea_ee8ceb9efcdd42e0d638597b",
+        "ea_b0795f91c0ea8054e7d93ac9"
+      ],
+      "outcome_constructs": [
+        "aged locomotion/healthspan",
+        "cytosolic calcium",
+        "lifespan",
+        "mitophagy"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_1b148a80b680a2dc85f7ab22",
+        "ea_7813acf372e745136aa62d84",
+        "ea_6818cc26d5de37646dd8feeb"
+      ],
+      "reviewer_candidate_id": "mcu1_perturbation",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "DRP-1/DNM1L/DRP1 loss of function in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism, muscle and neuronal reporters",
+      "boundary_note": "Validates the fission node of the omics-highlighted mitophagy mechanism; DRP-1 was also probed by IP proteomics. Mammalian Mdivi-1 phenocopy serves as orthogonal validation of the same link.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of DRP-1/DNM1L/DRP1 (mitochondrial fission)",
+      "identifying_variation_or_assignment": "RNAi knockdown and drp-1(tm1108) mutant of the fission GTPase, tested with UA and EGTA",
+      "method_evidence_atom_ids": [
+        "ea_b6449ec17d8ad0d7212bb024",
+        "ea_fc2b643e03ff48357e080bbb"
+      ],
+      "outcome_constructs": [
+        "baseline and UA-induced calcium",
+        "lifespan",
+        "locomotion/myofilament",
+        "mitochondrial network morphology",
+        "mitophagy"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_53b78189049ad9f43d7f4bf9",
+        "ea_a3b4db8411be9934e7560769",
+        "ea_52583c1aa9ac7efd984f52ef"
+      ],
+      "reviewer_candidate_id": "drp1_perturbation",
+      "validation_evidence_atom_ids": [
+        "ea_aa64dedd7074c83455e10a5e"
+      ]
+    },
+    {
+      "analysis_label": "SKN-1/NFE2L2/Nrf2 loss of function in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism",
+      "boundary_note": "SKN-1 necessity for UA lifespan is a current-report result (Figure S5A) even though also reported previously; validates the omics biogenesis module. UA-induced SKN-1 activation supports the same link.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of SKN-1/NFE2L2/Nrf2",
+      "identifying_variation_or_assignment": "RNAi knockdown of skn-1, tested with UA for lifespan",
+      "method_evidence_atom_ids": [
+        "ea_9602310f7146fee219401053"
+      ],
+      "outcome_constructs": [
+        "UA-dependent lifespan extension",
+        "mitochondrial biogenesis pathway"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_8d17acff201db764bc94d510",
+        "ea_18d4645a9179dedf1924475b"
+      ],
+      "reviewer_candidate_id": "skn1_perturbation",
+      "validation_evidence_atom_ids": [
+        "ea_e915a37b421e75087d407224"
+      ]
+    },
+    {
+      "analysis_label": "UNC-43/CAMK2D loss of function in C. elegans",
+      "biological_system": "Caenorhabditis elegans whole organism, muscle and neuronal reporters",
+      "boundary_note": "Perturbation of the calcium-to-biogenesis node identified through the omics-enriched mitochondrial-biogenesis and calcium modules. Distinct target, separate unit.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Control RNAi / wild-type with matched UA and untreated conditions",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Depletion of UNC-43/CAMK2D",
+      "identifying_variation_or_assignment": "RNAi knockdown and unc-43(tm1605) mutant of the calcium/calmodulin kinase, tested with UA",
+      "method_evidence_atom_ids": [
+        "ea_6a2c6627a1273143e998576d",
+        "ea_fc2b643e03ff48357e080bbb"
+      ],
+      "outcome_constructs": [
+        "SKN-1/gst-4 activation",
+        "lifespan",
+        "mitochondrial DRP-1 localization",
+        "mitophagy"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_5ab3241b709101277380b469",
+        "ea_18d4645a9179dedf1924475b",
+        "ea_1f709162e967776ee0c21504"
+      ],
+      "reviewer_candidate_id": "unc43_perturbation",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "Urolithin A treatment in normal mammalian cells (conserved-mechanism validation, incl. senescence)",
+      "biological_system": "Normal human BJ fibroblasts and HUVEC (also MEF, HMC3 microglia)",
+      "boundary_note": "Distinct biological system from the worm work, validating the conserved UA-calcium-mitophagy-antisenescence link the multi-omics analysis proposed. Cell types are child contrasts of one UA intervention; senescence is included as an outcome.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Vehicle-treated cells (and H2O2 without UA for senescence)",
+      "design_family": "nonrandomized_controlled_intervention",
+      "exposure_or_intervention_construct": "Urolithin A treatment",
+      "identifying_variation_or_assignment": "Controlled UA treatment versus vehicle in normal human/mouse cell lines, with H2O2 stress-induced premature senescence model for the senescence contrast",
+      "method_evidence_atom_ids": [
+        "ea_8b836b3c738699b0878f3d89",
+        "ea_78e7ad103e83b82140197b4e",
+        "ea_5eed34579b79ccdb6b564735"
+      ],
+      "outcome_constructs": [
+        "CDKN1A/p21 expression",
+        "SA-GLB1/beta-gal senescence",
+        "cathepsin/lysosomal activity",
+        "intracellular calcium",
+        "mitophagic flux and respiration"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_09b3e091c345324279fd086e",
+        "ea_3f33d2f72665f4c08b98e711",
+        "ea_e342f3d3e7c5c127ed1fc0f6",
+        "ea_d3871260b99609f488a08002",
+        "ea_e50ff88cb1f2410ce9e37017"
+      ],
+      "reviewer_candidate_id": "ua_mammalian_cells",
+      "validation_evidence_atom_ids": [
+        "ea_45876eadd25651fb6edcbd41"
+      ]
+    },
+    {
+      "analysis_label": "EGTA calcium chelation necessity test in mammalian cells",
+      "biological_system": "Normal human BJ fibroblasts and HUVEC",
+      "boundary_note": "Distinct calcium-chelation perturbation in mammalian cells, separate from worm EGTA by biological system. Worm EGTA result provides orthogonal support for the same calcium-dependency link.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "UA-treated cells without EGTA",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Intracellular calcium chelation/depletion",
+      "identifying_variation_or_assignment": "Pharmacologic calcium chelation with EGTA co-administered with UA in human cells, versus UA alone",
+      "method_evidence_atom_ids": [
+        "ea_30b06c995bc2dd850f02b7b7",
+        "ea_a792596847b935d71bd73fcc"
+      ],
+      "outcome_constructs": [
+        "UA-driven p21 reduction (anti-senescence)",
+        "UA-enhanced mitochondrial respiration",
+        "UA-induced mitophagic flux"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_72ebba458f418599ee3452c5",
+        "ea_e342f3d3e7c5c127ed1fc0f6",
+        "ea_e50ff88cb1f2410ce9e37017"
+      ],
+      "reviewer_candidate_id": "egta_calcium_mammalian",
+      "validation_evidence_atom_ids": [
+        "ea_cd60d7b045563f3c185bc95c"
+      ]
+    },
+    {
+      "analysis_label": "Thapsigargin ER calcium-store depletion in mammalian cells",
+      "biological_system": "Normal human BJ fibroblasts and HUVEC",
+      "boundary_note": "Distinct perturbed target (SERCA/ER calcium stores) establishing that targeted ER-to-mitochondria transfer, not general cytosolic calcium, is needed. Separate from EGTA and Mdivi-1 by target.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "UA-treated cells without thapsigargin",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "ER calcium-store depletion via SERCA inhibition",
+      "identifying_variation_or_assignment": "Pharmacologic ATP2A/SERCA inhibition with thapsigargin depleting ER calcium stores, co-treated with UA",
+      "method_evidence_atom_ids": [
+        "ea_30b06c995bc2dd850f02b7b7"
+      ],
+      "outcome_constructs": [
+        "UA-induced mitophagy (targeted ER-to-mitochondria calcium transfer)"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_bc500bf5aa8a1b957fca0eb9",
+        "ea_f8e9d58806db9af77b2f3b61"
+      ],
+      "reviewer_candidate_id": "thapsigargin_mammalian",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "Mdivi-1 DRP1 inhibition in mammalian cells",
+      "biological_system": "Normal human BJ fibroblasts and HUVEC",
+      "boundary_note": "Distinct DRP1-inhibition perturbation in mammalian cells that phenocopies the worm drp-1 knockdown, validating the conserved fission node. Worm data cited as orthogonal support.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "UA-treated cells without Mdivi-1",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "DRP1 fission inhibition",
+      "identifying_variation_or_assignment": "Pharmacologic DNM1L/DRP1 inhibition with Mdivi-1, co-treated with UA",
+      "method_evidence_atom_ids": [
+        "ea_2abcd379de1d1f395c2eeb25",
+        "ea_82ae18a07dda8d2f16a8429b"
+      ],
+      "outcome_constructs": [
+        "UA-induced calcium elevation",
+        "UA-induced mitophagy"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_aa64dedd7074c83455e10a5e"
+      ],
+      "reviewer_candidate_id": "mdivi1_mammalian",
+      "validation_evidence_atom_ids": [
+        "ea_277a73fcb89b14e4b85cda9b"
+      ]
+    }
+  ],
+  "report_id": "doi:10.1080/15548627.2025.2561073",
+  "reviewer_id": "claude_opus_4_8",
+  "source_status": "sufficient"
+}

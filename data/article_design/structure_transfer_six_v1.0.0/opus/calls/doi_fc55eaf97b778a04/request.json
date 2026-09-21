@@ -1,0 +1,14 @@
+{
+  "document_id": "doi_fc55eaf97b778a04",
+  "doi": "10.3390/plants14152388",
+  "effort": "high",
+  "input_size_modifications": false,
+  "model": "claude-opus-4-8",
+  "procedure": "exact_frozen_prompt_retry_after_historical_429",
+  "prompt_sha256": "1e589f2141dccf6042b6bad5a350401a49f83e2de5ab95a49452ed593cbae7da",
+  "prompt_source": "data/causal_extraction/v0.3.1_independent_validation/independent_inventories/claude_opus_4_8/calls/doi_fc55eaf97b778a04/rendered_prompt.txt",
+  "report_id": "doi:10.3390/plants14152388",
+  "reviewer_id": "claude_opus_4_8",
+  "source_atom_count": 1068,
+  "source_atom_index_sha256": "3b78b7de61c00cccd5f0037313f72bb8e370666bef7f190ea092e2704d80fbce"
+}

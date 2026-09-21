@@ -1,0 +1,156 @@
+{
+  "reports": [
+    {
+      "document_id": "doi_9bd21f903f00005b",
+      "report_id": "doi:10.1080/15548627.2025.2561073",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": true,
+      "has_qualifying_analysis_opus": true,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 9,
+      "opus_analysis_count": 12,
+      "design_family_set_terra": [
+        "nonrandomized_controlled_intervention",
+        "targeted_perturbation"
+      ],
+      "design_family_set_opus": [
+        "nonrandomized_controlled_intervention",
+        "targeted_perturbation"
+      ],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_opus": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_agreement": true
+    },
+    {
+      "document_id": "doi_fc55eaf97b778a04",
+      "report_id": "doi:10.3390/plants14152388",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": true,
+      "has_qualifying_analysis_opus": true,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 1,
+      "opus_analysis_count": 1,
+      "design_family_set_terra": [
+        "nonrandomized_controlled_intervention"
+      ],
+      "design_family_set_opus": [
+        "nonrandomized_controlled_intervention"
+      ],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_opus": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_agreement": true
+    },
+    {
+      "document_id": "doi_6b523b6e6aa043ca",
+      "report_id": "doi:10.1038/s41438-020-00420-y",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": true,
+      "has_qualifying_analysis_opus": true,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 5,
+      "opus_analysis_count": 3,
+      "design_family_set_terra": [
+        "nonrandomized_controlled_intervention",
+        "targeted_perturbation"
+      ],
+      "design_family_set_opus": [
+        "nonrandomized_controlled_intervention",
+        "targeted_perturbation"
+      ],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_opus": [
+        "effect_identification_design"
+      ],
+      "causal_basis_set_agreement": true
+    },
+    {
+      "document_id": "doi_2b6595596a732fb9",
+      "report_id": "doi:10.21037/tcr-2026-1-0264",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": false,
+      "has_qualifying_analysis_opus": false,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 0,
+      "opus_analysis_count": 0,
+      "design_family_set_terra": [],
+      "design_family_set_opus": [],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [],
+      "causal_basis_set_opus": [],
+      "causal_basis_set_agreement": true
+    },
+    {
+      "document_id": "doi_ef6b9bff3b03d476",
+      "report_id": "doi:10.1111/acel.70279",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": true,
+      "has_qualifying_analysis_opus": true,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 4,
+      "opus_analysis_count": 3,
+      "design_family_set_terra": [
+        "genetic_instrument",
+        "mediation"
+      ],
+      "design_family_set_opus": [
+        "genetic_instrument",
+        "mediation"
+      ],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [
+        "effect_identification_design",
+        "formal_directed_hypothesis"
+      ],
+      "causal_basis_set_opus": [
+        "effect_identification_design",
+        "formal_directed_hypothesis"
+      ],
+      "causal_basis_set_agreement": true
+    },
+    {
+      "document_id": "doi_ec4e8c88344d7790",
+      "report_id": "doi:10.1186/s13040-025-00432-1",
+      "source_status_agreement": true,
+      "has_qualifying_analysis_terra": true,
+      "has_qualifying_analysis_opus": true,
+      "has_qualifying_analysis_agreement": true,
+      "terra_analysis_count": 2,
+      "opus_analysis_count": 1,
+      "design_family_set_terra": [
+        "mediation"
+      ],
+      "design_family_set_opus": [
+        "mediation"
+      ],
+      "design_family_set_agreement": true,
+      "causal_basis_set_terra": [
+        "formal_directed_hypothesis"
+      ],
+      "causal_basis_set_opus": [
+        "formal_directed_hypothesis"
+      ],
+      "causal_basis_set_agreement": true
+    }
+  ],
+  "summary": {
+    "reports": 6,
+    "source_status_agreement": 6,
+    "qualifying_analysis_presence_agreement": 6,
+    "design_family_set_agreement": 6,
+    "causal_basis_set_agreement": 6,
+    "exact_analysis_count_agreement": 2
+  }
+}

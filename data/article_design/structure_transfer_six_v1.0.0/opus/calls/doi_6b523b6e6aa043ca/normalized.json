@@ -1,0 +1,217 @@
+{
+  "coverage_note": "Pear fruit senescence multiomics study; senescence meets aging relevance. Three qualifying units: temperature intervention (HT/LT vs RT) with senescence-timing outcome, dual-luciferase perturbation of microRNA-mRNA interactions, and transient transformation of the Novel_188/Pbr027651.1 module. Differential abundance, correlation, target prediction, network assembly, annotation, qPCR consistency, and cited external perturbations are boundary items.",
+  "excluded_boundary_candidates": [
+    {
+      "boundary_note": "Perturbation interventions from prior external studies described in the introduction; not a current-report result.",
+      "candidate_label": "Cited tomato ACS2 silencing / FYFL overexpression delaying senescence",
+      "evidence_atom_ids": [
+        "ea_a8144850536daea3a8311ae1"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "external_tomato_acs2_fyfl"
+    },
+    {
+      "boundary_note": "Differential abundance of metabolites between senescent/RF and temperature contrasts; a descriptive comparison excluded as differential abundance without an effect-estimation design.",
+      "candidate_label": "Differential accumulation analysis of metabolic compounds",
+      "evidence_atom_ids": [
+        "ea_33112b3534a4c11dded34a24",
+        "ea_6f200ed191027a11b3e1e68d",
+        "ea_9ffe56b5a09fa2d44f81e8b1",
+        "ea_dea59eee84ba7669c99208f4"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "compound_differential_analysis"
+    },
+    {
+      "boundary_note": "In silico target prediction assigning microRNAs to senescence mRNAs; excluded as prediction/association with no experimental identifying variation.",
+      "candidate_label": "microRNA-target prediction (psRobot) linking microRNAs to mRNAs",
+      "evidence_atom_ids": [
+        "ea_1ee0db5bc14edb0c27592881",
+        "ea_f4fa1648fc21c4d0d89c0b0a",
+        "ea_f13422feb83dce76d2567ce7"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "mirna_target_prediction"
+    },
+    {
+      "boundary_note": "Correlation between mRNAs and compounds to isolate senescence-associated mRNAs; excluded as association/correlation despite integrating omics layers.",
+      "candidate_label": "Correlation analysis between differential mRNAs and compounds",
+      "evidence_atom_ids": [
+        "ea_e76abaaa40440e316860897f",
+        "ea_908624e5545bbe40e7bb5105",
+        "ea_b35daca0b2670da62377d593",
+        "ea_a06df690ebfb82e592e34e29"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "mrna_compound_correlation"
+    },
+    {
+      "boundary_note": "Differential expression counts identifying senescence-associated mRNAs; excluded as differential expression without a named causal design.",
+      "candidate_label": "Differential expression analysis of mRNAs (transcriptome)",
+      "evidence_atom_ids": [
+        "ea_fc51dde82e8e90bddd82834a",
+        "ea_7499aafd26e3fb7372d24c6f",
+        "ea_0064edc3d2e8e10c1563c1c4"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "mrna_differential_analysis"
+    },
+    {
+      "boundary_note": "Technical validation that qPCR profiles correlate with sequencing profiles; a correlation check on measurement, not a causal design.",
+      "candidate_label": "RT-qPCR consistency validation of transcriptome and microRNAome",
+      "evidence_atom_ids": [
+        "ea_f8a63f0fb2f2ea5a0f2855e5",
+        "ea_af8421a0d89d56331fb7b0a0"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "rtqpcr_omics_validation"
+    },
+    {
+      "boundary_note": "Descriptive mapping of gene positions to chromosomes; no identifying variation or directed method.",
+      "candidate_label": "Chromosomal location assessment of senescence genes",
+      "evidence_atom_ids": [
+        "ea_c1c9cea53e5c01bb12c778e6",
+        "ea_09252bfd0df0e5f3a8a9e838"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "chromosomal_location_assessment"
+    },
+    {
+      "boundary_note": "Annotation and enrichment of gene families with causal/mechanistic wording; excluded as enrichment and causal language without a formal method or perturbation.",
+      "candidate_label": "Functional annotation of TFs and auxin genes with 'involved/mediated' wording",
+      "evidence_atom_ids": [
+        "ea_66c162611a4549fc7b22c73d",
+        "ea_7c853f430c797816a5220217",
+        "ea_cc3ce5b56dcd2110be27a56f",
+        "ea_9a814a415e25b08ed6f1648d"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "functional_annotation_tfs_auxin"
+    },
+    {
+      "boundary_note": "Assembled interaction network inferred from prediction and co-expression; causal wording but an undirected/inferred network without a formal directed method.",
+      "candidate_label": "Integrated microRNA-mRNA-compound pathway/network diagram",
+      "evidence_atom_ids": [
+        "ea_d86d5e6bf38d9daf475d49c0",
+        "ea_3fc35dcd01e321f256bc6f8a"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "mirna_mrna_compound_network"
+    },
+    {
+      "boundary_note": "Differential expression of microRNAs across senescence and temperature contrasts; excluded as differential abundance.",
+      "candidate_label": "Differential expression analysis of microRNAs",
+      "evidence_atom_ids": [
+        "ea_ff0ee5b36b6cf0b52025b72f",
+        "ea_559c6baad9e00b270b31e9dc",
+        "ea_cd0a9060a70ec5110b438ced"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "mirna_differential_analysis"
+    },
+    {
+      "boundary_note": "External literature on microRNA-senescence links cited in discussion/references; not an empirical result of this report.",
+      "candidate_label": "Cited external work on miR319 regulating leaf senescence",
+      "evidence_atom_ids": [
+        "ea_77cfb6f467b801fa834b2090",
+        "ea_45bda1e3fbefbc6f9e2e7d7d"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "external_mir319_leaf_senescence"
+    }
+  ],
+  "qualifying_analyses": [
+    {
+      "analysis_label": "Postharvest temperature intervention (HT/LT vs RT) affecting pear fruit senescence and multiomics readouts",
+      "biological_system": "Postharvest pear fruit (cv. Housui) flesh under storage",
+      "boundary_note": "Controlled environmental intervention with RT comparator producing a direct senescence-timing outcome and generating the multiomics outcomes. HT and LT are treatment levels kept as child contrasts of one temperature intervention, not split.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Room temperature (25 degrees C) stored fruits used as controls",
+      "design_family": "nonrandomized_controlled_intervention",
+      "exposure_or_intervention_construct": "Storage temperature treatment (HT 40 degrees C and LT 4 degrees C)",
+      "identifying_variation_or_assignment": "Controlled assignment of harvested fruits to high, low, or room temperature storage groups",
+      "method_evidence_atom_ids": [
+        "ea_2c9df35a5bd0e697074648fa",
+        "ea_05a33b00b3c22975c978c755",
+        "ea_2bcb6ae6c8333645839098b8",
+        "ea_56552af4ad519682f4e491a7",
+        "ea_60d452f6f7cdbae8acf50c00"
+      ],
+      "outcome_constructs": [
+        "fruit senescence timing (days to senescence)",
+        "metabolome profile",
+        "microRNAome profile",
+        "transcriptome profile"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_a98f1e59a58e0fdedd867c7b",
+        "ea_dfdda01e2a7e7bab31ed02c4"
+      ],
+      "reviewer_candidate_id": "temperature_intervention_senescence",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "Dual-luciferase assay testing microRNA-mRNA interactions underlying fruit senescence",
+      "biological_system": "Nicotiana (tobacco) leaf transient expression system",
+      "boundary_note": "Molecular perturbation confirming the microRNA-mRNA interaction candidates generated by the integrated omics; mechanistic experiment supporting the report's senescence link. Distinct system and intervention from the fruit transient transformation, so kept separate.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Reporter co-transfected with an empty vector",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "microRNA overexpression (35S:pre-microRNA) acting on reporter bearing the predicted target sequence",
+      "identifying_variation_or_assignment": "Co-transfection of 35S:pre-microRNA effector versus empty vector with a target-sequence reporter in tobacco leaves",
+      "method_evidence_atom_ids": [
+        "ea_eeb3130b089fc30815a9f8ef",
+        "ea_42ac0e2837ba7ced5d3b0758",
+        "ea_4681fca693fb20ca9c327623",
+        "ea_dd28c2da94dd19d614f07e41"
+      ],
+      "outcome_constructs": [
+        "luciferase (LUC) reporter activity as readout of microRNA-mRNA interaction"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_9940b704e5d0705c725b64be",
+        "ea_bafc272c019db975a6d3b78a",
+        "ea_ffb6bd9a2338364e4cb7f4d3"
+      ],
+      "reviewer_candidate_id": "dual_luciferase_mirna_mrna",
+      "validation_evidence_atom_ids": []
+    },
+    {
+      "analysis_label": "Transient transformation of pear fruit perturbing Novel_188 and target Pbr027651.1 in fruit senescence",
+      "biological_system": "Postharvest pear fruit (cv. Housui) in vivo transient transformation",
+      "boundary_note": "Targeted perturbation of the omics-derived Novel_188/Pbr027651.1 module with a direct senescence outcome. Gain/loss on Pbr027651.1 plus Novel_188 overexpression are kept as one design unit (same system, method, single regulatory link); qPCR confirms the assigned perturbations.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Empty control vector infiltrated fruits",
+      "design_family": "targeted_perturbation",
+      "exposure_or_intervention_construct": "Overexpression and silencing of Pbr027651.1 and overexpression of microRNA Novel_188",
+      "identifying_variation_or_assignment": "Agrobacterium-mediated transient overexpression and VIGS silencing in pear fruit versus empty control vector",
+      "method_evidence_atom_ids": [
+        "ea_207bc1ef04e004fbfcadf949",
+        "ea_e65d93bc35f2dca028f1f99b",
+        "ea_23c809ea5e6d407bf2ab4a26",
+        "ea_9087aae3cd73d04c7a448a63",
+        "ea_e386a66caec64b9f2a8b49c6"
+      ],
+      "outcome_constructs": [
+        "Novel_188 expression",
+        "Pbr027651.1 expression",
+        "fruit senescence phenotype"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_b51ab147cfb3f548a00ddb11",
+        "ea_5dad50cf1679d1c9c281883c",
+        "ea_2d262017a1e7101f704d42ab",
+        "ea_092c63095a5a3ef0333a0dbb",
+        "ea_ab9231c85599c6928e86d345"
+      ],
+      "reviewer_candidate_id": "transient_transformation_novel188",
+      "validation_evidence_atom_ids": [
+        "ea_e362e048e3688c600934a9d2",
+        "ea_fed236727a631a482159f8c9"
+      ]
+    }
+  ],
+  "report_id": "doi:10.1038/s41438-020-00420-y",
+  "reviewer_id": "claude_opus_4_8",
+  "source_status": "sufficient"
+}

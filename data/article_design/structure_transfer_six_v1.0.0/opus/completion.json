@@ -1,0 +1,58 @@
+{
+  "finished_at": "2026-09-21T14:27:24.952035+00:00",
+  "inherited_schema": "protocol/causal_extraction/validation/v0.3.1-independent-15-v1.0.0/reference_inventory.schema.json",
+  "inherited_schema_sha256": "2b3f81ff07287a45704001b56b47135e71ca55e8ee58c8164252fcf840d41615",
+  "results": [
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 9,
+      "document_id": "doi_9bd21f903f00005b",
+      "doi": "10.1080/15548627.2025.2561073",
+      "qualifying_analysis_count": 12,
+      "status": "valid"
+    },
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 8,
+      "document_id": "doi_fc55eaf97b778a04",
+      "doi": "10.3390/plants14152388",
+      "qualifying_analysis_count": 1,
+      "status": "valid"
+    },
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 11,
+      "document_id": "doi_6b523b6e6aa043ca",
+      "doi": "10.1038/s41438-020-00420-y",
+      "qualifying_analysis_count": 3,
+      "status": "valid"
+    },
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 5,
+      "document_id": "doi_2b6595596a732fb9",
+      "doi": "10.21037/tcr-2026-1-0264",
+      "qualifying_analysis_count": 0,
+      "status": "valid"
+    },
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 7,
+      "document_id": "doi_ef6b9bff3b03d476",
+      "doi": "10.1111/acel.70279",
+      "qualifying_analysis_count": 3,
+      "status": "valid"
+    },
+    {
+      "attempts": 1,
+      "boundary_candidate_count": 4,
+      "document_id": "doi_ec4e8c88344d7790",
+      "doi": "10.1186/s13040-025-00432-1",
+      "qualifying_analysis_count": 1,
+      "status": "valid"
+    }
+  ],
+  "selected_reports": 6,
+  "status": "complete",
+  "valid_reports": 6
+}

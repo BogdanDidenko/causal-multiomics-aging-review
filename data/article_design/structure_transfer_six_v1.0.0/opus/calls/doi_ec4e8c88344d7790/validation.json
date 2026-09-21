@@ -1,0 +1,8 @@
+{
+  "attempt": 1,
+  "finished_at": "2026-09-21T14:27:24.951168+00:00",
+  "normalized_sha256": "453ad52851dd4932674f828a4dfc7f09b214d303600d0e414fdd03884018d0db",
+  "prompt_sha256": "cf6070ace5fa2a9109f47ab78d59d241cc0a1623f1532fd81c9dc3264c8c714f",
+  "started_at": "2026-09-21T14:25:37.034641+00:00",
+  "valid": true
+}

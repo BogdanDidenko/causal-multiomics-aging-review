@@ -1,0 +1,129 @@
+{
+  "coverage_note": "Report couples leaf transcriptomics and metabolomics on senescence. One qualifying unit: the controlled nitrogen pot intervention (N0/CK vs N150/T150) whose omics and physiology are outcomes. Enrichment/integration, differential expression/abundance, multivariate clustering, speculative metabolite modulation, and cited external interventions are recorded as non-qualifying boundaries.",
+  "excluded_boundary_candidates": [
+    {
+      "boundary_note": "Cross-omics annotation/enrichment and pathway direction; no identifying variation of its own, the assignment lies in the nitrogen intervention.",
+      "candidate_label": "Integrated transcriptome-metabolome KEGG analysis identifying phenylpropanoid (ko00940) and flavonoid (ko00941) biosynthesis pathways",
+      "evidence_atom_ids": [
+        "ea_cb7e08c7fdbe276c2c8caed5",
+        "ea_1ddc585fc14efeba595622e4",
+        "ea_274a7aab183c0e1b4f76a5c2"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "joint_transcriptome_metabolome_integration"
+    },
+    {
+      "boundary_note": "Speculative future intervention; no perturbation was performed and no current-report empirical result exists for modulating these metabolites.",
+      "candidate_label": "Proposed modulation of chlorogenic acid and naringenin chalcone levels to delay premature senescence",
+      "evidence_atom_ids": [
+        "ea_437f2ab5e1793fe3aa622c82",
+        "ea_0c1f094ae41a5b873a18fe81"
+      ],
+      "first_failed_condition": "no_empirical_result",
+      "reviewer_candidate_id": "chlorogenic_naringenin_modulation"
+    },
+    {
+      "boundary_note": "External interventions described in the introduction; not current-report empirical results.",
+      "candidate_label": "Cited external findings that exogenous ABA, ethylene and SA regulate senescence-associated genes",
+      "evidence_atom_ids": [
+        "ea_8f76ba9f9aab4ee44f14b47b",
+        "ea_41884a07aa10e2ffe075b9c8",
+        "ea_2bae868ad8d87141291339a7"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "external_hormone_senescence_studies"
+    },
+    {
+      "boundary_note": "Same nitrogen controlled intervention source; the additional N225 dose is a child contrast within the qualifying analysis.",
+      "candidate_label": "Growth comparison across three nitrogen levels (N0, N150, N225)",
+      "evidence_atom_ids": [
+        "ea_9974107ec66140430085e0a1",
+        "ea_2e4cd69decab72333b539ab2"
+      ],
+      "first_failed_condition": "not_distinct_design_unit",
+      "reviewer_candidate_id": "three_nitrogen_level_growth_comparison"
+    },
+    {
+      "boundary_note": "Differential expression readout under the nitrogen intervention; a child contrast/fragment of the qualifying pot experiment, not a distinct design.",
+      "candidate_label": "Differential gene expression analysis (4350 DEGs) between T150 and CK lower leaves",
+      "evidence_atom_ids": [
+        "ea_06e4463f4144f64d239cdee7",
+        "ea_f6427daa6babf90f0f45d2da"
+      ],
+      "first_failed_condition": "not_distinct_design_unit",
+      "reviewer_candidate_id": "transcriptome_deg_analysis"
+    },
+    {
+      "boundary_note": "Unsupervised/discriminant classification distinguishing groups; no identifying variation, association/classification only.",
+      "candidate_label": "PCA and OPLS-DA multivariate discrimination of T150 versus CK metabolomes",
+      "evidence_atom_ids": [
+        "ea_9b9d1a39e5a6866c3e4d0e67",
+        "ea_4024559757a301924d33fcc8"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "metabolome_pca_oplsda_clustering"
+    },
+    {
+      "boundary_note": "Differential abundance readout under the same nitrogen intervention; a child contrast, not a separate design unit.",
+      "candidate_label": "Differential metabolite screening (135 DEMs) between T150 and CK lower leaves",
+      "evidence_atom_ids": [
+        "ea_c2d5105470989f911dc933bd",
+        "ea_3e8211cd218756b5077e9307"
+      ],
+      "first_failed_condition": "not_distinct_design_unit",
+      "reviewer_candidate_id": "metabolite_dem_analysis"
+    },
+    {
+      "boundary_note": "External genetic-perturbation study cited in the discussion; no current-report result.",
+      "candidate_label": "Cited external study: overexpression of PAL/C4H/4CL/HCT/HQT/C3H increases cellular chlorogenic acid",
+      "evidence_atom_ids": [
+        "ea_b03df747d81a53d74d88e230"
+      ],
+      "first_failed_condition": "not_current_report",
+      "reviewer_candidate_id": "external_pal_overexpression_chlorogenic"
+    }
+  ],
+  "qualifying_analyses": [
+    {
+      "analysis_label": "Controlled nitrogen-application pot experiment comparing optimal-nitrogen (N150/T150, normal) versus no-nitrogen (N0/CK, premature senescence) red raspberry seedlings with transcriptome and metabolome readouts",
+      "biological_system": "Potted tissue-cultured double-season red raspberry 'Polka' seedlings, focusing on lower functional leaves",
+      "boundary_note": "Single controlled nitrogen intervention; all three dose levels, tissue positions and the transcriptome/metabolome readouts are child contrasts under one intervention source and one biological system. qRT-PCR treated as supportive same-experiment validation of the transcriptomic readout.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "N0 no-nitrogen control (CK) contrasted with N150 optimal-nitrogen treatment (T150)",
+      "design_family": "nonrandomized_controlled_intervention",
+      "exposure_or_intervention_construct": "Nitrogen fertilization level (optimal N150 vs no-nitrogen N0)",
+      "identifying_variation_or_assignment": "Investigator-assigned nitrogen application rates (0, 0.10, 0.15 g N/kg dry soil) to potted seedlings in a controlled pot experiment",
+      "method_evidence_atom_ids": [
+        "ea_9422d1d1c7949496e656e510",
+        "ea_b6d2a11210b24ec23749b80f",
+        "ea_2e2491b146e6606321d9fe56",
+        "ea_87e56f70c2b9658363a0cb62",
+        "ea_b22e7705175760524898979b",
+        "ea_264c1c84c8bd59b93ca3cf6e"
+      ],
+      "outcome_constructs": [
+        "leaf metabolome differential metabolites",
+        "leaf transcriptome differentially expressed genes",
+        "membrane lipid peroxidation (MDA, O2-) and antioxidant enzyme activities",
+        "photosynthetic pigment, soluble protein/sugar and starch contents",
+        "premature leaf senescence and shoot growth phenotype"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_5305f119da0ff0862c9d8141",
+        "ea_d0454c83fc719787cfe07060",
+        "ea_83fc6bab9e2c9f29bda40d85",
+        "ea_0c0c317dc2f873b2fe6d1eea",
+        "ea_29cecb96898af24fbb7cecc6",
+        "ea_fcbe5fd6fa3af58fe9da9891"
+      ],
+      "reviewer_candidate_id": "nitrogen_controlled_pot_intervention",
+      "validation_evidence_atom_ids": [
+        "ea_dae9a84997b7b38dc4789780",
+        "ea_fd8b931b7e177a01b7f814ac"
+      ]
+    }
+  ],
+  "report_id": "doi:10.3390/plants14152388",
+  "reviewer_id": "claude_opus_4_8",
+  "source_status": "sufficient"
+}

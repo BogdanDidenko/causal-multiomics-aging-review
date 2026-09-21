@@ -1,0 +1,75 @@
+{
+  "created_date": "2026-09-21",
+  "status": "source_checked_structure_transfer_draft",
+  "changes_to_eligibility_or_prisma": false,
+  "reports": [
+    {
+      "doi": "10.1080/15548627.2025.2561073",
+      "document_id": "doi_9bd21f903f00005b",
+      "evidence_atom_ids": [
+        "ea_3fb31423c5ea814a2899246d",
+        "ea_b9fa141b42f7048b6ded7681",
+        "ea_66eec072a47875c73e41fb3f",
+        "ea_a3b4db8411be9934e7560769",
+        "ea_3beb4021e92a6e21d39cbb33",
+        "ea_e342f3d3e7c5c127ed1fc0f6"
+      ]
+    },
+    {
+      "doi": "10.3390/plants14152388",
+      "document_id": "doi_fc55eaf97b778a04",
+      "evidence_atom_ids": [
+        "ea_fcbe5fd6fa3af58fe9da9891",
+        "ea_5305f119da0ff0862c9d8141",
+        "ea_d0454c83fc719787cfe07060",
+        "ea_0c0c317dc2f873b2fe6d1eea",
+        "ea_29cecb96898af24fbb7cecc6",
+        "ea_9cbe7bcf35241d9dd6e58db3"
+      ]
+    },
+    {
+      "doi": "10.1038/s41438-020-00420-y",
+      "document_id": "doi_6b523b6e6aa043ca",
+      "evidence_atom_ids": [
+        "ea_a98f1e59a58e0fdedd867c7b",
+        "ea_9940b704e5d0705c725b64be",
+        "ea_b51ab147cfb3f548a00ddb11",
+        "ea_5dad50cf1679d1c9c281883c",
+        "ea_092c63095a5a3ef0333a0dbb",
+        "ea_ab9231c85599c6928e86d345"
+      ]
+    },
+    {
+      "doi": "10.21037/tcr-2026-1-0264",
+      "document_id": "doi_2b6595596a732fb9",
+      "evidence_atom_ids": [
+        "ea_eb276b7d61d9df4748954612",
+        "ea_b3aef41601c0ad944aea5d62",
+        "ea_d3e7543f49fc8eb193857d6c"
+      ]
+    },
+    {
+      "doi": "10.1111/acel.70279",
+      "document_id": "doi_ef6b9bff3b03d476",
+      "evidence_atom_ids": [
+        "ea_7d702ca31ecc5e0db815838d",
+        "ea_5e8086c88daa29ad091d9c7a",
+        "ea_fc3c873cb141609bc8aca136",
+        "ea_174e42670164694c337f7f7c",
+        "ea_f2d34409e3f72a2f70341770"
+      ]
+    },
+    {
+      "doi": "10.1186/s13040-025-00432-1",
+      "document_id": "doi_ec4e8c88344d7790",
+      "evidence_atom_ids": [
+        "ea_46c62e1862aee2b81192f0ef",
+        "ea_d8baeddd00bb0c1ba721ebe7",
+        "ea_c57d1d1cccc7efd68df9f6dd",
+        "ea_66227fa8fa3e4f9ac68340f9",
+        "ea_4a0e5120a857ef50f5800bde",
+        "ea_0a192b96d1a8e3a5c8e79008"
+      ]
+    }
+  ]
+}

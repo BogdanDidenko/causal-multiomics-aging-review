@@ -1,0 +1,174 @@
+{
+  "coverage_note": "Report is an observational multi-omics study (DNA methylation EAA and mtDNA metrics) across four cohorts. Three design-level causal units qualify: one bi-directional causal mediation (DunedinPACE between mtDNA CN and metabolic traits) and two opposite-direction two-sample MR analyses. All primary EAA-vs-mtDNA associations, sensitivity/confounding models, and CpG-level and age-trend analyses are association-based and recorded as boundary candidates failing the named-causal-basis condition.",
+  "excluded_boundary_candidates": [
+    {
+      "boundary_note": "Tested a directed hypothesis of no association, but the method is an association/regression test, not a named mediation/DAG/instrument design; fails the named-causal-basis condition despite the null empirical result.",
+      "candidate_label": "Association analysis of common heteroplasmy burden (MHcomcount) with EAAs (null)",
+      "evidence_atom_ids": [
+        "ea_63a7efd7e7601c77b76f8b2d",
+        "ea_ae07fc75b60221033d2d2d15"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "assoc_common_heteroplasmy_eaa"
+    },
+    {
+      "boundary_note": "Confounding evaluation via additional covariate adjustment on the association models; uses causal/confounding wording but no named identifying design.",
+      "candidate_label": "Sensitivity analysis adjusting for CVD and its risk factors (confounding assessment)",
+      "evidence_atom_ids": [
+        "ea_328f6492aababa1edba41fe5",
+        "ea_073a79e13a063303e3b99d76",
+        "ea_39845f4836d794a7604b88e6"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "sensitivity_cvd_confounding"
+    },
+    {
+      "boundary_note": "Random-effect adjustment to evaluate maternal-inheritance influence on the association; a sensitivity model on an association, not a causal identification design.",
+      "candidate_label": "Linear mixed model with maternal structure as random effect",
+      "evidence_atom_ids": [
+        "ea_2096e2cbdc3c9d729d355dbd",
+        "ea_7d6471f3f8b750d2497f7063"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "maternal_structure_mixed_model"
+    },
+    {
+      "boundary_note": "Differential/epigenome-wide association of 1950 CpGs with mtDNA metrics under FDR control; feature-level association without identifying variation.",
+      "candidate_label": "Secondary association of individual CpGs with mtDNA burden scores",
+      "evidence_atom_ids": [
+        "ea_b4d6c2814ea67e2096c80b47",
+        "ea_942229a74a95d86a41663552"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "secondary_cpg_association"
+    },
+    {
+      "boundary_note": "Descriptive correlation of mtDNA metrics with chronological age across groups; aging-relevant but a crude correlation with no formal directed method or identifying variation.",
+      "candidate_label": "Crude age-group trends of mtDNA heteroplasmy burden and copy number",
+      "evidence_atom_ids": [
+        "ea_6d9aba3e49bcc17885ef672b",
+        "ea_721aa8dd19660aa2dc8cc2c0"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "crude_age_trend_mtdna"
+    },
+    {
+      "boundary_note": "Covariate-adjusted linear regression and IVW meta-analysis quantifying association; no named identifying variation or formal directed method, so it is differential association rather than a causal design.",
+      "candidate_label": "Association analysis between rare mtDNA heteroplasmy burden (MSS, MHcount) and EAA metrics",
+      "evidence_atom_ids": [
+        "ea_16690594f3404a2452f63337",
+        "ea_cb514f0e4456cc0f3a2110bc",
+        "ea_2f46c0c14717727c4867675d"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "assoc_rare_heteroplasmy_eaa"
+    },
+    {
+      "boundary_note": "Cohort linear regression and IVW meta-analysis of inverse associations; observational association with no identifying variation, distinct from the mtDNA CN MR/mediation units.",
+      "candidate_label": "Association analysis between mtDNA copy number and EAA metrics",
+      "evidence_atom_ids": [
+        "ea_1027366994d3d8d4d47b69e8",
+        "ea_0797bd0c636ba2e35de0c1d9"
+      ],
+      "first_failed_condition": "no_named_causal_basis",
+      "reviewer_candidate_id": "assoc_mtdnacn_eaa"
+    }
+  ],
+  "qualifying_analyses": [
+    {
+      "analysis_label": "Bi-directional causal mediation of DunedinPACE (and other EAA metrics) on the relationship between mtDNA copy number and metabolic traits (obesity, T2DM) in older participants",
+      "biological_system": "Older (>=60 years) FHS participants as discovery, with JHS and MESA as replication cohorts",
+      "boundary_note": "Named formal mediation method linking epigenetic (DunedinPACE) and mtDNA omics layers to age-related metabolic disease outcomes. Bi-directional forward/reverse specifications kept as one design unit because the same mediator, variable set, and population (older FHS) are used to probe directionality.",
+      "causal_basis": "formal_directed_hypothesis",
+      "comparator": "Per-SD contrast in mtDNA CN with DunedinPACE/EAA as mediator (comparator wording implicit)",
+      "design_family": "mediation",
+      "exposure_or_intervention_construct": "mtDNA copy number (standardized, per-SD); in reverse direction obesity/T2DM as predictor",
+      "identifying_variation_or_assignment": "Formal regression-based causal mediation (regmedint) estimating natural indirect effect via two regression models, tested bi-directionally by swapping predictor/outcome",
+      "method_evidence_atom_ids": [
+        "ea_48526cf3ce35293ab060535c",
+        "ea_38521c42d9c2badd66737b41",
+        "ea_9e7faa58105205bd337258f9",
+        "ea_d1a2b8d9871e981d11543327",
+        "ea_120779546fb0ff18640559d2",
+        "ea_02aa72cd748f36f8471c2968",
+        "ea_da8622dc3a0ed290582b068d"
+      ],
+      "outcome_constructs": [
+        "mtDNA copy number (reverse-direction outcome)",
+        "obesity",
+        "type 2 diabetes mellitus"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_51f0837e060da20cdea83614",
+        "ea_7d702ca31ecc5e0db815838d",
+        "ea_f156b81a9cf82e8ff70c1005",
+        "ea_5e8086c88daa29ad091d9c7a"
+      ],
+      "reviewer_candidate_id": "mediation_dunedinpace_mtdnacn_metabolic",
+      "validation_evidence_atom_ids": [
+        "ea_3194d71bc36f84c6bd226ae3",
+        "ea_fc3c873cb141609bc8aca136",
+        "ea_db026406e9573e39a2aa7c22"
+      ]
+    },
+    {
+      "analysis_label": "Two-sample univariable Mendelian randomization estimating the causal effect of mtDNA copy number on epigenetic age acceleration metrics",
+      "biological_system": "Two-sample MR using external GWAS summary statistics (mtDNA CN GWAS n=163,372; EAA GWAS n=34,710, European reference panel)",
+      "boundary_note": "Genetic-instrument design linking mtDNA CN (exposure) to epigenetic aging (outcome), connecting nuclear-genomic instruments and epigenomic outcomes. Forward direction of the bi-directional MR; separated from the reverse direction because instrument source and exposure differ.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Genetically predicted higher versus lower mtDNA CN (implicit instrumental contrast)",
+      "design_family": "genetic_instrument",
+      "exposure_or_intervention_construct": "Genetically instrumented mtDNA copy number",
+      "identifying_variation_or_assignment": "Genetic instruments: 41 independent SNPs (LD r2<0.001) from a mtDNA CN GWAS used as instrumental variables",
+      "method_evidence_atom_ids": [
+        "ea_045ae57c5a79b008c3c33f93",
+        "ea_967b23b8f483371af8ce6432",
+        "ea_68f1464e038d0bc101968b93",
+        "ea_b59810539d2f665c301449d3",
+        "ea_b8da7b663401a9ab97cac85d",
+        "ea_e258aa78a3ddf5cdaba76282"
+      ],
+      "outcome_constructs": [
+        "EAAGrim",
+        "EAAHannum",
+        "EAAPheno",
+        "IEAA"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_56e632419a99e07521ab5ed8"
+      ],
+      "reviewer_candidate_id": "mr_mtdnacn_to_eaa",
+      "validation_evidence_atom_ids": [
+        "ea_76cc0014dc666261ffe80b39",
+        "ea_94f66069caf0caa1fcb162c6",
+        "ea_6c9451f69dc2f95f83747154"
+      ]
+    },
+    {
+      "analysis_label": "Two-sample univariable Mendelian randomization estimating the causal effect of epigenetic age acceleration metrics on mtDNA copy number (reverse direction, null)",
+      "biological_system": "Two-sample MR using external GWAS summary statistics (EAA GWAS n=34,710; mtDNA CN GWAS)",
+      "boundary_note": "Reverse direction of the bi-directional MR with a null result (no significant causal effect of EAAs on mtDNA CN). Separate from the forward MR because the instrument source and exposure trait differ, consistent with the codebook rule that opposite bidirectional-MR directions are distinct analyses.",
+      "causal_basis": "effect_identification_design",
+      "comparator": "Genetically predicted higher versus lower EAA (implicit instrumental contrast)",
+      "design_family": "genetic_instrument",
+      "exposure_or_intervention_construct": "Genetically instrumented epigenetic age acceleration metrics (IEAA, EAAHannum, EAAPheno, EAAGrim)",
+      "identifying_variation_or_assignment": "Genetic instruments for EAA metrics (IEAA n=24, EAAHannum n=9, EAAPheno n=11, EAAGrim n=4; LD r2<0.001) from an EAA GWAS",
+      "method_evidence_atom_ids": [
+        "ea_3813f553f72b904fc2a904e9",
+        "ea_44d1540ff9dfdc766926b5ea",
+        "ea_607167f313640f42befb1267"
+      ],
+      "outcome_constructs": [
+        "mtDNA copy number"
+      ],
+      "result_evidence_atom_ids": [
+        "ea_f2d34409e3f72a2f70341770"
+      ],
+      "reviewer_candidate_id": "mr_eaa_to_mtdnacn",
+      "validation_evidence_atom_ids": []
+    }
+  ],
+  "report_id": "doi:10.1111/acel.70279",
+  "reviewer_id": "claude_opus_4_8",
+  "source_status": "sufficient"
+}
