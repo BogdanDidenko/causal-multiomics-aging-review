@@ -1,0 +1,89 @@
+{
+  "source_id": "dissertation_extract",
+  "central_model": "An iterative, hybrid taxonomy-development method: define a purpose-driven meta-characteristic and explicit ending conditions; alternate empirical-to-conceptual and conceptual-to-empirical passes; revise dimensions and characteristics until objective and subjective utility criteria are met.",
+  "architecture_principles": [
+    {
+      "principle": "Anchor every classification field in one meta-characteristic derived from the taxonomy’s intended users and use.",
+      "source_locator": "“Meta-characteristic” section, pp. 343–344",
+      "why_it_manages_complexity": "Keeps report-, study-, workflow-, link-, contrast-, validation-, and evidence-level fields coherent while preventing a grab-bag schema."
+    },
+    {
+      "principle": "Model each unit with dimensions whose characteristics are mutually exclusive and collectively exhaustive; each object receives exactly one characteristic per dimension.",
+      "source_locator": "“Problem statement for taxonomy development,” formal definition of taxonomy, p. 340",
+      "why_it_manages_complexity": "Makes coding comparable and auditable, while allowing several orthogonal dimensions rather than forcing unlike entities into one hierarchy."
+    },
+    {
+      "principle": "Use both empirical-to-conceptual and conceptual-to-empirical development, selecting the route per iteration based on available cases and domain knowledge.",
+      "source_locator": "“Taxonomy development method,” Figure 1 and pp. 345–346",
+      "why_it_manages_complexity": "Empirical records expose real analytic variation; conceptual passes protect coverage of important causal concepts not yet frequent in the corpus."
+    },
+    {
+      "principle": "Iterate by adding, splitting, merging, or removing dimensions and characteristics, then retest the taxonomy.",
+      "source_locator": "“Taxonomy development method,” pp. 346–347; “Discussion,” p. 353",
+      "why_it_manages_complexity": "Supports an evolving review without pretending its first data model is final."
+    },
+    {
+      "principle": "Separate objective closure checks from subjective usefulness checks.",
+      "source_locator": "Tables 2–3, pp. 344–345",
+      "why_it_manages_complexity": "Objective checks catch redundancy and incomplete category support; subjective checks protect concision, explanatory value, and practical usability."
+    },
+    {
+      "principle": "Preserve explanatory dimensions rather than exhaustive descriptive detail.",
+      "source_locator": "“Taxonomy development method,” p. 346",
+      "why_it_manages_complexity": "Focuses the model on distinctions that explain causal workflows and claims, rather than duplicating every detail of a paper."
+    }
+  ],
+  "unit_and_boundary_rules": [
+    "Treat the source report as a container, not as the sole analytic object. A report may describe multiple studies, workflows, contrasts, links, validations, and supporting evidence items.",
+    "Define a study as the bounded empirical investigation or dataset/application context being analyzed; a report can contain one or more studies.",
+    "Define a causal workflow as an ordered analytic procedure within a study, including its causal-estimation strategy and assumptions. Do not merge distinct workflows merely because they occur in the same report.",
+    "Define a causal link as one asserted exposure/intervention-to-outcome relationship within a workflow; retain direction and endpoints as separate fields.",
+    "Define a contrast as the specific comparison or estimand used to support a causal link; retain it separately from the link because one link may be assessed through multiple contrasts.",
+    "Define validation as an assessment activity applied to a workflow, link, or contrast, not as an attribute that replaces the analytic result.",
+    "Define source evidence as the exact report-local support for a coded assertion, with a locator; evidence may support multiple objects and an object may require multiple evidence items.",
+    "For each entity type, make characteristics mutually exclusive and collectively exhaustive within a stated dimension; use explicit “not reported/unclear” handling only when it is a deliberate characteristic rather than an implicit omission.",
+    "Do not force all entity types into a single flat taxonomy. Use linked taxonomies or dimensions for their different roles, then connect them through explicit relations. This follows the source’s allowance for multiple taxonomies and possible later merging."
+  ],
+  "provenance_and_evidence_rules": [
+    "Every coded dimension or relation should be traceable to a source-evidence record containing a precise locator (page, section, table, figure, quotation, or named method).",
+    "Keep evidence separate from interpretation: record what the report states, then record the normalized coding or causal interpretation it supports.",
+    "Maintain report-to-study and study-to-workflow links so a claim can be navigated back through its analytic context to the exact supporting passage.",
+    "Record whether a dimension was supported empirically by observed report content, conceptually inferred from the review’s meta-characteristic, or both; this mirrors the source’s hybrid method.",
+    "Audit gaps explicitly: an unsupported characteristic, duplicated dimension, or unclassifiable object should trigger revision or a documented uncertainty state rather than silent normalization.",
+    "Use objective review checks adapted from Table 2: no duplicated dimensions/characteristics/combined cells; no unsupported active category; no unexamined in-scope object class; and no unreviewed change after splitting or merging an entity."
+  ],
+  "adaptations_for_causal_multiomics_review": [
+    {
+      "proposed_component": "A review-level meta-characteristic: “how a causal multi-omics aging claim is produced, contrasted, checked, and evidenced.”",
+      "source_basis": "Meta-characteristic is selected from purpose, intended users, and expected use (pp. 343–344).",
+      "use_in_review": "Use it to admit only fields that help explain causal claim production, rather than cataloguing all biological or technical metadata."
+    },
+    {
+      "proposed_component": "A linked entity graph: Report → Study → Causal workflow → Causal link → Contrast, with Validation and Source evidence attached as independently addressable nodes.",
+      "source_basis": "The source defines taxonomies as multidimensional classifications and notes that multiple taxonomies may be developed and later merged (pp. 340, 344, 355).",
+      "use_in_review": "Preserves one-to-many relationships and prevents report-level metadata from being incorrectly inherited by every study or causal claim."
+    },
+    {
+      "proposed_component": "Two development passes for the coding framework: derive candidate dimensions from observed papers, then challenge them against a conceptual causal-analysis model.",
+      "source_basis": "Figure 1 and the empirical-to-conceptual/conceptual-to-empirical procedures (pp. 345–346).",
+      "use_in_review": "First capture methods actually used in aging multi-omics; then test whether the schema distinguishes assumptions, estimands, mediation/colocalization-style links, and validation modes adequately."
+    },
+    {
+      "proposed_component": "A change-controlled codebook with split/merge history and repeated termination checks.",
+      "source_basis": "Table 2; iteration discussion of adding, eliminating, combining, splitting, and retesting dimensions (pp. 344–346).",
+      "use_in_review": "Allows taxonomy evolution while retaining reproducibility of earlier extraction decisions."
+    },
+    {
+      "proposed_component": "A utility review using concise, robust, comprehensive, extendible, and explanatory criteria.",
+      "source_basis": "“Problem statement for taxonomy development” and Table 3 (pp. 341–345).",
+      "use_in_review": "Evaluate whether the schema is small enough for reliable screening, rich enough to differentiate workflows, covers the corpus, accommodates new methods, and explains rather than merely lists papers."
+    }
+  ],
+  "cautions": [
+    "The source offers a methodology for taxonomy development, not a validated ontology for causal inference or multi-omics; domain-specific causal definitions must be supplied elsewhere.",
+    "The source explicitly states that the method does not identify a uniquely best taxonomy and that researcher judgment remains necessary (“Discussion,” pp. 353–355).",
+    "Mutual exclusivity applies within a chosen dimension. If a causal feature genuinely has several simultaneous values, represent it through separate dimensions or linked records rather than forcing a false single category.",
+    "Conciseness and robustness can conflict; Table 3 treats their resolution as a subjective, argued judgment rather than an automatic threshold.",
+    "Use of a taxonomy over time is the source’s ultimate practical test of usefulness; initial closure conditions are necessary guidance, not proof of sufficiency (pp. 341–342, 346–347)."
+  ]
+}

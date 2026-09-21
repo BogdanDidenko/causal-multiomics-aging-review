@@ -1,0 +1,96 @@
+{
+  "source_id": "who_content_model",
+  "central_model": "Use a three-layer review knowledge model: a stable, identifier-based Foundation of entities and relations; purpose-specific Linearizations for screening, extraction, synthesis, and reporting; and constrained postcoordination for study-specific detail. This separates reusable meaning from workflow views while retaining links to the same underlying entities.",
+  "architecture_principles": [
+    {
+      "principle": "Represent each report, study, workflow, causal link, contrast, validation activity, and evidence item as a distinct typed entity with a persistent unique identifier and explicit properties/relationships.",
+      "source_locator": "§3.1 “What is the Content Model?”; §3.4.1 “Entities”",
+      "why_it_manages_complexity": "Prevents a publication from being conflated with the study it describes, or a causal claim with the workflow and evidence supporting it; stable identifiers permit unambiguous cross-links."
+    },
+    {
+      "principle": "Maintain a multidimensional Foundation that permits multiple parents and non-mutually-exclusive relationships; derive task-specific single-parent views from it.",
+      "source_locator": "§3.3 “WHO-FIC Foundation”; §3.4.2 “Hierarchy”; §3.5 “Linearizations”",
+      "why_it_manages_complexity": "A study can support several pathways, omics layers, outcomes, and reports without forced duplication, while reviewers can still use simple, purpose-built extraction and synthesis views."
+    },
+    {
+      "principle": "Separate the canonical content layer from operational rules and generated views.",
+      "source_locator": "§3.2 “WHO-FIC Model Architecture: Content Model, Foundation, and Linearizations,” Fig. 1; §4.12 “Linearization Specifications”",
+      "why_it_manages_complexity": "Lets the review preserve one evidence base while producing different displays or exports for causal-link tables, validation summaries, and report-level bibliographies."
+    },
+    {
+      "principle": "Model compound descriptions as a base entity plus constrained axes/value sets; pre-coordinate only combinations that deserve stable named entities.",
+      "source_locator": "§3.6 “Postcoordination”; §3.7 “Precoordination”; §4.13 “Postcoordination specifications”",
+      "why_it_manages_complexity": "Captures heterogeneous study features—e.g., omics layer, tissue, age window, exposure, outcome, adjustment set, estimand, and validation type—without creating a separate entity for every combination."
+    },
+    {
+      "principle": "Declare which fields are allowed, required, repeatable, and value-constrained for each entity type or review view.",
+      "source_locator": "§4.13 “Postcoordination specifications”",
+      "why_it_manages_complexity": "Makes causal-link records comparable and prevents invalid combinations, while allowing legitimately multi-valued features such as multiple omics assays or validation datasets."
+    },
+    {
+      "principle": "Distinguish fully defining conditions from facts that are merely always true.",
+      "source_locator": "§3.8 “Logical Definitions”; §3.9 “Necessary Conditions”; §3.10 “The difference…”; §4.14–4.15",
+      "why_it_manages_complexity": "Avoids overstating causality: a causal link should receive a logical definition only when its full conditions are specified; otherwise record asserted necessary properties such as measured tissue, temporal ordering, or reported adjustment."
+    },
+    {
+      "principle": "Use explicit inclusions, exclusions, synonyms, and boundary references around entities.",
+      "source_locator": "§4.5 “Synonyms”; §4.8 “Inclusions”; §4.9 “Exclusions”",
+      "why_it_manages_complexity": "Supports search and harmonization without silently merging near-neighbor constructs, such as biological aging proxies, different causal estimands, or different validation standards."
+    },
+    {
+      "principle": "Record lifecycle status and backwards-compatibility mappings.",
+      "source_locator": "§4.11 “Obsoletion status”; §4.16 “Backwards compatibility”",
+      "why_it_manages_complexity": "Preserves auditability when terminology, measurement platforms, or review coding conventions change."
+    }
+  ],
+  "unit_and_boundary_rules": [
+    "Report is a bibliographic/source entity; Study is the underlying empirical investigation. Link reports to the study or studies they describe rather than merging them.",
+    "Causal workflow is a distinct entity linked to its study, with ordered or typed steps; it is not identical to any resulting causal link.",
+    "Causal link is the claim-level entity linking exposure/intervention, molecular feature or mediator, outcome, population/context, and estimand. A contrast is a separate specification of the comparison that identifies the link.",
+    "Validation is a distinct activity/entity linked to the causal link or workflow, its target claim, dataset/cohort, and result; do not treat its presence as a property-only shortcut.",
+    "Source evidence is an atomic provenance entity—such as a quoted result, table, figure, supplement, or methods passage—linked to the report and to the exact extracted assertion.",
+    "Allow polyhierarchy in the Foundation (e.g., one molecular feature or workflow can participate in several causal links); generate mutually exclusive, single-parent views only when a particular review task requires them.",
+    "Use a canonical, unambiguous fully specified name for every controlled entity; retain aliases as synonyms and record exclusions for concepts that must remain separate."
+  ],
+  "provenance_and_evidence_rules": [
+    "Every extracted field or relation should point to one or more source-evidence entities, and each evidence entity should identify its report and locator.",
+    "Keep Foundation-level assertions separate from generated review views, mirroring the guide’s separation between common content and linearization-specific operational knowledge.",
+    "Tag evidence with status appropriate to the review (e.g., extracted, adjudicated, superseded) rather than overwriting prior assertions; retain backward mappings when terms or coding change.",
+    "Represent uncertainty as structured detail or a constrained value, not as an implicit absence; use distinct residual/unspecified categories only when source documentation lacks the needed information.",
+    "Use formal necessary conditions for universally asserted characteristics of a record; reserve necessary-and-sufficient definitions for tightly specified, machine-checkable patterns."
+  ],
+  "adaptations_for_causal_multiomics_review": [
+    {
+      "proposed_component": "Review Foundation graph",
+      "source_basis": "§3.2–3.3; Fig. 1–2",
+      "use_in_review": "Canonical graph of Report, Study, Cohort, Dataset, Workflow, CausalLink, Contrast, Validation, EvidenceItem, biomolecular entities, and controlled value sets."
+    },
+    {
+      "proposed_component": "Review linearizations",
+      "source_basis": "§3.5; §4.12",
+      "use_in_review": "Generate distinct views for screening, full-text extraction, causal-claim synthesis, evidence audit, and aging/omics specialty subsets, all pointing back to canonical entities."
+    },
+    {
+      "proposed_component": "Causal-link postcoordination profile",
+      "source_basis": "§3.6; §4.13",
+      "use_in_review": "Attach constrained axes for omics modality, feature type, tissue/cell type, time/age, exposure, outcome, causal method, covariate/assumption profile, effect direction, and validation design."
+    },
+    {
+      "proposed_component": "Workflow precoordination and logical patterns",
+      "source_basis": "§3.7–3.8; §4.14",
+      "use_in_review": "Create stable named workflow patterns only for recurrent combinations; encode the defining sequence and settings as a computable conjunction when warranted."
+    },
+    {
+      "proposed_component": "Validation and evidence boundary links",
+      "source_basis": "§4.8–4.10; §4.9",
+      "use_in_review": "Use inclusions for exemplary compatible evidence, exclusions for explicitly non-equivalent claims, and ‘related elsewhere’ links for semantically close entities that appear in another synthesis view."
+    }
+  ],
+  "cautions": [
+    "The guide is a classification-content architecture, not a causal-inference standard; it does not establish what constitutes valid causal identification or validation in multi-omics research.",
+    "Do not interpret an ‘associated with’ relation as causal: §4.13.1.15 explicitly says it does not specify the exact meaning of the relationship.",
+    "Do not make every observed feature a logical definition. The guide distinguishes necessary conditions from sufficient conditions (§3.9–3.10).",
+    "Linearizations must be mutually exclusive and exhaustive (§3.5), but the canonical Foundation need not be; do not impose a single-parent taxonomy on the underlying evidence graph.",
+    "The source describes operational and API possibilities that were draft/work-in-progress in places; adopt the architectural pattern, not its ICD-specific axes or implementation details verbatim."
+  ]
+}

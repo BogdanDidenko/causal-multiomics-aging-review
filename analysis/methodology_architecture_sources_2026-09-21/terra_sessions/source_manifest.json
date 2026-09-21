@@ -1,0 +1,37 @@
+[
+  {
+    "source_id": "who_content_model",
+    "title": "WHO-FIC Content Model Reference Guide",
+    "url": "https://icd.who.int/icdapi/docs/ContentModelGuide.pdf",
+    "path": "analysis/methodology_architecture_sources_2026-09-21/raw/who_content_model_guide.txt",
+    "sha256": "94b63e5e5e39f0c687afc3dbe940a5d9139dd03af0a58e04d4ad3f11586ae67c"
+  },
+  {
+    "source_id": "sei_views_and_beyond",
+    "title": "Comparing the SEI's Views and Beyond Approach with ANSI-IEEE 1471-2000",
+    "url": "https://www.sei.cmu.edu/documents/2072/2005_004_001_14498.pdf",
+    "path": "analysis/methodology_architecture_sources_2026-09-21/raw/sei_views_and_beyond.txt",
+    "sha256": "61330766356832743187bb32a79f4990dcdd33482a085125f0aa7e7eb8223720"
+  },
+  {
+    "source_id": "go_annotations",
+    "title": "Introduction to GO Annotations",
+    "url": "https://geneontology.org/docs/go-annotations/",
+    "path": "analysis/methodology_architecture_sources_2026-09-21/raw/go_annotations.html",
+    "sha256": "57c8135cf0d5f24ff8d232e2f86d5197e5887d7231715c79a6aadcb621f81562"
+  },
+  {
+    "source_id": "dissertation_extract",
+    "title": "Dissertation extract supplied by Deutsche Nationalbibliothek",
+    "url": "https://d-nb.info/1256597325/34",
+    "path": "analysis/methodology_architecture_sources_2026-09-21/raw/dissertation_extract.txt",
+    "sha256": "3e4494f48848300bf2b1c854052a8554128c6e6963b1e2e27b1ae0b2cef597c9"
+  },
+  {
+    "source_id": "w3c_prov_dm",
+    "title": "W3C PROV-DM: The PROV Data Model",
+    "url": "https://www.w3.org/TR/prov-dm/",
+    "path": "analysis/methodology_architecture_sources_2026-09-21/raw/w3c_prov_dm.html",
+    "sha256": "5c925c21bc96c285b25017c3b90d82cf74251d07713b71fcb81ca60f873c9e88"
+  }
+]

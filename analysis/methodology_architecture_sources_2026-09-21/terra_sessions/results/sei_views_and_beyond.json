@@ -1,0 +1,91 @@
+{
+  "source_id": "sei_views_and_beyond",
+  "central_model": "Views and Beyond (V&B): select stakeholder-relevant views, document each with a standard view packet, then add cross-view documentation that maps and integrates them; align views with IEEE 1471 stakeholder–concern–viewpoint–view concepts.",
+  "architecture_principles": [
+    {
+      "principle": "Use multiple purpose-specific views rather than one universal representation.",
+      "source_locator": "§2.1 “A Multi-View Approach,” p.3",
+      "why_it_manages_complexity": "Each view restricts attention to one structure while the overall package preserves the system’s multiple simultaneous structures."
+    },
+    {
+      "principle": "Select views from explicit stakeholder needs and concerns, then prioritize the minimum useful set.",
+      "source_locator": "§2.4 “Choosing the Views,” pp.4–5; §4.3, p.14",
+      "why_it_manages_complexity": "A stakeholder/view table prevents collecting detail that serves no review question and makes trade-offs visible."
+    },
+    {
+      "principle": "Use a defined vocabulary/style for every view, including element types, relationship types, constraints, notation, and analysis methods.",
+      "source_locator": "§2.3 “Styles,” p.4; §3 “1471,” pp.9–10",
+      "why_it_manages_complexity": "Typed elements and relations prevent category drift—for example, treating a contrast, causal link, and validation result as interchangeable."
+    },
+    {
+      "principle": "Make each view packet self-explanatory through a primary representation, element catalog, context, variability, and rationale.",
+      "source_locator": "§2.5 “A Template for Views,” pp.5–6; Figure 1",
+      "why_it_manages_complexity": "The representation stays readable while definitions, exceptions, and reasons remain attached to the relevant view."
+    },
+    {
+      "principle": "Treat cross-view mappings and cross-view rationale as first-class documentation.",
+      "source_locator": "§2.5 “Mapping between views” and “Cross-view rationale,” pp.6–8; Figure 2",
+      "why_it_manages_complexity": "Mappings preserve traceability across representations and expose whether separately extracted facts form one coherent account."
+    },
+    {
+      "principle": "Record consistency and known inconsistencies among views.",
+      "source_locator": "§3 requirement 11, p.11; Table 1, p.13",
+      "why_it_manages_complexity": "Conflicts can be retained as explicit evidence states instead of being silently reconciled or lost."
+    }
+  ],
+  "unit_and_boundary_rules": [
+    "Treat the report as the top-level documentation package, not as the study itself; one report may describe multiple studies, analyses, or validation activities.",
+    "Represent a study as the bounded empirical context: cohort/sample, design, timepoint(s), and analysis setting. Its external context should state population, measurement environment, and stated constraints. Basis: §2.5 context diagram, p.5; §4.1 environment, p.12.",
+    "Represent the causal workflow as a view of ordered analytic/runtime-like activity; represent causal links as typed relations in an element catalog, not merely prose claims. Basis: §2.2 distinguishes interacting elements from code units, p.3; §2.5 element catalog, p.5.",
+    "Represent each contrast separately from a causal link: a contrast specifies the compared conditions/groups/exposures; a link specifies the asserted directed causal relation and its assumptions. Connect them in a mapping rather than collapsing them into one record.",
+    "Represent validation as a distinct element/activity with a declared target, method, result, and scope; map it to the link, workflow step, or contrast it supports, challenges, or reproduces.",
+    "Maintain source evidence as a separate provenance view: locate each extracted assertion in the supplied report and map evidence items to study, workflow, link, contrast, and validation elements.",
+    "Use combined views only when there is a strong correspondence between their elements; otherwise retain separate views and create explicit mappings. Basis: §2.4 Step 2, p.5."
+  ],
+  "provenance_and_evidence_rules": [
+    "Give every extracted element a stable identifier and a source locator; use the directory concept to index elements, relations, properties, and where they are defined and used. Basis: §2.5 “Directory,” p.7.",
+    "For each causal assertion, retain its view-specific representation plus its evidence link; do not let an evidence citation substitute for defining the asserted relation.",
+    "Document the rationale for analytic/causal choices and, where reported, alternatives considered; distinguish this rationale from evidence that the claim is true. Basis: §3 requirement 12, p.11; §2.5 rationale, pp.5, 7.",
+    "Capture configuration/identification metadata for each report and extracted representation, including status/version or revision where available. Basis: §3 requirements 1 and 10, p.10.",
+    "Record unresolved discrepancies explicitly as known cross-view inconsistencies, with their scope and affected identifiers. Basis: §3 requirement 11, p.11.",
+    "Use a glossary for causal and omics-specific terms whose meaning is study-specific or otherwise ambiguous. Basis: §2.5 glossary, p.7; §3 requirement 1, p.10."
+  ],
+  "adaptations_for_causal_multiomics_review": [
+    {
+      "proposed_component": "Review documentation roadmap plus stakeholder/concern matrix",
+      "source_basis": "§2.4 Step 1, pp.4–5; §2.5 “Documentation roadmap,” pp.6–7",
+      "use_in_review": "Declare the review users and the questions each view answers—for example, which studies make a link, under what contrast, through which workflow, and with what validation/evidence."
+    },
+    {
+      "proposed_component": "Six linked views: report, study-context, causal-workflow, causal-link, contrast, and validation/provenance",
+      "source_basis": "§2.1–2.2, p.3; §2.5, pp.5–8",
+      "use_in_review": "Keep distinct structures legible while allowing each to use its own typed elements and relations."
+    },
+    {
+      "proposed_component": "Element catalog for causal links",
+      "source_basis": "§2.5 “An element catalog,” p.5",
+      "use_in_review": "For each link, define exposure, outcome, direction, omics layer(s), estimand/claim wording, assumptions or adjustment strategy if reported, linked contrast, and linked evidence."
+    },
+    {
+      "proposed_component": "Context diagram per study or workflow",
+      "source_basis": "§2.5 “A context diagram,” p.5",
+      "use_in_review": "Bound what belongs to the analyzed study from external cohort, assay, reference resource, or validation environment."
+    },
+    {
+      "proposed_component": "Cross-view mapping matrix",
+      "source_basis": "§2.5 “Mapping between views,” p.7; Table 1, p.13",
+      "use_in_review": "Map report → study → workflow → link → contrast → validation → source-evidence, supporting one-to-many relations without flattening them."
+    },
+    {
+      "proposed_component": "Variability guide",
+      "source_basis": "§2.5 “A variability guide,” p.5",
+      "use_in_review": "State which review fields legitimately vary across designs, omics modalities, causal estimators, and validation types, versus which identifiers and provenance fields remain mandatory."
+    }
+  ],
+  "cautions": [
+    "This source supplies an architecture-documentation framework, not causal-inference criteria; it does not determine whether a reported causal link is valid.",
+    "Do not impose a fixed view set mechanically: V&B recommends views useful for the stakeholders and system at hand. (§2.1, p.3; §4.3, p.14)",
+    "A mapping between views supports integration but does not itself prove consistency; preserve and report known inconsistencies. (§3, p.11)",
+    "V&B’s correspondence heuristic supports combining views only when their elements strongly correspond; causal link, contrast, validation, and evidence should remain distinct unless that condition is met. (§2.4 Step 2, p.5)"
+  ]
+}

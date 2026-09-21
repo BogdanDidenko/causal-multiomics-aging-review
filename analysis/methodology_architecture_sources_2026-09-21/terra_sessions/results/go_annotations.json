@@ -1,0 +1,105 @@
+{
+  "source_id": "go_annotations",
+  "central_model": "Use a two-layer evidence graph: independent, atomic assertion records for individually supported facts, and context-rich Causal Workflow Units connected by typed causal relations. This adapts GO’s distinction between standard independent annotations and GO-CAM Activity Units.",
+  "architecture_principles": [
+    {
+      "principle": "Keep an atomic assertion as a separately addressable record, rather than conflating all findings from a report.",
+      "source_locator": "Standard GO annotations",
+      "why_it_manages_complexity": "GO states that each standard annotation is independent. Separate causal links, contrasts, and validation claims can therefore be revised or qualified without rewriting the whole study representation."
+    },
+    {
+      "principle": "Require a minimal evidence-bearing tuple for each asserted link.",
+      "source_locator": "Standard GO annotations — “A standard GO annotation minimally contains”",
+      "why_it_manages_complexity": "The source requires an entity, controlled concept, reference, and evidence code. Analogously, every review assertion can retain its subject/object, typed relation, source locator, and evidence characterization."
+    },
+    {
+      "principle": "Model the primary analytic unit with its enabling entity and operating context.",
+      "source_locator": "GO-CAM data model — “Activity Unit”",
+      "why_it_manages_complexity": "An Activity Unit combines molecular activity, gene product, and context including location, biological program, cell type, and life-cycle stage. A causal workflow unit can similarly bind an analysis step or causal link to cohort, omics layer, tissue/cell context, time/age state, and study setting."
+    },
+    {
+      "principle": "Connect contextualized units with explicit, semantically defined causal relation types.",
+      "source_locator": "GO-CAM data model",
+      "why_it_manages_complexity": "GO-CAM connects Activity Units through clearly defined Relations Ontology relations. Typed edges prevent a causal effect, association, participation relation, and location/context relation from being collapsed into one generic link."
+    },
+    {
+      "principle": "Allow nested context rather than forcing one flat study label.",
+      "source_locator": "GO-Causal Activity Models — Biological Process context; GO-CAM data model",
+      "why_it_manages_complexity": "The source permits processes nested within broader processes. The review can nest contrasts or workflow stages within analyses, analyses within studies, and studies within reports while preserving their distinct identities."
+    },
+    {
+      "principle": "Represent explicit negation and unresolved conflict as assertions, not as missing data.",
+      "source_locator": "The NOT modifier",
+      "why_it_manages_complexity": "GO distinguishes experimentally supported NOT statements from negative/inconclusive results and permits positive and NOT statements together when literature conflicts. This supports explicit null/contradictory causal-link records with their own evidence, while leaving absence of evidence unasserted."
+    },
+    {
+      "principle": "Treat the evidence base as open-world and versioned.",
+      "source_locator": "Standard GO annotation principles — Open-world assumption; GO as a dynamic source of biological knowledge",
+      "why_it_manages_complexity": "Missing extraction must not mean a study or link is absent or false. Time-stamped curation and correction history preserve the distinction between unknown, not captured, superseded, and contradicted."
+    },
+    {
+      "principle": "Enforce integrity rules at record level.",
+      "source_locator": "Annotation Quality Control",
+      "why_it_manages_complexity": "GO requires valid identifiers, an evidence code and reference for every annotation, and excludes retracted publications. Equivalent validation makes review synthesis auditable and blocks unsupported or invalid causal assertions."
+    }
+  ],
+  "unit_and_boundary_rules": [
+    "Report: a bibliographic source object; it may describe one or more studies and supplies citable source evidence.",
+    "Study: a distinct empirical investigation or cohort/experiment described by a report; do not equate it with the report.",
+    "Causal Workflow Unit: the contextualized unit of causal analysis, analogous to a GO-CAM Activity Unit; attach population/model, biological setting, omics inputs, intervention/exposure, outcome, assumptions, and analytic stage here.",
+    "Causal Link: one typed edge from a source unit to a target unit; retain direction and relation semantics separately from contextual membership or location.",
+    "Contrast: a comparison specification attached to the workflow/link it identifies; model it separately from the causal relation so alternative age, exposure, tissue, or intervention contrasts remain distinguishable.",
+    "Validation: an independent supporting, challenging, or replication assertion linked to the exact workflow or causal link it evaluates; do not merge it into the original evidence.",
+    "Source Evidence: an atomic provenance record attached to each asserted entity, relation, contrast, or validation claim; it includes a report reference and an evidence characterization.",
+    "Permit multiple workflow units and multiple causal links per study, and multiple evidence records per claim.",
+    "Do not infer a negative causal conclusion from absent records; reserve explicit negative records for evidence-grounded non-effects or incompatibility, with scope stated."
+  ],
+  "provenance_and_evidence_rules": [
+    "Every extracted causal-link assertion must carry at least one source reference and an evidence-type field, following the minimum-content and quality-control concepts in “Standard GO annotations” and “Annotation Quality Control.”",
+    "Use controlled identifiers for reports, studies, entities, workflows, contrasts, and relation types; validate identifier integrity (Annotation Quality Control).",
+    "Store a precise within-source locator for each evidence record (for example, figure, table, supplement, methods section, or result statement); the supplied source establishes reference-bearing assertions, while this is the review-specific granularity needed for auditability.",
+    "Record curator/reviewer status or extraction mode separately from scientific evidence type, reflecting the source’s distinction between expert-reviewed and automated annotations.",
+    "Preserve conflicting evidence as coexisting, source-specific records; do not overwrite one with another (The NOT modifier).",
+    "Maintain curation timestamps/version history and permit corrections because the knowledge base is a “living document”/dynamic source (Standard GO annotation principles; GO as a dynamic source of biological knowledge).",
+    "Reject or flag evidence from retracted reports and require minimum provenance before a record is synthesis-eligible (Annotation Quality Control)."
+  ],
+  "adaptations_for_causal_multiomics_review": [
+    {
+      "proposed_component": "Causal Workflow Unit",
+      "source_basis": "GO-CAM data model — Activity Unit plus contextual biological program, location, cell type, and life-cycle stage",
+      "use_in_review": "Represent a particular causal-analysis workflow in a study, including multi-omics measurements, causal method, biological context, and target estimand."
+    },
+    {
+      "proposed_component": "Typed Causal Link edge",
+      "source_basis": "GO-CAM data model — Activity Units connected by clearly defined causal relations",
+      "use_in_review": "Encode direction, sign/effect qualifier where justified, mechanism/status, and the exact workflow units connected; avoid generic “related to” edges."
+    },
+    {
+      "proposed_component": "Atomic Claim/Evidence record",
+      "source_basis": "Standard GO annotations — independent statements with gene product, term, reference, and evidence code",
+      "use_in_review": "Attach independently citable evidence to each causal relation, contrast definition, and validation result."
+    },
+    {
+      "proposed_component": "Context-extension fields",
+      "source_basis": "Standard GO annotations — annotation extensions; GO-CAM biological context",
+      "use_in_review": "Add tissue, cell type, age/life stage, assay, molecular layer, exposure, and other contextual qualifiers without duplicating the core causal link."
+    },
+    {
+      "proposed_component": "Explicit contradiction/negative-claim record",
+      "source_basis": "The NOT modifier",
+      "use_in_review": "Represent a supported null, incompatibility, or challenged mechanism as a scoped assertion rather than deleting positive evidence or treating missing extraction as negative evidence."
+    },
+    {
+      "proposed_component": "Record-level quality gate",
+      "source_basis": "Annotation Quality Control",
+      "use_in_review": "Require valid identifiers, source evidence, evidence classification, and retraction screening before synthesis or visualization."
+    }
+  ],
+  "cautions": [
+    "The source’s causal model concerns biological activities, not statistical causal identification; any adaptation must separately encode study design, estimand, assumptions, and identification method.",
+    "The source’s three GO aspects are not a sufficient schema for multi-omics studies; use them only as inspiration for separating activity/process/location context.",
+    "“NOT” in the source requires affirmative supporting evidence and is not a label for inconclusive or absent findings; apply the same discipline to null or negative causal claims.",
+    "Ontology propagation is only safe when relation semantics and hierarchy justify it. Do not automatically propagate causal findings across broader or narrower ages, tissues, exposures, omics layers, or outcomes.",
+    "GO’s open-world assumption means database absence is not evidence of biological absence; likewise, no extracted review record must not be interpreted as no study, no causal link, or no validation."
+  ]
+}

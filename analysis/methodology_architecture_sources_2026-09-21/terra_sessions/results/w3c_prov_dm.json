@@ -1,0 +1,83 @@
+{
+  "source_id": "w3c_prov_dm",
+  "central_model": "Model the review as a provenance graph: stable entities (report versions, study records, datasets, contrasts, causal-link assertions, validation outputs, evidence extracts) are produced and used by time-bounded activities (extraction, analysis, causal estimation, replication/validation) and connected to responsible agents. Use derivations to preserve how an asserted link or conclusion arose.",
+  "architecture_principles": [
+    {
+      "principle": "Separate enduring records from processes that act on them.",
+      "source_locator": "§5.1.1 Entity; §5.1.2 Activity",
+      "why_it_manages_complexity": "A report, study, contrast specification, causal-link assertion, and evidence excerpt can be distinct entities, while screening, extraction, harmonisation, causal modelling, and validation remain activities. This prevents process metadata from being flattened into study-level fields."
+    },
+    {
+      "principle": "Represent causal workflow provenance at the level needed for auditability.",
+      "source_locator": "§2.2.1.2 Expanded Relations; §5.2.1 Derivation",
+      "why_it_manages_complexity": "A simple derivation can connect a causal-link assertion to its inputs; an expanded derivation can additionally name the generating activity, exact input usage, and output generation. Thus routine records stay compact while contested causal claims retain an inspectable path."
+    },
+    {
+      "principle": "Keep multiple perspectives as separately attributable bundles.",
+      "source_locator": "§2.2.2 Provenance of Provenance; §5.4 Bundles; §4.3 Example: Attribution of Provenance",
+      "why_it_manages_complexity": "A report’s author-facing account, a study/process account, and a reviewer’s extraction can coexist without forced reconciliation. Each named bundle is an entity that can itself be attributed and dated."
+    },
+    {
+      "principle": "Distinguish version- or context-specific entities from their general referent.",
+      "source_locator": "§5.5.1 Specialization; §5.5.2 Alternate",
+      "why_it_manages_complexity": "A specific report version, cohort release, tissue/timepoint analysis, or database rendering can be specialized from a general record; alternates capture different presentations of the same underlying thing. This avoids collapsing changing or context-dependent evidence into one identifier."
+    },
+    {
+      "principle": "Use collections for membership, not as a substitute for provenance links.",
+      "source_locator": "§5.6 Components 6; §5.6.2 Membership",
+      "why_it_manages_complexity": "A study can collect reports, a report can collect analyses, and a causal-link record can collect contrasts or validation results, while each member retains its own provenance and the collection itself can be attributed and derived."
+    },
+    {
+      "principle": "Record responsibility and intended protocol separately from outputs.",
+      "source_locator": "§5.3.2 Attribution; §5.3.3 Association and Plan; §5.3.4 Delegation",
+      "why_it_manages_complexity": "Attribute published entities to authors/organisations, associate each analytical activity with analysts or software and a plan, and use delegation for institutional responsibility. Roles distinguish, for example, exposure, outcome, mediator, covariate, and validator."
+    }
+  ],
+  "unit_and_boundary_rules": [
+    "Treat each report version as its own entity; connect versions with derivation typed as Revision where appropriate (§5.2.2; §5.5.1).",
+    "Treat a study record as distinct from its reports and analyses; link them by explicit collection membership, derivation, or activity relations rather than identity (§5.1; §5.6).",
+    "Treat each causal-link assertion and each contrast as separate entities. Attach a link to the activity that generated it and to the exact inputs it used (§5.1.3–5.1.4; §5.2.1).",
+    "Give repeated executions, uses, and relations optional identifiers when they must be separately referenced—for example, the same dataset used in different contrasts (§2.2.1.3; §5.7.1).",
+    "Represent validation as a separate activity producing a validation-result entity; connect it to the asserted link and to the data or external evidence it used (§5.1.3–5.1.4; §5.2.1)."
+  ],
+  "provenance_and_evidence_rules": [
+    "Use Usage for evidence or data actually used by an activity; do not infer a derivation solely because an activity used one entity and generated another—PROV says the relevant influence must be determined separately (§2.1.2).",
+    "Use a typed Primary Source derivation from a secondary evidence entity to the direct source when domain conventions justify that classification; primary-source status is relation-specific and interpretive (§5.2.4).",
+    "Record generation/usage times where known to preserve ordering, and distinguish an entity’s generation from activity duration (§5.1.2–5.1.4).",
+    "Use specific relations (usage, derivation, attribution, association) rather than generic Influence for stored provenance; generic influence is chiefly useful for queries (§5.3.5).",
+    "Use qualified identifiers for entities, activities, and agents; same identifiers establish equality within their respective types (§5.7.1; §5.7.5)."
+  ],
+  "adaptations_for_causal_multiomics_review": [
+    {
+      "proposed_component": "CausalAssertion entity",
+      "source_basis": "§5.1.1 Entity; §5.2.1 Derivation",
+      "use_in_review": "A first-class record for an exposure→outcome causal claim, produced by a causal-estimation activity and derived from defined contrast, omics inputs, and analysis outputs."
+    },
+    {
+      "proposed_component": "Contrast entity plus qualified usages",
+      "source_basis": "§5.1.4 Usage; §5.7.2.3 prov:role",
+      "use_in_review": "Represent comparator, target population/timepoint, exposure/outcome roles, and adjustment inputs without conflating them with the study or causal assertion."
+    },
+    {
+      "proposed_component": "CausalWorkflow/Protocol Plan entity",
+      "source_basis": "§5.3.3 Association and Plan; §6 Extensibility Points",
+      "use_in_review": "Attach a preregistered protocol, DAG/identification strategy, or analysis plan to the estimation activity; add domain-specific attributes for estimand, assumptions, and multi-omics layer."
+    },
+    {
+      "proposed_component": "Validation activity and result entity",
+      "source_basis": "§5.1.1–5.1.4; §5.2.1",
+      "use_in_review": "Model replication, triangulation, negative controls, or orthogonal-omics checks as activities with explicit inputs and generated results, rather than a single study-level validation flag."
+    },
+    {
+      "proposed_component": "EvidenceAssertion bundle",
+      "source_basis": "§5.4.1–5.4.2 Bundles; §4.3",
+      "use_in_review": "Package each extractor’s source-grounded statements about a report/study/link, then attribute the bundle to that extractor and preserve competing extractions or interpretations."
+    }
+  ],
+  "cautions": [
+    "PROV-DM is domain-agnostic; causal estimands, assumptions, omics modalities, and validity criteria require domain-specific types/attributes that preserve PROV semantics (§1 Introduction; §6).",
+    "A derivation asserts relevant influence, not merely co-occurrence of use and generation; do not auto-create causal or evidential derivations from workflow adjacency (§2.1.2).",
+    "`alternateOf` is deliberately general and does not establish a specific equivalence or causal relation; use it only for differing aspects of the same thing (§5.5.2).",
+    "Validity constraints are specified in the companion PROV-CONSTRAINTS, not in this source; this source only states they should be used to detect impossible temporal/provenance descriptions (§7)."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "fresh_isolated_session_per_source": true,
+  "input_size_modifications": false,
+  "results": [
+    {
+      "source_id": "who_content_model",
+      "status": "valid",
+      "source_sha256": "94b63e5e5e39f0c687afc3dbe940a5d9139dd03af0a58e04d4ad3f11586ae67c",
+      "prompt_sha256": "c3448ef25037736455b53dc856d6320a71cd2094fe1667bdb374129426421991",
+      "result_path": "analysis/methodology_architecture_sources_2026-09-21/terra_sessions/results/who_content_model.json",
+      "thread_ids": [
+        "01a0c524-8d92-77e3-930e-4e3df11dd3dd"
+      ]
+    },
+    {
+      "source_id": "sei_views_and_beyond",
+      "status": "valid",
+      "source_sha256": "61330766356832743187bb32a79f4990dcdd33482a085125f0aa7e7eb8223720",
+      "prompt_sha256": "d6fd561335b3cd763d612185b3baba025e6248c77c373bc9bc2ac5e178ddf977",
+      "result_path": "analysis/methodology_architecture_sources_2026-09-21/terra_sessions/results/sei_views_and_beyond.json",
+      "thread_ids": [
+        "01a0c524-8d5d-7c92-98a3-efb5f487e132"
+      ]
+    },
+    {
+      "source_id": "go_annotations",
+      "status": "valid",
+      "source_sha256": "57c8135cf0d5f24ff8d232e2f86d5197e5887d7231715c79a6aadcb621f81562",
+      "prompt_sha256": "e5e8e716ee6160d15eb5abef34012559de82a5a2a8c9969faa191f2ddabf853b",
+      "result_path": "analysis/methodology_architecture_sources_2026-09-21/terra_sessions/results/go_annotations.json",
+      "thread_ids": [
+        "01a0c524-8d5c-7e53-9384-2b46ac627a1a"
+      ]
+    },
+    {
+      "source_id": "dissertation_extract",
+      "status": "valid",
+      "source_sha256": "3e4494f48848300bf2b1c854052a8554128c6e6963b1e2e27b1ae0b2cef597c9",
+      "prompt_sha256": "a0a4ab3201c4bd2d2d931ee43bf7746d8b3f32d6b3b63058683fb357c2d356f9",
+      "result_path": "analysis/methodology_architecture_sources_2026-09-21/terra_sessions/results/dissertation_extract.json",
+      "thread_ids": [
+        "01a0c524-8d8f-7c73-8984-d03aa58569ba"
+      ]
+    },
+    {
+      "source_id": "w3c_prov_dm",
+      "status": "valid",
+      "source_sha256": "5c925c21bc96c285b25017c3b90d82cf74251d07713b71fcb81ca60f873c9e88",
+      "prompt_sha256": "1d08bbd047833a9ee35f4dca7b6d73cceb7ad2950f112d087949695b3879bd49",
+      "result_path": "analysis/methodology_architecture_sources_2026-09-21/terra_sessions/results/w3c_prov_dm.json",
+      "thread_ids": [
+        "01a0c524-8da4-7b50-a485-128a0ed952c8"
+      ]
+    }
+  ],
+  "finished_at": "2026-09-21T18:05:39.790005+00:00"
+}
