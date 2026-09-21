@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "fresh_isolated_session_per_run": true,
+  "repeat_count": 1,
+  "records": 1,
+  "results": [
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "repeat": 1,
+      "status": "valid",
+      "attempt": 1,
+      "result_path": "analysis/content_model_validation/v1.0.3/schema_transport_preflight/records/record_96a621a7b7a549df/repeat_1/result.json"
+    }
+  ],
+  "finished_at": "2026-09-21T23:11:20.637653+00:00"
+}

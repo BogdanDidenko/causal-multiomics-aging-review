@@ -1,0 +1,28 @@
+{
+  "model": "CMACM-v1.0.3",
+  "input": {
+    "path": "analysis/content_model_validation/v1.0.3/input.jsonl",
+    "sha256": "1d16b27fc5143a328d79dc496bc31d145974fbc2e3b6f10fc44a53cf72f8d86e"
+  },
+  "sample": {
+    "path": "analysis/content_model_validation/v1.0.3/sample.json",
+    "sha256": "27b5851cab5738c6908b34cde7b3a13c0b476c93da2c9dc3d5ba5c895f87a53f"
+  },
+  "schema": {
+    "path": "protocol/content_model/v1.0.3/foundation_extraction.schema.json",
+    "sha256": "11aa9291e6e5c288163aed645488d3e440eddc1f655a1739d0631e0d77522cc5"
+  },
+  "prompt": {
+    "path": "protocol/content_model/v1.0.3/foundation_extraction_prompt.txt",
+    "sha256": "969590a9b03c0cc6367892d56a88b3f0ee6ffebbe150c173c3a5c3a2c7d7e5e8"
+  },
+  "source_master": {
+    "path": "analysis/review_synthesis/master_corpus_v1.0.0/eligible_report_ledger_376.csv",
+    "sha256": "cb9b42874d3e7c707fdd3701e5efbe9843dcb5b5274e86fb47776882639312dd"
+  },
+  "source_full_input": {
+    "path": "data/full_text_screening/v1.6.0_full_markdown296/input/input.jsonl",
+    "sha256": "071cc8f5fca527dbbeedb2eb1c3481f8911a1fc1563ea0922245746648e680ba"
+  },
+  "input_size_modifications": false
+}

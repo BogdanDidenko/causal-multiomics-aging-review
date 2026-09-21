@@ -1,0 +1,13 @@
+{
+  "model": "CMACM",
+  "version": "1.0.0",
+  "linearizations": [
+    {"id": "prisma_report_view", "counting_unit": "ReportVersion"},
+    {"id": "evidence_base_view", "counting_unit": "Study"},
+    {"id": "causal_leverage_view", "counting_unit": "CausalWorkflow"},
+    {"id": "multiomics_contribution_view", "counting_unit": "CausalWorkflow"},
+    {"id": "aging_outcome_view", "counting_unit": "CausalLink"},
+    {"id": "strength_transport_view", "counting_unit": "Validation"},
+    {"id": "audit_view", "counting_unit": "ExtractionAssertion"}
+  ]
+}

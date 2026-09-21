@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["model_version", "report_id", "report_version", "studies", "workflows", "links", "contrasts", "validations", "evidence", "extraction_assertion", "linearizations"],
+  "properties": {
+    "model_version": {"type": "string", "const": "CMACM-v1.0.2"},
+    "report_id": {"type": "string"},
+    "report_version": {"$ref": "#/$defs/report_version"},
+    "studies": {"type": "array", "items": {"$ref": "#/$defs/study"}},
+    "workflows": {"type": "array", "items": {"$ref": "#/$defs/workflow"}},
+    "links": {"type": "array", "items": {"$ref": "#/$defs/link"}},
+    "contrasts": {"type": "array", "items": {"$ref": "#/$defs/contrast"}},
+    "validations": {"type": "array", "items": {"$ref": "#/$defs/validation"}},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "extraction_assertion": {"$ref": "#/$defs/extraction_assertion"},
+    "linearizations": {"type": "array", "items": {"$ref": "#/$defs/linearization"}}
+  },
+  "$defs": {
+    "identifier": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "report_version": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "doi", "title", "publication_form"],
+      "properties": {"id": {"$ref": "#/$defs/identifier"}, "doi": {"type": "string"}, "title": {"type": "string"}, "publication_form": {"type": "string", "enum": ["journal_article", "preprint", "other_full_report", "unclear"]}}
+    },
+    "study": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "report_version_id", "biological_system"],
+      "properties": {"id": {"$ref": "#/$defs/identifier"}, "report_version_id": {"$ref": "#/$defs/identifier"}, "biological_system": {"type": "string"}}
+    },
+    "workflow": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "study_id", "causal_basis", "design_family", "biological_system", "aging_phenomenon", "integration_operator", "omics_layers", "layer_roles", "source_evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"}, "study_id": {"$ref": "#/$defs/identifier"},
+        "causal_basis": {"type": "string", "enum": ["effect_identification_design", "formal_directed_hypothesis"]},
+        "design_family": {"type": "string", "enum": ["genetic_instrument", "randomized_intervention", "nonrandomized_controlled_intervention", "targeted_perturbation", "mediation", "temporal_design", "graphical_or_structural_model", "causal_discovery_algorithm", "other_named_design"]},
+        "biological_system": {"type": "string"}, "aging_phenomenon": {"type": "string"}, "integration_operator": {"type": "string"},
+        "omics_layers": {"type": "array", "items": {"type": "string", "enum": ["genomics", "epigenomics", "transcriptomics", "proteomics", "metabolomics", "lipidomics", "microbiomics", "metagenomics", "other"]}, "uniqueItems": true},
+        "layer_roles": {"type": "array", "items": {"type": "string"}}, "source_evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}
+      }
+    },
+    "link": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "workflow_id", "exposure_or_intervention", "outcome_construct", "direction", "assertion_polarity", "source_evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"}, "workflow_id": {"$ref": "#/$defs/identifier"},
+        "exposure_or_intervention": {"type": "string"}, "outcome_construct": {"type": "string"},
+        "direction": {"type": "string", "enum": ["forward", "reverse", "bidirectional", "unclear"]},
+        "assertion_polarity": {"type": "string", "enum": ["supported", "null", "challenged", "unclear"]},
+        "source_evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}
+      }
+    },
+    "contrast": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "link_id", "comparator", "estimand_or_claim", "axis_values", "source_evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"}, "link_id": {"$ref": "#/$defs/identifier"}, "comparator": {"type": "string"}, "estimand_or_claim": {"type": "string"},
+        "axis_values": {"type": "array", "items": {"$ref": "#/$defs/axis_value"}},
+        "source_evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}
+      }
+    },
+    "validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "target_id", "validation_type", "result", "independence", "source_evidence_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/identifier"}, "target_id": {"$ref": "#/$defs/identifier"},
+        "validation_type": {"type": "string", "enum": ["replication", "rescue", "orthogonal_assay", "sensitivity", "negative_control", "challenge"]},
+        "result": {"type": "string", "enum": ["supports", "null", "challenges", "unclear"]}, "independence": {"type": "string", "enum": ["independent", "same_study", "unclear"]},
+        "source_evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}
+      }
+    },
+    "axis_value": {
+      "type": "object", "additionalProperties": false,
+      "required": ["axis", "values"],
+      "properties": {"axis": {"type": "string"}, "values": {"type": "array", "items": {"type": "string"}}}
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "source_locator", "verbatim_quote", "supports_ids"],
+      "properties": {"id": {"$ref": "#/$defs/identifier"}, "source_locator": {"type": "string"}, "verbatim_quote": {"type": "string"}, "supports_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}}
+    },
+    "extraction_assertion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "extractor", "activity", "status"],
+      "properties": {"id": {"$ref": "#/$defs/identifier"}, "extractor": {"type": "string", "enum": ["terra"]}, "activity": {"type": "string", "enum": ["foundation_extraction"]}, "status": {"type": "string", "enum": ["extracted"]}}
+    },
+    "linearization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "counting_unit", "member_ids"],
+      "properties": {"id": {"type": "string", "enum": ["prisma_report_view", "evidence_base_view", "causal_leverage_view", "multiomics_contribution_view", "aging_outcome_view", "strength_transport_view", "audit_view"]}, "counting_unit": {"type": "string"}, "member_ids": {"type": "array", "items": {"$ref": "#/$defs/identifier"}, "uniqueItems": true}}
+    }
+  }
+}

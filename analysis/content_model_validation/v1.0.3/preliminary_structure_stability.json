@@ -1,0 +1,2123 @@
+{
+  "summary": {
+    "reports": 15,
+    "three_output_reports": 15,
+    "exact_structure_agreement_all_three": 1,
+    "exact_workflow_count_all_three": 8,
+    "exact_link_count_all_three": 5,
+    "design_family_set_all_three": 10
+  },
+  "reports": [
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "doi": "10.18632/aging.102822",
+      "title": "Transcriptomic and metabolomic profiling of long-lived growth hormone releasing hormone knock-out mice: evidence for altered mitochondrial function and amino acid metabolism.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_96a621a7b7a549df/repeat_1/result.json",
+          "workflow_count": 1,
+          "link_count": 2,
+          "contrast_count": 2,
+          "validation_count": 0,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              0
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_96a621a7b7a549df/repeat_2/result.json",
+          "workflow_count": 1,
+          "link_count": 2,
+          "contrast_count": 2,
+          "validation_count": 0,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              0
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_96a621a7b7a549df/repeat_3/result.json",
+          "workflow_count": 2,
+          "link_count": 2,
+          "contrast_count": 2,
+          "validation_count": 0,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              0
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              2
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "doi": "10.31857/s0026898424020065",
+      "title": "Knockout of <i>Hsp70</i> genes modulates age-related transcriptomic changes in leg muscles, reduces locomotion speed and lifespan of <i>Drosophila melanogaster</i>",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f353b3e0e5d337e3/repeat_1/repaired_result.json",
+          "workflow_count": 2,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 0,
+          "design_families": [
+            "nonrandomized_controlled_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f353b3e0e5d337e3/repeat_2/repaired_result.json",
+          "workflow_count": 2,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 0,
+          "design_families": [
+            "nonrandomized_controlled_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              5
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_f353b3e0e5d337e3/repeat_3/result.json",
+          "workflow_count": 2,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 1,
+          "design_families": [
+            "nonrandomized_controlled_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              5
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.15252/embr.202152606",
+      "doi": "10.15252/embr.202152606",
+      "title": "CEST‐2.2 overexpression alters lipid metabolism and extends longevity of mitochondrial mutants",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c1e0155d415becfc/repeat_1/result.json",
+          "workflow_count": 4,
+          "link_count": 6,
+          "contrast_count": 4,
+          "validation_count": 3,
+          "design_families": [
+            "nonrandomized_controlled_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              3
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              3
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c1e0155d415becfc/repeat_2/result.json",
+          "workflow_count": 1,
+          "link_count": 1,
+          "contrast_count": 1,
+          "validation_count": 1,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c1e0155d415becfc/repeat_3/result.json",
+          "workflow_count": 1,
+          "link_count": 3,
+          "contrast_count": 3,
+          "validation_count": 1,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "doi": "10.1038/s43856-025-00942-3",
+      "title": "Protection against APOE4-associated phenotypes with the longevity-promoting intervention 17α-estradiol in middle-aged male mice",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c77759c94ea9e54e/repeat_1/result.json",
+          "workflow_count": 1,
+          "link_count": 16,
+          "contrast_count": 16,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c77759c94ea9e54e/repeat_2/result.json",
+          "workflow_count": 1,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_c77759c94ea9e54e/repeat_3/result.json",
+          "workflow_count": 1,
+          "link_count": 11,
+          "contrast_count": 11,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "doi": "10.1038/s41514-025-00318-w",
+      "title": "Reversal of proteomic aging with exercise-results from the UK biobank and a 12-week intervention study.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_542f529d8f51ca80/repeat_1/repaired_result.json",
+          "workflow_count": 1,
+          "link_count": 1,
+          "contrast_count": 1,
+          "validation_count": 0,
+          "design_families": [
+            "nonrandomized_controlled_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_542f529d8f51ca80/repeat_2/result.json",
+          "workflow_count": 1,
+          "link_count": 1,
+          "contrast_count": 1,
+          "validation_count": 0,
+          "design_families": [
+            "temporal_design"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_542f529d8f51ca80/repeat_3/result.json",
+          "workflow_count": 1,
+          "link_count": 1,
+          "contrast_count": 1,
+          "validation_count": 1,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "doi": "10.1038/s41591-019-0504-5",
+      "title": "Healthspan and lifespan extension by fecal microbiota transplantation into progeroid mice.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_1/repaired_result.json",
+          "workflow_count": 6,
+          "link_count": 9,
+          "contrast_count": 9,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              7
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              6
+            ],
+            [
+              "evidence_base_view",
+              4
+            ],
+            [
+              "multiomics_contribution_view",
+              5
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_2/repaired_result.json",
+          "workflow_count": 5,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              5
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_3/repaired_result.json",
+          "workflow_count": 5,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              5
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              5
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "doi": "10.1101/680462",
+      "title": "Nicotinamide riboside augments the human skeletal muscle NAD+ metabolome and induces transcriptomic and anti-inflammatory signatures in aged subjects: a placebo-controlled, randomized trial",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_1/repaired_result.json",
+          "workflow_count": 1,
+          "link_count": 7,
+          "contrast_count": 7,
+          "validation_count": 2,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              2
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_2/repaired_result.json",
+          "workflow_count": 1,
+          "link_count": 7,
+          "contrast_count": 7,
+          "validation_count": 2,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              0
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              2
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_3/repaired_result.json",
+          "workflow_count": 1,
+          "link_count": 9,
+          "contrast_count": 9,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              1
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "doi": "10.3389/fnut.2026.1750030",
+      "title": "Epigenetic and microbiome responses to greens supplementation in obese older adults: results from a randomized crossover-controlled trial.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_f84dc088d817d9ad/repeat_1/result.json",
+          "workflow_count": 1,
+          "link_count": 12,
+          "contrast_count": 12,
+          "validation_count": 0,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_f84dc088d817d9ad/repeat_2/result.json",
+          "workflow_count": 1,
+          "link_count": 7,
+          "contrast_count": 7,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f84dc088d817d9ad/repeat_3/repaired_result.json",
+          "workflow_count": 1,
+          "link_count": 12,
+          "contrast_count": 12,
+          "validation_count": 1,
+          "design_families": [
+            "randomized_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              1
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "doi": "10.1007/s11357-025-01794-4",
+      "title": "Identification of gut microbiota causally associated with aging and longevity and mediation roles of the cerebrospinal fluid proteins: proteomic genetic evidence from Mendelian randomization.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_d59e3d233335569a/repeat_1/result.json",
+          "workflow_count": 3,
+          "link_count": 5,
+          "contrast_count": 5,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              3
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              3
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_d59e3d233335569a/repeat_2/result.json",
+          "workflow_count": 4,
+          "link_count": 6,
+          "contrast_count": 6,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_d59e3d233335569a/repeat_3/result.json",
+          "workflow_count": 2,
+          "link_count": 12,
+          "contrast_count": 7,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              2
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "doi": "10.1038/s43587-021-00159-8",
+      "title": "Mendelian randomization of genetically independent aging phenotypes identifies LPA and VCAM1 as biological targets for human aging",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_078182c0b3e1a0a9/repeat_1/repaired_result.json",
+          "workflow_count": 4,
+          "link_count": 4,
+          "contrast_count": 4,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_078182c0b3e1a0a9/repeat_2/result.json",
+          "workflow_count": 4,
+          "link_count": 4,
+          "contrast_count": 4,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_078182c0b3e1a0a9/repeat_3/result.json",
+          "workflow_count": 4,
+          "link_count": 4,
+          "contrast_count": 4,
+          "validation_count": 2,
+          "design_families": [
+            "genetic_instrument"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "doi": "10.1093/ehjcvp/pvae038",
+      "title": "Utilizing genetics and proteomics to assess the role of antihypertensive drugs in human longevity and the underlying pathways: a Mendelian randomization study",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_1/repaired_result.json",
+          "workflow_count": 6,
+          "link_count": 7,
+          "contrast_count": 4,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              6
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              6
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_2/repaired_result.json",
+          "workflow_count": 11,
+          "link_count": 12,
+          "contrast_count": 6,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              11
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              11
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              2
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_3/repaired_result.json",
+          "workflow_count": 12,
+          "link_count": 12,
+          "contrast_count": 6,
+          "validation_count": 4,
+          "design_families": [
+            "genetic_instrument",
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              11
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              12
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              2
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.1111/acel.70065",
+      "doi": "10.1111/acel.70065",
+      "title": "Identifying PDAP1 as a Biological Target on Human Longevity: Integration of Mendelian Randomization, Cohort, and Cell Experiments Validation Study.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_b314dbf98991fd4c/repeat_1/result.json",
+          "workflow_count": 4,
+          "link_count": 30,
+          "contrast_count": 2,
+          "validation_count": 3,
+          "design_families": [
+            "genetic_instrument",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              30
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              2
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              3
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_b314dbf98991fd4c/repeat_2/result.json",
+          "workflow_count": 31,
+          "link_count": 31,
+          "contrast_count": 2,
+          "validation_count": 3,
+          "design_families": [
+            "genetic_instrument",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              31
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              31
+            ],
+            [
+              "evidence_base_view",
+              3
+            ],
+            [
+              "multiomics_contribution_view",
+              31
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              3
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_b314dbf98991fd4c/repeat_3/result.json",
+          "workflow_count": 4,
+          "link_count": 4,
+          "contrast_count": 4,
+          "validation_count": 3,
+          "design_families": [
+            "genetic_instrument",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              4
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              4
+            ],
+            [
+              "evidence_base_view",
+              3
+            ],
+            [
+              "multiomics_contribution_view",
+              4
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "doi": "10.64898/2026.07.05.26356402",
+      "title": "A generator-matrix causal-inference framework separates measurable aging biomarkers from mortality-driving latent dynamics in humans",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_3a515d8d5632c712/repeat_1/result.json",
+          "workflow_count": 12,
+          "link_count": 13,
+          "contrast_count": 4,
+          "validation_count": 7,
+          "design_families": [
+            "genetic_instrument",
+            "graphical_or_structural_model",
+            "nonrandomized_controlled_intervention"
+          ],
+          "causal_basis": [
+            "effect_identification_design",
+            "formal_directed_hypothesis"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              13
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              12
+            ],
+            [
+              "evidence_base_view",
+              5
+            ],
+            [
+              "multiomics_contribution_view",
+              11
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              7
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_3a515d8d5632c712/repeat_2/result.json",
+          "workflow_count": 8,
+          "link_count": 9,
+          "contrast_count": 9,
+          "validation_count": 5,
+          "design_families": [
+            "genetic_instrument",
+            "graphical_or_structural_model",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design",
+            "formal_directed_hypothesis"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              9
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              8
+            ],
+            [
+              "evidence_base_view",
+              3
+            ],
+            [
+              "multiomics_contribution_view",
+              7
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              5
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3a515d8d5632c712/repeat_3/repaired_result.json",
+          "workflow_count": 12,
+          "link_count": 11,
+          "contrast_count": 4,
+          "validation_count": 8,
+          "design_families": [
+            "genetic_instrument",
+            "graphical_or_structural_model",
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design",
+            "formal_directed_hypothesis"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              11
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              12
+            ],
+            [
+              "evidence_base_view",
+              4
+            ],
+            [
+              "multiomics_contribution_view",
+              11
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "doi": "10.3389/fnagi.2023.1241412",
+      "title": "Effects of copy number variations on longevity in late-onset Alzheimer's disease patients: insights from a causality network analysis.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_3c1d9778bd815093/repeat_1/result.json",
+          "workflow_count": 3,
+          "link_count": 3,
+          "contrast_count": 3,
+          "validation_count": 0,
+          "design_families": [
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              3
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              3
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              3
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3c1d9778bd815093/repeat_2/repaired_result.json",
+          "workflow_count": 3,
+          "link_count": 3,
+          "contrast_count": 3,
+          "validation_count": 0,
+          "design_families": [
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              3
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              3
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              3
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3c1d9778bd815093/repeat_3/repaired_result.json",
+          "workflow_count": 3,
+          "link_count": 3,
+          "contrast_count": 3,
+          "validation_count": 0,
+          "design_families": [
+            "mediation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              3
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              3
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              3
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "doi:10.3390/ijms26094389",
+      "doi": "10.3390/ijms26094389",
+      "title": "Natural Variation of StNADC Regulates Plant Senescence in Tetraploid Potatoes (Solanum tuberosum L.)",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_1/result.json",
+          "workflow_count": 2,
+          "link_count": 2,
+          "contrast_count": 3,
+          "validation_count": 4,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              2
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              4
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_2/result.json",
+          "workflow_count": 2,
+          "link_count": 3,
+          "contrast_count": 3,
+          "validation_count": 2,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              2
+            ]
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "source": "analysis/content_model_validation/v1.0.3/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_3/result.json",
+          "workflow_count": 2,
+          "link_count": 8,
+          "contrast_count": 5,
+          "validation_count": 2,
+          "design_families": [
+            "targeted_perturbation"
+          ],
+          "causal_basis": [
+            "effect_identification_design"
+          ],
+          "linearization_sizes": [
+            [
+              "aging_outcome_view",
+              2
+            ],
+            [
+              "audit_view",
+              1
+            ],
+            [
+              "causal_leverage_view",
+              2
+            ],
+            [
+              "evidence_base_view",
+              1
+            ],
+            [
+              "multiomics_contribution_view",
+              1
+            ],
+            [
+              "prisma_report_view",
+              1
+            ],
+            [
+              "strength_transport_view",
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

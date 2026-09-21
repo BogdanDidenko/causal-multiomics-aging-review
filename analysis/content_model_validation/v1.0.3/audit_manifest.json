@@ -1,0 +1,66 @@
+{
+  "status": "development_contract_rejected",
+  "model": "CMACM-v1.0.3",
+  "artifacts": [
+    {
+      "path": "protocol/content_model/v1.0.3/decision.md",
+      "sha256": "9ede1e6b4961bf151ed0bfecab8090a8b01827cc53bde45c07fff37b67f94e28"
+    },
+    {
+      "path": "protocol/content_model/v1.0.3/content_model.md",
+      "sha256": "1f8e9d99e06268ce335e3353179af067ce0cd05e446b4de6c9f4223a4a978eb8"
+    },
+    {
+      "path": "protocol/content_model/v1.0.3/linearizations.json",
+      "sha256": "66f9baad666425c9e4c0e4b183c86877b1c91af1f90167ff5f2d776e17fe826c"
+    },
+    {
+      "path": "protocol/content_model/v1.0.3/foundation_extraction.schema.json",
+      "sha256": "11aa9291e6e5c288163aed645488d3e440eddc1f655a1739d0631e0d77522cc5"
+    },
+    {
+      "path": "protocol/content_model/v1.0.3/foundation_extraction_prompt.txt",
+      "sha256": "969590a9b03c0cc6367892d56a88b3f0ee6ffebbe150c173c3a5c3a2c7d7e5e8"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/input.jsonl",
+      "sha256": "1d16b27fc5143a328d79dc496bc31d145974fbc2e3b6f10fc44a53cf72f8d86e"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/sample.json",
+      "sha256": "27b5851cab5738c6908b34cde7b3a13c0b476c93da2c9dc3d5ba5c895f87a53f"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/manifest.json",
+      "sha256": "de6c18cf6678fb10884a3d2b99fb77af82a7f873e1d1a50dff2e972cc57c6bfc"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/terra_three_runs/completion.json",
+      "sha256": "dd7142ca8fd3d4207a16cb245dcb276c4193d1cd936bba5797bfc2e328f4717e"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/preliminary_structure_stability.json",
+      "sha256": "4679ac39441efebb161212f8263f10d9e13fce2e7791837dd451f0e03b6559ec"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/quote_recovery/summary.json",
+      "sha256": "7d4ee4dd79111c599d2c750589daca18635a5c888dfe46418f6f5af68651fc53"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.0.3/diagnostic.md",
+      "sha256": "d4795ad13ccb2b3a14293f8210be49c75597b649f50b5546df3df65d1bf7c8d1"
+    },
+    {
+      "path": "scripts/build_who_content_model_validation_v1.py",
+      "sha256": "927975ed7ec7bb5e95b9f331fd9735184bb26ab426458bba061556d661a9f720"
+    },
+    {
+      "path": "scripts/run_who_content_model_validation_v1.py",
+      "sha256": "ccc0d89cfc99384a0c6e960a854b51d5e9d6d863afbd960d6a74b7ca874fecb2"
+    },
+    {
+      "path": "scripts/recover_who_content_model_quotes_v1.py",
+      "sha256": "c38a74a752ebf4131ddcc7071e88f671e507f6fbe5b84b1655f7bfd15fd4d8b6"
+    }
+  ]
+}

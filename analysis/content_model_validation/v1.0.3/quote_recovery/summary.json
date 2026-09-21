@@ -1,0 +1,114 @@
+{
+  "model_calls": 0,
+  "attempted": 17,
+  "valid": 2,
+  "unresolved": 15,
+  "alignment_methods": {
+    "exact": 91,
+    "full_quote_whitespace": 16
+  },
+  "outcomes": [
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_078182c0b3e1a0a9/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "repeat": "repeat_3",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3a515d8d5632c712/repeat_3/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "repeat": "repeat_2",
+      "status": "valid",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3c1d9778bd815093/repeat_2/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "repeat": "repeat_3",
+      "status": "valid",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_3c1d9778bd815093/repeat_3/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_542f529d8f51ca80/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": "repeat_2",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_2/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": "repeat_3",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_7a5d21491b03b56c/repeat_3/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": "repeat_2",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_2/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": "repeat_3",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_a268b5ed1897f40c/repeat_3/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": "repeat_2",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_2/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": "repeat_3",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_af1e17b871e6d2b6/repeat_3/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "repeat": "repeat_1",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f353b3e0e5d337e3/repeat_1/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "repeat": "repeat_2",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f353b3e0e5d337e3/repeat_2/repaired_result.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "repeat": "repeat_3",
+      "status": "unresolved",
+      "repaired_path": "analysis/content_model_validation/v1.0.3/quote_recovery/records/record_f84dc088d817d9ad/repeat_3/repaired_result.json"
+    }
+  ]
+}
