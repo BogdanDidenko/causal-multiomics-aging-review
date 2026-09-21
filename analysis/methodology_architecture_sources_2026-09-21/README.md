@@ -14,3 +14,7 @@ The raw source files and full prompt/session audit remain local in `raw/` and
 `terra_sessions/calls/`. The source manifest records URLs and hashes; compact
 Terra memos, run completion state, and the cross-source synthesis are suitable
 for version control.
+
+An independent Claude Opus consultation is stored in `opus_consultation/`. It
+recommends WHO Content Model as the single primary methodology with named
+domain amendments; no protocol change was applied automatically.

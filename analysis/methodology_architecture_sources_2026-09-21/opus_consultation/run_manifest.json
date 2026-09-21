@@ -1,0 +1,14 @@
+{
+  "model": "claude-opus-4-8",
+  "cli_version": "2.1.223 (Claude Code)",
+  "reasoning_effort": "high",
+  "session_id": "3617249f-2557-4ee3-a9ea-431a6dd4e147",
+  "briefing_path": "analysis/methodology_architecture_sources_2026-09-21/opus_consultation/briefing.md",
+  "briefing_sha256": "cd72294c9a7dc55c972c57cfcc19241fc39ecd4843b1c52e255d0a6718bd4295",
+  "response_path": "analysis/methodology_architecture_sources_2026-09-21/opus_consultation/opus_response.json",
+  "response_sha256": "a258c0398ef1955cce6402f7ee3520fef4a2aac390b5285315d65b01b7f122de",
+  "report_path": "analysis/methodology_architecture_sources_2026-09-21/opus_consultation/report.md",
+  "report_sha256": "b435ae24f02e1c27b8fcc44971d0438f9b24c6a2bc836b60c562aea23103a70c",
+  "status": "complete",
+  "output_scope": "independent methodological consultation; no eligibility or PRISMA changes applied"
+}
