@@ -26,6 +26,15 @@ models. Eligibility is decided from the reported design, not keyword presence.
 
 ## Current Status
 
+**Scientific synthesis started:** the two eligible full-text cohorts contain
+376 reports. Crossref relations and curated bibliographic checks identify 19
+confirmed preprint/publisher version groups, leaving 357 canonical reports
+after report-version collapse. This remains a report count; final study,
+causal-analysis, and normalized-link counts will be produced during extraction.
+The next deliverable is the source-checked biological evidence table. See the
+[`master synthesis corpus`](analysis/review_synthesis/master_corpus_v1.0.0/README.md)
+and its [`summary`](analysis/review_synthesis/master_corpus_v1.0.0/summary.json).
+
 **2026-09-20 article-only extension audit:** all 280 extension reports
 previously classified as eligible were checked against Europe PMC, Crossref,
 and their preserved Docling Markdown. Five additional conference-abstract-only

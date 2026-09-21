@@ -1,0 +1,42 @@
+{
+  "inputs": [
+    {
+      "path": "analysis/full_text_screening/final_eligibility_v1.5.4/final_eligibility_ledger_158.csv",
+      "sha256": "17bd41303372a4f7cbd9c1697c7e6a93874348b3d61bfd60d033b3e06ba1bae7"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/eligibility_ledger_289.csv",
+      "sha256": "1e9d33f96b8ea0e91ae976dd732fde9e70fe9921fc3be81bb48fc827a51d1523"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/metadata/crossref_raw_280.json",
+      "sha256": "4193361a9640cf3cb0605f54d55de355a896ddb3d3f28baea57cbd9008a9bbd4"
+    },
+    {
+      "path": "scripts/build_master_synthesis_corpus.py",
+      "sha256": "4479dbf96d5a4f686202f1e07b678e1cd5b861033ef51385c8bfb58ea2d8923e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "analysis/review_synthesis/master_corpus_v1.0.0/README.md",
+      "sha256": "a97390cfd787621fda2f2d40b07e008f091b2780b4aba495ba2ea0d986bb23fd"
+    },
+    {
+      "path": "analysis/review_synthesis/master_corpus_v1.0.0/eligible_report_ledger_376.csv",
+      "sha256": "cb9b42874d3e7c707fdd3701e5efbe9843dcb5b5274e86fb47776882639312dd"
+    },
+    {
+      "path": "analysis/review_synthesis/master_corpus_v1.0.0/summary.json",
+      "sha256": "07db2c521f01eef6ab8e31e6c8e0ed0183b024f2aef47ff1b9e91eb17a268274"
+    },
+    {
+      "path": "analysis/review_synthesis/master_corpus_v1.0.0/version_linkage_candidates.csv",
+      "sha256": "2a17b9c1adbc51dca165bc9c415833d07eb2aef68eca8db5c75075cc8d1f6b69"
+    },
+    {
+      "path": "analysis/review_synthesis/master_corpus_v1.0.0/metadata/crossref_raw_376.json",
+      "sha256": "7443e593b6e2ad6109c3c942d0cd152d00b470d367cfd7449f7424e3aca59354"
+    }
+  ]
+}

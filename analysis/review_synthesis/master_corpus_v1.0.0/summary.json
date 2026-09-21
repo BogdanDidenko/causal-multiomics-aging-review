@@ -1,0 +1,18 @@
+{
+  "status": "report_master_corpus_version_linkage_complete_study_linkage_pending",
+  "prior_eligible_reports": 101,
+  "extension_eligible_reports": 275,
+  "eligible_reports_total": 376,
+  "cross_cohort_doi_overlap": 0,
+  "cross_cohort_exact_normalized_title_overlap": 0,
+  "exact_normalized_title_pairs": 7,
+  "crossref_relation_pairs": 11,
+  "curated_bibliographic_pairs": 8,
+  "confirmed_report_version_groups": 19,
+  "reports_in_confirmed_version_groups": 38,
+  "canonical_reports_after_version_collapse": 357,
+  "final_unique_study_count": null,
+  "final_causal_analysis_count": null,
+  "final_normalized_link_count": null,
+  "next_step": "Assign study IDs and populate the source-checked biological evidence table, retaining report-version provenance."
+}
