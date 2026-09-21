@@ -1,0 +1,59 @@
+{
+  "sources": [
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.5_no_conference_abstract/eligibility_ledger_294.csv",
+      "sha256": "fd91a095e59db18695b202de702cfebca4e0f3ef5c6a71311dc935cb9e97c2b0"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.5_no_conference_abstract/report_disposition_359.csv",
+      "sha256": "047a768b815dbf5019185ebf1935b1702f70135177303763a23b259f26c69980"
+    },
+    {
+      "path": "data/full_text_screening/v1.6.0_full_markdown296/input/input.jsonl",
+      "sha256": "071cc8f5fca527dbbeedb2eb1c3481f8911a1fc1563ea0922245746648e680ba"
+    },
+    {
+      "path": "scripts/audit_article_only_cohort_v1_6_6.py",
+      "sha256": "acf48b0b580ef636234a5790d67f5f38feb6a6961716546ae45e5eedf961c2f5"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/README.md",
+      "sha256": "de0daf29f4cd0d7fbe9a4783bdfa3b939b32f41e39bf7671c6a97808b9effb08"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/article_only_audit_280.csv",
+      "sha256": "59834ccd46aca8bf9acdaf3478551f38dd53c26f33f189b846fd8c8088122e7c"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/conference_abstract_decisions.json",
+      "sha256": "f064326916df245027545990f834c459ddab972b40dbdceefc5cd9e6ddb69ae0"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/eligibility_ledger_289.csv",
+      "sha256": "1e9d33f96b8ea0e91ae976dd732fde9e70fe9921fc3be81bb48fc827a51d1523"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/metadata/crossref_raw_280.json",
+      "sha256": "4193361a9640cf3cb0605f54d55de355a896ddb3d3f28baea57cbd9008a9bbd4"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/metadata/europe_pmc_raw_280.json",
+      "sha256": "02867190d1c8cab680c1d398a89b1ebb5011abefe2df0b8cf3ed9857252507cb"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/prisma_flow.json",
+      "sha256": "3e4b28e8274c49871e7ef5894d6af2a47607df575df9414dce2fdfbefe555488"
+    },
+    {
+      "path": "analysis/full_text_screening/prisma_slice_v1.6.6_article_only/report_disposition_359.csv",
+      "sha256": "b7e86c39ad21c345b9f940df017b1a9223a08e1a6a7b34e1c4e6b8470a62ede9"
+    }
+  ],
+  "checks": {
+    "canonical": true,
+    "retrieved": true,
+    "screened": true
+  }
+}

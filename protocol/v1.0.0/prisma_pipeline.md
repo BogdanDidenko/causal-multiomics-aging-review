@@ -86,3 +86,26 @@ pilot. Study-level synthesis reports molecular layers, aging construct,
 population/model, causal design family, estimand, assumptions, diagnostics,
 validation, evidence level, and human adjudication status. Causal-hypothesis
 and causal-evidence strata are never pooled as equivalent evidence.
+
+## Current extension snapshot (2026-09-20)
+
+The v1.6.6 publication-type audit checked all 280 extension reports previously
+classified as eligible against Europe PMC, Crossref, and the complete preserved
+Docling Markdown. Five additional conference-abstract-only objects were moved
+from `meets_full_text_eligibility` to
+`nonarticle_conference_abstract_object`. Including the earlier v1.6.5 decision,
+the disposition ledger contains six conference abstracts. They carry no
+scientific EC code because they are ineligible publication objects.
+
+The corrected extension has 30 nonarticle objects, 37 reports not retrieved,
+and 292 retrieved full reports. Of the retrieved reports, 289 were screened and
+three remain separately deferred. The screened set contains 275 eligible
+reports, 14 scientific exclusions, and no unresolved reports. Full journal
+articles and complete preprints remain eligible publication types. The
+record-level audit, raw registry responses, decisions, hashes, and balanced
+flow are stored in
+`analysis/full_text_screening/prisma_slice_v1.6.6_article_only/`.
+
+This is an extension-only snapshot. The whole-review PRISMA flow remains open
+pending resolution of unavailable and deferred reports, upstream queue closure,
+and report-to-study linkage.

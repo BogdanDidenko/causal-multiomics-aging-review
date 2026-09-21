@@ -26,6 +26,19 @@ models. Eligibility is decided from the reported design, not keyword presence.
 
 ## Current Status
 
+**2026-09-20 article-only extension audit:** all 280 extension reports
+previously classified as eligible were checked against Europe PMC, Crossref,
+and their preserved Docling Markdown. Five additional conference-abstract-only
+objects were removed. Together with the object removed in v1.6.5, six
+conference abstracts are retained only in the disposition audit. The corrected
+extension has 289 screened full reports: 275 eligible, 14 excluded, and 0
+unresolved; three retrieved full reports remain separately deferred. Full
+journal articles and complete preprints remain eligible publication types.
+This snapshot does not close the whole-review PRISMA flow. See the
+[`v1.6.6 article-only audit`](analysis/full_text_screening/prisma_slice_v1.6.6_article_only/README.md)
+and its
+[`balanced flow`](analysis/full_text_screening/prisma_slice_v1.6.6_article_only/prisma_flow.json).
+
 The final `v1.1.2` search is frozen: 12,528 source records were deduplicated to
 7,858 canonical records. The 5,022 records with abstracts were evaluated using
 GPT 5.6 Terra Medium, five independent runs per assessed role, and prompt suite

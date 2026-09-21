@@ -1,0 +1,21 @@
+{
+  "scope": "stable_layer_pair_extension_only",
+  "status": "article_only_full_text_eligibility_complete_for_289_screened_reports_three_deferred",
+  "canonical_records": 359,
+  "nonarticle_objects": 30,
+  "reports_not_retrieved": 37,
+  "retrieved_full_reports": 292,
+  "separately_deferred_reports": 3,
+  "screened_full_reports": 289,
+  "reports_meeting_full_text_eligibility": 275,
+  "reports_excluded": 14,
+  "reports_unresolved": 0,
+  "conference_abstracts_removed_from_full_text_cohort": 6,
+  "conference_abstracts_removed_in_v1_6_6": 5,
+  "whole_review_prisma_closed": false,
+  "balances": {
+    "canonical": true,
+    "retrieved": true,
+    "screened": true
+  }
+}
