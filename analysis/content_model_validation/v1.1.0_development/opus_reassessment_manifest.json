@@ -1,0 +1,14 @@
+{
+  "model": "claude-opus-4-8",
+  "reasoning_effort": "high",
+  "session_id": "c93a03d7-c48f-4cdd-bbea-b6cf7331bc77",
+  "resume_attempt": "official --resume unavailable because prior session used --no-session-persistence",
+  "briefing_path": "analysis/content_model_validation/v1.1.0_development/opus_followup_rendered.md",
+  "briefing_sha256": "2fb9527c02cddb77958d3779504cf591f6dd26db54d7d43f2d221bdfc1fa7039",
+  "raw_response_path": "analysis/content_model_validation/v1.1.0_development/opus_followup_response.json",
+  "raw_response_sha256": "3d304b9e2f11198b95eadfbb581feca4ed168e1b29aa8c1774ae0262f895db32",
+  "report_path": "analysis/content_model_validation/v1.1.0_development/opus_reassessment_report.md",
+  "report_sha256": "5027ebc1ebc8ca6ca130d9dcb4ee0c1ca59d242891640c7936a85c1de5702e27",
+  "status": "complete",
+  "scope": "independent reassessment after CMACM v1.1.0 development retest; no model change applied"
+}
