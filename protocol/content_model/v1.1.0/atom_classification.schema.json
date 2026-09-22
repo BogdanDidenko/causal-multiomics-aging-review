@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["model_version", "report_id", "procedure_atoms", "link_atoms", "measurement_atoms", "validation_atoms", "evidence_atoms", "extraction_assertion"],
+  "properties": {
+    "model_version": {"type": "string", "const": "CMACM-v1.1.0"},
+    "report_id": {"type": "string"},
+    "procedure_atoms": {"type": "array", "items": {"$ref": "#/$defs/procedure_atom"}},
+    "link_atoms": {"type": "array", "items": {"$ref": "#/$defs/link_atom"}},
+    "measurement_atoms": {"type": "array", "items": {"$ref": "#/$defs/measurement_atom"}},
+    "validation_atoms": {"type": "array", "items": {"$ref": "#/$defs/validation_atom"}},
+    "evidence_atoms": {"type": "array", "items": {"$ref": "#/$defs/evidence_atom"}},
+    "extraction_assertion": {"$ref": "#/$defs/extraction_assertion"}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "evidence_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "procedure_atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "causal_procedure_class", "dataset_context", "biological_system", "aging_phenomenon", "omics_layers", "integration_operator", "evidence_atom_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "causal_procedure_class": {"type": "string", "enum": ["two_sample_mr", "one_sample_mr", "randomized_intervention", "nonrandomized_intervention", "targeted_perturbation", "mediation", "temporal_design", "graphical_structural_model", "causal_discovery_algorithm", "other_named_design"]},
+        "dataset_context": {"type": "array", "items": {"type": "string", "enum": ["animal_experiment", "cell_experiment", "human_cohort", "randomized_human_trial", "genetic_summary_data", "eqtl_summary_data", "pqtl_summary_data", "mqtl_summary_data", "multi_source_summary_data", "mixed_context"]}, "uniqueItems": true},
+        "biological_system": {"type": "string", "enum": ["human", "mouse", "rat", "drosophila", "c_elegans", "other_animal", "cell_culture", "plant", "mixed_system", "unclear"]},
+        "aging_phenomenon": {"type": "string", "enum": ["lifespan_survival", "healthspan_function", "biological_age_clock", "cellular_senescence", "tissue_aging", "age_related_disease", "reproductive_aging", "plant_senescence", "other", "unclear"]},
+        "omics_layers": {"type": "array", "items": {"type": "string", "enum": ["genomics", "epigenomics", "transcriptomics", "proteomics", "metabolomics", "lipidomics", "microbiomics", "metagenomics", "other"]}, "uniqueItems": true},
+        "integration_operator": {"type": "string", "enum": ["joint_integration", "sequential_nomination_validation", "qtl_mr_integration", "parallel_profiling", "other", "unclear"]},
+        "evidence_atom_ids": {"$ref": "#/$defs/evidence_ids"}
+      }
+    },
+    "link_atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "procedure_atom_id", "exposure_intervention_family", "exposure_key", "normalized_outcome_domain", "direction", "assertion_polarity", "evidence_atom_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"}, "procedure_atom_id": {"$ref": "#/$defs/id"},
+        "exposure_intervention_family": {"type": "string", "enum": ["gene_perturbation", "pharmacologic_or_molecular_intervention", "lifestyle_or_dietary_intervention", "microbiota_transfer", "genetically_proxied_molecular_exposure", "genetic_variant_exposure", "formal_directed_relation", "other", "unclear"]},
+        "exposure_key": {"type": "string"},
+        "normalized_outcome_domain": {"type": "string", "enum": ["lifespan_survival", "healthspan_function", "biological_age_clock", "cellular_senescence", "tissue_function_or_pathology", "molecular_state", "age_related_disease_risk", "reproductive_aging", "plant_senescence", "other", "unclear"]},
+        "direction": {"type": "string", "enum": ["forward", "reverse", "bidirectional", "unclear"]},
+        "assertion_polarity": {"type": "string", "enum": ["supported", "null", "challenged", "unclear"]},
+        "evidence_atom_ids": {"$ref": "#/$defs/evidence_ids"}
+      }
+    },
+    "measurement_atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "link_atom_id", "endpoint_specification", "assay_or_instrument", "contrast_axes", "evidence_atom_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"}, "link_atom_id": {"$ref": "#/$defs/id"},
+        "endpoint_specification": {"type": "string"}, "assay_or_instrument": {"type": "string"},
+        "contrast_axes": {"type": "array", "items": {"$ref": "#/$defs/axis_value"}},
+        "evidence_atom_ids": {"$ref": "#/$defs/evidence_ids"}
+      }
+    },
+    "validation_atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "target_atom_id", "validation_type", "dataset_or_assay_context", "result", "evidence_atom_ids"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"}, "target_atom_id": {"$ref": "#/$defs/id"},
+        "validation_type": {"type": "string", "enum": ["replication", "rescue", "orthogonal_assay", "sensitivity", "negative_control", "challenge"]},
+        "dataset_or_assay_context": {"type": "string"}, "result": {"type": "string", "enum": ["supports", "null", "challenges", "unclear"]},
+        "evidence_atom_ids": {"$ref": "#/$defs/evidence_ids"}
+      }
+    },
+    "axis_value": {
+      "type": "object", "additionalProperties": false,
+      "required": ["axis", "values"],
+      "properties": {"axis": {"type": "string", "enum": ["comparator", "arm", "dose", "timepoint", "estimator", "adjustment_set", "subgroup"]}, "values": {"type": "array", "items": {"type": "string"}}}
+    },
+    "evidence_atom": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "document_atom_id", "supports_atom_ids"],
+      "properties": {"id": {"$ref": "#/$defs/id"}, "document_atom_id": {"type": "string", "pattern": "^docatom_[0-9]+$"}, "supports_atom_ids": {"$ref": "#/$defs/evidence_ids"}}
+    },
+    "extraction_assertion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "extractor", "activity", "status"],
+      "properties": {"id": {"$ref": "#/$defs/id"}, "extractor": {"type": "string", "enum": ["terra"]}, "activity": {"type": "string", "enum": ["atom_classification"]}, "status": {"type": "string", "enum": ["extracted"]}}
+    }
+  }
+}

@@ -1,0 +1,2385 @@
+{
+  "summary": {
+    "reports": 15,
+    "all_runs_valid": true,
+    "exact_derived_structure_agreement": 0,
+    "workflow_count_agreement": 11,
+    "link_count_agreement": 7,
+    "measurement_count_agreement": 3,
+    "validation_count_agreement": 7,
+    "procedure_class_set_agreement": 11
+  },
+  "reports": [
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "doi": "10.18632/aging.102822",
+      "title": "Transcriptomic and metabolomic profiling of long-lived growth hormone releasing hormone knock-out mice: evidence for altered mitochondrial function and amino acid metabolism.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 1,
+          "measurement_count": 2,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 0,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_b6da2f8c0d62ba17"
+          ],
+          "links": [
+            "link_3a476033f0f8e032"
+          ],
+          "measurements": [
+            "measurement_2b432a3c862744d7",
+            "measurement_dadcd9b5a221cbe2"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 1,
+          "measurement_count": 2,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 0,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_b6da2f8c0d62ba17"
+          ],
+          "links": [
+            "link_3a476033f0f8e032"
+          ],
+          "measurements": [
+            "measurement_5192cbb113acd631",
+            "measurement_7cd92e3144bf9836"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 1,
+          "measurement_count": 2,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 0,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_b6da2f8c0d62ba17"
+          ],
+          "links": [
+            "link_3a476033f0f8e032"
+          ],
+          "measurements": [
+            "measurement_95a0350d538d4a45",
+            "measurement_da3243c448e745cb"
+          ],
+          "validations": []
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": true,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "doi": "10.31857/s0026898424020065",
+      "title": "Knockout of <i>Hsp70</i> genes modulates age-related transcriptomic changes in leg muscles, reduces locomotion speed and lifespan of <i>Drosophila melanogaster</i>",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 4,
+          "measurement_count": 5,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 3,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention",
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_5c7d0e94c6175a38",
+            "workflow_eec9c8bdd713c06c"
+          ],
+          "links": [
+            "link_92a07e7806866ffc",
+            "link_c23e1f6fff45e44f",
+            "link_c82cb5e688a2a642",
+            "link_dcdd1bec7d05bedd"
+          ],
+          "measurements": [
+            "measurement_3950e19bd6f455fc",
+            "measurement_678cb8da421bfbec",
+            "measurement_aa22710beaefb923",
+            "measurement_c793391042541031",
+            "measurement_ddb8fa47c2868911"
+          ],
+          "validations": [
+            "validation_ea42ca51d5ee139a"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 4,
+          "measurement_count": 5,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 3,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention",
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_5c7d0e94c6175a38",
+            "workflow_eec9c8bdd713c06c"
+          ],
+          "links": [
+            "link_92a07e7806866ffc",
+            "link_c23e1f6fff45e44f",
+            "link_c82cb5e688a2a642",
+            "link_dcdd1bec7d05bedd"
+          ],
+          "measurements": [
+            "measurement_948b003ed8137e6e",
+            "measurement_a12de70cf7579f2c",
+            "measurement_cd24e28410620d73",
+            "measurement_d8500d9c99194248",
+            "measurement_dd7a2146de820914"
+          ],
+          "validations": [
+            "validation_616bd4f6c304bf72"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 4,
+          "measurement_count": 4,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 3,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention",
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_5c7d0e94c6175a38",
+            "workflow_eec9c8bdd713c06c"
+          ],
+          "links": [
+            "link_92a07e7806866ffc",
+            "link_c23e1f6fff45e44f",
+            "link_c82cb5e688a2a642",
+            "link_dcdd1bec7d05bedd"
+          ],
+          "measurements": [
+            "measurement_3009ce325c4b1c5d",
+            "measurement_37c204ffad7cb140",
+            "measurement_6dd5e4820544e88f",
+            "measurement_f5700915c6dc6277"
+          ],
+          "validations": [
+            "validation_bf7376e52f5caf69"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.15252/embr.202152606",
+      "doi": "10.15252/embr.202152606",
+      "title": "CEST‐2.2 overexpression alters lipid metabolism and extends longevity of mitochondrial mutants",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 5,
+          "measurement_count": 8,
+          "validation_count": 4,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 3,
+            "strength_transport_view": 4,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_5975b2d2fc78f82c"
+          ],
+          "links": [
+            "link_440f8f7c8e5cf854",
+            "link_5936b06d20017f77",
+            "link_5d158849f01f876a",
+            "link_baedfe59ae033e81",
+            "link_e7bbedcb4088d6ee"
+          ],
+          "measurements": [
+            "measurement_137ada42609df54e",
+            "measurement_68db5e9be4c72272",
+            "measurement_b10516ca3fe47cf7",
+            "measurement_b7b1f99fceb83f50",
+            "measurement_e3e52edf63f31c4b",
+            "measurement_e6640063484bb549",
+            "measurement_f3c3b640db3535f4",
+            "measurement_fc70ae502faa4cb1"
+          ],
+          "validations": [
+            "validation_0cf2e17dde99e11d",
+            "validation_3adfc81078ad0f1c",
+            "validation_a3bafefda056f10d",
+            "validation_f3633899ffca5a77"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 12,
+          "measurement_count": 12,
+          "validation_count": 5,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 9,
+            "strength_transport_view": 5,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_5975b2d2fc78f82c"
+          ],
+          "links": [
+            "link_440f8f7c8e5cf854",
+            "link_5936b06d20017f77",
+            "link_5d158849f01f876a",
+            "link_6a5972d29c8cc285",
+            "link_78941a60e0384b8f",
+            "link_a186e1a5f8198dfe",
+            "link_a19b1124e93b1878",
+            "link_b1c3134d9dcebdc2",
+            "link_daa9edeb5fb013b3",
+            "link_e1fe3b3c905799a3",
+            "link_e7bbedcb4088d6ee",
+            "link_f756e9e09832a981"
+          ],
+          "measurements": [
+            "measurement_04ce0562567512a5",
+            "measurement_0bc40a1c94334715",
+            "measurement_1eff04069948cd41",
+            "measurement_2ee3c11c2e3261ce",
+            "measurement_39516aee364fa04c",
+            "measurement_3c98a4e7b6622d0d",
+            "measurement_4d13f83031ba27ad",
+            "measurement_603da5f4ca3799ec",
+            "measurement_62f5c825bef57f4a",
+            "measurement_8f7e7700381ef139",
+            "measurement_a072d09704bf20da",
+            "measurement_a6c71641c9f83d39"
+          ],
+          "validations": [
+            "validation_0af784d5e85e6972",
+            "validation_25c486fcacd963f1",
+            "validation_4cdd800c576e967b",
+            "validation_a7718cb574f8bcb1",
+            "validation_f1d792bb41b11626"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 14,
+          "measurement_count": 14,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 10,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention",
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_058d33ee6b7d9f14",
+            "workflow_5975b2d2fc78f82c"
+          ],
+          "links": [
+            "link_1bb1de3cb45e2a2e",
+            "link_1db13936c2e068bb",
+            "link_4c32757959c5e876",
+            "link_5936b06d20017f77",
+            "link_5d158849f01f876a",
+            "link_6a5972d29c8cc285",
+            "link_78941a60e0384b8f",
+            "link_9d13bade84b853c8",
+            "link_a19b1124e93b1878",
+            "link_b1c3134d9dcebdc2",
+            "link_daa9edeb5fb013b3",
+            "link_e1fe3b3c905799a3",
+            "link_f080db525d88cb3d",
+            "link_f756e9e09832a981"
+          ],
+          "measurements": [
+            "measurement_012a2d2c3395b001",
+            "measurement_184b7c263279a473",
+            "measurement_29e1fe1ad7d98f65",
+            "measurement_2f6ce5e186a961fd",
+            "measurement_31f748cfc2daa263",
+            "measurement_5c9dce581435fccb",
+            "measurement_6f8e7f4b9e2b2568",
+            "measurement_711184a8a7a25063",
+            "measurement_8de9cfff2ff8505d",
+            "measurement_9aee3bbc0851b0ab",
+            "measurement_9f18be897a1b25ed",
+            "measurement_aaec05d39c70c7da",
+            "measurement_cd3726ee82976caa",
+            "measurement_e71c3c776da1a1f8"
+          ],
+          "validations": [
+            "validation_5efacd7d2f394ccb",
+            "validation_74a2916b6898484e",
+            "validation_8e87c0d576a6b326"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": false,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": false
+    },
+    {
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "doi": "10.1038/s43856-025-00942-3",
+      "title": "Protection against APOE4-associated phenotypes with the longevity-promoting intervention 17α-estradiol in middle-aged male mice",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 4,
+          "measurement_count": 8,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 3,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_9516969453ccef73"
+          ],
+          "links": [
+            "link_0283ca8b26db3dd7",
+            "link_2fdc7efd750a2370",
+            "link_517c9aef8e4befde",
+            "link_77f381db0d4463d5"
+          ],
+          "measurements": [
+            "measurement_16677d28d4603c8a",
+            "measurement_9d5d0cd8190ace47",
+            "measurement_a8d0c31b7eb208a6",
+            "measurement_ca754b43f74d1bca",
+            "measurement_d198ad1f7d28a843",
+            "measurement_d7a92beb0c57099e",
+            "measurement_de2161fb0b3eeefe",
+            "measurement_f365d168d4ea71c3"
+          ],
+          "validations": [
+            "validation_3585918509b667f1"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 7,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_9516969453ccef73"
+          ],
+          "links": [
+            "link_0283ca8b26db3dd7",
+            "link_2fdc7efd750a2370",
+            "link_517c9aef8e4befde"
+          ],
+          "measurements": [
+            "measurement_1969d7272a72cc19",
+            "measurement_2fd8b72570ce4679",
+            "measurement_47d8c81e9da6ad07",
+            "measurement_958fffa30f849167",
+            "measurement_a8003df460d7758a",
+            "measurement_b858358a40ef8ee8",
+            "measurement_bf2ccbf731bdd3a0"
+          ],
+          "validations": [
+            "validation_0769f055c38932e3"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 7,
+          "measurement_count": 7,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 5,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention",
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_63f9fd5ff2861e92",
+            "workflow_9516969453ccef73"
+          ],
+          "links": [
+            "link_0283ca8b26db3dd7",
+            "link_2354bf6f1c05978f",
+            "link_2fdc7efd750a2370",
+            "link_517c9aef8e4befde",
+            "link_572cdfd4fc9727ce",
+            "link_77f381db0d4463d5",
+            "link_b2795d299c53d44d"
+          ],
+          "measurements": [
+            "measurement_1416ce0723fe4a74",
+            "measurement_1d8873419bee08e2",
+            "measurement_1f22cf65b144ea4a",
+            "measurement_3d6bd5fff29f74fe",
+            "measurement_7b1a2a1465e25670",
+            "measurement_d776ee861170336c",
+            "measurement_ec3fa32dddffbca8"
+          ],
+          "validations": [
+            "validation_5ba18f7e390800d4"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": false,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": false
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "doi": "10.1038/s41514-025-00318-w",
+      "title": "Reversal of proteomic aging with exercise-results from the UK biobank and a 12-week intervention study.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 4,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention"
+          ],
+          "workflows": [
+            "workflow_3ccd22a18d7ab2d7"
+          ],
+          "links": [
+            "link_2f893bad62ec23d8",
+            "link_2f9a77409ba52b97",
+            "link_e3128a8c34d3ed9c"
+          ],
+          "measurements": [
+            "measurement_73adb5fac214fc46",
+            "measurement_81344e95dc44807c",
+            "measurement_a0e355c89172a927",
+            "measurement_e915543a7d5fd5e7"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 3,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention"
+          ],
+          "workflows": [
+            "workflow_3ccd22a18d7ab2d7"
+          ],
+          "links": [
+            "link_5a1379cc859d6639",
+            "link_7821d8136e647b01",
+            "link_904a9404ffdcd9f0"
+          ],
+          "measurements": [
+            "measurement_0ff43e251657a4fe",
+            "measurement_83292693d0813ec2",
+            "measurement_8bfe2a9491b2a0d3"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 3,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "nonrandomized_intervention"
+          ],
+          "workflows": [
+            "workflow_27ed61a296ee237c"
+          ],
+          "links": [
+            "link_46f50cb878613a81",
+            "link_6aa63c4053b5ba26",
+            "link_e77aff7a12f05535"
+          ],
+          "measurements": [
+            "measurement_0ab4a53178c41c7a",
+            "measurement_164a925fe1880213",
+            "measurement_22fd0abaa9d82449"
+          ],
+          "validations": []
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "doi": "10.1038/s41591-019-0504-5",
+      "title": "Healthspan and lifespan extension by fecal microbiota transplantation into progeroid mice.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 6,
+          "measurement_count": 6,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 6,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_9e4cb757baa91192"
+          ],
+          "links": [
+            "link_1a1a5335b3ebba18",
+            "link_2f840534e8185849",
+            "link_9d1e72010f8b65d1",
+            "link_9d8a597c2f479936",
+            "link_b7abd78f0453e343",
+            "link_c6142a6cca1a282c"
+          ],
+          "measurements": [
+            "measurement_363754c62cf80688",
+            "measurement_4ebfab0fde8b81cd",
+            "measurement_887988fb24b32bbd",
+            "measurement_97480af865a2cb62",
+            "measurement_a62a8150dcaf9374",
+            "measurement_f7fbc9b5a69b3972"
+          ],
+          "validations": [
+            "validation_06f2eb4f1ec3eb83",
+            "validation_bf1e60b4f89f1a2d"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 4,
+          "measurement_count": 4,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 4,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_9e4cb757baa91192"
+          ],
+          "links": [
+            "link_1a1a5335b3ebba18",
+            "link_2f840534e8185849",
+            "link_9d1e72010f8b65d1",
+            "link_9d8a597c2f479936"
+          ],
+          "measurements": [
+            "measurement_2899f35d549b3ecb",
+            "measurement_2b4af2d95341789e",
+            "measurement_47b4526dacd36f11",
+            "measurement_b86a506c0f8abd91"
+          ],
+          "validations": [
+            "validation_0813bc80981b4bd7",
+            "validation_390130279ba17af2",
+            "validation_f995c968ae381806"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 6,
+          "measurement_count": 6,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 5,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_9e4cb757baa91192"
+          ],
+          "links": [
+            "link_00af170d9fe43f59",
+            "link_1a1a5335b3ebba18",
+            "link_2f840534e8185849",
+            "link_9d1e72010f8b65d1",
+            "link_9d8a597c2f479936",
+            "link_b7abd78f0453e343"
+          ],
+          "measurements": [
+            "measurement_0f7277f5167c69e9",
+            "measurement_1b5cbe8afc832652",
+            "measurement_2ae5a1846b6380ef",
+            "measurement_d06ad972df773cc2",
+            "measurement_db1a7a9b14981b00",
+            "measurement_dde07d2672d87220"
+          ],
+          "validations": [
+            "validation_0c050c815f9ac89e",
+            "validation_1655c0dc2a7b2e12",
+            "validation_ee70f2e4dac82e98"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "doi": "10.1101/680462",
+      "title": "Nicotinamide riboside augments the human skeletal muscle NAD+ metabolome and induces transcriptomic and anti-inflammatory signatures in aged subjects: a placebo-controlled, randomized trial",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 5,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4a4821794d6fa1fc"
+          ],
+          "links": [
+            "link_b28a51cef8cec673",
+            "link_b608709a7ca2a43e",
+            "link_bd53f5b80ac94cb2"
+          ],
+          "measurements": [
+            "measurement_161c595836893bb5",
+            "measurement_5116fd0615635d11",
+            "measurement_7bc8e3fe68710e2b",
+            "measurement_dc4e9a960b9eccec",
+            "measurement_eac9220bdd12737e"
+          ],
+          "validations": [
+            "validation_6cb8b90495eab1c4",
+            "validation_7d474c7373da1ebc"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 6,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4a4821794d6fa1fc"
+          ],
+          "links": [
+            "link_409ee428dfbbc37e",
+            "link_539f107b800a0ace",
+            "link_98d49285f32a3621"
+          ],
+          "measurements": [
+            "measurement_3ac743ce41ef72b5",
+            "measurement_79659f9b7e1859cc",
+            "measurement_c559d05bd77ae08b",
+            "measurement_cbaaca1b0e789747",
+            "measurement_d4b505f23733c006",
+            "measurement_f7095feb2a5f1495"
+          ],
+          "validations": [
+            "validation_1f70179085e30a41",
+            "validation_abe76c4e813f90e3"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 7,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4a4821794d6fa1fc"
+          ],
+          "links": [
+            "link_409ee428dfbbc37e",
+            "link_539f107b800a0ace",
+            "link_98d49285f32a3621"
+          ],
+          "measurements": [
+            "measurement_10166e539728794c",
+            "measurement_1c2a7f4fa927d46f",
+            "measurement_754615d7f90f5e11",
+            "measurement_81165fd27b66dfe3",
+            "measurement_89d687253645f10d",
+            "measurement_a430d7bc4ecda73f",
+            "measurement_b45ddf6dc3d9adc2"
+          ],
+          "validations": [
+            "validation_2aaa5533dab3d87e",
+            "validation_3931d96b312a20aa"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "doi": "10.3389/fnut.2026.1750030",
+      "title": "Epigenetic and microbiome responses to greens supplementation in obese older adults: results from a randomized crossover-controlled trial.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 3,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4451b1b151fa217f"
+          ],
+          "links": [
+            "link_4e5c6d898b12e27f",
+            "link_549b5134458c8e89",
+            "link_7af9298f768fd424"
+          ],
+          "measurements": [
+            "measurement_0e1286a4c9e9ec34",
+            "measurement_1d74c6f844c9a7cf",
+            "measurement_bdc7803c7c96c441"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 4,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4451b1b151fa217f"
+          ],
+          "links": [
+            "link_4e5c6d898b12e27f",
+            "link_549b5134458c8e89",
+            "link_7af9298f768fd424"
+          ],
+          "measurements": [
+            "measurement_07c2b74a421e2e48",
+            "measurement_1189637826bc0bf8",
+            "measurement_3240d286bc04db4e",
+            "measurement_5cf420b568d82a96"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 3,
+          "measurement_count": 5,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "randomized_intervention"
+          ],
+          "workflows": [
+            "workflow_4451b1b151fa217f"
+          ],
+          "links": [
+            "link_4e5c6d898b12e27f",
+            "link_549b5134458c8e89",
+            "link_7af9298f768fd424"
+          ],
+          "measurements": [
+            "measurement_1ecc8bbec699f6c4",
+            "measurement_7318da819de19821",
+            "measurement_bae207d9e956a2e6",
+            "measurement_de483e255b5dfe73",
+            "measurement_e06f9800a3f4de33"
+          ],
+          "validations": []
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "doi": "10.1007/s11357-025-01794-4",
+      "title": "Identification of gut microbiota causally associated with aging and longevity and mediation roles of the cerebrospinal fluid proteins: proteomic genetic evidence from Mendelian randomization.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 16,
+          "measurement_count": 16,
+          "validation_count": 5,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 15,
+            "strength_transport_view": 5,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_35651d586c2bdeb0",
+            "workflow_b72f611aeed04126"
+          ],
+          "links": [
+            "link_1235dcba62eb84bf",
+            "link_1ae2d2a4ff888e5f",
+            "link_1e544d839df280cd",
+            "link_31ab537366faf969",
+            "link_3a967cee6b6d1186",
+            "link_48bcb86bfc2b52e0",
+            "link_5917459b1f77061b",
+            "link_5d50411ce95af389",
+            "link_695dc455c6055b9e",
+            "link_7a87241ce0ce23cc",
+            "link_86a37ae1fa7ce723",
+            "link_bcd1a78c7deb6e6e",
+            "link_d2ddb2010e6f9ee6",
+            "link_ec70ba23a7b0e4dd",
+            "link_eef8f19ea8512ddd",
+            "link_f827436ea671198e"
+          ],
+          "measurements": [
+            "measurement_0b60b7f3ffddbc4a",
+            "measurement_1ae48927643cb474",
+            "measurement_35a0f95fd9d49585",
+            "measurement_3aeed79ae5a65644",
+            "measurement_4ebbec70aae10cf9",
+            "measurement_53116a09e51b53ab",
+            "measurement_5ca02d549cdffe09",
+            "measurement_6048b08cc80856aa",
+            "measurement_7c438dfb908af3aa",
+            "measurement_804ba94d43e37da4",
+            "measurement_96fd0d3736156e80",
+            "measurement_9d42a0e4b2410bc0",
+            "measurement_bf5eeafdb40b4b83",
+            "measurement_cd82f66e6088f1e2",
+            "measurement_d0583a583a00f7c6",
+            "measurement_e6c573cd2234deb9"
+          ],
+          "validations": [
+            "validation_153513b24e40efa0",
+            "validation_2914946e49fc8990",
+            "validation_302e6bcfb6b5c1ed",
+            "validation_b8d405792ec3769a",
+            "validation_fc141ad4156922f0"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 15,
+          "measurement_count": 15,
+          "validation_count": 6,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 14,
+            "strength_transport_view": 6,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_24e810298eb3259b",
+            "workflow_b7e05493e5a031ef"
+          ],
+          "links": [
+            "link_09ab49feec35727c",
+            "link_0c3fd7e2117fe1ce",
+            "link_1285d7c2722e96ad",
+            "link_1413bdef88949d28",
+            "link_2faf55781fdc99f5",
+            "link_50e26e88dab21fe5",
+            "link_71d2d58d5870c134",
+            "link_8658cf7f4c5741cc",
+            "link_8dcd57a56ac2a3c3",
+            "link_c4c7f01b77cf1bed",
+            "link_d971a2cb41e5cb57",
+            "link_e23483868151b405",
+            "link_e5fef34cae1df42b",
+            "link_e96e60198ebfb649",
+            "link_fe7d2daabe58374c"
+          ],
+          "measurements": [
+            "measurement_073088b01419b4f4",
+            "measurement_281304efcf79239b",
+            "measurement_2e6cee034cd38332",
+            "measurement_436e52faae82bf46",
+            "measurement_4dd8a4628ac82f41",
+            "measurement_4ddf1719dbab7348",
+            "measurement_6f3832fc5e2795cb",
+            "measurement_8308e39deece616a",
+            "measurement_981ec9c9267a96e2",
+            "measurement_9f8e0f96edbfdbbd",
+            "measurement_bfdf7ec52ab5464a",
+            "measurement_c8848f18d5a7e93a",
+            "measurement_d9a90dd9e2998230",
+            "measurement_f1bda66d3902617e",
+            "measurement_f4412ef745ee8e78"
+          ],
+          "validations": [
+            "validation_33ae63bf8640da2b",
+            "validation_935b49f58840146f",
+            "validation_9ba06155fe339929",
+            "validation_a703df23676ae44b",
+            "validation_b9b10c17161ad208",
+            "validation_fe0faaa9040bd41e"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 7,
+          "measurement_count": 7,
+          "validation_count": 5,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 6,
+            "strength_transport_view": 5,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_35651d586c2bdeb0",
+            "workflow_b72f611aeed04126"
+          ],
+          "links": [
+            "link_07aff8c75d840eb3",
+            "link_11276064bd23b3ed",
+            "link_7a87241ce0ce23cc",
+            "link_9741b62abfb631e0",
+            "link_b6c5f3d7e508976d",
+            "link_ed21b17f98143a34",
+            "link_f44efddffd471e1a"
+          ],
+          "measurements": [
+            "measurement_148d62a3afbbe9a3",
+            "measurement_4c5f13c0fd1bea8a",
+            "measurement_667fe4fefe25fab1",
+            "measurement_afca74c98be0daf7",
+            "measurement_e2a23e27bbbbad18",
+            "measurement_f1b7b4237e317445",
+            "measurement_f759323b4d3fadd5"
+          ],
+          "validations": [
+            "validation_1cbee3bde9a0c3d1",
+            "validation_3c5848d445192f59",
+            "validation_478bab2a4299a74d",
+            "validation_aa3f6b5b8f4632bf",
+            "validation_db188830f6ee5364"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "doi": "10.1038/s43587-021-00159-8",
+      "title": "Mendelian randomization of genetically independent aging phenotypes identifies LPA and VCAM1 as biological targets for human aging",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 4,
+          "measurement_count": 4,
+          "validation_count": 5,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 4,
+            "strength_transport_view": 5,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_b33d3f080af3524f"
+          ],
+          "links": [
+            "link_0f191118a6a15420",
+            "link_3fbea43920edad45",
+            "link_abb95451f5bbb7d1",
+            "link_c43799b591cb02e8"
+          ],
+          "measurements": [
+            "measurement_02b7b72f50f24991",
+            "measurement_389a0111586f52b9",
+            "measurement_6dc0003ef73bf8af",
+            "measurement_e256def2db109ccb"
+          ],
+          "validations": [
+            "validation_43d52ca4ad62df7d",
+            "validation_ac74303c4abbfe70",
+            "validation_bad52b084d1c92c8",
+            "validation_de36c5eee9f05d6e",
+            "validation_f9c099fb6203364d"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 4,
+          "measurement_count": 4,
+          "validation_count": 4,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 4,
+            "strength_transport_view": 4,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_a7ba6ca6bf8f6906"
+          ],
+          "links": [
+            "link_227305cf2b702a31",
+            "link_5e83c4f549dde0bc",
+            "link_d720029a53fd3846",
+            "link_f605b699b08bcf24"
+          ],
+          "measurements": [
+            "measurement_0a1eb257d303122f",
+            "measurement_10dd889464f8ee8b",
+            "measurement_1e8eb90bb63897ce",
+            "measurement_83d6c901f46fede8"
+          ],
+          "validations": [
+            "validation_4dcf82e01b9adf19",
+            "validation_746f640fd002fdfa",
+            "validation_7fee9ec33cfbbb14",
+            "validation_ab90f67c107ef20e"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 4,
+          "measurement_count": 6,
+          "validation_count": 4,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 4,
+            "strength_transport_view": 4,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_a7ba6ca6bf8f6906"
+          ],
+          "links": [
+            "link_227305cf2b702a31",
+            "link_5e83c4f549dde0bc",
+            "link_d720029a53fd3846",
+            "link_f605b699b08bcf24"
+          ],
+          "measurements": [
+            "measurement_0965fab6fea75378",
+            "measurement_98c1a0172263600d",
+            "measurement_a724e1c699c4bbdf",
+            "measurement_c162561dba6629bf",
+            "measurement_ceba6a7441b6fb67",
+            "measurement_f0c7739f5b1e7408"
+          ],
+          "validations": [
+            "validation_3669fbe2a949c178",
+            "validation_525f1d1aef4cb654",
+            "validation_6b767a22d4499054",
+            "validation_9a3a1a1f39f583b9"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "doi": "10.1093/ehjcvp/pvae038",
+      "title": "Utilizing genetics and proteomics to assess the role of antihypertensive drugs in human longevity and the underlying pathways: a Mendelian randomization study",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 12,
+          "measurement_count": 11,
+          "validation_count": 6,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 11,
+            "strength_transport_view": 6,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_32704629f7e82a7f"
+          ],
+          "links": [
+            "link_088c5d72b7ae1580",
+            "link_241d9b43db71b94d",
+            "link_3138178021a4f559",
+            "link_378bfade4078ba02",
+            "link_3c6783637d59f9e3",
+            "link_4843a0cc38d203ae",
+            "link_5d0dde6c4a206d46",
+            "link_5d81f26348887334",
+            "link_74621297f6fbbb14",
+            "link_80142ce428b433c9",
+            "link_ab319e3b1be317d3",
+            "link_f1afc71131940c84"
+          ],
+          "measurements": [
+            "measurement_3572eecfdffa5212",
+            "measurement_37dd9e64b770f93c",
+            "measurement_574b4d94490cb9c0",
+            "measurement_658b378058f6a656",
+            "measurement_6884b3c34fa8706b",
+            "measurement_8b8eeededd591846",
+            "measurement_a300b1710f94a9fd",
+            "measurement_a5c57f83f7af254f",
+            "measurement_bca798d939a9fdff",
+            "measurement_c2f920673e15aa9c",
+            "measurement_cf08a13077eaab1a"
+          ],
+          "validations": [
+            "validation_314b3d6221551574",
+            "validation_621ff48dc3a6ec75",
+            "validation_659367288b3c65cf",
+            "validation_825204aca09f4d0b",
+            "validation_9beb41d6c7016b4c",
+            "validation_febf00dfe3deafa4"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 12,
+          "measurement_count": 12,
+          "validation_count": 8,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 11,
+            "strength_transport_view": 8,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_5dbf9b4897c617cc",
+            "workflow_cb9ad4d311660809"
+          ],
+          "links": [
+            "link_0358de3d67c61a24",
+            "link_09e6a84780a852b9",
+            "link_2043685f9eff17c4",
+            "link_468f6c79b2eb2a01",
+            "link_64ce68887539dd47",
+            "link_84992832734a03eb",
+            "link_a2aba31e97250673",
+            "link_a65b5990db499675",
+            "link_b364dd079172664b",
+            "link_b3f54d575c687da4",
+            "link_db4f060b6107db39",
+            "link_e87d6d5925afac9c"
+          ],
+          "measurements": [
+            "measurement_19dd1f774b3f9079",
+            "measurement_1ebc75c4eb3db321",
+            "measurement_2f5d22ef2449e26a",
+            "measurement_3b86d4aac273f9d7",
+            "measurement_3c350763de7e48c8",
+            "measurement_72c023ff30842b90",
+            "measurement_82a7acba021de353",
+            "measurement_91a945b16e671790",
+            "measurement_9ccd81a6acd56fdf",
+            "measurement_b9f39f80af060142",
+            "measurement_bdf6a84f89536827",
+            "measurement_cd561b49e18ba625"
+          ],
+          "validations": [
+            "validation_09a381fe8f2fcd1d",
+            "validation_2e208c7600422093",
+            "validation_3920e625b170adf1",
+            "validation_5ad6ce876e24d6d4",
+            "validation_8b054a5c92510bac",
+            "validation_aeebfdabd4cf6c42",
+            "validation_b9f85d4a6f681538",
+            "validation_f9a93ba9a312037e"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 13,
+          "measurement_count": 13,
+          "validation_count": 6,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 12,
+            "strength_transport_view": 6,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_2c8ec91a53e1bfe8",
+            "workflow_cb9ad4d311660809"
+          ],
+          "links": [
+            "link_01a7edcfa6460f1c",
+            "link_0623c54802f35797",
+            "link_27b531827a5fc5b3",
+            "link_36ee74385ed13b6c",
+            "link_50544604f297d65c",
+            "link_63120aa171a8bf9c",
+            "link_86ecd15096320f66",
+            "link_8e0322b2c09050a9",
+            "link_93945079b488ee69",
+            "link_95ececbd46e8cb40",
+            "link_ab4558a9e8e77f67",
+            "link_ab6cbabd4aaa8f7b",
+            "link_e454cce09977c327"
+          ],
+          "measurements": [
+            "measurement_00e66ea555c23a04",
+            "measurement_38f3783803edb164",
+            "measurement_5dd7531d9b1bf1b2",
+            "measurement_60d637dcae878662",
+            "measurement_7591bb376ecfdba1",
+            "measurement_7ee070799f5c0e3c",
+            "measurement_8b60460d1d8efd10",
+            "measurement_92397191e2c40f6a",
+            "measurement_b42e8abab8515dc8",
+            "measurement_c27865978c4399e2",
+            "measurement_c5e141cac36dcdd5",
+            "measurement_c6522b3790b24f3e",
+            "measurement_d719b8fcaabdb9a1"
+          ],
+          "validations": [
+            "validation_494c96163a06b55a",
+            "validation_52c56784ffe626a5",
+            "validation_75edeb760296c3a9",
+            "validation_7c3b0afaf32fb716",
+            "validation_d6aa6d64e598346a",
+            "validation_f3f7c8908ee794d8"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": false,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": false
+    },
+    {
+      "record_id": "doi:10.1111/acel.70065",
+      "doi": "10.1111/acel.70065",
+      "title": "Identifying PDAP1 as a Biological Target on Human Longevity: Integration of Mendelian Randomization, Cohort, and Cell Experiments Validation Study.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 3,
+          "link_count": 25,
+          "measurement_count": 6,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 3,
+            "multiomics_contribution_view": 3,
+            "aging_outcome_view": 25,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_35dcf4816bbd0c24",
+            "workflow_a2d664e3dc215215",
+            "workflow_f99eb94a3bdb5452"
+          ],
+          "links": [
+            "link_0965876a58353352",
+            "link_13e0ee66ebd3e20d",
+            "link_16289ec901bf096b",
+            "link_20a11120d353a8ba",
+            "link_3e34217205945920",
+            "link_4190e2233fcf99e2",
+            "link_4e391ed829b966d0",
+            "link_5dbeaea26ec84765",
+            "link_6d57b32eee76452b",
+            "link_74073675b599790f",
+            "link_803c746bf59a51a7",
+            "link_8210279cb4005b63",
+            "link_9024283b31abfa33",
+            "link_930342ef166a5799",
+            "link_ab47dbb66b0905e7",
+            "link_b1b4c2c6925c9215",
+            "link_b5bbf5ccbe4ae378",
+            "link_b8606c4e7a3dff58",
+            "link_bf0ff1bbc9c4ee1e",
+            "link_c02c29006fd8f617",
+            "link_ccb7f9f3115ad18b",
+            "link_d6e0cf8494d6d408",
+            "link_f9fe8084c1c2de70",
+            "link_fa957e8173550c29",
+            "link_ff52ecdbc7d2bb0b"
+          ],
+          "measurements": [
+            "measurement_1276a38da2e41609",
+            "measurement_319080fcf4e50f1c",
+            "measurement_5ba4222209b3fc86",
+            "measurement_6c51b83e4c38f444",
+            "measurement_a5f8524833039b3c",
+            "measurement_d730fb82c58047ad"
+          ],
+          "validations": [
+            "validation_43b442e5b39c167a",
+            "validation_568ef429f800bc75",
+            "validation_568f0f6b169f2592"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 3,
+          "link_count": 25,
+          "measurement_count": 12,
+          "validation_count": 4,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 3,
+            "multiomics_contribution_view": 3,
+            "aging_outcome_view": 25,
+            "strength_transport_view": 4,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation",
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_18ae6875661d2ee6",
+            "workflow_35dcf4816bbd0c24",
+            "workflow_725b7c72bf5f3085"
+          ],
+          "links": [
+            "link_037a0611f288a2b0",
+            "link_03e495d42c83f2be",
+            "link_1ae3f40cd1f667ad",
+            "link_29b19a4128f2e4c9",
+            "link_33343fb0066aa440",
+            "link_390c1c10486e5929",
+            "link_3a05ae75784d482f",
+            "link_3aefff89de5f48c2",
+            "link_403ced1253b135ce",
+            "link_43a2be9e91b3e660",
+            "link_591d0a22fe238193",
+            "link_653c30c8617d7152",
+            "link_705dbcf3f4513129",
+            "link_8210279cb4005b63",
+            "link_89af5bfa7251a908",
+            "link_8d4db16115916e6a",
+            "link_96d02d8cc6843554",
+            "link_9a8e5f185162fd7d",
+            "link_9fbcb8bdcc7265a2",
+            "link_ab47dbb66b0905e7",
+            "link_acebf80fa964ead4",
+            "link_cc3ec62b869c3260",
+            "link_d5c2c04c57e7de1f",
+            "link_daa1640ed805a03b",
+            "link_f3534e2bea574390"
+          ],
+          "measurements": [
+            "measurement_1830df9d58f63a05",
+            "measurement_3e55a8e56a4fcf91",
+            "measurement_43dc94260e33d275",
+            "measurement_66d006931fcdabff",
+            "measurement_6fb11e0701b1f847",
+            "measurement_72f728e72f9af3fe",
+            "measurement_7f3525abfe0b5dd3",
+            "measurement_7fe20facaf019b58",
+            "measurement_a5d0cb183d307936",
+            "measurement_b878860202148eae",
+            "measurement_e54650d2e3a080a2",
+            "measurement_f9f9887bf979bf8c"
+          ],
+          "validations": [
+            "validation_12b7063826a46623",
+            "validation_7376a6b4b204d6c4",
+            "validation_76adef115bda9692",
+            "validation_cd8922f3157bc79a"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 2,
+          "link_count": 24,
+          "measurement_count": 24,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 2,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 24,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_35dcf4816bbd0c24",
+            "workflow_f99eb94a3bdb5452"
+          ],
+          "links": [
+            "link_0965876a58353352",
+            "link_13e0ee66ebd3e20d",
+            "link_16289ec901bf096b",
+            "link_20a11120d353a8ba",
+            "link_3e34217205945920",
+            "link_4190e2233fcf99e2",
+            "link_4e391ed829b966d0",
+            "link_5dbeaea26ec84765",
+            "link_6d57b32eee76452b",
+            "link_74073675b599790f",
+            "link_803c746bf59a51a7",
+            "link_8210279cb4005b63",
+            "link_9024283b31abfa33",
+            "link_930342ef166a5799",
+            "link_ab47dbb66b0905e7",
+            "link_b1b4c2c6925c9215",
+            "link_b5bbf5ccbe4ae378",
+            "link_bf0ff1bbc9c4ee1e",
+            "link_c02c29006fd8f617",
+            "link_ccb7f9f3115ad18b",
+            "link_d6e0cf8494d6d408",
+            "link_f9fe8084c1c2de70",
+            "link_fa957e8173550c29",
+            "link_ff52ecdbc7d2bb0b"
+          ],
+          "measurements": [
+            "measurement_0360df6b3b165339",
+            "measurement_0b1dc3a906f40153",
+            "measurement_1398e0ccb192e423",
+            "measurement_1cf4e2c35015af7a",
+            "measurement_1e41b46620d8e35d",
+            "measurement_2d0508d11411b82f",
+            "measurement_3192bec2d139a82d",
+            "measurement_41b348767640086a",
+            "measurement_4365f9e0dd033b5a",
+            "measurement_470c8b6e7683cee0",
+            "measurement_600ebab4faca5eb4",
+            "measurement_61d3ec67f01c2e48",
+            "measurement_677c214a330ac16f",
+            "measurement_67f283376e206e69",
+            "measurement_8e8dada562590ba6",
+            "measurement_98b357a6c2785994",
+            "measurement_9dd158970c661552",
+            "measurement_b51bc9370de30e8e",
+            "measurement_c59d7b481717be6c",
+            "measurement_cd98149cce058c7e",
+            "measurement_eb57fbcc248d8db8",
+            "measurement_ece44abacde6ebd8",
+            "measurement_f084e2f07e078bf6",
+            "measurement_fb260dee553f8343"
+          ],
+          "validations": [
+            "validation_974aa888590eeb22",
+            "validation_bf94c3cefaa6e9f3",
+            "validation_e3420dfdc25cba0d"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": false,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": false
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "doi": "10.64898/2026.07.05.26356402",
+      "title": "A generator-matrix causal-inference framework separates measurable aging biomarkers from mortality-driving latent dynamics in humans",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 3,
+          "link_count": 11,
+          "measurement_count": 12,
+          "validation_count": 6,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 3,
+            "multiomics_contribution_view": 3,
+            "aging_outcome_view": 11,
+            "strength_transport_view": 6,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "graphical_structural_model",
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_0246ebc4b2e5a622",
+            "workflow_703117e64ac6c3c7",
+            "workflow_c7d9a4daaff06b6c"
+          ],
+          "links": [
+            "link_2a7ef4561a38f7f0",
+            "link_2ccf51d47a6a048b",
+            "link_40ebe05942121f29",
+            "link_48ff26f295735e0f",
+            "link_7d24b1edef491379",
+            "link_825688d67d61b12d",
+            "link_835b573159e43b88",
+            "link_9e17f51e1ce93f8c",
+            "link_ae7ae7d1c1887e1a",
+            "link_b5dd1710c1691b98",
+            "link_e239d950a1393583"
+          ],
+          "measurements": [
+            "measurement_0a9bade563a6fb78",
+            "measurement_1ea4622b100258ea",
+            "measurement_3ac5820f21559d5d",
+            "measurement_49a9c4ded28498ec",
+            "measurement_4c7b983261cbecea",
+            "measurement_55b5bfdd3ee63408",
+            "measurement_7310a84c40cae53b",
+            "measurement_d7159d724ab2225c",
+            "measurement_d95da2e7114c06ce",
+            "measurement_f0735382822b1840",
+            "measurement_f19d38e289c8d52f",
+            "measurement_fd349e654b577c41"
+          ],
+          "validations": [
+            "validation_4328c777e632dc86",
+            "validation_674ae1457242b612",
+            "validation_832d8238aa33f611",
+            "validation_ce07ff6a0acc99fa",
+            "validation_e3eca26bc3aec89c",
+            "validation_ea334d21bc2d09a0"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 3,
+          "link_count": 13,
+          "measurement_count": 14,
+          "validation_count": 3,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 3,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 13,
+            "strength_transport_view": 3,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "graphical_structural_model",
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_0246ebc4b2e5a622",
+            "workflow_703117e64ac6c3c7",
+            "workflow_75f8e290d349aefc"
+          ],
+          "links": [
+            "link_0fc7c37dff9e94a5",
+            "link_2321b5edaf796fdf",
+            "link_23d9bdd8c77825c3",
+            "link_47efc85c0aaa3de0",
+            "link_59e888801e91914e",
+            "link_66e1ef0a39078adf",
+            "link_72d62b9aac64e8c8",
+            "link_83e9d4a57326c3c9",
+            "link_9d849ac2cbc29318",
+            "link_d5a80a3ace50701c",
+            "link_e6edff9949fc0ed6",
+            "link_e80951c0463fd0cb",
+            "link_f53a2a743d7068bc"
+          ],
+          "measurements": [
+            "measurement_022340646846e00f",
+            "measurement_05adafc9ee31541c",
+            "measurement_0d1d9d7e04e19a3b",
+            "measurement_29b7f5165d551b80",
+            "measurement_3756a56cb52585e6",
+            "measurement_4a06208d57af9fde",
+            "measurement_6017bdbfbae7fd2a",
+            "measurement_73d566085f719109",
+            "measurement_b17cd7989876be4d",
+            "measurement_bb18f67dc39efeee",
+            "measurement_c21c05babcea467d",
+            "measurement_cff5f7d109f7995c",
+            "measurement_d807f7c9a8aef0aa",
+            "measurement_e7f18c87424dabe3"
+          ],
+          "validations": [
+            "validation_1c707f89d03a0ee1",
+            "validation_9b11efa63a2fcb67",
+            "validation_ef64681978ec7a6c"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 3,
+          "link_count": 12,
+          "measurement_count": 13,
+          "validation_count": 4,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 3,
+            "multiomics_contribution_view": 2,
+            "aging_outcome_view": 12,
+            "strength_transport_view": 4,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "graphical_structural_model",
+            "targeted_perturbation",
+            "two_sample_mr"
+          ],
+          "workflows": [
+            "workflow_0246ebc4b2e5a622",
+            "workflow_703117e64ac6c3c7",
+            "workflow_75f8e290d349aefc"
+          ],
+          "links": [
+            "link_0fc7c37dff9e94a5",
+            "link_2321b5edaf796fdf",
+            "link_23d9bdd8c77825c3",
+            "link_47efc85c0aaa3de0",
+            "link_59e888801e91914e",
+            "link_66e1ef0a39078adf",
+            "link_72d62b9aac64e8c8",
+            "link_83e9d4a57326c3c9",
+            "link_9d849ac2cbc29318",
+            "link_e6edff9949fc0ed6",
+            "link_e80951c0463fd0cb",
+            "link_f53a2a743d7068bc"
+          ],
+          "measurements": [
+            "measurement_0176730c89a1c9da",
+            "measurement_2c6e610856f9993c",
+            "measurement_3d34b352dafd71e3",
+            "measurement_445eb95627de0d3d",
+            "measurement_53c891a72228f46f",
+            "measurement_764438bfc835e8b8",
+            "measurement_9a035c1c8d1e0ef2",
+            "measurement_9da715aec336352f",
+            "measurement_c0b62278433e7a99",
+            "measurement_cb02ca0346a7df04",
+            "measurement_d2ed73c4428cc3b3",
+            "measurement_d9109b6d9dccbcc3",
+            "measurement_f0acddcdc7d91973"
+          ],
+          "validations": [
+            "validation_5f7b4837f7cca60e",
+            "validation_75de31ce76d00d6c",
+            "validation_ce094122d698710c",
+            "validation_d0cfb1053c18dfd7"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": false,
+      "measurement_count_agreement": false,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "doi": "10.3389/fnagi.2023.1241412",
+      "title": "Effects of copy number variations on longevity in late-onset Alzheimer's disease patients: insights from a causality network analysis.",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 10,
+          "measurement_count": 10,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 10,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation"
+          ],
+          "workflows": [
+            "workflow_b5e72c9397109adb"
+          ],
+          "links": [
+            "link_223b29f5ae772f30",
+            "link_42a312dffc3bcaec",
+            "link_9883a6247e6883c4",
+            "link_a0391145d95ecfe4",
+            "link_c52e345730254bba",
+            "link_cd669133ab8d827d",
+            "link_dabaf63e2f8e37b1",
+            "link_e1bbe4ac14519fae",
+            "link_e58384c47ec39462",
+            "link_e9e17a14b244f439"
+          ],
+          "measurements": [
+            "measurement_185ae7adf812b0e9",
+            "measurement_52531f4d96f8db4b",
+            "measurement_539f8748b587339d",
+            "measurement_6366356c01bc1296",
+            "measurement_68ce860e97fdc7a3",
+            "measurement_7cc3abc83af784e4",
+            "measurement_87e5ca5d068068f5",
+            "measurement_8cb4e8b73d5e48ff",
+            "measurement_ad440c9c9ac37a09",
+            "measurement_c40e4d7f4c135be0"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 10,
+          "measurement_count": 10,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 10,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation"
+          ],
+          "workflows": [
+            "workflow_b5e72c9397109adb"
+          ],
+          "links": [
+            "link_223b29f5ae772f30",
+            "link_42a312dffc3bcaec",
+            "link_9883a6247e6883c4",
+            "link_a0391145d95ecfe4",
+            "link_c52e345730254bba",
+            "link_cd669133ab8d827d",
+            "link_dabaf63e2f8e37b1",
+            "link_e1bbe4ac14519fae",
+            "link_e58384c47ec39462",
+            "link_e9e17a14b244f439"
+          ],
+          "measurements": [
+            "measurement_01ea24a02f239c13",
+            "measurement_138732b22af9e3f5",
+            "measurement_382c2603e91bbde8",
+            "measurement_3c1612f3b8cc91ed",
+            "measurement_66b268efab08d292",
+            "measurement_8b34c3c7386ea0f2",
+            "measurement_97f6dd4e12422887",
+            "measurement_a460b42eeda6c9b5",
+            "measurement_c73a72faf0ff40eb",
+            "measurement_c75393135e49afb2"
+          ],
+          "validations": []
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 10,
+          "measurement_count": 10,
+          "validation_count": 0,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 7,
+            "strength_transport_view": 0,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "mediation"
+          ],
+          "workflows": [
+            "workflow_b5e72c9397109adb"
+          ],
+          "links": [
+            "link_1fc8e06f91606bf8",
+            "link_223b29f5ae772f30",
+            "link_97c331e357a9cf90",
+            "link_a0391145d95ecfe4",
+            "link_c52e345730254bba",
+            "link_cd669133ab8d827d",
+            "link_dabaf63e2f8e37b1",
+            "link_e1788db0498c92e9",
+            "link_e1bbe4ac14519fae",
+            "link_e9e17a14b244f439"
+          ],
+          "measurements": [
+            "measurement_09d42cc13343354d",
+            "measurement_0c5e736d9b0093fd",
+            "measurement_4e898dc71359f51a",
+            "measurement_57026c42fd334bbe",
+            "measurement_9947a1ce279411b7",
+            "measurement_abfc6b1926272194",
+            "measurement_ac59e4ca6236b8e9",
+            "measurement_dc22b580d8cb72c6",
+            "measurement_de7528cdfb0d0a1b",
+            "measurement_fe5796d7dd6aa044"
+          ],
+          "validations": []
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": true,
+      "measurement_count_agreement": true,
+      "validation_count_agreement": true,
+      "procedure_class_set_agreement": true
+    },
+    {
+      "record_id": "doi:10.3390/ijms26094389",
+      "doi": "10.3390/ijms26094389",
+      "title": "Natural Variation of StNADC Regulates Plant Senescence in Tetraploid Potatoes (Solanum tuberosum L.)",
+      "runs": [
+        {
+          "repeat": "repeat_1",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 2,
+          "measurement_count": 7,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 2,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_c2cbace82079d2b1"
+          ],
+          "links": [
+            "link_1362248a60ce31a6",
+            "link_69aa9774aa2c98b7"
+          ],
+          "measurements": [
+            "measurement_6a980b0d3679c676",
+            "measurement_71b119c72d1f96a8",
+            "measurement_7827772a4fa565e6",
+            "measurement_861722b8a0df1676",
+            "measurement_8f0de477ed1daf8a",
+            "measurement_c0ed6cc66e604871",
+            "measurement_f77f0082f5c08a76"
+          ],
+          "validations": [
+            "validation_0a8454a0b859f9a6",
+            "validation_fc785e6787199a34"
+          ]
+        },
+        {
+          "repeat": "repeat_2",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 1,
+          "measurement_count": 7,
+          "validation_count": 1,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 1,
+            "strength_transport_view": 1,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_038b8cf843f6431c"
+          ],
+          "links": [
+            "link_b42c20786d05ce8b"
+          ],
+          "measurements": [
+            "measurement_20f9dae6a3e83c95",
+            "measurement_341e06d73a8766e9",
+            "measurement_36e2eacd8cb33c16",
+            "measurement_5dbb7e5d92018585",
+            "measurement_bcff0abe5409dedf",
+            "measurement_c93847a1a63264d4",
+            "measurement_e7f0195b2a567b1d"
+          ],
+          "validations": [
+            "validation_f419a25b94d56483"
+          ]
+        },
+        {
+          "repeat": "repeat_3",
+          "report_version_count": 1,
+          "study_count": 1,
+          "workflow_count": 1,
+          "link_count": 2,
+          "measurement_count": 7,
+          "validation_count": 2,
+          "linearization_counts": {
+            "prisma_report_view": 1,
+            "evidence_base_view": 1,
+            "causal_leverage_view": 1,
+            "multiomics_contribution_view": 1,
+            "aging_outcome_view": 1,
+            "strength_transport_view": 2,
+            "audit_view": 1
+          },
+          "design_family_set": [
+            "targeted_perturbation"
+          ],
+          "workflows": [
+            "workflow_038b8cf843f6431c"
+          ],
+          "links": [
+            "link_b42c20786d05ce8b",
+            "link_f79992ccc01f2272"
+          ],
+          "measurements": [
+            "measurement_38ed182be86352ef",
+            "measurement_3ae2fcfeb2eb64cb",
+            "measurement_4c4db248686e5c2c",
+            "measurement_7af44be1060d3b47",
+            "measurement_96d9ce04389afc6e",
+            "measurement_979bd16f2baa67fd",
+            "measurement_a6756340065a0efa"
+          ],
+          "validations": [
+            "validation_76a08362467b7cf8",
+            "validation_c7f60da7a5f67f7c"
+          ]
+        }
+      ],
+      "exact_derived_structure": false,
+      "workflow_count_agreement": true,
+      "link_count_agreement": false,
+      "measurement_count_agreement": true,
+      "validation_count_agreement": false,
+      "procedure_class_set_agreement": true
+    }
+  ]
+}

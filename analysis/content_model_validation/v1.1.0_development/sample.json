@@ -1,0 +1,127 @@
+{
+  "sample_id": "cmacm_v1_1_0_development_same_15_as_v1_0_3",
+  "reports": [
+    {
+      "sample_order": 1,
+      "diversity_role": "growth_hormone_knockout_mouse_multiomics",
+      "record_id": "doi:10.18632/aging.102822",
+      "document_id": "record_96a621a7b7a549df",
+      "doi": "10.18632/aging.102822",
+      "title": "Transcriptomic and metabolomic profiling of long-lived growth hormone releasing hormone knock-out mice: evidence for altered mitochondrial function and amino acid metabolism."
+    },
+    {
+      "sample_order": 2,
+      "diversity_role": "gene_knockout_drosophila_lifespan",
+      "record_id": "doi:10.31857/s0026898424020065",
+      "document_id": "record_f353b3e0e5d337e3",
+      "doi": "10.31857/s0026898424020065",
+      "title": "Knockout of <i>Hsp70</i> genes modulates age-related transcriptomic changes in leg muscles, reduces locomotion speed and lifespan of <i>Drosophila melanogaster</i>"
+    },
+    {
+      "sample_order": 3,
+      "diversity_role": "overexpression_mitochondrial_mutant_longevity",
+      "record_id": "doi:10.15252/embr.202152606",
+      "document_id": "record_c1e0155d415becfc",
+      "doi": "10.15252/embr.202152606",
+      "title": "CEST‐2.2 overexpression alters lipid metabolism and extends longevity of mitochondrial mutants"
+    },
+    {
+      "sample_order": 4,
+      "diversity_role": "assigned_intervention_middle_aged_mouse",
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "document_id": "record_c77759c94ea9e54e",
+      "doi": "10.1038/s43856-025-00942-3",
+      "title": "Protection against APOE4-associated phenotypes with the longevity-promoting intervention 17α-estradiol in middle-aged male mice"
+    },
+    {
+      "sample_order": 5,
+      "diversity_role": "human_exercise_intervention_proteomic_aging",
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "document_id": "record_542f529d8f51ca80",
+      "doi": "10.1038/s41514-025-00318-w",
+      "title": "Reversal of proteomic aging with exercise-results from the UK biobank and a 12-week intervention study."
+    },
+    {
+      "sample_order": 6,
+      "diversity_role": "microbiota_transfer_progeroid_mouse",
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "document_id": "record_a268b5ed1897f40c",
+      "doi": "10.1038/s41591-019-0504-5",
+      "title": "Healthspan and lifespan extension by fecal microbiota transplantation into progeroid mice."
+    },
+    {
+      "sample_order": 7,
+      "diversity_role": "placebo_controlled_human_randomized_trial",
+      "record_id": "doi:10.1101/680462",
+      "document_id": "record_af1e17b871e6d2b6",
+      "doi": "10.1101/680462",
+      "title": "Nicotinamide riboside augments the human skeletal muscle NAD+ metabolome and induces transcriptomic and anti-inflammatory signatures in aged subjects: a placebo-controlled, randomized trial"
+    },
+    {
+      "sample_order": 8,
+      "diversity_role": "randomized_crossover_human_multiomics",
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "document_id": "record_f84dc088d817d9ad",
+      "doi": "10.3389/fnut.2026.1750030",
+      "title": "Epigenetic and microbiome responses to greens supplementation in obese older adults: results from a randomized crossover-controlled trial."
+    },
+    {
+      "sample_order": 9,
+      "diversity_role": "microbiome_protein_mr_mediation",
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "document_id": "record_d59e3d233335569a",
+      "doi": "10.1007/s11357-025-01794-4",
+      "title": "Identification of gut microbiota causally associated with aging and longevity and mediation roles of the cerebrospinal fluid proteins: proteomic genetic evidence from Mendelian randomization."
+    },
+    {
+      "sample_order": 10,
+      "diversity_role": "human_aging_mr_protein_target",
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "document_id": "record_078182c0b3e1a0a9",
+      "doi": "10.1038/s43587-021-00159-8",
+      "title": "Mendelian randomization of genetically independent aging phenotypes identifies LPA and VCAM1 as biological targets for human aging"
+    },
+    {
+      "sample_order": 11,
+      "diversity_role": "drug_target_genetics_proteomics_mr",
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "document_id": "record_7a5d21491b03b56c",
+      "doi": "10.1093/ehjcvp/pvae038",
+      "title": "Utilizing genetics and proteomics to assess the role of antihypertensive drugs in human longevity and the underlying pathways: a Mendelian randomization study"
+    },
+    {
+      "sample_order": 12,
+      "diversity_role": "mr_cohort_cell_validation",
+      "record_id": "doi:10.1111/acel.70065",
+      "document_id": "record_b314dbf98991fd4c",
+      "doi": "10.1111/acel.70065",
+      "title": "Identifying PDAP1 as a Biological Target on Human Longevity: Integration of Mendelian Randomization, Cohort, and Cell Experiments Validation Study."
+    },
+    {
+      "sample_order": 13,
+      "diversity_role": "formal_causal_inference_aging_biomarkers",
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "document_id": "record_3a515d8d5632c712",
+      "doi": "10.64898/2026.07.05.26356402",
+      "title": "A generator-matrix causal-inference framework separates measurable aging biomarkers from mortality-driving latent dynamics in humans"
+    },
+    {
+      "sample_order": 14,
+      "diversity_role": "causality_network_longevity_neurodegeneration",
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "document_id": "record_3c1d9778bd815093",
+      "doi": "10.3389/fnagi.2023.1241412",
+      "title": "Effects of copy number variations on longevity in late-onset Alzheimer's disease patients: insights from a causality network analysis."
+    },
+    {
+      "sample_order": 15,
+      "diversity_role": "plant_senescence_genetic_variation",
+      "record_id": "doi:10.3390/ijms26094389",
+      "document_id": "record_07f7d53c7e3550e7",
+      "doi": "10.3390/ijms26094389",
+      "title": "Natural Variation of StNADC Regulates Plant Senescence in Tetraploid Potatoes (Solanum tuberosum L.)"
+    }
+  ],
+  "input_size_modifications": false,
+  "purpose": "development only; this sample may not be reused as prospective holdout"
+}

@@ -1,0 +1,280 @@
+{
+  "status": "complete",
+  "model": "gpt-5.6-terra",
+  "reasoning_effort": "medium",
+  "records": 15,
+  "repeat_count": 3,
+  "results": [
+    {
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_d59e3d233335569a/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_d59e3d233335569a/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1007/s11357-025-01794-4",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_d59e3d233335569a/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_542f529d8f51ca80/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_542f529d8f51ca80/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41514-025-00318-w",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_542f529d8f51ca80/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_a268b5ed1897f40c/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_a268b5ed1897f40c/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s41591-019-0504-5",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_a268b5ed1897f40c/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_078182c0b3e1a0a9/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_078182c0b3e1a0a9/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43587-021-00159-8",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_078182c0b3e1a0a9/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c77759c94ea9e54e/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c77759c94ea9e54e/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1038/s43856-025-00942-3",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c77759c94ea9e54e/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_7a5d21491b03b56c/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_7a5d21491b03b56c/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1093/ehjcvp/pvae038",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_7a5d21491b03b56c/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_af1e17b871e6d2b6/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_af1e17b871e6d2b6/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1101/680462",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_af1e17b871e6d2b6/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1111/acel.70065",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_b314dbf98991fd4c/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1111/acel.70065",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_b314dbf98991fd4c/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.1111/acel.70065",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_b314dbf98991fd4c/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.15252/embr.202152606",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c1e0155d415becfc/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.15252/embr.202152606",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c1e0155d415becfc/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.15252/embr.202152606",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_c1e0155d415becfc/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_96a621a7b7a549df/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_96a621a7b7a549df/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.18632/aging.102822",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_96a621a7b7a549df/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f353b3e0e5d337e3/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f353b3e0e5d337e3/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.31857/s0026898424020065",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f353b3e0e5d337e3/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3c1d9778bd815093/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3c1d9778bd815093/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnagi.2023.1241412",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3c1d9778bd815093/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f84dc088d817d9ad/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f84dc088d817d9ad/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3389/fnut.2026.1750030",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_f84dc088d817d9ad/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3390/ijms26094389",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3390/ijms26094389",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.3390/ijms26094389",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_07f7d53c7e3550e7/repeat_3/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "repeat": 1,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3a515d8d5632c712/repeat_1/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "repeat": 2,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3a515d8d5632c712/repeat_2/derived_foundation.json"
+    },
+    {
+      "record_id": "doi:10.64898/2026.07.05.26356402",
+      "repeat": 3,
+      "status": "valid",
+      "derived_path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/records/record_3a515d8d5632c712/repeat_3/derived_foundation.json"
+    }
+  ],
+  "finished_at": "2026-09-22T00:23:59.575384+00:00"
+}

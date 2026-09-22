@@ -1,0 +1,40 @@
+{
+  "model": "CMACM-v1.1.0",
+  "source_input": {
+    "path": "analysis/content_model_validation/v1.0.3/input.jsonl",
+    "sha256": "1d16b27fc5143a328d79dc496bc31d145974fbc2e3b6f10fc44a53cf72f8d86e"
+  },
+  "input": {
+    "path": "analysis/content_model_validation/v1.1.0_development/input.jsonl",
+    "sha256": "14cf50c4400279b8f58f30e42d97d41d584092c301fb1863e73e5dd064aa00c3"
+  },
+  "sample": {
+    "path": "analysis/content_model_validation/v1.1.0_development/sample.json",
+    "sha256": "87f96a7e575d9dcc536198dfbdc1ead84d60257cbeba8168cae507c2649f5e82"
+  },
+  "schema": {
+    "path": "protocol/content_model/v1.1.0/atom_classification.schema.json",
+    "sha256": "3579e7f66874b1b5025198b1ba38399440f1827dea0cb3377632e0050b9a735e"
+  },
+  "prompt": {
+    "path": "protocol/content_model/v1.1.0/atom_classification_prompt.txt",
+    "sha256": "9238ece28b13b8ff65470c17605075eb0077c009e7c0d1b8a9bf4545e9bc38dc"
+  },
+  "document_atom_counts": {
+    "doi:10.18632/aging.102822": 52,
+    "doi:10.31857/s0026898424020065": 164,
+    "doi:10.15252/embr.202152606": 200,
+    "doi:10.1038/s43856-025-00942-3": 97,
+    "doi:10.1038/s41514-025-00318-w": 52,
+    "doi:10.1038/s41591-019-0504-5": 773,
+    "doi:10.1101/680462": 1292,
+    "doi:10.3389/fnut.2026.1750030": 185,
+    "doi:10.1007/s11357-025-01794-4": 119,
+    "doi:10.1038/s43587-021-00159-8": 185,
+    "doi:10.1093/ehjcvp/pvae038": 307,
+    "doi:10.1111/acel.70065": 170,
+    "doi:10.64898/2026.07.05.26356402": 121,
+    "doi:10.3389/fnagi.2023.1241412": 170,
+    "doi:10.3390/ijms26094389": 72
+  }
+}

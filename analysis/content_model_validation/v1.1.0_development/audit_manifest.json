@@ -1,0 +1,66 @@
+{
+  "status": "development_contract_rejected",
+  "model": "CMACM-v1.1.0",
+  "artifacts": [
+    {
+      "path": "protocol/content_model/v1.1.0/decision.md",
+      "sha256": "f67b18bc6ba45562a732da08f68b3475a49a42f8c173f406f1d51448153b46bb"
+    },
+    {
+      "path": "protocol/content_model/v1.1.0/content_model.md",
+      "sha256": "c46c155ca35046dece5054cc8e094d1e6bc60e8e82ce3ea71f1a271251c8ebb7"
+    },
+    {
+      "path": "protocol/content_model/v1.1.0/linearizations.json",
+      "sha256": "7a7d4defa0ef6ad21ef231ad38c7e33f42f41024127e4c98856ac6c103861775"
+    },
+    {
+      "path": "protocol/content_model/v1.1.0/atom_classification.schema.json",
+      "sha256": "3579e7f66874b1b5025198b1ba38399440f1827dea0cb3377632e0050b9a735e"
+    },
+    {
+      "path": "protocol/content_model/v1.1.0/atom_classification_prompt.txt",
+      "sha256": "9238ece28b13b8ff65470c17605075eb0077c009e7c0d1b8a9bf4545e9bc38dc"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/input.jsonl",
+      "sha256": "14cf50c4400279b8f58f30e42d97d41d584092c301fb1863e73e5dd064aa00c3"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/sample.json",
+      "sha256": "87f96a7e575d9dcc536198dfbdc1ead84d60257cbeba8168cae507c2649f5e82"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/manifest.json",
+      "sha256": "39f537293df9e44a85c9b98a2ce109c54982b0acf7aa44bbdfca07ec5f2653eb"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/schema_transport_preflight/completion.json",
+      "sha256": "640abef4df6b77bbe164ebda71b39e9c63f50f10ebcae1ded0050d8b3a54710b"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/terra_three_runs/completion.json",
+      "sha256": "4499f907b6b6d3195190c34377d44e05d43752db6bc59490ee5a62d00e304a45"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/derived_structure_stability.json",
+      "sha256": "055cfe4e39bd35d6e2ee934661bde7d7952a61914b6362e084d51133779fec27"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/diagnostic.md",
+      "sha256": "a80aacd7e4b82c9169849599b003c8eea25aad26f8b67bc13c3819eeb246bc1a"
+    },
+    {
+      "path": "analysis/content_model_validation/v1.1.0_development/README.md",
+      "sha256": "e54d803194dd10427c90467b67d82a4831974238a20610e48cc5313465c12bc1"
+    },
+    {
+      "path": "scripts/build_cmacm_atom_validation_v1_1.py",
+      "sha256": "467a98e919fa043d3dcf851e4ca25f5f8fe6e76a2a57f11701b23c504037d3a7"
+    },
+    {
+      "path": "scripts/run_cmacm_atom_validation_v1_1.py",
+      "sha256": "ac68211aedd83353d62831788557c39643d1ea0a760a118168e38e7d1b784e44"
+    }
+  ]
+}
